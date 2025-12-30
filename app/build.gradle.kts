@@ -70,6 +70,9 @@ dependencies {
 
     // Photo Picker (already in Activity, but keep updated)
     implementation("androidx.activity:activity-compose:1.10.1")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.34.0")
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
 
     // Coil for image loading (photo pick screen)
     implementation("io.coil-kt:coil-compose:2.7.0")

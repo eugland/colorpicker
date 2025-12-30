@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.util.argbToHex
-import com.primortex.color.ui.util.colorName
 
 @Composable
 fun CameraScreen(
@@ -165,12 +164,10 @@ private fun ColorHistoryRow(
     picked: PickedColor
 ) {
     val hex = argbToHex(picked.argb)
-    val name = argbToHex(picked.argb)
+    val name = picked.name
 
     Card(
-        modifier = Modifier
-            .fillMaxWidth(),
-//            .clickable(onClick = onClick),
+        modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large
     ) {
         Row(

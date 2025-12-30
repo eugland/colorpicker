@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.primortex.color.app.PickedColor
 import com.primortex.color.service.RecentPicksService
 import kotlin.math.roundToInt
 
@@ -32,7 +33,6 @@ fun PhotoPickScreen(
     var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
 
 
-    // Need a software bitmap to read pixels:
     val painter = rememberAsyncImagePainter(
         ImageRequest.Builder(ctx)
             .data(photoUri)
@@ -62,7 +62,6 @@ fun PhotoPickScreen(
                 .padding(inner)
                 .background(Color.Black)
         ) {
-            // Image + tap-to-sample overlay
             BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
                 val maxW = constraints.maxWidth
                 val maxH = constraints.maxHeight
@@ -125,7 +124,7 @@ fun PhotoPickScreen(
                         )
                     }
 
-                    Button(onClick = { RecentPicksService.addPick(pickedArgb, "photo") }) {
+                    Button(onClick = { RecentPicksService.addPick(PickedColor(pickedArgb,"photo")) }) {
                         Text("Add")
                     }
                 }
@@ -134,10 +133,7 @@ fun PhotoPickScreen(
     }
 }
 
-/**
- * Map a tap position to a bitmap pixel when the image is displayed with ContentScale.Fit.
- * This accounts for letterboxing (empty space on sides/top).
- */
+
 private fun sampleBitmapAtTapFit(
     tap: Offset,
     containerW: Float,

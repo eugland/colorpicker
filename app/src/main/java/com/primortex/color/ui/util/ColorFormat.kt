@@ -1,6 +1,8 @@
 package com.primortex.color.ui.util
 
 import android.graphics.Color
+import android.graphics.ImageFormat
+import androidx.camera.core.ImageProxy
 import kotlin.random.Random
 
 fun argbToHex(argb: Int): String {
@@ -10,85 +12,67 @@ fun argbToHex(argb: Int): String {
     return String.format("#%02X%02X%02X", r, g, b)
 }
 
-fun randomColorArgb(): Int {
-    val r = Random.nextInt(0, 256)
-    val g = Random.nextInt(0, 256)
-    val b = Random.nextInt(0, 256)
-    val argb = Color.rgb(r, g, b)
-    return argb
+
+fun sampleCenterArgb(image: ImageProxy): Int? {
+    if (image.format != ImageFormat.YUV_420_888) return null
+    val w = image.width
+    val h = image.height
+    val x = w / 2
+    val y = h / 2
+
+    val yPlane = image.planes[0]
+    val uPlane = image.planes[1]
+    val vPlane = image.planes[2]
+
+    val yBuf = yPlane.buffer
+    val uBuf = uPlane.buffer
+    val vBuf = vPlane.buffer
+
+    val yRowStride = yPlane.rowStride
+    val yPixelStride = yPlane.pixelStride
+
+    val uRowStride = uPlane.rowStride
+    val uPixelStride = uPlane.pixelStride
+
+    val vRowStride = vPlane.rowStride
+    val vPixelStride = vPlane.pixelStride
+
+    val yIndex = yRowStride * y + yPixelStride * x
+    val uvX = x / 2
+    val uvY = y / 2
+    val uIndex = uRowStride * uvY + uPixelStride * uvX
+    val vIndex = vRowStride * uvY + vPixelStride * uvX
+
+    if (yIndex >= yBuf.limit() || uIndex >= uBuf.limit() || vIndex >= vBuf.limit()) return null
+
+    val Y = (yBuf.get(yIndex).toInt() and 0xFF)
+    val U = (uBuf.get(uIndex).toInt() and 0xFF)
+    val V = (vBuf.get(vIndex).toInt() and 0xFF)
+
+    val yf = Y.toFloat()
+    val uf = (U - 128).toFloat()
+    val vf = (V - 128).toFloat()
+
+    var r = (yf + 1.402f * vf).toInt()
+    var g = (yf - 0.344136f * uf - 0.714136f * vf).toInt()
+    var b = (yf + 1.772f * uf).toInt()
+
+    r = r.coerceIn(0, 255)
+    g = g.coerceIn(0, 255)
+    b = b.coerceIn(0, 255)
+
+    return (0xFF shl 24) or (r shl 16) or (g shl 8) or b
 }
 
-fun colorName(argb: Int): String {
-    val alpha = (argb shr 24) and 0xFF
-    val red = (argb shr 16) and 0xFF
-    val green = (argb shr 8) and 0xFF
-    val blue = argb and 0xFF
-
-    // Handle transparency
-    if (alpha < 50) return "Transparent"
-    if (alpha < 200) return "Semi-transparent " + getOpaqueColorName(red, green, blue)
-
-    return getOpaqueColorName(red, green, blue)
-}
-
-private fun getOpaqueColorName(r: Int, g: Int, b: Int): String {
-    // Convert to HSL for better color perception
-    val hsl = rgbToHsl(r, g, b)
-    val hue = hsl[0]
-    val saturation = hsl[1]
-    val lightness = hsl[2]
-
-    // Gray/Black/White detection
-    if (saturation < 0.1) {
-        return when {
-            lightness > 0.95 -> "White"
-            lightness > 0.85 -> "Off-white"
-            lightness > 0.75 -> "Light Gray"
-            lightness > 0.5 -> "Gray"
-            lightness > 0.25 -> "Dark Gray"
-            lightness > 0.1 -> "Charcoal"
-            else -> "Black"
-        }
-    }
-
-    // Color naming based on hue and saturation
-    return when {
-        hue < 15 -> if (saturation > 0.7) "Red" else if (lightness > 0.7) "Light Red" else "Dark Red"
-        hue < 45 -> "Orange"
-        hue < 65 -> "Yellow"
-        hue < 160 -> if (saturation > 0.6) "Green" else "Olive"
-        hue < 195 -> "Cyan"
-        hue < 260 -> if (saturation > 0.7) "Blue" else if (lightness > 0.7) "Light Blue" else "Dark Blue"
-        hue < 295 -> "Purple"
-        hue < 330 -> if (saturation > 0.7) "Magenta" else "Mauve"
-        else -> "Red"
-    }
-}
-
-private fun rgbToHsl(r: Int, g: Int, b: Int): FloatArray {
-    val rf = r / 255f
-    val gf = g / 255f
-    val bf = b / 255f
-
-    val max = maxOf(rf, gf, bf)
-    val min = minOf(rf, gf, bf)
-    var h: Float
-    val s: Float
-    val l = (max + min) / 2f
-
-    if (max == min) {
-        h = 0f
-        s = 0f
-    } else {
-        val d = max - min
-        s = if (l > 0.5f) d / (2f - max - min) else d / (max + min)
-        h = when (max) {
-            rf -> (gf - bf) / d + (if (gf < bf) 6f else 0f)
-            gf -> (bf - rf) / d + 2f
-            else -> (rf - gf) / d + 4f
-        }
-        h *= 60f
-    }
-
-    return floatArrayOf(h, s, l)
+fun rgbDistSq(a: Int, b: Int): Int {
+    val ar = (a shr 16) and 0xFF
+    val ag = (a shr 8) and 0xFF
+    val ab = a and 0xFF
+    val br = (b shr 16) and 0xFF
+    val bg = (b shr 8) and 0xFF
+    val bb = b and 0xFF
+    val dr = ar - br
+    val dg = ag - bg
+    val db = ab - bb
+    return dr * dr + dg * dg + db * db
 }
