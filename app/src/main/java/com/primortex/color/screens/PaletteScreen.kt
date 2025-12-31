@@ -1,6 +1,7 @@
 // com/primortex/color/screens/PaletteScreen.kt
 package com.primortex.color.screens
 
+import android.util.Log
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
@@ -15,7 +16,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -42,8 +42,12 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.text.input.ImeAction
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
@@ -51,32 +55,30 @@ fun previewPaletteScreen() {
     PaletteScreen(innerPadding = PaddingValues())
 }
 
-data class ColorHit(
-    val argb: Int,
-    val name: String
-)
-
 object ColorQueryResolver {
 
-    fun search(query: String, limit: Int = 10): List<ColorHit> {
+    fun search(query: String, limit: Int = 10): List<PickedColor> {
         val q = query.trim()
         if (q.isBlank()) return emptyList()
 
         // HEX → nearest color lookup
         if (isHex(q)) {
-            val colorInt = q.removePrefix("#").toLong(16).toInt()
-            val nearest = ColorNameLookup.nearestName(colorInt)
+            val rgb = q.removePrefix("#").toLong(16).toInt() and 0x00FFFFFF
+            val argb = (0xFF shl 24) or rgb   // force alpha = 255
+            val nearest = ColorNameLookup.nearestName(argb)
+            Log.d("ColorSearch", "HEX pressed, top=${nearest.name} #${argb.toString(16)}")
             return listOf(
-                ColorHit(
-                    argb = colorInt,
+                PickedColor(
+                    argb = argb,
                     name = nearest.name,
                 )
+
             )
         }
 
         // NAME → name index search
         return ColorNameIndex.search(q, limit).map {
-            ColorHit(
+            PickedColor(
                 argb = it.argb,
                 name = it.name
             )
@@ -90,11 +92,13 @@ object ColorQueryResolver {
     }
 }
 
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaletteScreen(
     innerPadding: PaddingValues,
-    onOpenColorDetail: (argb: Int) -> Unit = {} // hook this to nav later
+    onOpenColorDetail: (argb: PickedColor) -> Unit = {} // hook this to nav later
 ) {
     val clipboard = LocalClipboardManager.current
 
@@ -108,276 +112,148 @@ fun PaletteScreen(
     }
 
     var showBuilder by remember { mutableStateOf(false) }
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
 
-    ScreenScaffold("Palette", innerPadding) {
-        // ---- Search ----
-        ColorSearchBar(
-            query = searchQuery,
-            onQueryChange = { searchQuery = it },
-            onClear = { searchQuery = "" }
-        )
+    ScreenScaffold(
+        "Palette",
+        innerPadding,
+        snackbarHostState = snackbarHostState
+    ) {
 
-        if (suggestions.isNotEmpty()) {
-            Spacer(Modifier.height(10.dp))
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text("Suggestions", style = MaterialTheme.typography.titleSmall)
-                Spacer(Modifier.weight(1f))
-                Text("Swipe →", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-            Spacer(Modifier.height(6.dp))
-
-            LazyRow(
-
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-
-            ) {
-                items(suggestions, key = { it.argb }) { hit ->
-                    Swatch(
-                        argb = hit.argb,
-                        onClick = { onOpenColorDetail(hit.argb) },
-                        label = hit.name
-                    )
-                }
-            }
-        }
-        Spacer(Modifier.height(16.dp))
-
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-            Text(
-                "Saved palettes",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.weight(1f)
-            )
-            FilledTonalButton(onClick = { showBuilder = true }) {
-                Text("Create palette")
-            }
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        if (savedPalettes.isEmpty()) {
-            Text("No saved palettes yet.", color = MaterialTheme.colorScheme.onSurfaceVariant)
-        } else {
-            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                savedPalettes.forEach { p ->
-                    PaletteCard(
-                        palette = p,
-                        onOpen = { /* optional: open builder prefilled */ showBuilder = true },
-                        onCopy = { clipboard.setText(AnnotatedString(p.colors.joinToString(", ") { argbToHex(it.argb) })) },
-                        onDelete = { PaletteService.delete(p.id) }
-                    )
-                }
-            }
-        }
-
-        Spacer(Modifier.height(16.dp))
-
-        // ---- Recents ----
-        Text("Recent colors", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(8.dp))
-
-        if (recents.isEmpty()) {
-            Text(
-                "No recent colors yet. Tap 🧪 to pick a color.",
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        } else {
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                items(recents, key = { it.argb }) { pick ->
-                    Swatch(
-                        argb = pick.argb,
-                        onClick = { onOpenColorDetail(pick.argb) },
-                        label = pick.name
-                    )
-                }
-            }
-        }
-
-        Spacer(Modifier.height(20.dp))
-    }
-
-    if (showBuilder) {
-        PaletteBuilderSheet(
-            recents = recents,
-            onDismiss = { showBuilder = false },
-            onOpenColorDetail = onOpenColorDetail
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun PaletteBuilderSheet(
-    recents: List<PickedColor>,
-    onDismiss: () -> Unit,
-    onOpenColorDetail: (Int) -> Unit
-) {
-    val clipboard = LocalClipboardManager.current
-
-    val selected = remember { mutableStateListOf<PickedColor>() }
-
-    var name by remember { mutableStateOf("") }
-    var tags by remember { mutableStateOf("") }
-    var note by remember { mutableStateOf("") }
-
-    var query by remember { mutableStateOf("") }
-
-    val suggestions = remember(query, recents) {
-        ColorQueryResolver.search(query, limit = 12)
-    }
-
-    fun togglePick(p: PickedColor) {
-        val idx = selected.indexOfFirst { it.argb == p.argb }
-        if (idx >= 0) selected.removeAt(idx) else selected.add(0, p)
-    }
-
-    fun addHit(hit: ColorHit) {
-        val p = PickedColor(argb = hit.argb, name = hit.name)
-        togglePick(p)
-    }
-
-    fun selectedHexList(): String = selected.joinToString(", ") { argbToHex(it.argb) }
-
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .padding(bottom = 18.dp)
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
-            Text("Create palette", style = MaterialTheme.typography.titleLarge)
-            Spacer(Modifier.height(10.dp))
-
-            // Search inside builder
-            ColorSearchBar(
-                query = query,
-                onQueryChange = { query = it },
-                onClear = { query = "" }
-            )
+            item {
+                ColorSearchBar(
+                    query = searchQuery,
+                    onQueryChange = { searchQuery = it },
+                    onSubmit = {
+                        val top = suggestions.firstOrNull() ?: return@ColorSearchBar
+                        RecentPicksService.addPick(PickedColor(argb = top.argb, name = top.name))
+                        scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                        searchQuery = ""
+                    },
+                    onClear = { searchQuery = "" }
+                )
+            }
 
             if (suggestions.isNotEmpty()) {
-                Spacer(Modifier.height(10.dp))
-                Text("Add from search", style = MaterialTheme.typography.titleSmall)
-                Spacer(Modifier.height(6.dp))
+                item { Spacer(Modifier.height(10.dp)) }
 
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    items(suggestions, key = { it.argb }) { hit ->
-                        Swatch(
-                            argb = hit.argb,
-                            onClick = { addHit(hit) },
-                            label = hit.name
-                        )
+                item {
+                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        Text("Suggestions", style = MaterialTheme.typography.titleSmall)
                     }
                 }
-            }
 
-            Spacer(Modifier.height(12.dp))
+                item { Spacer(Modifier.height(6.dp)) }
 
-            Text("Pick from recents", style = MaterialTheme.typography.titleSmall)
-            Spacer(Modifier.height(6.dp))
-
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                items(recents, key = { it.argb }) { p ->
-                    val isSelected = selected.any { it.argb == p.argb }
-                    Box(
-                        Modifier
-                            .clip(RoundedCornerShape(12.dp))
-                            .border(
-                                width = if (isSelected) 2.dp else 1.dp,
-                                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant,
-                                shape = RoundedCornerShape(12.dp)
-                            )
-                            .padding(6.dp)
+                items(
+                    items = suggestions,
+                    key = { it.argb }
+                ) { s ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                onOpenColorDetail(s)
+                                RecentPicksService.addPick(PickedColor(argb = s.argb, name = s.name))
+                                scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                                searchQuery = ""
+                            }
+                            .padding(vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Swatch(
-                            argb = p.argb,
-                            onClick = { togglePick(p) },
-                            label = p.name
+                        Box(
+                            Modifier
+                                .size(32.dp)
+                                .clip(CircleShape)
+                                .background(Color(s.argb))
+                                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
                         )
-                    }
-                }
-            }
 
-            Spacer(Modifier.height(12.dp))
+                        Spacer(Modifier.width(12.dp))
 
-            if (selected.isNotEmpty()) {
-                Text("Selected", style = MaterialTheme.typography.titleSmall)
-                Spacer(Modifier.height(6.dp))
-                LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    items(selected, key = { it.argb }) { p ->
-                        Swatch(
-                            argb = p.argb,
-                            onClick = { onOpenColorDetail(p.argb) },
-                            label = p.name
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(10.dp))
-
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    FilledTonalButton(onClick = { selected.clear() }) { Text("Clear") }
-                    FilledTonalButton(onClick = { clipboard.setText(AnnotatedString(selectedHexList())) }) {
-                        Icon(Icons.Outlined.ContentCopy, contentDescription = null)
-                        Spacer(Modifier.width(6.dp))
-                        Text("Copy HEX")
-                    }
-                }
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            OutlinedTextField(
-                value = name,
-                onValueChange = { name = it },
-                placeholder = { Text("Palette name") },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(Modifier.height(10.dp))
-
-            OutlinedTextField(
-                value = tags,
-                onValueChange = { tags = it },
-                placeholder = { Text("Tags (comma separated)") },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(Modifier.height(10.dp))
-
-            OutlinedTextField(
-                value = note,
-                onValueChange = { note = it },
-                placeholder = { Text("Note") },
-                modifier = Modifier.fillMaxWidth(),
-                minLines = 2
-            )
-
-            Spacer(Modifier.height(12.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
-            ) {
-                Button(
-                    onClick = {
-                        val t = tags.split(",").map { it.trim() }.filter { it.isNotEmpty() }.distinct()
-                        if (selected.isNotEmpty()) {
-                            PaletteService.create(name, selected.toList(), tags = t, note = note)
+                        Column {
+                            Text(
+                                text = s.name,
+                                style = MaterialTheme.typography.bodyMedium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                            Text(
+                                text = argbToHex(s.argb),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
                         }
-                        onDismiss()
-                    },
-                    enabled = selected.isNotEmpty(),
-                ) {
-                    Icon(Icons.Outlined.Save, contentDescription = null)
-                    Spacer(Modifier.width(6.dp))
-                    Text("Save")
+                    }
                 }
             }
+            item { Spacer(Modifier.height(16.dp)) }
+            item { Text("Recent colors", style = MaterialTheme.typography.titleMedium) }
+            item { Spacer(Modifier.height(8.dp)) }
+
+            if (recents.isEmpty()) {
+                item {
+                    Text(
+                        "No recent colors yet. Tap 🧪 to pick a color.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            } else {
+                item {
+                    LazyRow(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        items(
+                            items = recents.take(20),
+                            key = { it.argb }
+                        ) { pick ->
+                            Swatch(
+                                argb = pick.argb,
+                                onClick = { onOpenColorDetail(pick) },
+                                label = pick.name
+                            )
+                        }
+                    }
+                }
+            }
+
+            item { Spacer(Modifier.height(16.dp)) }
+
+            item {
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                    Text("Saved palettes", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                }
+            }
+
+            item { Spacer(Modifier.height(8.dp)) }
+
+            if (savedPalettes.isEmpty()) {
+                item { Text("No saved palettes yet.", color = MaterialTheme.colorScheme.onSurfaceVariant) }
+            } else {
+                items(savedPalettes, key = { it.id }) { p ->
+                    PaletteCard(
+                        palette = p,
+                        onOpen = { showBuilder = true },
+                        onCopy = {
+                            clipboard.setText(AnnotatedString(p.colors.joinToString(", ") { argbToHex(it.argb) }))
+                        },
+                        onDelete = { PaletteService.delete(p.id) }
+                    )
+                    Spacer(Modifier.height(10.dp))
+                }
+            }
+
+            item { Spacer(Modifier.height(16.dp)) }
+
         }
     }
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -386,14 +262,20 @@ private fun ColorSearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
     onClear: () -> Unit,
+    onSubmit: () -> Unit = {}
 ) {
     val prompts = remember {
         listOf(
-            "Curious about 'midnight blue'?",
-            "Sunset in '#FFCC00'?",
-            "Ever seen 'Japanese indigo'?",
-            "What does 'forest fog' look like?",
-            "Try 'muted sage'"
+            "Curious about 'Midnight blue'?",
+            "Try 'Slate gray'",
+            "Reveal the color behind '#007BA7'",
+            "Ever seen 'Forest green'?",
+            "What color hides in '#191970'?",
+            "Search for 'Burnt sienna'",
+            "Decode the mood of '#708090'",
+            "What does 'Cerulean' look like?",
+            "What does '#228B22' feel like?",
+            "Uncover the shade '#E97451'"
         )
     }
 
@@ -416,14 +298,18 @@ private fun ColorSearchBar(
             value = query,
             onValueChange = onQueryChange,
             leadingIcon = { Icon(Icons.Outlined.Palette, contentDescription = null) },
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardActions = KeyboardActions(
+                onSearch = { onSubmit() },
+                onDone = { onSubmit() } // in case keyboard shows Done
+            ),
             placeholder = {
                 AnimatedContent(
                     targetState = prompts[idx],
                     transitionSpec = {
-                        (
-                                (slideInVertically { it / 6 } + fadeIn(tween(160))) togetherWith
-                                        (slideOutVertically { -it / 6 } + fadeOut(tween(160)))
-                                ).using(SizeTransform(clip = true))
+                        ((slideInVertically { it / 6 } + fadeIn(tween(160)))
+                                togetherWith (slideOutVertically { -it / 6 } + fadeOut(tween(160)))
+                        ).using(SizeTransform(clip = true))
                     },
                     label = "search-placeholder"
                 ) { t ->
@@ -497,7 +383,12 @@ private fun PaletteCard(
         Column(Modifier.padding(12.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
-                    Text(palette.name, style = MaterialTheme.typography.titleSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(
+                        palette.name,
+                        style = MaterialTheme.typography.titleSmall,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                     if (palette.tags.isNotEmpty()) {
                         Text(
                             palette.tags.joinToString(" • "),
@@ -508,8 +399,18 @@ private fun PaletteCard(
                         )
                     }
                 }
-                IconButton(onClick = onCopy) { Icon(Icons.Outlined.ContentCopy, contentDescription = "Copy") }
-                IconButton(onClick = onDelete) { Icon(Icons.Outlined.Delete, contentDescription = "Delete") }
+                IconButton(onClick = onCopy) {
+                    Icon(
+                        Icons.Outlined.ContentCopy,
+                        contentDescription = "Copy"
+                    )
+                }
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        Icons.Outlined.Delete,
+                        contentDescription = "Delete"
+                    )
+                }
             }
 
             if (palette.note.isNotBlank()) {
@@ -537,13 +438,7 @@ private fun PaletteCard(
                     )
                 }
             }
-
-            Spacer(Modifier.height(8.dp))
-
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                FilledTonalButton(onClick = onOpen) { Text("Open") }
-                OutlinedButton(onClick = onCopy) { Text("Copy HEX") }
-            }
         }
     }
 }
+

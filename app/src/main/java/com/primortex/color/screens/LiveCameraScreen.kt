@@ -17,7 +17,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material.icons.outlined.AddCircle
 import androidx.compose.material.icons.outlined.ChevronRight
 import androidx.compose.material.icons.outlined.Colorize
 import androidx.compose.material.icons.outlined.Palette
@@ -36,6 +35,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
+import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.util.argbToHex
 import com.primortex.color.ui.util.rgbDistSq
@@ -57,19 +57,16 @@ fun LiveCameraScreen(
     }
     LaunchedEffect(Unit) { permLauncher.launch(Manifest.permission.CAMERA) }
 
-    // live color
     var currentArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
     val hex = argbToHex(currentArgb)
     var nearest by remember { mutableStateOf(ColorNameLookup.nearestName(currentArgb)) }
     var lastLookupArgb by remember { mutableIntStateOf(currentArgb) }
 
-    // camera lifecycle
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
     val previewView = remember { PreviewView(ctx).apply { scaleType = PreviewView.ScaleType.FILL_CENTER } }
     val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 
-    // debounce name lookup
     LaunchedEffect(currentArgb) {
         val snapshot = currentArgb
         kotlinx.coroutines.delay(10)
@@ -79,7 +76,6 @@ fun LiveCameraScreen(
         lastLookupArgb = snapshot
     }
 
-    // stop camera immediately when leaving
     DisposableEffect(Unit) {
         onDispose {
             cameraProvider?.unbindAll()
@@ -93,8 +89,6 @@ fun LiveCameraScreen(
         onBack()
     }
 
-    // ---- DATA: recents + palette ----
-    // Replace this with your real RecentPicksService state if you have it (StateFlow/MutableState/etc.)
     val recents by RecentPicksService.history.collectAsState()
 
     // palette being built by user
@@ -224,7 +218,20 @@ fun LiveCameraScreen(
                     .padding(horizontal = 14.dp),
                 palette = palette,
                 onAddColor  = { addCurrentToPaletteAndRecents() },
-                onAddPalette = { /* optional: addCurrentToPaletteAndRecents() */ }
+                onAddPalette =  {
+                    if (palette.isEmpty()) addCurrentToPaletteAndRecents()
+
+                    val colors = palette
+                        .distinct()
+                        .map { argb -> PickedColor(argb = argb, name = ColorNameLookup.nearestName(argb).name) }
+
+                    PaletteService.create(
+                        name = "Palette ${PaletteService.palettes.value.size + 1}",
+                        tags = listOf("camera", "live-pick"),
+                        colors = colors
+                    )
+                    palette.clear()
+                }
             )
         }
     }

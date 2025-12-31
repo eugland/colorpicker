@@ -2,6 +2,8 @@
 package com.primortex.color.service
 
 import android.content.Context
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -22,6 +24,7 @@ object PaletteService {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private lateinit var appContext: Context
 
+    private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
 
@@ -29,11 +32,61 @@ object PaletteService {
         if (::appContext.isInitialized) return
         appContext = context.applicationContext
         scope.launch {
+            val prefs = appContext.paletteDataStore.data.first()
             val saved = runCatching {
-                val prefs = appContext.paletteDataStore.data.first()
                 prefs[KEY]?.let { json.decodeFromString<List<Palette>>(it) } ?: emptyList()
             }.getOrDefault(emptyList())
             _palettes.value = saved
+            seedIfNeeded(prefs)
+        }
+    }
+
+    private suspend fun seedIfNeeded(prefs: Preferences) {
+        if (prefs[KEY_SEEDED] == true) return
+
+        val now = System.currentTimeMillis()
+
+        val uiNeutrals = Palette(
+            id = UUID.randomUUID().toString(),
+            name = "Modern UI Neutrals",
+            colors = listOf(
+                PickedColor(0xFF0F172A.toInt(), "Slate 900"),
+                PickedColor(0xFF475569.toInt(), "Slate 600"),
+                PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
+                PickedColor(0xFF0EA5E9.toInt(), "Sky 500"),
+                PickedColor(0xFF10B981.toInt(), "Emerald 500"),
+            ),
+            tags = listOf("ui", "neutral", "modern"),
+            note = "Clean, flexible colors for modern interfaces",
+            createdAt = now,
+            updatedAt = now
+        )
+
+        val mutedNature = Palette(
+            id = UUID.randomUUID().toString(),
+            name = "Muted Nature",
+            colors = listOf(
+                PickedColor(0xFF2F5D50.toInt(), "Forest"),
+                PickedColor(0xFF7A9B76.toInt(), "Moss"),
+                PickedColor(0xFFE6D5B8.toInt(), "Sand"),
+                PickedColor(0xFFC97C5D.toInt(), "Clay"),
+                PickedColor(0xFF3A3A3A.toInt(), "Ink"),
+            ),
+            tags = listOf("nature", "muted", "warm"),
+            note = "Soft, earthy tones for calm visual design",
+            createdAt = now,
+            updatedAt = now
+        )
+
+        _palettes.value = listOf(uiNeutrals, mutedNature)
+
+        val payload = runCatching {
+            json.encodeToString(_palettes.value)
+        }.getOrElse { "[]" }
+
+        appContext.paletteDataStore.edit { p ->
+            p[KEY] = payload
+            p[KEY_SEEDED] = true
         }
     }
 
