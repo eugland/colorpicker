@@ -5,19 +5,13 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
@@ -50,7 +44,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
@@ -100,15 +93,19 @@ fun PhotoPickScreen(
     val recents by RecentPicksService.history.collectAsState()
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     var frozen by remember { mutableStateOf(false) }
-
     val painter = rememberAsyncImagePainter(
         ImageRequest.Builder(ctx)
             .data(photoUri)
             .allowHardware(false)
             .build()
     )
-
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
+    fun showSnack(msg: String) {
+        uiScope.launch {
+            snackbarHostState.currentSnackbarData?.dismiss()
+            snackbarHostState.showSnackbar(msg)
+        }
+    }
 
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
@@ -192,18 +189,6 @@ fun PhotoPickScreen(
                                 containerH = containerHpx,
                                 bmp = bmp
                             )
-
-                            Log.d(
-                                "PhotoPickScreen",
-                                "tap=$tap sampled=${
-                                    sampled?.let {
-                                        String.format(
-                                            "#%08X",
-                                            it
-                                        )
-                                    } ?: "null"
-                                } size=${containerWpx.toInt()}x${containerHpx.toInt()} bmp=${bmp.width}x${bmp.height}"
-                            )
                             sampled?.let { pickedArgb = it }
                             RecentPicksService.addPick(pickedColor)
                         }
@@ -231,34 +216,25 @@ fun PhotoPickScreen(
                     .padding(horizontal = 14.dp),
                 palette = palette,
                 onAddColor = {
-                    if (palette.size == 10) {
-                        uiScope.launch {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                            snackbarHostState.showSnackbar(
-                                "Palette is full (10 colors). Tap the palette to save it and start a new one."
-                            )
-                        }
-                    } else {
-                        palette.add(pickedColor)
+                    when {
+                        pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
+                        palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
+                        else -> palette.add(pickedColor)
                     }
-
                 },
                 onAddPalette = {
                     if (palette.isEmpty()) {
-                        uiScope.launch {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                            snackbarHostState.showSnackbar(
-                                "Palette empty, start adding colors"
-                            )
-                        }
+                        showSnack("Palette empty, start adding colors")
+                        return@PaletteBar
                     }
+
                     PaletteService.create(
                         name = "Palette ${PaletteService.palettes.value.size + 1}",
                         tags = listOf("photo", "pick"),
                         colors = palette
                     )
                     palette.clear()
-                    uiScope.launch { snackbarHostState.showSnackbar("Palette saved ✅") }
+                    showSnack("Palette saved ✅")
                 }
             )
         }
@@ -273,9 +249,6 @@ fun PhotoPickScreen(
     }
 }
 
-/**
- * Maps a tap point to the bitmap pixel for ContentScale.Fit.
- */
 private fun sampleBitmapAtTapFit(
     tap: Offset,
     containerW: Float,
@@ -303,26 +276,4 @@ private fun sampleBitmapAtTapFit(
     val by = (yIn / fitScale).roundToInt().coerceIn(0, bmp.height - 1)
 
     return bmp.getPixel(bx, by)
-}
-
-
-@Composable
-private fun StackedColorsPreview(colors: List<Int>) {
-    val shown = colors.ifEmpty { listOf(0xFFBDBDBD.toInt()) }
-    Box(
-        Modifier
-            .height(32.dp)
-            .width(72.dp)
-    ) {
-        shown.take(10).forEachIndexed { i, argb ->
-            Box(
-                Modifier
-                    .offset(x = (i * 16).dp, y = 0.dp)
-                    .size(28.dp)
-                    .clip(CircleShape)
-                    .background(Color(argb))
-                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
-            )
-        }
-    }
 }

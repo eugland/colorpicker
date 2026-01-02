@@ -171,12 +171,12 @@ fun LiveCameraScreen(
         camera?.cameraControl?.enableTorch(torchOn)
     }
 
-    fun setZoom(ratio: Float) {
-        val cam = camera ?: return
-        val zs = cam.cameraInfo.zoomState.value ?: return
-        val clamped = ratio.coerceIn(zs.minZoomRatio, zs.maxZoomRatio)
-        zoomRatio = clamped
-        cam.cameraControl.setZoomRatio(clamped)
+
+    fun showSnack(msg: String) {
+        uiScope.launch {
+            snackbarHostState.currentSnackbarData?.dismiss()
+            snackbarHostState.showSnackbar(msg)
+        }
     }
 
     Scaffold(
@@ -335,24 +335,15 @@ fun LiveCameraScreen(
                     palette = palette,
                     onAddColor = {
                         RecentPicksService.addPick(pickedColor)
-                        if (pickedColor in palette) {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                            uiScope.launch { snackbarHostState.showSnackbar("${pickedColor.name} already in palette") }
-                        } else if (palette.size == 10) {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                            uiScope.launch { snackbarHostState.showSnackbar("${pickedColor.name} already in palette") }
-                        } else {
-                            palette.add(pickedColor)
+                        when {
+                            pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
+                            palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
+                            else -> palette.add(pickedColor)
                         }
                     },
                     onAddPalette = {
                         if (palette.isEmpty()) {
-                            uiScope.launch {
-                                snackbarHostState.currentSnackbarData?.dismiss()
-                                snackbarHostState.showSnackbar(
-                                    "Palette empty, start adding colors"
-                                )
-                            }
+                            showSnack("Palette empty, start adding colors")
                             return@PaletteBar
                         }
                         PaletteService.create(
@@ -361,10 +352,7 @@ fun LiveCameraScreen(
                             colors = palette
                         )
                         palette.clear()
-                        uiScope.launch {
-                            snackbarHostState.currentSnackbarData?.dismiss()
-                            snackbarHostState.showSnackbar("Palette saved ✅")
-                        }
+                        showSnack("Palette saved ✅")
                     },
                     onClearPalette = { palette.clear() }
                 )
