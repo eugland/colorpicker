@@ -7,11 +7,14 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.app.PickedColor
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
 private val Context.recentsDataStore by preferencesDataStore(
@@ -20,7 +23,7 @@ private val Context.recentsDataStore by preferencesDataStore(
 
 object RecentPicksService {
 
-    private const val MAX = 50
+    private const val MAX = 100
     private val KEY_HISTORY = stringPreferencesKey("history_json")
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -46,7 +49,26 @@ object RecentPicksService {
             _history.value = saved.take(MAX)
 
             seedIfNeeded(prefs)
+
+            //Testing use: -------------------------------------------------------------------------
+            val defaults = List(100) { i ->
+                val hue = (i * 37f) % 360f              // golden-angle spread
+                val saturation = 0.45f + (i % 3) * 0.15f
+                val value = 0.65f + (i % 4) * 0.08f
+
+                val hsv = floatArrayOf(hue, saturation.coerceIn(0f, 1f), value.coerceIn(0f, 1f))
+                val argb = android.graphics.Color.HSVToColor(hsv)
+
+                PickedColor(
+                    argb = argb,
+                    name = "Color ${i + 1}"
+                )
+            }.take(MAX)
+            _history.value = defaults
+            // testing use end ---------------------------------------------------------------------
         }
+
+
     }
 
     private suspend fun seedIfNeeded(prefs: Preferences) {
@@ -67,6 +89,7 @@ object RecentPicksService {
             PickedColor(0xFFC97C5D.toInt(), "Clay"),
             PickedColor(0xFF3A3A3A.toInt(), "Ink"),
         ).take(MAX)
+
 
         _history.value = defaults
 

@@ -1,5 +1,7 @@
 package com.primortex.color.screens
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -30,16 +32,23 @@ import com.primortex.color.ui.util.argbToHex
 fun PreviewCameraScreen() {
     CameraScreen(
         onOpenLiveCameraPicker = {},
-        onPickFromAlbum = {}
+        onPickFromAlbum = { _ -> }
     )
 }
 @Composable
 fun CameraScreen(
     innerPadding: PaddingValues = PaddingValues(),
     onOpenLiveCameraPicker: () -> Unit,
-    onPickFromAlbum: () -> Unit
+    onPickFromAlbum: (String) -> Unit
 ) {
     val history by RecentPicksService.history.collectAsState()
+    val pickPhotoLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri ->
+        if (uri != null) {
+            onPickFromAlbum(uri.toString())
+        }
+    }
 
     LazyColumn(
         modifier = Modifier
@@ -58,7 +67,7 @@ fun CameraScreen(
         item {
             ChooseSourceCard(
                 onOpenLiveCameraPicker = onOpenLiveCameraPicker,
-                onPickFromAlbum = onPickFromAlbum
+                onPickFromAlbum =  { pickPhotoLauncher.launch("image/*") }
             )
         }
 

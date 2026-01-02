@@ -3,6 +3,8 @@
 // Entries: 1013
 package com.primortex.color.service
 
+import com.primortex.color.app.PickedColor
+
 object ColorNameIndex {
     data class Result(val name: String, val argb: Int)
 
@@ -3103,5 +3105,13 @@ object ColorNameIndex {
             if (a[mid] < key) lo = mid + 1 else hi = mid
         }
         return lo
+    }
+
+    fun allColors(): List<PickedColor> {
+        // Adjust to your actual internal storage.
+        // If you have arrays like `names` + `argbs`, do this:
+        return NAMES.indices.map { i ->
+            PickedColor(argb = ARGB[i], name = NAMES[i])
+        }
     }
 }

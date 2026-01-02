@@ -1,59 +1,166 @@
+// com/primortex/color/screens/PhotoPickScreen.kt
 package com.primortex.color.screens
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.outlined.Colorize
+import androidx.compose.material.icons.outlined.PauseCircle
+import androidx.compose.material.icons.outlined.PlayCircle
+import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SheetValue
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.rememberBottomSheetScaffoldState
+import androidx.compose.material3.rememberStandardBottomSheetState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorNameLookup
+import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.components.ActiveColorSheet
+import com.primortex.color.ui.components.ColorDetailsBottomSheet
+import com.primortex.color.ui.components.PaletteBar
+import com.primortex.color.ui.util.argbToHex
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotoPickScreen(
     photoUri: String,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     val ctx = LocalContext.current
-
+    val uiScope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
     var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
-
+    val pickedColor by remember {
+        derivedStateOf {
+            val nn = ColorNameLookup.nearestName(pickedArgb)
+            PickedColor(argb = pickedArgb, name = nn.name)
+        }
+    }
+    argbToHex(pickedArgb)
+    var containerWpx by remember { mutableFloatStateOf(0f) }
+    var containerHpx by remember { mutableFloatStateOf(0f) }
+    val palette = remember { mutableStateListOf<PickedColor>() }
+    val sheetState = rememberStandardBottomSheetState(
+        initialValue = SheetValue.PartiallyExpanded,
+        skipHiddenState = true
+    )
+    val scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = sheetState)
+    val recents by RecentPicksService.history.collectAsState()
+    var detailPick by remember { mutableStateOf<PickedColor?>(null) }
+    var frozen by remember { mutableStateOf(false) }
 
     val painter = rememberAsyncImagePainter(
         ImageRequest.Builder(ctx)
             .data(photoUri)
-            .allowHardware(false) // IMPORTANT: must be false to access Bitmap pixels
+            .allowHardware(false)
             .build()
     )
 
-    val bitmap: Bitmap? = (painter.state as? coil.compose.AsyncImagePainter.State.Success)
-        ?.result
-        ?.drawable
-        ?.let { it as? BitmapDrawable }
-        ?.bitmap
+    var bitmap by remember { mutableStateOf<Bitmap?>(null) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Pick color") },
-                navigationIcon = {
-                    IconButton(onClick = onBack) { Text("Back") }
-                }
+    BottomSheetScaffold(
+        scaffoldState = scaffoldState,
+        sheetPeekHeight = 168.dp,
+        sheetContainerColor = MaterialTheme.colorScheme.surface,
+        sheetShape = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp),
+        sheetDragHandle = { BottomSheetDefaults.DragHandle() },
+        sheetContent = {
+            ActiveColorSheet(
+                picked = pickedColor,
+                recents = recents,
+                onTapPick = { pick ->
+                    detailPick = pick
+                },
             )
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        topBar = {
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .statusBarsPadding(),
+                tonalElevation = 2.dp,
+                color = MaterialTheme.colorScheme.surface
+            ) {
+                Row(
+                    Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                    }
+                    Text(
+                        "Photo picking",
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = { frozen = !frozen }) {
+                        Icon(
+                            imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
+                            contentDescription = "Freeze"
+                        )
+                    }
+
+                    IconButton(onClick = { detailPick = pickedColor }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Colorize,
+                            contentDescription = "More info"
+                        )
+                    }
+                }
+            }
         }
     ) { inner ->
         Box(
@@ -62,78 +169,113 @@ fun PhotoPickScreen(
                 .padding(inner)
                 .background(Color.Black)
         ) {
-            BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-                val maxW = constraints.maxWidth
-                val maxH = constraints.maxHeight
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .onSizeChanged {
+                        containerWpx = it.width.toFloat()
+                        containerHpx = it.height.toFloat()
+                    }
+                    .pointerInput(bitmap, containerWpx, containerHpx) {
+                        detectTapGestures { tap ->
+                            if (frozen) return@detectTapGestures
+                            Log.d(
+                                "PhotoPickScreen",
+                                "tap=$tap, bitmap=${painter.state}"
+                            )
+                            val bmp = bitmap ?: return@detectTapGestures
+                            if (containerWpx <= 1f || containerHpx <= 1f) return@detectTapGestures
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .pointerInput(bitmap, maxW, maxH) {
-                            detectTapGestures { tap ->
-                                val bmp = bitmap ?: return@detectTapGestures
-                                val sampled = sampleBitmapAtTapFit(
-                                    tap = tap,
-                                    containerW = maxW.toFloat(),
-                                    containerH = maxH.toFloat(),
-                                    bmp = bmp
-                                )
-                                if (sampled != null) pickedArgb = sampled
-                            }
+                            val sampled = sampleBitmapAtTapFit(
+                                tap = tap,
+                                containerW = containerWpx,
+                                containerH = containerHpx,
+                                bmp = bmp
+                            )
+
+                            Log.d(
+                                "PhotoPickScreen",
+                                "tap=$tap sampled=${
+                                    sampled?.let {
+                                        String.format(
+                                            "#%08X",
+                                            it
+                                        )
+                                    } ?: "null"
+                                } size=${containerWpx.toInt()}x${containerHpx.toInt()} bmp=${bmp.width}x${bmp.height}"
+                            )
+                            sampled?.let { pickedArgb = it }
+                            RecentPicksService.addPick(pickedColor)
                         }
-                ) {
-                    AsyncImage(
-                        model = ImageRequest.Builder(ctx)
-                            .data(photoUri)
-                            .allowHardware(false)
-                            .build(),
-                        contentDescription = null,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit
-                    )
-                }
+                    }
+            ) {
+                AsyncImage(
+                    model = ImageRequest.Builder(ctx)
+                        .data(photoUri)
+                        .allowHardware(false)
+                        .build(),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit,
+                    onSuccess = { success ->
+                        bitmap = (success.result.drawable as? BitmapDrawable)?.bitmap
+                    }
+                )
             }
 
-            // Bottom info card
-            Surface(
+            PaletteBar(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(16.dp)
-                    .fillMaxWidth(),
-                shape = MaterialTheme.shapes.large,
-                tonalElevation = 6.dp
-            ) {
-                Row(
-                    modifier = Modifier.padding(14.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(44.dp)
-                            .background(Color(pickedArgb), shape = MaterialTheme.shapes.large)
+                    .padding(bottom = 20.dp)
+                    .fillMaxWidth()
+                    .padding(horizontal = 14.dp),
+                palette = palette,
+                onAddColor = {
+                    if (palette.size == 10) {
+                        uiScope.launch {
+                            snackbarHostState.currentSnackbarData?.dismiss()
+                            snackbarHostState.showSnackbar(
+                                "Palette is full (10 colors). Tap the palette to save it and start a new one."
+                            )
+                        }
+                    } else {
+                        palette.add(pickedColor)
+                    }
+
+                },
+                onAddPalette = {
+                    if (palette.isEmpty()) {
+                        uiScope.launch {
+                            snackbarHostState.currentSnackbarData?.dismiss()
+                            snackbarHostState.showSnackbar(
+                                "Palette empty, start adding colors"
+                            )
+                        }
+                    }
+                    PaletteService.create(
+                        name = "Palette ${PaletteService.palettes.value.size + 1}",
+                        tags = listOf("photo", "pick"),
+                        colors = palette
                     )
-
-                    Spacer(Modifier.width(12.dp))
-
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text("Picked", style = MaterialTheme.typography.titleMedium)
-                        Text(
-                            pickedArgb.toString(),
-                            style = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-
-                    Button(onClick = { RecentPicksService.addPick(PickedColor(pickedArgb,"photo")) }) {
-                        Text("Add")
-                    }
+                    palette.clear()
+                    uiScope.launch { snackbarHostState.showSnackbar("Palette saved ✅") }
                 }
-            }
+            )
         }
+    }
+
+    detailPick?.let { picked ->
+        ColorDetailsBottomSheet(
+            picked = picked,
+            onDismiss = { detailPick = null },
+            onOpenColorDetail = { p -> detailPick = p } // tap similar colors -> jump
+        )
     }
 }
 
-
+/**
+ * Maps a tap point to the bitmap pixel for ContentScale.Fit.
+ */
 private fun sampleBitmapAtTapFit(
     tap: Offset,
     containerW: Float,
@@ -144,9 +286,9 @@ private fun sampleBitmapAtTapFit(
     val bmpH = bmp.height.toFloat()
     if (bmpW <= 0f || bmpH <= 0f) return null
 
-    val scale = minOf(containerW / bmpW, containerH / bmpH)
-    val drawW = bmpW * scale
-    val drawH = bmpH * scale
+    val fitScale = minOf(containerW / bmpW, containerH / bmpH)
+    val drawW = bmpW * fitScale
+    val drawH = bmpH * fitScale
 
     val offsetX = (containerW - drawW) / 2f
     val offsetY = (containerH - drawH) / 2f
@@ -154,11 +296,33 @@ private fun sampleBitmapAtTapFit(
     val xIn = tap.x - offsetX
     val yIn = tap.y - offsetY
 
-    // Tap outside the drawn image area
+    // tap outside the drawn image area
     if (xIn < 0f || yIn < 0f || xIn > drawW || yIn > drawH) return null
 
-    val bx = (xIn / scale).roundToInt().coerceIn(0, bmp.width - 1)
-    val by = (yIn / scale).roundToInt().coerceIn(0, bmp.height - 1)
+    val bx = (xIn / fitScale).roundToInt().coerceIn(0, bmp.width - 1)
+    val by = (yIn / fitScale).roundToInt().coerceIn(0, bmp.height - 1)
 
     return bmp.getPixel(bx, by)
+}
+
+
+@Composable
+private fun StackedColorsPreview(colors: List<Int>) {
+    val shown = colors.ifEmpty { listOf(0xFFBDBDBD.toInt()) }
+    Box(
+        Modifier
+            .height(32.dp)
+            .width(72.dp)
+    ) {
+        shown.take(10).forEachIndexed { i, argb ->
+            Box(
+                Modifier
+                    .offset(x = (i * 16).dp, y = 0.dp)
+                    .size(28.dp)
+                    .clip(CircleShape)
+                    .background(Color(argb))
+                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
+            )
+        }
+    }
 }

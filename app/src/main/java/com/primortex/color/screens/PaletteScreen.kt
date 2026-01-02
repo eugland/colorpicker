@@ -3,27 +3,66 @@ package com.primortex.color.screens
 
 import android.util.Log
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,17 +74,9 @@ import com.primortex.color.service.ColorNameIndex
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
-import androidx.compose.animation.SizeTransform
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.text.input.ImeAction
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -93,13 +124,9 @@ object ColorQueryResolver {
 }
 
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PaletteScreen(
-    innerPadding: PaddingValues,
-    onOpenColorDetail: (argb: PickedColor) -> Unit = {} // hook this to nav later
-) {
+fun PaletteScreen(innerPadding: PaddingValues) {
     val clipboard = LocalClipboardManager.current
 
     val recents by RecentPicksService.history.collectAsState()
@@ -110,17 +137,26 @@ fun PaletteScreen(
     val suggestions = remember(searchQuery, recents) {
         ColorQueryResolver.search(searchQuery, limit = 10)
     }
-
-    var showBuilder by remember { mutableStateOf(false) }
+    var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+
+    val threshold = 20
+    var showAllRecents by remember { mutableStateOf(false) }
+
+    LaunchedEffect(recents.size) {
+        if (recents.size <= threshold) showAllRecents = false
+    }
+    val hasMoreThanThreshold = recents.size > threshold
+    val visibleRecents =
+        if (!hasMoreThanThreshold || showAllRecents) recents else recents.take(threshold)
+    hasMoreThanThreshold && showAllRecents
 
     ScreenScaffold(
         "Palette",
         innerPadding,
         snackbarHostState = snackbarHostState
     ) {
-
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(bottom = 24.dp),
@@ -159,8 +195,13 @@ fun PaletteScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                onOpenColorDetail(s)
-                                RecentPicksService.addPick(PickedColor(argb = s.argb, name = s.name))
+                                detailPick = s
+                                RecentPicksService.addPick(
+                                    PickedColor(
+                                        argb = s.argb,
+                                        name = s.name
+                                    )
+                                )
                                 scope.launch { snackbarHostState.showSnackbar("Added to recents") }
                                 searchQuery = ""
                             }
@@ -193,6 +234,7 @@ fun PaletteScreen(
                     }
                 }
             }
+
             item { Spacer(Modifier.height(16.dp)) }
             item { Text("Recent colors", style = MaterialTheme.typography.titleMedium) }
             item { Spacer(Modifier.height(8.dp)) }
@@ -206,18 +248,32 @@ fun PaletteScreen(
                 }
             } else {
                 item {
-                    LazyRow(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    FlowRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        maxItemsInEachRow = 5 // same as your Fixed(5)
                     ) {
-                        items(
-                            items = recents.take(20),
-                            key = { it.argb }
-                        ) { pick ->
+                        visibleRecents.forEach { pick ->
                             Swatch(
                                 argb = pick.argb,
-                                onClick = { onOpenColorDetail(pick) },
+                                onClick = { detailPick = pick },
                                 label = pick.name
                             )
+                        }
+                    }
+
+                }
+
+                if (hasMoreThanThreshold) {
+                    item { Spacer(Modifier.height(10.dp)) }
+
+                    item {
+                        FilledTonalButton(
+                            onClick = { showAllRecents = !showAllRecents },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(if (showAllRecents) "Show less" else "Show more")
                         }
                     }
                 }
@@ -226,22 +282,36 @@ fun PaletteScreen(
             item { Spacer(Modifier.height(16.dp)) }
 
             item {
-                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-                    Text("Saved palettes", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        "Saved palettes",
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.weight(1f)
+                    )
                 }
             }
 
             item { Spacer(Modifier.height(8.dp)) }
 
             if (savedPalettes.isEmpty()) {
-                item { Text("No saved palettes yet.", color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                item {
+                    Text(
+                        "No saved palettes yet.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             } else {
                 items(savedPalettes, key = { it.id }) { p ->
                     PaletteCard(
                         palette = p,
-                        onOpen = { showBuilder = true },
+                        onOpen = { }, // do not open for now
                         onCopy = {
-                            clipboard.setText(AnnotatedString(p.colors.joinToString(", ") { argbToHex(it.argb) }))
+                            clipboard.setText(
+                                AnnotatedString(p.colors.joinToString(", ") { argbToHex(it.argb) })
+                            )
                         },
                         onDelete = { PaletteService.delete(p.id) }
                     )
@@ -250,13 +320,19 @@ fun PaletteScreen(
             }
 
             item { Spacer(Modifier.height(16.dp)) }
-
         }
     }
 
+    detailPick?.let { picked ->
+        ColorDetailsBottomSheet(
+            picked = picked,
+            onDismiss = { detailPick = null },
+            onOpenColorDetail = { s -> detailPick = s }, // tap similar colors to jump
+            skipPartiallyExpanded = true
+        )
+    }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ColorSearchBar(
     query: String,
@@ -309,7 +385,7 @@ private fun ColorSearchBar(
                     transitionSpec = {
                         ((slideInVertically { it / 6 } + fadeIn(tween(160)))
                                 togetherWith (slideOutVertically { -it / 6 } + fadeOut(tween(160)))
-                        ).using(SizeTransform(clip = true))
+                                ).using(SizeTransform(clip = true))
                     },
                     label = "search-placeholder"
                 ) { t ->

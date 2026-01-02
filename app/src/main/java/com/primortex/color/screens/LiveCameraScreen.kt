@@ -2,33 +2,71 @@ package com.primortex.color.screens
 
 import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.*
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.gestures.detectTransformGestures
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
-import androidx.compose.material.icons.outlined.ChevronRight
-import androidx.compose.material.icons.outlined.Colorize
-import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.outlined.Cameraswitch
+import androidx.compose.material.icons.outlined.FlashOff
+import androidx.compose.material.icons.outlined.FlashOn
+import androidx.compose.material.icons.outlined.PauseCircle
+import androidx.compose.material.icons.outlined.PlayCircle
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SheetValue
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.rememberBottomSheetScaffoldState
+import androidx.compose.material3.rememberStandardBottomSheetState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.*
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
@@ -37,44 +75,69 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
-import com.primortex.color.ui.util.argbToHex
-import com.primortex.color.ui.util.rgbDistSq
+import com.primortex.color.ui.components.ActiveColorSheet
+import com.primortex.color.ui.components.ColorDetailsBottomSheet
+import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.ui.util.sampleCenterArgb
-import java.util.concurrent.*
+import kotlinx.coroutines.launch
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LiveCameraScreen(
-    onBack: () -> Unit,
-    onOpenPhotoPick: (String) -> Unit
+    onBack: () -> Unit
 ) {
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    var detailPick by remember { mutableStateOf<PickedColor?>(null) }
 
-    var hasCameraPerm by remember { mutableStateOf(false) }
-    val permLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
-        hasCameraPerm = it
+    var hasCameraPerm by remember {
+        mutableStateOf(
+            ContextCompat.checkSelfPermission(ctx, Manifest.permission.CAMERA) ==
+                    PackageManager.PERMISSION_GRANTED
+        )
     }
-    LaunchedEffect(Unit) { permLauncher.launch(Manifest.permission.CAMERA) }
+    val permLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
+            hasCameraPerm = it
+        }
+
+    LaunchedEffect(hasCameraPerm) {
+        if (!hasCameraPerm) {
+            permLauncher.launch(Manifest.permission.CAMERA)
+        }
+    }
 
     var currentArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
-    val hex = argbToHex(currentArgb)
-    var nearest by remember { mutableStateOf(ColorNameLookup.nearestName(currentArgb)) }
-    var lastLookupArgb by remember { mutableIntStateOf(currentArgb) }
+    val pickedColor by remember {
+        derivedStateOf {
+            val argb = currentArgb
+            PickedColor(
+                argb = argb,
+                name = ColorNameLookup.nearestName(argb).name
+            )
+        }
+    }
+
 
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
-    val previewView = remember { PreviewView(ctx).apply { scaleType = PreviewView.ScaleType.FILL_CENTER } }
+    val previewView =
+        remember { PreviewView(ctx).apply { scaleType = PreviewView.ScaleType.FILL_CENTER } }
     val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 
-    LaunchedEffect(currentArgb) {
-        val snapshot = currentArgb
-        kotlinx.coroutines.delay(10)
-        if (snapshot != currentArgb) return@LaunchedEffect
-        if (rgbDistSq(snapshot, lastLookupArgb) < 12 * 12) return@LaunchedEffect
-        nearest = ColorNameLookup.nearestName(snapshot)
-        lastLookupArgb = snapshot
-    }
+    val snackbarHostState = remember { SnackbarHostState() }
+    val uiScope = rememberCoroutineScope()
+    var frozen by remember { mutableStateOf(false) }
+    var torchOn by remember { mutableStateOf(false) }
+    var useFrontCamera by remember { mutableStateOf(false) }
+    var lastCommitMs by remember { mutableStateOf(0L) }
+    var lastCommittedArgb by remember { mutableIntStateOf(currentArgb) }
+
+    var camera by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
+    var zoomRatio by remember { mutableStateOf(1f) }
 
     DisposableEffect(Unit) {
         onDispose {
@@ -89,307 +152,232 @@ fun LiveCameraScreen(
         onBack()
     }
 
-    val recents by RecentPicksService.history.collectAsState()
-
-    // palette being built by user
-    val palette = remember { mutableStateListOf<Int>() } // store argb list
-
-    fun addCurrentToPaletteAndRecents() {
-        val pick = PickedColor(argb = currentArgb, name = nearest.name)
-        // recents: newest first
-        RecentPicksService.addPick(pick) // keep your existing persistence call
-        // palette: avoid duplicates if you want
-        if (palette.firstOrNull() != currentArgb) palette.add(0, currentArgb)
+    LaunchedEffect(camera) {
+        val info = camera?.cameraInfo ?: return@LaunchedEffect
+        zoomRatio = info.zoomState.value?.zoomRatio ?: 1f
     }
 
-    // ---- Bottom sheet scaffold ----
+    val recents by RecentPicksService.history.collectAsState()
+    val palette = remember { mutableStateListOf<PickedColor>() }
+
+
     val sheetState = rememberStandardBottomSheetState(
         initialValue = SheetValue.PartiallyExpanded,
         skipHiddenState = true
     )
     val scaffoldState = rememberBottomSheetScaffoldState(sheetState)
 
-    BottomSheetScaffold(
-        scaffoldState = scaffoldState,
-        sheetPeekHeight = 168.dp,
-        sheetContainerColor = MaterialTheme.colorScheme.surface,
-        sheetShadowElevation = 12.dp,
-        sheetContent = {
-            RecentSheet(
-                latest = recents.firstOrNull(),
-                recents = recents,
-                onTapPick = { /* optional: currentArgb = it.argb */ }
-            )
-        }
-    ) { inner ->
-        Box(Modifier.fillMaxSize().padding(inner).background(Color.Black)) {
+    LaunchedEffect(torchOn, camera) {
+        camera?.cameraControl?.enableTorch(torchOn)
+    }
 
-            // camera preview
-            if (hasCameraPerm) {
-                AndroidView(
-                    modifier = Modifier.fillMaxSize(),
-                    factory = { previewView },
-                    update = {
+    fun setZoom(ratio: Float) {
+        val cam = camera ?: return
+        val zs = cam.cameraInfo.zoomState.value ?: return
+        val clamped = ratio.coerceIn(zs.minZoomRatio, zs.maxZoomRatio)
+        zoomRatio = clamped
+        cam.cameraControl.setZoomRatio(clamped)
+    }
+
+    Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) }
+    ) { padding ->
+        BottomSheetScaffold(
+            scaffoldState = scaffoldState,
+            sheetPeekHeight = 168.dp,
+            sheetContainerColor = MaterialTheme.colorScheme.surface,
+            sheetShadowElevation = 12.dp,
+            sheetContent = {
+                ActiveColorSheet(
+                    picked = pickedColor,
+                    recents = recents,
+                    onTapPick = { pick ->
+                        detailPick = pick      // ✅ open details drawer
+                    }
+                )
+            }
+        ) { inner ->
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .padding(inner)
+                    .background(Color.Black)
+            ) {
+                if (hasCameraPerm) {
+                    AndroidView(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .pointerInput(camera) {
+                                val cam = camera ?: return@pointerInput
+                                var cur = cam.cameraInfo.zoomState.value?.zoomRatio ?: 1f
+
+                                detectTransformGestures { _, _, zoomChange, _ ->
+                                    val zs = cam.cameraInfo.zoomState.value
+                                        ?: return@detectTransformGestures
+                                    cur = (cur * zoomChange).coerceIn(
+                                        zs.minZoomRatio,
+                                        zs.maxZoomRatio
+                                    )
+                                    cam.cameraControl.setZoomRatio(cur)
+                                }
+                            },
+                        factory = { previewView },
+                        update = {}
+                    )
+
+                    LaunchedEffect(hasCameraPerm, useFrontCamera) {
+                        if (!hasCameraPerm) return@LaunchedEffect
+
                         bindCamera(
                             context = ctx,
                             lifecycleOwner = lifecycleOwner,
                             previewView = previewView,
                             onCameraProviderReady = { cameraProvider = it },
                             onImageCaptureReady = { imageCapture = it },
-                            onCenterSampleArgb = { sampled -> currentArgb = sampled },
-                            cameraExecutor = cameraExecutor
+                            onCenterSampleArgb = { sampled ->
+                                if (frozen) return@bindCamera
+                                val now = android.os.SystemClock.uptimeMillis()
+                                val minIntervalMs = 90L          // 60–150ms feels good
+                                val minRgbDistance = 14          // bigger = less flicker
+                                val minDistSq = minRgbDistance * minRgbDistance
+
+                                // debounce by time + ignore tiny color jitter
+                                if (now - lastCommitMs < minIntervalMs) return@bindCamera
+                                if (rgbDistSq(
+                                        sampled,
+                                        lastCommittedArgb
+                                    ) < minDistSq
+                                ) return@bindCamera
+
+                                lastCommitMs = now
+                                lastCommittedArgb = sampled
+                                currentArgb = sampled
+                            },
+                            cameraExecutor = cameraExecutor,
+                            cameraSelector = if (useFrontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA,
+                            onCameraReady = { camera = it },
                         )
                     }
-                )
-            } else {
-                Column(
-                    Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text("Camera permission required", color = Color.White)
-                    Spacer(Modifier.height(10.dp))
-                    Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) { Text("Grant") }
-                }
-            }
 
-            // SOLID top bar (not translucent)
-            Surface(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .fillMaxWidth()
-                    .statusBarsPadding(),
-                tonalElevation = 2.dp,
-                color = MaterialTheme.colorScheme.surface
-            ) {
-                Row(
-                    Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = exit) {
-                        Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                } else {
+                    Column(
+                        Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("Camera permission required", color = Color.White)
+                        Spacer(Modifier.height(10.dp))
+                        Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
+                            Text(
+                                "Grant"
+                            )
+                        }
                     }
+                }
+                Surface(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()
+                        .statusBarsPadding(),
+                    tonalElevation = 2.dp,
+                    color = MaterialTheme.colorScheme.surface
+                ) {
+                    Row(
+                        Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = exit) {
+                            Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                        }
 
-                    // color swatch
+                        Text(
+                            "Live picking",
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(onClick = { frozen = !frozen }) {
+                            Icon(
+                                imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
+                                contentDescription = if (frozen) "Resume" else "Freeze"
+                            )
+                        }
+                        IconButton(onClick = { torchOn = !torchOn }) {
+                            Icon(
+                                imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
+                                contentDescription = if (torchOn) "Flash on" else "Flash off"
+                            )
+                        }
+                        IconButton(onClick = {
+                            useFrontCamera = !useFrontCamera
+                            Log.d("LiveCameraScreen", "Flip camera $useFrontCamera")
+                        }) {
+                            Icon(Icons.Outlined.Cameraswitch, contentDescription = "Flip camera")
+                        }
+                    }
+                }
+                if (hasCameraPerm) {
                     Box(
                         Modifier
-                            .size(28.dp)
+                            .align(Alignment.Center)
+                            .size(24.dp)
                             .clip(CircleShape)
                             .background(Color(currentArgb))
-                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                            .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
                     )
-
-                    Spacer(Modifier.width(10.dp))
-
-                    Column(Modifier.weight(1f)) {
-                        Text(
-                            nearest.name,
-                            style = MaterialTheme.typography.titleMedium,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        Text(
-                            hex,
-                            style = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
                 }
-            }
 
-            // center sample dot (clean)
-            Box(
-                Modifier
-                    .align(Alignment.Center)
-                    .size(24.dp)
-                    .clip(CircleShape)
-                    .background(Color(currentArgb))
-                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
-            )
-
-            // Palette builder bar ABOVE the sheet
-            PaletteBar(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 20.dp) // sits above peek sheet
-                    .fillMaxWidth()
-                    .padding(horizontal = 14.dp),
-                palette = palette,
-                onAddColor  = { addCurrentToPaletteAndRecents() },
-                onAddPalette =  {
-                    if (palette.isEmpty()) addCurrentToPaletteAndRecents()
-
-                    val colors = palette
-                        .distinct()
-                        .map { argb -> PickedColor(argb = argb, name = ColorNameLookup.nearestName(argb).name) }
-
-                    PaletteService.create(
-                        name = "Palette ${PaletteService.palettes.value.size + 1}",
-                        tags = listOf("camera", "live-pick"),
-                        colors = colors
-                    )
-                    palette.clear()
-                }
-            )
-        }
-    }
-}
-@Composable
-private fun PaletteBar(
-    modifier: Modifier,
-    palette: List<Int>,
-    onAddColor: () -> Unit,
-    onAddPalette: () -> Unit
-) {
-    Surface(
-        modifier = modifier,
-        shape = RoundedCornerShape(18.dp),
-        tonalElevation = 6.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            // LEFT AREA (clickable): becomes "Add palette"
-            Row(
-                Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(14.dp))
-                    .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.55f))
-                    .border(1.dp, MaterialTheme.colorScheme.outlineVariant, RoundedCornerShape(14.dp))
-                    .clickable(onClick = onAddPalette)
-                    .padding(horizontal = 12.dp, vertical = 10.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Outlined.Palette,
-                    contentDescription = "Palette",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(18.dp)
-                )
-                Spacer(Modifier.width(10.dp))
-                StackedColorsPreview(colors = palette)
-                Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Outlined.ChevronRight,
-                    contentDescription = "Open palette",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-            }
-
-            Spacer(Modifier.width(10.dp))
-
-            // RIGHT BUTTON: always "Add color"
-            Button(
-                onClick = onAddColor,
-                shape = RoundedCornerShape(44.dp),
-                contentPadding = PaddingValues(0.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Outlined.Colorize,
-                    contentDescription = "Add color",
-                    modifier = Modifier.size(22.dp)
+                PaletteBar(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(bottom = 20.dp) // sits above peek sheet
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp),
+                    palette = palette,
+                    onAddColor = {
+                        RecentPicksService.addPick(pickedColor)
+                        if (pickedColor in palette) {
+                            snackbarHostState.currentSnackbarData?.dismiss()
+                            uiScope.launch { snackbarHostState.showSnackbar("${pickedColor.name} already in palette") }
+                        } else if (palette.size == 10) {
+                            snackbarHostState.currentSnackbarData?.dismiss()
+                            uiScope.launch { snackbarHostState.showSnackbar("${pickedColor.name} already in palette") }
+                        } else {
+                            palette.add(pickedColor)
+                        }
+                    },
+                    onAddPalette = {
+                        if (palette.isEmpty()) {
+                            uiScope.launch {
+                                snackbarHostState.currentSnackbarData?.dismiss()
+                                snackbarHostState.showSnackbar(
+                                    "Palette empty, start adding colors"
+                                )
+                            }
+                            return@PaletteBar
+                        }
+                        PaletteService.create(
+                            name = "Palette ${PaletteService.palettes.value.size + 1}",
+                            tags = listOf("camera", "live-pick"),
+                            colors = palette
+                        )
+                        palette.clear()
+                        uiScope.launch {
+                            snackbarHostState.currentSnackbarData?.dismiss()
+                            snackbarHostState.showSnackbar("Palette saved ✅")
+                        }
+                    },
+                    onClearPalette = { palette.clear() }
                 )
             }
         }
     }
-}
 
-
-@Composable
-private fun StackedColorsPreview(colors: List<Int>) {
-    // Draw up to N circles slightly overlapped (looks like stack)
-    val shown = if (colors.isEmpty()) listOf(0xFFBDBDBD.toInt()) else colors
-    Box(Modifier.height(32.dp).width(72.dp)) {
-        shown.take(10).forEachIndexed { i, argb ->
-            Box(
-                Modifier
-                    .offset(x = (i * 16).dp, y = 0.dp)
-                    .size(28.dp)
-                    .clip(CircleShape)
-                    .background(Color(argb))
-                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
-            )
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun RecentSheet(
-    latest: PickedColor?,
-    recents: List<PickedColor>,
-    onTapPick: (PickedColor) -> Unit
-) {
-    Column(Modifier.fillMaxWidth().padding(top = 8.dp)) {
-
-        // Collapsed intent: show only latest at top area always
-        Text(
-            "Recent colors",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
+    detailPick?.let { picked ->
+        ColorDetailsBottomSheet(
+            picked = picked,
+            onDismiss = { detailPick = null },
+            onOpenColorDetail = { p -> detailPick = p }
         )
-
-        if (latest != null) {
-            RecentRow(latest, onTapPick)
-        } else {
-            Text(
-                "No colors yet. Tap \uD83E\uDDEA to pick a color.",
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-
-        Divider(Modifier.padding(top = 6.dp))
-
-        // Expanded list: user pulls up to see more
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 120.dp, max = 420.dp),
-            contentPadding = PaddingValues(vertical = 8.dp)
-        ) {
-            items(recents.drop(1)) { pick ->
-                RecentRow(pick, onTapPick)
-            }
-        }
-    }
-}
-
-@Composable
-private fun RecentRow(pick: PickedColor, onTapPick: (PickedColor) -> Unit) {
-    Row(
-        Modifier
-            .fillMaxWidth()
-            .clickable { onTapPick(pick) }
-            .padding(horizontal = 16.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
-            Modifier.size(28.dp)
-                .clip(CircleShape)
-                .background(Color(pick.argb))
-        )
-        Spacer(Modifier.width(12.dp))
-        Column(Modifier.weight(1f)) {
-            Text(
-                pick.name ?: "Unknown",
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.bodyLarge
-            )
-            Text(
-                String.format("#%06X", pick.argb and 0xFFFFFF),
-                fontFamily = FontFamily.Monospace,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
     }
 }
 
@@ -397,9 +385,11 @@ private fun bindCamera(
     context: Context,
     lifecycleOwner: LifecycleOwner,
     previewView: PreviewView,
+    cameraSelector: CameraSelector,
     onCameraProviderReady: (ProcessCameraProvider) -> Unit,
     onImageCaptureReady: (ImageCapture) -> Unit,
     onCenterSampleArgb: (Int) -> Unit,
+    onCameraReady: (androidx.camera.core.Camera) -> Unit,
     cameraExecutor: ExecutorService
 ) {
     val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
@@ -407,7 +397,9 @@ private fun bindCamera(
         val cameraProvider = cameraProviderFuture.get()
         onCameraProviderReady(cameraProvider)
 
-        val preview = Preview.Builder().build().also { it.surfaceProvider = previewView.surfaceProvider }
+        val preview = Preview.Builder()
+            .build()
+            .also { it.surfaceProvider = previewView.surfaceProvider }
 
         val capture = ImageCapture.Builder()
             .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
@@ -426,7 +418,30 @@ private fun bindCamera(
 
         try {
             cameraProvider.unbindAll()
-            cameraProvider.bindToLifecycle(lifecycleOwner, CameraSelector.DEFAULT_BACK_CAMERA, preview, capture, analysis)
-        } catch (_: Exception) {}
+
+            val camera = cameraProvider.bindToLifecycle(
+                lifecycleOwner,
+                cameraSelector,
+                preview,
+                capture,
+                analysis
+            )
+
+            onCameraReady(camera)
+        } catch (_: Exception) {
+        }
     }, ContextCompat.getMainExecutor(context))
+}
+
+private fun rgbDistSq(a: Int, b: Int): Int {
+    val ar = (a shr 16) and 0xFF
+    val ag = (a shr 8) and 0xFF
+    val ab = (a) and 0xFF
+    val br = (b shr 16) and 0xFF
+    val bg = (b shr 8) and 0xFF
+    val bb = (b) and 0xFF
+    val dr = ar - br
+    val dg = ag - bg
+    val db = ab - bb
+    return dr * dr + dg * dg + db * db
 }
