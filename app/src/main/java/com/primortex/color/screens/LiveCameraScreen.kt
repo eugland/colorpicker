@@ -17,7 +17,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -179,11 +181,190 @@ fun LiveCameraScreen(
         }
     }
 
-    Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) }
-    ) { padding ->
+    CameraScreenLayout(
+        pickedColor = pickedColor,
+        recents = recents,
+        onTapPick = { pick -> detailPick = pick }
+    ) {
+        if (hasCameraPerm) {
+            AndroidView(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(camera) {
+                        val cam = camera ?: return@pointerInput
+                        var cur = cam.cameraInfo.zoomState.value?.zoomRatio ?: 1f
+
+                        detectTransformGestures { _, _, zoomChange, _ ->
+                            val zs = cam.cameraInfo.zoomState.value
+                                ?: return@detectTransformGestures
+                            cur = (cur * zoomChange).coerceIn(
+                                zs.minZoomRatio,
+                                zs.maxZoomRatio
+                            )
+                            cam.cameraControl.setZoomRatio(cur)
+                        }
+                    },
+                factory = { previewView },
+                update = {}
+            )
+
+            LaunchedEffect(hasCameraPerm, useFrontCamera) {
+                if (!hasCameraPerm) return@LaunchedEffect
+
+                bindCamera(
+                    context = ctx,
+                    lifecycleOwner = lifecycleOwner,
+                    previewView = previewView,
+                    onCameraProviderReady = { cameraProvider = it },
+                    onImageCaptureReady = { imageCapture = it },
+                    onCenterSampleArgb = { sampled ->
+                        if (frozen) return@bindCamera
+                        val now = android.os.SystemClock.uptimeMillis()
+                        val minIntervalMs = 90L          // 60–150ms feels good
+                        val minRgbDistance = 14          // bigger = less flicker
+                        val minDistSq = minRgbDistance * minRgbDistance
+
+                        // debounce by time + ignore tiny color jitter
+                        if (now - lastCommitMs < minIntervalMs) return@bindCamera
+                        if (rgbDistSq(
+                                sampled,
+                                lastCommittedArgb
+                            ) < minDistSq
+                        ) return@bindCamera
+
+                        lastCommitMs = now
+                        lastCommittedArgb = sampled
+                        currentArgb = sampled
+                    },
+                    cameraExecutor = cameraExecutor,
+                    cameraSelector = if (useFrontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA,
+                    onCameraReady = { camera = it },
+                )
+            }
+        } else {
+            Column(
+                Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Camera permission required", color = Color.White)
+                Spacer(Modifier.height(10.dp))
+                Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
+                    Text(
+                        "Grant"
+                    )
+                }
+            }
+        }
+
+        Surface(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .fillMaxWidth()
+                .statusBarsPadding(),
+            tonalElevation = 2.dp,
+            color = MaterialTheme.colorScheme.surface
+        ) {
+            Row(
+                Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = exit) {
+                    Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                }
+
+                Text(
+                    "Live picking",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.weight(1f)
+                )
+                IconButton(onClick = { frozen = !frozen }) {
+                    Icon(
+                        imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
+                        contentDescription = if (frozen) "Resume" else "Freeze"
+                    )
+                }
+                IconButton(onClick = { torchOn = !torchOn }) {
+                    Icon(
+                        imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
+                        contentDescription = if (torchOn) "Flash on" else "Flash off"
+                    )
+                }
+                IconButton(onClick = {
+                    useFrontCamera = !useFrontCamera
+                    Log.d("LiveCameraScreen", "Flip camera $useFrontCamera")
+                }) {
+                    Icon(Icons.Outlined.Cameraswitch, contentDescription = "Flip camera")
+                }
+            }
+        }
+        if (hasCameraPerm) {
+            Box(
+                Modifier
+                    .align(Alignment.Center)
+                    .size(24.dp)
+                    .clip(CircleShape)
+                    .background(Color(currentArgb))
+                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
+            )
+
+        }
+
+        PaletteBar(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 20.dp) // sits above peek sheet
+                .fillMaxWidth()
+                .padding(horizontal = 14.dp),
+            palette = palette,
+            onAddColor = {
+                RecentPicksService.addPick(pickedColor)
+                when {
+                    pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
+                    palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
+                    else -> palette.add(pickedColor)
+                }
+            },
+            onAddPalette = {
+                if (palette.isEmpty()) {
+                    showSnack("Palette empty, start adding colors")
+                    return@PaletteBar
+                }
+                PaletteService.create(
+                    name = "Palette ${PaletteService.palettes.value.size + 1}",
+                    tags = listOf("camera", "live-pick"),
+                    colors = palette
+                )
+                palette.clear()
+                showSnack("Palette saved ✅")
+            },
+            onClearPalette = { palette.clear() }
+        )
+    }
+
+    detailPick?.let { picked ->
+        ColorDetailsBottomSheet(
+            picked = picked,
+            onDismiss = { detailPick = null },
+            onOpenColorDetail = { p -> detailPick = p }
+        )
+    }
+}
+
+@ExperimentalMaterial3Api
+@Composable
+fun CameraScreenLayout(
+    pickedColor: PickedColor,
+    recents: List<PickedColor>,
+    onTapPick: (PickedColor) -> Unit,
+    content: @Composable BoxScope.(PaddingValues) -> Unit
+) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val bottomSheetState = rememberBottomSheetScaffoldState()
+
+    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
         BottomSheetScaffold(
-            scaffoldState = scaffoldState,
+            scaffoldState = bottomSheetState,
             sheetPeekHeight = 168.dp,
             sheetContainerColor = MaterialTheme.colorScheme.surface,
             sheetShadowElevation = 12.dp,
@@ -191,9 +372,7 @@ fun LiveCameraScreen(
                 ActiveColorSheet(
                     picked = pickedColor,
                     recents = recents,
-                    onTapPick = { pick ->
-                        detailPick = pick      // ✅ open details drawer
-                    }
+                    onTapPick = onTapPick
                 )
             }
         ) { inner ->
@@ -203,169 +382,9 @@ fun LiveCameraScreen(
                     .padding(inner)
                     .background(Color.Black)
             ) {
-                if (hasCameraPerm) {
-                    AndroidView(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .pointerInput(camera) {
-                                val cam = camera ?: return@pointerInput
-                                var cur = cam.cameraInfo.zoomState.value?.zoomRatio ?: 1f
-
-                                detectTransformGestures { _, _, zoomChange, _ ->
-                                    val zs = cam.cameraInfo.zoomState.value
-                                        ?: return@detectTransformGestures
-                                    cur = (cur * zoomChange).coerceIn(
-                                        zs.minZoomRatio,
-                                        zs.maxZoomRatio
-                                    )
-                                    cam.cameraControl.setZoomRatio(cur)
-                                }
-                            },
-                        factory = { previewView },
-                        update = {}
-                    )
-
-                    LaunchedEffect(hasCameraPerm, useFrontCamera) {
-                        if (!hasCameraPerm) return@LaunchedEffect
-
-                        bindCamera(
-                            context = ctx,
-                            lifecycleOwner = lifecycleOwner,
-                            previewView = previewView,
-                            onCameraProviderReady = { cameraProvider = it },
-                            onImageCaptureReady = { imageCapture = it },
-                            onCenterSampleArgb = { sampled ->
-                                if (frozen) return@bindCamera
-                                val now = android.os.SystemClock.uptimeMillis()
-                                val minIntervalMs = 90L          // 60–150ms feels good
-                                val minRgbDistance = 14          // bigger = less flicker
-                                val minDistSq = minRgbDistance * minRgbDistance
-
-                                // debounce by time + ignore tiny color jitter
-                                if (now - lastCommitMs < minIntervalMs) return@bindCamera
-                                if (rgbDistSq(
-                                        sampled,
-                                        lastCommittedArgb
-                                    ) < minDistSq
-                                ) return@bindCamera
-
-                                lastCommitMs = now
-                                lastCommittedArgb = sampled
-                                currentArgb = sampled
-                            },
-                            cameraExecutor = cameraExecutor,
-                            cameraSelector = if (useFrontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA,
-                            onCameraReady = { camera = it },
-                        )
-                    }
-
-                } else {
-                    Column(
-                        Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("Camera permission required", color = Color.White)
-                        Spacer(Modifier.height(10.dp))
-                        Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
-                            Text(
-                                "Grant"
-                            )
-                        }
-                    }
-                }
-                Surface(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .fillMaxWidth()
-                        .statusBarsPadding(),
-                    tonalElevation = 2.dp,
-                    color = MaterialTheme.colorScheme.surface
-                ) {
-                    Row(
-                        Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        IconButton(onClick = exit) {
-                            Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
-                        }
-
-                        Text(
-                            "Live picking",
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.weight(1f)
-                        )
-                        IconButton(onClick = { frozen = !frozen }) {
-                            Icon(
-                                imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
-                                contentDescription = if (frozen) "Resume" else "Freeze"
-                            )
-                        }
-                        IconButton(onClick = { torchOn = !torchOn }) {
-                            Icon(
-                                imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
-                                contentDescription = if (torchOn) "Flash on" else "Flash off"
-                            )
-                        }
-                        IconButton(onClick = {
-                            useFrontCamera = !useFrontCamera
-                            Log.d("LiveCameraScreen", "Flip camera $useFrontCamera")
-                        }) {
-                            Icon(Icons.Outlined.Cameraswitch, contentDescription = "Flip camera")
-                        }
-                    }
-                }
-                if (hasCameraPerm) {
-                    Box(
-                        Modifier
-                            .align(Alignment.Center)
-                            .size(24.dp)
-                            .clip(CircleShape)
-                            .background(Color(currentArgb))
-                            .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
-                    )
-                }
-
-                PaletteBar(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(bottom = 20.dp) // sits above peek sheet
-                        .fillMaxWidth()
-                        .padding(horizontal = 14.dp),
-                    palette = palette,
-                    onAddColor = {
-                        RecentPicksService.addPick(pickedColor)
-                        when {
-                            pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
-                            palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
-                            else -> palette.add(pickedColor)
-                        }
-                    },
-                    onAddPalette = {
-                        if (palette.isEmpty()) {
-                            showSnack("Palette empty, start adding colors")
-                            return@PaletteBar
-                        }
-                        PaletteService.create(
-                            name = "Palette ${PaletteService.palettes.value.size + 1}",
-                            tags = listOf("camera", "live-pick"),
-                            colors = palette
-                        )
-                        palette.clear()
-                        showSnack("Palette saved ✅")
-                    },
-                    onClearPalette = { palette.clear() }
-                )
+                content(inner) // (or combine padding like Option A)
             }
         }
-    }
-
-    detailPick?.let { picked ->
-        ColorDetailsBottomSheet(
-            picked = picked,
-            onDismiss = { detailPick = null },
-            onOpenColorDetail = { p -> detailPick = p }
-        )
     }
 }
 
