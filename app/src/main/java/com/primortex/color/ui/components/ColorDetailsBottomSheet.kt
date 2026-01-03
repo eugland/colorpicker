@@ -20,14 +20,20 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -43,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.launch
 
@@ -65,6 +72,8 @@ fun ColorDetailsBottomSheet(
     val details: ColorDetails = remember(picked.argb) {
         ColorDetailsService.details(picked.argb, similarLimit = 10)
     }
+    val savedColors by RecentPicksService.saved.collectAsState()
+    val isSaved = savedColors.any { it.argb == picked.argb }
 
     ModalBottomSheet(
         sheetState = sheetState,
@@ -106,7 +115,10 @@ fun ColorDetailsBottomSheet(
             Spacer(Modifier.height(12.dp))
 
             // Actions
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
                 OutlinedButton(onClick = {
                     scope.launch {
                         clipboard.setClipEntry(
@@ -122,6 +134,15 @@ fun ColorDetailsBottomSheet(
                         )
                     }
                 }) { Text("Copy name") }
+
+                OutlinedButton(onClick = { RecentPicksService.toggleSaved(picked) }) {
+                    Icon(
+                        imageVector = if (isSaved) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                        contentDescription = null
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(if (isSaved) "Remove saved" else "Save color")
+                }
             }
 
             Spacer(Modifier.height(14.dp))

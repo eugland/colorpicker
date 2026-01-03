@@ -26,6 +26,7 @@ object RecentPicksService {
 
     private const val MAX = 100
     private val KEY_HISTORY = stringPreferencesKey("history_json")
+    private val KEY_SAVED = stringPreferencesKey("saved_json")
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val json = Json {
@@ -35,6 +36,8 @@ object RecentPicksService {
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val _history = MutableStateFlow<List<PickedColor>>(emptyList())
     val history: StateFlow<List<PickedColor>> = _history
+    private val _saved = MutableStateFlow<List<PickedColor>>(emptyList())
+    val saved: StateFlow<List<PickedColor>> = _saved
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -48,9 +51,18 @@ object RecentPicksService {
                     ?: emptyList()
             }.getOrDefault(emptyList())
 
-            Log.d("RecentPicksService", "Loaded ${saved.size} picks")
+            val savedColors = runCatching {
+                prefs[KEY_SAVED]?.let { json.decodeFromString<List<PickedColor>>(it) }
+                    ?: emptyList()
+            }.getOrDefault(emptyList())
+
+            Log.d(
+                "RecentPicksService",
+                "Loaded ${saved.size} recents and ${savedColors.size} saved colors"
+            )
 
             _history.value = saved.take(MAX)
+            _saved.value = savedColors.take(MAX)
 
             seedIfNeeded(prefs)
 
@@ -114,16 +126,35 @@ object RecentPicksService {
                 .distinctBy { it.argb } // optional: dedupe by color
                 .take(MAX)
         }
-        persist()
+        persistHistory()
     }
 
     fun clear() {
         _history.value = emptyList()
-        persist()
+        persistHistory()
+    }
+
+    fun addSaved(pick: PickedColor) {
+        _saved.update { prev ->
+            (listOf(pick) + prev)
+                .distinctBy { it.argb }
+                .take(MAX)
+        }
+        persistSaved()
+    }
+
+    fun removeSaved(argb: Int) {
+        _saved.update { prev -> prev.filterNot { it.argb == argb } }
+        persistSaved()
+    }
+
+    fun toggleSaved(pick: PickedColor) {
+        val exists = _saved.value.any { it.argb == pick.argb }
+        if (exists) removeSaved(pick.argb) else addSaved(pick)
     }
 
     // ---- persistence ----
-    private fun persist() {
+    private fun persistHistory() {
         val snapshot = _history.value
         scope.launch {
             val payload = runCatching {
@@ -132,6 +163,18 @@ object RecentPicksService {
 
             appContext.recentsDataStore.edit { prefs ->
                 prefs[KEY_HISTORY] = payload
+            }
+        }
+    }
+
+    private fun persistSaved() {
+        val snapshot = _saved.value
+        scope.launch {
+            val payload = runCatching { json.encodeToString(snapshot) }
+                .getOrElse { "[]" }
+
+            appContext.recentsDataStore.edit { prefs ->
+                prefs[KEY_SAVED] = payload
             }
         }
     }

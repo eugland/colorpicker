@@ -311,7 +311,10 @@ fun LiveCameraScreen(
                 when {
                     pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
                     palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
-                    else -> palette.add(pickedColor)
+                    else -> {
+                        palette.add(pickedColor)
+                        RecentPicksService.addSaved(pickedColor)
+                    }
                 }
             },
             onAddPalette = {

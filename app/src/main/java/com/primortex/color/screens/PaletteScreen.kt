@@ -132,6 +132,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     val clipboard = LocalClipboardManager.current
 
     val recents by RecentPicksService.history.collectAsState()
+    val savedColors by RecentPicksService.saved.collectAsState()
     val savedPalettes by PaletteService.palettes.collectAsState()
 
     var searchQuery by remember { mutableStateOf("") }
@@ -156,7 +157,6 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     val hasMoreThanThreshold = recents.size > threshold
     val visibleRecents =
         if (!hasMoreThanThreshold || showAllRecents) recents else recents.take(threshold)
-    hasMoreThanThreshold && showAllRecents
 
     ScreenScaffold(
         "Palette",
@@ -281,6 +281,37 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                             Text(if (showAllRecents) "Show less" else "Show more")
                         }
                     }
+                }
+            }
+
+            item { Spacer(Modifier.height(16.dp)) }
+
+            item { Text("Saved colors", style = MaterialTheme.typography.titleMedium) }
+            item { Spacer(Modifier.height(8.dp)) }
+
+            if (savedColors.isEmpty()) {
+                item {
+                    Text(
+                        "No saved colors yet.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            } else {
+                item {
+                    FlowRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        savedColors.forEach { pick ->
+                            Swatch(
+                                argb = pick.argb,
+                                onClick = { detailPick = pick },
+                                label = pick.name
+                            )
+                        }
+                    }
+
                 }
             }
 
