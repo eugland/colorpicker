@@ -9,10 +9,14 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import java.util.UUID
 
@@ -32,12 +36,19 @@ object PaletteService {
         if (::appContext.isInitialized) return
         appContext = context.applicationContext
         scope.launch {
-            val prefs = appContext.paletteDataStore.data.first()
-            val saved = runCatching {
-                prefs[KEY]?.let { json.decodeFromString<List<Palette>>(it) } ?: emptyList()
-            }.getOrDefault(emptyList())
-            _palettes.value = saved
-            seedIfNeeded(prefs)
+            appContext.paletteDataStore.data
+                .map { prefs ->
+                    val saved = runCatching {
+                        prefs[KEY]?.let { json.decodeFromString<List<Palette>>(it) } ?: emptyList()
+                    }.getOrDefault(emptyList())
+
+                    val seeded = prefs[KEY_SEEDED] == true
+                    Triple(saved, seeded, prefs)
+                }
+                .collect { (saved, seeded, prefs) ->
+                    _palettes.value = saved
+                    if (!seeded) seedIfNeeded(prefs) // this writes once
+                }
         }
     }
 
@@ -90,7 +101,12 @@ object PaletteService {
         }
     }
 
-    fun create(name: String, colors: List<PickedColor>, tags: List<String> = emptyList(), note: String = "") {
+    fun create(
+        name: String,
+        colors: List<PickedColor>,
+        tags: List<String> = emptyList(),
+        note: String = ""
+    ) {
         val now = System.currentTimeMillis()
         val p = Palette(
             id = UUID.randomUUID().toString(),
@@ -105,7 +121,13 @@ object PaletteService {
         persist()
     }
 
-    fun update(id: String, name: String? = null, colors: List<PickedColor>? = null, tags: List<String>? = null, note: String? = null) {
+    fun update(
+        id: String,
+        name: String? = null,
+        colors: List<PickedColor>? = null,
+        tags: List<String>? = null,
+        note: String? = null
+    ) {
         val now = System.currentTimeMillis()
         _palettes.update { list ->
             list.map { p ->

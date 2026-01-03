@@ -77,8 +77,10 @@ import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @Preview(showBackground = true)
 @Composable
@@ -133,9 +135,13 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     val savedPalettes by PaletteService.palettes.collectAsState()
 
     var searchQuery by remember { mutableStateOf("") }
-
-    val suggestions = remember(searchQuery, recents) {
-        ColorQueryResolver.search(searchQuery, limit = 10)
+    var suggestions by remember { mutableStateOf<List<PickedColor>>(emptyList()) }
+    LaunchedEffect(searchQuery) {
+        val q = searchQuery
+        delay(120) // debounce typing
+        suggestions = withContext(Dispatchers.Default) {
+            ColorQueryResolver.search(q, limit = 10)
+        }
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     val snackbarHostState = remember { SnackbarHostState() }
@@ -251,8 +257,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                     FlowRow(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                        maxItemsInEachRow = 5 // same as your Fixed(5)
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         visibleRecents.forEach { pick ->
                             Swatch(
@@ -358,8 +363,9 @@ private fun ColorSearchBar(
     var focused by remember { mutableStateOf(false) }
     var idx by remember { mutableIntStateOf(0) }
 
-    LaunchedEffect(prompts) {
-        idx = 0
+    LaunchedEffect(focused, prompts) {
+        if (focused || query.isNotBlank())
+            idx = 0
         while (true) {
             delay(2200L)
             idx = (idx + 1) % prompts.size

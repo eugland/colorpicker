@@ -1,6 +1,7 @@
 package com.primortex.color.service
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -43,28 +44,31 @@ object RecentPicksService {
             val prefs = appContext.recentsDataStore.data.first()
 
             val saved = runCatching {
-                prefs[KEY_HISTORY]?.let { json.decodeFromString<List<PickedColor>>(it) } ?: emptyList()
+                prefs[KEY_HISTORY]?.let { json.decodeFromString<List<PickedColor>>(it) }
+                    ?: emptyList()
             }.getOrDefault(emptyList())
+
+            Log.d("RecentPicksService", "Loaded ${saved.size} picks")
 
             _history.value = saved.take(MAX)
 
             seedIfNeeded(prefs)
 
             //Testing use: -------------------------------------------------------------------------
-            val defaults = List(100) { i ->
-                val hue = (i * 37f) % 360f              // golden-angle spread
-                val saturation = 0.45f + (i % 3) * 0.15f
-                val value = 0.65f + (i % 4) * 0.08f
-
-                val hsv = floatArrayOf(hue, saturation.coerceIn(0f, 1f), value.coerceIn(0f, 1f))
-                val argb = android.graphics.Color.HSVToColor(hsv)
-
-                PickedColor(
-                    argb = argb,
-                    name = "Color ${i + 1}"
-                )
-            }.take(MAX)
-            _history.value = defaults
+//            val defaults = List(100) { i ->
+//                val hue = (i * 37f) % 360f              // golden-angle spread
+//                val saturation = 0.45f + (i % 3) * 0.15f
+//                val value = 0.65f + (i % 4) * 0.08f
+//
+//                val hsv = floatArrayOf(hue, saturation.coerceIn(0f, 1f), value.coerceIn(0f, 1f))
+//                val argb = android.graphics.Color.HSVToColor(hsv)
+//
+//                PickedColor(
+//                    argb = argb,
+//                    name = "Color ${i + 1}"
+//                )
+//            }.take(MAX)
+//            _history.value = defaults
             // testing use end ---------------------------------------------------------------------
         }
 

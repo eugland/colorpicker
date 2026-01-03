@@ -102,7 +102,7 @@ fun ColorApp() {
 
         NavHost(
             navController = nav,
-            startDestination = "tab/camera",
+            startDestination = "tab/palette",
             modifier = Modifier.fillMaxSize(),
 
             enterTransition = {

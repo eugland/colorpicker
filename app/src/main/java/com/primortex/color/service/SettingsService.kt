@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -47,7 +48,7 @@ object SettingsService {
     val crosshairShape: StateFlow<CrosshairShape> = _crosshairShape
 
     private val _themeMode = MutableStateFlow(ThemeMode.SYSTEM)
-    val themeMode: StateFlow<ThemeMode> = _themeMode
+    val themeMode: StateFlow<ThemeMode> = _themeMode.asStateFlow()
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
