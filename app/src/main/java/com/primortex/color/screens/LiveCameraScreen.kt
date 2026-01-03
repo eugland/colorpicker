@@ -13,7 +13,6 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,7 +27,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
@@ -77,6 +75,8 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.SettingsService
+import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.PaletteBar
@@ -113,6 +113,8 @@ fun LiveCameraScreen(
     }
 
     var currentArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
+    val crosshairSize by SettingsService.crosshairSize.collectAsState()
+    val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val pickedColor by remember {
         derivedStateOf {
             val argb = currentArgb
@@ -299,15 +301,12 @@ fun LiveCameraScreen(
             }
         }
         if (hasCameraPerm) {
-            Box(
-                Modifier
-                    .align(Alignment.Center)
-                    .size(24.dp)
-                    .clip(CircleShape)
-                    .background(Color(currentArgb))
-                    .border(1.dp, MaterialTheme.colorScheme.surface, CircleShape)
+            CrosshairIndicator(
+                argb = currentArgb,
+                size = crosshairSize,
+                shape = crosshairShape,
+                modifier = Modifier.align(Alignment.Center)
             )
-
         }
 
         PaletteBar(
