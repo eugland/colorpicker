@@ -148,7 +148,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
-    val threshold = 20
+    val threshold = 10
     var showAllRecents by remember { mutableStateOf(false) }
 
     LaunchedEffect(recents.size) {
