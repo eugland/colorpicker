@@ -35,6 +35,7 @@ enum class ThemeMode(val label: String) {
 object SettingsService {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
+    private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -63,6 +64,10 @@ object SettingsService {
             _crosshairShape.value = prefs[KEY_CROSSHAIR_SHAPE]
                 ?.let { runCatching { CrosshairShape.valueOf(it) }.getOrNull() }
                 ?: CrosshairShape.Circle
+
+            _themeMode.value = prefs[KEY_THEME_MODE]
+                ?.let { runCatching { ThemeMode.valueOf(it) }.getOrNull() }
+                ?: ThemeMode.SYSTEM
         }
     }
 
@@ -86,11 +91,13 @@ object SettingsService {
     private fun persist() {
         val size = _crosshairSize.value.name
         val shape = _crosshairShape.value.name
+        val theme = _themeMode.value.name
 
         scope.launch {
             appContext.settingsDataStore.edit { prefs ->
                 prefs[KEY_CROSSHAIR_SIZE] = size
                 prefs[KEY_CROSSHAIR_SHAPE] = shape
+                prefs[KEY_THEME_MODE] = theme
             }
         }
     }

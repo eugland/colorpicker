@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
 import com.primortex.color.service.SettingsService
+import com.primortex.color.service.ThemeMode
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
 
@@ -39,7 +40,7 @@ import com.primortex.color.ui.components.ScreenScaffold
 fun ExploreScreen(innerPadding: PaddingValues) {
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
-    val themeMode by SettingsService.themeMode.collectAsState() // add this in SettingsService
+    val themeMode by SettingsService.themeMode.collectAsState()
 
     ScreenScaffold("Explore", innerPadding) {
         Column(
@@ -59,7 +60,10 @@ fun ExploreScreen(innerPadding: PaddingValues) {
 
             // --- App preferences card (Theme, Language, etc.) ---
             ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(modifier = Modifier.padding(vertical = 6.dp)) {
+                Column(
+                    modifier = Modifier.padding(vertical = 6.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
                     Text(
                         "App preferences",
                         style = MaterialTheme.typography.labelLarge,
@@ -67,22 +71,37 @@ fun ExploreScreen(innerPadding: PaddingValues) {
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
                     )
 
-                    ListItem(
-                        headlineContent = { Text("Theme") },
-                        supportingContent = { Text(themeMode.label) },
-                        leadingContent = {
+                    Column(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(
                                 imageVector = Icons.Outlined.DarkMode,
-                                contentDescription = null
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                // open a bottom sheet, dialog, or navigate
-                                // Example: showThemeSheet = true
+                            Text(
+                                "Theme",
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(start = 12.dp)
+                            )
+                        }
+                        Text(
+                            "Choose how the app looks.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            ThemeMode.values().forEach { mode ->
+                                FilterChip(
+                                    selected = themeMode == mode,
+                                    onClick = { SettingsService.setThemeMode(mode) },
+                                    label = { Text(mode.label) }
+                                )
                             }
-                    )
+                        }
+                    }
 
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
