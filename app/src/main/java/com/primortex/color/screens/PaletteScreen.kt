@@ -16,7 +16,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,7 +28,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -38,7 +36,6 @@ import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -63,11 +60,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameIndex
@@ -76,6 +71,7 @@ import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
+import com.primortex.color.ui.components.SwatchSection
 import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -147,16 +143,6 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-
-    val threshold = 10
-    var showAllRecents by remember { mutableStateOf(false) }
-
-    LaunchedEffect(recents.size) {
-        if (recents.size <= threshold) showAllRecents = false
-    }
-    val hasMoreThanThreshold = recents.size > threshold
-    val visibleRecents =
-        if (!hasMoreThanThreshold || showAllRecents) recents else recents.take(threshold)
 
     ScreenScaffold(
         "Palette",
@@ -242,77 +228,23 @@ fun PaletteScreen(innerPadding: PaddingValues) {
             }
 
             item { Spacer(Modifier.height(16.dp)) }
-            item { Text("Recent colors", style = MaterialTheme.typography.titleMedium) }
-            item { Spacer(Modifier.height(8.dp)) }
-
-            if (recents.isEmpty()) {
-                item {
-                    Text(
-                        "No recent colors yet. Tap 🧪 to pick a color.",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            } else {
-                item {
-                    FlowRow(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        visibleRecents.forEach { pick ->
-                            Swatch(
-                                argb = pick.argb,
-                                onClick = { detailPick = pick },
-                                label = pick.name
-                            )
-                        }
-                    }
-
-                }
-
-                if (hasMoreThanThreshold) {
-                    item { Spacer(Modifier.height(10.dp)) }
-
-                    item {
-                        FilledTonalButton(
-                            onClick = { showAllRecents = !showAllRecents },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(if (showAllRecents) "Show less" else "Show more")
-                        }
-                    }
-                }
+            item {
+                SwatchSection(
+                    title = "Recent colors",
+                    picks = recents,
+                    emptyMessage = "No recent colors yet. Tap 🧪 to pick a color.",
+                    onSwatchClick = { pick -> detailPick = pick }
+                )
             }
 
             item { Spacer(Modifier.height(16.dp)) }
-
-            item { Text("Saved colors", style = MaterialTheme.typography.titleMedium) }
-            item { Spacer(Modifier.height(8.dp)) }
-
-            if (savedColors.isEmpty()) {
-                item {
-                    Text(
-                        "No saved colors yet.",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            } else {
-                item {
-                    FlowRow(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        savedColors.forEach { pick ->
-                            Swatch(
-                                argb = pick.argb,
-                                onClick = { detailPick = pick },
-                                label = pick.name
-                            )
-                        }
-                    }
-
-                }
+            item {
+                SwatchSection(
+                    title = "Saved colors",
+                    picks = savedColors,
+                    emptyMessage = "No saved colors yet.",
+                    onSwatchClick = { pick -> detailPick = pick }
+                )
             }
 
             item { Spacer(Modifier.height(16.dp)) }
@@ -451,35 +383,6 @@ private fun ColorSearchBar(
     }
 }
 
-
-@Composable
-private fun Swatch(argb: Int, onClick: () -> Unit, label: String) {
-    val cellW = 72.dp
-
-    Column(
-        modifier = Modifier.width(cellW),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Box(
-            Modifier
-                .size(44.dp)
-                .clip(CircleShape)
-                .background(Color(argb))
-                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
-                .clickable(onClick = onClick)
-        )
-        Spacer(Modifier.height(6.dp))
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelSmall,
-            maxLines = 2,                        // 👈 key
-            overflow = TextOverflow.Ellipsis,
-            textAlign = TextAlign.Center,
-            lineHeight = 12.sp,
-            modifier = Modifier.fillMaxWidth()   // 👈 uses the fixed cell width
-        )
-    }
-}
 
 @Composable
 private fun PaletteCard(
