@@ -177,6 +177,53 @@ fun ExploreScreen(innerPadding: PaddingValues) {
 
                 }
             }
+
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    Text(
+                        "Information",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    InfoSection(
+                        title = "Copyright notice",
+                        description = "© 2024 Color Picker by Primortex. All rights reserved.",
+                        details = listOf(
+                            "Third-party components: Jetpack Compose Material 3, CameraX, Coil, Ktor, Navigation Compose, and Accompanist Navigation Animation.",
+                            "Open-source licenses are respected and remain the property of their respective owners."
+                        )
+                    )
+
+                    HorizontalDivider()
+
+                    InfoSection(
+                        title = "Privacy statement",
+                        description = "Color sampling happens on your device. Camera previews and picked photos are used only to extract colors and are not stored or sent to remote servers.",
+                        details = listOf(
+                            "Network activity is limited to fetching supporting data (like palette names) when needed.",
+                            "You can revoke camera and photo permissions at any time in your system settings."
+                        )
+                    )
+
+                    HorizontalDivider()
+
+                    InfoSection(
+                        title = "Usage guide",
+                        description = "Follow these steps to get the most out of Color Picker.",
+                        details = listOf(
+                            "Explore settings: choose your theme, language, and adjust the picker crosshair size and shape.",
+                            "Live capture: open Live Camera to aim the crosshair at any object and tap to lock in a swatch.",
+                            "Pick from photos: use Photo Pick to select an image from your gallery and tap anywhere to sample colors.",
+                            "View details: open any saved swatch to see its HEX, RGB, and HSL values and copy them for reuse.",
+                            "Build palettes: combine multiple saved swatches into palettes from the Palette tab for quick access."
+                        )
+                    )
+                }
+            }
         }
     }
 }
@@ -205,5 +252,24 @@ private fun SettingBlock(content: @Composable ColumnScope.() -> Unit) {
             verticalArrangement = Arrangement.spacedBy(10.dp),
             content = content
         )
+    }
+}
+
+@Composable
+private fun InfoSection(title: String, description: String, details: List<String>) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(title, style = MaterialTheme.typography.titleMedium)
+        Text(
+            description,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        details.forEach { detail ->
+            Text(
+                "• $detail",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
     }
 }
