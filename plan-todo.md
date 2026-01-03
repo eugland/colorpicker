@@ -1,32 +1,16 @@
 # V2.0 Must haves
 
-## Settings: Change focus Cross Hair
-
-1. Can choose size
-2. Can choose shape
-
 ## Settings: Language:
 
 1. Setting language should only Support display language:
 2. English, Mandarin Chinese, Hindi, Spanish, Arabic, French, Bengali, Portuguese, Russian, and
    Indonesian/Malay
 
-## Setting: CopyRight Notice
-
-1. declare Copyright used
-2. declare used 3rd party apps
-
-## Settings: Usage Guide
-
-1. Write the entire usage guide
-
-## Settings: Theme
-
-1. Choose dark or light theme
-
 ## Palette: Edit palette
 
-1. Clicking on palette open detailed palette view
+1. Clicking on palette on the palette screen should open up detailed palette view
+2. The detail palettee view should offer details information of the palettee and the color it contains. 
+3. It should also feature a couple of buttons: copy all hex, and delete (like we already have on the list in )
 2. Palette support adding new color from recent service, or remove new colors
 3. Should support editing tags, names of the palette
 
@@ -63,3 +47,5 @@ Camera sampling rate: offer low/ medium / High,
 ## Language support search
 
 1. Search should support multi lingual
+
+Thank you, but I do not like the way it is, case in point the small text in the paddinged block are too small and tight to read let the user click on each such as copyright, privacy Statement and open new page to read them Also what saves more memory? string in resources or in assets load when needed? For use guide you may need 2 levels: click then show index pick color, save color etc.
