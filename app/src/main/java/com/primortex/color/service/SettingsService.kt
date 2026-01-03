@@ -26,6 +26,12 @@ enum class CrosshairShape(val label: String) {
     Cross("Crosshair")
 }
 
+enum class ThemeMode(val label: String) {
+    SYSTEM("System default"),
+    LIGHT("Light"),
+    DARK("Dark")
+}
+
 object SettingsService {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
@@ -38,6 +44,9 @@ object SettingsService {
 
     private val _crosshairShape = MutableStateFlow(CrosshairShape.Circle)
     val crosshairShape: StateFlow<CrosshairShape> = _crosshairShape
+
+    private val _themeMode = MutableStateFlow(ThemeMode.SYSTEM)
+    val themeMode: StateFlow<ThemeMode> = _themeMode
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -67,6 +76,13 @@ object SettingsService {
         persist()
     }
 
+
+    fun setThemeMode(mode: ThemeMode) {
+        _themeMode.value = mode
+        persist()
+    }
+
+
     private fun persist() {
         val size = _crosshairSize.value.name
         val shape = _crosshairShape.value.name
@@ -78,4 +94,5 @@ object SettingsService {
             }
         }
     }
+
 }
