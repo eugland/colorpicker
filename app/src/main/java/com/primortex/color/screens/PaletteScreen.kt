@@ -36,6 +36,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -44,6 +46,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -142,6 +145,9 @@ fun PaletteScreen(innerPadding: PaddingValues) {
         }
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
+    var showClearRecentsDialog by remember { mutableStateOf(false) }
+    var showClearSavedDialog by remember { mutableStateOf(false) }
+    var showClearPalettesDialog by remember { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -234,7 +240,14 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                     title = "Recent colors",
                     picks = recents,
                     emptyMessage = "No recent colors yet. Tap 🧪 to pick a color.",
-                    onSwatchClick = { pick -> detailPick = pick }
+                    onSwatchClick = { pick -> detailPick = pick },
+                    actions = {
+                        if (recents.isNotEmpty()) {
+                            TextButton(onClick = { showClearRecentsDialog = true }) {
+                                Text("Clear")
+                            }
+                        }
+                    }
                 )
             }
 
@@ -244,7 +257,14 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                     title = "Saved colors",
                     picks = savedColors,
                     emptyMessage = "No saved colors yet.",
-                    onSwatchClick = { pick -> detailPick = pick }
+                    onSwatchClick = { pick -> detailPick = pick },
+                    actions = {
+                        if (savedColors.isNotEmpty()) {
+                            TextButton(onClick = { showClearSavedDialog = true }) {
+                                Text("Clear")
+                            }
+                        }
+                    }
                 )
             }
 
@@ -260,6 +280,11 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f)
                     )
+                    if (savedPalettes.isNotEmpty()) {
+                        TextButton(onClick = { showClearPalettesDialog = true }) {
+                            Text("Clear")
+                        }
+                    }
                 }
             }
 
@@ -300,6 +325,62 @@ fun PaletteScreen(innerPadding: PaddingValues) {
             skipPartiallyExpanded = true
         )
     }
+
+    if (showClearRecentsDialog) {
+        ConfirmClearDialog(
+            title = "Clear recent colors?",
+            description = "This will remove all recent colors.",
+            onConfirm = {
+                RecentPicksService.clear()
+                showClearRecentsDialog = false
+            },
+            onDismiss = { showClearRecentsDialog = false }
+        )
+    }
+
+    if (showClearSavedDialog) {
+        ConfirmClearDialog(
+            title = "Clear saved colors?",
+            description = "This will remove all saved colors.",
+            onConfirm = {
+                RecentPicksService.clearSaved()
+                showClearSavedDialog = false
+            },
+            onDismiss = { showClearSavedDialog = false }
+        )
+    }
+
+    if (showClearPalettesDialog) {
+        ConfirmClearDialog(
+            title = "Clear saved palettes?",
+            description = "This will remove all saved palettes.",
+            onConfirm = {
+                PaletteService.clear()
+                showClearPalettesDialog = false
+            },
+            onDismiss = { showClearPalettesDialog = false }
+        )
+    }
+}
+
+@Composable
+private fun ConfirmClearDialog(
+    title: String,
+    description: String,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(title) },
+        text = { Text(description) },
+        confirmButton = {
+            Button(onClick = onConfirm) { Text("Clear") }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) { Text("Cancel") }
+        }
+    )
 }
 
 @Composable

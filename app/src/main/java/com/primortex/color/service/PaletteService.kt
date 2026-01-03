@@ -149,6 +149,11 @@ object PaletteService {
         persist()
     }
 
+    fun clear() {
+        _palettes.value = emptyList()
+        persist()
+    }
+
     private fun persist() {
         val snapshot = _palettes.value
         scope.launch {

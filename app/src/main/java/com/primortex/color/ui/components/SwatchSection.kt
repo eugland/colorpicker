@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,6 +42,7 @@ fun SwatchSection(
     onSwatchClick: (PickedColor) -> Unit,
     modifier: Modifier = Modifier,
     threshold: Int = 10,
+    actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
 
@@ -52,7 +54,17 @@ fun SwatchSection(
     val visiblePicks = if (!hasMoreThanThreshold || showAll) picks else picks.take(threshold)
 
     Column(modifier) {
-        Text(title, style = MaterialTheme.typography.titleMedium)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                title,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.weight(1f)
+            )
+            actions?.invoke()
+        }
         Spacer(Modifier.height(8.dp))
 
         if (picks.isEmpty()) {

@@ -134,6 +134,11 @@ object RecentPicksService {
         persistHistory()
     }
 
+    fun clearSaved() {
+        _saved.value = emptyList()
+        persistSaved()
+    }
+
     fun addSaved(pick: PickedColor) {
         _saved.update { prev ->
             (listOf(pick) + prev)
