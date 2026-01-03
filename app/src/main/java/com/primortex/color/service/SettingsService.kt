@@ -33,7 +33,7 @@ object SettingsService {
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-    private val _crosshairSize = MutableStateFlow(CrosshairSize.Medium)
+    private val _crosshairSize = MutableStateFlow(CrosshairSize.Small)
     val crosshairSize: StateFlow<CrosshairSize> = _crosshairSize
 
     private val _crosshairShape = MutableStateFlow(CrosshairShape.Circle)
@@ -49,7 +49,7 @@ object SettingsService {
 
             _crosshairSize.value = prefs[KEY_CROSSHAIR_SIZE]
                 ?.let { runCatching { CrosshairSize.valueOf(it) }.getOrNull() }
-                ?: CrosshairSize.Medium
+                ?: CrosshairSize.Small
 
             _crosshairShape.value = prefs[KEY_CROSSHAIR_SHAPE]
                 ?.let { runCatching { CrosshairShape.valueOf(it) }.getOrNull() }
