@@ -14,7 +14,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ArrowForwardIos
+import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.Gavel
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
@@ -30,6 +33,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
@@ -39,7 +43,12 @@ import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
 
 @Composable
-fun ExploreScreen(innerPadding: PaddingValues) {
+fun ExploreScreen(
+    innerPadding: PaddingValues,
+    onOpenCopyright: () -> Unit,
+    onOpenPrivacy: () -> Unit,
+    onOpenUsageGuide: () -> Unit
+) {
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val themeMode by SettingsService.themeMode.collectAsState()
@@ -183,47 +192,39 @@ fun ExploreScreen(innerPadding: PaddingValues) {
 
             ElevatedCard(modifier = Modifier.fillMaxWidth()) {
                 Column(
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
                         "Information",
                         style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
                     )
 
-                    InfoSection(
+                    InfoLink(
                         title = "Copyright notice",
-                        description = "© 2024 Color Picker by Primortex. All rights reserved.",
-                        details = listOf(
-                            "Third-party components: Jetpack Compose Material 3, CameraX, Coil, Ktor, Navigation Compose, and Accompanist Navigation Animation.",
-                            "Open-source licenses are respected and remain the property of their respective owners."
-                        )
+                        subtitle = "Ownership, third-party components, and licensing details",
+                        icon = Icons.Outlined.Gavel,
+                        onClick = onOpenCopyright
                     )
 
-                    HorizontalDivider()
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
-                    InfoSection(
+                    InfoLink(
                         title = "Privacy statement",
-                        description = "Color sampling happens on your device. Camera previews and picked photos are used only to extract colors and are not stored or sent to remote servers.",
-                        details = listOf(
-                            "Network activity is limited to fetching supporting data (like palette names) when needed.",
-                            "You can revoke camera and photo permissions at any time in your system settings."
-                        )
+                        subtitle = "How camera and photo data stay on-device",
+                        icon = Icons.Outlined.Description,
+                        onClick = onOpenPrivacy
                     )
 
-                    HorizontalDivider()
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
-                    InfoSection(
+                    InfoLink(
                         title = "Usage guide",
-                        description = "Follow these steps to get the most out of Color Picker.",
-                        details = listOf(
-                            "Explore settings: choose your theme, language, and adjust the picker crosshair size and shape.",
-                            "Live capture: open Live Camera to aim the crosshair at any object and tap to lock in a swatch.",
-                            "Pick from photos: use Photo Pick to select an image from your gallery and tap anywhere to sample colors.",
-                            "View details: open any saved swatch to see its HEX, RGB, and HSL values and copy them for reuse.",
-                            "Build palettes: combine multiple saved swatches into palettes from the Palette tab for quick access."
-                        )
+                        subtitle = "Step-by-step guide and index for key tasks",
+                        icon = Icons.Outlined.Description,
+                        onClick = onOpenUsageGuide
                     )
                 }
             }
@@ -259,20 +260,37 @@ private fun SettingBlock(content: @Composable ColumnScope.() -> Unit) {
 }
 
 @Composable
-private fun InfoSection(title: String, description: String, details: List<String>) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(title, style = MaterialTheme.typography.titleMedium)
-        Text(
-            description,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        details.forEach { detail ->
+private fun InfoLink(
+    title: String,
+    subtitle: String,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    ListItem(
+        headlineContent = { Text(title) },
+        supportingContent = {
             Text(
-                "• $detail",
-                style = MaterialTheme.typography.bodySmall,
+                subtitle,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-        }
-    }
+        },
+        leadingContent = {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary
+            )
+        },
+        trailingContent = {
+            Icon(
+                imageVector = Icons.Outlined.ArrowForwardIos,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+    )
 }
