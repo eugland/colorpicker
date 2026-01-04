@@ -18,6 +18,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ChevronRight
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.Button
@@ -117,10 +119,13 @@ fun ColorSliderScreen(
                             )
                         }
                     }
-                ) { 
-                    Icon(Icons.Outlined.FavoriteBorder, contentDescription = null)
+                ) {
+                    Icon(
+                        if (isSaved) Icons.Outlined.Favorite else Icons.Outlined.FavoriteBorder,
+                        contentDescription = null
+                    )
                     Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) "Saved" else "Save to My colors")
+                    Text(if (isSaved) "Saved" else "Save")
                 }
 
                 Button(
@@ -282,29 +287,37 @@ private fun ColorPreviewCard(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(
-                    modifier = Modifier
-                        .size(56.dp)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(Color(argb)),
-                    contentAlignment = Alignment.Center
-                ) {}
-                Spacer(Modifier.width(12.dp))
-                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(name, style = MaterialTheme.typography.titleLarge)
-                    Text(hex, fontFamily = FontFamily.Monospace)
-                    Text(
-                        "RGB ${rgb.first}, ${rgb.second}, ${rgb.third}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // LEFT: color + texts
+                Row(
+                    modifier = Modifier.weight(1f),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(56.dp)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(Color(argb))
                     )
-                    Text(
-                        "Tap to view details",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+
+                    Spacer(Modifier.width(12.dp))
+
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(name, style = MaterialTheme.typography.titleLarge)
+                        Text(hex, fontFamily = FontFamily.Monospace)
+                    }
                 }
+
+                // RIGHT: "more info" hint
+                Icon(
+                    imageVector = Icons.Outlined.ChevronRight,
+                    contentDescription = "More details",
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(20.dp)
+                )
             }
         }
     }
@@ -352,8 +365,10 @@ private fun addToPalette(
     when {
         palette.colors.any { it.argb == color.argb } ->
             scope.launch { snackbarHostState.showSnackbar("Already in palette") }
+
         palette.colors.size >= 10 ->
             scope.launch { snackbarHostState.showSnackbar("Palette full (10 colors)") }
+
         else -> {
             PaletteService.update(
                 id = palette.id,

@@ -16,9 +16,11 @@
 
 ## palette: saved color
 
-1. A new display area called saved color the user should be able to save colors to my color
-2. The color detailed service should have 1 more button that saves color to my color
-3. All color added to a palette should be saved to saved color
+1. On the Palette page, after palette introduce a new display area called saved color the user should be able to view their saved colors to
+2. modify the RecentPickService so that it can accumondate saved colors, it now should have recent color and saved color. 
+3. The color detailed view (the pull up sheet) should have 1 more button that saves color to my color it should have the icon of a heart
+4. All color added to a palette should be saved to saved color
+5. If the color already exists in the saved color, it should instead show some other icon which shows to remove maybe distinguish by solid vs hollow heart? 
 
 ## Analytics: Collect analytics
 
