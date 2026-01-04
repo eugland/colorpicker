@@ -53,7 +53,6 @@ fun CameraScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        // Title + subtitle
         Text("Camera", style = MaterialTheme.typography.headlineSmall)
         Text(
             "Pick colors live or from a photo. Tap any swatch to copy.",
@@ -61,13 +60,10 @@ fun CameraScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        // Hero: Live picker
         LivePickerHeroCard(
             onOpenLiveCameraPicker = onOpenLiveCameraPicker
         )
 
-
-        // Two tiles: Camera / Album
         Row(
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -88,7 +84,6 @@ fun CameraScreen(
             )
         }
 
-        // Recents header
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
@@ -184,4 +179,3 @@ private fun SourceTile(
         }
     }
 }
-

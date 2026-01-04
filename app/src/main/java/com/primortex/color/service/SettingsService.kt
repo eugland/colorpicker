@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.primortex.color.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -27,10 +28,10 @@ enum class CrosshairShape(val label: String) {
     Cross("Crosshair")
 }
 
-enum class ThemeMode(val label: String) {
-    SYSTEM("System default"),
-    LIGHT("Light"),
-    DARK("Dark")
+enum class ThemeMode(val labelRes: Int) {
+    DARK(R.string.theme_dark),
+    LIGHT(R.string.theme_light),
+    SYSTEM(R.string.theme_dark)
 }
 
 enum class PickerSensitivity(val label: String) {
@@ -39,11 +40,55 @@ enum class PickerSensitivity(val label: String) {
     High("High")
 }
 
+enum class AppLanguage {
+    SystemDefault,
+
+    English,
+    Spanish,
+    French,
+    German,
+    Italian,
+    Portuguese,
+    Russian,
+
+    ChineseSimplified,
+    ChineseTraditional,
+
+    Japanese,
+    Korean,
+    Arabic,
+    Hindi,
+    Bengali,
+    Urdu,
+
+    Indonesian,
+    Vietnamese,
+    Turkish,
+    Dutch,
+    Swedish,
+    Norwegian,
+    Danish,
+    Finnish,
+
+    Greek,
+    Polish,
+    Czech,
+    Hungarian,
+    Romanian,
+    Thai,
+
+    Filipino,
+    Malay,
+    Hebrew,
+    Ukrainian
+}
+
 object SettingsService {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
     private val KEY_PICKER_SENSITIVITY = stringPreferencesKey("picker_sensitivity")
+    private val KEY_APP_LANGUAGE = stringPreferencesKey("app_language")
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -59,6 +104,9 @@ object SettingsService {
 
     private val _pickerSensitivity = MutableStateFlow(PickerSensitivity.Medium)
     val pickerSensitivity: StateFlow<PickerSensitivity> = _pickerSensitivity.asStateFlow()
+
+    private val _appLanguage = MutableStateFlow(AppLanguage.SystemDefault)
+    val appLanguage: StateFlow<AppLanguage> = _appLanguage.asStateFlow()
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -83,6 +131,10 @@ object SettingsService {
             _pickerSensitivity.value = prefs[KEY_PICKER_SENSITIVITY]
                 ?.let { runCatching { PickerSensitivity.valueOf(it) }.getOrNull() }
                 ?: PickerSensitivity.Medium
+
+            _appLanguage.value = prefs[KEY_APP_LANGUAGE]
+                ?.let { runCatching { AppLanguage.valueOf(it) }.getOrNull() }
+                ?: AppLanguage.SystemDefault
         }
     }
 
@@ -107,12 +159,18 @@ object SettingsService {
         persist()
     }
 
+    fun setAppLanguage(language: AppLanguage) {
+        _appLanguage.value = language
+        persist()
+    }
+
 
     private fun persist() {
         val size = _crosshairSize.value.name
         val shape = _crosshairShape.value.name
         val theme = _themeMode.value.name
         val sensitivity = _pickerSensitivity.value.name
+        val language = _appLanguage.value.name
 
         scope.launch {
             appContext.settingsDataStore.edit { prefs ->
@@ -120,6 +178,7 @@ object SettingsService {
                 prefs[KEY_CROSSHAIR_SHAPE] = shape
                 prefs[KEY_THEME_MODE] = theme
                 prefs[KEY_PICKER_SENSITIVITY] = sensitivity
+                prefs[KEY_APP_LANGUAGE] = language
             }
         }
     }

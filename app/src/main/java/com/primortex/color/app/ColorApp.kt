@@ -25,6 +25,7 @@ import androidx.navigation.navArgument
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ExploreScreen
+import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.LiveCameraScreen
@@ -50,6 +51,10 @@ private object InfoRoutes {
 
 private object SliderRoutes {
     const val SLIDER = "tool/slider"
+}
+
+private object SettingsRoutes {
+    const val LANGUAGE = "settings/language"
 }
 
 @Composable
@@ -159,6 +164,7 @@ fun ColorApp() {
             composable("tab/explore") {
                 ExploreScreen(
                     innerPadding = inner,
+                    onOpenLanguage = { nav.navigate(SettingsRoutes.LANGUAGE) },
                     onOpenCopyright = { nav.navigate(InfoRoutes.COPYRIGHT) },
                     onOpenPrivacy = { nav.navigate(InfoRoutes.PRIVACY) },
                     onOpenUsageGuide = { nav.navigate(InfoRoutes.USAGE) }
@@ -235,6 +241,13 @@ fun ColorApp() {
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
                     sections = InfoContent.usageSections
+                )
+            }
+
+            composable(SettingsRoutes.LANGUAGE) {
+                LanguageSelectionScreen(
+                    innerPadding = inner,
+                    onBack = { nav.popBackStack() }
                 )
             }
         }

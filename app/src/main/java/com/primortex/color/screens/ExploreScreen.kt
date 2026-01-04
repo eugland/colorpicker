@@ -2,8 +2,6 @@ package com.primortex.color.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -12,11 +10,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowForwardIos
-import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Gavel
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material3.ElevatedCard
@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
@@ -46,6 +47,7 @@ import com.primortex.color.ui.components.ScreenScaffold
 @Composable
 fun ExploreScreen(
     innerPadding: PaddingValues,
+    onOpenLanguage: () -> Unit,
     onOpenCopyright: () -> Unit,
     onOpenPrivacy: () -> Unit,
     onOpenUsageGuide: () -> Unit
@@ -54,6 +56,7 @@ fun ExploreScreen(
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val themeMode by SettingsService.themeMode.collectAsState()
     val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
+    val appLanguage by SettingsService.appLanguage.collectAsState()
 
     ScreenScaffold("Explore", innerPadding) {
         Column(
@@ -111,7 +114,7 @@ fun ExploreScreen(
                                 FilterChip(
                                     selected = themeMode == mode,
                                     onClick = { SettingsService.setThemeMode(mode) },
-                                    label = { Text(mode.label) }
+                                    label = { Text(stringResource(mode.labelRes)) }
                                 )
                             }
                         }
@@ -121,7 +124,7 @@ fun ExploreScreen(
 
                     ListItem(
                         headlineContent = { Text("Language") },
-                        supportingContent = { Text("Choose the language used in the app") },
+                        supportingContent = { Text(appLanguage.name) },
                         leadingContent = {
                             Icon(
                                 imageVector = Icons.Outlined.Language,
@@ -131,7 +134,7 @@ fun ExploreScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                // navigate to language screen
+                                onOpenLanguage()
                             }
                     )
                 }
