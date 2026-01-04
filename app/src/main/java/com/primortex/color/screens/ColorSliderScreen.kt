@@ -11,12 +11,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Palette
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
@@ -26,11 +29,12 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -42,6 +46,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
+import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
@@ -62,7 +67,7 @@ fun ColorSliderScreen(
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     val savedColors by RecentPicksService.saved.collectAsState()
     val palettes by PaletteService.palettes.collectAsState()
-    val paletteDraft = remember { mutableStateListOf<PickedColor>() }
+    var showPalettePicker by remember { mutableStateOf(false) }
 
     val nearestName = remember(argb) { ColorNameLookup.nearestName(argb).name }
     val picked = remember(argb, nearestName) { PickedColor(argb = argb, name = nearestName) }
@@ -101,7 +106,7 @@ fun ColorSliderScreen(
                             )
                         }
                     }
-                ) {
+                ) { 
                     Icon(Icons.Outlined.FavoriteBorder, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(if (isSaved) "Saved" else "Save to My colors")
@@ -109,12 +114,11 @@ fun ColorSliderScreen(
 
                 Button(
                     onClick = {
-                        addToPalette(
-                            palette = paletteDraft,
-                            color = picked,
-                            snackbarHostState = snackbarHostState,
-                            scope = scope
-                        )
+                        if (palettes.isEmpty()) {
+                            scope.launch { snackbarHostState.showSnackbar("No palettes available. Create one first.") }
+                        } else {
+                            showPalettePicker = true
+                        }
                     }
                 ) {
                     Icon(Icons.Outlined.Palette, contentDescription = null)
@@ -182,6 +186,43 @@ fun ColorSliderScreen(
                 )
             }
         }
+    }
+
+    if (showPalettePicker) {
+        AlertDialog(
+            onDismissRequest = { showPalettePicker = false },
+            title = { Text("Select palette") },
+            text = {
+                LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items(palettes) { palette ->
+                        Button(
+                            modifier = Modifier.fillMaxWidth(),
+                            onClick = {
+                                addToPalette(
+                                    palette = palette,
+                                    color = picked,
+                                    snackbarHostState = snackbarHostState,
+                                    scope = scope
+                                )
+                                showPalettePicker = false
+                            }
+                        ) {
+                            Column(Modifier.fillMaxWidth()) {
+                                Text(palette.name)
+                                Text(
+                                    "${palette.colors.size} colors",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
+                                )
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showPalettePicker = false }) { Text("Close") }
+            }
+        )
     }
 }
 
@@ -252,21 +293,23 @@ private fun toArgb(r: Int, g: Int, b: Int): Int {
 }
 
 private fun addToPalette(
-    palette: MutableList<PickedColor>,
+    palette: Palette,
     color: PickedColor,
     snackbarHostState: SnackbarHostState,
     scope: kotlinx.coroutines.CoroutineScope,
 ) {
-    if (palette.any { it.argb == color.argb }) {
-        scope.launch { snackbarHostState.showSnackbar("Already in palette") }
-        return
+    when {
+        palette.colors.any { it.argb == color.argb } ->
+            scope.launch { snackbarHostState.showSnackbar("Already in palette") }
+        palette.colors.size >= 10 ->
+            scope.launch { snackbarHostState.showSnackbar("Palette full (10 colors)") }
+        else -> {
+            PaletteService.update(
+                id = palette.id,
+                colors = palette.colors + color
+            )
+            RecentPicksService.addPick(color)
+            scope.launch { snackbarHostState.showSnackbar("Added to palette") }
+        }
     }
-    if (palette.size >= 10) {
-        scope.launch { snackbarHostState.showSnackbar("Palette full (10 colors)") }
-        return
-    }
-
-    palette.add(color)
-    RecentPicksService.addPick(color)
-    scope.launch { snackbarHostState.showSnackbar("Added to palette") }
 }
