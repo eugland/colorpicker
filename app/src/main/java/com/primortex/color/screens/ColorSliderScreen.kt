@@ -1,6 +1,5 @@
 package com.primortex.color.screens
 
-import android.graphics.Color as AndroidColor
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,14 +8,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Gradient
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -27,7 +26,6 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberSnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -41,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.app.PickedColor
@@ -51,13 +50,14 @@ import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.launch
+import android.graphics.Color as AndroidColor
 
 @Composable
 fun ColorSliderScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
-    val snackbarHostState = rememberSnackbarHostState()
+    val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
@@ -80,10 +80,11 @@ fun ColorSliderScreen(
         title = "Color slider",
         innerPadding = innerPadding,
         onBack = onBack,
-        snackbarHostState = snackbarHostState
+
+        snackbarHostState = snackbarHostState,
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(18.dp)
         ) {
             ColorPreviewCard(name = nearestName, hex = hex, argb = argb)
@@ -210,6 +211,12 @@ fun ColorSliderScreen(
     }
 }
 
+@Preview
+@Composable
+private fun previewPreviewCard() {
+    ColorPreviewCard("Blue-violet", "#883AED", 0xFF7C3AED.toInt())
+}
+
 @Composable
 private fun ColorPreviewCard(name: String, hex: String, argb: Int) {
     Card(shape = MaterialTheme.shapes.extraLarge) {
@@ -226,13 +233,7 @@ private fun ColorPreviewCard(name: String, hex: String, argb: Int) {
                         .clip(RoundedCornerShape(16.dp))
                         .background(Color(argb)),
                     contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Outlined.Gradient,
-                        contentDescription = null,
-                        tint = Color.White.copy(alpha = 0.72f)
-                    )
-                }
+                ){}
                 Spacer(Modifier.width(12.dp))
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(name, style = MaterialTheme.typography.titleLarge)
