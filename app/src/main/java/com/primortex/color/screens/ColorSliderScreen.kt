@@ -46,7 +46,6 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
-import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.launch
@@ -84,10 +83,45 @@ fun ColorSliderScreen(
         snackbarHostState = snackbarHostState,
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(18.dp)
         ) {
             ColorPreviewCard(name = nearestName, hex = hex, argb = argb)
+
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                FilledTonalButton(
+                    onClick = {
+                        RecentPicksService.addPick(picked)
+                        RecentPicksService.toggleSaved(picked)
+                        scope.launch {
+                            snackbarHostState.showSnackbar(
+                                if (isSaved) "Removed from My colors" else "Saved to My colors"
+                            )
+                        }
+                    }
+                ) {
+                    Icon(Icons.Outlined.FavoriteBorder, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(if (isSaved) "Saved" else "Save to My colors")
+                }
+
+                Button(
+                    onClick = {
+                        addToPalette(
+                            palette = paletteDraft,
+                            color = picked,
+                            snackbarHostState = snackbarHostState,
+                            scope = scope
+                        )
+                    }
+                ) {
+                    Icon(Icons.Outlined.Palette, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text("Add to palette")
+                }
+            }
 
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Text("RGB", style = MaterialTheme.typography.titleMedium)
@@ -147,66 +181,6 @@ fun ColorSliderScreen(
                     valueFormatter = { v -> "${v.toInt()}%" }
                 )
             }
-
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                FilledTonalButton(
-                    onClick = {
-                        RecentPicksService.addPick(picked)
-                        RecentPicksService.toggleSaved(picked)
-                        scope.launch {
-                            snackbarHostState.showSnackbar(
-                                if (isSaved) "Removed from My colors" else "Saved to My colors"
-                            )
-                        }
-                    }
-                ) {
-                    Icon(Icons.Outlined.FavoriteBorder, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) "Saved" else "Save to My colors")
-                }
-
-                Button(
-                    onClick = {
-                        addToPalette(
-                            palette = paletteDraft,
-                            color = picked,
-                            snackbarHostState = snackbarHostState,
-                            scope = scope
-                        )
-                    }
-                ) {
-                    Icon(Icons.Outlined.Palette, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text("Add to palette")
-                }
-            }
-
-            PaletteBar(
-                modifier = Modifier.fillMaxWidth(),
-                palette = paletteDraft,
-                onAddColor = {
-                    addToPalette(
-                        palette = paletteDraft,
-                        color = picked,
-                        snackbarHostState = snackbarHostState,
-                        scope = scope
-                    )
-                },
-                onAddPalette = {
-                    if (paletteDraft.isEmpty()) {
-                        scope.launch { snackbarHostState.showSnackbar("Palette is empty") }
-                        return@PaletteBar
-                    }
-                    PaletteService.create(
-                        name = "Palette ${palettes.size + 1}",
-                        colors = paletteDraft,
-                        tags = listOf("tool", "slider")
-                    )
-                    paletteDraft.clear()
-                    scope.launch { snackbarHostState.showSnackbar("Palette saved") }
-                },
-                onClearPalette = { paletteDraft.clear() }
-            )
         }
     }
 }
@@ -233,7 +207,7 @@ private fun ColorPreviewCard(name: String, hex: String, argb: Int) {
                         .clip(RoundedCornerShape(16.dp))
                         .background(Color(argb)),
                     contentAlignment = Alignment.Center
-                ){}
+                ) {}
                 Spacer(Modifier.width(12.dp))
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(name, style = MaterialTheme.typography.titleLarge)
