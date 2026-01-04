@@ -242,7 +242,6 @@ fun ColorSliderScreen(
                                 Text(
                                     "${palette.colors.size} colors",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
                                 )
                             }
                         }
