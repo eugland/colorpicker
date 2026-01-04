@@ -1,5 +1,6 @@
 package com.primortex.color.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -89,8 +90,9 @@ private fun LanguageOption(
                 )
             }
         },
-        modifier = Modifier.padding(vertical = 2.dp),
-        onClick = onSelect
+        modifier = Modifier
+            .padding(vertical = 2.dp)
+            .clickable(onClick = onSelect)
     )
 }
 
