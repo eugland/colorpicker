@@ -71,6 +71,7 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.PickerSensitivity
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -111,6 +112,7 @@ fun LiveCameraScreen(
     var currentArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
+    val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
     val pickedColor by remember {
         derivedStateOf {
             val argb = currentArgb
@@ -212,8 +214,11 @@ fun LiveCameraScreen(
                     onCenterSampleArgb = { sampled ->
                         if (frozen) return@bindCamera
                         val now = android.os.SystemClock.uptimeMillis()
-                        val minIntervalMs = 90L          // 60–150ms feels good
-                        val minRgbDistance = 14          // bigger = less flicker
+                        val (minIntervalMs, minRgbDistance) = when (pickerSensitivity) {
+                            PickerSensitivity.Low -> 140L to 24
+                            PickerSensitivity.Medium -> 90L to 14
+                            PickerSensitivity.High -> 60L to 8
+                        }
                         val minDistSq = minRgbDistance * minRgbDistance
 
                         // debounce by time + ignore tiny color jitter

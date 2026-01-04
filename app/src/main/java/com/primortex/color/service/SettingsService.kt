@@ -33,10 +33,17 @@ enum class ThemeMode(val label: String) {
     DARK("Dark")
 }
 
+enum class PickerSensitivity(val label: String) {
+    Low("Low"),
+    Medium("Medium"),
+    High("High")
+}
+
 object SettingsService {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
+    private val KEY_PICKER_SENSITIVITY = stringPreferencesKey("picker_sensitivity")
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -49,6 +56,9 @@ object SettingsService {
 
     private val _themeMode = MutableStateFlow(ThemeMode.SYSTEM)
     val themeMode: StateFlow<ThemeMode> = _themeMode.asStateFlow()
+
+    private val _pickerSensitivity = MutableStateFlow(PickerSensitivity.Medium)
+    val pickerSensitivity: StateFlow<PickerSensitivity> = _pickerSensitivity.asStateFlow()
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -69,6 +79,10 @@ object SettingsService {
             _themeMode.value = prefs[KEY_THEME_MODE]
                 ?.let { runCatching { ThemeMode.valueOf(it) }.getOrNull() }
                 ?: ThemeMode.SYSTEM
+
+            _pickerSensitivity.value = prefs[KEY_PICKER_SENSITIVITY]
+                ?.let { runCatching { PickerSensitivity.valueOf(it) }.getOrNull() }
+                ?: PickerSensitivity.Medium
         }
     }
 
@@ -88,17 +102,24 @@ object SettingsService {
         persist()
     }
 
+    fun setPickerSensitivity(sensitivity: PickerSensitivity) {
+        _pickerSensitivity.value = sensitivity
+        persist()
+    }
+
 
     private fun persist() {
         val size = _crosshairSize.value.name
         val shape = _crosshairShape.value.name
         val theme = _themeMode.value.name
+        val sensitivity = _pickerSensitivity.value.name
 
         scope.launch {
             appContext.settingsDataStore.edit { prefs ->
                 prefs[KEY_CROSSHAIR_SIZE] = size
                 prefs[KEY_CROSSHAIR_SHAPE] = shape
                 prefs[KEY_THEME_MODE] = theme
+                prefs[KEY_PICKER_SENSITIVITY] = sensitivity
             }
         }
     }

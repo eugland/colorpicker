@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
+import com.primortex.color.service.PickerSensitivity
 import com.primortex.color.service.SettingsService
 import com.primortex.color.service.ThemeMode
 import com.primortex.color.ui.components.CrosshairIndicator
@@ -52,6 +53,7 @@ fun ExploreScreen(
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val themeMode by SettingsService.themeMode.collectAsState()
+    val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
 
     ScreenScaffold("Explore", innerPadding) {
         Column(
@@ -184,6 +186,25 @@ fun ExploreScreen(
                                 onClick = { SettingsService.setCrosshairShape(shape) },
                                 label = { Text(shape.label) }
                             )
+                        }
+                    }
+
+                    SectionHeader("Sensitivity")
+
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text(
+                            "Control how reactive the picker is to color changes.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            PickerSensitivity.values().forEach { sensitivity ->
+                                FilterChip(
+                                    selected = pickerSensitivity == sensitivity,
+                                    onClick = { SettingsService.setPickerSensitivity(sensitivity) },
+                                    label = { Text(sensitivity.label) }
+                                )
+                            }
                         }
                     }
 
