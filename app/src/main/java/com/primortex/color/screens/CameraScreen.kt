@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Colorize
+import androidx.compose.material.icons.outlined.Gradient
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -32,6 +33,7 @@ import com.primortex.color.ui.util.argbToHex
 fun CameraScreen(
     innerPadding: PaddingValues = PaddingValues(),
     onOpenLiveCameraPicker: () -> Unit,
+    onOpenColorSlider: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
     val history by RecentPicksService.history.collectAsState()
@@ -62,6 +64,8 @@ fun CameraScreen(
             onOpenLiveCameraPicker = onOpenLiveCameraPicker
         )
 
+        ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
+
         // Two tiles: Camera / Album
         Row(
             Modifier.fillMaxWidth(),
@@ -91,6 +95,32 @@ fun CameraScreen(
             Text("Recent picks", style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.weight(1f))
             TextButton(onClick = { RecentPicksService.clear() }) { Text("Clear") }
+        }
+    }
+}
+
+@Composable
+private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.extraLarge,
+        onClick = onOpenColorSlider
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Icon(Icons.Outlined.Gradient, contentDescription = null)
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text("Color slider", style = MaterialTheme.typography.titleMedium)
+                Text(
+                    "Adjust RGB or HSL and see live names and hex. Save or build palettes.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            FilledTonalButton(onClick = onOpenColorSlider) { Text("Open") }
         }
     }
 }

@@ -5,7 +5,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Camera
-import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material3.Icon
@@ -24,7 +23,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.screens.CameraScreen
-import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.info.InfoContent
@@ -32,14 +30,7 @@ import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
-import com.primortex.color.screens.ToolsScreen
-
-
-private object CamRoutes {
-    const val HOME = "cam_home"
-    const val LIVE = "cam_live"
-    const val PHOTO_PICK = "cam_photo_pick"
-}
+import com.primortex.color.screens.ColorSliderScreen
 
 private object DetailRoutes {
     const val COLOR = "color/details"
@@ -57,8 +48,7 @@ private object InfoRoutes {
     const val USAGE = "info/usage"
 }
 
-private object ToolRoutes {
-    const val HOME = "tab/tools"
+private object SliderRoutes {
     const val SLIDER = "tool/slider"
 }
 
@@ -73,11 +63,11 @@ fun ColorApp() {
         route.startsWith("tab/palette") -> "tab/palette"
         route.startsWith("tab/camera") -> "tab/camera"
         route.startsWith("tab/explore") -> "tab/explore"
-        route.startsWith("tab/tools") || route.startsWith("tool/") -> ToolRoutes.HOME
+        route.startsWith(SliderRoutes.SLIDER) -> "tab/camera"
         else -> route
     }
 
-    val showBottomBar = route.startsWith("tab/") || route.startsWith("tool/")
+    val showBottomBar = route.startsWith("tab/") || route.startsWith(SliderRoutes.SLIDER)
 
     Scaffold(
         bottomBar = {
@@ -106,17 +96,6 @@ fun ColorApp() {
                         },
                         icon = { Icon(Icons.Filled.Camera, contentDescription = "Camera") },
                         label = { Text("Camera") }
-                    )
-                    NavigationBarItem(
-                        selected = selectedRoot == "tab/tools",
-                        onClick = {
-                            nav.navigate(ToolRoutes.HOME) {
-                                popUpTo("tab/camera") { inclusive = false }
-                                launchSingleTop = true
-                            }
-                        },
-                        icon = { Icon(Icons.Filled.Build, contentDescription = "Tools") },
-                        label = { Text("Tools") }
                     )
                     NavigationBarItem(
                         selected = selectedRoot == "tab/explore",
@@ -169,6 +148,7 @@ fun ColorApp() {
                 CameraScreen(
                     innerPadding = inner,
                     onOpenLiveCameraPicker = { nav.navigate("cam/live") },
+                    onOpenColorSlider = { nav.navigate(SliderRoutes.SLIDER) },
                     onPickFromAlbum = { uriString ->
                         val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
                         nav.navigate("cam/photoPick?uri=$encoded")
@@ -176,12 +156,6 @@ fun ColorApp() {
                 )
             }
             composable("tab/palette") { PaletteScreen(innerPadding = inner) }
-            composable(ToolRoutes.HOME) {
-                ToolsScreen(
-                    innerPadding = inner,
-                    onOpenColorSlider = { nav.navigate(ToolRoutes.SLIDER) }
-                )
-            }
             composable("tab/explore") {
                 ExploreScreen(
                     innerPadding = inner,
@@ -230,7 +204,7 @@ fun ColorApp() {
                 )
             }
 
-            composable(ToolRoutes.SLIDER) {
+            composable(SliderRoutes.SLIDER) {
                 ColorSliderScreen(innerPadding = inner)
             }
 
