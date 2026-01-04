@@ -24,9 +24,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 
 
@@ -51,7 +53,7 @@ fun ActiveColorSheet(
 
         Divider(Modifier.padding(top = 6.dp))
         Text(
-            "Recent colors",
+            stringResource(R.string.recent_colors),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
         )
@@ -109,7 +111,7 @@ fun ColorRow(
         if (showViewMore) {
             Spacer(Modifier.width(10.dp))
             Text(
-                "View more",
+                stringResource(R.string.view_more),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary
             )

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">color</string>
     <string name="follows_your_device_language">Follows your device language</string>
+    <string name="recent_colors">Recent colors</string>
+    <string name="view_more">View more</string>
+    <string name="theme_system_default">System default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
 </resources>

@@ -18,12 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.service.AppLanguage
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ScreenScaffold
+import androidx.compose.ui.res.stringResource as str
 
 @Composable
 fun LanguageSelectionScreen(
@@ -74,7 +74,7 @@ private fun LanguageOption(
         headlineContent = { Text(language.name) },
         supportingContent = {
             if (language == AppLanguage.SystemDefault) {
-                Text(stringResource(R.string.follows_your_device_language))
+                Text(str(R.string.follows_your_device_language))
             }
         },
         leadingContent = {

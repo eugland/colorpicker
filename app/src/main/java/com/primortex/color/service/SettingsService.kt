@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.primortex.color.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -27,10 +28,10 @@ enum class CrosshairShape(val label: String) {
     Cross("Crosshair")
 }
 
-enum class ThemeMode(val label: String) {
-    SYSTEM("System default"),
-    LIGHT("Light"),
-    DARK("Dark")
+enum class ThemeMode(val labelRes: Int) {
+    DARK(R.string.theme_dark),
+    LIGHT(R.string.theme_light),
+    SYSTEM(R.string.theme_dark)
 }
 
 enum class PickerSensitivity(val label: String) {

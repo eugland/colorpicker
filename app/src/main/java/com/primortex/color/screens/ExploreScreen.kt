@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
@@ -113,7 +114,7 @@ fun ExploreScreen(
                                 FilterChip(
                                     selected = themeMode == mode,
                                     onClick = { SettingsService.setThemeMode(mode) },
-                                    label = { Text(mode.label) }
+                                    label = { Text(stringResource(mode.labelRes)) }
                                 )
                             }
                         }
