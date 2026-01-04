@@ -53,7 +53,10 @@ import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.launch
 
 @Composable
-fun ColorSliderScreen(innerPadding: PaddingValues) {
+fun ColorSliderScreen(
+    innerPadding: PaddingValues,
+    onBack: () -> Unit
+) {
     val snackbarHostState = rememberSnackbarHostState()
     val scope = rememberCoroutineScope()
 
@@ -76,6 +79,7 @@ fun ColorSliderScreen(innerPadding: PaddingValues) {
     ScreenScaffold(
         title = "Color slider",
         innerPadding = innerPadding,
+        onBack = onBack,
         snackbarHostState = snackbarHostState
     ) {
         Column(

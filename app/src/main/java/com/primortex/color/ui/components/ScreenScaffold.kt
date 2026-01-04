@@ -5,10 +5,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -22,6 +27,7 @@ import androidx.compose.ui.unit.dp
 fun ScreenScaffold(
     title: String,
     innerPadding: PaddingValues,
+    onBack: (() -> Unit)? = null,
     snackbarHostState: SnackbarHostState? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
@@ -32,7 +38,17 @@ fun ScreenScaffold(
             .padding(16.dp)
     ) {
         Column(Modifier.fillMaxSize()) {
-            Text(title, style = MaterialTheme.typography.titleLarge)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (onBack != null) {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBackIosNew,
+                            contentDescription = "Back"
+                        )
+                    }
+                }
+                Text(title, style = MaterialTheme.typography.titleLarge)
+            }
             Spacer(Modifier.height(12.dp))
             content()
         }

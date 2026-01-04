@@ -205,7 +205,10 @@ fun ColorApp() {
             }
 
             composable(SliderRoutes.SLIDER) {
-                ColorSliderScreen(innerPadding = inner)
+                ColorSliderScreen(
+                    innerPadding = inner,
+                    onBack = { nav.popBackStack() }
+                )
             }
 
             composable(InfoRoutes.COPYRIGHT) {
