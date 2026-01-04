@@ -5,6 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Camera
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material3.Icon
@@ -23,6 +24,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.screens.CameraScreen
+import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.info.InfoContent
@@ -30,6 +32,7 @@ import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
+import com.primortex.color.screens.ToolsScreen
 
 
 private object CamRoutes {
@@ -54,6 +57,11 @@ private object InfoRoutes {
     const val USAGE = "info/usage"
 }
 
+private object ToolRoutes {
+    const val HOME = "tab/tools"
+    const val SLIDER = "tool/slider"
+}
+
 @Composable
 fun ColorApp() {
     val nav = rememberNavController()
@@ -61,14 +69,22 @@ fun ColorApp() {
     val route = backStack?.destination?.route.orEmpty()
     val anim = tween<IntOffset>(220)
 
-    val showBottomBar = route.startsWith("tab/")
+    val selectedRoot = when {
+        route.startsWith("tab/palette") -> "tab/palette"
+        route.startsWith("tab/camera") -> "tab/camera"
+        route.startsWith("tab/explore") -> "tab/explore"
+        route.startsWith("tab/tools") || route.startsWith("tool/") -> ToolRoutes.HOME
+        else -> route
+    }
+
+    val showBottomBar = route.startsWith("tab/") || route.startsWith("tool/")
 
     Scaffold(
         bottomBar = {
             if (showBottomBar) {
                 NavigationBar {
                     NavigationBarItem(
-                        selected = route == "tab/palette",
+                        selected = selectedRoot == "tab/palette",
                         onClick = {
                             nav.navigate("tab/palette") {
                                 popUpTo("tab/camera") {
@@ -80,7 +96,7 @@ fun ColorApp() {
                         label = { Text("Palette") }
                     )
                     NavigationBarItem(
-                        selected = route == "tab/camera",
+                        selected = selectedRoot == "tab/camera",
                         onClick = {
                             nav.navigate("tab/camera") {
                                 popUpTo("tab/camera") {
@@ -92,7 +108,18 @@ fun ColorApp() {
                         label = { Text("Camera") }
                     )
                     NavigationBarItem(
-                        selected = route == "tab/explore",
+                        selected = selectedRoot == "tab/tools",
+                        onClick = {
+                            nav.navigate(ToolRoutes.HOME) {
+                                popUpTo("tab/camera") { inclusive = false }
+                                launchSingleTop = true
+                            }
+                        },
+                        icon = { Icon(Icons.Filled.Build, contentDescription = "Tools") },
+                        label = { Text("Tools") }
+                    )
+                    NavigationBarItem(
+                        selected = selectedRoot == "tab/explore",
                         onClick = {
                             nav.navigate("tab/explore") {
                                 popUpTo("tab/camera") {
@@ -149,6 +176,12 @@ fun ColorApp() {
                 )
             }
             composable("tab/palette") { PaletteScreen(innerPadding = inner) }
+            composable(ToolRoutes.HOME) {
+                ToolsScreen(
+                    innerPadding = inner,
+                    onOpenColorSlider = { nav.navigate(ToolRoutes.SLIDER) }
+                )
+            }
             composable("tab/explore") {
                 ExploreScreen(
                     innerPadding = inner,
@@ -195,6 +228,10 @@ fun ColorApp() {
                         nav.navigate(DetailRoutes.to(pick.argb, pick.name))
                     }
                 )
+            }
+
+            composable(ToolRoutes.SLIDER) {
+                ColorSliderScreen(innerPadding = inner)
             }
 
             composable(InfoRoutes.COPYRIGHT) {
