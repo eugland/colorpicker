@@ -39,41 +39,47 @@ enum class PickerSensitivity(val label: String) {
     High("High")
 }
 
-enum class AppLanguage(val label: String) {
-    SystemDefault("system_default"),
-    English("english"),
-    Spanish("spanish"),
-    French("french"),
-    German("german"),
-    Italian("italian"),
-    Portuguese("portuguese"),
-    Russian("russian"),
-    ChineseSimplified("chinese_simplified"),
-    ChineseTraditional("chinese_traditional"),
-    Japanese("japanese"),
-    Korean("korean"),
-    Arabic("arabic"),
-    Hindi("hindi"),
-    Bengali("bengali"),
-    Urdu("urdu"),
-    Indonesian("indonesian"),
-    Vietnamese("vietnamese"),
-    Turkish("turkish"),
-    Dutch("dutch"),
-    Swedish("swedish"),
-    Norwegian("norwegian"),
-    Danish("danish"),
-    Finnish("finnish"),
-    Greek("greek"),
-    Polish("polish"),
-    Czech("czech"),
-    Hungarian("hungarian"),
-    Romanian("romanian"),
-    Thai("thai"),
-    Filipino("filipino"),
-    Malay("malay"),
-    Hebrew("hebrew"),
-    Ukrainian("ukrainian")
+enum class AppLanguage {
+    SystemDefault,
+
+    English,
+    Spanish,
+    French,
+    German,
+    Italian,
+    Portuguese,
+    Russian,
+
+    ChineseSimplified,
+    ChineseTraditional,
+
+    Japanese,
+    Korean,
+    Arabic,
+    Hindi,
+    Bengali,
+    Urdu,
+
+    Indonesian,
+    Vietnamese,
+    Turkish,
+    Dutch,
+    Swedish,
+    Norwegian,
+    Danish,
+    Finnish,
+
+    Greek,
+    Polish,
+    Czech,
+    Hungarian,
+    Romanian,
+    Thai,
+
+    Filipino,
+    Malay,
+    Hebrew,
+    Ukrainian
 }
 
 object SettingsService {

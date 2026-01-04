@@ -18,7 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.service.AppLanguage
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ScreenScaffold
@@ -69,10 +71,10 @@ private fun LanguageOption(
     onSelect: () -> Unit
 ) {
     ListItem(
-        headlineContent = { Text(language.label) },
+        headlineContent = { Text(language.name) },
         supportingContent = {
             if (language == AppLanguage.SystemDefault) {
-                Text("Follows your device language")
+                Text(stringResource(R.string.follows_your_device_language))
             }
         },
         leadingContent = {

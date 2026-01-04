@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">color</string>
+    <string name="follows_your_device_language">Follows your device language</string>
 </resources>
