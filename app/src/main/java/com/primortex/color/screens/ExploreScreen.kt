@@ -46,6 +46,7 @@ import com.primortex.color.ui.components.ScreenScaffold
 @Composable
 fun ExploreScreen(
     innerPadding: PaddingValues,
+    onOpenLanguage: () -> Unit,
     onOpenCopyright: () -> Unit,
     onOpenPrivacy: () -> Unit,
     onOpenUsageGuide: () -> Unit
@@ -54,6 +55,7 @@ fun ExploreScreen(
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val themeMode by SettingsService.themeMode.collectAsState()
     val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
+    val appLanguage by SettingsService.appLanguage.collectAsState()
 
     ScreenScaffold("Explore", innerPadding) {
         Column(
@@ -121,7 +123,7 @@ fun ExploreScreen(
 
                     ListItem(
                         headlineContent = { Text("Language") },
-                        supportingContent = { Text("Choose the language used in the app") },
+                        supportingContent = { Text(appLanguage.label) },
                         leadingContent = {
                             Icon(
                                 imageVector = Icons.Outlined.Language,
@@ -131,7 +133,7 @@ fun ExploreScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                // navigate to language screen
+                                onOpenLanguage()
                             }
                     )
                 }
