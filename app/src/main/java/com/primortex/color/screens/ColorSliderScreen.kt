@@ -1,6 +1,7 @@
 package com.primortex.color.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,17 +20,19 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -51,11 +54,13 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
 import kotlinx.coroutines.launch
 import android.graphics.Color as AndroidColor
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorSliderScreen(
     innerPadding: PaddingValues,
@@ -68,6 +73,7 @@ fun ColorSliderScreen(
     val savedColors by RecentPicksService.saved.collectAsState()
     val palettes by PaletteService.palettes.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
+    var showColorDetails by remember { mutableStateOf(false) }
 
     val nearestName = remember(argb) { ColorNameLookup.nearestName(argb).name }
     val picked = remember(argb, nearestName) { PickedColor(argb = argb, name = nearestName) }
@@ -93,7 +99,12 @@ fun ColorSliderScreen(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(18.dp)
         ) {
-            ColorPreviewCard(name = nearestName, hex = hex, argb = argb)
+            ColorPreviewCard(
+                name = nearestName,
+                hex = hex,
+                argb = argb,
+                onClick = { showColorDetails = true }
+            )
 
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 FilledTonalButton(
@@ -189,13 +200,27 @@ fun ColorSliderScreen(
     }
 
     if (showPalettePicker) {
-        AlertDialog(
+        val paletteSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+
+        ModalBottomSheet(
             onDismissRequest = { showPalettePicker = false },
-            title = { Text("Select palette") },
-            text = {
-                LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            sheetState = paletteSheetState
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .padding(bottom = 24.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text("Select palette", style = MaterialTheme.typography.titleLarge)
+
+                LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                    contentPadding = PaddingValues(bottom = 16.dp)
+                ) {
                     items(palettes) { palette ->
-                        Button(
+                        FilledTonalButton(
                             modifier = Modifier.fillMaxWidth(),
                             onClick = {
                                 addToPalette(
@@ -218,10 +243,16 @@ fun ColorSliderScreen(
                         }
                     }
                 }
-            },
-            confirmButton = {
+
                 TextButton(onClick = { showPalettePicker = false }) { Text("Close") }
             }
+        }
+    }
+
+    if (showColorDetails) {
+        ColorDetailsBottomSheet(
+            picked = picked,
+            onDismiss = { showColorDetails = false }
         )
     }
 }
@@ -229,15 +260,25 @@ fun ColorSliderScreen(
 @Preview
 @Composable
 private fun previewPreviewCard() {
-    ColorPreviewCard("Blue-violet", "#883AED", 0xFF7C3AED.toInt())
+    ColorPreviewCard("Blue-violet", "#883AED", 0xFF7C3AED.toInt()) {}
 }
 
 @Composable
-private fun ColorPreviewCard(name: String, hex: String, argb: Int) {
+private fun ColorPreviewCard(
+    name: String,
+    hex: String,
+    argb: Int,
+    onClick: () -> Unit,
+) {
     Card(shape = MaterialTheme.shapes.extraLarge) {
+        val rgb = remember(argb) {
+            Triple(AndroidColor.red(argb), AndroidColor.green(argb), AndroidColor.blue(argb))
+        }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable(onClick = onClick)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
@@ -253,6 +294,16 @@ private fun ColorPreviewCard(name: String, hex: String, argb: Int) {
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(name, style = MaterialTheme.typography.titleLarge)
                     Text(hex, fontFamily = FontFamily.Monospace)
+                    Text(
+                        "RGB ${rgb.first}, ${rgb.second}, ${rgb.third}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        "Tap to view details",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
         }
