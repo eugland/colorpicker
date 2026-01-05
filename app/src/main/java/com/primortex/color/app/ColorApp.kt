@@ -22,40 +22,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.primortex.color.app.Routes
+import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorDetailsScreen
+import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.ExploreScreen
-import com.primortex.color.screens.LanguageSelectionScreen
-import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.InfoDetailScreen
+import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
-import com.primortex.color.screens.ColorSliderScreen
-
-private object DetailRoutes {
-    const val COLOR = "color/details"
-    const val COLOR_ROUTE = "color/details?argb={argb}&name={name}"
-
-    fun to(argb: Int, name: String): String {
-        val encName = java.net.URLEncoder.encode(name, "UTF-8")
-        return "color/details?argb=$argb&name=$encName"
-    }
-}
-
-private object InfoRoutes {
-    const val COPYRIGHT = "info/copyright"
-    const val PRIVACY = "info/privacy"
-    const val USAGE = "info/usage"
-}
-
-private object SliderRoutes {
-    const val SLIDER = "tool/slider"
-}
-
-private object SettingsRoutes {
-    const val LANGUAGE = "settings/language"
-}
 
 @Composable
 fun ColorApp() {
@@ -65,24 +42,24 @@ fun ColorApp() {
     val anim = tween<IntOffset>(220)
 
     val selectedRoot = when {
-        route.startsWith("tab/palette") -> "tab/palette"
-        route.startsWith("tab/camera") -> "tab/camera"
-        route.startsWith("tab/explore") -> "tab/explore"
-        route.startsWith(SliderRoutes.SLIDER) -> "tab/camera"
+        route.startsWith(Routes.Tab.PALETTE) -> Routes.Tab.PALETTE
+        route.startsWith(Routes.Tab.CAMERA) -> Routes.Tab.CAMERA
+        route.startsWith(Routes.Tab.EXPLORE) -> Routes.Tab.EXPLORE
+        route.startsWith(Routes.Tool.SLIDER) -> Routes.Tab.CAMERA
         else -> route
     }
 
-    val showBottomBar = route.startsWith("tab/") || route.startsWith(SliderRoutes.SLIDER)
+    val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
 
     Scaffold(
         bottomBar = {
             if (showBottomBar) {
                 NavigationBar {
                     NavigationBarItem(
-                        selected = selectedRoot == "tab/palette",
+                        selected = selectedRoot == Routes.Tab.PALETTE,
                         onClick = {
-                            nav.navigate("tab/palette") {
-                                popUpTo("tab/camera") {
+                            nav.navigate(Routes.Tab.PALETTE) {
+                                popUpTo(Routes.Tab.CAMERA) {
                                     inclusive = false
                                 }; launchSingleTop = true
                             }
@@ -91,10 +68,10 @@ fun ColorApp() {
                         label = { Text("Palette") }
                     )
                     NavigationBarItem(
-                        selected = selectedRoot == "tab/camera",
+                        selected = selectedRoot == Routes.Tab.CAMERA,
                         onClick = {
-                            nav.navigate("tab/camera") {
-                                popUpTo("tab/camera") {
+                            nav.navigate(Routes.Tab.CAMERA) {
+                                popUpTo(Routes.Tab.CAMERA) {
                                     inclusive = true
                                 }; launchSingleTop = true
                             }
@@ -103,10 +80,10 @@ fun ColorApp() {
                         label = { Text("Camera") }
                     )
                     NavigationBarItem(
-                        selected = selectedRoot == "tab/explore",
+                        selected = selectedRoot == Routes.Tab.EXPLORE,
                         onClick = {
-                            nav.navigate("tab/explore") {
-                                popUpTo("tab/camera") {
+                            nav.navigate(Routes.Tab.EXPLORE) {
+                                popUpTo(Routes.Tab.CAMERA) {
                                     inclusive = false
                                 }; launchSingleTop = true
                             }
@@ -121,7 +98,7 @@ fun ColorApp() {
 
         NavHost(
             navController = nav,
-            startDestination = "tab/palette",
+            startDestination = Routes.Tab.PALETTE,
             modifier = Modifier.fillMaxSize(),
 
             enterTransition = {
@@ -149,30 +126,24 @@ fun ColorApp() {
                 )
             }
         ) {
-            composable("tab/camera") {
+            composable(Routes.Tab.CAMERA) {
                 CameraScreen(
                     innerPadding = inner,
-                    onOpenLiveCameraPicker = { nav.navigate("cam/live") },
-                    onOpenColorSlider = { nav.navigate(SliderRoutes.SLIDER) },
+                    onOpenLiveCameraPicker = { nav.navigate(Routes.Camera.LIVE) },
+                    onOpenColorSlider = { nav.navigate(Routes.Tool.SLIDER) },
                     onPickFromAlbum = { uriString ->
                         val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
-                        nav.navigate("cam/photoPick?uri=$encoded")
+                        nav.navigate(Routes.Camera.photoPickWith(encoded))
                     }
                 )
             }
-            composable("tab/palette") { PaletteScreen(innerPadding = inner) }
-            composable("tab/explore") {
-                ExploreScreen(
-                    innerPadding = inner,
-                    onOpenLanguage = { nav.navigate(SettingsRoutes.LANGUAGE) },
-                    onOpenCopyright = { nav.navigate(InfoRoutes.COPYRIGHT) },
-                    onOpenPrivacy = { nav.navigate(InfoRoutes.PRIVACY) },
-                    onOpenUsageGuide = { nav.navigate(InfoRoutes.USAGE) }
-                )
+            composable(Routes.Tab.PALETTE) { PaletteScreen(innerPadding = inner) }
+            composable(Routes.Tab.EXPLORE) {
+                ExploreScreen(innerPadding = inner, navigator = nav::navigate)
             }
-            composable("cam/live") { LiveCameraScreen(onBack = { nav.popBackStack() }) }
+            composable(Routes.Camera.LIVE) { LiveCameraScreen(onBack = { nav.popBackStack() }) }
             composable(
-                route = "cam/photoPick?uri={uri}",
+                route = Routes.Camera.PHOTO_PICK_ROUTE,
                 arguments = listOf(navArgument("uri") {
                     type = NavType.StringType; defaultValue = ""
                 })
@@ -188,7 +159,7 @@ fun ColorApp() {
             }
 
             composable(
-                route = DetailRoutes.COLOR_ROUTE,
+                route = Routes.Detail.COLOR_ROUTE,
                 arguments = listOf(
                     navArgument("argb") { type = NavType.IntType; defaultValue = 0 },
                     navArgument("name") { type = NavType.StringType; defaultValue = "" }
@@ -205,19 +176,19 @@ fun ColorApp() {
                     nameHint = name,
                     onBack = { nav.popBackStack() },
                     onOpenColorDetail = { pick ->
-                        nav.navigate(DetailRoutes.to(pick.argb, pick.name))
+                        nav.navigate(Routes.Detail.to(pick.argb, pick.name))
                     }
                 )
             }
 
-            composable(SliderRoutes.SLIDER) {
+            composable(Routes.Tool.SLIDER) {
                 ColorSliderScreen(
                     innerPadding = inner,
                     onBack = { nav.popBackStack() }
                 )
             }
 
-            composable(InfoRoutes.COPYRIGHT) {
+            composable(Routes.Info.COPYRIGHT) {
                 InfoDetailScreen(
                     title = "Copyright notice",
                     innerPadding = inner,
@@ -226,7 +197,7 @@ fun ColorApp() {
                 )
             }
 
-            composable(InfoRoutes.PRIVACY) {
+            composable(Routes.Info.PRIVACY) {
                 InfoDetailScreen(
                     title = "Privacy statement",
                     innerPadding = inner,
@@ -235,7 +206,7 @@ fun ColorApp() {
                 )
             }
 
-            composable(InfoRoutes.USAGE) {
+            composable(Routes.Info.USAGE) {
                 InfoDetailScreen(
                     title = "Usage guide",
                     innerPadding = inner,
@@ -244,7 +215,7 @@ fun ColorApp() {
                 )
             }
 
-            composable(SettingsRoutes.LANGUAGE) {
+            composable(Routes.Settings.LANGUAGE) {
                 LanguageSelectionScreen(
                     innerPadding = inner,
                     onBack = { nav.popBackStack() }
