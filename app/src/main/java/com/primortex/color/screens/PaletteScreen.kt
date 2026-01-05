@@ -62,11 +62,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameIndex
@@ -152,7 +154,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
     val scope = rememberCoroutineScope()
 
     ScreenScaffold(
-        "Palette",
+        R.string.palette,
         innerPadding,
         snackbarHostState = snackbarHostState
     ) {
@@ -237,14 +239,14 @@ fun PaletteScreen(innerPadding: PaddingValues) {
             item { Spacer(Modifier.height(16.dp)) }
             item {
                 SwatchSection(
-                    title = "Recent colors",
+                    title = stringResource(R.string.recent_colors),
                     picks = recents,
-                    emptyMessage = "No recent colors yet. Tap 🧪 to pick a color.",
+                    emptyMessage = stringResource(R.string.no_recent_colors),
                     onSwatchClick = { pick -> detailPick = pick },
                     actions = {
                         if (recents.isNotEmpty()) {
                             TextButton(onClick = { showClearRecentsDialog = true }) {
-                                Text("Clear")
+                                Text(stringResource(R.string.clear))
                             }
                         }
                     }
@@ -254,14 +256,14 @@ fun PaletteScreen(innerPadding: PaddingValues) {
             item { Spacer(Modifier.height(16.dp)) }
             item {
                 SwatchSection(
-                    title = "Saved colors",
+                    title = stringResource(R.string.saved_colors),
                     picks = savedColors,
-                    emptyMessage = "No saved colors yet.",
+                    emptyMessage = stringResource(R.string.no_saved_colors),
                     onSwatchClick = { pick -> detailPick = pick },
                     actions = {
                         if (savedColors.isNotEmpty()) {
                             TextButton(onClick = { showClearSavedDialog = true }) {
-                                Text("Clear")
+                                Text(stringResource(R.string.clear))
                             }
                         }
                     }
@@ -276,13 +278,13 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        "Saved palettes",
+                        stringResource(R.string.saved_palettes),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f)
                     )
                     if (savedPalettes.isNotEmpty()) {
                         TextButton(onClick = { showClearPalettesDialog = true }) {
-                            Text("Clear")
+                            Text(stringResource(R.string.clear))
                         }
                     }
                 }
@@ -293,7 +295,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
             if (savedPalettes.isEmpty()) {
                 item {
                     Text(
-                        "No saved palettes yet.",
+                        stringResource(R.string.no_saved_palettes),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -328,8 +330,8 @@ fun PaletteScreen(innerPadding: PaddingValues) {
 
     if (showClearRecentsDialog) {
         ConfirmClearDialog(
-            title = "Clear recent colors?",
-            description = "This will remove all recent colors.",
+            title = stringResource(R.string.clear_recent_colors_title),
+            description = stringResource(R.string.clear_recent_colors_description),
             onConfirm = {
                 RecentPicksService.clear()
                 showClearRecentsDialog = false
@@ -340,8 +342,8 @@ fun PaletteScreen(innerPadding: PaddingValues) {
 
     if (showClearSavedDialog) {
         ConfirmClearDialog(
-            title = "Clear saved colors?",
-            description = "This will remove all saved colors.",
+            title = stringResource(R.string.clear_saved_colors_title),
+            description = stringResource(R.string.clear_saved_colors_description),
             onConfirm = {
                 RecentPicksService.clearSaved()
                 showClearSavedDialog = false
@@ -352,8 +354,8 @@ fun PaletteScreen(innerPadding: PaddingValues) {
 
     if (showClearPalettesDialog) {
         ConfirmClearDialog(
-            title = "Clear saved palettes?",
-            description = "This will remove all saved palettes.",
+            title = stringResource(R.string.clear_saved_palettes_title),
+            description = stringResource(R.string.clear_saved_palettes_description),
             onConfirm = {
                 PaletteService.clear()
                 showClearPalettesDialog = false
@@ -375,10 +377,10 @@ private fun ConfirmClearDialog(
         title = { Text(title) },
         text = { Text(description) },
         confirmButton = {
-            Button(onClick = onConfirm) { Text("Clear") }
+            Button(onClick = onConfirm) { Text(stringResource(R.string.clear)) }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text("Cancel") }
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
         }
     )
 }
@@ -392,19 +394,18 @@ private fun ColorSearchBar(
 ) {
     val prompts = remember {
         listOf(
-            "Curious about 'Midnight blue'?",
-            "Try 'Slate gray'",
-            "Reveal the color behind '#007BA7'",
-            "Ever seen 'Forest green'?",
-            "What color hides in '#191970'?",
-            "Search for 'Burnt sienna'",
-            "Decode the mood of '#708090'",
-            "What does 'Cerulean' look like?",
-            "What does '#228B22' feel like?",
-            "Uncover the shade '#E97451'"
+            R.string.search_hint_one,
+            R.string.search_hint_two,
+            R.string.search_hint_three,
+            R.string.search_hint_four,
+            R.string.search_hint_five,
+            R.string.search_hint_six,
+            R.string.search_hint_seven,
+            R.string.search_hint_eight,
+            R.string.search_hint_nine,
+            R.string.search_hint_ten
         )
-    }
-
+    }.map { stringResource(it) }
     var focused by remember { mutableStateOf(false) }
     var idx by remember { mutableIntStateOf(0) }
 
@@ -418,7 +419,10 @@ private fun ColorSearchBar(
     }
 
     Column {
-        Text("Quick color look up", style = MaterialTheme.typography.titleMedium)
+        Text(
+            stringResource(R.string.quick_color_lookup),
+            style = MaterialTheme.typography.titleMedium
+        )
         Spacer(Modifier.height(8.dp))
 
         OutlinedTextField(
@@ -500,13 +504,13 @@ private fun PaletteCard(
                 IconButton(onClick = onCopy) {
                     Icon(
                         Icons.Outlined.ContentCopy,
-                        contentDescription = "Copy"
+                        contentDescription = stringResource(R.string.copy)
                     )
                 }
                 IconButton(onClick = onDelete) {
                     Icon(
                         Icons.Outlined.Delete,
-                        contentDescription = "Delete"
+                        contentDescription = stringResource(R.string.delete)
                     )
                 }
             }

@@ -11,6 +11,7 @@
     <string name="grant">授权</string>
     <string name="save">保存</string>
     <string name="saved">已保存</string>
+    <string name="delete">删除</string>
 
     <string name="palette">调色板</string>
     <string name="camera">相机</string>
@@ -191,6 +192,7 @@
     <string name="clear_saved_palettes_description">这将移除所有保存的调色板。</string>
     <string name="quick_color_lookup">快速颜色查询</string>
     <string name="search_placeholder">搜索颜色或十六进制代码</string>
+
     <string name="search_hint_one">想知道“午夜蓝”吗？</string>
     <string name="search_hint_two">试试“石板灰”</string>
     <string name="search_hint_three">揭开“#007BA7”的颜色</string>
@@ -201,14 +203,17 @@
     <string name="search_hint_eight">“天蓝色”是什么样？</string>
     <string name="search_hint_nine">“#228B22”给人什么感觉？</string>
     <string name="search_hint_ten">揭开“#E97451”的色调</string>
+
+
     <string name="palette_color_label">调色板</string>
     <string name="clear_recent">清除最近</string>
     <string name="clear_saved">清除已保存</string>
     <string name="clear_palettes">清除调色板</string>
     <string name="copy_hex_content_description">复制 HEX</string>
-    <string name="delete_content_description">删除</string>
+
 
     <string name="palette_bar_clear">清空调色板</string>
     <string name="palette_bar_palette">调色板</string>
     <string name="palette_bar_add_color">添加颜色</string>
+    <string name="no_recent_colors_yet_tap_to_pick_a_color">No recent colors yet. Tap 🧪 to pick a color.</string>
 </resources>

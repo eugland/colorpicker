@@ -51,6 +51,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
+import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorNameLookup
@@ -89,7 +90,7 @@ fun ColorSliderScreen(
     val isSaved = savedColors.any { it.argb == argb }
 
     ScreenScaffold(
-        title = "Color slider",
+        titleRes = R.string.color_slider,
         innerPadding = innerPadding,
         onBack = onBack,
 

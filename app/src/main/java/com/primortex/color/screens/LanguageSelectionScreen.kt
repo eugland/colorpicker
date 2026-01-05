@@ -36,7 +36,7 @@ fun LanguageSelectionScreen(
     val listState = rememberLazyListState()
 
     ScreenScaffold(
-        title = stringResource(R.string.choose_language),
+        titleRes = R.string.choose_language,
         innerPadding = innerPadding,
         onBack = onBack
     ) {

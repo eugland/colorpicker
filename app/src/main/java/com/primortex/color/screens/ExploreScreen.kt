@@ -57,7 +57,7 @@ fun ExploreScreen(
     val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
     val appLanguage by SettingsService.appLanguage.collectAsState()
 
-    ScreenScaffold(stringResource(R.string.explore), innerPadding) {
+    ScreenScaffold(R.string.explore, innerPadding) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
