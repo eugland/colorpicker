@@ -33,6 +33,7 @@ object Routes {
 
     object Tool {
         const val SLIDER = "tool/slider"
+        const val SIMULATOR = "tool/simulator"
     }
 
     object Settings {

@@ -141,6 +141,8 @@
     <string name="from_album_subtitle">从照片中取色</string>
     <string name="tools">工具</string>
     <string name="color_slider_description">调整 RGB 或 HSL 并实时查看名称和十六进制值。保存或创建调色板。</string>
+    <string name="color_simulator">颜色模拟器</string>
+    <string name="color_simulator_description">在服装、鞋子和外立面上预览同一颜色。</string>
     <string name="open">打开</string>
     <string name="live_color_picker">实时颜色取样器</string>
     <string name="live_color_picker_description">对准任何东西。双指缩放。立即添加到调色板。</string>
@@ -168,6 +170,23 @@
 
     <string name="camera_title">相机</string>
     <string name="camera_intro">实时取色或从照片中取色。点击任意色块即可复制。</string>
+
+    <string name="hex_label">十六进制值</string>
+    <string name="hex_supporting_text">输入或粘贴 6 位十六进制代码。</string>
+    <string name="tweak_the_shade">微调色调</string>
+    <string name="hue">色相</string>
+    <string name="saturation">饱和度</string>
+    <string name="lightness">亮度</string>
+    <string name="simulated_surfaces">在不同表面上的效果</string>
+    <string name="scene_dress_title">晚礼服</string>
+    <string name="scene_dress_subtitle">柔和高光的飘逸面料</string>
+    <string name="scene_shoes_title">运动鞋</string>
+    <string name="scene_shoes_subtitle">带有缝线的哑光质感</string>
+    <string name="scene_building_title">现代立面</string>
+    <string name="scene_building_subtitle">玻璃、装饰和石材点缀</string>
+    <string name="scene_house_title">住宅外观</string>
+    <string name="scene_house_subtitle">墙板、窗户和屋顶色调</string>
+    <string name="simulator_save_hint">喜欢某个效果？保存十六进制值以便在调色板或分享时使用。</string>
 
     <string name="photo_picking">照片取色</string>
     <string name="more_info">更多信息</string>
