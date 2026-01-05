@@ -37,7 +37,7 @@ import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 
 @Composable
-fun ColorApp() {
+fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     val nav = rememberNavController()
     val backStack by nav.currentBackStackEntryAsState()
     val route = backStack?.destination?.route.orEmpty()
@@ -220,7 +220,8 @@ fun ColorApp() {
             composable(Routes.Settings.LANGUAGE) {
                 LanguageSelectionScreen(
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() }
+                    onBack = { nav.popBackStack() },
+                    onLanguageChanged = onLanguageChanged
                 )
             }
         }

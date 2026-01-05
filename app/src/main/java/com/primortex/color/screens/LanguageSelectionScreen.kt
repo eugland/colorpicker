@@ -30,6 +30,7 @@ import androidx.compose.ui.res.stringResource as str
 fun LanguageSelectionScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit,
+    onLanguageChanged: () -> Unit,
 ) {
     val selectedLanguage by SettingsService.appLanguage.collectAsState()
     val listState = rememberLazyListState()
@@ -58,7 +59,10 @@ fun LanguageSelectionScreen(
                 LanguageOption(
                     language = language,
                     selected = language == selectedLanguage,
-                    onSelect = { SettingsService.setAppLanguage(language) }
+                    onSelect = {
+                        SettingsService.setAppLanguage(language)
+                        onLanguageChanged()
+                    }
                 )
             }
         }
