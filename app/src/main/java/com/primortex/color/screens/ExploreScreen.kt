@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.app.Routes
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
@@ -65,7 +66,10 @@ fun ExploreScreen(
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(stringResource(R.string.settings_title), style = MaterialTheme.typography.titleLarge)
+                Text(
+                    stringResource(R.string.settings_title),
+                    style = MaterialTheme.typography.titleLarge
+                )
                 Text(
                     stringResource(R.string.settings_description),
                     style = MaterialTheme.typography.bodyMedium,
@@ -154,7 +158,10 @@ fun ExploreScreen(
                             shape = crosshairShape
                         )
                         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text(stringResource(R.string.picker_crosshair), style = MaterialTheme.typography.titleMedium)
+                            Text(
+                                stringResource(R.string.picker_crosshair),
+                                style = MaterialTheme.typography.titleMedium
+                            )
                             Text(
                                 stringResource(R.string.picker_crosshair_description),
                                 style = MaterialTheme.typography.bodySmall,

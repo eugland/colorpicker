@@ -2,10 +2,10 @@ package com.primortex.color.service
 
 import android.content.Context
 import androidx.annotation.StringRes
+import androidx.core.os.LocaleListCompat
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.core.os.LocaleListCompat
 import com.primortex.color.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +53,7 @@ enum class AppLanguage(val languageTag: String?, @StringRes val labelRes: Int) {
     Portuguese("pt", R.string.language_portuguese),
     Russian("ru", R.string.language_russian),
 
-    ChineseSimplified("zh-Hans", R.string.language_chinese_simplified),
+    ChineseSimplified("zh", R.string.language_chinese_simplified),
     ChineseTraditional("zh-Hant", R.string.language_chinese_traditional),
 
     Japanese("ja", R.string.language_japanese),
