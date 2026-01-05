@@ -235,30 +235,31 @@ private fun SimulationCard(scene: SimulationScene, color: Color) {
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(160.dp)
-                .background(
-                    Brush.verticalGradient(
-                        listOf(
-                            MaterialTheme.colorScheme.surfaceVariant,
-                            color.copy(alpha = 0.75f)
-                        )
-                    )
-                )
-                .padding(16.dp)
-        ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(170.dp)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                    .padding(16.dp)
+            ) {
+                SceneIllustration(scene = scene, color = color)
+            }
+
             Column(
-                modifier = Modifier.align(Alignment.BottomStart),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                Icon(
-                    imageVector = scene.icon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurface
-                )
-                Text(stringResource(scene.title), style = MaterialTheme.typography.titleMedium)
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Icon(
+                        imageVector = scene.icon,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Text(stringResource(scene.title), style = MaterialTheme.typography.titleMedium)
+                }
                 Text(
                     stringResource(scene.subtitle),
                     style = MaterialTheme.typography.bodySmall,
@@ -279,6 +280,199 @@ private fun SimulationCard(scene: SimulationScene, color: Color) {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun SceneIllustration(scene: SimulationScene, color: Color) {
+    val neutral = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+    val shadow = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.18f)
+    val accent = color.copy(alpha = 0.88f)
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+    ) {
+        when (scene.title) {
+            R.string.scene_dress_title -> DressIllustration(neutral, accent, shadow)
+            R.string.scene_shoes_title -> ShoesIllustration(neutral, accent, shadow)
+            R.string.scene_building_title -> BuildingIllustration(neutral, accent, shadow)
+            else -> HouseIllustration(neutral, accent, shadow)
+        }
+    }
+}
+
+@Composable
+private fun DressIllustration(neutral: Color, accent: Color, shadow: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .size(70.dp)
+                .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp, bottomStart = 6.dp, bottomEnd = 6.dp))
+                .background(accent)
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .offset(y = 30.dp)
+                .size(width = 120.dp, height = 36.dp)
+                .clip(RoundedCornerShape(40.dp))
+                .background(accent.copy(alpha = 0.7f))
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .offset(y = 54.dp)
+                .size(width = 140.dp, height = 18.dp)
+                .clip(RoundedCornerShape(60.dp))
+                .background(shadow)
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .offset(y = 12.dp)
+                .size(width = 70.dp, height = 14.dp)
+                .clip(RoundedCornerShape(20.dp))
+                .background(neutral)
+        )
+    }
+}
+
+@Composable
+private fun ShoesIllustration(neutral: Color, accent: Color, shadow: Color) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(width = 110.dp, height = 40.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(accent)
+            )
+            Box(
+                modifier = Modifier
+                    .size(width = 110.dp, height = 40.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(accent.copy(alpha = 0.75f))
+            )
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(14.dp)
+                .align(Alignment.BottomCenter)
+                .background(shadow)
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(8.dp)
+                .align(Alignment.BottomCenter)
+                .offset(y = (-4).dp)
+                .background(neutral)
+        )
+    }
+}
+
+@Composable
+private fun BuildingIllustration(neutral: Color, accent: Color, shadow: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.Bottom
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(width = 70.dp, height = 70.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(neutral)
+            )
+            Box(
+                modifier = Modifier
+                    .size(width = 90.dp, height = 110.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(accent)
+            )
+            Box(
+                modifier = Modifier
+                    .size(width = 70.dp, height = 90.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(accent.copy(alpha = 0.8f))
+            )
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+                .align(Alignment.BottomCenter)
+                .background(shadow)
+        )
+    }
+}
+
+@Composable
+private fun HouseIllustration(neutral: Color, accent: Color, shadow: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .size(width = 150.dp, height = 70.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(accent)
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .offset(y = (-40).dp)
+                .size(width = 100.dp, height = 40.dp)
+                .clip(RoundedCornerShape(topStart = 6.dp, topEnd = 6.dp))
+                .background(neutral)
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .offset(y = (-44).dp)
+                .size(width = 170.dp, height = 70.dp)
+                .clip(RoundedCornerShape(24.dp))
+                .background(accent.copy(alpha = 0.8f))
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .size(width = 60.dp, height = 40.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .background(shadow)
+        )
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .offset(y = 6.dp)
+                .size(width = 220.dp, height = 12.dp)
+                .clip(RoundedCornerShape(20.dp))
+                .background(shadow.copy(alpha = 0.6f))
+        )
     }
 }
 
