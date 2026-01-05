@@ -1,12 +1,12 @@
 package com.primortex.color
 
 
-import android.app.Application
+import androidx.appcompat.app.AppCompatApplication
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.SettingsService
 
-class ColorAppApplication : Application() {
+class ColorAppApplication : AppCompatApplication() {
     override fun onCreate() {
         super.onCreate()
         RecentPicksService.init(applicationContext)
