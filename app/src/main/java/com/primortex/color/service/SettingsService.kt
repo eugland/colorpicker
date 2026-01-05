@@ -2,7 +2,6 @@ package com.primortex.color.service
 
 import android.content.Context
 import android.util.Log
-import android.os.Looper
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -183,11 +182,9 @@ object SettingsService {
     private fun applyLocales(language: AppLanguage) {
         val locales = localeListFor(language)
         Log.d("AppLanguage", "applyLocales: $locales")
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            AppCompatDelegate.setApplicationLocales(locales)
-        } else {
-            mainScope.launch { AppCompatDelegate.setApplicationLocales(locales) }
-        }
+        AppCompatDelegate.setApplicationLocales(locales)
+        val now_locale = AppCompatDelegate.getApplicationLocales()
+        Log.d("AppLanguage", "appliedLocales: $locales")
     }
 
 
