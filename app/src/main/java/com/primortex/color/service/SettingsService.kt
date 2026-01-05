@@ -1,6 +1,7 @@
 package com.primortex.color.service
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -141,6 +142,7 @@ object SettingsService {
                 ?: AppLanguage.SystemDefault
 
             applyLocales(_appLanguage.value)
+            Log.d("AppLanguage", "init: ${_appLanguage.value}")
         }
     }
 
@@ -167,6 +169,7 @@ object SettingsService {
 
     fun setAppLanguage(language: AppLanguage) {
         _appLanguage.value = language
+        Log.d("AppLanguage", "setAppLanguage: $language")
         applyLocales(language)
         persist()
     }
@@ -177,8 +180,10 @@ object SettingsService {
     }
 
     private fun applyLocales(language: AppLanguage) {
+        val local = localeListFor(language)
+        Log.d("AppLanguage", "applyLocales: $local")
         mainScope.launch {
-            AppCompatDelegate.setApplicationLocales(localeListFor(language))
+            AppCompatDelegate.setApplicationLocales(local)
         }
     }
 

@@ -79,6 +79,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation(libs.volley)
     implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.appcompat)
 
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)
