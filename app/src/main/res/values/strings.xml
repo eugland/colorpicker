@@ -140,6 +140,8 @@
     <string name="from_album_subtitle">Pick from a photo</string>
     <string name="tools">Tools</string>
     <string name="color_slider_description">Adjust RGB or HSL and see live names and hex. Save or build palettes.</string>
+    <string name="color_simulator">Color simulator</string>
+    <string name="color_simulator_description">Preview the same color on outfits, shoes, and facades.</string>
     <string name="open">Open</string>
     <string name="live_color_picker">Live color picker</string>
     <string name="live_color_picker_description">Point at anything. Pinch to zoom. Add to palette instantly.</string>
@@ -167,6 +169,23 @@
 
     <string name="camera_title">Camera</string>
     <string name="camera_intro">Pick colors live or from a photo. Tap any swatch to copy.</string>
+
+    <string name="hex_label">Hex value</string>
+    <string name="hex_supporting_text">Type or paste a 6-digit hex code.</string>
+    <string name="tweak_the_shade">Tweak the shade</string>
+    <string name="hue">Hue</string>
+    <string name="saturation">Saturation</string>
+    <string name="lightness">Lightness</string>
+    <string name="simulated_surfaces">See it on different surfaces</string>
+    <string name="scene_dress_title">Evening dress</string>
+    <string name="scene_dress_subtitle">Flowy fabric with soft highlights</string>
+    <string name="scene_shoes_title">Sneakers</string>
+    <string name="scene_shoes_subtitle">Matte finish with stitching</string>
+    <string name="scene_building_title">Modern facade</string>
+    <string name="scene_building_subtitle">Glass, trim, and stone accents</string>
+    <string name="scene_house_title">Home exterior</string>
+    <string name="scene_house_subtitle">Siding, windows, and roof tones</string>
+    <string name="simulator_save_hint">Love a result? Save the hex to reuse it in palettes or share it.</string>
 
     <string name="photo_picking">Photo picking</string>
     <string name="more_info">More info</string>

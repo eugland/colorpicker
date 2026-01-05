@@ -38,6 +38,7 @@ fun CameraScreen(
     innerPadding: PaddingValues = PaddingValues(),
     onOpenLiveCameraPicker: () -> Unit,
     onOpenColorSlider: () -> Unit,
+    onOpenColorSimulator: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
     val history by RecentPicksService.history.collectAsState()
@@ -96,6 +97,7 @@ fun CameraScreen(
         }
 
         ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
+        ColorSimulatorCard(onOpenColorSimulator = onOpenColorSimulator)
     }
 }
 
@@ -121,6 +123,32 @@ private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
                 )
             }
             FilledTonalButton(onClick = onOpenColorSlider) { Text(stringResource(R.string.open)) }
+        }
+    }
+}
+
+@Composable
+private fun ColorSimulatorCard(onOpenColorSimulator: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.extraLarge,
+        onClick = onOpenColorSimulator
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Icon(Icons.Outlined.Colorize, contentDescription = null)
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(stringResource(R.string.color_simulator), style = MaterialTheme.typography.titleMedium)
+                Text(
+                    stringResource(R.string.color_simulator_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            FilledTonalButton(onClick = onOpenColorSimulator) { Text(stringResource(R.string.open)) }
         }
     }
 }

@@ -34,6 +34,7 @@ import com.primortex.color.info.InfoPage
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
+import com.primortex.color.screens.ColorSimulatorScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.InfoDetailSection
@@ -53,11 +54,11 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
         route.startsWith(Routes.Tab.PALETTE) -> Routes.Tab.PALETTE
         route.startsWith(Routes.Tab.CAMERA) -> Routes.Tab.CAMERA
         route.startsWith(Routes.Tab.EXPLORE) -> Routes.Tab.EXPLORE
-        route.startsWith(Routes.Tool.SLIDER) -> Routes.Tab.CAMERA
+        route.startsWith("tool/") -> Routes.Tab.CAMERA
         else -> route
     }
 
-    val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
+    val showBottomBar = route.startsWith("tab/") || route.startsWith("tool/")
 
     Scaffold(
         bottomBar = {
@@ -139,6 +140,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     innerPadding = inner,
                     onOpenLiveCameraPicker = { nav.navigate(Routes.Camera.LIVE) },
                     onOpenColorSlider = { nav.navigate(Routes.Tool.SLIDER) },
+                    onOpenColorSimulator = { nav.navigate(Routes.Tool.SIMULATOR) },
                     onPickFromAlbum = { uriString ->
                         val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
                         nav.navigate(Routes.Camera.photoPickWith(encoded))
@@ -191,6 +193,13 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
 
             composable(Routes.Tool.SLIDER) {
                 ColorSliderScreen(
+                    innerPadding = inner,
+                    onBack = { nav.popBackStack() }
+                )
+            }
+
+            composable(Routes.Tool.SIMULATOR) {
+                ColorSimulatorScreen(
                     innerPadding = inner,
                     onBack = { nav.popBackStack() }
                 )
