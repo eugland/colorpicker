@@ -1,6 +1,5 @@
 package com.primortex.color.screens
 
-import android.graphics.Color as AndroidColor
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,14 +7,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Apartment
 import androidx.compose.material.icons.outlined.Brush
@@ -41,18 +42,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
 import com.primortex.color.service.ColorNameLookup
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
+import android.graphics.Color as AndroidColor
 
 private data class SimulationScene(
     val title: Int,
@@ -69,7 +70,17 @@ fun ColorSimulatorScreen(
     var hue by remember { mutableFloatStateOf(210f) }
     var saturation by remember { mutableFloatStateOf(0.55f) }
     var lightness by remember { mutableFloatStateOf(0.55f) }
-    var argb by remember { mutableIntStateOf(ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))) }
+    var argb by remember {
+        mutableIntStateOf(
+            ColorUtils.HSLToColor(
+                floatArrayOf(
+                    hue,
+                    saturation,
+                    lightness
+                )
+            )
+        )
+    }
     var hexInput by remember { mutableStateOf(argbToHex(argb)) }
 
     val nearestName = remember(argb) { ColorNameLookup.nearestName(argb).name }
@@ -135,14 +146,18 @@ fun ColorSimulatorScreen(
                     )
 
                     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        Text(stringResource(R.string.tweak_the_shade), style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            stringResource(R.string.tweak_the_shade),
+                            style = MaterialTheme.typography.titleMedium
+                        )
                         LabeledSlider(
                             label = stringResource(R.string.hue),
                             value = hue,
                             valueRange = 0f..360f,
                             onValueChange = {
                                 hue = it
-                                argb = ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
+                                argb =
+                                    ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
                             }
                         )
                         LabeledSlider(
@@ -151,7 +166,8 @@ fun ColorSimulatorScreen(
                             valueRange = 0f..100f,
                             onValueChange = {
                                 saturation = it / 100f
-                                argb = ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
+                                argb =
+                                    ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
                             },
                             valueFormatter = { v -> "${v.toInt()}%" }
                         )
@@ -161,7 +177,8 @@ fun ColorSimulatorScreen(
                             valueRange = 0f..100f,
                             onValueChange = {
                                 lightness = it / 100f
-                                argb = ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
+                                argb =
+                                    ColorUtils.HSLToColor(floatArrayOf(hue, saturation, lightness))
                             },
                             valueFormatter = { v -> "${v.toInt()}%" }
                         )
@@ -169,7 +186,10 @@ fun ColorSimulatorScreen(
                 }
             }
 
-            Text(stringResource(R.string.simulated_surfaces), style = MaterialTheme.typography.titleMedium)
+            Text(
+                stringResource(R.string.simulated_surfaces),
+                style = MaterialTheme.typography.titleMedium
+            )
 
             val scenes = remember {
                 listOf(
@@ -255,7 +275,10 @@ private fun SimulationCard(scene: SimulationScene, color: Color) {
                     .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
                     Icon(
                         imageVector = scene.icon,
                         contentDescription = null,
@@ -268,7 +291,10 @@ private fun SimulationCard(scene: SimulationScene, color: Color) {
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
                     Box(
                         modifier = Modifier
                             .size(18.dp)
@@ -317,7 +343,14 @@ private fun DressIllustration(neutral: Color, accent: Color, shadow: Color) {
             modifier = Modifier
                 .align(Alignment.Center)
                 .size(70.dp)
-                .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp, bottomStart = 6.dp, bottomEnd = 6.dp))
+                .clip(
+                    RoundedCornerShape(
+                        topStart = 30.dp,
+                        topEnd = 30.dp,
+                        bottomStart = 6.dp,
+                        bottomEnd = 6.dp
+                    )
+                )
                 .background(accent)
         )
         Box(
