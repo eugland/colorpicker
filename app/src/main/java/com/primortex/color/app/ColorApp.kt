@@ -14,7 +14,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -22,15 +26,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import androidx.compose.ui.res.stringResource
-import com.primortex.color.app.Routes
 import com.primortex.color.R
+import com.primortex.color.app.Routes
 import com.primortex.color.info.InfoContent
+import com.primortex.color.info.InfoContentService
+import com.primortex.color.info.InfoPage
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.screens.InfoDetailScreen
+import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteScreen
@@ -191,29 +197,44 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
             }
 
             composable(Routes.Info.COPYRIGHT) {
+                val sections = rememberInfoSections(
+                    page = InfoPage.COPYRIGHT,
+                    fallback = InfoContent.copyrightSections
+                )
+
                 InfoDetailScreen(
                     title = stringResource(R.string.copyright_notice),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
-                    sections = InfoContent.copyrightSections
+                    sections = sections
                 )
             }
 
             composable(Routes.Info.PRIVACY) {
+                val sections = rememberInfoSections(
+                    page = InfoPage.PRIVACY,
+                    fallback = InfoContent.privacySections
+                )
+
                 InfoDetailScreen(
                     title = stringResource(R.string.privacy_statement),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
-                    sections = InfoContent.privacySections
+                    sections = sections
                 )
             }
 
             composable(Routes.Info.USAGE) {
+                val sections = rememberInfoSections(
+                    page = InfoPage.USAGE,
+                    fallback = InfoContent.usageSections
+                )
+
                 InfoDetailScreen(
                     title = stringResource(R.string.usage_guide),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
-                    sections = InfoContent.usageSections
+                    sections = sections
                 )
             }
 
@@ -226,4 +247,21 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
             }
         }
     }
+}
+
+@Composable
+private fun rememberInfoSections(
+    page: InfoPage,
+    fallback: List<InfoDetailSection>
+): List<InfoDetailSection> {
+    val context = LocalContext.current
+    val locales = context.resources.configuration.locales
+    val languageTag = if (locales.isEmpty) null else locales[0]?.toLanguageTag()
+    val service = remember { InfoContentService(context) }
+
+    val sections = produceState(initialValue = fallback, page, languageTag) {
+        value = service.getSections(page, languageTag, fallback)
+    }
+
+    return sections.value
 }
