@@ -7,8 +7,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.core.os.LocaleListCompat
-import androidx.core.os.LocaleManagerCompat
 import com.primortex.color.R
+import com.primortex.color.i18n.LocaleManagerBridge
 import com.primortex.color.i18n.LanguageCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -120,7 +120,7 @@ object SettingsService {
 
         scope.launch {
             val prefs = appContext.settingsDataStore.data.first()
-            val systemLocales = LocaleManagerCompat.getApplicationLocales(appContext)
+            val systemLocales = LocaleManagerBridge.getApplicationLocales(appContext)
             val systemTag = if (systemLocales.isEmpty) null else systemLocales[0]?.toLanguageTag()
 
             _crosshairSize.value = prefs[KEY_CROSSHAIR_SIZE]
@@ -193,7 +193,7 @@ object SettingsService {
             ?.let { LocaleListCompat.forLanguageTags(it) }
             ?: LocaleListCompat.getEmptyLocaleList()
 
-        LocaleManagerCompat.setApplicationLocales(appContext, locales)
+        LocaleManagerBridge.setApplicationLocales(appContext, locales)
     }
 
     private fun findLanguageForTag(tag: String): AppLanguage? {

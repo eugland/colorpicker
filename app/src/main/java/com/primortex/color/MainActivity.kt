@@ -12,9 +12,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.core.os.LocaleManagerCompat
 import com.primortex.color.app.ColorApp
 import com.primortex.color.i18n.LanguageCache
+import com.primortex.color.i18n.LocaleManagerBridge
 import com.primortex.color.i18n.LocaleUtil
 import com.primortex.color.service.SettingsService
 import com.primortex.color.service.ThemeMode
@@ -23,7 +23,7 @@ import com.primortex.color.ui.theme.ColorTheme
 class MainActivity : ComponentActivity() {
     override fun attachBaseContext(newBase: Context) {
         val cachedTag = LanguageCache.get(newBase)
-        val systemLocales = LocaleManagerCompat.getApplicationLocales(newBase)
+        val systemLocales = LocaleManagerBridge.getApplicationLocales(newBase)
         val systemTag = if (systemLocales.isEmpty) null else systemLocales[0]?.toLanguageTag()
         val tag = cachedTag ?: systemTag
 
