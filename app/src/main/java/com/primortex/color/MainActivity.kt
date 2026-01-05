@@ -1,7 +1,8 @@
 package com.primortex.color
 
-import android.os.Bundle
 import android.app.Activity
+import android.content.Context
+import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -12,11 +13,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.primortex.color.app.ColorApp
+import com.primortex.color.i18n.LanguageCache
+import com.primortex.color.i18n.LocaleUtil
 import com.primortex.color.service.SettingsService
 import com.primortex.color.service.ThemeMode
 import com.primortex.color.ui.theme.ColorTheme
 
 class MainActivity : ComponentActivity() {
+    override fun attachBaseContext(newBase: Context) {
+        val tag = LanguageCache.get(newBase)
+        super.attachBaseContext(LocaleUtil.wrap(newBase, tag))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

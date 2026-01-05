@@ -17,10 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.service.AppLanguage
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ScreenScaffold
@@ -33,6 +35,7 @@ fun LanguageSelectionScreen(
     onLanguageChanged: () -> Unit,
 ) {
     val selectedLanguage by SettingsService.appLanguage.collectAsState()
+    val context = LocalContext.current
     val listState = rememberLazyListState()
 
     ScreenScaffold(
@@ -60,6 +63,7 @@ fun LanguageSelectionScreen(
                     language = language,
                     selected = language == selectedLanguage,
                     onSelect = {
+                        LanguageCache.set(context, language.languageTag)
                         SettingsService.setAppLanguage(language)
                         onLanguageChanged()
                     }

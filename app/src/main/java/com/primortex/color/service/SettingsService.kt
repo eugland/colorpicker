@@ -2,14 +2,12 @@ package com.primortex.color.service
 
 import android.content.Context
 import android.util.Log
-import android.os.Looper
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.R
+import com.primortex.color.i18n.LanguageCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -97,7 +95,6 @@ object SettingsService {
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private val mainScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     private val _crosshairSize = MutableStateFlow(CrosshairSize.Medium)
     val crosshairSize: StateFlow<CrosshairSize> = _crosshairSize
@@ -142,7 +139,7 @@ object SettingsService {
                 ?.let { runCatching { AppLanguage.valueOf(it) }.getOrNull() }
                 ?: AppLanguage.SystemDefault
 
-            applyLocales(_appLanguage.value)
+            LanguageCache.set(appContext, _appLanguage.value.languageTag)
             Log.d("AppLanguage", "init: ${_appLanguage.value}")
         }
     }
@@ -171,25 +168,9 @@ object SettingsService {
     fun setAppLanguage(language: AppLanguage) {
         _appLanguage.value = language
         Log.d("AppLanguage", "setAppLanguage: $language")
-        applyLocales(language)
+        LanguageCache.set(appContext, language.languageTag)
         persist()
     }
-
-    fun localeListFor(language: AppLanguage): LocaleListCompat {
-        return language.languageTag?.let { LocaleListCompat.forLanguageTags(it) }
-            ?: LocaleListCompat.getEmptyLocaleList()
-    }
-
-    private fun applyLocales(language: AppLanguage) {
-        val locales = localeListFor(language)
-        Log.d("AppLanguage", "applyLocales: $locales")
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            AppCompatDelegate.setApplicationLocales(locales)
-        } else {
-            mainScope.launch { AppCompatDelegate.setApplicationLocales(locales) }
-        }
-    }
-
 
     private fun persist() {
         val size = _crosshairSize.value.name
