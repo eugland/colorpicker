@@ -29,9 +29,9 @@ enum class CrosshairShape(val label: String) {
 }
 
 enum class ThemeMode(val labelRes: Int) {
-    DARK(R.string.theme_dark),
+    SYSTEM(R.string.theme_system_default),
     LIGHT(R.string.theme_light),
-    SYSTEM(R.string.theme_dark)
+    DARK(R.string.theme_dark),
 }
 
 enum class PickerSensitivity(val label: String) {
