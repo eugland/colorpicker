@@ -1,13 +1,13 @@
 package com.primortex.color.info
 
 import android.content.Context
+import android.util.Log
 import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.service.ColorApiService
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class InfoContentService(
@@ -30,6 +30,7 @@ class InfoContentService(
             saveCache(page, normalizedTag, remote)
             return remote
         }
+        Log.d("InfoContentService", "Remote fallback")
 
         val cached = readCache(page, normalizedTag)
         if (cached != null) return cached
@@ -42,9 +43,11 @@ class InfoContentService(
         languageTag: String
     ): List<InfoDetailSection>? {
         val url = "$BASE_URL/${page.path}/$languageTag.json"
+        Log.d("InfoContentService", "Fetching from $url")
 
         return runCatching {
             val response: RemoteInfoContent = client.get(url).body()
+            Log.d("InfoContentService", "Fetching from $response")
             response.toSections()
         }.getOrNull()
     }
@@ -65,7 +68,9 @@ class InfoContentService(
 
     private fun readCache(page: InfoPage, languageTag: String): List<InfoDetailSection>? {
         val cached = cache.getString(cacheKey(page, languageTag), null) ?: return null
-        return runCatching { json.decodeFromString(RemoteInfoContent.serializer(), cached).toSections() }
+        return runCatching {
+            json.decodeFromString(RemoteInfoContent.serializer(), cached).toSections()
+        }
             .getOrNull()
     }
 
