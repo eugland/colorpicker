@@ -2,6 +2,7 @@ package com.primortex.color.service
 
 import android.content.Context
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -94,6 +95,7 @@ object SettingsService {
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val mainScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     private val _crosshairSize = MutableStateFlow(CrosshairSize.Medium)
     val crosshairSize: StateFlow<CrosshairSize> = _crosshairSize
@@ -137,6 +139,8 @@ object SettingsService {
             _appLanguage.value = prefs[KEY_APP_LANGUAGE]
                 ?.let { runCatching { AppLanguage.valueOf(it) }.getOrNull() }
                 ?: AppLanguage.SystemDefault
+
+            applyLocales(_appLanguage.value)
         }
     }
 
@@ -163,12 +167,19 @@ object SettingsService {
 
     fun setAppLanguage(language: AppLanguage) {
         _appLanguage.value = language
+        applyLocales(language)
         persist()
     }
 
     fun localeListFor(language: AppLanguage): LocaleListCompat {
         return language.languageTag?.let { LocaleListCompat.forLanguageTags(it) }
             ?: LocaleListCompat.getEmptyLocaleList()
+    }
+
+    private fun applyLocales(language: AppLanguage) {
+        mainScope.launch {
+            AppCompatDelegate.setApplicationLocales(localeListFor(language))
+        }
     }
 
 
