@@ -6,6 +6,8 @@ import androidx.annotation.StringRes
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.core.os.LocaleListCompat
+import androidx.core.os.LocaleManagerCompat
 import com.primortex.color.R
 import com.primortex.color.i18n.LanguageCache
 import kotlinx.coroutines.CoroutineScope
@@ -118,6 +120,8 @@ object SettingsService {
 
         scope.launch {
             val prefs = appContext.settingsDataStore.data.first()
+            val systemLocales = LocaleManagerCompat.getApplicationLocales(appContext)
+            val systemTag = if (systemLocales.isEmpty) null else systemLocales[0]?.toLanguageTag()
 
             _crosshairSize.value = prefs[KEY_CROSSHAIR_SIZE]
                 ?.let { runCatching { CrosshairSize.valueOf(it) }.getOrNull() }
@@ -135,11 +139,22 @@ object SettingsService {
                 ?.let { runCatching { PickerSensitivity.valueOf(it) }.getOrNull() }
                 ?: PickerSensitivity.Medium
 
-            _appLanguage.value = prefs[KEY_APP_LANGUAGE]
+            val storedLanguage = prefs[KEY_APP_LANGUAGE]
                 ?.let { runCatching { AppLanguage.valueOf(it) }.getOrNull() }
                 ?: AppLanguage.SystemDefault
 
-            LanguageCache.set(appContext, _appLanguage.value.languageTag)
+            val resolvedLanguage = systemTag?.let { tag ->
+                findLanguageForTag(tag) ?: AppLanguage.SystemDefault
+            } ?: storedLanguage
+
+            _appLanguage.value = resolvedLanguage
+
+            val tagToCache = systemTag ?: resolvedLanguage.languageTag
+            if (tagToCache != null) {
+                LanguageCache.set(appContext, tagToCache)
+            }
+
+            syncPlatformLocale(resolvedLanguage)
             Log.d("AppLanguage", "init: ${_appLanguage.value}")
         }
     }
@@ -169,7 +184,24 @@ object SettingsService {
         _appLanguage.value = language
         Log.d("AppLanguage", "setAppLanguage: $language")
         LanguageCache.set(appContext, language.languageTag)
+        syncPlatformLocale(language)
         persist()
+    }
+
+    private fun syncPlatformLocale(language: AppLanguage) {
+        val locales = language.languageTag
+            ?.let { LocaleListCompat.forLanguageTags(it) }
+            ?: LocaleListCompat.getEmptyLocaleList()
+
+        LocaleManagerCompat.setApplicationLocales(appContext, locales)
+    }
+
+    private fun findLanguageForTag(tag: String): AppLanguage? {
+        return AppLanguage.entries.firstOrNull { candidate ->
+            candidate.languageTag != null && tag.equals(candidate.languageTag, ignoreCase = true)
+        } ?: AppLanguage.entries.firstOrNull { candidate ->
+            candidate.languageTag != null && tag.startsWith(candidate.languageTag, ignoreCase = true)
+        }
     }
 
     private fun persist() {
