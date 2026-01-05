@@ -260,7 +260,9 @@ private fun rememberInfoSections(
     val service = remember { InfoContentService(context) }
 
     val sections = produceState(initialValue = fallback, page, languageTag) {
-        value = service.getSections(page, languageTag, fallback)
+        service.loadSections(page, languageTag, fallback) { updated ->
+            value = updated
+        }
     }
 
     return sections.value

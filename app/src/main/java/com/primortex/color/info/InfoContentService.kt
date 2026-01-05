@@ -23,35 +23,47 @@ class InfoContentService(
         languageTag: String?,
         fallback: List<InfoDetailSection>
     ): List<InfoDetailSection> {
+        var current = fallback
+        loadSections(page, languageTag, fallback) { sections -> current = sections }
+        return current
+    }
+
+    suspend fun loadSections(
+        page: InfoPage,
+        languageTag: String?,
+        fallback: List<InfoDetailSection>,
+        onUpdate: (List<InfoDetailSection>) -> Unit
+    ) {
         val normalizedTag = normalizeLanguageTag(languageTag)
 
-        val remote = fetchRemote(page, normalizedTag)
-        if (!remote.isNullOrEmpty()) {
-            saveCache(page, normalizedTag, remote)
-            return remote
-        }
-
         val cached = readCache(page, normalizedTag)
-        if (cached != null) return cached
+        onUpdate(cached?.sections ?: fallback)
 
-        return fallback
+        val remote = fetchRemote(page, normalizedTag) ?: return
+
+        if (cached?.version == remote.version && cached.sections == remote.sections) return
+
+        saveCache(page, normalizedTag, remote)
+        onUpdate(remote.sections)
     }
 
     private suspend fun fetchRemote(
         page: InfoPage,
         languageTag: String
-    ): List<InfoDetailSection>? {
+    ): CachedContent? {
         val url = "$BASE_URL/${page.path}/$languageTag.json"
 
         return runCatching {
             val response: RemoteInfoContent = client.get(url).body()
-            response.toSections()
+            val sections = response.toSections()
+            if (sections.isEmpty()) null else CachedContent(response.version, sections)
         }.getOrNull()
     }
 
-    private fun saveCache(page: InfoPage, languageTag: String, sections: List<InfoDetailSection>) {
+    private fun saveCache(page: InfoPage, languageTag: String, content: CachedContent) {
         val payload = RemoteInfoContent(
-            sections = sections.map {
+            version = content.version,
+            sections = content.sections.map {
                 RemoteInfoSection(
                     heading = it.heading,
                     paragraphs = it.paragraphs,
@@ -63,10 +75,13 @@ class InfoContentService(
         cache.edit().putString(cacheKey(page, languageTag), json.encodeToString(payload)).apply()
     }
 
-    private fun readCache(page: InfoPage, languageTag: String): List<InfoDetailSection>? {
+    private fun readCache(page: InfoPage, languageTag: String): CachedContent? {
         val cached = cache.getString(cacheKey(page, languageTag), null) ?: return null
-        return runCatching { json.decodeFromString(RemoteInfoContent.serializer(), cached).toSections() }
-            .getOrNull()
+        return runCatching {
+            val content = json.decodeFromString(RemoteInfoContent.serializer(), cached)
+            val sections = content.toSections()
+            if (sections.isEmpty()) null else CachedContent(content.version, sections)
+        }.getOrNull()
     }
 
     private fun cacheKey(page: InfoPage, languageTag: String): String = "${page.path}_$languageTag"
@@ -93,7 +108,10 @@ enum class InfoPage(val path: String) {
 }
 
 @Serializable
-private data class RemoteInfoContent(val sections: List<RemoteInfoSection> = emptyList())
+private data class RemoteInfoContent(
+    val version: Int = 0,
+    val sections: List<RemoteInfoSection> = emptyList()
+)
 
 @Serializable
 private data class RemoteInfoSection(
@@ -101,6 +119,8 @@ private data class RemoteInfoSection(
     val paragraphs: List<String> = emptyList(),
     val bullets: List<String> = emptyList()
 )
+
+private data class CachedContent(val version: Int, val sections: List<InfoDetailSection>)
 
 private fun RemoteInfoContent.toSections(): List<InfoDetailSection> = sections
     .filter { it.heading.isNotBlank() }
