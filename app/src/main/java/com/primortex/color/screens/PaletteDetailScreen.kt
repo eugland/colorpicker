@@ -31,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSnackbarHostState
@@ -60,6 +61,7 @@ import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
 import com.primortex.color.ui.util.argbToHslString
 import com.primortex.color.ui.util.argbToRgbString
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.burnoutcrew.reorderable.ReorderableItem
 import org.burnoutcrew.reorderable.detectReorderAfterLongPress
@@ -78,6 +80,11 @@ fun PaletteDetailScreen(
     val snackbarHostState = rememberSnackbarHostState()
     val clipboard = LocalClipboardManager.current
     val scope = rememberCoroutineScope()
+
+    val paletteLabel = stringResource(R.string.palette)
+    val paletteUpdatedMessage = stringResource(R.string.palette_updated)
+    val copiedAllHexMessage = stringResource(R.string.copied_all_hex)
+    val exportedCssMessage = stringResource(R.string.exported_css)
 
     val palettes by PaletteService.palettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
@@ -132,18 +139,18 @@ fun PaletteDetailScreen(
                         }
                         PaletteService.update(
                             id = palette.id,
-                            name = name.ifBlank { stringResource(R.string.palette) },
+                            name = name.ifBlank { paletteLabel },
                             tags = tags,
                             note = note,
                             colors = editableColors.toList()
                         )
-                        scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.palette_updated)) }
+                        showSnackbar(snackbarHostState, scope, paletteUpdatedMessage)
                     }
                     isEditing = !isEditing
                 },
                 onCopyAll = {
                     clipboard.setText(AnnotatedString(editableColors.joinToString(", ") { argbToHex(it.argb) }))
-                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.copied_all_hex)) }
+                    showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
                 },
                 onExportCss = {
                     val css = buildString {
@@ -155,7 +162,7 @@ fun PaletteDetailScreen(
                         append("}")
                     }
                     clipboard.setText(AnnotatedString(css))
-                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.exported_css)) }
+                    showSnackbar(snackbarHostState, scope, exportedCssMessage)
                 },
                 onDelete = {
                     PaletteService.delete(palette.id)
@@ -373,4 +380,11 @@ private fun <T> MutableList<T>.move(from: Int, to: Int) {
     if (from == to) return
     val item = removeAt(from)
     add(if (to > from) to - 1 else to, item)
+}
+
+private fun showSnackbar(snackbarHostState: SnackbarHostState, scope: CoroutineScope, message: String) {
+    scope.launch {
+        snackbarHostState.currentSnackbarData?.dismiss()
+        snackbarHostState.showSnackbar(message)
+    }
 }
