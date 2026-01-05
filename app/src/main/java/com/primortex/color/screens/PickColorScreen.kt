@@ -28,8 +28,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.R
 
 @Composable
 fun CameraScreen(
@@ -53,9 +55,9 @@ fun CameraScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        Text("Camera", style = MaterialTheme.typography.headlineSmall)
+        Text(stringResource(R.string.camera_title), style = MaterialTheme.typography.headlineSmall)
         Text(
-            "Pick colors live or from a photo. Tap any swatch to copy.",
+            stringResource(R.string.camera_intro),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -71,15 +73,15 @@ fun CameraScreen(
             SourceTile(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.PhotoCamera,
-                title = "Live Camera",
-                subtitle = "Crosshair + zoom",
+                title = stringResource(R.string.live_camera),
+                subtitle = stringResource(R.string.live_camera_subtitle),
                 onClick = onOpenLiveCameraPicker
             )
             SourceTile(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.Collections,
-                title = "From Album",
-                subtitle = "Pick from a photo",
+                title = stringResource(R.string.from_album),
+                subtitle = stringResource(R.string.from_album_subtitle),
                 onClick = { pickPhotoLauncher.launch("image/*") }
             )
         }
@@ -88,7 +90,7 @@ fun CameraScreen(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Tools", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.tools), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.weight(1f))
 
         }
@@ -111,14 +113,14 @@ private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
         ) {
             Icon(Icons.Outlined.Gradient, contentDescription = null)
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text("Color slider", style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(R.string.color_slider), style = MaterialTheme.typography.titleMedium)
                 Text(
-                    "Adjust RGB or HSL and see live names and hex. Save or build palettes.",
+                    stringResource(R.string.color_slider_description),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            FilledTonalButton(onClick = onOpenColorSlider) { Text("Open") }
+            FilledTonalButton(onClick = onOpenColorSlider) { Text(stringResource(R.string.open)) }
         }
     }
 }
@@ -133,11 +135,11 @@ private fun LivePickerHeroCard(onOpenLiveCameraPicker: () -> Unit) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Outlined.Colorize, contentDescription = null)
                 Spacer(Modifier.width(10.dp))
-                Text("Live color picker", style = MaterialTheme.typography.titleLarge)
+                Text(stringResource(R.string.live_color_picker), style = MaterialTheme.typography.titleLarge)
             }
 
             Text(
-                "Point at anything. Pinch to zoom. Add to palette instantly.",
+                stringResource(R.string.live_color_picker_description),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -146,7 +148,7 @@ private fun LivePickerHeroCard(onOpenLiveCameraPicker: () -> Unit) {
                 onClick = onOpenLiveCameraPicker,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Start Live Picking")
+                Text(stringResource(R.string.start_live_picking))
             }
         }
     }

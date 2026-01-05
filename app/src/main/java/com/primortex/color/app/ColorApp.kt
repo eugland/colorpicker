@@ -22,7 +22,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.compose.ui.res.stringResource
 import com.primortex.color.app.Routes
+import com.primortex.color.R
 import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorDetailsScreen
@@ -64,8 +66,8 @@ fun ColorApp() {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Palette, contentDescription = "Palette") },
-                        label = { Text("Palette") }
+                        icon = { Icon(Icons.Filled.Palette, contentDescription = stringResource(R.string.palette)) },
+                        label = { Text(stringResource(R.string.palette)) }
                     )
                     NavigationBarItem(
                         selected = selectedRoot == Routes.Tab.CAMERA,
@@ -76,8 +78,8 @@ fun ColorApp() {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Camera, contentDescription = "Camera") },
-                        label = { Text("Camera") }
+                        icon = { Icon(Icons.Filled.Camera, contentDescription = stringResource(R.string.camera)) },
+                        label = { Text(stringResource(R.string.camera)) }
                     )
                     NavigationBarItem(
                         selected = selectedRoot == Routes.Tab.EXPLORE,
@@ -88,8 +90,8 @@ fun ColorApp() {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Explore, contentDescription = "Explore") },
-                        label = { Text("Explore") }
+                        icon = { Icon(Icons.Filled.Explore, contentDescription = stringResource(R.string.explore)) },
+                        label = { Text(stringResource(R.string.explore)) }
                     )
                 }
             }
@@ -190,7 +192,7 @@ fun ColorApp() {
 
             composable(Routes.Info.COPYRIGHT) {
                 InfoDetailScreen(
-                    title = "Copyright notice",
+                    title = stringResource(R.string.copyright_notice),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
                     sections = InfoContent.copyrightSections
@@ -199,7 +201,7 @@ fun ColorApp() {
 
             composable(Routes.Info.PRIVACY) {
                 InfoDetailScreen(
-                    title = "Privacy statement",
+                    title = stringResource(R.string.privacy_statement),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
                     sections = InfoContent.privacySections
@@ -208,7 +210,7 @@ fun ColorApp() {
 
             composable(Routes.Info.USAGE) {
                 InfoDetailScreen(
-                    title = "Usage guide",
+                    title = stringResource(R.string.usage_guide),
                     innerPadding = inner,
                     onBack = { nav.popBackStack() },
                     sections = InfoContent.usageSections

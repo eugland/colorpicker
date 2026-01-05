@@ -12,6 +12,7 @@ activityCompose = "1.12.2"
 composeBom = "2024.09.00"
 volley = "1.2.1"
 foundationLayout = "1.10.0"
+appcompat = "1.7.1"
 
 [libraries]
 androidx-compose-material-icons-core = { module = "androidx.compose.material:material-icons-core" }
@@ -38,6 +39,7 @@ ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 
 [plugins]
