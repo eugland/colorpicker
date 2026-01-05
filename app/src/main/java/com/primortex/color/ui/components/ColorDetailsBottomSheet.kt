@@ -42,10 +42,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.toClipEntry
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
@@ -125,7 +127,7 @@ fun ColorDetailsBottomSheet(
                             ClipData.newPlainText("hex", details.hex).toClipEntry()
                         )
                     }
-                }) { Text("Copy HEX") }
+                }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
                     scope.launch {
@@ -141,7 +143,7 @@ fun ColorDetailsBottomSheet(
                         contentDescription = null
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) "Remove saved" else "Save color")
+                    Text(if (isSaved) "Saved" else "Save")
                 }
             }
 
