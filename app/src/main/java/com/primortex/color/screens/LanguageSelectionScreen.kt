@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.service.AppLanguage
@@ -34,7 +35,7 @@ fun LanguageSelectionScreen(
     val listState = rememberLazyListState()
 
     ScreenScaffold(
-        title = "Choose language",
+        title = stringResource(R.string.choose_language),
         innerPadding = innerPadding,
         onBack = onBack
     ) {
@@ -46,7 +47,7 @@ fun LanguageSelectionScreen(
         ) {
             item {
                 Text(
-                    "Select the language you want to use in the app.",
+                    stringResource(R.string.choose_language_description),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(bottom = 8.dp)
@@ -71,7 +72,7 @@ private fun LanguageOption(
     onSelect: () -> Unit
 ) {
     ListItem(
-        headlineContent = { Text(language.name) },
+        headlineContent = { Text(str(language.labelRes)) },
         supportingContent = {
             if (language == AppLanguage.SystemDefault) {
                 Text(str(R.string.follows_your_device_language))
@@ -86,7 +87,7 @@ private fun LanguageOption(
         trailingContent = {
             if (selected) {
                 Text(
-                    "Selected",
+                    str(R.string.selected),
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.labelLarge
                 )

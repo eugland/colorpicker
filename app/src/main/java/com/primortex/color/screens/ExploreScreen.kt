@@ -56,7 +56,7 @@ fun ExploreScreen(
     val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
     val appLanguage by SettingsService.appLanguage.collectAsState()
 
-    ScreenScaffold("Explore", innerPadding) {
+    ScreenScaffold(stringResource(R.string.explore), innerPadding) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,9 +65,9 @@ fun ExploreScreen(
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text("Settings", style = MaterialTheme.typography.titleLarge)
+                Text(stringResource(R.string.settings_title), style = MaterialTheme.typography.titleLarge)
                 Text(
-                    "Tune how the app looks and how the picker crosshair behaves.",
+                    stringResource(R.string.settings_description),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -80,7 +80,7 @@ fun ExploreScreen(
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        "App preferences",
+                        stringResource(R.string.app_preferences),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
@@ -97,13 +97,13 @@ fun ExploreScreen(
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Text(
-                                "Theme",
+                                stringResource(R.string.theme),
                                 style = MaterialTheme.typography.titleMedium,
                                 modifier = Modifier.padding(start = 12.dp)
                             )
                         }
                         Text(
-                            "Choose how the app looks.",
+                            stringResource(R.string.theme_description),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -121,8 +121,8 @@ fun ExploreScreen(
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
                     ListItem(
-                        headlineContent = { Text("Language") },
-                        supportingContent = { Text(appLanguage.name) },
+                        headlineContent = { Text(stringResource(R.string.language)) },
+                        supportingContent = { Text(stringResource(appLanguage.labelRes)) },
                         leadingContent = {
                             Icon(
                                 imageVector = Icons.Outlined.Language,
@@ -154,16 +154,16 @@ fun ExploreScreen(
                             shape = crosshairShape
                         )
                         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text("Picker crosshair", style = MaterialTheme.typography.titleMedium)
+                            Text(stringResource(R.string.picker_crosshair), style = MaterialTheme.typography.titleMedium)
                             Text(
-                                "Adjust the crosshair used when sampling colors.",
+                                stringResource(R.string.picker_crosshair_description),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
 
-                    SectionHeader("Size")
+                    SectionHeader(stringResource(R.string.size))
 
 
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -171,13 +171,13 @@ fun ExploreScreen(
                             FilterChip(
                                 selected = crosshairSize == size,
                                 onClick = { SettingsService.setCrosshairSize(size) },
-                                label = { Text(size.label) }
+                                label = { Text(stringResource(size.labelRes)) }
                             )
                         }
                     }
 
 
-                    SectionHeader("Shape")
+                    SectionHeader(stringResource(R.string.shape))
 
 
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -185,16 +185,16 @@ fun ExploreScreen(
                             FilterChip(
                                 selected = crosshairShape == shape,
                                 onClick = { SettingsService.setCrosshairShape(shape) },
-                                label = { Text(shape.label) }
+                                label = { Text(stringResource(shape.labelRes)) }
                             )
                         }
                     }
 
-                    SectionHeader("Sensitivity")
+                    SectionHeader(stringResource(R.string.sensitivity))
 
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text(
-                            "Control how reactive the picker is to color changes.",
+                            stringResource(R.string.sensitivity_description),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -203,7 +203,7 @@ fun ExploreScreen(
                                 FilterChip(
                                     selected = pickerSensitivity == sensitivity,
                                     onClick = { SettingsService.setPickerSensitivity(sensitivity) },
-                                    label = { Text(sensitivity.label) }
+                                    label = { Text(stringResource(sensitivity.labelRes)) }
                                 )
                             }
                         }
@@ -218,15 +218,15 @@ fun ExploreScreen(
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        "Information",
+                        stringResource(R.string.information),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
                     )
 
                     InfoLink(
-                        title = "Copyright notice",
-                        subtitle = "Ownership, third-party components, and licensing details",
+                        title = stringResource(R.string.copyright_notice),
+                        subtitle = stringResource(R.string.copyright_notice_description),
                         icon = Icons.Outlined.Gavel,
                         onClick = { navigator(Routes.Info.COPYRIGHT) }
                     )
@@ -234,8 +234,8 @@ fun ExploreScreen(
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
                     InfoLink(
-                        title = "Privacy statement",
-                        subtitle = "How camera and photo data stay on-device",
+                        title = stringResource(R.string.privacy_statement),
+                        subtitle = stringResource(R.string.privacy_statement_description),
                         icon = Icons.Outlined.Description,
                         onClick = { navigator(Routes.Info.PRIVACY) }
                     )
@@ -243,8 +243,8 @@ fun ExploreScreen(
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
                     InfoLink(
-                        title = "Usage guide",
-                        subtitle = "Step-by-step guide and index for key tasks",
+                        title = stringResource(R.string.usage_guide),
+                        subtitle = stringResource(R.string.usage_guide_description),
                         icon = Icons.Outlined.Description,
                         onClick = { navigator(Routes.Info.USAGE) }
                     )
