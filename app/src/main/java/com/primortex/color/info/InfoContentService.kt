@@ -73,7 +73,6 @@ class InfoContentService(
                 )
             }
         )
-
         cache.edit().putString(cacheKey(page, languageTag), json.encodeToString(payload)).apply()
     }
 
