@@ -62,7 +62,7 @@ class InfoContentService(
         return runCatching {
             val response: RemoteInfoContent = client.get(url).body()
             Log.d("InfoContentService", "Fetching from $response")
-            val sections = response.toSections()
+            val sections = response.sections.toSections()
             if (sections.isEmpty()) null else RemoteContent(response.version, sections)
         }.getOrNull()
     }
@@ -87,7 +87,7 @@ class InfoContentService(
         val cached = cache.getString(cacheKey(page, languageTag), null) ?: return null
         return runCatching {
             val content = json.decodeFromString(CachedPayload.serializer(), cached)
-            val sections = content.toSections()
+            val sections = content.sections.toSections()
             if (sections.isEmpty()) null else CachedContent(content.version, sections, content.fetchedAt)
         }.getOrNull()
 
@@ -150,12 +150,12 @@ private data class CachedContent(
     val fetchedAt: Long
 )
 
-private fun RemoteInfoContent.toSections(): List<InfoDetailSection> = sections
-    .filter { it.heading.isNotBlank() }
-    .map { section ->
-        InfoDetailSection(
-            heading = section.heading,
-            paragraphs = section.paragraphs,
-            bullets = section.bullets
-        )
-    }
+private fun List<RemoteInfoSection>.toSections(): List<InfoDetailSection> =
+    filter { it.heading.isNotBlank() }
+        .map { section ->
+            InfoDetailSection(
+                heading = section.heading,
+                paragraphs = section.paragraphs,
+                bullets = section.bullets
+            )
+        }
