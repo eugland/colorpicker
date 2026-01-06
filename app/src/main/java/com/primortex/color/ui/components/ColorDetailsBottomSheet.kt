@@ -1,6 +1,7 @@
 package com.primortex.color.ui.components
 
 import android.content.ClipData
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -31,6 +32,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -40,7 +42,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboard
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.toClipEntry
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -64,6 +68,7 @@ fun ColorDetailsBottomSheet(
     skipPartiallyExpanded: Boolean = true
 ) {
     val clipboard = LocalClipboard.current
+    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val scroll = rememberScrollState()
     val sheetState = rememberModalBottomSheetState(
@@ -123,23 +128,13 @@ fun ColorDetailsBottomSheet(
             ) {
                 OutlinedButton(onClick = {
                     scope.launch {
-                        clipboard.setClipEntry(
-                            ClipData.newPlainText(
-                                stringResource(R.string.copy_hex),
-                                details.hex
-                            ).toClipEntry()
-                        )
+                        copyToClipboard(context, clipboard, R.string.copy_hex, details.hex)
                     }
                 }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
                     scope.launch {
-                        clipboard.setClipEntry(
-                            ClipData.newPlainText(
-                                stringResource(R.string.copy_name),
-                                details.name
-                            ).toClipEntry()
-                        )
+                        copyToClipboard(context, clipboard, R.string.copy_name, details.name)
                     }
                 }) { Text(stringResource(R.string.copy_name)) }
 
@@ -323,4 +318,18 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
             }
         }
     }
+}
+
+private fun copyToClipboard(
+    context: Context,
+    clipboard: ClipboardManager,
+    @StringRes labelResId: Int,
+    text: String
+) {
+    clipboard.setClipEntry(
+        ClipData.newPlainText(
+            context.getString(labelResId),
+            text
+        ).toClipEntry()
+    )
 }
