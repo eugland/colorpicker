@@ -8,7 +8,6 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class InfoContentService(
@@ -18,16 +17,6 @@ class InfoContentService(
 ) {
     private val appContext = context.applicationContext
     private val cache = appContext.getSharedPreferences("info_content_cache", Context.MODE_PRIVATE)
-
-    suspend fun getSections(
-        page: InfoPage,
-        languageTag: String?,
-        fallback: List<InfoDetailSection>
-    ): List<InfoDetailSection> {
-        var current = fallback
-        loadSections(page, languageTag, fallback) { sections -> current = sections }
-        return current
-    }
 
     suspend fun loadSections(
         page: InfoPage,
@@ -61,6 +50,7 @@ class InfoContentService(
 
         return runCatching {
             val response: RemoteInfoContent = client.get(url).body()
+
             Log.d("InfoContentService", "Fetching from $response")
             val sections = response.sections.toSections()
             if (sections.isEmpty()) null else RemoteContent(response.version, sections)
@@ -88,7 +78,11 @@ class InfoContentService(
         return runCatching {
             val content = json.decodeFromString(CachedPayload.serializer(), cached)
             val sections = content.sections.toSections()
-            if (sections.isEmpty()) null else CachedContent(content.version, sections, content.fetchedAt)
+            if (sections.isEmpty()) null else CachedContent(
+                content.version,
+                sections,
+                content.fetchedAt
+            )
         }.getOrNull()
 
     }
