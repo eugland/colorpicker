@@ -18,10 +18,17 @@ object Routes {
     object Detail {
         const val COLOR = "color/details"
         const val COLOR_ROUTE = "$COLOR?argb={argb}&name={name}"
+        const val PALETTE = "palette/details"
+        const val PALETTE_ROUTE = "$PALETTE?id={id}&edit={edit}"
 
         fun to(argb: Int, name: String): String {
             val encName = java.net.URLEncoder.encode(name, "UTF-8")
             return "$COLOR?argb=$argb&name=$encName"
+        }
+
+        fun palette(id: String, edit: Boolean = false): String {
+            val encodedId = java.net.URLEncoder.encode(id, "UTF-8")
+            return "$PALETTE?id=$encodedId&edit=$edit"
         }
     }
 

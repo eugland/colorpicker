@@ -106,7 +106,7 @@ object PaletteService {
         colors: List<PickedColor>,
         tags: List<String> = emptyList(),
         note: String = ""
-    ) {
+    ): Palette {
         val now = System.currentTimeMillis()
         val p = Palette(
             id = UUID.randomUUID().toString(),
@@ -119,6 +119,7 @@ object PaletteService {
         )
         _palettes.update { listOf(p) + it }
         persist()
+        return p
     }
 
     fun update(

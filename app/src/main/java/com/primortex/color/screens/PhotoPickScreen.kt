@@ -70,6 +70,7 @@ import kotlin.math.roundToInt
 fun PhotoPickScreen(
     photoUri: String,
     onBack: () -> Unit,
+    onOpenPalette: (String, Boolean) -> Unit,
 ) {
     val ctx = LocalContext.current
     val uiScope = rememberCoroutineScope()
@@ -230,13 +231,14 @@ fun PhotoPickScreen(
                         return@PaletteBar
                     }
 
-                    PaletteService.create(
+                    val saved = PaletteService.create(
                         name = "Palette ${PaletteService.palettes.value.size + 1}",
                         tags = listOf("photo", "pick"),
                         colors = palette
                     )
                     palette.clear()
                     showSnack("Palette saved ✅")
+                    onOpenPalette(saved.id, true)
                 }
             )
         }
