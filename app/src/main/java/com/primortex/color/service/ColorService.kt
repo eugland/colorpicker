@@ -19,7 +19,7 @@ import kotlin.math.sqrt
  */
 class ColorService(
     context: Context,
-    private val client: HttpClient = ColorApiService.defaultClient(),
+    private val client: HttpClient = ApiService.defaultClient(),
     private val json: Json = Json { ignoreUnknownKeys = true }
 ) {
     private val appContext = context.applicationContext

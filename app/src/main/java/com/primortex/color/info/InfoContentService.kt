@@ -3,7 +3,7 @@ package com.primortex.color.info
 import android.content.Context
 import android.util.Log
 import com.primortex.color.screens.InfoDetailSection
-import com.primortex.color.service.ColorApiService
+import com.primortex.color.service.ApiService
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -12,7 +12,7 @@ import kotlinx.serialization.json.Json
 
 class InfoContentService(
     context: Context,
-    private val client: HttpClient = ColorApiService.defaultClient(),
+    private val client: HttpClient = ApiService.defaultClient(),
     private val json: Json = Json { ignoreUnknownKeys = true }
 ) {
     private val appContext = context.applicationContext
