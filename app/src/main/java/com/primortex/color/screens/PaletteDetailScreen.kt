@@ -27,8 +27,6 @@ import androidx.compose.material.icons.outlined.DragHandle
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Save
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -36,6 +34,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
@@ -73,8 +72,6 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.PaletteService
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
-import com.primortex.color.ui.util.argbToHslString
-import com.primortex.color.ui.util.argbToRgbString
 import com.primortex.color.ui.util.rgbDistSq
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -419,18 +416,47 @@ private fun ActionRow(
     onDelete: () -> Unit,
 ) {
     var overflowExpanded by remember { mutableStateOf(false) }
+    var copyMenuExpanded by remember { mutableStateOf(false) }
 
-    Row(horizontalArrangement = Arrangement.spacedBy(4.dp), verticalAlignment = Alignment.CenterVertically) {
-        AssistChip(
-            onClick = onToggleEdit,
-            label = { Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette)) },
-            leadingIcon = {
-                Icon(
-                    imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
-                    contentDescription = null
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+        OutlinedButton(onClick = onToggleEdit) {
+            Icon(
+                imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
+                contentDescription = null
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette))
+        }
+
+        Box {
+            OutlinedButton(onClick = { copyMenuExpanded = true }) {
+                Icon(Icons.Outlined.ContentCopy, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.copy))
+            }
+
+            DropdownMenu(
+                expanded = copyMenuExpanded,
+                onDismissRequest = { copyMenuExpanded = false }
+            ) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.copy_all_hex)) },
+                    leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
+                    onClick = {
+                        copyMenuExpanded = false
+                        onCopyAll()
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.export_css)) },
+                    leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
+                    onClick = {
+                        copyMenuExpanded = false
+                        onExportCss()
+                    }
                 )
             }
-        )
+        }
 
         IconButton(onClick = { overflowExpanded = true }) {
             Icon(Icons.Outlined.MoreVert, contentDescription = stringResource(R.string.more_options))
@@ -440,22 +466,6 @@ private fun ActionRow(
             expanded = overflowExpanded,
             onDismissRequest = { overflowExpanded = false }
         ) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.copy_all_hex)) },
-                leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
-                onClick = {
-                    overflowExpanded = false
-                    onCopyAll()
-                }
-            )
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.export_css)) },
-                leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
-                onClick = {
-                    overflowExpanded = false
-                    onExportCss()
-                }
-            )
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.remove_from_favourites)) },
                 leadingIcon = { Icon(Icons.Outlined.Delete, contentDescription = null) },
@@ -501,16 +511,22 @@ private fun PaletteColorCard(
             )
 
             Column(Modifier.weight(1f)) {
-                Text(color.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
-                Text(argbToRgbString(color.argb), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(argbToHslString(color.argb), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(R.string.view_more_indicator),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(color.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                        Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        text = stringResource(R.string.view_more_indicator),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
             }
 
             if (isEditing) {
