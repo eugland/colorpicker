@@ -64,6 +64,11 @@ class ColorService(
 
     private fun updateDataset(colors: List<ColorSeed>) {
         dataset = ColorDataset.from(colors)
+        Log.d(
+            "ColorService",
+            "Color dataset updated: count=${colors.size}, " +
+                    "names=${colors.take(10).joinToString { it.name }}"
+        )
     }
 
     private suspend fun fetchRemote(languageTag: String): RemotePayload? {
@@ -72,6 +77,10 @@ class ColorService(
 
         return runCatching {
             val responseText: String = client.get(url).body()
+            Log.d(
+                "ColorService",
+                "Remote response (first 100 chars):\n${responseText.take(100)}"
+            )
             parsePayload(responseText)
         }
             .onFailure { Log.w("ColorService", "Remote color fetch failed", it) }
