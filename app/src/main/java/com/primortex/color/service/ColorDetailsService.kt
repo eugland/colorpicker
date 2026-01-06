@@ -30,8 +30,7 @@ data class ColorDetails(
 object ColorDetailsService {
 
     fun details(argb: Int, similarLimit: Int = 8): ColorDetails {
-        val nearest = ColorNameLookup.nearestName(argb)
-        val name = nearest.name
+        val name = ColorServices.colorNames.localNameFromArgb(argb)
 
         val rgb = argbToRgb(argb)
         val hsv = argbToHsv(argb)
