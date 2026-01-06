@@ -227,4 +227,5 @@
     <string name="copied_all_hex">Copied all HEX values</string>
     <string name="exported_css">Copied CSS to clipboard</string>
     <string name="reorder">Reorder</string>
+    <string name="splash_loading_message">Warming up your palette…</string>
 </resources>

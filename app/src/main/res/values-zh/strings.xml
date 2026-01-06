@@ -230,4 +230,5 @@
     <string name="copied_all_hex">已复制所有 HEX 值</string>
     <string name="exported_css">已将 CSS 复制到剪贴板</string>
     <string name="reorder">重新排序</string>
+    <string name="splash_loading_message">正在唤醒你的调色板…</string>
 </resources>
