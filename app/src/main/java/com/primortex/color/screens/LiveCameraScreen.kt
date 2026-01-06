@@ -68,7 +68,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorNameLookup
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.PickerSensitivity
@@ -90,6 +90,10 @@ fun LiveCameraScreen(
 ) {
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    val colorNameService = remember(ctx) {
+        ColorServices.ensure(ctx)
+        ColorServices.colorNames
+    }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
 
     var hasCameraPerm by remember {
@@ -118,7 +122,7 @@ fun LiveCameraScreen(
             val argb = currentArgb
             PickedColor(
                 argb = argb,
-                name = ColorNameLookup.nearestName(argb).name
+                name = colorNameService.localNameFromArgb(argb)
             )
         }
     }

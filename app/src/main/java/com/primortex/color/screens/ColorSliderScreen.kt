@@ -47,6 +47,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,7 +55,7 @@ import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorNameLookup
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -71,14 +72,19 @@ fun ColorSliderScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+    val ctx = LocalContext.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     val savedColors by RecentPicksService.saved.collectAsState()
     val palettes by PaletteService.palettes.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
     var showColorDetails by remember { mutableStateOf(false) }
+    val colorNameService = remember(ctx) {
+        ColorServices.ensure(ctx)
+        ColorServices.colorNames
+    }
 
-    val nearestName = remember(argb) { ColorNameLookup.nearestName(argb).name }
+    val nearestName = remember(argb) { colorNameService.localNameFromArgb(argb) }
     val picked = remember(argb, nearestName) { PickedColor(argb = argb, name = nearestName) }
     val hex = remember(argb) { argbToHex(argb) }
     val rgb = remember(argb) {

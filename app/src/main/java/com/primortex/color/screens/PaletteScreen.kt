@@ -62,6 +62,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.ImeAction
@@ -71,8 +72,8 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorNameIndex
-import com.primortex.color.service.ColorNameLookup
+import com.primortex.color.service.ColorNameService
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -92,32 +93,27 @@ fun previewPaletteScreen() {
 
 object ColorQueryResolver {
 
-    fun search(query: String, limit: Int = 10): List<PickedColor> {
+    fun search(nameService: ColorNameService, query: String, limit: Int = 10): List<PickedColor> {
         val q = query.trim()
         if (q.isBlank()) return emptyList()
 
-        // HEX → nearest color lookup
+        // HEX -> nearest color lookup
         if (isHex(q)) {
             val rgb = q.removePrefix("#").toLong(16).toInt() and 0x00FFFFFF
             val argb = (0xFF shl 24) or rgb   // force alpha = 255
-            val nearest = ColorNameLookup.nearestName(argb)
-            Log.d("ColorSearch", "HEX pressed, top=${nearest.name} #${argb.toString(16)}")
+            val nearest = nameService.localNameFromArgb(argb)
+            Log.d("ColorSearch", "HEX pressed, top=${nearest} #${argb.toString(16)}")
             return listOf(
                 PickedColor(
                     argb = argb,
-                    name = nearest.name,
-                )
+                    name = nearest,
+                ),
 
             )
         }
 
-        // NAME → name index search
-        return ColorNameIndex.search(q, limit).map {
-            PickedColor(
-                argb = it.argb,
-                name = it.name
-            )
-        }
+        // NAME -> name index search
+        return nameService.search(q, limit)
     }
 
     private fun isHex(input: String): Boolean {
@@ -127,11 +123,15 @@ object ColorQueryResolver {
     }
 }
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaletteScreen(innerPadding: PaddingValues) {
     val clipboard = LocalClipboardManager.current
+    val ctx = LocalContext.current
+    val colorNameService = remember(ctx) {
+        ColorServices.ensure(ctx)
+        ColorServices.colorNames
+    }
 
     val recents by RecentPicksService.history.collectAsState()
     val savedColors by RecentPicksService.saved.collectAsState()
@@ -143,7 +143,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
         val q = searchQuery
         delay(120) // debounce typing
         suggestions = withContext(Dispatchers.Default) {
-            ColorQueryResolver.search(q, limit = 10)
+            ColorQueryResolver.search(colorNameService, q, limit = 10)
         }
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
