@@ -30,7 +30,7 @@ data class ColorDetails(
 object ColorDetailsService {
 
     fun details(argb: Int, similarLimit: Int = 8): ColorDetails {
-        val name = ColorServices.colors.localNameFromArgb(argb)
+        val name = ColorService.instance.localNameFromArgb(argb)
 
         val rgb = argbToRgb(argb)
         val hsv = argbToHsv(argb)
@@ -68,7 +68,7 @@ object ColorDetailsService {
         val target = argbToRgb(argb)
 
         // You need a list of all colors in your dataset:
-        val all = ColorServices.colors.allColors()
+        val all = ColorService.instance.allColors()
 
         return all.asSequence()
             .filter { excludeArgb == null || it.argb != excludeArgb }

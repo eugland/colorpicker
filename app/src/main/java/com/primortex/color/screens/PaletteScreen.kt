@@ -69,7 +69,6 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
 import com.primortex.color.service.ColorService
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
@@ -121,8 +120,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
     val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
-        ColorServices.colors
+        ColorService.get(ctx)
     }
 
     val recents by RecentPicksService.history.collectAsState()

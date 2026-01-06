@@ -58,7 +58,7 @@ import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
+import com.primortex.color.service.ColorService
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -83,10 +83,7 @@ fun ColorSliderScreen(
     val palettes by PaletteService.palettes.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
     var showColorDetails by remember { mutableStateOf(false) }
-    val colorNameService = remember(context) {
-        ColorServices.ensure(context)
-        ColorServices.colors
-    }
+    val colorNameService = remember(context) { ColorService.get(context) }
 
     val nearestName = remember(argb) { colorNameService.localNameFromArgb(argb) }
     val picked = remember(argb, nearestName) { PickedColor(argb = argb, name = nearestName) }

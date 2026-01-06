@@ -5,6 +5,10 @@ import android.util.Log
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import com.primortex.color.app.PickedColor
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -32,18 +36,10 @@ class ColorService(
 
     suspend fun refreshIfStale(languageTag: String?) {
         val normalizedTag = normalizeLanguageTag(languageTag)
-        val cached = readCache(normalizedTag)
-        if (cached != null && !isStale(cached.fetchedAt)) {
-            updateDataset(cached.colors)
-            return
-        }
 
-        val remote = fetchRemote(normalizedTag)
-        if (remote != null) {
-            saveCache(normalizedTag, remote)
-            updateDataset(remote.colors)
-            return
-        }
+        if (refreshFromPreferredSource(normalizedTag)) return
+
+        if (normalizedTag != "en" && refreshFromPreferredSource("en")) return
 
         updateDataset(bundledColors)
     }
@@ -61,6 +57,25 @@ class ColorService(
     fun search(query: String, limit: Int = 10): List<PickedColor> = dataset.search(query, limit)
 
     fun allColors(): List<PickedColor> = dataset.allColors()
+
+    private suspend fun loadDataset(languageTag: String): List<ColorSeed>? {
+        val cached = readCache(languageTag)
+        if (cached != null && !isStale(cached.fetchedAt)) return cached.colors
+
+        val remote = fetchRemote(languageTag)
+        if (remote != null) {
+            saveCache(languageTag, remote)
+            return remote.colors
+        }
+
+        return null
+    }
+
+    private suspend fun refreshFromPreferredSource(languageTag: String): Boolean {
+        val dataset = loadDataset(languageTag) ?: return false
+        updateDataset(dataset)
+        return true
+    }
 
     private fun updateDataset(colors: List<ColorSeed>) {
         dataset = ColorDataset.from(colors)
@@ -149,6 +164,33 @@ class ColorService(
     }
 
     companion object {
+        private lateinit var shared: ColorService
+        private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+        fun init(
+            context: Context,
+            client: HttpClient = ApiService.defaultClient(),
+            json: Json = Json { ignoreUnknownKeys = true }
+        ) {
+            if (::shared.isInitialized) return
+            val appContext = context.applicationContext
+            shared = ColorService(appContext, client, json)
+
+            val localeTag = appContext.resources.configuration.locales[0].toLanguageTag()
+            scope.launch { shared.refreshIfStale(localeTag) }
+        }
+
+        val instance: ColorService
+            get() {
+                check(::shared.isInitialized) { "ColorService.init must be called first" }
+                return shared
+            }
+
+        fun get(context: Context): ColorService {
+            init(context)
+            return instance
+        }
+
         private const val ASSET_NAME = "colors.json"
         private const val BASE_URL = "https://eugland.github.io/color-picker-pages/colors"
         private const val DEFAULT_TTL_MILLIS = 7L * 24 * 60 * 60 * 1000

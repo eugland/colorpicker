@@ -57,7 +57,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
+import com.primortex.color.service.ColorService
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ActiveColorSheet
@@ -75,10 +75,7 @@ fun PhotoPickScreen(
     onOpenPalette: (String, Boolean) -> Unit,
 ) {
     val ctx = LocalContext.current
-    val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
-        ColorServices.colors
-    }
+    val colorNameService = remember(ctx) { ColorService.get(ctx) }
     val uiScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
     var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
