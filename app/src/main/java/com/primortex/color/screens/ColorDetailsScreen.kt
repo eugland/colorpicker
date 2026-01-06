@@ -43,12 +43,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.annotation.StringRes
+import android.content.Context
+import kotlinx.coroutines.CoroutineScope
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
@@ -65,6 +69,7 @@ fun ColorDetailsScreen(
     onOpenColorDetail: (PickedColor) -> Unit = {} // open similar colors
 ) {
     val clipboard = LocalClipboardManager.current
+    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -151,7 +156,7 @@ fun ColorDetailsScreen(
                 }
                 IconButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.hex_copied)) }
+                    showSnackbar(snackbarHostState, scope, context, R.string.hex_copied)
                 }) {
                     Icon(
                         Icons.Outlined.ContentCopy,
@@ -166,12 +171,12 @@ fun ColorDetailsScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.hex_copied)) }
+                    showSnackbar(snackbarHostState, scope, context, R.string.hex_copied)
                 }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.name))
-                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.name_copied)) }
+                    showSnackbar(snackbarHostState, scope, context, R.string.name_copied)
                 }) { Text(stringResource(R.string.copy_name)) }
             }
 
@@ -283,6 +288,31 @@ fun ColorDetailsScreen(
             Spacer(Modifier.height(10.dp))
         }
     }
+}
+
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    message: String
+) {
+    scope.launch {
+        snackbarHostState.currentSnackbarData?.dismiss()
+        snackbarHostState.showSnackbar(message)
+    }
+}
+
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    context: Context,
+    @StringRes messageResId: Int,
+    vararg formatArgs: Any
+) {
+    showSnackbar(
+        snackbarHostState = snackbarHostState,
+        scope = scope,
+        message = context.getString(messageResId, *formatArgs)
+    )
 }
 
 @Composable

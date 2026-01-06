@@ -52,6 +52,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.annotation.StringRes
+import android.content.Context
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -62,6 +64,7 @@ import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import android.graphics.Color as AndroidColor
 
@@ -73,15 +76,15 @@ fun ColorSliderScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    val ctx = LocalContext.current
+    val context = LocalContext.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     val savedColors by RecentPicksService.saved.collectAsState()
     val palettes by PaletteService.palettes.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
     var showColorDetails by remember { mutableStateOf(false) }
-    val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
+    val colorNameService = remember(context) {
+        ColorServices.ensure(context)
         ColorServices.colorNames
     }
 
@@ -121,15 +124,12 @@ fun ColorSliderScreen(
                     onClick = {
                         RecentPicksService.addPick(picked)
                         RecentPicksService.toggleSaved(picked)
-                        scope.launch {
-                            snackbarHostState.showSnackbar(
-                                message = if (isSaved) {
-                                    stringResource(R.string.removed_from_my_colors)
-                                } else {
-                                    stringResource(R.string.saved_to_my_colors)
-                                }
-                            )
+                        val message = if (isSaved) {
+                            context.getString(R.string.removed_from_my_colors)
+                        } else {
+                            context.getString(R.string.saved_to_my_colors)
                         }
+                        showSnackbar(snackbarHostState, scope, message)
                     }
                 ) {
                     Icon(
@@ -143,9 +143,7 @@ fun ColorSliderScreen(
                 Button(
                     onClick = {
                         if (palettes.isEmpty()) {
-                            scope.launch {
-                                snackbarHostState.showSnackbar(stringResource(R.string.no_palettes_available))
-                            }
+                            showSnackbar(snackbarHostState, scope, context, R.string.no_palettes_available)
                         } else {
                             showPalettePicker = true
                         }
@@ -382,7 +380,7 @@ private fun addToPalette(
     palette: Palette,
     color: PickedColor,
     snackbarHostState: SnackbarHostState,
-    scope: kotlinx.coroutines.CoroutineScope,
+    scope: CoroutineScope,
     alreadyInPaletteMessage: String,
     paletteFullMessage: String,
     addedToPaletteMessage: String,
@@ -403,4 +401,29 @@ private fun addToPalette(
             scope.launch { snackbarHostState.showSnackbar(addedToPaletteMessage) }
         }
     }
+}
+
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    message: String
+) {
+    scope.launch {
+        snackbarHostState.currentSnackbarData?.dismiss()
+        snackbarHostState.showSnackbar(message)
+    }
+}
+
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    context: Context,
+    @StringRes messageResId: Int,
+    vararg formatArgs: Any
+) {
+    showSnackbar(
+        snackbarHostState = snackbarHostState,
+        scope = scope,
+        message = context.getString(messageResId, *formatArgs)
+    )
 }
