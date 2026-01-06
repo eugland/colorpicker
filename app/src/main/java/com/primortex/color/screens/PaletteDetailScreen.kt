@@ -29,8 +29,6 @@ import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.material3.DismissDirection
-import androidx.compose.material3.DismissValue
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,9 +39,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
-import androidx.compose.material3.SwipeToDismiss
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDismissState
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -239,9 +238,9 @@ fun PaletteDetailScreen(
                 }
 
                 if (isEditing) {
-                    val dismissState = rememberDismissState(
+                    val dismissState = rememberSwipeToDismissBoxState(
                         confirmValueChange = { value ->
-                            if (value == DismissValue.DismissedToStart) {
+                            if (value == SwipeToDismissBoxValue.EndToStart) {
                                 editableColors.remove(color)
                                 true
                             } else {
@@ -250,11 +249,12 @@ fun PaletteDetailScreen(
                         }
                     )
 
-                    SwipeToDismiss(
+                    SwipeToDismissBox(
                         state = dismissState,
-                        directions = setOf(DismissDirection.EndToStart),
-                        background = {
-                            val isDismissed = dismissState.targetValue != DismissValue.Default
+                        enableDismissFromStartToEnd = false,
+                        enableDismissFromEndToStart = true,
+                        backgroundContent = {
+                            val isDismissed = dismissState.targetValue != SwipeToDismissBoxValue.Settled
                             val targetColor = if (isDismissed) {
                                 MaterialTheme.colorScheme.errorContainer
                             } else {
@@ -282,7 +282,7 @@ fun PaletteDetailScreen(
                                 )
                             }
                         },
-                        dismissContent = {
+                        content = {
                             Box { cardContent() }
                         },
                         modifier = containerModifier
