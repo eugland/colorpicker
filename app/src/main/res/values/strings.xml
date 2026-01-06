@@ -215,9 +215,9 @@
     <string name="palette_name">Palette name</string>
     <string name="palette_tags_hint">Tags (comma separated)</string>
     <string name="palette_description_label">Description</string>
-    <string name="copy_all_hex">Copy all HEX values</string>
-    <string name="export_css">Export to CSS</string>
-    <string name="remove_from_favourites">Remove from favourites</string>
+    <string name="copy_all_hex">Copy HEX</string>
+    <string name="export_css">Copy CSS</string>
+    <string name="remove_from_favourites">Delete palette</string>
     <string name="view_more_indicator">View more ›</string>
     <string name="save_changes">Save changes</string>
     <string name="edit_palette">Edit palette</string>
