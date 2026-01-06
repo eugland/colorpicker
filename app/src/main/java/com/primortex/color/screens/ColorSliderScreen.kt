@@ -85,7 +85,7 @@ fun ColorSliderScreen(
     var showColorDetails by remember { mutableStateOf(false) }
     val colorNameService = remember(context) {
         ColorServices.ensure(context)
-        ColorServices.colorNames
+        ColorServices.colors
     }
 
     val nearestName = remember(argb) { colorNameService.localNameFromArgb(argb) }
