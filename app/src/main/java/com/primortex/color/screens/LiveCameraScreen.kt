@@ -86,7 +86,8 @@ import java.util.concurrent.Executors
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LiveCameraScreen(
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onOpenPalette: (String, Boolean) -> Unit
 ) {
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -326,13 +327,14 @@ fun LiveCameraScreen(
                     showSnack("Palette empty, start adding colors")
                     return@PaletteBar
                 }
-                PaletteService.create(
+                val saved = PaletteService.create(
                     name = "Palette ${PaletteService.palettes.value.size + 1}",
                     tags = listOf("camera", "live-pick"),
                     colors = palette
                 )
                 palette.clear()
                 showSnack("Palette saved ✅")
+                onOpenPalette(saved.id, true)
             },
             onClearPalette = { palette.clear() }
         )

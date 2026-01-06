@@ -39,6 +39,7 @@ import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
+import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 
@@ -145,11 +146,21 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     }
                 )
             }
-            composable(Routes.Tab.PALETTE) { PaletteScreen(innerPadding = inner) }
+            composable(Routes.Tab.PALETTE) {
+                PaletteScreen(
+                    innerPadding = inner,
+                    onOpenPalette = { palette -> nav.navigate(Routes.Detail.palette(palette.id)) }
+                )
+            }
             composable(Routes.Tab.EXPLORE) {
                 ExploreScreen(innerPadding = inner, navigator = nav::navigate)
             }
-            composable(Routes.Camera.LIVE) { LiveCameraScreen(onBack = { nav.popBackStack() }) }
+            composable(Routes.Camera.LIVE) {
+                LiveCameraScreen(
+                    onBack = { nav.popBackStack() },
+                    onOpenPalette = { id, edit -> nav.navigate(Routes.Detail.palette(id, edit)) }
+                )
+            }
             composable(
                 route = Routes.Camera.PHOTO_PICK_ROUTE,
                 arguments = listOf(navArgument("uri") {
@@ -163,6 +174,31 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 PhotoPickScreen(
                     photoUri = uri,
                     onBack = { nav.popBackStack() },
+                    onOpenPalette = { id, edit -> nav.navigate(Routes.Detail.palette(id, edit)) }
+                )
+            }
+
+            composable(
+                route = Routes.Detail.PALETTE_ROUTE,
+                arguments = listOf(
+                    navArgument("id") { type = NavType.StringType; defaultValue = "" },
+                    navArgument("edit") { type = NavType.BoolType; defaultValue = false }
+                )
+            ) { backStackEntry ->
+                val paletteId = java.net.URLDecoder.decode(
+                    backStackEntry.arguments?.getString("id") ?: "",
+                    "UTF-8"
+                )
+                val startInEdit = backStackEntry.arguments?.getBoolean("edit") ?: false
+
+                PaletteDetailScreen(
+                    innerPadding = inner,
+                    paletteId = paletteId,
+                    startInEditMode = startInEdit,
+                    onBack = { nav.popBackStack() },
+                    onOpenColorDetail = { pick ->
+                        nav.navigate(Routes.Detail.to(pick.argb, pick.name))
+                    }
                 )
             }
 

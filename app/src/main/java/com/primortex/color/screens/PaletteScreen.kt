@@ -33,8 +33,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ContentCopy
-import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -61,9 +59,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,7 +83,7 @@ import kotlinx.coroutines.withContext
 @Preview(showBackground = true)
 @Composable
 fun previewPaletteScreen() {
-    PaletteScreen(innerPadding = PaddingValues())
+    PaletteScreen(innerPadding = PaddingValues(), onOpenPalette = {})
 }
 
 object ColorQueryResolver {
@@ -130,9 +126,10 @@ object ColorQueryResolver {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PaletteScreen(innerPadding: PaddingValues) {
-    val clipboard = LocalClipboardManager.current
-
+fun PaletteScreen(
+    innerPadding: PaddingValues,
+    onOpenPalette: (Palette) -> Unit,
+) {
     val recents by RecentPicksService.history.collectAsState()
     val savedColors by RecentPicksService.saved.collectAsState()
     val savedPalettes by PaletteService.palettes.collectAsState()
@@ -303,13 +300,7 @@ fun PaletteScreen(innerPadding: PaddingValues) {
                 items(savedPalettes, key = { it.id }) { p ->
                     PaletteCard(
                         palette = p,
-                        onOpen = { }, // do not open for now
-                        onCopy = {
-                            clipboard.setText(
-                                AnnotatedString(p.colors.joinToString(", ") { argbToHex(it.argb) })
-                            )
-                        },
-                        onDelete = { PaletteService.delete(p.id) }
+                        onOpen = { onOpenPalette(p) }
                     )
                     Spacer(Modifier.height(10.dp))
                 }
@@ -474,45 +465,29 @@ private fun ColorSearchBar(
 private fun PaletteCard(
     palette: Palette,
     onOpen: () -> Unit,
-    onCopy: () -> Unit,
-    onDelete: () -> Unit
 ) {
     Surface(
         shape = RoundedCornerShape(16.dp),
         tonalElevation = 2.dp,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onOpen)
     ) {
         Column(Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        palette.name,
-                        style = MaterialTheme.typography.titleSmall,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                    if (palette.tags.isNotEmpty()) {
-                        Text(
-                            palette.tags.joinToString(" • "),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                }
-                IconButton(onClick = onCopy) {
-                    Icon(
-                        Icons.Outlined.ContentCopy,
-                        contentDescription = stringResource(R.string.copy)
-                    )
-                }
-                IconButton(onClick = onDelete) {
-                    Icon(
-                        Icons.Outlined.Delete,
-                        contentDescription = stringResource(R.string.delete)
-                    )
-                }
+            Text(
+                palette.name,
+                style = MaterialTheme.typography.titleSmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            if (palette.tags.isNotEmpty()) {
+                Text(
+                    palette.tags.joinToString(" • "),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
 
             if (palette.note.isNotBlank()) {

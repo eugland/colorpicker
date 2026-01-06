@@ -3,6 +3,7 @@ package com.primortex.color.ui.util
 import android.graphics.Color
 import android.graphics.ImageFormat
 import androidx.camera.core.ImageProxy
+import androidx.core.graphics.ColorUtils
 import kotlin.random.Random
 
 fun argbToHex(argb: Int): String {
@@ -10,6 +11,25 @@ fun argbToHex(argb: Int): String {
     val g = (argb shr 8) and 0xFF
     val b = (argb) and 0xFF
     return String.format("#%02X%02X%02X", r, g, b)
+}
+
+fun argbToRgbString(argb: Int): String {
+    val r = (argb shr 16) and 0xFF
+    val g = (argb shr 8) and 0xFF
+    val b = argb and 0xFF
+    return "RGB($r, $g, $b)"
+}
+
+fun argbToHslString(argb: Int): String {
+    val r = (argb shr 16) and 0xFF
+    val g = (argb shr 8) and 0xFF
+    val b = argb and 0xFF
+    val hsl = FloatArray(3)
+    ColorUtils.RGBToHSL(r, g, b, hsl)
+    val h = hsl[0].toInt()
+    val s = (hsl[1] * 100).toInt()
+    val l = (hsl[2] * 100).toInt()
+    return "HSL($h°, $s%, $l%)"
 }
 
 
