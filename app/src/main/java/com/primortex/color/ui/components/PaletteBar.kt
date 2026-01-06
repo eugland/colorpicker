@@ -28,9 +28,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.primortex.color.app.PickedColor
+import com.primortex.color.R
 
 @Composable
 fun PaletteBar(
@@ -58,7 +60,7 @@ fun PaletteBar(
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Delete,
-                    contentDescription = "Clear palette",
+                    contentDescription = stringResource(R.string.palette_bar_clear),
                     tint = if (palette.isNotEmpty())
                         MaterialTheme.colorScheme.onSurface
                     else
@@ -82,7 +84,7 @@ fun PaletteBar(
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Palette,
-                    contentDescription = "Palette",
+                    contentDescription = stringResource(R.string.palette_bar_palette),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(18.dp)
                 )
@@ -105,7 +107,7 @@ fun PaletteBar(
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Colorize,
-                    contentDescription = "Add color",
+                    contentDescription = stringResource(R.string.palette_bar_add_color),
                     tint = MaterialTheme.colorScheme.onPrimary,
                     modifier = Modifier.size(22.dp)
                 )

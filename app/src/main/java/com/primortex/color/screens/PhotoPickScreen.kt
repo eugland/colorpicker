@@ -50,10 +50,12 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
@@ -140,24 +142,31 @@ fun PhotoPickScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBackIosNew,
+                            contentDescription = stringResource(R.string.back)
+                        )
                     }
                     Text(
-                        "Photo picking",
+                        stringResource(R.string.photo_picking),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f)
                     )
                     IconButton(onClick = { frozen = !frozen }) {
                         Icon(
                             imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
-                            contentDescription = "Freeze"
+                            contentDescription = if (frozen) {
+                                stringResource(R.string.resume)
+                            } else {
+                                stringResource(R.string.freeze)
+                            }
                         )
                     }
 
                     IconButton(onClick = { detailPick = pickedColor }) {
                         Icon(
                             imageVector = Icons.Outlined.Colorize,
-                            contentDescription = "More info"
+                            contentDescription = stringResource(R.string.more_info)
                         )
                     }
                 }
@@ -221,8 +230,10 @@ fun PhotoPickScreen(
                 palette = palette,
                 onAddColor = {
                     when {
-                        pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
-                        palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
+                        pickedColor in palette -> showSnack(
+                            stringResource(R.string.photo_already_in_palette, pickedColor.name)
+                        )
+                        palette.size >= 10 -> showSnack(stringResource(R.string.photo_palette_full_message))
                         else -> {
                             palette.add(pickedColor)
                         }
@@ -230,17 +241,20 @@ fun PhotoPickScreen(
                 },
                 onAddPalette = {
                     if (palette.isEmpty()) {
-                        showSnack("Palette empty, start adding colors")
+                        showSnack(stringResource(R.string.photo_palette_empty))
                         return@PaletteBar
                     }
 
                     val saved = PaletteService.create(
-                        name = "Palette ${PaletteService.palettes.value.size + 1}",
-                        tags = listOf("photo", "pick"),
+                        name = stringResource(R.string.palette_default_name, PaletteService.palettes.value.size + 1),
+                        tags = listOf(
+                            stringResource(R.string.palette_tag_photo),
+                            stringResource(R.string.palette_tag_pick)
+                        ),
                         colors = palette
                     )
                     palette.clear()
-                    showSnack("Palette saved ✅")
+                    showSnack(stringResource(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
                 }
             )

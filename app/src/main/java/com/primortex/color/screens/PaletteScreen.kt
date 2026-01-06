@@ -163,7 +163,9 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                     onSubmit = {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
                         RecentPicksService.addPick(PickedColor(argb = top.argb, name = top.name))
-                        scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                        scope.launch {
+                            snackbarHostState.showSnackbar(stringResource(R.string.added_to_recents))
+                        }
                         searchQuery = ""
                     },
                     onClear = { searchQuery = "" }
@@ -175,7 +177,10 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
 
                 item {
                     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        Text("Suggestions", style = MaterialTheme.typography.titleSmall)
+                        Text(
+                            stringResource(R.string.suggestions),
+                            style = MaterialTheme.typography.titleSmall
+                        )
                     }
                 }
 
@@ -196,7 +201,9 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                                         name = s.name
                                     )
                                 )
-                                scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                                scope.launch {
+                                    snackbarHostState.showSnackbar(stringResource(R.string.added_to_recents))
+                                }
                                 searchQuery = ""
                             }
                             .padding(vertical = 8.dp),
@@ -443,7 +450,10 @@ private fun ColorSearchBar(
             trailingIcon = {
                 if (query.isNotBlank()) {
                     IconButton(onClick = onClear) {
-                        Icon(Icons.Outlined.Delete, contentDescription = "Clear")
+                        Icon(
+                            imageVector = Icons.Outlined.Delete,
+                            contentDescription = stringResource(R.string.clear)
+                        )
                     }
                 }
             },
