@@ -97,7 +97,7 @@ fun LiveCameraScreen(
     val lifecycleOwner = LocalLifecycleOwner.current
     val colorNameService = remember(ctx) {
         ColorServices.ensure(ctx)
-        ColorServices.colorNames
+        ColorServices.colors
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
 

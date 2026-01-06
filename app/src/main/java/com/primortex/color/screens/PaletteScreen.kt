@@ -69,8 +69,8 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorNameService
 import com.primortex.color.service.ColorServices
+import com.primortex.color.service.ColorService
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -85,7 +85,7 @@ import kotlinx.coroutines.withContext
 
 object ColorQueryResolver {
 
-    fun search(nameService: ColorNameService, query: String, limit: Int = 10): List<PickedColor> {
+    fun search(nameService: ColorService, query: String, limit: Int = 10): List<PickedColor> {
         val q = query.trim()
         if (q.isBlank()) return emptyList()
 
@@ -122,7 +122,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
         ColorServices.ensure(ctx)
-        ColorServices.colorNames
+        ColorServices.colors
     }
 
     val recents by RecentPicksService.history.collectAsState()

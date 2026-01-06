@@ -77,7 +77,7 @@ fun PhotoPickScreen(
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
         ColorServices.ensure(ctx)
-        ColorServices.colorNames
+        ColorServices.colors
     }
     val uiScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
