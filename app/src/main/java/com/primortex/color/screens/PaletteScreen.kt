@@ -65,7 +65,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -102,7 +101,7 @@ object ColorQueryResolver {
                     name = nearest,
                 ),
 
-            )
+                )
         }
 
         // NAME -> name index search
@@ -118,7 +117,7 @@ object ColorQueryResolver {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
+fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit) {
     val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -163,7 +162,9 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                     onSubmit = {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
                         RecentPicksService.addPick(PickedColor(argb = top.argb, name = top.name))
-                        scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                        scope.launch {
+                            snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
+                        }
                         searchQuery = ""
                     },
                     onClear = { searchQuery = "" }
@@ -175,7 +176,10 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
 
                 item {
                     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        Text("Suggestions", style = MaterialTheme.typography.titleSmall)
+                        Text(
+                            stringResource(R.string.suggestions),
+                            style = MaterialTheme.typography.titleSmall
+                        )
                     }
                 }
 
@@ -196,7 +200,9 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                                         name = s.name
                                     )
                                 )
-                                scope.launch { snackbarHostState.showSnackbar("Added to recents") }
+                                scope.launch {
+                                    snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
+                                }
                                 searchQuery = ""
                             }
                             .padding(vertical = 8.dp),
@@ -443,7 +449,10 @@ private fun ColorSearchBar(
             trailingIcon = {
                 if (query.isNotBlank()) {
                     IconButton(onClick = onClear) {
-                        Icon(Icons.Outlined.Delete, contentDescription = "Clear")
+                        Icon(
+                            imageVector = Icons.Outlined.Delete,
+                            contentDescription = stringResource(R.string.clear)
+                        )
                     }
                 }
             },

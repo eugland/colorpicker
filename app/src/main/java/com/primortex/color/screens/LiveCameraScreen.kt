@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.StringRes
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
@@ -92,6 +93,7 @@ fun LiveCameraScreen(
     onOpenPalette: (String, Boolean) -> Unit
 ) {
     val ctx = LocalContext.current
+
     val lifecycleOwner = LocalLifecycleOwner.current
     val colorNameService = remember(ctx) {
         ColorServices.ensure(ctx)
@@ -138,7 +140,7 @@ fun LiveCameraScreen(
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 
     val snackbarHostState = remember { SnackbarHostState() }
-    val uiScope = rememberCoroutineScope()
+    val scope = rememberCoroutineScope()
     var frozen by remember { mutableStateOf(false) }
     var torchOn by remember { mutableStateOf(false) }
     var useFrontCamera by remember { mutableStateOf(false) }
@@ -174,8 +176,9 @@ fun LiveCameraScreen(
         camera?.cameraControl?.enableTorch(torchOn)
     }
 
-    fun showSnack(msg: String) {
-        uiScope.launch {
+    fun showSnack(@StringRes resId: Int, vararg args: Any) {
+        val msg = ctx.getString(resId, *args)
+        scope.launch {
             snackbarHostState.currentSnackbarData?.dismiss()
             snackbarHostState.showSnackbar(msg)
         }
@@ -251,12 +254,10 @@ fun LiveCameraScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Camera permission required", color = Color.White)
+                Text(stringResource(R.string.camera_permission_required), color = Color.White)
                 Spacer(Modifier.height(10.dp))
                 Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
-                    Text(
-                        "Grant"
-                    )
+                    Text(stringResource(R.string.grant))
                 }
             }
         }
@@ -274,7 +275,10 @@ fun LiveCameraScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(onClick = exit) {
-                    Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBackIosNew,
+                        contentDescription = stringResource(R.string.back)
+                    )
                 }
 
                 Text(
@@ -285,20 +289,31 @@ fun LiveCameraScreen(
                 IconButton(onClick = { frozen = !frozen }) {
                     Icon(
                         imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
-                        contentDescription = if (frozen) "Resume" else "Freeze"
+                        contentDescription = if (frozen) {
+                            stringResource(R.string.resume)
+                        } else {
+                            stringResource(R.string.freeze)
+                        }
                     )
                 }
                 IconButton(onClick = { torchOn = !torchOn }) {
                     Icon(
                         imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
-                        contentDescription = if (torchOn) "Flash on" else "Flash off"
+                        contentDescription = if (torchOn) {
+                            stringResource(R.string.flash_on)
+                        } else {
+                            stringResource(R.string.flash_off)
+                        }
                     )
                 }
                 IconButton(onClick = {
                     useFrontCamera = !useFrontCamera
                     Log.d("LiveCameraScreen", "Flip camera $useFrontCamera")
                 }) {
-                    Icon(Icons.Outlined.Cameraswitch, contentDescription = "Flip camera")
+                    Icon(
+                        imageVector = Icons.Outlined.Cameraswitch,
+                        contentDescription = stringResource(R.string.flip_camera)
+                    )
                 }
             }
         }
@@ -321,8 +336,12 @@ fun LiveCameraScreen(
             onAddColor = {
                 RecentPicksService.addPick(pickedColor)
                 when {
-                    pickedColor in palette -> showSnack("${pickedColor.name} already in palette")
-                    palette.size >= 10 -> showSnack("Palette is full (10 colors). Tap the palette to save it and start a new one.")
+                    pickedColor in palette -> showSnack(
+                        R.string.palette_already_in_palette,
+                        pickedColor.name
+                    )
+
+                    palette.size >= 10 -> showSnack(R.string.palette_full_message)
                     else -> {
                         palette.add(pickedColor)
                     }
@@ -330,16 +349,22 @@ fun LiveCameraScreen(
             },
             onAddPalette = {
                 if (palette.isEmpty()) {
-                    showSnack("Palette empty, start adding colors")
+                    showSnack(R.string.palette_empty_start_adding)
                     return@PaletteBar
                 }
                 val saved = PaletteService.create(
-                    name = "Palette ${PaletteService.palettes.value.size + 1}",
-                    tags = listOf("camera", "live-pick"),
+                    name = ctx.getString(
+                        R.string.palette_default_name,
+                        PaletteService.palettes.value.size + 1
+                    ),
+                    tags = listOf(
+                        ctx.getString(R.string.palette_tag_camera),
+                        ctx.getString(R.string.palette_tag_live_pick)
+                    ),
                     colors = palette
                 )
                 palette.clear()
-                showSnack("Palette saved ✅")
+                showSnack(R.string.palette_saved)
                 onOpenPalette(saved.id, true)
             },
             onClearPalette = { palette.clear() }
