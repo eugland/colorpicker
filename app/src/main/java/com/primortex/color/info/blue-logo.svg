@@ -1,0 +1,91 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Inviting, saturated background -->
+        <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+            <stop offset="0%" stop-color="#2F6BFF" />
+            <stop offset="55%" stop-color="#1A2BFF" />
+            <stop offset="100%" stop-color="#080A2A" />
+        </radialGradient>
+
+        <!-- Smooth, high-saturation rainbow -->
+        <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF2D2D" />
+            <stop offset="16%" stop-color="#FF2BD6" />
+            <stop offset="33%" stop-color="#6A3CFF" />
+            <stop offset="50%" stop-color="#00C7FF" />
+            <stop offset="66%" stop-color="#00FF9A" />
+            <stop offset="83%" stop-color="#C8FF2E" />
+            <stop offset="100%" stop-color="#FFD12E" />
+        </linearGradient>
+
+        <!-- Dropper body -->
+        <linearGradient id="dropper" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF3B0" />
+            <stop offset="55%" stop-color="#FFC14D" />
+            <stop offset="100%" stop-color="#FF7A1A" />
+        </linearGradient>
+
+        <!-- Soft, friendly glow (not harsh neon) -->
+        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="7" result="b" />
+            <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <!-- Drop shadow -->
+        <filter id="shadow" x="-60%" y="-60%" width="220%" height="220%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000"
+                flood-opacity="0.35" />
+        </filter>
+
+        <!-- Subtle highlight ring -->
+        <linearGradient id="ring" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28" />
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.06" />
+        </linearGradient>
+    </defs>
+
+    <!-- Rounded app icon background -->
+    <rect width="512" height="512" rx="96" fill="url(#bg)" />
+
+    <!-- Soft vignette -->
+    <ellipse cx="256" cy="300" rx="230" ry="210" fill="#000" opacity="0.10" />
+
+    <!-- Highlight ring -->
+    <g filter="url(#glow)" opacity="0.7">
+        <circle cx="256" cy="256" r="190" fill="none" stroke="url(#ring)" stroke-width="6" />
+    </g>
+
+    <g transform="translate(256 256)">
+        <!-- Rainbow arc (thicker + brighter) -->
+        <path d="M 0,-150 A 150,150 0 1,1 -108,108" fill="none" stroke="url(#rainbow)"
+            stroke-width="42" stroke-linecap="round" filter="url(#glow)" transform="rotate(40)" />
+
+        <!-- Small sparkle dots for "inviting" feel -->
+        <g opacity="0.9">
+            <circle cx="138" cy="-62" r="6" fill="#ffffff" opacity="0.55" />
+            <circle cx="120" cy="-86" r="3.5" fill="#ffffff" opacity="0.55" />
+            <circle cx="-148" cy="-12" r="4.5" fill="#ffffff" opacity="0.45" />
+        </g>
+
+        <!-- Dropper (bigger, cleaner, candy-like) -->
+        <g transform="rotate(-28) translate(-34,-40)" filter="url(#shadow)">
+            <!-- body -->
+            <path d="M48,0 L24,0 C11,0 0,11 0,24 L0,62 L34,96 L68,62 L68,24 C68,11 57,0 48,0 Z"
+                fill="url(#dropper)" />
+            <!-- inner gloss -->
+            <path
+                d="M18,18 C18,10 24,8 32,8 L40,8 C48,8 54,10 54,18 L54,26 C54,28 52,30 50,30 L22,30 C20,30 18,28 18,26 Z"
+                fill="#ffffff" opacity="0.35" />
+            <!-- top cap -->
+            <path d="M24,0 L24,-16 C24,-22 44,-22 44,-16 L44,0 Z" fill="#ffffff" opacity="0.92" />
+            <!-- drip -->
+            <path d="M34,96 L34,118" stroke="#FFE36A" stroke-width="7" stroke-linecap="round" />
+            <!-- droplet -->
+            <path d="M34,132 C28,124 28,118 34,112 C40,118 40,124 34,132 Z" fill="#FFE36A"
+                opacity="0.95" />
+        </g>
+    </g>
+</svg>
