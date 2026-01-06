@@ -2,6 +2,7 @@ package com.primortex.color.ui.components
 
 import android.content.ClipData
 import android.content.Context
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -32,7 +33,6 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
-import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -42,7 +42,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.ClipboardManager
+import androidx.compose.ui.platform.Clipboard
 import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.toClipEntry
@@ -214,7 +214,10 @@ fun ColorDetailsBottomSheet(
             Spacer(Modifier.height(14.dp))
 
             // Similar colors
-            Text(stringResource(R.string.similar_colors), style = MaterialTheme.typography.titleMedium)
+            Text(
+                stringResource(R.string.similar_colors),
+                style = MaterialTheme.typography.titleMedium
+            )
             Spacer(Modifier.height(8.dp))
 
             FlowRow(
@@ -320,9 +323,9 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
     }
 }
 
-private fun copyToClipboard(
+private suspend fun copyToClipboard(
     context: Context,
-    clipboard: ClipboardManager,
+    clipboard: Clipboard,
     @StringRes labelResId: Int,
     text: String
 ) {
