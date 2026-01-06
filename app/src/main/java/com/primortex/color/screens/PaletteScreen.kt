@@ -65,7 +65,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -102,7 +101,7 @@ object ColorQueryResolver {
                     name = nearest,
                 ),
 
-            )
+                )
         }
 
         // NAME -> name index search
@@ -118,7 +117,7 @@ object ColorQueryResolver {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
+fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit) {
     val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -164,7 +163,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
                         RecentPicksService.addPick(PickedColor(argb = top.argb, name = top.name))
                         scope.launch {
-                            snackbarHostState.showSnackbar(stringResource(R.string.added_to_recents))
+                            snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
                         }
                         searchQuery = ""
                     },
@@ -202,7 +201,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette)->Unit) {
                                     )
                                 )
                                 scope.launch {
-                                    snackbarHostState.showSnackbar(stringResource(R.string.added_to_recents))
+                                    snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
                                 }
                                 searchQuery = ""
                             }

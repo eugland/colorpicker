@@ -231,9 +231,10 @@ fun PhotoPickScreen(
                 onAddColor = {
                     when {
                         pickedColor in palette -> showSnack(
-                            stringResource(R.string.photo_already_in_palette, pickedColor.name)
+                            ctx.getString(R.string.photo_already_in_palette, pickedColor.name)
                         )
-                        palette.size >= 10 -> showSnack(stringResource(R.string.photo_palette_full_message))
+
+                        palette.size >= 10 -> showSnack(ctx.getString(R.string.photo_palette_full_message))
                         else -> {
                             palette.add(pickedColor)
                         }
@@ -241,20 +242,23 @@ fun PhotoPickScreen(
                 },
                 onAddPalette = {
                     if (palette.isEmpty()) {
-                        showSnack(stringResource(R.string.photo_palette_empty))
+                        showSnack(ctx.getString(R.string.photo_palette_empty))
                         return@PaletteBar
                     }
 
                     val saved = PaletteService.create(
-                        name = stringResource(R.string.palette_default_name, PaletteService.palettes.value.size + 1),
+                        name = ctx.getString(
+                            R.string.palette_default_name,
+                            PaletteService.palettes.value.size + 1
+                        ),
                         tags = listOf(
-                            stringResource(R.string.palette_tag_photo),
-                            stringResource(R.string.palette_tag_pick)
+                            ctx.getString(R.string.palette_tag_photo),
+                            ctx.getString(R.string.palette_tag_pick)
                         ),
                         colors = palette
                     )
                     palette.clear()
-                    showSnack(stringResource(R.string.photo_palette_saved))
+                    showSnack(ctx.getString(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
                 }
             )
