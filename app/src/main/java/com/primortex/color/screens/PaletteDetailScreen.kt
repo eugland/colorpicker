@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -32,15 +33,14 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -54,17 +54,17 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -99,7 +99,11 @@ fun PaletteDetailScreen(
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
-    var tagsInput by rememberSaveable(paletteId) { mutableStateOf(palette?.tags?.joinToString(", ").orEmpty()) }
+    var tagsInput by rememberSaveable(paletteId) {
+        mutableStateOf(
+            palette?.tags?.joinToString(", ").orEmpty()
+        )
+    }
     var note by rememberSaveable(paletteId) { mutableStateOf(palette?.note.orEmpty()) }
     val editableColors = remember(paletteId) { mutableStateListOf<PickedColor>() }
 
@@ -121,7 +125,8 @@ fun PaletteDetailScreen(
         editableColors.move(from, to)
     }
 
-    val gradientColors = remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
+    val gradientColors =
+        remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
     ScreenScaffold(
         titleRes = R.string.palette_details,
@@ -170,7 +175,11 @@ fun PaletteDetailScreen(
                         isEditing = !isEditing
                     },
                     onCopyAll = {
-                        clipboard.setText(AnnotatedString(editableColors.joinToString(", ") { argbToHex(it.argb) }))
+                        clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
+                            argbToHex(
+                                it.argb
+                            )
+                        }))
                         showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
                     },
                     onExportCss = {
@@ -251,7 +260,8 @@ fun PaletteDetailScreen(
                         enableDismissFromStartToEnd = false,
                         enableDismissFromEndToStart = true,
                         backgroundContent = {
-                            val isDismissed = dismissState.targetValue != SwipeToDismissBoxValue.Settled
+                            val isDismissed =
+                                dismissState.targetValue != SwipeToDismissBoxValue.Settled
                             val targetColor = if (isDismissed) {
                                 MaterialTheme.colorScheme.errorContainer
                             } else {
@@ -380,7 +390,10 @@ private fun PaletteHeader(
                 modifier = Modifier.fillMaxWidth()
             )
         } else {
-            Text(name.ifBlank { stringResource(R.string.palette) }, style = MaterialTheme.typography.headlineSmall)
+            Text(
+                name.ifBlank { stringResource(R.string.palette) },
+                style = MaterialTheme.typography.headlineSmall
+            )
             if (palette.tags.isNotEmpty()) {
                 Text(
                     text = palette.tags.joinToString(" • "),
@@ -418,7 +431,10 @@ private fun ActionRow(
     var overflowExpanded by remember { mutableStateOf(false) }
     var copyMenuExpanded by remember { mutableStateOf(false) }
 
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         OutlinedButton(onClick = onToggleEdit) {
             Icon(
                 imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
@@ -459,26 +475,13 @@ private fun ActionRow(
         }
 
         IconButton(onClick = { overflowExpanded = true }) {
-            Icon(Icons.Outlined.MoreVert, contentDescription = stringResource(R.string.more_options))
-        }
-
-        DropdownMenu(
-            expanded = overflowExpanded,
-            onDismissRequest = { overflowExpanded = false }
-        ) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.remove_from_favourites)) },
-                leadingIcon = { Icon(Icons.Outlined.Delete, contentDescription = null) },
-                colors = MenuDefaults.itemColors(
-                    textColor = MaterialTheme.colorScheme.error,
-                    leadingIconColor = MaterialTheme.colorScheme.error
-                ),
-                onClick = {
-                    overflowExpanded = false
-                    onDelete()
-                }
+            Icon(
+                Icons.Outlined.MoreVert,
+                contentDescription = stringResource(R.string.more_options)
             )
         }
+
+
     }
 }
 
@@ -517,7 +520,11 @@ private fun PaletteColorCard(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column(Modifier.weight(1f)) {
-                        Text(color.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                        Text(
+                            color.name,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
                         Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
                     }
                     Spacer(Modifier.width(12.dp))
@@ -531,7 +538,10 @@ private fun PaletteColorCard(
 
             if (isEditing) {
                 IconButton(onClick = {}, modifier = dragHandleModifier) {
-                    Icon(Icons.Outlined.DragHandle, contentDescription = stringResource(R.string.reorder))
+                    Icon(
+                        Icons.Outlined.DragHandle,
+                        contentDescription = stringResource(R.string.reorder)
+                    )
                 }
             }
         }
@@ -587,7 +597,9 @@ private class DragReorderState(
         val layoutInfo = listState.layoutInfo
         val visibleItems = layoutInfo.visibleItemsInfo
         val visibleColorItems = visibleItems.filter { it.index >= colorItemStartIndex }
-        val draggedItem = visibleColorItems.firstOrNull { it.index - colorItemStartIndex == currentIndex } ?: return
+        val draggedItem =
+            visibleColorItems.firstOrNull { it.index - colorItemStartIndex == currentIndex }
+                ?: return
 
         val draggedMiddle = draggedItem.offset + dragOffset + (draggedItem.size / 2f)
         val target = visibleColorItems.minByOrNull { item ->
@@ -602,7 +614,11 @@ private class DragReorderState(
     }
 }
 
-private fun showSnackbar(snackbarHostState: SnackbarHostState, scope: CoroutineScope, message: String) {
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    message: String
+) {
     scope.launch {
         snackbarHostState.currentSnackbarData?.dismiss()
         snackbarHostState.showSnackbar(message)

@@ -221,7 +221,7 @@
     <string name="remove_from_favourites">Remove from favourites</string>
     <string name="view_more_indicator">View more ›</string>
     <string name="save_changes">Save changes</string>
-    <string name="edit_palette">Edit palette</string>
+    <string name="edit_palette">Edit</string>
     <string name="palette_updated">Palette updated</string>
     <string name="copied_all_hex">Copied all HEX values</string>
     <string name="exported_css">Copied CSS to clipboard</string>

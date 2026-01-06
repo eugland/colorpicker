@@ -209,11 +209,25 @@
     <string name="clear_recent">清除最近</string>
     <string name="clear_saved">清除已保存</string>
     <string name="clear_palettes">清除调色板</string>
-    <string name="copy_hex_content_description">复制 HEX</string>
+    <string name="copy_hex_content_description">复制HEX</string>
 
 
     <string name="palette_bar_clear">清空调色板</string>
     <string name="palette_bar_palette">调色板</string>
     <string name="palette_bar_add_color">添加颜色</string>
-    <string name="no_recent_colors_yet_tap_to_pick_a_color">No recent colors yet. Tap 🧪 to pick a color.</string>
+    <string name="palette_details">调色板详情</string>
+    <string name="palette_missing">此调色板已不可用</string>
+    <string name="palette_name">调色板名称</string>
+    <string name="palette_tags_hint">标签（用逗号分隔）</string>
+    <string name="palette_description_label">描述</string>
+    <string name="copy_all_hex">复制所有 HEX 值</string>
+    <string name="export_css">导出为 CSS</string>
+    <string name="remove_from_favourites">从收藏中移除</string>
+    <string name="view_more_indicator">查看更多 ›</string>
+    <string name="save_changes">保存更改</string>
+    <string name="edit_palette">编辑</string>
+    <string name="palette_updated">调色板已更新</string>
+    <string name="copied_all_hex">已复制所有 HEX 值</string>
+    <string name="exported_css">已将 CSS 复制到剪贴板</string>
+    <string name="reorder">重新排序</string>
 </resources>
