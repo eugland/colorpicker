@@ -34,7 +34,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberSnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -77,7 +76,7 @@ fun PaletteDetailScreen(
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit,
 ) {
-    val snackbarHostState = rememberSnackbarHostState()
+    val snackbarHostState = remember {SnackbarHostState() }
     val clipboard = LocalClipboardManager.current
     val scope = rememberCoroutineScope()
 
