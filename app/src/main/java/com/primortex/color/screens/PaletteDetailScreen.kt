@@ -7,8 +7,6 @@ import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -27,17 +25,25 @@ import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DragHandle
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material3.DismissDirection
+import androidx.compose.material3.DismissValue
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.SwipeToDismiss
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDismissState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -54,6 +60,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
@@ -217,19 +224,71 @@ fun PaletteDetailScreen(
                     Modifier
                 }
 
-                Box(
-                    modifier = Modifier
-                        .offset { IntOffset(0, dragOffset.toInt()) }
-                        .zIndex(if (isDragging) 1f else 0f)
-                ) {
+                val containerModifier = Modifier
+                    .offset { IntOffset(0, dragOffset.toInt()) }
+                    .zIndex(if (isDragging) 1f else 0f)
+
+                val cardContent: @Composable () -> Unit = {
                     PaletteColorCard(
                         color = color,
                         isEditing = isEditing,
                         isDragging = isDragging,
-                        onRemove = { editableColors.remove(color) },
                         onClick = { onOpenColorDetail(color) },
                         dragHandleModifier = dragHandleModifier
                     )
+                }
+
+                if (isEditing) {
+                    val dismissState = rememberDismissState(
+                        confirmValueChange = { value ->
+                            if (value == DismissValue.DismissedToStart) {
+                                editableColors.remove(color)
+                                true
+                            } else {
+                                false
+                            }
+                        }
+                    )
+
+                    SwipeToDismiss(
+                        state = dismissState,
+                        directions = setOf(DismissDirection.EndToStart),
+                        background = {
+                            val isDismissed = dismissState.targetValue != DismissValue.Default
+                            val targetColor = if (isDismissed) {
+                                MaterialTheme.colorScheme.errorContainer
+                            } else {
+                                MaterialTheme.colorScheme.surfaceVariant
+                            }
+                            val iconTint = if (isDismissed) {
+                                MaterialTheme.colorScheme.onErrorContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            }
+
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp)
+                                    .clip(MaterialTheme.shapes.medium)
+                                    .background(targetColor),
+                                contentAlignment = Alignment.CenterEnd
+                            ) {
+                                Icon(
+                                    Icons.Outlined.Delete,
+                                    contentDescription = stringResource(R.string.delete),
+                                    tint = iconTint,
+                                    modifier = Modifier.padding(end = 16.dp)
+                                )
+                            }
+                        },
+                        dismissContent = {
+                            Box { cardContent() }
+                        },
+                        modifier = containerModifier
+                    )
+                } else {
+                    Box(modifier = containerModifier) { cardContent() }
                 }
             }
         }
@@ -351,7 +410,6 @@ private fun PaletteHeader(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ActionRow(
     isEditing: Boolean,
@@ -360,10 +418,9 @@ private fun ActionRow(
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
 ) {
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
+    var overflowExpanded by remember { mutableStateOf(false) }
+
+    Row(horizontalArrangement = Arrangement.spacedBy(4.dp), verticalAlignment = Alignment.CenterVertically) {
         AssistChip(
             onClick = onToggleEdit,
             label = { Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette)) },
@@ -375,28 +432,43 @@ private fun ActionRow(
             }
         )
 
-        AssistChip(
-            onClick = onCopyAll,
-            label = { Text(stringResource(R.string.copy_all_hex)) },
-            leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) }
-        )
+        IconButton(onClick = { overflowExpanded = true }) {
+            Icon(Icons.Outlined.MoreVert, contentDescription = stringResource(R.string.more_options))
+        }
 
-        AssistChip(
-            onClick = onExportCss,
-            label = { Text(stringResource(R.string.export_css)) },
-            leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) }
-        )
-
-        AssistChip(
-            onClick = onDelete,
-            label = { Text(stringResource(R.string.remove_from_favourites)) },
-            leadingIcon = { Icon(Icons.Outlined.Delete, contentDescription = null) },
-            colors = AssistChipDefaults.assistChipColors(
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-                labelColor = MaterialTheme.colorScheme.onErrorContainer,
-                leadingIconContentColor = MaterialTheme.colorScheme.onErrorContainer
+        DropdownMenu(
+            expanded = overflowExpanded,
+            onDismissRequest = { overflowExpanded = false }
+        ) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.copy_all_hex)) },
+                leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
+                onClick = {
+                    overflowExpanded = false
+                    onCopyAll()
+                }
             )
-        )
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.export_css)) },
+                leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
+                onClick = {
+                    overflowExpanded = false
+                    onExportCss()
+                }
+            )
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.remove_from_favourites)) },
+                leadingIcon = { Icon(Icons.Outlined.Delete, contentDescription = null) },
+                colors = MenuDefaults.itemColors(
+                    textColor = MaterialTheme.colorScheme.error,
+                    leadingIconColor = MaterialTheme.colorScheme.error
+                ),
+                onClick = {
+                    overflowExpanded = false
+                    onDelete()
+                }
+            )
+        }
     }
 }
 
@@ -405,7 +477,6 @@ private fun PaletteColorCard(
     color: PickedColor,
     isEditing: Boolean,
     isDragging: Boolean,
-    onRemove: () -> Unit,
     onClick: () -> Unit,
     dragHandleModifier: Modifier,
 ) {
@@ -443,13 +514,8 @@ private fun PaletteColorCard(
             }
 
             if (isEditing) {
-                Column(horizontalAlignment = Alignment.End) {
-                    IconButton(onClick = onRemove) {
-                        Icon(Icons.Outlined.Delete, contentDescription = stringResource(R.string.delete))
-                    }
-                    IconButton(onClick = {}, modifier = dragHandleModifier) {
-                        Icon(Icons.Outlined.DragHandle, contentDescription = stringResource(R.string.reorder))
-                    }
+                IconButton(onClick = {}, modifier = dragHandleModifier) {
+                    Icon(Icons.Outlined.DragHandle, contentDescription = stringResource(R.string.reorder))
                 }
             }
         }
