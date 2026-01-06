@@ -50,7 +50,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
@@ -67,6 +69,7 @@ import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
 import com.primortex.color.ui.util.argbToHslString
 import com.primortex.color.ui.util.argbToRgbString
+import com.primortex.color.ui.util.rgbDistSq
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -110,9 +113,12 @@ fun PaletteDetailScreen(
     }
 
     val listState = rememberLazyListState()
-    val dragState = rememberDragReorderState(listState) { from, to ->
+    val colorItemStartIndex = 3
+    val dragState = rememberDragReorderState(listState, colorItemStartIndex) { from, to ->
         editableColors.move(from, to)
     }
+
+    val gradientColors = remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
     ScreenScaffold(
         titleRes = R.string.palette_details,
@@ -125,104 +131,160 @@ fun PaletteDetailScreen(
             return@ScreenScaffold
         }
 
-        Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-            PaletteHeader(
-                isEditing = isEditing,
-                name = name,
-                tagsInput = tagsInput,
-                note = note,
-                onNameChange = { name = it },
-                onTagsChange = { tagsInput = it },
-                onNoteChange = { note = it },
-                palette = palette,
-                onToggleEdit = {
-                    if (isEditing) {
-                        val tags = tagsInput.split(',').mapNotNull { tag ->
-                            tag.trim().takeIf { it.isNotBlank() }
-                        }
-                        PaletteService.update(
-                            id = palette.id,
-                            name = name.ifBlank { paletteLabel },
-                            tags = tags,
-                            note = note,
-                            colors = editableColors.toList()
-                        )
-                        showSnackbar(snackbarHostState, scope, paletteUpdatedMessage)
-                    }
-                    isEditing = !isEditing
-                },
-                onCopyAll = {
-                    clipboard.setText(AnnotatedString(editableColors.joinToString(", ") { argbToHex(it.argb) }))
-                    showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
-                },
-                onExportCss = {
-                    val css = buildString {
-                        appendLine(":root {")
-                        editableColors.forEachIndexed { index, color ->
-                            append("    --color-${index + 1}: ${argbToHex(color.argb)};")
-                            append('\n')
-                        }
-                        append("}")
-                    }
-                    clipboard.setText(AnnotatedString(css))
-                    showSnackbar(snackbarHostState, scope, exportedCssMessage)
-                },
-                onDelete = {
-                    PaletteService.delete(palette.id)
-                    onBack()
-                }
-            )
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState,
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            item {
+                PaletteGradientPreview(colors = gradientColors)
+            }
 
-            Text(
-                text = stringResource(R.string.palette_color_count, editableColors.size),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                state = listState,
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(editableColors.size, key = { editableColors[it].argb }) { index ->
-                    val color = editableColors[index]
-                    val isDragging = dragState.draggedIndex == index
-                    val dragOffset = if (isDragging) dragState.dragOffset else 0f
-                    val dragHandleModifier = if (isEditing) {
-                        Modifier.pointerInput(isEditing, editableColors.size, color.argb) {
-                            detectDragGesturesAfterLongPress(
-                                onDragStart = { dragState.startDrag(index) },
-                                onDragCancel = { dragState.endDrag() },
-                                onDragEnd = { dragState.endDrag() },
-                                onDrag = { change, dragAmount ->
-                                    dragState.onDrag(dragAmount.y)
-                                    change.consume()
-                                }
+            item {
+                PaletteHeader(
+                    isEditing = isEditing,
+                    name = name,
+                    tagsInput = tagsInput,
+                    note = note,
+                    onNameChange = { name = it },
+                    onTagsChange = { tagsInput = it },
+                    onNoteChange = { note = it },
+                    palette = palette,
+                    onToggleEdit = {
+                        if (isEditing) {
+                            val tags = tagsInput.split(',').mapNotNull { tag ->
+                                tag.trim().takeIf { it.isNotBlank() }
+                            }
+                            PaletteService.update(
+                                id = palette.id,
+                                name = name.ifBlank { paletteLabel },
+                                tags = tags,
+                                note = note,
+                                colors = editableColors.toList()
                             )
+                            showSnackbar(snackbarHostState, scope, paletteUpdatedMessage)
                         }
-                    } else {
-                        Modifier
+                        isEditing = !isEditing
+                    },
+                    onCopyAll = {
+                        clipboard.setText(AnnotatedString(editableColors.joinToString(", ") { argbToHex(it.argb) }))
+                        showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
+                    },
+                    onExportCss = {
+                        val css = buildString {
+                            appendLine(":root {")
+                            editableColors.forEachIndexed { index, color ->
+                                append("    --color-${index + 1}: ${argbToHex(color.argb)};")
+                                append('\n')
+                            }
+                            append("}")
+                        }
+                        clipboard.setText(AnnotatedString(css))
+                        showSnackbar(snackbarHostState, scope, exportedCssMessage)
+                    },
+                    onDelete = {
+                        PaletteService.delete(palette.id)
+                        onBack()
                     }
+                )
+            }
 
-                    Box(
-                        modifier = Modifier
-                            .offset { IntOffset(0, dragOffset.toInt()) }
-                            .zIndex(if (isDragging) 1f else 0f)
-                    ) {
-                        PaletteColorCard(
-                            color = color,
-                            isEditing = isEditing,
-                            isDragging = isDragging,
-                            onRemove = { editableColors.remove(color) },
-                            onClick = { onOpenColorDetail(color) },
-                            dragHandleModifier = dragHandleModifier
+            item {
+                Text(
+                    text = stringResource(R.string.palette_color_count, editableColors.size),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            items(editableColors.size, key = { editableColors[it].argb }) { index ->
+                val color = editableColors[index]
+                val isDragging = dragState.draggedIndex == index
+                val dragOffset = if (isDragging) dragState.dragOffset else 0f
+                val dragHandleModifier = if (isEditing) {
+                    Modifier.pointerInput(isEditing, editableColors.size, color.argb) {
+                        detectDragGesturesAfterLongPress(
+                            onDragStart = { dragState.startDrag(index) },
+                            onDragCancel = { dragState.endDrag() },
+                            onDragEnd = { dragState.endDrag() },
+                            onDrag = { change, dragAmount ->
+                                dragState.onDrag(dragAmount.y)
+                                change.consume()
+                            }
                         )
                     }
+                } else {
+                    Modifier
+                }
+
+                Box(
+                    modifier = Modifier
+                        .offset { IntOffset(0, dragOffset.toInt()) }
+                        .zIndex(if (isDragging) 1f else 0f)
+                ) {
+                    PaletteColorCard(
+                        color = color,
+                        isEditing = isEditing,
+                        isDragging = isDragging,
+                        onRemove = { editableColors.remove(color) },
+                        onClick = { onOpenColorDetail(color) },
+                        dragHandleModifier = dragHandleModifier
+                    )
                 }
             }
         }
+    }
+}
+
+private fun smoothGradient(colors: List<PickedColor>): List<Color> {
+    if (colors.isEmpty()) return emptyList()
+
+    val remaining = colors.toMutableList()
+    val ordered = mutableListOf<PickedColor>()
+
+    val start = remaining.minByOrNull { candidate ->
+        remaining.sumOf { rgbDistSq(candidate.argb, it.argb).toLong() }
+    } ?: return emptyList()
+
+    ordered.add(start)
+    remaining.remove(start)
+
+    var current = start
+    while (remaining.isNotEmpty()) {
+        val next = remaining.minByOrNull { rgbDistSq(current.argb, it.argb) } ?: break
+        ordered.add(next)
+        remaining.remove(next)
+        current = next
+    }
+
+    return ordered.map { color -> Color(color.argb) }
+}
+
+@Composable
+private fun PaletteGradientPreview(colors: List<Color>) {
+    val resolvedColors = if (colors.isNotEmpty()) {
+        colors
+    } else {
+        listOf(
+            MaterialTheme.colorScheme.surfaceVariant,
+            MaterialTheme.colorScheme.surface
+        )
+    }
+
+    val brush = if (resolvedColors.size == 1) {
+        SolidColor(resolvedColors.first())
+    } else {
+        Brush.horizontalGradient(resolvedColors)
+    }
+
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp),
+        tonalElevation = 4.dp,
+        shape = MaterialTheme.shapes.large
+    ) {
+        Box(Modifier.background(brush))
     }
 }
 
@@ -403,13 +465,17 @@ private fun <T> MutableList<T>.move(from: Int, to: Int) {
 @Composable
 private fun rememberDragReorderState(
     listState: LazyListState,
+    colorItemStartIndex: Int,
     onMove: (Int, Int) -> Unit
 ): DragReorderState {
-    return remember(listState, onMove) { DragReorderState(listState, onMove) }
+    return remember(listState, onMove, colorItemStartIndex) {
+        DragReorderState(listState, colorItemStartIndex, onMove)
+    }
 }
 
 private class DragReorderState(
     val listState: LazyListState,
+    private val colorItemStartIndex: Int,
     private val onMove: (Int, Int) -> Unit
 ) {
     var draggedIndex by mutableStateOf<Int?>(null)
@@ -438,16 +504,18 @@ private class DragReorderState(
         val currentIndex = draggedIndex ?: return
         val layoutInfo = listState.layoutInfo
         val visibleItems = layoutInfo.visibleItemsInfo
-        val draggedItem = visibleItems.firstOrNull { it.index == currentIndex } ?: return
+        val visibleColorItems = visibleItems.filter { it.index >= colorItemStartIndex }
+        val draggedItem = visibleColorItems.firstOrNull { it.index - colorItemStartIndex == currentIndex } ?: return
 
         val draggedMiddle = draggedItem.offset + dragOffset + (draggedItem.size / 2f)
-        val target = visibleItems.minByOrNull { item ->
+        val target = visibleColorItems.minByOrNull { item ->
             kotlin.math.abs(draggedMiddle - (item.offset + (item.size / 2f)))
         }?.index ?: return
 
-        if (target != currentIndex) {
-            onMove(currentIndex, target)
-            draggedIndex = target
+        val targetIndex = target - colorItemStartIndex
+        if (targetIndex != currentIndex) {
+            onMove(currentIndex, targetIndex)
+            draggedIndex = targetIndex
         }
     }
 }
