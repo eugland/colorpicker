@@ -7,8 +7,6 @@ import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -27,17 +26,22 @@ import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DragHandle
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Save
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -50,6 +54,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -58,8 +63,8 @@ import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -67,8 +72,6 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.PaletteService
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.util.argbToHex
-import com.primortex.color.ui.util.argbToHslString
-import com.primortex.color.ui.util.argbToRgbString
 import com.primortex.color.ui.util.rgbDistSq
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -96,7 +99,11 @@ fun PaletteDetailScreen(
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
-    var tagsInput by rememberSaveable(paletteId) { mutableStateOf(palette?.tags?.joinToString(", ").orEmpty()) }
+    var tagsInput by rememberSaveable(paletteId) {
+        mutableStateOf(
+            palette?.tags?.joinToString(", ").orEmpty()
+        )
+    }
     var note by rememberSaveable(paletteId) { mutableStateOf(palette?.note.orEmpty()) }
     val editableColors = remember(paletteId) { mutableStateListOf<PickedColor>() }
 
@@ -118,7 +125,8 @@ fun PaletteDetailScreen(
         editableColors.move(from, to)
     }
 
-    val gradientColors = remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
+    val gradientColors =
+        remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
     ScreenScaffold(
         titleRes = R.string.palette_details,
@@ -167,7 +175,11 @@ fun PaletteDetailScreen(
                         isEditing = !isEditing
                     },
                     onCopyAll = {
-                        clipboard.setText(AnnotatedString(editableColors.joinToString(", ") { argbToHex(it.argb) }))
+                        clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
+                            argbToHex(
+                                it.argb
+                            )
+                        }))
                         showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
                     },
                     onExportCss = {
@@ -217,19 +229,73 @@ fun PaletteDetailScreen(
                     Modifier
                 }
 
-                Box(
-                    modifier = Modifier
-                        .offset { IntOffset(0, dragOffset.toInt()) }
-                        .zIndex(if (isDragging) 1f else 0f)
-                ) {
+                val containerModifier = Modifier
+                    .offset { IntOffset(0, dragOffset.toInt()) }
+                    .zIndex(if (isDragging) 1f else 0f)
+
+                val cardContent: @Composable () -> Unit = {
                     PaletteColorCard(
                         color = color,
                         isEditing = isEditing,
                         isDragging = isDragging,
-                        onRemove = { editableColors.remove(color) },
                         onClick = { onOpenColorDetail(color) },
                         dragHandleModifier = dragHandleModifier
                     )
+                }
+
+                if (isEditing) {
+                    val dismissState = rememberSwipeToDismissBoxState(
+                        confirmValueChange = { value ->
+                            if (value == SwipeToDismissBoxValue.EndToStart) {
+                                editableColors.remove(color)
+                                true
+                            } else {
+                                false
+                            }
+                        }
+                    )
+
+                    SwipeToDismissBox(
+                        state = dismissState,
+                        enableDismissFromStartToEnd = false,
+                        enableDismissFromEndToStart = true,
+                        backgroundContent = {
+                            val isDismissed =
+                                dismissState.targetValue != SwipeToDismissBoxValue.Settled
+                            val targetColor = if (isDismissed) {
+                                MaterialTheme.colorScheme.errorContainer
+                            } else {
+                                MaterialTheme.colorScheme.surfaceVariant
+                            }
+                            val iconTint = if (isDismissed) {
+                                MaterialTheme.colorScheme.onErrorContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            }
+
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp)
+                                    .clip(MaterialTheme.shapes.medium)
+                                    .background(targetColor),
+                                contentAlignment = Alignment.CenterEnd
+                            ) {
+                                Icon(
+                                    Icons.Outlined.Delete,
+                                    contentDescription = stringResource(R.string.delete),
+                                    tint = iconTint,
+                                    modifier = Modifier.padding(end = 16.dp)
+                                )
+                            }
+                        },
+                        content = {
+                            Box { cardContent() }
+                        },
+                        modifier = containerModifier
+                    )
+                } else {
+                    Box(modifier = containerModifier) { cardContent() }
                 }
             }
         }
@@ -324,7 +390,10 @@ private fun PaletteHeader(
                 modifier = Modifier.fillMaxWidth()
             )
         } else {
-            Text(name.ifBlank { stringResource(R.string.palette) }, style = MaterialTheme.typography.headlineSmall)
+            Text(
+                name.ifBlank { stringResource(R.string.palette) },
+                style = MaterialTheme.typography.headlineSmall
+            )
             if (palette.tags.isNotEmpty()) {
                 Text(
                     text = palette.tags.joinToString(" • "),
@@ -351,7 +420,6 @@ private fun PaletteHeader(
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ActionRow(
     isEditing: Boolean,
@@ -360,43 +428,60 @@ private fun ActionRow(
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
 ) {
-    FlowRow(
+    var overflowExpanded by remember { mutableStateOf(false) }
+    var copyMenuExpanded by remember { mutableStateOf(false) }
+
+    Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        AssistChip(
-            onClick = onToggleEdit,
-            label = { Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette)) },
-            leadingIcon = {
-                Icon(
-                    imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
-                    contentDescription = null
+        OutlinedButton(onClick = onToggleEdit) {
+            Icon(
+                imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
+                contentDescription = null
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette))
+        }
+
+        Box {
+            OutlinedButton(onClick = { copyMenuExpanded = true }) {
+                Icon(Icons.Outlined.ContentCopy, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.copy))
+            }
+
+            DropdownMenu(
+                expanded = copyMenuExpanded,
+                onDismissRequest = { copyMenuExpanded = false }
+            ) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.copy_all_hex)) },
+                    leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
+                    onClick = {
+                        copyMenuExpanded = false
+                        onCopyAll()
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.export_css)) },
+                    leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
+                    onClick = {
+                        copyMenuExpanded = false
+                        onExportCss()
+                    }
                 )
             }
-        )
+        }
 
-        AssistChip(
-            onClick = onCopyAll,
-            label = { Text(stringResource(R.string.copy_all_hex)) },
-            leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) }
-        )
-
-        AssistChip(
-            onClick = onExportCss,
-            label = { Text(stringResource(R.string.export_css)) },
-            leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) }
-        )
-
-        AssistChip(
-            onClick = onDelete,
-            label = { Text(stringResource(R.string.remove_from_favourites)) },
-            leadingIcon = { Icon(Icons.Outlined.Delete, contentDescription = null) },
-            colors = AssistChipDefaults.assistChipColors(
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-                labelColor = MaterialTheme.colorScheme.onErrorContainer,
-                leadingIconContentColor = MaterialTheme.colorScheme.onErrorContainer
+        IconButton(onClick = { overflowExpanded = true }) {
+            Icon(
+                Icons.Outlined.MoreVert,
+                contentDescription = stringResource(R.string.more_options)
             )
-        )
+        }
+
+
     }
 }
 
@@ -405,7 +490,6 @@ private fun PaletteColorCard(
     color: PickedColor,
     isEditing: Boolean,
     isDragging: Boolean,
-    onRemove: () -> Unit,
     onClick: () -> Unit,
     dragHandleModifier: Modifier,
 ) {
@@ -430,26 +514,34 @@ private fun PaletteColorCard(
             )
 
             Column(Modifier.weight(1f)) {
-                Text(color.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
-                Text(argbToRgbString(color.argb), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(argbToHslString(color.argb), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(R.string.view_more_indicator),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            color.name,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        text = stringResource(R.string.view_more_indicator),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
             }
 
             if (isEditing) {
-                Column(horizontalAlignment = Alignment.End) {
-                    IconButton(onClick = onRemove) {
-                        Icon(Icons.Outlined.Delete, contentDescription = stringResource(R.string.delete))
-                    }
-                    IconButton(onClick = {}, modifier = dragHandleModifier) {
-                        Icon(Icons.Outlined.DragHandle, contentDescription = stringResource(R.string.reorder))
-                    }
+                IconButton(onClick = {}, modifier = dragHandleModifier) {
+                    Icon(
+                        Icons.Outlined.DragHandle,
+                        contentDescription = stringResource(R.string.reorder)
+                    )
                 }
             }
         }
@@ -505,7 +597,9 @@ private class DragReorderState(
         val layoutInfo = listState.layoutInfo
         val visibleItems = layoutInfo.visibleItemsInfo
         val visibleColorItems = visibleItems.filter { it.index >= colorItemStartIndex }
-        val draggedItem = visibleColorItems.firstOrNull { it.index - colorItemStartIndex == currentIndex } ?: return
+        val draggedItem =
+            visibleColorItems.firstOrNull { it.index - colorItemStartIndex == currentIndex }
+                ?: return
 
         val draggedMiddle = draggedItem.offset + dragOffset + (draggedItem.size / 2f)
         val target = visibleColorItems.minByOrNull { item ->
@@ -520,7 +614,11 @@ private class DragReorderState(
     }
 }
 
-private fun showSnackbar(snackbarHostState: SnackbarHostState, scope: CoroutineScope, message: String) {
+private fun showSnackbar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+    message: String
+) {
     scope.launch {
         snackbarHostState.currentSnackbarData?.dismiss()
         snackbarHostState.showSnackbar(message)

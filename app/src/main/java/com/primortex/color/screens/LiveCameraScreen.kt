@@ -63,15 +63,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
+import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.PickerSensitivity
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
@@ -276,7 +278,7 @@ fun LiveCameraScreen(
                 }
 
                 Text(
-                    "Live picking",
+                    stringResource(R.string.live_picking),
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.weight(1f)
                 )
