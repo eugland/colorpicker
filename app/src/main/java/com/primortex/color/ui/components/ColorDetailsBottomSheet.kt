@@ -124,7 +124,10 @@ fun ColorDetailsBottomSheet(
                 OutlinedButton(onClick = {
                     scope.launch {
                         clipboard.setClipEntry(
-                            ClipData.newPlainText("hex", details.hex).toClipEntry()
+                            ClipData.newPlainText(
+                                stringResource(R.string.copy_hex),
+                                details.hex
+                            ).toClipEntry()
                         )
                     }
                 }) { Text(stringResource(R.string.copy_hex)) }
@@ -132,10 +135,13 @@ fun ColorDetailsBottomSheet(
                 OutlinedButton(onClick = {
                     scope.launch {
                         clipboard.setClipEntry(
-                            ClipData.newPlainText("color-name", details.name).toClipEntry()
+                            ClipData.newPlainText(
+                                stringResource(R.string.copy_name),
+                                details.name
+                            ).toClipEntry()
                         )
                     }
-                }) { Text("Copy name") }
+                }) { Text(stringResource(R.string.copy_name)) }
 
                 OutlinedButton(onClick = { RecentPicksService.toggleSaved(picked) }) {
                     Icon(
@@ -143,7 +149,13 @@ fun ColorDetailsBottomSheet(
                         contentDescription = null
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) "Saved" else "Save")
+                    Text(
+                        text = if (isSaved) {
+                            stringResource(R.string.saved)
+                        } else {
+                            stringResource(R.string.save)
+                        }
+                    )
                 }
             }
 
@@ -153,15 +165,32 @@ fun ColorDetailsBottomSheet(
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 AssistChip(
                     onClick = {},
-                    label = { Text("Luma ${(details.luminance * 100).toInt()}%") }
+                    label = {
+                        Text(stringResource(R.string.luma_label, (details.luminance * 100).toInt()))
+                    }
                 )
                 AssistChip(
                     onClick = {},
-                    label = { Text(if (details.isDark) "Dark" else "Light") }
+                    label = {
+                        Text(
+                            if (details.isDark) {
+                                stringResource(R.string.dark_label)
+                            } else {
+                                stringResource(R.string.light_label)
+                            }
+                        )
+                    }
                 )
                 AssistChip(
                     onClick = {},
-                    label = { Text("Text " + if (details.recommendedOnColor == 0xFFFFFFFF.toInt()) "White" else "Black") }
+                    label = {
+                        val textColor = if (details.recommendedOnColor == 0xFFFFFFFF.toInt()) {
+                            stringResource(R.string.white_label)
+                        } else {
+                            stringResource(R.string.black_label)
+                        }
+                        Text(stringResource(R.string.text_recommendation, textColor))
+                    }
                 )
             }
 
@@ -170,27 +199,27 @@ fun ColorDetailsBottomSheet(
             // RGB / HSV / HSL
             KeyValueGrid(
                 items = listOf(
-                    "RGB" to "${details.rgb.r}, ${details.rgb.g}, ${details.rgb.b}",
-                    "HSV" to "${details.hsv.h.toInt()}°, ${(details.hsv.s * 100).toInt()}%, ${(details.hsv.v * 100).toInt()}%",
-                    "HSL" to "${details.hsl.h.toInt()}°, ${(details.hsl.s * 100).toInt()}%, ${(details.hsl.l * 100).toInt()}%"
+                    stringResource(R.string.rgb_label) to "${details.rgb.r}, ${details.rgb.g}, ${details.rgb.b}",
+                    stringResource(R.string.hsv_label) to "${details.hsv.h.toInt()}°, ${(details.hsv.s * 100).toInt()}%, ${(details.hsv.v * 100).toInt()}%",
+                    stringResource(R.string.hsl_label) to "${details.hsl.h.toInt()}°, ${(details.hsl.s * 100).toInt()}%, ${(details.hsl.l * 100).toInt()}%"
                 )
             )
 
             Spacer(Modifier.height(14.dp))
 
             // Harmonies
-            Text("Harmonies", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.harmonies), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow("Complement", details.complements)
+            HarmonyRow(stringResource(R.string.harmony_complement), details.complements)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow("Triad", details.triads)
+            HarmonyRow(stringResource(R.string.harmony_triad), details.triads)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow("Analogous", details.analogous)
+            HarmonyRow(stringResource(R.string.harmony_analogous), details.analogous)
 
             Spacer(Modifier.height(14.dp))
 
             // Similar colors
-            Text("Similar colors", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.similar_colors), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
 
             FlowRow(

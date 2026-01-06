@@ -43,11 +43,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
@@ -76,14 +78,17 @@ fun ColorDetailsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        details.name.ifBlank { nameHint ?: "Color" },
+                        details.name.ifBlank { nameHint ?: stringResource(R.string.color_label) },
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Filled.ArrowBackIosNew, contentDescription = "Back")
+                        Icon(
+                            Icons.Filled.ArrowBackIosNew,
+                            contentDescription = stringResource(R.string.back)
+                        )
                     }
                 }
             )
@@ -132,7 +137,7 @@ fun ColorDetailsScreen(
                 Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
                     Text(
-                        details.name.ifBlank { nameHint ?: "Color" },
+                        details.name.ifBlank { nameHint ?: stringResource(R.string.color_label) },
                         style = MaterialTheme.typography.titleLarge,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -146,9 +151,12 @@ fun ColorDetailsScreen(
                 }
                 IconButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    scope.launch { snackbarHostState.showSnackbar("Copied HEX") }
+                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.hex_copied)) }
                 }) {
-                    Icon(Icons.Outlined.ContentCopy, contentDescription = "Copy HEX")
+                    Icon(
+                        Icons.Outlined.ContentCopy,
+                        contentDescription = stringResource(R.string.copy_hex)
+                    )
                 }
             }
 
@@ -158,13 +166,13 @@ fun ColorDetailsScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    scope.launch { snackbarHostState.showSnackbar("Copied HEX") }
-                }) { Text("Copy HEX") }
+                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.hex_copied)) }
+                }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.name))
-                    scope.launch { snackbarHostState.showSnackbar("Copied name") }
-                }) { Text("Copy name") }
+                    scope.launch { snackbarHostState.showSnackbar(stringResource(R.string.name_copied)) }
+                }) { Text(stringResource(R.string.copy_name)) }
             }
 
             Spacer(Modifier.height(14.dp))
@@ -176,18 +184,31 @@ fun ColorDetailsScreen(
             ) {
                 AssistChip(
                     onClick = {},
-                    label = { Text("Luma ${(details.luminance * 100).toInt()}%") }
-                )
-                AssistChip(
-                    onClick = {},
-                    label = { Text(if (details.isDark) "Dark" else "Light") }
+                    label = {
+                        Text(stringResource(R.string.luma_label, (details.luminance * 100).toInt()))
+                    }
                 )
                 AssistChip(
                     onClick = {},
                     label = {
                         Text(
-                            "Text " + if (details.recommendedOnColor == 0xFFFFFFFF.toInt()) "White" else "Black"
+                            if (details.isDark) {
+                                stringResource(R.string.dark_label)
+                            } else {
+                                stringResource(R.string.light_label)
+                            }
                         )
+                    }
+                )
+                AssistChip(
+                    onClick = {},
+                    label = {
+                        val textColor = if (details.recommendedOnColor == 0xFFFFFFFF.toInt()) {
+                            stringResource(R.string.white_label)
+                        } else {
+                            stringResource(R.string.black_label)
+                        }
+                        Text(stringResource(R.string.text_recommendation, textColor))
                     }
                 )
             }
@@ -197,27 +218,27 @@ fun ColorDetailsScreen(
             // RGB / HSV / HSL
             KeyValueGrid(
                 items = listOf(
-                    "RGB" to "${details.rgb.r}, ${details.rgb.g}, ${details.rgb.b}",
-                    "HSV" to "${details.hsv.h.toInt()}°, ${(details.hsv.s * 100).toInt()}%, ${(details.hsv.v * 100).toInt()}%",
-                    "HSL" to "${details.hsl.h.toInt()}°, ${(details.hsl.s * 100).toInt()}%, ${(details.hsl.l * 100).toInt()}%"
+                    stringResource(R.string.rgb_label) to "${details.rgb.r}, ${details.rgb.g}, ${details.rgb.b}",
+                    stringResource(R.string.hsv_label) to "${details.hsv.h.toInt()}°, ${(details.hsv.s * 100).toInt()}%, ${(details.hsv.v * 100).toInt()}%",
+                    stringResource(R.string.hsl_label) to "${details.hsl.h.toInt()}°, ${(details.hsl.s * 100).toInt()}%, ${(details.hsl.l * 100).toInt()}%"
                 )
             )
 
             Spacer(Modifier.height(14.dp))
 
             // Harmonies
-            Text("Harmonies", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.harmonies), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow(label = "Complement", argbs = details.complements)
+            HarmonyRow(label = stringResource(R.string.harmony_complement), argbs = details.complements)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow(label = "Triad", argbs = details.triads)
+            HarmonyRow(label = stringResource(R.string.harmony_triad), argbs = details.triads)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow(label = "Analogous", argbs = details.analogous)
+            HarmonyRow(label = stringResource(R.string.harmony_analogous), argbs = details.analogous)
 
             Spacer(Modifier.height(14.dp))
 
             // Similar colors
-            Text("Similar colors", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.similar_colors), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
 
             FlowRow(

@@ -48,6 +48,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -122,7 +123,11 @@ fun ColorSliderScreen(
                         RecentPicksService.toggleSaved(picked)
                         scope.launch {
                             snackbarHostState.showSnackbar(
-                                if (isSaved) "Removed from My colors" else "Saved to My colors"
+                                message = if (isSaved) {
+                                    stringResource(R.string.removed_from_my_colors)
+                                } else {
+                                    stringResource(R.string.saved_to_my_colors)
+                                }
                             )
                         }
                     }
@@ -132,28 +137,33 @@ fun ColorSliderScreen(
                         contentDescription = null
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) "Saved" else "Save")
+                    Text(if (isSaved) stringResource(R.string.saved) else stringResource(R.string.save))
                 }
 
                 Button(
                     onClick = {
                         if (palettes.isEmpty()) {
-                            scope.launch { snackbarHostState.showSnackbar("No palettes available. Create one first.") }
+                            scope.launch {
+                                snackbarHostState.showSnackbar(stringResource(R.string.no_palettes_available))
+                            }
                         } else {
                             showPalettePicker = true
                         }
                     }
                 ) {
-                    Icon(Icons.Outlined.Palette, contentDescription = null)
+                    Icon(
+                        Icons.Outlined.Palette,
+                        contentDescription = stringResource(R.string.add_to_palette)
+                    )
                     Spacer(Modifier.width(8.dp))
-                    Text("Add to palette")
+                    Text(stringResource(R.string.add_to_palette))
                 }
             }
 
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text("RGB", style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(R.string.rgb_label), style = MaterialTheme.typography.titleMedium)
                 LabeledSlider(
-                    label = "Red",
+                    label = stringResource(R.string.red_label),
                     value = rgb.first.toFloat(),
                     valueRange = 0f..255f,
                     onValueChange = { value ->
@@ -161,7 +171,7 @@ fun ColorSliderScreen(
                     }
                 )
                 LabeledSlider(
-                    label = "Green",
+                    label = stringResource(R.string.green_label),
                     value = rgb.second.toFloat(),
                     valueRange = 0f..255f,
                     onValueChange = { value ->
@@ -169,7 +179,7 @@ fun ColorSliderScreen(
                     }
                 )
                 LabeledSlider(
-                    label = "Blue",
+                    label = stringResource(R.string.blue_label),
                     value = rgb.third.toFloat(),
                     valueRange = 0f..255f,
                     onValueChange = { value ->
@@ -179,9 +189,9 @@ fun ColorSliderScreen(
             }
 
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text("HSL", style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(R.string.hsl_label), style = MaterialTheme.typography.titleMedium)
                 LabeledSlider(
-                    label = "Hue",
+                    label = stringResource(R.string.hue_label),
                     value = hsl[0],
                     valueRange = 0f..360f,
                     steps = 0,
@@ -190,7 +200,7 @@ fun ColorSliderScreen(
                     }
                 )
                 LabeledSlider(
-                    label = "Saturation",
+                    label = stringResource(R.string.saturation_label),
                     value = hsl[1] * 100f,
                     valueRange = 0f..100f,
                     onValueChange = { value ->
@@ -199,7 +209,7 @@ fun ColorSliderScreen(
                     valueFormatter = { v -> "${v.toInt()}%" }
                 )
                 LabeledSlider(
-                    label = "Lightness",
+                    label = stringResource(R.string.lightness_label),
                     value = hsl[2] * 100f,
                     valueRange = 0f..100f,
                     onValueChange = { value ->
@@ -213,6 +223,9 @@ fun ColorSliderScreen(
 
     if (showPalettePicker) {
         val paletteSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+        val alreadyInPaletteMessage = stringResource(R.string.already_in_palette)
+        val paletteFullMessage = stringResource(R.string.palette_full)
+        val addedToPaletteMessage = stringResource(R.string.added_to_palette)
 
         ModalBottomSheet(
             onDismissRequest = { showPalettePicker = false },
@@ -225,7 +238,7 @@ fun ColorSliderScreen(
                     .padding(bottom = 24.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Text("Select palette", style = MaterialTheme.typography.titleLarge)
+                Text(stringResource(R.string.select_palette), style = MaterialTheme.typography.titleLarge)
 
                 LazyColumn(
                     verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -239,7 +252,10 @@ fun ColorSliderScreen(
                                     palette = palette,
                                     color = picked,
                                     snackbarHostState = snackbarHostState,
-                                    scope = scope
+                                    scope = scope,
+                                    alreadyInPaletteMessage = alreadyInPaletteMessage,
+                                    paletteFullMessage = paletteFullMessage,
+                                    addedToPaletteMessage = addedToPaletteMessage
                                 )
                                 showPalettePicker = false
                             }
@@ -247,7 +263,7 @@ fun ColorSliderScreen(
                             Column(Modifier.fillMaxWidth()) {
                                 Text(palette.name)
                                 Text(
-                                    "${palette.colors.size} colors",
+                                    stringResource(R.string.palette_color_count, palette.colors.size),
                                     style = MaterialTheme.typography.bodySmall,
                                 )
                             }
@@ -255,7 +271,7 @@ fun ColorSliderScreen(
                     }
                 }
 
-                TextButton(onClick = { showPalettePicker = false }) { Text("Close") }
+                TextButton(onClick = { showPalettePicker = false }) { Text(stringResource(R.string.close)) }
             }
         }
     }
@@ -320,7 +336,7 @@ private fun ColorPreviewCard(
                 // RIGHT: "more info" hint
                 Icon(
                     imageVector = Icons.Outlined.ChevronRight,
-                    contentDescription = "More details",
+                    contentDescription = stringResource(R.string.more_details),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(20.dp)
                 )
@@ -367,13 +383,16 @@ private fun addToPalette(
     color: PickedColor,
     snackbarHostState: SnackbarHostState,
     scope: kotlinx.coroutines.CoroutineScope,
+    alreadyInPaletteMessage: String,
+    paletteFullMessage: String,
+    addedToPaletteMessage: String,
 ) {
     when {
         palette.colors.any { it.argb == color.argb } ->
-            scope.launch { snackbarHostState.showSnackbar("Already in palette") }
+            scope.launch { snackbarHostState.showSnackbar(alreadyInPaletteMessage) }
 
         palette.colors.size >= 10 ->
-            scope.launch { snackbarHostState.showSnackbar("Palette full (10 colors)") }
+            scope.launch { snackbarHostState.showSnackbar(paletteFullMessage) }
 
         else -> {
             PaletteService.update(
@@ -381,7 +400,7 @@ private fun addToPalette(
                 colors = palette.colors + color
             )
             RecentPicksService.addPick(color)
-            scope.launch { snackbarHostState.showSnackbar("Added to palette") }
+            scope.launch { snackbarHostState.showSnackbar(addedToPaletteMessage) }
         }
     }
 }

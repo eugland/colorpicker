@@ -117,6 +117,7 @@
     <string name="palette_full">Palette full (10 colors)</string>
     <string name="added_to_palette">Added to palette</string>
     <string name="hex_copied">Copied HEX</string>
+    <string name="name_copied">Copied name</string>
     <string name="copy_hex">Copy HEX</string>
     <string name="copy_name">Copy name</string>
     <string name="luma_label">Luma %1$d%%</string>
