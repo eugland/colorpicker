@@ -122,7 +122,7 @@ fun ColorSliderScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 FilledTonalButton(
                     onClick = {
-                        RecentPicksService.addPick(picked)
+                        RecentPicksService.addPick(picked, source = "color_slider")
                         RecentPicksService.toggleSaved(picked)
                         val message = if (isSaved) {
                             context.getString(R.string.removed_from_my_colors)
@@ -397,7 +397,7 @@ private fun addToPalette(
                 id = palette.id,
                 colors = palette.colors + color
             )
-            RecentPicksService.addPick(color)
+            RecentPicksService.addPick(color, source = "palette_add")
             scope.launch { snackbarHostState.showSnackbar(addedToPaletteMessage) }
         }
     }

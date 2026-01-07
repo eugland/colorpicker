@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.PickedColor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -120,7 +121,8 @@ object RecentPicksService {
     }
 
     // ---- public API ----
-    fun addPick(pick: PickedColor) {
+    fun addPick(pick: PickedColor, source: String = "unknown") {
+        AnalyticsTracker.logColorPicked(pick, source)
         _history.update { prev ->
             (listOf(pick) + prev)
                 .distinctBy { it.argb } // optional: dedupe by color
@@ -145,11 +147,14 @@ object RecentPicksService {
                 .distinctBy { it.argb }
                 .take(MAX)
         }
+        AnalyticsTracker.logColorSaved(pick, action = "saved")
         persistSaved()
     }
 
     fun removeSaved(argb: Int) {
+        val color = _saved.value.firstOrNull { it.argb == argb }
         _saved.update { prev -> prev.filterNot { it.argb == argb } }
+        color?.let { AnalyticsTracker.logColorSaved(it, action = "removed") }
         persistSaved()
     }
 

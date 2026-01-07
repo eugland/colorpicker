@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import kotlinx.coroutines.CoroutineScope
@@ -105,7 +106,8 @@ object PaletteService {
         name: String,
         colors: List<PickedColor>,
         tags: List<String> = emptyList(),
-        note: String = ""
+        note: String = "",
+        creationSource: String = "unknown"
     ): Palette {
         val now = System.currentTimeMillis()
         val p = Palette(
@@ -119,6 +121,7 @@ object PaletteService {
         )
         _palettes.update { listOf(p) + it }
         persist()
+        AnalyticsTracker.logPaletteCreated(p, creationSource)
         return p
     }
 

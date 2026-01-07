@@ -161,7 +161,10 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                     onQueryChange = { searchQuery = it },
                     onSubmit = {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
-                        RecentPicksService.addPick(PickedColor(argb = top.argb, name = top.name))
+                        RecentPicksService.addPick(
+                            PickedColor(argb = top.argb, name = top.name),
+                            source = "palette_search"
+                        )
                         scope.launch {
                             snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
                         }
@@ -198,7 +201,8 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                                     PickedColor(
                                         argb = s.argb,
                                         name = s.name
-                                    )
+                                    ),
+                                    source = "palette_search"
                                 )
                                 scope.launch {
                                     snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))

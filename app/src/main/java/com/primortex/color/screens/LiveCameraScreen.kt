@@ -334,7 +334,7 @@ fun LiveCameraScreen(
                 .padding(horizontal = 14.dp),
             palette = palette,
             onAddColor = {
-                RecentPicksService.addPick(pickedColor)
+                RecentPicksService.addPick(pickedColor, source = "live_camera")
                 when {
                     pickedColor in palette -> showSnack(
                         R.string.palette_already_in_palette,
@@ -361,7 +361,8 @@ fun LiveCameraScreen(
                         ctx.getString(R.string.palette_tag_camera),
                         ctx.getString(R.string.palette_tag_live_pick)
                     ),
-                    colors = palette
+                    colors = palette,
+                    creationSource = "live_camera"
                 )
                 palette.clear()
                 showSnack(R.string.palette_saved)

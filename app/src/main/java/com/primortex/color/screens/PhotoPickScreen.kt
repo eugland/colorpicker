@@ -203,7 +203,7 @@ fun PhotoPickScreen(
                                 bmp = bmp
                             )
                             sampled?.let { pickedArgb = it }
-                            RecentPicksService.addPick(pickedColor)
+                            RecentPicksService.addPick(pickedColor, source = "photo_library")
                         }
                     }
             ) {
@@ -255,7 +255,8 @@ fun PhotoPickScreen(
                             ctx.getString(R.string.palette_tag_photo),
                             ctx.getString(R.string.palette_tag_pick)
                         ),
-                        colors = palette
+                        colors = palette,
+                        creationSource = "photo_library"
                     )
                     palette.clear()
                     showSnack(ctx.getString(R.string.photo_palette_saved))
