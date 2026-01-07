@@ -91,7 +91,7 @@ private fun LanguageOption(
         trailingContent = {
             if (selected) {
                 Text(
-                    str(R.string.selected),
+                    str(R.string.selected_str),
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.labelLarge
                 )

@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- Match your foreground scaling -->
+    <group
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:translateX="51.2"
+        android:translateY="51.2">
+
+        <group
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:translateX="51.2"
+            android:translateY="51.2">
+
+            <!-- Arc: solid, no gradient -->
+            <path
+                android:pathData="M345.48,128.21A156,156 101.07,1 1,100.01 283.5"
+                android:fillColor="#00000000"
+                android:strokeColor="#FF000000"
+                android:strokeWidth="44"
+                android:strokeLineCap="round" />
+
+            <!-- Dropper body: solid -->
+            <path
+                android:pathData="M249.58,214.11L228.39,225.38C216.91,231.48 212.37,246.36 218.47,257.83L236.31,291.39L282.29,305.45L296.35,259.46L278.51,225.91C272.41,214.43 257.53,209.88 249.58,214.11Z"
+                android:fillColor="#FF000000" />
+
+            <!-- Dropper cap: solid -->
+            <path
+                android:pathData="M228.39,225.38L220.88,211.25C218.06,205.95 235.72,196.56 238.54,201.86L246.05,215.99Z"
+                android:fillColor="#FF000000" />
+
+            <!-- Stem: make it visible (no low alpha) -->
+            <path
+                android:pathData="M282.29,305.45L292.62,324.87"
+                android:fillColor="#00000000"
+                android:strokeColor="#FF000000"
+                android:strokeWidth="10"
+                android:strokeLineCap="round" />
+
+        </group>
+    </group>
+</vector>

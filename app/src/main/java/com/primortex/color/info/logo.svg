@@ -43,9 +43,5 @@
             <path d="M30,80 L30,95" stroke="url(#dropperGrad)" stroke-width="6"
                 stroke-linecap="round" />
         </g>
-
-        <text x="0" y="220" font-family="Arial, sans-serif" font-weight="bold" font-size="42"
-            fill="white" text-anchor="middle" letter-spacing="4">CHROMA PICK
-        </text>
     </g>
 </svg>
