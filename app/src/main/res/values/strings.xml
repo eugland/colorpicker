@@ -167,6 +167,11 @@
     <string name="privacy_statement_description">How camera and photo data stay on-device</string>
     <string name="usage_guide">Usage guide</string>
     <string name="usage_guide_description">Step-by-step guide and index for key tasks</string>
+    <string name="feedback">Feedback</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="send_feedback_description">Share what you want to see improved.</string>
+    <string name="rate_us">Rate us</string>
+    <string name="rate_us_description">Leave a quick rating on the Play Store.</string>
 
     <string name="camera_title">Camera</string>
     <string name="camera_intro">Pick colors live or from a photo. Tap any swatch to copy.</string>

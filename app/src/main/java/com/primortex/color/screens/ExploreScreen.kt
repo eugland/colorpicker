@@ -14,11 +14,16 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.material.icons.outlined.ArrowForwardIos
 import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material.icons.outlined.Description
+import androidx.compose.material.icons.outlined.Feedback
 import androidx.compose.material.icons.outlined.Gavel
 import androidx.compose.material.icons.outlined.Language
+import androidx.compose.material.icons.outlined.StarRate
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -34,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
@@ -51,6 +57,7 @@ fun ExploreScreen(
     innerPadding: PaddingValues,
     navigator: (String) -> Unit
 ) {
+    val context = LocalContext.current
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
     val crosshairShape by SettingsService.crosshairShape.collectAsState()
     val themeMode by SettingsService.themeMode.collectAsState()
@@ -257,6 +264,46 @@ fun ExploreScreen(
                     )
                 }
             }
+
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    Text(
+                        stringResource(R.string.feedback),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
+                    )
+
+                    InfoLink(
+                        title = stringResource(R.string.send_feedback),
+                        subtitle = stringResource(R.string.send_feedback_description),
+                        icon = Icons.Outlined.Feedback,
+                        onClick = {
+                            openUrl(
+                                context,
+                                "https://docs.google.com/forms/d/e/1FAIpQLScd5C3ut3O1nHnIBKtq9QD7FkNuNAKIjzfZyRRtZKRHUptkrQ/viewform?usp=dialog"
+                            )
+                        }
+                    )
+
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+
+                    InfoLink(
+                        title = stringResource(R.string.rate_us),
+                        subtitle = stringResource(R.string.rate_us_description),
+                        icon = Icons.Outlined.StarRate,
+                        onClick = {
+                            openUrl(
+                                context,
+                                "https://play.google.com/store/apps/details?id=com.google.android.apps.maps"
+                            )
+                        }
+                    )
+                }
+            }
         }
     }
 }
@@ -322,4 +369,9 @@ private fun InfoLink(
             .fillMaxWidth()
             .clickable(onClick = onClick)
     )
+}
+
+private fun openUrl(context: Context, url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    context.startActivity(intent)
 }
