@@ -67,38 +67,22 @@ object RecentPicksService {
 
             seedIfNeeded(prefs)
 
-            //Testing use: -------------------------------------------------------------------------
-//            val defaults = List(100) { i ->
-//                val hue = (i * 37f) % 360f              // golden-angle spread
-//                val saturation = 0.45f + (i % 3) * 0.15f
-//                val value = 0.65f + (i % 4) * 0.08f
-//
-//                val hsv = floatArrayOf(hue, saturation.coerceIn(0f, 1f), value.coerceIn(0f, 1f))
-//                val argb = android.graphics.Color.HSVToColor(hsv)
-//
-//                PickedColor(
-//                    argb = argb,
-//                    name = "Color ${i + 1}"
-//                )
-//            }.take(MAX)
-//            _history.value = defaults
-            // testing use end ---------------------------------------------------------------------
         }
-
-
     }
 
     private suspend fun seedIfNeeded(prefs: Preferences) {
         if (prefs[KEY_SEEDED] == true) return
 
-        val defaults = listOf(
+        val init_history = listOf(
             // Modern UI / Neutral
             PickedColor(0xFF0F172A.toInt(), "Slate 900"),
             PickedColor(0xFF475569.toInt(), "Slate 600"),
             PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
             PickedColor(0xFF0EA5E9.toInt(), "Sky 500"),
             PickedColor(0xFF10B981.toInt(), "Emerald 500"),
+        )
 
+        val init_saved = listOf(
             // Muted Nature
             PickedColor(0xFF2F5D50.toInt(), "Forest"),
             PickedColor(0xFF7A9B76.toInt(), "Moss"),
@@ -107,14 +91,19 @@ object RecentPicksService {
             PickedColor(0xFF3A3A3A.toInt(), "Ink"),
         ).take(MAX)
 
-
-        _history.value = defaults
+        _saved.value = init_saved
+        _history.value = init_history
 
         val payload = runCatching {
-            json.encodeToString(defaults)
+            json.encodeToString(init_history)
+        }.getOrElse { "[]" }
+
+        val payloadSaved = runCatching {
+            json.encodeToString(init_history)
         }.getOrElse { "[]" }
 
         appContext.recentsDataStore.edit { p ->
+            p[KEY_SAVED] = payloadSaved
             p[KEY_HISTORY] = payload
             p[KEY_SEEDED] = true
         }
