@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">color</string>
+
+    <string name="back">返回</string>
+    <string name="close">關閉</string>
+    <string name="clear">清除</string>
+    <string name="cancel">取消</string>
+    <string name="copy">複製</string>
+    <string name="selected_str">已選取</string>
+    <string name="grant">授權</string>
+    <string name="save">儲存</string>
+    <string name="saved">已儲存</string>
+    <string name="delete">刪除</string>
+    <string name="more_options">更多選項</string>
+
+    <string name="palette">調色盤</string>
+    <string name="camera">相機</string>
+    <string name="explore">探索</string>
+
+    <string name="follows_your_device_language">跟隨裝置語言</string>
+    <string name="choose_language">選擇語言</string>
+    <string name="choose_language_description">選擇你想在應用程式中使用的語言。</string>
+
+    <string name="recent_colors">最近的顏色</string>
+    <string name="view_more">查看更多</string>
+    <string name="show_less">顯示更少</string>
+    <string name="show_more">顯示更多</string>
+    <string name="show_less_caps">顯示更少</string>
+    <string name="show_more_caps">顯示更多</string>
+
+    <string name="theme_system_default">系統預設</string>
+    <string name="theme_light">淺色</string>
+    <string name="theme_dark">深色</string>
+
+    <string name="crosshair_size_small">小</string>
+    <string name="crosshair_size_medium">中</string>
+    <string name="crosshair_size_large">大</string>
+
+    <string name="crosshair_shape_circle">圓形</string>
+    <string name="crosshair_shape_square">方形</string>
+    <string name="crosshair_shape_cross">十字</string>
+
+    <string name="picker_sensitivity_low">低</string>
+    <string name="picker_sensitivity_medium">中</string>
+    <string name="picker_sensitivity_high">高</string>
+
+    <string name="language_system_default">System default</string>
+    <string name="language_english">English</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_french">Français</string>
+    <string name="language_german">Deutsch</string>
+    <string name="language_italian">Italiano</string>
+    <string name="language_portuguese">Português</string>
+    <string name="language_russian">Русский</string>
+    <string name="language_chinese_simplified">简体中文</string>
+    <string name="language_chinese_traditional">繁體中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_arabic">العربية</string>
+    <string name="language_hindi">हिन्दी</string>
+    <string name="language_bengali">বাংলা</string>
+    <string name="language_urdu">اردو</string>
+    <string name="language_indonesian">Bahasa Indonesia</string>
+    <string name="language_vietnamese">Tiếng Việt</string>
+    <string name="language_turkish">Türkçe</string>
+    <string name="language_dutch">Nederlands</string>
+    <string name="language_swedish">Svenska</string>
+    <string name="language_norwegian">Norsk</string>
+    <string name="language_danish">Dansk</string>
+    <string name="language_finnish">Suomi</string>
+    <string name="language_greek">Ελληνικά</string>
+    <string name="language_polish">Polski</string>
+    <string name="language_czech">Čeština</string>
+    <string name="language_hungarian">Magyar</string>
+    <string name="language_romanian">Română</string>
+    <string name="language_thai">ไทย</string>
+    <string name="language_filipino">Filipino</string>
+    <string name="language_malay">Bahasa Melayu</string>
+    <string name="language_hebrew">עברית</string>
+    <string name="language_ukrainian">Українська</string>
+
+    <string name="camera_permission_required">需要相機權限</string>
+    <string name="live_picking">即時取色</string>
+    <string name="resume">恢復</string>
+    <string name="freeze">凍結</string>
+    <string name="flash_on">開啟閃光燈</string>
+    <string name="flash_off">關閉閃光燈</string>
+    <string name="flip_camera">切換攝影機</string>
+    <string name="palette_saved">調色盤已儲存 ✅</string>
+    <string name="palette_already_in_palette">%1$s 已在調色盤中</string>
+    <string name="palette_full_message">調色盤已滿（10 種顏色）。點擊調色盤儲存並開始新的調色盤。</string>
+    <string name="palette_empty_start_adding">調色盤為空，開始新增顏色</string>
+    <string name="palette_saved_toast">調色盤已儲存 ✅</string>
+    <string name="palette_default_name">調色盤 %1$d</string>
+    <string name="palette_tag_camera">相機</string>
+    <string name="palette_tag_live_pick">即時取色</string>
+    <string name="palette_tag_photo">照片</string>
+    <string name="palette_tag_pick">取色</string>
+
+    <string name="color_slider">顏色滑桿</string>
+    <string name="removed_from_my_colors">已從我的顏色移除</string>
+    <string name="saved_to_my_colors">已儲存到我的顏色</string>
+    <string name="no_palettes_available">暫無調色盤。請先建立一個。</string>
+    <string name="add_to_palette">新增到調色盤</string>
+    <string name="rgb_label">RGB</string>
+    <string name="red_label">紅</string>
+    <string name="green_label">綠</string>
+    <string name="blue_label">藍</string>
+    <string name="hsl_label">HSL</string>
+    <string name="hue_label">色相</string>
+    <string name="saturation_label">飽和度</string>
+    <string name="lightness_label">明度</string>
+    <string name="select_palette">選擇調色盤</string>
+    <string name="palette_color_count">%1$d 種顏色</string>
+    <string name="more_details">更多詳情</string>
+    <string name="already_in_palette">已在調色盤中</string>
+    <string name="palette_full">調色盤已滿（10 種顏色）</string>
+    <string name="added_to_palette">已新增到調色盤</string>
+    <string name="hex_copied">已複製 HEX</string>
+    <string name="name_copied">已複製名稱</string>
+    <string name="copy_hex">複製 HEX</string>
+    <string name="copy_name">複製名稱</string>
+    <string name="luma_label">亮度 %1$d%%</string>
+    <string name="text_recommendation">文字 %1$s</string>
+    <string name="white_label">白色</string>
+    <string name="black_label">黑色</string>
+    <string name="color_label">顏色</string>
+    <string name="hsv_label">HSV</string>
+    <string name="dark_label">深色</string>
+    <string name="light_label">淺色</string>
+    <string name="harmonies">和諧色</string>
+    <string name="harmony_complement">互補色</string>
+    <string name="harmony_triad">三分色</string>
+    <string name="harmony_analogous">類似色</string>
+    <string name="similar_colors">相似顏色</string>
+
+    <string name="picker_tab_camera">相機</string>
+    <string name="picker_tab_camera_description">即時取色或從照片中取色。點擊任意色塊即可複製。</string>
+    <string name="live_camera">即時相機</string>
+    <string name="live_camera_subtitle">十字準星 + 縮放</string>
+    <string name="from_album">來自相簿</string>
+    <string name="from_album_subtitle">從照片中取色</string>
+    <string name="tools">工具</string>
+    <string name="color_slider_description">調整 RGB 或 HSL 並即時查看名稱和十六進位值。儲存或建立調色盤。</string>
+    <string name="open">開啟</string>
+    <string name="live_color_picker">即時顏色取樣器</string>
+    <string name="live_color_picker_description">對準任何東西。雙指縮放。立即新增到調色盤。</string>
+    <string name="start_live_picking">開始即時取色</string>
+
+    <string name="settings_title">設定</string>
+    <string name="settings_description">調整應用程式外觀和取色十字準星行為。</string>
+    <string name="app_preferences">應用程式偏好</string>
+    <string name="theme">主題</string>
+    <string name="theme_description">選擇應用程式的外觀。</string>
+    <string name="language">語言</string>
+    <string name="picker_crosshair">取色十字準星</string>
+    <string name="picker_crosshair_description">調整取樣顏色時使用的十字準星。</string>
+    <string name="size">大小</string>
+    <string name="shape">形狀</string>
+    <string name="sensitivity">靈敏度</string>
+    <string name="sensitivity_description">控制取色對顏色變化的反應速度。</string>
+    <string name="information">資訊</string>
+    <string name="copyright_notice">版權聲明</string>
+    <string name="copyright_notice_description">所有權、第三方元件和授權詳情</string>
+    <string name="privacy_statement">隱私聲明</string>
+    <string name="privacy_statement_description">相機和照片資料如何保持在裝置上</string>
+    <string name="usage_guide">使用指南</string>
+    <string name="usage_guide_description">關鍵任務的逐步指南和索引</string>
+
+    <string name="camera_title">相機</string>
+    <string name="camera_intro">即時取色或從照片中取色。點擊任意色塊即可複製。</string>
+
+    <string name="photo_picking">照片取色</string>
+    <string name="more_info">更多資訊</string>
+
+    <string name="photo_already_in_palette">%1$s 已在調色盤中</string>
+    <string name="photo_palette_full_message">調色盤已滿（10 種顏色）。點擊調色盤儲存並開始新的調色盤。</string>
+    <string name="photo_palette_empty">調色盤為空，開始新增顏色</string>
+    <string name="photo_palette_saved">調色盤已儲存 ✅</string>
+
+    <string name="added_to_recents">已新增到最近</string>
+    <string name="suggestions">建議</string>
+    <string name="saved_colors">已儲存的顏色</string>
+    <string name="saved_palettes">已儲存的調色盤</string>
+    <string name="no_recent_colors">還沒有最近的顏色。點擊 🧪 以取色。</string>
+    <string name="no_saved_colors">還沒有儲存的顏色。</string>
+    <string name="no_saved_palettes">還沒有儲存的調色盤。</string>
+    <string name="clear_recent_colors_title">清除最近的顏色？</string>
+    <string name="clear_recent_colors_description">這將移除所有最近的顏色。</string>
+    <string name="clear_saved_colors_title">清除儲存的顏色？</string>
+    <string name="clear_saved_colors_description">這將移除所有儲存的顏色。</string>
+    <string name="clear_saved_palettes_title">清除儲存的調色盤？</string>
+    <string name="clear_saved_palettes_description">這將移除所有儲存的調色盤。</string>
+    <string name="quick_color_lookup">快速顏色查詢</string>
+    <string name="search_placeholder">搜尋顏色或十六進位碼</string>
+
+    <string name="search_hint_one">想知道「午夜藍」嗎？</string>
+    <string name="search_hint_two">試試「石板灰」</string>
+    <string name="search_hint_three">揭開「#007BA7」的顏色</string>
+    <string name="search_hint_four">見過「森林綠」嗎？</string>
+    <string name="search_hint_five">「#191970」藏著什麼顏色？</string>
+    <string name="search_hint_six">搜尋「燒赭色」</string>
+    <string name="search_hint_seven">解讀「#708090」的情緒</string>
+    <string name="search_hint_eight">「天藍色」是什麼樣？</string>
+    <string name="search_hint_nine">「#228B22」給人什麼感覺？</string>
+    <string name="search_hint_ten">揭開「#E97451」的色調</string>
+
+    <string name="palette_color_label">調色盤</string>
+    <string name="clear_recent">清除最近</string>
+    <string name="clear_saved">清除已儲存</string>
+    <string name="clear_palettes">清除調色盤</string>
+    <string name="copy_hex_content_description">複製 HEX</string>
+
+    <string name="palette_bar_clear">清空調色盤</string>
+    <string name="palette_bar_palette">調色盤</string>
+    <string name="palette_bar_add_color">新增顏色</string>
+    <string name="palette_details">調色盤詳情</string>
+    <string name="palette_missing">此調色盤已不可用</string>
+    <string name="palette_name">調色盤名稱</string>
+    <string name="palette_tags_hint">標籤（以逗號分隔）</string>
+    <string name="palette_description_label">描述</string>
+    <string name="copy_all_hex">複製所有 HEX 值</string>
+    <string name="export_css">複製 CSS</string>
+    <string name="remove_from_favourites">刪除調色盤</string>
+    <string name="view_more_indicator">查看更多 ›</string>
+    <string name="save_changes">儲存變更</string>
+    <string name="edit_palette">編輯</string>
+    <string name="palette_updated">調色盤已更新</string>
+    <string name="copied_all_hex">已複製所有 HEX 值</string>
+    <string name="exported_css">已將 CSS 複製到剪貼簿</string>
+    <string name="reorder">重新排序</string>
+    <string name="splash_loading_message">正在喚醒你的調色盤…</string>
+</resources>
