@@ -28,13 +28,13 @@ object RecentPicksService {
     private const val MAX = 100
     private val KEY_HISTORY = stringPreferencesKey("history_json")
     private val KEY_SAVED = stringPreferencesKey("saved_json")
+    private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = true
     }
-    private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val _history = MutableStateFlow<List<PickedColor>>(emptyList())
     val history: StateFlow<List<PickedColor>> = _history
     private val _saved = MutableStateFlow<List<PickedColor>>(emptyList())
@@ -66,14 +66,16 @@ object RecentPicksService {
             _saved.value = savedColors.take(MAX)
 
             seedIfNeeded(prefs)
-
         }
     }
 
     private suspend fun seedIfNeeded(prefs: Preferences) {
         if (prefs[KEY_SEEDED] == true) return
 
-        val init_history = listOf(
+        val hasHistory = prefs[KEY_HISTORY] != null
+        val hasSaved = prefs[KEY_SAVED] != null
+
+        val initHistory = listOf(
             // Modern UI / Neutral
             PickedColor(0xFF0F172A.toInt(), "Slate 900"),
             PickedColor(0xFF475569.toInt(), "Slate 600"),
@@ -82,7 +84,7 @@ object RecentPicksService {
             PickedColor(0xFF10B981.toInt(), "Emerald 500"),
         )
 
-        val init_saved = listOf(
+        val initSaved = listOf(
             // Muted Nature
             PickedColor(0xFF2F5D50.toInt(), "Forest"),
             PickedColor(0xFF7A9B76.toInt(), "Moss"),
@@ -91,21 +93,23 @@ object RecentPicksService {
             PickedColor(0xFF3A3A3A.toInt(), "Ink"),
         ).take(MAX)
 
-        _saved.value = init_saved
-        _history.value = init_history
+        if (!hasHistory) {
+            _history.value = initHistory
+        }
+        if (!hasSaved) {
+            _saved.value = initSaved
+        }
 
-        val payload = runCatching {
-            json.encodeToString(init_history)
-        }.getOrElse { "[]" }
-
-        val payloadSaved = runCatching {
-            json.encodeToString(init_history)
-        }.getOrElse { "[]" }
-
-        appContext.recentsDataStore.edit { p ->
-            p[KEY_SAVED] = payloadSaved
-            p[KEY_HISTORY] = payload
-            p[KEY_SEEDED] = true
+        appContext.recentsDataStore.edit { updated ->
+            updated[KEY_SEEDED] = true
+            if (!hasHistory) {
+                updated[KEY_HISTORY] = runCatching { json.encodeToString(initHistory) }
+                    .getOrElse { "[]" }
+            }
+            if (!hasSaved) {
+                updated[KEY_SAVED] = runCatching { json.encodeToString(initSaved) }
+                    .getOrElse { "[]" }
+            }
         }
     }
 
