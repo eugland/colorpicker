@@ -31,7 +31,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -41,7 +40,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,11 +59,11 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.ui.SnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.service.argbToHex
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import android.graphics.Color as AndroidColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,8 +72,7 @@ fun ColorSliderScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+    val snackbarService = LocalSnackbarService.current
     val context = LocalContext.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
@@ -102,9 +99,7 @@ fun ColorSliderScreen(
     ScreenScaffold(
         titleRes = R.string.color_slider,
         innerPadding = innerPadding,
-        onBack = onBack,
-
-        snackbarHostState = snackbarHostState,
+        onBack = onBack
     ) {
         Column(
             modifier = Modifier
@@ -129,7 +124,7 @@ fun ColorSliderScreen(
                         } else {
                             context.getString(R.string.saved_to_my_colors)
                         }
-                        showSnackbar(snackbarHostState, scope, message)
+                        showSnackbar(snackbarService, message)
                     }
                 ) {
                     Icon(
@@ -143,7 +138,7 @@ fun ColorSliderScreen(
                 Button(
                     onClick = {
                         if (palettes.isEmpty()) {
-                            showSnackbar(snackbarHostState, scope, context, R.string.no_palettes_available)
+                            showSnackbar(snackbarService, context, R.string.no_palettes_available)
                         } else {
                             showPalettePicker = true
                         }
@@ -249,8 +244,7 @@ fun ColorSliderScreen(
                                 addToPalette(
                                     palette = palette,
                                     color = picked,
-                                    snackbarHostState = snackbarHostState,
-                                    scope = scope,
+                                    snackbarService = snackbarService,
                                     alreadyInPaletteMessage = alreadyInPaletteMessage,
                                     paletteFullMessage = paletteFullMessage,
                                     addedToPaletteMessage = addedToPaletteMessage
@@ -379,18 +373,17 @@ private fun toArgb(r: Int, g: Int, b: Int): Int {
 private fun addToPalette(
     palette: Palette,
     color: PickedColor,
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
+    snackbarService: SnackbarService,
     alreadyInPaletteMessage: String,
     paletteFullMessage: String,
     addedToPaletteMessage: String,
 ) {
     when {
         palette.colors.any { it.argb == color.argb } ->
-            scope.launch { snackbarHostState.showSnackbar(alreadyInPaletteMessage) }
+            snackbarService.showMessage(alreadyInPaletteMessage)
 
         palette.colors.size >= 10 ->
-            scope.launch { snackbarHostState.showSnackbar(paletteFullMessage) }
+            snackbarService.showMessage(paletteFullMessage)
 
         else -> {
             PaletteService.update(
@@ -398,32 +391,26 @@ private fun addToPalette(
                 colors = palette.colors + color
             )
             RecentPicksService.addPick(color, source = "palette_add")
-            scope.launch { snackbarHostState.showSnackbar(addedToPaletteMessage) }
+            snackbarService.showMessage(addedToPaletteMessage)
         }
     }
 }
 
 private fun showSnackbar(
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
+    snackbarService: SnackbarService,
     message: String
 ) {
-    scope.launch {
-        snackbarHostState.currentSnackbarData?.dismiss()
-        snackbarHostState.showSnackbar(message)
-    }
+    snackbarService.showMessage(message)
 }
 
 private fun showSnackbar(
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
+    snackbarService: SnackbarService,
     context: Context,
     @StringRes messageResId: Int,
     vararg formatArgs: Any
 ) {
     showSnackbar(
-        snackbarHostState = snackbarHostState,
-        scope = scope,
+        snackbarService = snackbarService,
         message = context.getString(messageResId, *formatArgs)
     )
 }

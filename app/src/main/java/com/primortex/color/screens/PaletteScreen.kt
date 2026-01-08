@@ -42,7 +42,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -53,7 +52,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,13 +71,13 @@ import com.primortex.color.service.ColorServices
 import com.primortex.color.service.ColorService
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
 import com.primortex.color.service.argbToHex
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
@@ -142,13 +140,11 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
     var showClearRecentsDialog by remember { mutableStateOf(false) }
     var showClearSavedDialog by remember { mutableStateOf(false) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+    val snackbarService = LocalSnackbarService.current
 
     ScreenScaffold(
         R.string.palette,
-        innerPadding,
-        snackbarHostState = snackbarHostState
+        innerPadding
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -165,9 +161,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                             PickedColor(argb = top.argb, name = top.name),
                             source = "palette_search"
                         )
-                        scope.launch {
-                            snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
-                        }
+                        snackbarService.showMessage(ctx.getString(R.string.added_to_recents))
                         searchQuery = ""
                     },
                     onClear = { searchQuery = "" }
@@ -204,9 +198,7 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                                     ),
                                     source = "palette_search"
                                 )
-                                scope.launch {
-                                    snackbarHostState.showSnackbar(ctx.getString(R.string.added_to_recents))
-                                }
+                                snackbarService.showMessage(ctx.getString(R.string.added_to_recents))
                                 searchQuery = ""
                             }
                             .padding(vertical = 8.dp),

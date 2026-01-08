@@ -16,8 +16,6 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,7 +29,6 @@ fun ScreenScaffold(
     @StringRes titleRes: Int,
     innerPadding: PaddingValues,
     onBack: (() -> Unit)? = null,
-    snackbarHostState: SnackbarHostState? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Box(
@@ -56,11 +53,5 @@ fun ScreenScaffold(
             content()
         }
 
-        if (snackbarHostState != null) {
-            SnackbarHost(
-                hostState = snackbarHostState,
-                modifier = Modifier.align(Alignment.BottomCenter)
-            )
-        }
     }
 }

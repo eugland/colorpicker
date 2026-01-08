@@ -36,7 +36,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
@@ -49,7 +48,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -70,11 +68,11 @@ import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.PaletteService
+import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.ui.SnackbarService
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -85,9 +83,8 @@ fun PaletteDetailScreen(
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit,
 ) {
-    val snackbarHostState = remember { SnackbarHostState() }
     val clipboard = LocalClipboardManager.current
-    val scope = rememberCoroutineScope()
+    val snackbarService = LocalSnackbarService.current
 
     val paletteLabel = stringResource(R.string.palette)
     val paletteUpdatedMessage = stringResource(R.string.palette_updated)
@@ -131,8 +128,7 @@ fun PaletteDetailScreen(
     ScreenScaffold(
         titleRes = R.string.palette_details,
         innerPadding = innerPadding,
-        onBack = onBack,
-        snackbarHostState = snackbarHostState,
+        onBack = onBack
     ) {
         if (palette == null) {
             Text(text = stringResource(R.string.palette_missing))
@@ -170,7 +166,7 @@ fun PaletteDetailScreen(
                                 note = note,
                                 colors = editableColors.toList()
                             )
-                            showSnackbar(snackbarHostState, scope, paletteUpdatedMessage)
+                            showSnackbar(snackbarService, paletteUpdatedMessage)
                         }
                         isEditing = !isEditing
                     },
@@ -180,7 +176,7 @@ fun PaletteDetailScreen(
                                 it.argb
                             )
                         }))
-                        showSnackbar(snackbarHostState, scope, copiedAllHexMessage)
+                        showSnackbar(snackbarService, copiedAllHexMessage)
                     },
                     onExportCss = {
                         val css = buildString {
@@ -192,7 +188,7 @@ fun PaletteDetailScreen(
                             append("}")
                         }
                         clipboard.setText(AnnotatedString(css))
-                        showSnackbar(snackbarHostState, scope, exportedCssMessage)
+                        showSnackbar(snackbarService, exportedCssMessage)
                     },
                     onDelete = {
                         PaletteService.delete(palette.id)
@@ -615,12 +611,8 @@ private class DragReorderState(
 }
 
 private fun showSnackbar(
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
+    snackbarService: SnackbarService,
     message: String
 ) {
-    scope.launch {
-        snackbarHostState.currentSnackbarData?.dismiss()
-        snackbarHostState.showSnackbar(message)
-    }
+    snackbarService.showMessage(message)
 }

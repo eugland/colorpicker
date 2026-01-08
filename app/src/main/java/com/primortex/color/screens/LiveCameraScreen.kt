@@ -41,8 +41,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -56,7 +54,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -76,13 +73,13 @@ import com.primortex.color.service.PaletteService
 import com.primortex.color.service.PickerSensitivity
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.SettingsService
+import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.service.rgbDistSq
 import com.primortex.color.ui.util.sampleCenterArgb
-import kotlinx.coroutines.launch
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -140,8 +137,7 @@ fun LiveCameraScreen(
     val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+    val snackbarService = LocalSnackbarService.current
     var frozen by remember { mutableStateOf(false) }
     var torchOn by remember { mutableStateOf(false) }
     var useFrontCamera by remember { mutableStateOf(false) }
@@ -179,17 +175,13 @@ fun LiveCameraScreen(
 
     fun showSnack(@StringRes resId: Int, vararg args: Any) {
         val msg = ctx.getString(resId, *args)
-        scope.launch {
-            snackbarHostState.currentSnackbarData?.dismiss()
-            snackbarHostState.showSnackbar(msg)
-        }
+        snackbarService.showMessage(msg)
     }
 
     CameraScreenLayout(
         pickedColor = pickedColor,
         recents = recents,
-        onTapPick = { pick -> detailPick = pick },
-        snackbarHostState = snackbarHostState
+        onTapPick = { pick -> detailPick = pick }
     ) {
         if (hasCameraPerm) {
             AndroidView(
@@ -388,12 +380,11 @@ fun CameraScreenLayout(
     pickedColor: PickedColor,
     recents: List<PickedColor>,
     onTapPick: (PickedColor) -> Unit,
-    snackbarHostState: SnackbarHostState,
     content: @Composable BoxScope.(PaddingValues) -> Unit
 ) {
     val bottomSheetState = rememberBottomSheetScaffoldState()
 
-    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
+    Scaffold { padding ->
         BottomSheetScaffold(
             scaffoldState = bottomSheetState,
             sheetPeekHeight = 168.dp,

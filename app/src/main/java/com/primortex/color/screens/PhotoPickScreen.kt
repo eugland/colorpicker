@@ -25,8 +25,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -40,7 +38,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,11 +57,11 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.service.argbToHex
-import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -79,8 +76,7 @@ fun PhotoPickScreen(
         ColorServices.ensure(ctx)
         ColorServices.colors
     }
-    val uiScope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() }
+    val snackbarService = LocalSnackbarService.current
     var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
     val pickedColor by remember {
         derivedStateOf {
@@ -107,10 +103,7 @@ fun PhotoPickScreen(
     )
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
     fun showSnack(msg: String) {
-        uiScope.launch {
-            snackbarHostState.currentSnackbarData?.dismiss()
-            snackbarHostState.showSnackbar(msg)
-        }
+        snackbarService.showMessage(msg)
     }
 
     BottomSheetScaffold(
@@ -128,7 +121,6 @@ fun PhotoPickScreen(
                 },
             )
         },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             Surface(
                 modifier = Modifier

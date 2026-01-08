@@ -11,8 +11,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -42,6 +44,8 @@ import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
+import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.ui.rememberSnackbarService
 
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
@@ -50,6 +54,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     val backStack by nav.currentBackStackEntryAsState()
     val route = backStack?.destination?.route.orEmpty()
     val anim = tween<IntOffset>(220)
+    val snackbarService = rememberSnackbarService()
 
     val selectedRoot = when {
         route.startsWith(Routes.Tab.PALETTE) -> Routes.Tab.PALETTE
@@ -61,217 +66,220 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
 
     val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
 
-    Scaffold(
-        bottomBar = {
-            if (showBottomBar) {
-                NavigationBar {
-                    NavigationBarItem(
-                        selected = selectedRoot == Routes.Tab.PALETTE,
-                        onClick = { navigator.openPaletteTab() },
-                        icon = {
-                            Icon(
-                                Icons.Filled.Palette,
-                                contentDescription = stringResource(R.string.palette)
-                            )
-                        },
+    CompositionLocalProvider(LocalSnackbarService provides snackbarService) {
+        Scaffold(
+            snackbarHost = { SnackbarHost(snackbarService.hostState) },
+            bottomBar = {
+                if (showBottomBar) {
+                    NavigationBar {
+                        NavigationBarItem(
+                            selected = selectedRoot == Routes.Tab.PALETTE,
+                            onClick = { navigator.openPaletteTab() },
+                            icon = {
+                                Icon(
+                                    Icons.Filled.Palette,
+                                    contentDescription = stringResource(R.string.palette)
+                                )
+                            },
 
-                        label = { Text(stringResource(R.string.palette)) }
-                    )
-                    NavigationBarItem(
-                        selected = selectedRoot == Routes.Tab.CAMERA,
-                        onClick = { navigator.openCameraTab() },
-                        icon = {
-                            Icon(
-                                Icons.Filled.Camera,
-                                contentDescription = stringResource(R.string.camera)
-                            )
-                        },
-                        label = { Text(stringResource(R.string.camera)) }
-                    )
-                    NavigationBarItem(
-                        selected = selectedRoot == Routes.Tab.EXPLORE,
-                        onClick = { navigator.openExploreTab() },
-                        icon = {
-                            Icon(
-                                Icons.Filled.Explore,
-                                contentDescription = stringResource(R.string.explore)
-                            )
-                        },
-                        label = { Text(stringResource(R.string.explore)) }
-                    )
+                            label = { Text(stringResource(R.string.palette)) }
+                        )
+                        NavigationBarItem(
+                            selected = selectedRoot == Routes.Tab.CAMERA,
+                            onClick = { navigator.openCameraTab() },
+                            icon = {
+                                Icon(
+                                    Icons.Filled.Camera,
+                                    contentDescription = stringResource(R.string.camera)
+                                )
+                            },
+                            label = { Text(stringResource(R.string.camera)) }
+                        )
+                        NavigationBarItem(
+                            selected = selectedRoot == Routes.Tab.EXPLORE,
+                            onClick = { navigator.openExploreTab() },
+                            icon = {
+                                Icon(
+                                    Icons.Filled.Explore,
+                                    contentDescription = stringResource(R.string.explore)
+                                )
+                            },
+                            label = { Text(stringResource(R.string.explore)) }
+                        )
+                    }
                 }
             }
-        }
-    ) { inner ->
+        ) { inner ->
 
-        NavHost(
-            navController = nav,
-            startDestination = Routes.Tab.PALETTE,
-            modifier = Modifier.fillMaxSize(),
+            NavHost(
+                navController = nav,
+                startDestination = Routes.Tab.PALETTE,
+                modifier = Modifier.fillMaxSize(),
 
-            enterTransition = {
-                slideIntoContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Left,
-                    animationSpec = anim
-                )
-            },
-            exitTransition = {
-                slideOutOfContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Left,
-                    animationSpec = anim
-                )
-            },
-            popEnterTransition = {
-                slideIntoContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Right,
-                    animationSpec = anim
-                )
-            },
-            popExitTransition = {
-                slideOutOfContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Right,
-                    animationSpec = anim
-                )
-            }
-        ) {
-            composable(Routes.Tab.CAMERA) {
-                CameraScreen(
-                    innerPadding = inner,
-                    onOpenLiveCameraPicker = { navigator.openLiveCamera() },
-                    onOpenColorSlider = { navigator.openColorSlider() },
-                    onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
-                )
-            }
-            composable(Routes.Tab.PALETTE) {
-                PaletteScreen(
-                    innerPadding = inner,
-                    onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
-                )
-            }
-            composable(Routes.Tab.EXPLORE) {
-                ExploreRoute(innerPadding = inner, navigator = navigator)
-            }
-            composable(Routes.Camera.LIVE) {
-                LiveCameraScreen(
-                    onBack = { navigator.back() },
-                    onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
-                )
-            }
-            composable(
-                route = Routes.Camera.PHOTO_PICK_ROUTE,
-                arguments = listOf(navArgument("uri") {
-                    type = NavType.StringType; defaultValue = ""
-                })
-            ) { backStackEntry ->
-                val uri = java.net.URLDecoder.decode(
-                    backStackEntry.arguments?.getString("uri") ?: "",
-                    "UTF-8"
-                )
-                PhotoPickScreen(
-                    photoUri = uri,
-                    onBack = { navigator.back() },
-                    onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
-                )
-            }
+                enterTransition = {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = anim
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = anim
+                    )
+                },
+                popEnterTransition = {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = anim
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = anim
+                    )
+                }
+            ) {
+                composable(Routes.Tab.CAMERA) {
+                    CameraScreen(
+                        innerPadding = inner,
+                        onOpenLiveCameraPicker = { navigator.openLiveCamera() },
+                        onOpenColorSlider = { navigator.openColorSlider() },
+                        onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
+                    )
+                }
+                composable(Routes.Tab.PALETTE) {
+                    PaletteScreen(
+                        innerPadding = inner,
+                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
+                    )
+                }
+                composable(Routes.Tab.EXPLORE) {
+                    ExploreRoute(innerPadding = inner, navigator = navigator)
+                }
+                composable(Routes.Camera.LIVE) {
+                    LiveCameraScreen(
+                        onBack = { navigator.back() },
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
+                    )
+                }
+                composable(
+                    route = Routes.Camera.PHOTO_PICK_ROUTE,
+                    arguments = listOf(navArgument("uri") {
+                        type = NavType.StringType; defaultValue = ""
+                    })
+                ) { backStackEntry ->
+                    val uri = java.net.URLDecoder.decode(
+                        backStackEntry.arguments?.getString("uri") ?: "",
+                        "UTF-8"
+                    )
+                    PhotoPickScreen(
+                        photoUri = uri,
+                        onBack = { navigator.back() },
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
+                    )
+                }
 
-            composable(
-                route = Routes.Detail.PALETTE_ROUTE,
-                arguments = listOf(
-                    navArgument("id") { type = NavType.StringType; defaultValue = "" },
-                    navArgument("edit") { type = NavType.BoolType; defaultValue = false }
-                )
-            ) { backStackEntry ->
-                val paletteId = java.net.URLDecoder.decode(
-                    backStackEntry.arguments?.getString("id") ?: "",
-                    "UTF-8"
-                )
-                val startInEdit = backStackEntry.arguments?.getBoolean("edit") ?: false
+                composable(
+                    route = Routes.Detail.PALETTE_ROUTE,
+                    arguments = listOf(
+                        navArgument("id") { type = NavType.StringType; defaultValue = "" },
+                        navArgument("edit") { type = NavType.BoolType; defaultValue = false }
+                    )
+                ) { backStackEntry ->
+                    val paletteId = java.net.URLDecoder.decode(
+                        backStackEntry.arguments?.getString("id") ?: "",
+                        "UTF-8"
+                    )
+                    val startInEdit = backStackEntry.arguments?.getBoolean("edit") ?: false
 
-                PaletteDetailScreen(
-                    innerPadding = inner,
-                    paletteId = paletteId,
-                    startInEditMode = startInEdit,
-                    onBack = { navigator.back() },
-                    onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
-                )
-            }
+                    PaletteDetailScreen(
+                        innerPadding = inner,
+                        paletteId = paletteId,
+                        startInEditMode = startInEdit,
+                        onBack = { navigator.back() },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                    )
+                }
 
-            composable(
-                route = Routes.Detail.COLOR_ROUTE,
-                arguments = listOf(
-                    navArgument("argb") { type = NavType.IntType; defaultValue = 0 },
-                    navArgument("name") { type = NavType.StringType; defaultValue = "" }
-                )
-            ) { backStackEntry ->
-                val argb = backStackEntry.arguments?.getInt("argb") ?: 0
-                val name = java.net.URLDecoder.decode(
-                    backStackEntry.arguments?.getString("name") ?: "",
-                    "UTF-8"
-                )
+                composable(
+                    route = Routes.Detail.COLOR_ROUTE,
+                    arguments = listOf(
+                        navArgument("argb") { type = NavType.IntType; defaultValue = 0 },
+                        navArgument("name") { type = NavType.StringType; defaultValue = "" }
+                    )
+                ) { backStackEntry ->
+                    val argb = backStackEntry.arguments?.getInt("argb") ?: 0
+                    val name = java.net.URLDecoder.decode(
+                        backStackEntry.arguments?.getString("name") ?: "",
+                        "UTF-8"
+                    )
 
-                ColorDetailsScreen(
-                    argb = argb,
-                    nameHint = name,
-                    onBack = { navigator.back() },
-                    onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
-                )
-            }
+                    ColorDetailsScreen(
+                        argb = argb,
+                        nameHint = name,
+                        onBack = { navigator.back() },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                    )
+                }
 
-            composable(Routes.Tool.SLIDER) {
-                ColorSliderScreen(
-                    innerPadding = inner,
-                    onBack = { navigator.back() }
-                )
-            }
+                composable(Routes.Tool.SLIDER) {
+                    ColorSliderScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() }
+                    )
+                }
 
-            composable(Routes.Info.COPYRIGHT) {
-                val sections = rememberInfoSections(
-                    page = InfoPage.COPYRIGHT,
-                    fallback = InfoContent.copyrightSections
-                )
+                composable(Routes.Info.COPYRIGHT) {
+                    val sections = rememberInfoSections(
+                        page = InfoPage.COPYRIGHT,
+                        fallback = InfoContent.copyrightSections
+                    )
 
-                InfoDetailScreen(
-                    title = stringResource(R.string.copyright_notice),
-                    innerPadding = inner,
-                    onBack = { navigator.back() },
-                    sections = sections
-                )
-            }
+                    InfoDetailScreen(
+                        title = stringResource(R.string.copyright_notice),
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        sections = sections
+                    )
+                }
 
-            composable(Routes.Info.PRIVACY) {
-                val sections = rememberInfoSections(
-                    page = InfoPage.PRIVACY,
-                    fallback = InfoContent.privacySections
-                )
+                composable(Routes.Info.PRIVACY) {
+                    val sections = rememberInfoSections(
+                        page = InfoPage.PRIVACY,
+                        fallback = InfoContent.privacySections
+                    )
 
-                InfoDetailScreen(
-                    title = stringResource(R.string.privacy_statement),
-                    innerPadding = inner,
-                    onBack = { navigator.back() },
-                    sections = sections
-                )
-            }
+                    InfoDetailScreen(
+                        title = stringResource(R.string.privacy_statement),
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        sections = sections
+                    )
+                }
 
-            composable(Routes.Info.USAGE) {
-                val sections = rememberInfoSections(
-                    page = InfoPage.USAGE,
-                    fallback = InfoContent.usageSections
-                )
+                composable(Routes.Info.USAGE) {
+                    val sections = rememberInfoSections(
+                        page = InfoPage.USAGE,
+                        fallback = InfoContent.usageSections
+                    )
 
-                InfoDetailScreen(
-                    title = stringResource(R.string.usage_guide),
-                    innerPadding = inner,
-                    onBack = { navigator.back() },
-                    sections = sections
-                )
-            }
+                    InfoDetailScreen(
+                        title = stringResource(R.string.usage_guide),
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        sections = sections
+                    )
+                }
 
-            composable(Routes.Settings.LANGUAGE) {
-                LanguageSelectionScreen(
-                    innerPadding = inner,
-                    onBack = { navigator.back() },
-                    onLanguageChanged = onLanguageChanged
-                )
+                composable(Routes.Settings.LANGUAGE) {
+                    LanguageSelectionScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        onLanguageChanged = onLanguageChanged
+                    )
+                }
             }
         }
     }
