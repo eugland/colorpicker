@@ -12,7 +12,7 @@ data class Rgb(val r: Int, val g: Int, val b: Int)
 data class Hsv(val h: Float, val s: Float, val v: Float)
 data class Hsl(val h: Float, val s: Float, val l: Float)
 
-internal data class Lab(val l: Float, val a: Float, val b: Float)
+data class Lab(val l: Float, val a: Float, val b: Float)
 
 fun argbToRgb(argb: Int): Rgb {
     val r = (argb shr 16) and 0xFF
