@@ -300,7 +300,7 @@ fun ExploreScreen(
                         onClick = {
                             openUrl(
                                 context,
-                                "https://play.google.com/store/apps/details?id=com.google.android.apps.maps"
+                                "https://play.google.com/store/apps/details?id=com.primortex.color"
                             )
                         }
                     )

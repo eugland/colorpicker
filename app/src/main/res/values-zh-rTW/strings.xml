@@ -168,6 +168,7 @@
     <string name="usage_guide">使用指南</string>
     <string name="usage_guide_description">關鍵任務的逐步指南和索引</string>
 
+    <string name="rate_us_description">喜歡的話，快來 Play Store 為我們打分吧！</string>
     <string name="camera_title">相機</string>
     <string name="camera_intro">即時取色或從照片中取色。點擊任意色塊即可複製。</string>
 
@@ -231,4 +232,8 @@
     <string name="exported_css">已將 CSS 複製到剪貼簿</string>
     <string name="reorder">重新排序</string>
     <string name="splash_loading_message">正在喚醒你的調色盤…</string>
+    <string name="feedback">反饋</string>
+    <string name="send_feedback">發送反饋</string>
+    <string name="send_feedback_description">分享您希望看到改進的地方。</string>
+    <string name="rate_us">為我們發聲</string>
 </resources>
