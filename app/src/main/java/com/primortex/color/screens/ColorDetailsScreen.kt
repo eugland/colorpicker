@@ -47,15 +47,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.annotation.StringRes
-import android.content.Context
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
-import com.primortex.color.ui.SnackbarService
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -151,7 +148,7 @@ fun ColorDetailsScreen(
                 }
                 IconButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    showSnackbar(snackbarService, context, R.string.hex_copied)
+                    snackbarService.showMessage(context.getString(R.string.hex_copied))
                 }) {
                     Icon(
                         Icons.Outlined.ContentCopy,
@@ -166,12 +163,12 @@ fun ColorDetailsScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    showSnackbar(snackbarService, context, R.string.hex_copied)
+                    snackbarService.showMessage(context.getString(R.string.hex_copied))
                 }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.name))
-                    showSnackbar(snackbarService, context, R.string.name_copied)
+                    snackbarService.showMessage(context.getString(R.string.name_copied))
                 }) { Text(stringResource(R.string.copy_name)) }
             }
 
@@ -229,16 +226,25 @@ fun ColorDetailsScreen(
             // Harmonies
             Text(stringResource(R.string.harmonies), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow(label = stringResource(R.string.harmony_complement), argbs = details.complements)
+            HarmonyRow(
+                label = stringResource(R.string.harmony_complement),
+                argbs = details.complements
+            )
             Spacer(Modifier.height(8.dp))
             HarmonyRow(label = stringResource(R.string.harmony_triad), argbs = details.triads)
             Spacer(Modifier.height(8.dp))
-            HarmonyRow(label = stringResource(R.string.harmony_analogous), argbs = details.analogous)
+            HarmonyRow(
+                label = stringResource(R.string.harmony_analogous),
+                argbs = details.analogous
+            )
 
             Spacer(Modifier.height(14.dp))
 
             // Similar colors
-            Text(stringResource(R.string.similar_colors), style = MaterialTheme.typography.titleMedium)
+            Text(
+                stringResource(R.string.similar_colors),
+                style = MaterialTheme.typography.titleMedium
+            )
             Spacer(Modifier.height(8.dp))
 
             FlowRow(
@@ -283,25 +289,6 @@ fun ColorDetailsScreen(
             Spacer(Modifier.height(10.dp))
         }
     }
-}
-
-private fun showSnackbar(
-    snackbarService: SnackbarService,
-    message: String
-) {
-    snackbarService.showMessage(message)
-}
-
-private fun showSnackbar(
-    snackbarService: SnackbarService,
-    context: Context,
-    @StringRes messageResId: Int,
-    vararg formatArgs: Any
-) {
-    showSnackbar(
-        snackbarService = snackbarService,
-        message = context.getString(messageResId, *formatArgs)
-    )
 }
 
 @Composable

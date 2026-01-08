@@ -50,8 +50,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.annotation.StringRes
-import android.content.Context
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
 import com.primortex.color.app.Palette
@@ -59,11 +57,11 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.SnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
-import com.primortex.color.service.argbToHex
 import android.graphics.Color as AndroidColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -124,7 +122,7 @@ fun ColorSliderScreen(
                         } else {
                             context.getString(R.string.saved_to_my_colors)
                         }
-                        showSnackbar(snackbarService, message)
+                        snackbarService.showMessage(message)
                     }
                 ) {
                     Icon(
@@ -138,7 +136,7 @@ fun ColorSliderScreen(
                 Button(
                     onClick = {
                         if (palettes.isEmpty()) {
-                            showSnackbar(snackbarService, context, R.string.no_palettes_available)
+                            snackbarService.showMessage(context.getString(R.string.no_palettes_available))
                         } else {
                             showPalettePicker = true
                         }
@@ -154,7 +152,10 @@ fun ColorSliderScreen(
             }
 
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(stringResource(R.string.rgb_label), style = MaterialTheme.typography.titleMedium)
+                Text(
+                    stringResource(R.string.rgb_label),
+                    style = MaterialTheme.typography.titleMedium
+                )
                 LabeledSlider(
                     label = stringResource(R.string.red_label),
                     value = rgb.first.toFloat(),
@@ -182,7 +183,10 @@ fun ColorSliderScreen(
             }
 
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(stringResource(R.string.hsl_label), style = MaterialTheme.typography.titleMedium)
+                Text(
+                    stringResource(R.string.hsl_label),
+                    style = MaterialTheme.typography.titleMedium
+                )
                 LabeledSlider(
                     label = stringResource(R.string.hue_label),
                     value = hsl[0],
@@ -231,7 +235,10 @@ fun ColorSliderScreen(
                     .padding(bottom = 24.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Text(stringResource(R.string.select_palette), style = MaterialTheme.typography.titleLarge)
+                Text(
+                    stringResource(R.string.select_palette),
+                    style = MaterialTheme.typography.titleLarge
+                )
 
                 LazyColumn(
                     verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -255,7 +262,10 @@ fun ColorSliderScreen(
                             Column(Modifier.fillMaxWidth()) {
                                 Text(palette.name)
                                 Text(
-                                    stringResource(R.string.palette_color_count, palette.colors.size),
+                                    stringResource(
+                                        R.string.palette_color_count,
+                                        palette.colors.size
+                                    ),
                                     style = MaterialTheme.typography.bodySmall,
                                 )
                             }
@@ -263,7 +273,9 @@ fun ColorSliderScreen(
                     }
                 }
 
-                TextButton(onClick = { showPalettePicker = false }) { Text(stringResource(R.string.close)) }
+                TextButton(onClick = {
+                    showPalettePicker = false
+                }) { Text(stringResource(R.string.close)) }
             }
         }
     }
@@ -394,23 +406,4 @@ private fun addToPalette(
             snackbarService.showMessage(addedToPaletteMessage)
         }
     }
-}
-
-private fun showSnackbar(
-    snackbarService: SnackbarService,
-    message: String
-) {
-    snackbarService.showMessage(message)
-}
-
-private fun showSnackbar(
-    snackbarService: SnackbarService,
-    context: Context,
-    @StringRes messageResId: Int,
-    vararg formatArgs: Any
-) {
-    showSnackbar(
-        snackbarService = snackbarService,
-        message = context.getString(messageResId, *formatArgs)
-    )
 }

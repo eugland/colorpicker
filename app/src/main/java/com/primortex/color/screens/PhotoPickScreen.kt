@@ -57,11 +57,11 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.PaletteBar
-import com.primortex.color.service.argbToHex
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -102,9 +102,6 @@ fun PhotoPickScreen(
             .build()
     )
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
-    fun showSnack(msg: String) {
-        snackbarService.showMessage(msg)
-    }
 
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
@@ -222,11 +219,11 @@ fun PhotoPickScreen(
                 palette = palette,
                 onAddColor = {
                     when {
-                        pickedColor in palette -> showSnack(
+                        pickedColor in palette -> snackbarService.showMessage(
                             ctx.getString(R.string.photo_already_in_palette, pickedColor.name)
                         )
 
-                        palette.size >= 10 -> showSnack(ctx.getString(R.string.photo_palette_full_message))
+                        palette.size >= 10 -> snackbarService.showMessage(ctx.getString(R.string.photo_palette_full_message))
                         else -> {
                             palette.add(pickedColor)
                         }
@@ -234,7 +231,7 @@ fun PhotoPickScreen(
                 },
                 onAddPalette = {
                     if (palette.isEmpty()) {
-                        showSnack(ctx.getString(R.string.photo_palette_empty))
+                        snackbarService.showMessage(ctx.getString(R.string.photo_palette_empty))
                         return@PaletteBar
                     }
 
@@ -251,7 +248,7 @@ fun PhotoPickScreen(
                         creationSource = "photo_library"
                     )
                     palette.clear()
-                    showSnack(ctx.getString(R.string.photo_palette_saved))
+                    snackbarService.showMessage(ctx.getString(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
                 }
             )

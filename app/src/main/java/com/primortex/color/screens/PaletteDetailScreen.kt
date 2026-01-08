@@ -68,11 +68,10 @@ import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.PaletteService
-import com.primortex.color.ui.LocalSnackbarService
-import com.primortex.color.ui.SnackbarService
-import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
+import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.ui.components.ScreenScaffold
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -166,7 +165,7 @@ fun PaletteDetailScreen(
                                 note = note,
                                 colors = editableColors.toList()
                             )
-                            showSnackbar(snackbarService, paletteUpdatedMessage)
+                            snackbarService.showMessage(paletteUpdatedMessage)
                         }
                         isEditing = !isEditing
                     },
@@ -176,7 +175,7 @@ fun PaletteDetailScreen(
                                 it.argb
                             )
                         }))
-                        showSnackbar(snackbarService, copiedAllHexMessage)
+                        snackbarService.showMessage(copiedAllHexMessage)
                     },
                     onExportCss = {
                         val css = buildString {
@@ -188,7 +187,7 @@ fun PaletteDetailScreen(
                             append("}")
                         }
                         clipboard.setText(AnnotatedString(css))
-                        showSnackbar(snackbarService, exportedCssMessage)
+                        snackbarService.showMessage(exportedCssMessage)
                     },
                     onDelete = {
                         PaletteService.delete(palette.id)
@@ -608,11 +607,4 @@ private class DragReorderState(
             draggedIndex = targetIndex
         }
     }
-}
-
-private fun showSnackbar(
-    snackbarService: SnackbarService,
-    message: String
-) {
-    snackbarService.showMessage(message)
 }

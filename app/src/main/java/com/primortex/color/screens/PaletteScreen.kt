@@ -67,15 +67,15 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
 import com.primortex.color.service.ColorService
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
-import com.primortex.color.service.argbToHex
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -161,7 +161,6 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                             PickedColor(argb = top.argb, name = top.name),
                             source = "palette_search"
                         )
-                        snackbarService.showMessage(ctx.getString(R.string.added_to_recents))
                         searchQuery = ""
                     },
                     onClear = { searchQuery = "" }
@@ -198,7 +197,6 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                                     ),
                                     source = "palette_search"
                                 )
-                                snackbarService.showMessage(ctx.getString(R.string.added_to_recents))
                                 searchQuery = ""
                             }
                             .padding(vertical = 8.dp),
