@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
@@ -27,7 +28,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.R
-import com.primortex.color.app.Routes
 import com.primortex.color.info.InfoContent
 import com.primortex.color.info.InfoContentService
 import com.primortex.color.info.InfoPage
@@ -73,7 +73,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Palette, contentDescription = stringResource(R.string.palette)) },
+                        icon = {
+                            Icon(
+                                Icons.Filled.Palette,
+                                contentDescription = stringResource(R.string.palette)
+                            )
+                        },
                         label = { Text(stringResource(R.string.palette)) }
                     )
                     NavigationBarItem(
@@ -85,7 +90,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Camera, contentDescription = stringResource(R.string.camera)) },
+                        icon = {
+                            Icon(
+                                Icons.Filled.Camera,
+                                contentDescription = stringResource(R.string.camera)
+                            )
+                        },
                         label = { Text(stringResource(R.string.camera)) }
                     )
                     NavigationBarItem(
@@ -97,7 +107,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                                 }; launchSingleTop = true
                             }
                         },
-                        icon = { Icon(Icons.Filled.Explore, contentDescription = stringResource(R.string.explore)) },
+                        icon = {
+                            Icon(
+                                Icons.Filled.Explore,
+                                contentDescription = stringResource(R.string.explore)
+                            )
+                        },
                         label = { Text(stringResource(R.string.explore)) }
                     )
                 }
@@ -291,7 +306,7 @@ private fun rememberInfoSections(
     fallback: List<InfoDetailSection>
 ): List<InfoDetailSection> {
     val context = LocalContext.current
-    val locales = context.resources.configuration.locales
+    val locales = LocalConfiguration.current.locales
     val languageTag = if (locales.isEmpty) null else locales[0]?.toLanguageTag()
     val service = remember { InfoContentService(context) }
 
@@ -300,6 +315,5 @@ private fun rememberInfoSections(
             value = updated
         }
     }
-
     return sections.value
 }
