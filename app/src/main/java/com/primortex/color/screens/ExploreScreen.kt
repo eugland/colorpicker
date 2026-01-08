@@ -44,7 +44,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.app.Routes
 import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
 import com.primortex.color.service.PickerSensitivity
@@ -56,7 +55,10 @@ import com.primortex.color.ui.components.ScreenScaffold
 @Composable
 fun ExploreScreen(
     innerPadding: PaddingValues,
-    navigator: (String) -> Unit
+    onOpenLanguageSettings: () -> Unit,
+    onOpenCopyright: () -> Unit,
+    onOpenPrivacy: () -> Unit,
+    onOpenUsage: () -> Unit
 ) {
     val context = LocalContext.current
     val crosshairSize by SettingsService.crosshairSize.collectAsState()
@@ -144,7 +146,7 @@ fun ExploreScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                navigator(Routes.Settings.LANGUAGE)
+                                onOpenLanguageSettings()
                             }
                     )
                 }
@@ -243,7 +245,7 @@ fun ExploreScreen(
                         title = stringResource(R.string.copyright_notice),
                         subtitle = stringResource(R.string.copyright_notice_description),
                         icon = Icons.Outlined.Gavel,
-                        onClick = { navigator(Routes.Info.COPYRIGHT) }
+                        onClick = onOpenCopyright
                     )
 
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
@@ -252,7 +254,7 @@ fun ExploreScreen(
                         title = stringResource(R.string.privacy_statement),
                         subtitle = stringResource(R.string.privacy_statement_description),
                         icon = Icons.Outlined.Description,
-                        onClick = { navigator(Routes.Info.PRIVACY) }
+                        onClick = onOpenPrivacy
                     )
 
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
@@ -261,7 +263,7 @@ fun ExploreScreen(
                         title = stringResource(R.string.usage_guide),
                         subtitle = stringResource(R.string.usage_guide_description),
                         icon = Icons.Outlined.Description,
-                        onClick = { navigator(Routes.Info.USAGE) }
+                        onClick = onOpenUsage
                     )
                 }
             }

@@ -46,6 +46,7 @@ import com.primortex.color.screens.PhotoPickScreen
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     val nav = rememberNavController()
+    val navigator: ColorNavigator = remember(nav) { NavColorNavigator(nav) }
     val backStack by nav.currentBackStackEntryAsState()
     val route = backStack?.destination?.route.orEmpty()
     val anim = tween<IntOffset>(220)
@@ -66,30 +67,19 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 NavigationBar {
                     NavigationBarItem(
                         selected = selectedRoot == Routes.Tab.PALETTE,
-                        onClick = {
-                            nav.navigate(Routes.Tab.PALETTE) {
-                                popUpTo(Routes.Tab.CAMERA) {
-                                    inclusive = false
-                                }; launchSingleTop = true
-                            }
-                        },
+                        onClick = { navigator.openPaletteTab() },
                         icon = {
                             Icon(
                                 Icons.Filled.Palette,
                                 contentDescription = stringResource(R.string.palette)
                             )
                         },
+
                         label = { Text(stringResource(R.string.palette)) }
                     )
                     NavigationBarItem(
                         selected = selectedRoot == Routes.Tab.CAMERA,
-                        onClick = {
-                            nav.navigate(Routes.Tab.CAMERA) {
-                                popUpTo(Routes.Tab.CAMERA) {
-                                    inclusive = true
-                                }; launchSingleTop = true
-                            }
-                        },
+                        onClick = { navigator.openCameraTab() },
                         icon = {
                             Icon(
                                 Icons.Filled.Camera,
@@ -100,13 +90,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                     NavigationBarItem(
                         selected = selectedRoot == Routes.Tab.EXPLORE,
-                        onClick = {
-                            nav.navigate(Routes.Tab.EXPLORE) {
-                                popUpTo(Routes.Tab.CAMERA) {
-                                    inclusive = false
-                                }; launchSingleTop = true
-                            }
-                        },
+                        onClick = { navigator.openExploreTab() },
                         icon = {
                             Icon(
                                 Icons.Filled.Explore,
@@ -153,27 +137,24 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
             composable(Routes.Tab.CAMERA) {
                 CameraScreen(
                     innerPadding = inner,
-                    onOpenLiveCameraPicker = { nav.navigate(Routes.Camera.LIVE) },
-                    onOpenColorSlider = { nav.navigate(Routes.Tool.SLIDER) },
-                    onPickFromAlbum = { uriString ->
-                        val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
-                        nav.navigate(Routes.Camera.photoPickWith(encoded))
-                    }
+                    onOpenLiveCameraPicker = { navigator.openLiveCamera() },
+                    onOpenColorSlider = { navigator.openColorSlider() },
+                    onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
                 )
             }
             composable(Routes.Tab.PALETTE) {
                 PaletteScreen(
                     innerPadding = inner,
-                    onOpenPalette = { palette -> nav.navigate(Routes.Detail.palette(palette.id)) }
+                    onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
                 )
             }
             composable(Routes.Tab.EXPLORE) {
-                ExploreScreen(innerPadding = inner, navigator = nav::navigate)
+                ExploreRoute(innerPadding = inner, navigator = navigator)
             }
             composable(Routes.Camera.LIVE) {
                 LiveCameraScreen(
-                    onBack = { nav.popBackStack() },
-                    onOpenPalette = { id, edit -> nav.navigate(Routes.Detail.palette(id, edit)) }
+                    onBack = { navigator.back() },
+                    onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                 )
             }
             composable(
@@ -188,8 +169,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 )
                 PhotoPickScreen(
                     photoUri = uri,
-                    onBack = { nav.popBackStack() },
-                    onOpenPalette = { id, edit -> nav.navigate(Routes.Detail.palette(id, edit)) }
+                    onBack = { navigator.back() },
+                    onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                 )
             }
 
@@ -210,10 +191,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     innerPadding = inner,
                     paletteId = paletteId,
                     startInEditMode = startInEdit,
-                    onBack = { nav.popBackStack() },
-                    onOpenColorDetail = { pick ->
-                        nav.navigate(Routes.Detail.to(pick.argb, pick.name))
-                    }
+                    onBack = { navigator.back() },
+                    onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                 )
             }
 
@@ -233,17 +212,15 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 ColorDetailsScreen(
                     argb = argb,
                     nameHint = name,
-                    onBack = { nav.popBackStack() },
-                    onOpenColorDetail = { pick ->
-                        nav.navigate(Routes.Detail.to(pick.argb, pick.name))
-                    }
+                    onBack = { navigator.back() },
+                    onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                 )
             }
 
             composable(Routes.Tool.SLIDER) {
                 ColorSliderScreen(
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() }
+                    onBack = { navigator.back() }
                 )
             }
 
@@ -256,7 +233,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 InfoDetailScreen(
                     title = stringResource(R.string.copyright_notice),
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() },
+                    onBack = { navigator.back() },
                     sections = sections
                 )
             }
@@ -270,7 +247,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 InfoDetailScreen(
                     title = stringResource(R.string.privacy_statement),
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() },
+                    onBack = { navigator.back() },
                     sections = sections
                 )
             }
@@ -284,7 +261,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 InfoDetailScreen(
                     title = stringResource(R.string.usage_guide),
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() },
+                    onBack = { navigator.back() },
                     sections = sections
                 )
             }
@@ -292,12 +269,26 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
             composable(Routes.Settings.LANGUAGE) {
                 LanguageSelectionScreen(
                     innerPadding = inner,
-                    onBack = { nav.popBackStack() },
+                    onBack = { navigator.back() },
                     onLanguageChanged = onLanguageChanged
                 )
             }
         }
     }
+}
+
+@Composable
+private fun ExploreRoute(
+    innerPadding: androidx.compose.foundation.layout.PaddingValues,
+    navigator: ColorNavigator
+) {
+    ExploreScreen(
+        innerPadding = innerPadding,
+        onOpenLanguageSettings = { navigator.openLanguageSettings() },
+        onOpenCopyright = { navigator.openInfoCopyright() },
+        onOpenPrivacy = { navigator.openInfoPrivacy() },
+        onOpenUsage = { navigator.openInfoUsage() }
+    )
 }
 
 @Composable
