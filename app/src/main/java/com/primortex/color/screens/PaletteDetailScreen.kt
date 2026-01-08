@@ -71,8 +71,8 @@ import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.PaletteService
 import com.primortex.color.ui.components.ScreenScaffold
-import com.primortex.color.ui.util.argbToHex
-import com.primortex.color.ui.util.rgbDistSq
+import com.primortex.color.service.argbToHex
+import com.primortex.color.service.rgbDistSq
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

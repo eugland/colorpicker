@@ -56,7 +56,7 @@ import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
 import com.primortex.color.service.RecentPicksService
-import com.primortex.color.ui.util.argbToHex
+import com.primortex.color.service.argbToHex
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

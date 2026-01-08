@@ -63,7 +63,7 @@ import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.PaletteBar
-import com.primortex.color.ui.util.argbToHex
+import com.primortex.color.service.argbToHex
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 

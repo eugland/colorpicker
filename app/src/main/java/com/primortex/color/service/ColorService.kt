@@ -11,8 +11,6 @@ import io.ktor.client.request.get
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 /**
  * Unified color name pipeline backed by bundled assets with optional remote refresh + cache.
@@ -132,12 +130,6 @@ class ColorService(
             .getOrDefault(emptyList())
     }
 
-    private fun hexToArgb(hex: String): Int {
-        val clean = hex.trim().removePrefix("#")
-        require(clean.matches(Regex("^[0-9A-Fa-f]{6}$"))) { "Invalid hex: $hex" }
-        return (0xFF shl 24) or clean.toInt(16)
-    }
-
     private fun normalizeLanguageTag(languageTag: String?): String {
         val cleaned = languageTag
             ?.trim()
@@ -221,7 +213,7 @@ private data class ColorDataset(
                         ColorRecord(
                             name = seed.name.trim().ifBlank { normalizedName },
                             normalizedName = normalizedName,
-                            hex = formatHex(normalizedArgb),
+                            hex = argbToHex(normalizedArgb),
                             argb = normalizedArgb,
                             lab = argbToLab(normalizedArgb)
                         )
@@ -233,60 +225,6 @@ private data class ColorDataset(
             return ColorDataset(records, lookup)
         }
 
-        private fun normalizeName(name: String): String = name.trim().lowercase()
-
-        private fun normalizeArgb(argb: Int): Int = argb or (0xFF shl 24)
-
-        private fun hexToArgb(hex: String): Int {
-            val clean = hex.trim().removePrefix("#")
-            require(clean.matches(Regex("^[0-9A-Fa-f]{6}$"))) { "Invalid hex: $hex" }
-            return (0xFF shl 24) or clean.toInt(16)
-        }
-
-        private fun formatHex(argb: Int): String {
-            val r = (argb shr 16) and 0xFF
-            val g = (argb shr 8) and 0xFF
-            val b = argb and 0xFF
-            return "#%02X%02X%02X".format(r, g, b)
-        }
-
-        private fun argbToLab(argb: Int): Lab {
-            val r = ((argb ushr 16) and 0xFF) / 255f
-            val g = ((argb ushr 8) and 0xFF) / 255f
-            val b = (argb and 0xFF) / 255f
-
-            fun pivot(u: Float): Float =
-                if (u > 0.04045f) (((u + 0.055f) / 1.055f).toDouble().pow(2.4)).toFloat() else (u / 12.92f)
-
-            val rr = pivot(r)
-            val gg = pivot(g)
-            val bb = pivot(b)
-
-            val x = (0.4124f * rr + 0.3576f * gg + 0.1805f * bb) / 0.95047f
-            val y = (0.2126f * rr + 0.7152f * gg + 0.0722f * bb)
-            val z = (0.0193f * rr + 0.1192f * gg + 0.9505f * bb) / 1.08883f
-
-            fun f(t: Float): Float =
-                if (t > 0.008856f) cbrt(t) else (7.787f * t + 16f / 116f)
-
-            val fx = f(x)
-            val fy = f(y)
-            val fz = f(z)
-
-            val l = 116f * fy - 16f
-            val a = 500f * (fx - fy)
-            val bVal = 200f * (fy - fz)
-            return Lab(l, a, bVal)
-        }
-
-        private fun cbrt(x: Float): Float = Math.cbrt(x.toDouble()).toFloat()
-
-        private fun deltaE76(p: Lab, q: Lab): Float {
-            val dl = p.l - q.l
-            val da = p.a - q.a
-            val db = p.b - q.b
-            return sqrt(dl * dl + da * da + db * db)
-        }
     }
 }
 
@@ -297,5 +235,3 @@ private data class ColorRecord(
     val argb: Int,
     val lab: Lab
 )
-
-private data class Lab(val l: Float, val a: Float, val b: Float)

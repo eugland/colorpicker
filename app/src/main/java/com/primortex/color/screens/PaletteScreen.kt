@@ -76,7 +76,7 @@ import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
-import com.primortex.color.ui.util.argbToHex
+import com.primortex.color.service.argbToHex
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -527,4 +527,3 @@ private fun PaletteCard(
         }
     }
 }
-

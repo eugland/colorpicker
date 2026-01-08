@@ -80,6 +80,7 @@ import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.PaletteBar
+import com.primortex.color.service.rgbDistSq
 import com.primortex.color.ui.util.sampleCenterArgb
 import kotlinx.coroutines.launch
 import java.util.concurrent.ExecutorService
@@ -468,17 +469,4 @@ private fun bindCamera(
         } catch (_: Exception) {
         }
     }, ContextCompat.getMainExecutor(context))
-}
-
-private fun rgbDistSq(a: Int, b: Int): Int {
-    val ar = (a shr 16) and 0xFF
-    val ag = (a shr 8) and 0xFF
-    val ab = (a) and 0xFF
-    val br = (b shr 16) and 0xFF
-    val bg = (b shr 8) and 0xFF
-    val bb = (b) and 0xFF
-    val dr = ar - br
-    val dg = ag - bg
-    val db = ab - bb
-    return dr * dr + dg * dg + db * db
 }
