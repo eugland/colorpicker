@@ -170,16 +170,21 @@ private data class ColorDataset(
     val entries: List<ColorRecord>,
     val lookup: Map<String, ColorRecord>
 ) {
+
+    private val nearestCache = android.util.LruCache<Int, ColorRecord>(512)
     fun nearestName(argb: Int): ColorRecord {
         val normalized = normalizeArgb(argb)
+        nearestCache[normalized]?.let { return it }
         val targetLab = argbToLab(normalized)
-        return entries.minByOrNull { deltaE76(targetLab, it.lab) } ?: ColorRecord(
+        val result = entries.minByOrNull { deltaE76(targetLab, it.lab) } ?: ColorRecord(
             name = "",
             normalizedName = "",
             hex = "#000000",
             argb = normalized,
-            lab = argbToLab(normalized)
+            lab = targetLab
         )
+        nearestCache.put(normalized, result)
+        return result
     }
 
     fun hexFromName(name: String): String? = lookup[normalizeName(name)]?.hex
