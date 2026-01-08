@@ -13,6 +13,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -42,6 +43,8 @@ import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
+import com.primortex.color.service.SettingsService
+import com.primortex.color.ui.components.FirstUseGuideDialog
 
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
@@ -59,6 +62,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     }
 
     val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
+    val firstUseCompleted by SettingsService.firstUseCompleted.collectAsState()
 
     Scaffold(
         bottomBar = {
@@ -282,6 +286,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 )
             }
         }
+    }
+
+    if (!firstUseCompleted) {
+        FirstUseGuideDialog(onDismiss = { SettingsService.setFirstUseCompleted(true) })
     }
 }
 

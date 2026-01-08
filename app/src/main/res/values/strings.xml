@@ -167,6 +167,15 @@
     <string name="privacy_statement_description">How camera and photo data stay on-device</string>
     <string name="usage_guide">Usage guide</string>
     <string name="usage_guide_description">Step-by-step guide and index for key tasks</string>
+    <string name="first_use_title">Welcome to Color Picker</string>
+    <string name="first_use_body">Get started in a few steps:</string>
+    <string name="first_use_step_camera">Use the Camera tab to sample colors from the live view.</string>
+    <string name="first_use_step_photo">Pick a photo to sample colors from your gallery.</string>
+    <string name="first_use_step_palette">Save favorite colors to palettes for quick access.</string>
+    <string name="first_use_step_tap_color">Tap any color swatch to open its details.</string>
+    <string name="first_use_step_details">The details page shows hex/RGB values, harmonies, and similar colors.</string>
+    <string name="first_use_action">Got it</string>
+    <string name="first_use_skip">Skip for now</string>
     <string name="feedback">Feedback</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_description">Share what you want to see improved.</string>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.annotation.StringRes
 import androidx.core.os.LocaleListCompat
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -94,6 +95,7 @@ object SettingsService {
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
     private val KEY_PICKER_SENSITIVITY = stringPreferencesKey("picker_sensitivity")
     private val KEY_APP_LANGUAGE = stringPreferencesKey("app_language")
+    private val KEY_FIRST_USE_COMPLETED = booleanPreferencesKey("first_use_completed")
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -112,6 +114,9 @@ object SettingsService {
 
     private val _appLanguage = MutableStateFlow(AppLanguage.SystemDefault)
     val appLanguage: StateFlow<AppLanguage> = _appLanguage.asStateFlow()
+
+    private val _firstUseCompleted = MutableStateFlow(false)
+    val firstUseCompleted: StateFlow<Boolean> = _firstUseCompleted.asStateFlow()
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -148,6 +153,7 @@ object SettingsService {
             } ?: storedLanguage
 
             _appLanguage.value = resolvedLanguage
+            _firstUseCompleted.value = prefs[KEY_FIRST_USE_COMPLETED] ?: false
 
             val tagToCache = systemTag ?: resolvedLanguage.languageTag
             if (tagToCache != null) {
@@ -188,6 +194,11 @@ object SettingsService {
         persist()
     }
 
+    fun setFirstUseCompleted(completed: Boolean) {
+        _firstUseCompleted.value = completed
+        persist()
+    }
+
 
     private fun syncPlatformLocale(language: AppLanguage) {
         val locales = language.languageTag
@@ -214,6 +225,7 @@ object SettingsService {
         val theme = _themeMode.value.name
         val sensitivity = _pickerSensitivity.value.name
         val language = _appLanguage.value.name
+        val firstUseCompleted = _firstUseCompleted.value
 
         scope.launch {
             appContext.settingsDataStore.edit { prefs ->
@@ -222,6 +234,7 @@ object SettingsService {
                 prefs[KEY_THEME_MODE] = theme
                 prefs[KEY_PICKER_SENSITIVITY] = sensitivity
                 prefs[KEY_APP_LANGUAGE] = language
+                prefs[KEY_FIRST_USE_COMPLETED] = firstUseCompleted
             }
         }
     }
