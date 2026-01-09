@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.services)
@@ -79,6 +80,9 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.10.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.34.0")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
