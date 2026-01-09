@@ -8,8 +8,10 @@ import android.graphics.RuntimeShader
 import android.os.Build
 import android.util.Log
 import android.util.Size
+import android.view.Surface
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -23,7 +25,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.onSizeChanged
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
@@ -31,21 +32,21 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
 import androidx.compose.material.icons.outlined.FlashOff
 import androidx.compose.material.icons.outlined.FlashOn
-import androidx.compose.material3.Button
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.BottomSheetScaffoldState
-import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
 import androidx.compose.material3.SheetValue
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -56,6 +57,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
@@ -67,7 +69,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
 
 private const val COLOR_BLIND_SHADER = """
-uniform shader input;
+uniform shader inner;
 uniform float2 invSize;
 uniform float intensity;
 uniform float mode;
@@ -110,7 +112,7 @@ vec3 redistributeError(vec3 error, float mode) {
 }
 
 half4 main(float2 coord) {
-    half4 c = input.eval(coord);
+    half4 c = inner.eval(coord);
     vec3 rgb = c.rgb;
     vec3 lms = rgbToLms * rgb;
     vec3 simLms = simulateDeficiency(lms, mode);
@@ -119,10 +121,10 @@ half4 main(float2 coord) {
     vec3 corrected = clamp(rgb + redistributeError(error, mode) * intensity, 0.0, 1.0);
 
     if (edgeEnabled > 0.5) {
-        vec3 left = input.eval(coord + vec2(-invSize.x, 0.0)).rgb;
-        vec3 right = input.eval(coord + vec2(invSize.x, 0.0)).rgb;
-        vec3 up = input.eval(coord + vec2(0.0, -invSize.y)).rgb;
-        vec3 down = input.eval(coord + vec2(0.0, invSize.y)).rgb;
+        vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
+        vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
+        vec3 up = inner.eval(coord + vec2(0.0, -invSize.y)).rgb;
+        vec3 down = inner.eval(coord + vec2(0.0, invSize.y)).rgb;
         float lumCenter = luminance(corrected);
         float lumAvg = (luminance(left) + luminance(right) + luminance(up) + luminance(down)) * 0.25;
         float edge = lumCenter - lumAvg;
@@ -133,12 +135,23 @@ half4 main(float2 coord) {
 }
 """
 
+private const val MONOCHROME_SHADER = """
+uniform shader inner;
+
+half4 main(float2 coord) {
+    half4 c = inner.eval(coord);
+    float y = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722));
+    return half4(vec3(y), c.a);
+}
+"""
+
 private enum class ColorBlindMode(val labelRes: Int, val shaderIndex: Float) {
     Protanopia(R.string.color_blind_mode_protan, 0f),
     Deuteranopia(R.string.color_blind_mode_deutan, 1f),
     Tritanopia(R.string.color_blind_mode_tritan, 2f)
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
@@ -149,7 +162,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var hasCameraPerm by remember {
         mutableStateOf(
             ContextCompat.checkSelfPermission(ctx, Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_GRANTED
+                    PackageManager.PERMISSION_GRANTED
         )
     }
     val permLauncher =
@@ -175,10 +188,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var mode by remember { mutableStateOf(ColorBlindMode.Protanopia) }
 
     val runtimeShader = remember(supportsShader) {
-        if (supportsShader) RuntimeShader(COLOR_BLIND_SHADER) else null
+        RuntimeShader(COLOR_BLIND_SHADER)
     }
     val renderEffect = remember(runtimeShader) {
-        runtimeShader?.let { RenderEffect.createRuntimeShaderEffect(it, "input") }
+        runtimeShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
 
     val previewView = remember {
@@ -477,7 +490,7 @@ private fun bindEnhancerCamera(
 
         val preview = Preview.Builder()
             .setTargetResolution(Size(1280, 720))
-            .setTargetRotation(previewView.display?.rotation ?: 0)
+            .setTargetRotation(previewView.display?.rotation ?: Surface.ROTATION_0)
             .build()
             .also { it.surfaceProvider = previewView.surfaceProvider }
 
