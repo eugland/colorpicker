@@ -32,15 +32,20 @@ import androidx.compose.material.icons.outlined.Cameraswitch
 import androidx.compose.material.icons.outlined.FlashOff
 import androidx.compose.material.icons.outlined.FlashOn
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.BottomSheetScaffoldState
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberBottomSheetScaffoldState
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -134,6 +139,7 @@ private enum class ColorBlindMode(val labelRes: Int, val shaderIndex: Float) {
     Tritanopia(R.string.color_blind_mode_tritan, 2f)
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val ctx = LocalContext.current
@@ -176,9 +182,14 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     }
 
     val previewView = remember {
-        PreviewView(ctx).apply { scaleType = PreviewView.ScaleType.FILL_CENTER }
+        PreviewView(ctx).apply {
+            scaleType = PreviewView.ScaleType.FILL_CENTER
+            implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+        }
     }
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
+
+    val scaffoldState = rememberBottomSheetScaffoldState()
 
     DisposableEffect(Unit) {
         onDispose {
@@ -190,219 +201,262 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         camera?.cameraControl?.enableTorch(torchOn)
     }
 
-    Box(Modifier.fillMaxSize().background(Color.Black)) {
-        if (hasCameraPerm) {
-            AndroidView(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 220.dp)
-                    .onSizeChanged { previewSize = it },
-                factory = { previewView },
-                update = { view ->
-                    if (supportsShader && filterEnabled) {
-                        val shader = runtimeShader ?: return@AndroidView
-                        val width = previewSize.width.coerceAtLeast(1)
-                        val height = previewSize.height.coerceAtLeast(1)
-                        shader.setFloatUniform("intensity", intensity)
-                        shader.setFloatUniform("mode", mode.shaderIndex)
-                        shader.setFloatUniform("edgeEnabled", if (edgeEnabled) 1f else 0f)
-                        shader.setFloatUniform("edgeStrength", edgeStrength)
-                        shader.setFloatUniform("invSize", 1f / width, 1f / height)
-                        view.setRenderEffect(renderEffect)
-                    } else {
-                        view.setRenderEffect(null)
+    BottomSheetScaffold(
+        scaffoldState = scaffoldState,
+        sheetPeekHeight = 88.dp,
+        sheetContainerColor = MaterialTheme.colorScheme.surface,
+        sheetShadowElevation = 8.dp,
+        sheetDragHandle = { BottomSheetDefaults.DragHandle() },
+        sheetContent = {
+            ColorBlindEnhancerSheet(
+                scaffoldState = scaffoldState,
+                supportsShader = supportsShader,
+                filterEnabled = filterEnabled,
+                onToggleFilter = { filterEnabled = it },
+                mode = mode,
+                onModeChange = { mode = it },
+                intensity = intensity,
+                onIntensityChange = { intensity = it },
+                edgeEnabled = edgeEnabled,
+                onEdgeEnabledChange = { edgeEnabled = it },
+                edgeStrength = edgeStrength,
+                onEdgeStrengthChange = { edgeStrength = it }
+            )
+        }
+    ) { innerPadding ->
+        Box(
+            Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .background(Color.Black)
+        ) {
+            if (hasCameraPerm) {
+                AndroidView(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .onSizeChanged { previewSize = it },
+                    factory = { previewView },
+                    update = { view ->
+                        if (supportsShader && filterEnabled) {
+                            val shader = runtimeShader ?: return@AndroidView
+                            val width = previewSize.width.coerceAtLeast(1)
+                            val height = previewSize.height.coerceAtLeast(1)
+                            shader.setFloatUniform("intensity", intensity)
+                            shader.setFloatUniform("mode", mode.shaderIndex)
+                            shader.setFloatUniform("edgeEnabled", if (edgeEnabled) 1f else 0f)
+                            shader.setFloatUniform("edgeStrength", edgeStrength)
+                            shader.setFloatUniform("invSize", 1f / width, 1f / height)
+                            view.setRenderEffect(renderEffect)
+                        } else {
+                            view.setRenderEffect(null)
+                        }
+                    }
+                )
+
+                LaunchedEffect(hasCameraPerm, useFrontCamera) {
+                    if (!hasCameraPerm) return@LaunchedEffect
+                    bindEnhancerCamera(
+                        context = ctx,
+                        lifecycleOwner = lifecycleOwner,
+                        previewView = previewView,
+                        cameraSelector = if (useFrontCamera) {
+                            CameraSelector.DEFAULT_FRONT_CAMERA
+                        } else {
+                            CameraSelector.DEFAULT_BACK_CAMERA
+                        },
+                        onCameraProviderReady = { cameraProvider = it },
+                        onCameraReady = { camera = it }
+                    )
+                }
+            } else {
+                Column(
+                    Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(stringResource(R.string.camera_permission_required), color = Color.White)
+                    Spacer(Modifier.height(10.dp))
+                    Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
+                        Text(stringResource(R.string.grant))
                     }
                 }
-            )
-
-            LaunchedEffect(hasCameraPerm, useFrontCamera) {
-                if (!hasCameraPerm) return@LaunchedEffect
-                bindEnhancerCamera(
-                    context = ctx,
-                    lifecycleOwner = lifecycleOwner,
-                    previewView = previewView,
-                    cameraSelector = if (useFrontCamera) {
-                        CameraSelector.DEFAULT_FRONT_CAMERA
-                    } else {
-                        CameraSelector.DEFAULT_BACK_CAMERA
-                    },
-                    onCameraProviderReady = { cameraProvider = it },
-                    onCameraReady = { camera = it }
-                )
             }
-        } else {
-            Column(
-                Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+
+            Surface(
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .fillMaxWidth()
+                    .statusBarsPadding(),
+                tonalElevation = 2.dp,
+                color = MaterialTheme.colorScheme.surface
             ) {
-                Text(stringResource(R.string.camera_permission_required), color = Color.White)
-                Spacer(Modifier.height(10.dp))
-                Button(onClick = { permLauncher.launch(Manifest.permission.CAMERA) }) {
-                    Text(stringResource(R.string.grant))
-                }
-            }
-        }
+                Row(
+                    Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBackIosNew,
+                            contentDescription = stringResource(R.string.back)
+                        )
+                    }
 
-        Surface(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxWidth()
-                .statusBarsPadding(),
-            tonalElevation = 2.dp,
-            color = MaterialTheme.colorScheme.surface
-        ) {
-            Row(
-                Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = onBack) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBackIosNew,
-                        contentDescription = stringResource(R.string.back)
-                    )
-                }
-
-                Text(
-                    stringResource(R.string.color_blind_enhancer_title),
-                    style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.weight(1f)
-                )
-                IconButton(onClick = { torchOn = !torchOn }) {
-                    Icon(
-                        imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
-                        contentDescription = if (torchOn) {
-                            stringResource(R.string.flash_on)
-                        } else {
-                            stringResource(R.string.flash_off)
-                        }
-                    )
-                }
-                IconButton(onClick = {
-                    useFrontCamera = !useFrontCamera
-                    Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
-                }) {
-                    Icon(
-                        imageVector = Icons.Outlined.Cameraswitch,
-                        contentDescription = stringResource(R.string.flip_camera)
-                    )
-                }
-            }
-        }
-
-        Card(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.color_blind_enhancer_subtitle),
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Text(
-                    text = stringResource(R.string.color_blind_enhancer_disclaimer),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                if (!supportsShader) {
                     Text(
-                        text = stringResource(R.string.color_blind_enhancer_requires_android_13),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.error
+                        stringResource(R.string.color_blind_enhancer_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.weight(1f)
                     )
+                    IconButton(onClick = { torchOn = !torchOn }) {
+                        Icon(
+                            imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
+                            contentDescription = if (torchOn) {
+                                stringResource(R.string.flash_on)
+                            } else {
+                                stringResource(R.string.flash_off)
+                            }
+                        )
+                    }
+                    IconButton(onClick = {
+                        useFrontCamera = !useFrontCamera
+                        Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
+                    }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Cameraswitch,
+                            contentDescription = stringResource(R.string.flip_camera)
+                        )
+                    }
                 }
+            }
+        }
+    }
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ColorBlindEnhancerSheet(
+    scaffoldState: BottomSheetScaffoldState,
+    supportsShader: Boolean,
+    filterEnabled: Boolean,
+    onToggleFilter: (Boolean) -> Unit,
+    mode: ColorBlindMode,
+    onModeChange: (ColorBlindMode) -> Unit,
+    intensity: Float,
+    onIntensityChange: (Float) -> Unit,
+    edgeEnabled: Boolean,
+    onEdgeEnabledChange: (Boolean) -> Unit,
+    edgeStrength: Float,
+    onEdgeStrengthChange: (Float) -> Unit
+) {
+    val sheetState = scaffoldState.bottomSheetState
+    val isPartial = sheetState.currentValue == SheetValue.PartiallyExpanded
+
+    Column(
+        modifier = Modifier.padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.color_blind_enhancer_subtitle),
+            style = MaterialTheme.typography.titleMedium
+        )
+        Text(
+            text = stringResource(R.string.color_blind_enhancer_disclaimer),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+
+        if (!supportsShader) {
+            Text(
+                text = stringResource(R.string.color_blind_enhancer_requires_android_13),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.filter_enabled),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = filterEnabled && supportsShader,
+                onCheckedChange = { onToggleFilter(it) },
+                enabled = supportsShader
+            )
+        }
+
+        if (!isPartial) {
+            Column {
+                Text(
+                    text = stringResource(R.string.deficiency_mode),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    ColorBlindMode.values().forEach { option ->
+                        val selected = option == mode
+                        val buttonModifier = Modifier.weight(1f)
+                        if (selected) {
+                            Button(
+                                onClick = { onModeChange(option) },
+                                enabled = filterEnabled && supportsShader,
+                                modifier = buttonModifier
+                            ) {
+                                Text(stringResource(option.labelRes))
+                            }
+                        } else {
+                            FilledTonalButton(
+                                onClick = { onModeChange(option) },
+                                enabled = filterEnabled && supportsShader,
+                                modifier = buttonModifier
+                            ) {
+                                Text(stringResource(option.labelRes))
+                            }
+                        }
+                    }
+                }
+            }
+
+            Column {
+                Text(
+                    text = stringResource(R.string.filter_strength),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Slider(
+                    value = intensity,
+                    onValueChange = { onIntensityChange(it) },
+                    valueRange = 0f..1f,
+                    enabled = filterEnabled && supportsShader
+                )
+            }
+
+            Column {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = stringResource(R.string.filter_enabled),
+                        text = stringResource(R.string.edge_enhancement),
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.weight(1f)
                     )
                     Switch(
-                        checked = filterEnabled && supportsShader,
-                        onCheckedChange = { filterEnabled = it },
-                        enabled = supportsShader
-                    )
-                }
-
-                Column {
-                    Text(
-                        text = stringResource(R.string.deficiency_mode),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        ColorBlindMode.values().forEach { option ->
-                            val selected = option == mode
-                            val buttonModifier = Modifier.weight(1f)
-                            if (selected) {
-                                Button(
-                                    onClick = { mode = option },
-                                    enabled = filterEnabled && supportsShader,
-                                    modifier = buttonModifier
-                                ) {
-                                    Text(stringResource(option.labelRes))
-                                }
-                            } else {
-                                FilledTonalButton(
-                                    onClick = { mode = option },
-                                    enabled = filterEnabled && supportsShader,
-                                    modifier = buttonModifier
-                                ) {
-                                    Text(stringResource(option.labelRes))
-                                }
-                            }
-                        }
-                    }
-                }
-
-                Column {
-                    Text(
-                        text = stringResource(R.string.filter_strength),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Slider(
-                        value = intensity,
-                        onValueChange = { intensity = it },
-                        valueRange = 0f..1f,
+                        checked = edgeEnabled,
+                        onCheckedChange = { onEdgeEnabledChange(it) },
                         enabled = filterEnabled && supportsShader
                     )
                 }
-
-                Column {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = stringResource(R.string.edge_enhancement),
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f)
-                        )
-                        Switch(
-                            checked = edgeEnabled,
-                            onCheckedChange = { edgeEnabled = it },
-                            enabled = filterEnabled && supportsShader
-                        )
-                    }
-                    Slider(
-                        value = edgeStrength,
-                        onValueChange = { edgeStrength = it },
-                        valueRange = 0f..0.5f,
-                        enabled = filterEnabled && supportsShader && edgeEnabled
-                    )
-                }
+                Slider(
+                    value = edgeStrength,
+                    onValueChange = { onEdgeStrengthChange(it) },
+                    valueRange = 0f..0.5f,
+                    enabled = filterEnabled && supportsShader && edgeEnabled
+                )
             }
         }
     }
