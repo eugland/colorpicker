@@ -22,11 +22,11 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Code
+import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.DragHandle
+import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.Edit
-import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -124,6 +124,18 @@ fun PaletteDetailScreen(
     val gradientColors =
         remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
+    val resetEditingState = {
+        palette?.let {
+            name = it.name
+            tagsInput = it.tags.joinToString(", ")
+            note = it.note
+            editableColors.apply {
+                clear()
+                addAll(it.colors)
+            }
+        }
+    }
+
     ScreenScaffold(
         titleRes = R.string.palette_details,
         innerPadding = innerPadding,
@@ -192,6 +204,10 @@ fun PaletteDetailScreen(
                     onDelete = {
                         PaletteService.delete(palette.id)
                         onBack()
+                    },
+                    onCancelEdit = {
+                        resetEditingState()
+                        isEditing = false
                     }
                 )
             }
@@ -208,22 +224,6 @@ fun PaletteDetailScreen(
                 val color = editableColors[index]
                 val isDragging = dragState.draggedIndex == index
                 val dragOffset = if (isDragging) dragState.dragOffset else 0f
-                val dragHandleModifier = if (isEditing) {
-                    Modifier.pointerInput(isEditing, editableColors.size, color.argb) {
-                        detectDragGesturesAfterLongPress(
-                            onDragStart = { dragState.startDrag(index) },
-                            onDragCancel = { dragState.endDrag() },
-                            onDragEnd = { dragState.endDrag() },
-                            onDrag = { change, dragAmount ->
-                                dragState.onDrag(dragAmount.y)
-                                change.consume()
-                            }
-                        )
-                    }
-                } else {
-                    Modifier
-                }
-
                 val containerModifier = Modifier
                     .offset { IntOffset(0, dragOffset.toInt()) }
                     .zIndex(if (isDragging) 1f else 0f)
@@ -234,64 +234,64 @@ fun PaletteDetailScreen(
                         isEditing = isEditing,
                         isDragging = isDragging,
                         onClick = { onOpenColorDetail(color) },
-                        dragHandleModifier = dragHandleModifier
+                        onDelete = { editableColors.remove(color) },
+                        onDrag = { dragState.onDrag(it) },
+                        onDragStart = { dragState.startDrag(index) },
+                        onDragCancel = { dragState.endDrag() },
+                        onDragEnd = { dragState.endDrag() }
                     )
                 }
 
-                if (isEditing) {
-                    val dismissState = rememberSwipeToDismissBoxState(
-                        confirmValueChange = { value ->
-                            if (value == SwipeToDismissBoxValue.EndToStart) {
-                                editableColors.remove(color)
-                                true
-                            } else {
-                                false
-                            }
+                val dismissState = rememberSwipeToDismissBoxState(
+                    confirmValueChange = { value ->
+                        if (value == SwipeToDismissBoxValue.EndToStart) {
+                            editableColors.remove(color)
+                            true
+                        } else {
+                            false
                         }
-                    )
+                    }
+                )
 
-                    SwipeToDismissBox(
-                        state = dismissState,
-                        enableDismissFromStartToEnd = false,
-                        enableDismissFromEndToStart = true,
-                        backgroundContent = {
-                            val isDismissed =
-                                dismissState.targetValue != SwipeToDismissBoxValue.Settled
-                            val targetColor = if (isDismissed) {
-                                MaterialTheme.colorScheme.errorContainer
-                            } else {
-                                MaterialTheme.colorScheme.surfaceVariant
-                            }
-                            val iconTint = if (isDismissed) {
-                                MaterialTheme.colorScheme.onErrorContainer
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            }
+                SwipeToDismissBox(
+                    state = dismissState,
+                    enableDismissFromStartToEnd = false,
+                    enableDismissFromEndToStart = true,
+                    backgroundContent = {
+                        val isDismissed =
+                            dismissState.targetValue != SwipeToDismissBoxValue.Settled
+                        val targetColor = if (isDismissed) {
+                            MaterialTheme.colorScheme.errorContainer
+                        } else {
+                            MaterialTheme.colorScheme.surfaceVariant
+                        }
+                        val iconTint = if (isDismissed) {
+                            MaterialTheme.colorScheme.onErrorContainer
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        }
 
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .padding(8.dp)
-                                    .clip(MaterialTheme.shapes.medium)
-                                    .background(targetColor),
-                                contentAlignment = Alignment.CenterEnd
-                            ) {
-                                Icon(
-                                    Icons.Outlined.Delete,
-                                    contentDescription = stringResource(R.string.delete),
-                                    tint = iconTint,
-                                    modifier = Modifier.padding(end = 16.dp)
-                                )
-                            }
-                        },
-                        content = {
-                            Box { cardContent() }
-                        },
-                        modifier = containerModifier
-                    )
-                } else {
-                    Box(modifier = containerModifier) { cardContent() }
-                }
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(8.dp)
+                                .clip(MaterialTheme.shapes.medium)
+                                .background(targetColor),
+                            contentAlignment = Alignment.CenterEnd
+                        ) {
+                            Icon(
+                                Icons.Outlined.Delete,
+                                contentDescription = stringResource(R.string.delete),
+                                tint = iconTint,
+                                modifier = Modifier.padding(end = 16.dp)
+                            )
+                        }
+                    },
+                    content = {
+                        Box { cardContent() }
+                    },
+                    modifier = containerModifier
+                )
             }
         }
     }
@@ -363,6 +363,7 @@ private fun PaletteHeader(
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
+    onCancelEdit: () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         if (isEditing) {
@@ -410,7 +411,8 @@ private fun PaletteHeader(
             onToggleEdit = onToggleEdit,
             onCopyAll = onCopyAll,
             onExportCss = onExportCss,
-            onDelete = onDelete
+            onDelete = onDelete,
+            onCancelEdit = onCancelEdit
         )
     }
 }
@@ -422,8 +424,8 @@ private fun ActionRow(
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
+    onCancelEdit: () -> Unit,
 ) {
-    var overflowExpanded by remember { mutableStateOf(false) }
     var copyMenuExpanded by remember { mutableStateOf(false) }
 
     Row(
@@ -439,44 +441,48 @@ private fun ActionRow(
             Text(if (isEditing) stringResource(R.string.save_changes) else stringResource(R.string.edit_palette))
         }
 
-        Box {
-            OutlinedButton(onClick = { copyMenuExpanded = true }) {
-                Icon(Icons.Outlined.ContentCopy, contentDescription = null)
+        if (isEditing) {
+            OutlinedButton(onClick = onCancelEdit) {
+                Icon(
+                    imageVector = Icons.Outlined.Close,
+                    contentDescription = null
+                )
                 Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.copy))
-            }
-
-            DropdownMenu(
-                expanded = copyMenuExpanded,
-                onDismissRequest = { copyMenuExpanded = false }
-            ) {
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.copy_all_hex)) },
-                    leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
-                    onClick = {
-                        copyMenuExpanded = false
-                        onCopyAll()
-                    }
-                )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.export_css)) },
-                    leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
-                    onClick = {
-                        copyMenuExpanded = false
-                        onExportCss()
-                    }
-                )
+                Text(stringResource(R.string.cancel))
             }
         }
 
-        IconButton(onClick = { overflowExpanded = true }) {
-            Icon(
-                Icons.Outlined.MoreVert,
-                contentDescription = stringResource(R.string.more_options)
-            )
+        if (!isEditing) {
+            Box {
+                OutlinedButton(onClick = { copyMenuExpanded = true }) {
+                    Icon(Icons.Outlined.ContentCopy, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.copy))
+                }
+
+                DropdownMenu(
+                    expanded = copyMenuExpanded,
+                    onDismissRequest = { copyMenuExpanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.copy_all_hex)) },
+                        leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
+                        onClick = {
+                            copyMenuExpanded = false
+                            onCopyAll()
+                        }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.export_css)) },
+                        leadingIcon = { Icon(Icons.Outlined.Code, contentDescription = null) },
+                        onClick = {
+                            copyMenuExpanded = false
+                            onExportCss()
+                        }
+                    )
+                }
+            }
         }
-
-
     }
 }
 
@@ -486,12 +492,16 @@ private fun PaletteColorCard(
     isEditing: Boolean,
     isDragging: Boolean,
     onClick: () -> Unit,
-    dragHandleModifier: Modifier,
+    onDelete: () -> Unit,
+    onDrag: (Float) -> Unit,
+    onDragStart: () -> Unit,
+    onDragCancel: () -> Unit,
+    onDragEnd: () -> Unit,
 ) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() },
+            .clickable(enabled = !isEditing) { onClick() },
         tonalElevation = if (isDragging) 8.dp else 2.dp,
         shape = MaterialTheme.shapes.medium
     ) {
@@ -522,20 +532,34 @@ private fun PaletteColorCard(
                         )
                         Text(argbToHex(color.argb), style = MaterialTheme.typography.bodyMedium)
                     }
-                    Spacer(Modifier.width(12.dp))
-                    Text(
-                        text = stringResource(R.string.view_more_indicator),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary
-                    )
+                    if (!isEditing) {
+                        Spacer(Modifier.width(12.dp))
+                        Text(
+                            text = stringResource(R.string.view_more_indicator),
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
                 }
             }
 
             if (isEditing) {
-                IconButton(onClick = {}, modifier = dragHandleModifier) {
+                val dragHandleModifier = Modifier.pointerInput(isEditing, color.argb) {
+                    detectDragGesturesAfterLongPress(
+                        onDragStart = { onDragStart() },
+                        onDragCancel = { onDragCancel() },
+                        onDragEnd = { onDragEnd() },
+                        onDrag = { change, dragAmount ->
+                            onDrag(dragAmount.y)
+                            change.consume()
+                        }
+                    )
+                }
+
+                IconButton(onClick = onDelete, modifier = dragHandleModifier) {
                     Icon(
-                        Icons.Outlined.DragHandle,
-                        contentDescription = stringResource(R.string.reorder)
+                        Icons.Outlined.DeleteForever,
+                        contentDescription = stringResource(R.string.delete)
                     )
                 }
             }
