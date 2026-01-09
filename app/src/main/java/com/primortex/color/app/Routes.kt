@@ -35,6 +35,7 @@ object Routes {
     object Info {
         const val COPYRIGHT = "info/copyright"
         const val PRIVACY = "info/privacy"
+        const val TERMS = "info/terms"
         const val USAGE = "info/usage"
     }
 

@@ -59,6 +59,10 @@ class NavColorNavigator(
         nav.navigate(Routes.Info.PRIVACY)
     }
 
+    override fun openInfoTerms() {
+        nav.navigate(Routes.Info.TERMS)
+    }
+
     override fun openInfoUsage() {
         nav.navigate(Routes.Info.USAGE)
     }

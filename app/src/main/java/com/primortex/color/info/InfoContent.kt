@@ -56,6 +56,43 @@ object InfoContent {
         )
     )
 
+    val termsSections = listOf(
+        InfoDetailSection(
+            heading = "Acceptance of terms",
+            paragraphs = listOf(
+                "By using Color Picker, you agree to these terms of service. If you do not agree, please discontinue use of the app."
+            )
+        ),
+        InfoDetailSection(
+            heading = "App usage",
+            paragraphs = listOf(
+                "Color Picker is provided for personal and professional color reference. You are responsible for how you use the app and any results from your color selections."
+            ),
+            bullets = listOf(
+                "Do not use the app in ways that violate applicable laws or regulations.",
+                "Do not attempt to reverse engineer or misuse the app’s services."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Content and availability",
+            paragraphs = listOf(
+                "We may update or discontinue features at any time. Optional online content is provided as-is and may change without notice."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Limitation of liability",
+            paragraphs = listOf(
+                "Color Picker is provided “as is” without warranties of any kind. To the extent permitted by law, we are not liable for damages arising from use of the app."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Contact",
+            paragraphs = listOf(
+                "If you have questions about these terms, please reach out through the feedback form in the app."
+            )
+        )
+    )
+
     val usageSections = listOf(
         InfoDetailSection(
             heading = "Quick index",
@@ -106,4 +143,3 @@ object InfoContent {
         )
     )
 }
-

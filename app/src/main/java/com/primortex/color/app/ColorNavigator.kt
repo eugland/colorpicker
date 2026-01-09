@@ -12,6 +12,7 @@ interface ColorNavigator {
     fun openColorDetail(argb: Int, name: String = "")
     fun openInfoCopyright()
     fun openInfoPrivacy()
+    fun openInfoTerms()
     fun openInfoUsage()
     fun openLanguageSettings()
     fun back()

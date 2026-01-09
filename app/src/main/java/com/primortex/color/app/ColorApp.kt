@@ -266,6 +266,20 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                 }
 
+                composable(Routes.Info.TERMS) {
+                    val sections = rememberInfoSections(
+                        page = InfoPage.TERMS,
+                        fallback = InfoContent.termsSections
+                    )
+
+                    InfoDetailScreen(
+                        title = stringResource(R.string.terms_of_service),
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        sections = sections
+                    )
+                }
+
                 composable(Routes.Info.USAGE) {
                     val sections = rememberInfoSections(
                         page = InfoPage.USAGE,
@@ -302,6 +316,7 @@ private fun ExploreRoute(
         onOpenLanguageSettings = { navigator.openLanguageSettings() },
         onOpenCopyright = { navigator.openInfoCopyright() },
         onOpenPrivacy = { navigator.openInfoPrivacy() },
+        onOpenTerms = { navigator.openInfoTerms() },
         onOpenUsage = { navigator.openInfoUsage() }
     )
 }

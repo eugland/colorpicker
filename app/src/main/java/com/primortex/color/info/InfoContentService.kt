@@ -113,6 +113,7 @@ class InfoContentService(
 enum class InfoPage(val path: String) {
     COPYRIGHT("copyright"),
     PRIVACY("privacy"),
+    TERMS("tos"),
     USAGE("usage")
 }
 

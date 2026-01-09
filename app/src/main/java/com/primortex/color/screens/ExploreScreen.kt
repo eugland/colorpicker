@@ -24,6 +24,7 @@ import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Feedback
 import androidx.compose.material.icons.outlined.Gavel
 import androidx.compose.material.icons.outlined.Language
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarRate
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
@@ -58,6 +59,7 @@ fun ExploreScreen(
     onOpenLanguageSettings: () -> Unit,
     onOpenCopyright: () -> Unit,
     onOpenPrivacy: () -> Unit,
+    onOpenTerms: () -> Unit,
     onOpenUsage: () -> Unit
 ) {
     val context = LocalContext.current
@@ -260,6 +262,15 @@ fun ExploreScreen(
                     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
                     InfoLink(
+                        title = stringResource(R.string.terms_of_service),
+                        subtitle = stringResource(R.string.terms_of_service_description),
+                        icon = Icons.Outlined.Description,
+                        onClick = onOpenTerms
+                    )
+
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+
+                    InfoLink(
                         title = stringResource(R.string.usage_guide),
                         subtitle = stringResource(R.string.usage_guide_description),
                         icon = Icons.Outlined.Description,
@@ -303,6 +314,23 @@ fun ExploreScreen(
                             openUrl(
                                 context,
                                 "https://play.google.com/store/apps/details?id=com.primortex.color"
+                            )
+                        }
+                    )
+
+                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+
+                    InfoLink(
+                        title = stringResource(R.string.share_app),
+                        subtitle = stringResource(R.string.share_app_description),
+                        icon = Icons.Outlined.Share,
+                        onClick = {
+                            shareText(
+                                context,
+                                context.getString(
+                                    R.string.share_app_text,
+                                    "https://play.google.com/store/apps/details?id=com.primortex.color"
+                                )
                             )
                         }
                     )
@@ -388,4 +416,12 @@ private fun openUrl(context: Context, url: String, openInApp: Boolean) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         context.startActivity(intent)
     }
+}
+
+private fun shareText(context: Context, text: String) {
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, text)
+    }
+    context.startActivity(Intent.createChooser(intent, null))
 }
