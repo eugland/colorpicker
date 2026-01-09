@@ -107,10 +107,16 @@
     <string name="red_label">Red</string>
     <string name="green_label">Green</string>
     <string name="blue_label">Blue</string>
+    <string name="cyan_label">Cyan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="yellow_label">Yellow</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Hue</string>
     <string name="saturation_label">Saturation</string>
     <string name="lightness_label">Lightness</string>
+    <string name="value_label">Value</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="sliders_label">Sliders</string>
     <string name="select_palette">Select palette</string>
     <string name="palette_color_count">%1$d colors</string>
     <string name="more_details">More details</string>
@@ -142,7 +148,7 @@
     <string name="from_album">From Album</string>
     <string name="from_album_subtitle">Pick from a photo</string>
     <string name="tools">Tools</string>
-    <string name="color_slider_description">Adjust RGB or HSL and see live names and hex. Save or build palettes.</string>
+    <string name="color_slider_description">Adjust RGB, HSL, HSV, or CMYK and see live names and hex.</string>
     <string name="open">Open</string>
     <string name="live_color_picker">Live color picker</string>
     <string name="live_color_picker_description">Point at anything. Pinch to zoom. Add to palette instantly.</string>

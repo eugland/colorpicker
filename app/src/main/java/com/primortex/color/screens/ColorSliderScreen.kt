@@ -9,33 +9,24 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ChevronRight
-import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material3.Button
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -45,39 +36,37 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
-import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
-import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
-import com.primortex.color.ui.LocalSnackbarService
-import com.primortex.color.ui.SnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import android.graphics.Color as AndroidColor
 
-@OptIn(ExperimentalMaterial3Api::class)
+private enum class SliderMode { RGB, HSL, HSV, CMYK }
+
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ColorSliderScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
-    val snackbarService = LocalSnackbarService.current
     val context = LocalContext.current
+    val clipboard = LocalClipboardManager.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
-    val savedColors by RecentPicksService.saved.collectAsState()
-    val palettes by PaletteService.palettes.collectAsState()
-    var showPalettePicker by remember { mutableStateOf(false) }
     var showColorDetails by remember { mutableStateOf(false) }
+    var sliderMode by remember { mutableStateOf(SliderMode.RGB) }
     val colorNameService = remember(context) {
         ColorServices.ensure(context)
         ColorServices.colors
@@ -89,10 +78,13 @@ fun ColorSliderScreen(
     val rgb = remember(argb) {
         Triple(AndroidColor.red(argb), AndroidColor.green(argb), AndroidColor.blue(argb))
     }
+    val hsv = remember(argb) {
+        FloatArray(3).also { AndroidColor.RGBToHSV(rgb.first, rgb.second, rgb.third, it) }
+    }
     val hsl = remember(argb) {
         FloatArray(3).also { ColorUtils.colorToHSL(argb, it) }
     }
-    val isSaved = savedColors.any { it.argb == argb }
+    val cmyk = remember(argb) { rgbToCmyk(rgb.first, rgb.second, rgb.third) }
 
     ScreenScaffold(
         titleRes = R.string.color_slider,
@@ -100,9 +92,7 @@ fun ColorSliderScreen(
         onBack = onBack
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState()),
+            modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(18.dp)
         ) {
             ColorPreviewCard(
@@ -112,170 +102,206 @@ fun ColorSliderScreen(
                 onClick = { showColorDetails = true }
             )
 
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                FilledTonalButton(
-                    onClick = {
-                        RecentPicksService.addPick(picked, source = "color_slider")
-                        RecentPicksService.toggleSaved(picked)
-                        val message = if (isSaved) {
-                            context.getString(R.string.removed_from_my_colors)
-                        } else {
-                            context.getString(R.string.saved_to_my_colors)
-                        }
-                        snackbarService.showMessage(message)
-                    }
-                ) {
-                    Icon(
-                        if (isSaved) Icons.Outlined.Favorite else Icons.Outlined.FavoriteBorder,
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(if (isSaved) stringResource(R.string.saved) else stringResource(R.string.save))
-                }
-
-                Button(
-                    onClick = {
-                        if (palettes.isEmpty()) {
-                            snackbarService.showMessage(context.getString(R.string.no_palettes_available))
-                        } else {
-                            showPalettePicker = true
-                        }
-                    }
-                ) {
-                    Icon(
-                        Icons.Outlined.Palette,
-                        contentDescription = stringResource(R.string.add_to_palette)
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(R.string.add_to_palette))
-                }
-            }
-
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    stringResource(R.string.rgb_label),
-                    style = MaterialTheme.typography.titleMedium
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.red_label),
-                    value = rgb.first.toFloat(),
-                    valueRange = 0f..255f,
-                    onValueChange = { value ->
-                        argb = toArgb(value.toInt(), rgb.second, rgb.third)
-                    }
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.green_label),
-                    value = rgb.second.toFloat(),
-                    valueRange = 0f..255f,
-                    onValueChange = { value ->
-                        argb = toArgb(rgb.first, value.toInt(), rgb.third)
-                    }
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.blue_label),
-                    value = rgb.third.toFloat(),
-                    valueRange = 0f..255f,
-                    onValueChange = { value ->
-                        argb = toArgb(rgb.first, rgb.second, value.toInt())
-                    }
-                )
-            }
-
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    stringResource(R.string.hsl_label),
-                    style = MaterialTheme.typography.titleMedium
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.hue_label),
-                    value = hsl[0],
-                    valueRange = 0f..360f,
-                    steps = 0,
-                    onValueChange = { value ->
-                        argb = ColorUtils.HSLToColor(floatArrayOf(value, hsl[1], hsl[2]))
-                    }
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.saturation_label),
-                    value = hsl[1] * 100f,
-                    valueRange = 0f..100f,
-                    onValueChange = { value ->
-                        argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], value / 100f, hsl[2]))
-                    },
-                    valueFormatter = { v -> "${v.toInt()}%" }
-                )
-                LabeledSlider(
-                    label = stringResource(R.string.lightness_label),
-                    value = hsl[2] * 100f,
-                    valueRange = 0f..100f,
-                    onValueChange = { value ->
-                        argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], hsl[1], value / 100f))
-                    },
-                    valueFormatter = { v -> "${v.toInt()}%" }
-                )
-            }
-        }
-    }
-
-    if (showPalettePicker) {
-        val paletteSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-        val alreadyInPaletteMessage = stringResource(R.string.already_in_palette)
-        val paletteFullMessage = stringResource(R.string.palette_full)
-        val addedToPaletteMessage = stringResource(R.string.added_to_palette)
-
-        ModalBottomSheet(
-            onDismissRequest = { showPalettePicker = false },
-            sheetState = paletteSheetState
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .padding(bottom = 24.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Text(
-                    stringResource(R.string.select_palette),
-                    style = MaterialTheme.typography.titleLarge
-                )
+                val rgbText = "RGB ${rgb.first}, ${rgb.second}, ${rgb.third}"
+                val hslText =
+                    "HSL ${hsl[0].toInt()}°, ${(hsl[1] * 100).toInt()}%, ${(hsl[2] * 100).toInt()}%"
+                val hsvText =
+                    "HSV ${hsv[0].toInt()}°, ${(hsv[1] * 100).toInt()}%, ${(hsv[2] * 100).toInt()}%"
+                val cmykText = "CMYK ${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%"
 
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(10.dp),
-                    contentPadding = PaddingValues(bottom = 16.dp)
-                ) {
-                    items(palettes) { palette ->
-                        FilledTonalButton(
-                            modifier = Modifier.fillMaxWidth(),
-                            onClick = {
-                                addToPalette(
-                                    palette = palette,
-                                    color = picked,
-                                    snackbarService = snackbarService,
-                                    alreadyInPaletteMessage = alreadyInPaletteMessage,
-                                    paletteFullMessage = paletteFullMessage,
-                                    addedToPaletteMessage = addedToPaletteMessage
-                                )
-                                showPalettePicker = false
-                            }
-                        ) {
-                            Column(Modifier.fillMaxWidth()) {
-                                Text(palette.name)
-                                Text(
-                                    stringResource(
-                                        R.string.palette_color_count,
-                                        palette.colors.size
-                                    ),
-                                    style = MaterialTheme.typography.bodySmall,
-                                )
-                            }
+                AssistChip(
+                    onClick = {
+                        clipboard.setText(AnnotatedString(rgbText))
+                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                    },
+                    label = { Text(rgbText) }
+                )
+                AssistChip(
+                    onClick = {
+                        clipboard.setText(AnnotatedString(hslText))
+                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                    },
+                    label = { Text(hslText) }
+                )
+                AssistChip(
+                    onClick = {
+                        clipboard.setText(AnnotatedString(hsvText))
+                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                    },
+                    label = { Text(hsvText) }
+                )
+                AssistChip(
+                    onClick = {
+                        clipboard.setText(AnnotatedString(cmykText))
+                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                    },
+                    label = { Text(cmykText) }
+                )
+            }
+
+            Text(stringResource(R.string.sliders_label), style = MaterialTheme.typography.titleMedium)
+
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                SliderMode.entries.forEach { mode ->
+                    FilterChip(
+                        selected = sliderMode == mode,
+                        onClick = { sliderMode = mode },
+                        label = { Text(mode.name) }
+                    )
+                }
+            }
+
+            when (sliderMode) {
+                SliderMode.RGB -> Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        stringResource(R.string.rgb_label),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.red_label),
+                        value = rgb.first.toFloat(),
+                        valueRange = 0f..255f,
+                        onValueChange = { value ->
+                            argb = toArgb(value.toInt(), rgb.second, rgb.third)
                         }
-                    }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.green_label),
+                        value = rgb.second.toFloat(),
+                        valueRange = 0f..255f,
+                        onValueChange = { value ->
+                            argb = toArgb(rgb.first, value.toInt(), rgb.third)
+                        }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.blue_label),
+                        value = rgb.third.toFloat(),
+                        valueRange = 0f..255f,
+                        onValueChange = { value ->
+                            argb = toArgb(rgb.first, rgb.second, value.toInt())
+                        }
+                    )
                 }
 
-                TextButton(onClick = {
-                    showPalettePicker = false
-                }) { Text(stringResource(R.string.close)) }
+                SliderMode.HSL -> Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        stringResource(R.string.hsl_label),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.hue_label),
+                        value = hsl[0],
+                        valueRange = 0f..360f,
+                        steps = 0,
+                        onValueChange = { value ->
+                            argb = ColorUtils.HSLToColor(floatArrayOf(value, hsl[1], hsl[2]))
+                        }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.saturation_label),
+                        value = hsl[1] * 100f,
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], value / 100f, hsl[2]))
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.lightness_label),
+                        value = hsl[2] * 100f,
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], hsl[1], value / 100f))
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                }
+
+                SliderMode.HSV -> Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        stringResource(R.string.hsv_label),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.hue_label),
+                        value = hsv[0],
+                        valueRange = 0f..360f,
+                        steps = 0,
+                        onValueChange = { value ->
+                            argb = AndroidColor.HSVToColor(floatArrayOf(value, hsv[1], hsv[2]))
+                        }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.saturation_label),
+                        value = hsv[1] * 100f,
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = AndroidColor.HSVToColor(floatArrayOf(hsv[0], value / 100f, hsv[2]))
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.value_label),
+                        value = hsv[2] * 100f,
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = AndroidColor.HSVToColor(floatArrayOf(hsv[0], hsv[1], value / 100f))
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                }
+
+                SliderMode.CMYK -> Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        stringResource(R.string.cmyk_label),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.cyan_label),
+                        value = cmyk.c.toFloat(),
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = cmykToArgb(value.toInt(), cmyk.m, cmyk.y, cmyk.k)
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.magenta_label),
+                        value = cmyk.m.toFloat(),
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = cmykToArgb(cmyk.c, value.toInt(), cmyk.y, cmyk.k)
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.yellow_label),
+                        value = cmyk.y.toFloat(),
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = cmykToArgb(cmyk.c, cmyk.m, value.toInt(), cmyk.k)
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                    LabeledSlider(
+                        label = stringResource(R.string.black_label),
+                        value = cmyk.k.toFloat(),
+                        valueRange = 0f..100f,
+                        onValueChange = { value ->
+                            argb = cmykToArgb(cmyk.c, cmyk.m, cmyk.y, value.toInt())
+                        },
+                        valueFormatter = { v -> "${v.toInt()}%" }
+                    )
+                }
             }
         }
     }
@@ -364,6 +390,7 @@ private fun LabeledSlider(
             Text(valueFormatter(value), fontFamily = FontFamily.Monospace)
         }
         Slider(
+            modifier = Modifier.height(28.dp),
             value = value,
             onValueChange = onValueChange,
             valueRange = valueRange,
@@ -382,28 +409,29 @@ private fun toArgb(r: Int, g: Int, b: Int): Int {
     return (0xFF shl 24) or (rr shl 16) or (gg shl 8) or bb
 }
 
-private fun addToPalette(
-    palette: Palette,
-    color: PickedColor,
-    snackbarService: SnackbarService,
-    alreadyInPaletteMessage: String,
-    paletteFullMessage: String,
-    addedToPaletteMessage: String,
-) {
-    when {
-        palette.colors.any { it.argb == color.argb } ->
-            snackbarService.showMessage(alreadyInPaletteMessage)
+private data class Cmyk(val c: Int, val m: Int, val y: Int, val k: Int)
 
-        palette.colors.size >= 10 ->
-            snackbarService.showMessage(paletteFullMessage)
-
-        else -> {
-            PaletteService.update(
-                id = palette.id,
-                colors = palette.colors + color
-            )
-            RecentPicksService.addPick(color, source = "palette_add")
-            snackbarService.showMessage(addedToPaletteMessage)
-        }
+private fun rgbToCmyk(r: Int, g: Int, b: Int): Cmyk {
+    val rf = r / 255f
+    val gf = g / 255f
+    val bf = b / 255f
+    val k = 1f - maxOf(rf, gf, bf)
+    if (k >= 1f) {
+        return Cmyk(0, 0, 0, 100)
     }
+    val c = ((1f - rf - k) / (1f - k) * 100f).coerceIn(0f, 100f)
+    val m = ((1f - gf - k) / (1f - k) * 100f).coerceIn(0f, 100f)
+    val y = ((1f - bf - k) / (1f - k) * 100f).coerceIn(0f, 100f)
+    return Cmyk(c.toInt(), m.toInt(), y.toInt(), (k * 100f).toInt())
+}
+
+private fun cmykToArgb(c: Int, m: Int, y: Int, k: Int): Int {
+    val cf = c.coerceIn(0, 100) / 100f
+    val mf = m.coerceIn(0, 100) / 100f
+    val yf = y.coerceIn(0, 100) / 100f
+    val kf = k.coerceIn(0, 100) / 100f
+    val r = (255f * (1f - cf) * (1f - kf)).toInt()
+    val g = (255f * (1f - mf) * (1f - kf)).toInt()
+    val b = (255f * (1f - yf) * (1f - kf)).toInt()
+    return toArgb(r, g, b)
 }
