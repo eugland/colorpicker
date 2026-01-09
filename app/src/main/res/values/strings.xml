@@ -143,10 +143,23 @@
     <string name="from_album_subtitle">Pick from a photo</string>
     <string name="tools">Tools</string>
     <string name="color_slider_description">Adjust RGB or HSL and see live names and hex. Save or build palettes.</string>
+    <string name="color_blind_enhancer">Color-blind enhancer</string>
+    <string name="color_blind_enhancer_description">Live camera view tuned for color-vision deficiencies.</string>
     <string name="open">Open</string>
     <string name="live_color_picker">Live color picker</string>
     <string name="live_color_picker_description">Point at anything. Pinch to zoom. Add to palette instantly.</string>
     <string name="start_live_picking">Start Live Picking</string>
+    <string name="color_blind_enhancer_title">Color-blind enhancer</string>
+    <string name="color_blind_enhancer_subtitle">Accessibility camera filter</string>
+    <string name="color_blind_enhancer_disclaimer">Non-medical accessibility aid. Colors may differ from reality.</string>
+    <string name="color_blind_enhancer_requires_android_13">Requires Android 13+ for GPU shader processing.</string>
+    <string name="filter_enabled">Filter enabled</string>
+    <string name="deficiency_mode">Deficiency mode</string>
+    <string name="color_blind_mode_protan">Protan</string>
+    <string name="color_blind_mode_deutan">Deutan</string>
+    <string name="color_blind_mode_tritan">Tritan</string>
+    <string name="filter_strength">Strength</string>
+    <string name="edge_enhancement">Edge enhancement</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>

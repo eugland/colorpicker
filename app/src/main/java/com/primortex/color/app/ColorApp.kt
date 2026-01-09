@@ -34,6 +34,7 @@ import com.primortex.color.info.InfoContent
 import com.primortex.color.info.InfoContentService
 import com.primortex.color.info.InfoPage
 import com.primortex.color.screens.CameraScreen
+import com.primortex.color.screens.ColorBlindEnhancerScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.ExploreScreen
@@ -146,6 +147,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         innerPadding = inner,
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenColorSlider = { navigator.openColorSlider() },
+                        onOpenColorBlindEnhancer = { navigator.openColorBlindEnhancer() },
                         onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
                     )
                 }
@@ -227,6 +229,11 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tool.SLIDER) {
                     ColorSliderScreen(
                         innerPadding = inner,
+                        onBack = { navigator.back() }
+                    )
+                }
+                composable(Routes.Tool.COLOR_BLIND) {
+                    ColorBlindEnhancerScreen(
                         onBack = { navigator.back() }
                     )
                 }
