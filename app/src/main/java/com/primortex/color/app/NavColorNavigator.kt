@@ -34,6 +34,10 @@ class NavColorNavigator(
         nav.navigate(Routes.Tool.SLIDER)
     }
 
+    override fun openColorBlindEnhancer() {
+        nav.navigate(Routes.Tool.COLOR_BLIND)
+    }
+
     override fun openPhotoPick(uriString: String) {
         val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
         nav.navigate(Routes.Camera.photoPickWith(encoded))

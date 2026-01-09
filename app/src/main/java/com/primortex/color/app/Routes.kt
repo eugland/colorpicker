@@ -40,6 +40,7 @@ object Routes {
 
     object Tool {
         const val SLIDER = "tool/slider"
+        const val COLOR_BLIND = "tool/color_blind"
     }
 
     object Settings {
