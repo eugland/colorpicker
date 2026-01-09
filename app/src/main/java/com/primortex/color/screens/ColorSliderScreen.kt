@@ -5,6 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,8 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ChevronRight
@@ -123,6 +123,13 @@ fun ColorSliderScreen(
                 )
                 AssistChip(
                     onClick = {
+                        clipboard.setText(AnnotatedString(cmykText))
+                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                    },
+                    label = { Text(cmykText) }
+                )
+                AssistChip(
+                    onClick = {
                         clipboard.setText(AnnotatedString(hslText))
                         RecentPicksService.addPick(picked, source = "color_slider_copy")
                     },
@@ -135,16 +142,13 @@ fun ColorSliderScreen(
                     },
                     label = { Text(hsvText) }
                 )
-                AssistChip(
-                    onClick = {
-                        clipboard.setText(AnnotatedString(cmykText))
-                        RecentPicksService.addPick(picked, source = "color_slider_copy")
-                    },
-                    label = { Text(cmykText) }
-                )
+
             }
 
-            Text(stringResource(R.string.sliders_label), style = MaterialTheme.typography.titleMedium)
+            Text(
+                stringResource(R.string.sliders_label),
+                style = MaterialTheme.typography.titleMedium
+            )
 
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -245,7 +249,8 @@ fun ColorSliderScreen(
                         value = hsv[1] * 100f,
                         valueRange = 0f..100f,
                         onValueChange = { value ->
-                            argb = AndroidColor.HSVToColor(floatArrayOf(hsv[0], value / 100f, hsv[2]))
+                            argb =
+                                AndroidColor.HSVToColor(floatArrayOf(hsv[0], value / 100f, hsv[2]))
                         },
                         valueFormatter = { v -> "${v.toInt()}%" }
                     )
@@ -254,7 +259,8 @@ fun ColorSliderScreen(
                         value = hsv[2] * 100f,
                         valueRange = 0f..100f,
                         onValueChange = { value ->
-                            argb = AndroidColor.HSVToColor(floatArrayOf(hsv[0], hsv[1], value / 100f))
+                            argb =
+                                AndroidColor.HSVToColor(floatArrayOf(hsv[0], hsv[1], value / 100f))
                         },
                         valueFormatter = { v -> "${v.toInt()}%" }
                     )
