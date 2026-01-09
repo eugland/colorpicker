@@ -148,9 +148,11 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
 
     val headerCard = remember(savedColors, recents, savedPalettes) {
         buildHeaderCard(
-            tipTitle = ctx.getString(R.string.palette_header_tip_title),
-            statsTitle = ctx.getString(R.string.palette_header_stats_title),
-            insightTitle = ctx.getString(R.string.palette_header_insight_title),
+            greeting = greetingForHour(
+                ctx.getString(R.string.palette_header_greeting_morning),
+                ctx.getString(R.string.palette_header_greeting_afternoon),
+                ctx.getString(R.string.palette_header_greeting_evening)
+            ),
             tips = listOf(
                 ctx.getString(R.string.palette_header_tip_hex_search),
                 ctx.getString(R.string.palette_header_tip_long_press_copy),
@@ -407,9 +409,7 @@ private data class HeaderCard(
 )
 
 private fun buildHeaderCard(
-    tipTitle: String,
-    statsTitle: String,
-    insightTitle: String,
+    greeting: String,
     tips: List<String>,
     stats: List<String>,
     insights: List<String>
@@ -420,20 +420,33 @@ private fun buildHeaderCard(
 
     return when {
         roll < 0.5f -> HeaderCard(
-            title = tipTitle,
+            title = greeting,
             message = tips.random(),
             icon = Icons.Outlined.Lightbulb
         )
         roll < 0.8f -> HeaderCard(
-            title = statsTitle,
+            title = greeting,
             message = statsBucket.random(),
             icon = Icons.Outlined.BarChart
         )
         else -> HeaderCard(
-            title = insightTitle,
+            title = greeting,
             message = insightsBucket.random(),
             icon = Icons.Outlined.AutoAwesome
         )
+    }
+}
+
+private fun greetingForHour(
+    morning: String,
+    afternoon: String,
+    evening: String
+): String {
+    val hour = java.time.LocalTime.now().hour
+    return when {
+        hour < 12 -> morning
+        hour < 18 -> afternoon
+        else -> evening
     }
 }
 
