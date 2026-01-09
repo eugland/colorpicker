@@ -33,7 +33,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AutoAwesome
+import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.Lightbulb
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -79,6 +82,7 @@ import com.primortex.color.ui.components.SwatchSection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+import kotlin.random.Random
 
 
 object ColorQueryResolver {
@@ -142,6 +146,44 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
     var showClearPalettesDialog by remember { mutableStateOf(false) }
     val snackbarService = LocalSnackbarService.current
 
+    val headerCard = remember(savedColors, recents, savedPalettes) {
+        buildHeaderCard(
+            tipTitle = ctx.getString(R.string.palette_header_tip_title),
+            statsTitle = ctx.getString(R.string.palette_header_stats_title),
+            insightTitle = ctx.getString(R.string.palette_header_insight_title),
+            tips = listOf(
+                ctx.getString(R.string.palette_header_tip_hex_search),
+                ctx.getString(R.string.palette_header_tip_long_press_copy),
+                ctx.getString(R.string.palette_header_tip_edge_enhance),
+                ctx.getString(R.string.palette_header_tip_name_search),
+                ctx.getString(R.string.palette_header_tip_palette_tap),
+                ctx.getString(R.string.palette_header_tip_camera_zoom),
+                ctx.getString(R.string.palette_header_tip_hsl_adjust),
+                ctx.getString(R.string.palette_header_tip_rename_palette),
+                ctx.getString(R.string.palette_header_tip_tags),
+                ctx.getString(R.string.palette_header_tip_recent_saves)
+            ),
+            stats = listOfNotNull(
+                savedColors.takeIf { it.isNotEmpty() }?.let {
+                    ctx.getString(R.string.palette_header_stat_saved_colors, it.size)
+                },
+                recents.takeIf { it.isNotEmpty() }?.let {
+                    ctx.getString(R.string.palette_header_stat_recent_picks, it.size)
+                },
+                savedPalettes.takeIf { it.isNotEmpty() }?.let {
+                    ctx.getString(R.string.palette_header_stat_saved_palettes, it.size)
+                }
+            ),
+            insights = listOfNotNull(
+                mostSavedColor(savedColors)?.let { colorName ->
+                    ctx.getString(R.string.palette_header_insight_most_saved_color, colorName)
+                },
+                ctx.getString(R.string.palette_header_insight_local_stats),
+                ctx.getString(R.string.palette_header_insight_warm_cool)
+            )
+        )
+    }
+
     ScreenScaffold(
         R.string.palette,
         innerPadding
@@ -151,6 +193,12 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
             contentPadding = PaddingValues(bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
+            item {
+                PaletteHeaderCard(card = headerCard)
+            }
+
+            item { Spacer(Modifier.height(12.dp)) }
+
             item {
                 ColorSearchBar(
                     query = searchQuery,
@@ -349,6 +397,94 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
             },
             onDismiss = { showClearPalettesDialog = false }
         )
+    }
+}
+
+private data class HeaderCard(
+    val title: String,
+    val message: String,
+    val icon: androidx.compose.ui.graphics.vector.ImageVector
+)
+
+private fun buildHeaderCard(
+    tipTitle: String,
+    statsTitle: String,
+    insightTitle: String,
+    tips: List<String>,
+    stats: List<String>,
+    insights: List<String>
+): HeaderCard {
+    val roll = Random.nextFloat()
+    val statsBucket = stats.ifEmpty { tips }
+    val insightsBucket = insights.ifEmpty { tips }
+
+    return when {
+        roll < 0.5f -> HeaderCard(
+            title = tipTitle,
+            message = tips.random(),
+            icon = Icons.Outlined.Lightbulb
+        )
+        roll < 0.8f -> HeaderCard(
+            title = statsTitle,
+            message = statsBucket.random(),
+            icon = Icons.Outlined.BarChart
+        )
+        else -> HeaderCard(
+            title = insightTitle,
+            message = insightsBucket.random(),
+            icon = Icons.Outlined.AutoAwesome
+        )
+    }
+}
+
+private fun mostSavedColor(savedColors: List<PickedColor>): String? {
+    return savedColors
+        .groupingBy { it.name }
+        .eachCount()
+        .maxByOrNull { it.value }
+        ?.key
+}
+
+@Composable
+private fun PaletteHeaderCard(card: HeaderCard) {
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primaryContainer),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = card.icon,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = card.title,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    text = card.message,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
     }
 }
 
