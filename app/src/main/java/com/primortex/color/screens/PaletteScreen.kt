@@ -38,6 +38,7 @@ import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -140,7 +141,13 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
     var showClearRecentsDialog by remember { mutableStateOf(false) }
     var showClearSavedDialog by remember { mutableStateOf(false) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
+    var showAllPalettes by remember { mutableStateOf(false) }
     val snackbarService = LocalSnackbarService.current
+    val paletteThreshold = 4
+
+    LaunchedEffect(savedPalettes.size) {
+        if (savedPalettes.size <= paletteThreshold) showAllPalettes = false
+    }
 
     ScreenScaffold(
         R.string.palette,
@@ -293,12 +300,27 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                     )
                 }
             } else {
-                items(savedPalettes, key = { it.id }) { p ->
+                val hasMoreThanThreshold = savedPalettes.size > paletteThreshold
+                val visiblePalettes =
+                    if (!hasMoreThanThreshold || showAllPalettes) savedPalettes else savedPalettes.take(paletteThreshold)
+                items(visiblePalettes, key = { it.id }) { p ->
                     PaletteCard(
                         palette = p,
                         onOpen = { onOpenPalette(p) }
                     )
                     Spacer(Modifier.height(10.dp))
+                }
+                if (hasMoreThanThreshold) {
+                    item { Spacer(Modifier.height(6.dp)) }
+                    item {
+                        FilledTonalButton(
+                            onClick = { showAllPalettes = !showAllPalettes },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp)
+                        ) {
+                            Text(if (showAllPalettes) stringResource(R.string.show_less) else stringResource(R.string.show_more))
+                        }
+                    }
                 }
             }
 
