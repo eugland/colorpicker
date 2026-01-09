@@ -74,6 +74,24 @@ object PaletteService {
             updatedAt = now
         )
 
+        fun pa(): Palette {
+            return Palette(
+                id = UUID.randomUUID().toString(),
+                name = "Muted Nature",
+                colors = listOf(
+                    PickedColor(0xFF2F5D50.toInt(), "Forest"),
+                    PickedColor(0xFF7A9B76.toInt(), "Moss"),
+                    PickedColor(0xFFE6D5B8.toInt(), "Sand"),
+                    PickedColor(0xFFC97C5D.toInt(), "Clay"),
+                    PickedColor(0xFF3A3A3A.toInt(), "Ink"),
+                ),
+                tags = listOf("nature", "muted", "warm"),
+                note = "Soft, earthy tones for calm visual design",
+                createdAt = now,
+                updatedAt = now
+            )
+        }
+
         val mutedNature = Palette(
             id = UUID.randomUUID().toString(),
             name = "Muted Nature",
@@ -90,7 +108,18 @@ object PaletteService {
             updatedAt = now
         )
 
-        _palettes.value = listOf(uiNeutrals, mutedNature)
+        _palettes.value = listOf(
+            uiNeutrals,
+            mutedNature,
+            pa(),
+            pa(),
+            pa(),
+            pa(),
+            pa(),
+            pa(),
+            pa(),
+            pa(),
+        )
 
         val payload = runCatching {
             json.encodeToString(_palettes.value)
