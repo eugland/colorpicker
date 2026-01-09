@@ -46,7 +46,8 @@ import com.primortex.color.screens.PhotoPickScreen
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     val nav = rememberNavController()
-    val navigator: ColorNavigator = remember(nav) { NavColorNavigator(nav) }
+    val navActions = remember(nav) { NavControllerActions(nav) }
+    val navigator: ColorNavigator = remember(navActions) { NavColorNavigator(navActions) }
     val backStack by nav.currentBackStackEntryAsState()
     val route = backStack?.destination?.route.orEmpty()
     val anim = tween<IntOffset>(220)

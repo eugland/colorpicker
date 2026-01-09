@@ -1,29 +1,39 @@
 package com.primortex.color.app
 
-import androidx.navigation.NavController
-
 class NavColorNavigator(
-    private val nav: NavController
+    private val nav: NavActions
 ) : ColorNavigator {
     override fun openPaletteTab() {
-        nav.navigate(Routes.Tab.PALETTE) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = false }
-            launchSingleTop = true
-        }
+        nav.navigate(
+            Routes.Tab.PALETTE,
+            NavigateOptions(
+                popUpToRoute = Routes.Tab.CAMERA,
+                inclusive = false,
+                launchSingleTop = true
+            )
+        )
     }
 
     override fun openCameraTab() {
-        nav.navigate(Routes.Tab.CAMERA) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = true }
-            launchSingleTop = true
-        }
+        nav.navigate(
+            Routes.Tab.CAMERA,
+            NavigateOptions(
+                popUpToRoute = Routes.Tab.CAMERA,
+                inclusive = true,
+                launchSingleTop = true
+            )
+        )
     }
 
     override fun openExploreTab() {
-        nav.navigate(Routes.Tab.EXPLORE) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = false }
-            launchSingleTop = true
-        }
+        nav.navigate(
+            Routes.Tab.EXPLORE,
+            NavigateOptions(
+                popUpToRoute = Routes.Tab.CAMERA,
+                inclusive = false,
+                launchSingleTop = true
+            )
+        )
     }
 
     override fun openLiveCamera() {

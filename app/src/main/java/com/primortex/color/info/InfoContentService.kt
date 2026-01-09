@@ -10,13 +10,38 @@ import io.ktor.client.request.get
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
+interface InfoContentCache {
+    fun read(key: String): String?
+    fun write(key: String, payload: String)
+}
+
+interface Clock {
+    fun nowMillis(): Long
+}
+
+object SystemClock : Clock {
+    override fun nowMillis(): Long = System.currentTimeMillis()
+}
+
 class InfoContentService(
-    context: Context,
+    private val cache: InfoContentCache,
     private val client: HttpClient = ApiService.defaultClient(),
-    private val json: Json = Json { ignoreUnknownKeys = true }
+    private val json: Json = Json { ignoreUnknownKeys = true },
+    private val clock: Clock = SystemClock
 ) {
-    private val appContext = context.applicationContext
-    private val cache = appContext.getSharedPreferences("info_content_cache", Context.MODE_PRIVATE)
+    constructor(
+        context: Context,
+        client: HttpClient = ApiService.defaultClient(),
+        json: Json = Json { ignoreUnknownKeys = true },
+        clock: Clock = SystemClock
+    ) : this(
+        cache = SharedPreferencesInfoContentCache(
+            context.applicationContext.getSharedPreferences("info_content_cache", Context.MODE_PRIVATE)
+        ),
+        client = client,
+        json = json,
+        clock = clock
+    )
 
     suspend fun loadSections(
         page: InfoPage,
@@ -67,14 +92,14 @@ class InfoContentService(
                     bullets = it.bullets
                 )
             },
-            fetchedAt = System.currentTimeMillis()
+            fetchedAt = clock.nowMillis()
         )
 
-        cache.edit().putString(cacheKey(page, languageTag), json.encodeToString(payload)).apply()
+        cache.write(cacheKey(page, languageTag), json.encodeToString(payload))
     }
 
     private fun readCache(page: InfoPage, languageTag: String): CachedContent? {
-        val cached = cache.getString(cacheKey(page, languageTag), null) ?: return null
+        val cached = cache.read(cacheKey(page, languageTag)) ?: return null
         return runCatching {
             val content = json.decodeFromString(CachedPayload.serializer(), cached)
             val sections = content.sections.toSections()
@@ -88,13 +113,13 @@ class InfoContentService(
     }
 
     private fun isStale(cachedContent: CachedContent): Boolean {
-        val age = System.currentTimeMillis() - cachedContent.fetchedAt
+        val age = clock.nowMillis() - cachedContent.fetchedAt
         return age >= DEFAULT_TTL_MILLIS
     }
 
     private fun cacheKey(page: InfoPage, languageTag: String): String = "${page.path}_$languageTag"
 
-    private fun normalizeLanguageTag(languageTag: String?): String {
+    internal fun normalizeLanguageTag(languageTag: String?): String {
         val cleaned = languageTag
             ?.trim()
             ?.replace('_', '-')
@@ -107,6 +132,16 @@ class InfoContentService(
     companion object {
         private const val BASE_URL = "https://eugland.github.io/color-picker-pages"
         private const val DEFAULT_TTL_MILLIS = 7L * 24 * 60 * 60 * 1000
+    }
+}
+
+private class SharedPreferencesInfoContentCache(
+    private val cache: android.content.SharedPreferences
+) : InfoContentCache {
+    override fun read(key: String): String? = cache.getString(key, null)
+
+    override fun write(key: String, payload: String) {
+        cache.edit().putString(key, payload).apply()
     }
 }
 
