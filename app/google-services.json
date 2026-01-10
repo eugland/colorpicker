@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "406048747522",
+    "project_id": "colorpicker-55ce2",
+    "storage_bucket": "colorpicker-55ce2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406048747522:android:8ddace5a0a4a9f8a3db71b",
+        "android_client_info": {
+          "package_name": "com.primortex.color"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8shkb4A3s0ObVOx_2lO7NlN7oyXnUXqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
