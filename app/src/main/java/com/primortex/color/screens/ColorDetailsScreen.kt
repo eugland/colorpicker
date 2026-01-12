@@ -29,11 +29,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,8 +55,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 
@@ -65,9 +73,15 @@ fun ColorDetailsScreen(
     val clipboard = LocalClipboardManager.current
     val context = LocalContext.current
     val snackbarService = LocalSnackbarService.current
+    val palettes by PaletteService.palettes.collectAsState()
+    var showPalettePicker by remember { mutableStateOf(false) }
 
     val details: ColorDetails = remember(argb) {
         ColorDetailsService.details(argb, similarLimit = 10)
+    }
+    val displayName = details.name.ifBlank { nameHint ?: stringResource(R.string.color_label) }
+    val pickedColor = remember(details.argb, displayName) {
+        PickedColor(details.argb, displayName)
     }
 
     Scaffold(
@@ -75,7 +89,7 @@ fun ColorDetailsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        details.name.ifBlank { nameHint ?: stringResource(R.string.color_label) },
+                        displayName,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -134,7 +148,7 @@ fun ColorDetailsScreen(
                 Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
                     Text(
-                        details.name.ifBlank { nameHint ?: stringResource(R.string.color_label) },
+                        displayName,
                         style = MaterialTheme.typography.titleLarge,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -160,16 +174,20 @@ fun ColorDetailsScreen(
             Spacer(Modifier.height(12.dp))
 
             // Actions
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
                     snackbarService.showMessage(context.getString(R.string.hex_copied))
                 }) { Text(stringResource(R.string.copy_hex)) }
 
                 OutlinedButton(onClick = {
-                    clipboard.setText(AnnotatedString(details.name))
+                    clipboard.setText(AnnotatedString(displayName))
                     snackbarService.showMessage(context.getString(R.string.name_copied))
                 }) { Text(stringResource(R.string.copy_name)) }
+
+                OutlinedButton(onClick = { showPalettePicker = true }) {
+                    Text(stringResource(R.string.add_to_palette))
+                }
             }
 
             Spacer(Modifier.height(14.dp))
@@ -240,6 +258,94 @@ fun ColorDetailsScreen(
 
             Spacer(Modifier.height(14.dp))
 
+            Text(
+                stringResource(R.string.color_shades_tints_tones_title, displayName),
+                style = MaterialTheme.typography.titleMedium
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_shades_tints_tones_description, displayName),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(10.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.tints_label),
+                argbs = details.tints
+            )
+            Spacer(Modifier.height(8.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.shades_label),
+                argbs = details.shades
+            )
+            Spacer(Modifier.height(8.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.tones_label),
+                argbs = details.tones
+            )
+
+            Spacer(Modifier.height(16.dp))
+
+            Text(stringResource(R.string.color_plates_title), style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_palettes_title, displayName),
+                style = MaterialTheme.typography.titleMedium
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_palettes_description, displayName),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(10.dp))
+            val paletteSchemes = listOf(
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_complementary),
+                    colors = listOf(details.argb) + details.complements
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_analogous),
+                    colors = listOf(details.argb) + details.analogous
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_split_complementary),
+                    colors = listOf(details.argb) + details.splitComplements
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_triadic),
+                    colors = listOf(details.argb) + details.triads
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_tetradic),
+                    colors = listOf(details.argb) + details.tetrads
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_square),
+                    colors = listOf(details.argb) + details.squares
+                )
+            )
+
+            paletteSchemes.forEach { scheme ->
+                PaletteSchemeCard(
+                    scheme = scheme,
+                    onSavePalette = {
+                        PaletteService.create(
+                            name = "${displayName} ${scheme.title}",
+                            colors = scheme.colors.toPickedColors(),
+                            tags = listOf("details"),
+                            creationSource = "color_details"
+                        )
+                        snackbarService.showMessage(context.getString(R.string.palette_saved))
+                    },
+                    onDownloadPalette = {
+                        clipboard.setText(AnnotatedString(buildPaletteCss(scheme.colors)))
+                        snackbarService.showMessage(context.getString(R.string.exported_css))
+                    }
+                )
+                Spacer(Modifier.height(10.dp))
+            }
+
             // Similar colors
             Text(
                 stringResource(R.string.similar_colors),
@@ -289,6 +395,22 @@ fun ColorDetailsScreen(
             Spacer(Modifier.height(10.dp))
         }
     }
+
+    if (showPalettePicker) {
+        PalettePickerDialog(
+            palettes = palettes,
+            pickedColor = pickedColor,
+            onDismiss = { showPalettePicker = false },
+            onPaletteUpdated = { message ->
+                snackbarService.showMessage(message)
+                showPalettePicker = false
+            },
+            onPaletteCreated = { message ->
+                snackbarService.showMessage(message)
+                showPalettePicker = false
+            }
+        )
+    }
 }
 
 @Composable
@@ -326,6 +448,86 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
 }
 
 @Composable
+private fun ShadeToneRow(label: String, argbs: List<Int>) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.width(90.dp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(Modifier.width(8.dp))
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            items(argbs, key = { it }) { a ->
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Box(
+                        Modifier
+                            .size(28.dp)
+                            .clip(CircleShape)
+                            .background(Color(a))
+                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        argbToHex(a),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PaletteSchemeCard(
+    scheme: PaletteScheme,
+    onSavePalette: () -> Unit,
+    onDownloadPalette: () -> Unit
+) {
+    Surface(
+        shape = MaterialTheme.shapes.large,
+        tonalElevation = 2.dp,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(scheme.title, style = MaterialTheme.typography.titleSmall)
+            Spacer(Modifier.height(8.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                items(scheme.colors, key = { it }) { a ->
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(
+                            Modifier
+                                .size(34.dp)
+                                .clip(CircleShape)
+                                .background(Color(a))
+                                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            argbToHex(a),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontFamily = FontFamily.Monospace
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(10.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                OutlinedButton(onClick = onSavePalette) {
+                    Text(stringResource(R.string.save_palette))
+                }
+                OutlinedButton(onClick = onDownloadPalette) {
+                    Text(stringResource(R.string.download_palette))
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun KeyValueGrid(items: List<Pair<String, String>>) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items.forEach { (k, v) ->
@@ -349,5 +551,92 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun PalettePickerDialog(
+    palettes: List<com.primortex.color.app.Palette>,
+    pickedColor: PickedColor,
+    onDismiss: () -> Unit,
+    onPaletteUpdated: (String) -> Unit,
+    onPaletteCreated: (String) -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.add_to_palette)) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                if (palettes.isEmpty()) {
+                    Text(stringResource(R.string.no_palettes_available))
+                } else {
+                    palettes.forEach { palette ->
+                        TextButton(
+                            onClick = {
+                                when {
+                                    palette.colors.any { it.argb == pickedColor.argb } ->
+                                        onPaletteUpdated(stringResource(R.string.already_in_palette))
+                                    palette.colors.size >= 10 ->
+                                        onPaletteUpdated(stringResource(R.string.palette_full))
+                                    else -> {
+                                        PaletteService.update(
+                                            id = palette.id,
+                                            colors = palette.colors + pickedColor
+                                        )
+                                        onPaletteUpdated(stringResource(R.string.added_to_palette))
+                                    }
+                                }
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = palette.name,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
+                    }
+                }
+                OutlinedButton(
+                    onClick = {
+                        PaletteService.create(
+                            name = stringResource(R.string.palette_name_with_color, pickedColor.name),
+                            colors = listOf(pickedColor),
+                            tags = listOf("details"),
+                            creationSource = "color_details"
+                        )
+                        onPaletteCreated(stringResource(R.string.palette_saved))
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.create_new_palette))
+                }
+            }
+        },
+        confirmButton = {},
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.cancel))
+            }
+        }
+    )
+}
+
+private data class PaletteScheme(val title: String, val colors: List<Int>)
+
+private fun List<Int>.toPickedColors(): List<PickedColor> {
+    return distinct().map { argb ->
+        val name = ColorServices.colors.localNameFromArgb(argb)
+        PickedColor(argb, if (name.isBlank()) argbToHex(argb) else name)
+    }
+}
+
+private fun buildPaletteCss(colors: List<Int>): String {
+    return buildString {
+        appendLine(":root {")
+        colors.forEachIndexed { index, color ->
+            append("    --color-${index + 1}: ${argbToHex(color)};")
+            append('\n')
+        }
+        append("}")
     }
 }
