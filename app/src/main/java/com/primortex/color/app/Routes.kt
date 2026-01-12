@@ -42,6 +42,7 @@ object Routes {
     object Tool {
         const val SLIDER = "tool/slider"
         const val COLOR_BLIND = "tool/color_blind"
+        const val IP_LOOKUP = "tool/ip_lookup"
     }
 
     object Settings {

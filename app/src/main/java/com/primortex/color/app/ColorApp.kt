@@ -42,6 +42,7 @@ import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
+import com.primortex.color.screens.IpLookupScreen
 import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
@@ -62,10 +63,13 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
         route.startsWith(Routes.Tab.CAMERA) -> Routes.Tab.CAMERA
         route.startsWith(Routes.Tab.EXPLORE) -> Routes.Tab.EXPLORE
         route.startsWith(Routes.Tool.SLIDER) -> Routes.Tab.CAMERA
+        route.startsWith(Routes.Tool.IP_LOOKUP) -> Routes.Tab.CAMERA
         else -> route
     }
 
-    val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
+    val showBottomBar = route.startsWith("tab/") ||
+            route.startsWith(Routes.Tool.SLIDER) ||
+            route.startsWith(Routes.Tool.IP_LOOKUP)
 
     CompositionLocalProvider(LocalSnackbarService provides snackbarService) {
         Scaffold(
@@ -148,6 +152,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenColorSlider = { navigator.openColorSlider() },
                         onOpenColorBlindEnhancer = { navigator.openColorBlindEnhancer() },
+                        onOpenIpLookup = { navigator.openIpLookup() },
                         onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
                     )
                 }
@@ -234,6 +239,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
                 composable(Routes.Tool.COLOR_BLIND) {
                     ColorBlindEnhancerScreen(
+                        onBack = { navigator.back() }
+                    )
+                }
+                composable(Routes.Tool.IP_LOOKUP) {
+                    IpLookupScreen(
+                        innerPadding = inner,
                         onBack = { navigator.back() }
                     )
                 }

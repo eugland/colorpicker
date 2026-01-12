@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Colorize
 import androidx.compose.material.icons.outlined.Gradient
+import androidx.compose.material.icons.outlined.Security
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
@@ -39,6 +40,7 @@ fun CameraScreen(
     onOpenLiveCameraPicker: () -> Unit,
     onOpenColorSlider: () -> Unit,
     onOpenColorBlindEnhancer: () -> Unit,
+    onOpenIpLookup: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
     val history by RecentPicksService.history.collectAsState()
@@ -98,6 +100,7 @@ fun CameraScreen(
 
         ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
         ColorBlindEnhancerCard(onOpenColorBlindEnhancer = onOpenColorBlindEnhancer)
+        IpLookupCard(onOpenIpLookup = onOpenIpLookup)
     }
 }
 
@@ -152,6 +155,37 @@ private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
                 )
             }
             FilledTonalButton(onClick = onOpenColorBlindEnhancer) {
+                Text(stringResource(R.string.open))
+            }
+        }
+    }
+}
+
+@Composable
+private fun IpLookupCard(onOpenIpLookup: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.extraLarge,
+        onClick = onOpenIpLookup
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Icon(Icons.Outlined.Security, contentDescription = null)
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    stringResource(R.string.ip_lookup),
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    stringResource(R.string.ip_lookup_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            FilledTonalButton(onClick = onOpenIpLookup) {
                 Text(stringResource(R.string.open))
             }
         }
