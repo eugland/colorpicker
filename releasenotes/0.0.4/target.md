@@ -19,4 +19,8 @@ Target Date: 2026-01-17
 - Palette max color: 5
 - And Allow color blind more mode
 - What else? research and finish this here
-- 
+
+### IP color Search
+
+- This activity should allow user to look up color and find relevant IP color
+- and find relevant color that are very similar to the color he or she wants.
