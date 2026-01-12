@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,6 +33,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -55,8 +58,11 @@ import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.ColorServices
+import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
+import com.primortex.color.ui.LocalSnackbarService
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,6 +75,7 @@ fun ColorDetailsBottomSheet(
 ) {
     val clipboard = LocalClipboard.current
     val context = LocalContext.current
+    val snackbarService = LocalSnackbarService.current
     val scope = rememberCoroutineScope()
     val scroll = rememberScrollState()
     val sheetState = rememberModalBottomSheetState(
@@ -213,6 +220,101 @@ fun ColorDetailsBottomSheet(
 
             Spacer(Modifier.height(14.dp))
 
+            Text(
+                stringResource(R.string.color_shades_tints_tones_title, details.name),
+                style = MaterialTheme.typography.titleMedium
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_shades_tints_tones_description, details.name),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(10.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.tints_label),
+                argbs = details.tints
+            )
+            Spacer(Modifier.height(8.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.shades_label),
+                argbs = details.shades
+            )
+            Spacer(Modifier.height(8.dp))
+            ShadeToneRow(
+                label = stringResource(R.string.tones_label),
+                argbs = details.tones
+            )
+
+            Spacer(Modifier.height(16.dp))
+
+            Text(stringResource(R.string.color_plates_title), style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_palettes_title, details.name),
+                style = MaterialTheme.typography.titleMedium
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                stringResource(R.string.color_palettes_description, details.name),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(10.dp))
+            val paletteSchemes = listOf(
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_complementary),
+                    colors = listOf(details.argb) + details.complements
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_analogous),
+                    colors = listOf(details.argb) + details.analogous
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_split_complementary),
+                    colors = listOf(details.argb) + details.splitComplements
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_triadic),
+                    colors = listOf(details.argb) + details.triads
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_tetradic),
+                    colors = listOf(details.argb) + details.tetrads
+                ),
+                PaletteScheme(
+                    title = stringResource(R.string.palette_scheme_square),
+                    colors = listOf(details.argb) + details.squares
+                )
+            )
+
+            paletteSchemes.forEach { scheme ->
+                PaletteSchemeCard(
+                    scheme = scheme,
+                    onSavePalette = {
+                        PaletteService.create(
+                            name = "${details.name} ${scheme.title}",
+                            colors = scheme.colors.toPickedColors(),
+                            tags = listOf("details"),
+                            creationSource = "color_details"
+                        )
+                        snackbarService.showMessage(context.getString(R.string.palette_saved))
+                    },
+                    onDownloadPalette = {
+                        clipboard.setClipEntry(
+                            ClipData.newPlainText(
+                                context.getString(R.string.export_css),
+                                buildPaletteCss(scheme.colors)
+                            ).toClipEntry()
+                        )
+                        snackbarService.showMessage(context.getString(R.string.exported_css))
+                    }
+                )
+                Spacer(Modifier.height(10.dp))
+            }
+
+            Spacer(Modifier.height(6.dp))
+
             // Similar colors
             Text(
                 stringResource(R.string.similar_colors),
@@ -297,6 +399,86 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
 }
 
 @Composable
+private fun ShadeToneRow(label: String, argbs: List<Int>) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.width(90.dp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(Modifier.width(8.dp))
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            items(argbs, key = { it }) { a ->
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Box(
+                        Modifier
+                            .size(28.dp)
+                            .clip(CircleShape)
+                            .background(Color(a))
+                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        argbToHex(a),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PaletteSchemeCard(
+    scheme: PaletteScheme,
+    onSavePalette: () -> Unit,
+    onDownloadPalette: () -> Unit
+) {
+    Surface(
+        shape = MaterialTheme.shapes.large,
+        tonalElevation = 2.dp,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(scheme.title, style = MaterialTheme.typography.titleSmall)
+            Spacer(Modifier.height(8.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                items(scheme.colors, key = { it }) { a ->
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(
+                            Modifier
+                                .size(34.dp)
+                                .clip(CircleShape)
+                                .background(Color(a))
+                                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            argbToHex(a),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontFamily = FontFamily.Monospace
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(10.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                OutlinedButton(onClick = onSavePalette) {
+                    Text(stringResource(R.string.save_palette))
+                }
+                OutlinedButton(onClick = onDownloadPalette) {
+                    Text(stringResource(R.string.download_palette))
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun KeyValueGrid(items: List<Pair<String, String>>) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items.forEach { (k, v) ->
@@ -335,4 +517,24 @@ private suspend fun copyToClipboard(
             text
         ).toClipEntry()
     )
+}
+
+private data class PaletteScheme(val title: String, val colors: List<Int>)
+
+private fun List<Int>.toPickedColors(): List<PickedColor> {
+    return distinct().map { argb ->
+        val name = ColorServices.colors.localNameFromArgb(argb)
+        PickedColor(argb, if (name.isBlank()) argbToHex(argb) else name)
+    }
+}
+
+private fun buildPaletteCss(colors: List<Int>): String {
+    return buildString {
+        appendLine(":root {")
+        colors.forEachIndexed { index, color ->
+            append("    --color-${index + 1}: ${argbToHex(color)};")
+            append('\n')
+        }
+        append("}")
+    }
 }
