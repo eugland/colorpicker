@@ -77,7 +77,7 @@ fun SwatchSection(
         } else {
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.spacedBy(2.dp), // SpaceBetween
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 visiblePicks.forEach { pick ->

@@ -248,7 +248,10 @@ fun ColorDetailsBottomSheet(
 
             Spacer(Modifier.height(16.dp))
 
-            Text(stringResource(R.string.color_plates_title), style = MaterialTheme.typography.titleMedium)
+            Text(
+                stringResource(R.string.color_plates_title),
+                style = MaterialTheme.typography.titleMedium
+            )
             Spacer(Modifier.height(6.dp))
             Text(
                 stringResource(R.string.color_palettes_title, details.name),
@@ -301,12 +304,14 @@ fun ColorDetailsBottomSheet(
                         snackbarService.showMessage(context.getString(R.string.palette_saved))
                     },
                     onDownloadPalette = {
-                        clipboard.setClipEntry(
-                            ClipData.newPlainText(
-                                context.getString(R.string.export_css),
+                        scope.launch {
+                            copyToClipboard(
+                                context,
+                                clipboard,
+                                R.string.export_css,
                                 buildPaletteCss(scheme.colors)
-                            ).toClipEntry()
-                        )
+                            )
+                        }
                         snackbarService.showMessage(context.getString(R.string.exported_css))
                     }
                 )
