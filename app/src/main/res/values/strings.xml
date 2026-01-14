@@ -195,6 +195,7 @@
     <string name="follows_your_system_theme">Follows your system theme</string>
     <string name="language">Language</string>
     <string name="picker_crosshair">Picker crosshair</string>
+    <string name="picker_crosshair_preview">Crosshair preview</string>
     <string name="picker_crosshair_description">Adjust the crosshair used when sampling colors.</string>
     <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Size</string>
