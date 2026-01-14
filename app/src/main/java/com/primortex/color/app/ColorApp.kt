@@ -37,6 +37,7 @@ import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
+import com.primortex.color.screens.CrosshairSettingsScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.screens.InfoDetailScreen
 import com.primortex.color.screens.InfoDetailSection
@@ -45,6 +46,7 @@ import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
+import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 
@@ -301,6 +303,20 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onLanguageChanged = onLanguageChanged
                     )
                 }
+
+                composable(Routes.Settings.THEME) {
+                    ThemeSelectionScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() }
+                    )
+                }
+
+                composable(Routes.Settings.CROSSHAIR) {
+                    CrosshairSettingsScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() }
+                    )
+                }
             }
         }
     }
@@ -314,6 +330,8 @@ private fun ExploreRoute(
     ExploreScreen(
         innerPadding = innerPadding,
         onOpenLanguageSettings = { navigator.openLanguageSettings() },
+        onOpenThemeSettings = { navigator.openThemeSettings() },
+        onOpenCrosshairSettings = { navigator.openCrosshairSettings() },
         onOpenCopyright = { navigator.openInfoCopyright() },
         onOpenPrivacy = { navigator.openInfoPrivacy() },
         onOpenTerms = { navigator.openInfoTerms() },

@@ -15,5 +15,7 @@ interface ColorNavigator {
     fun openInfoTerms()
     fun openInfoUsage()
     fun openLanguageSettings()
+    fun openThemeSettings()
+    fun openCrosshairSettings()
     fun back()
 }

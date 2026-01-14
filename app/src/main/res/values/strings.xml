@@ -190,9 +190,13 @@
     <string name="app_preferences">App preferences</string>
     <string name="theme">Theme</string>
     <string name="theme_description">Choose how the app looks.</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="choose_theme_description">Pick the look that suits you best.</string>
+    <string name="follows_your_system_theme">Follows your system theme</string>
     <string name="language">Language</string>
     <string name="picker_crosshair">Picker crosshair</string>
     <string name="picker_crosshair_description">Adjust the crosshair used when sampling colors.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Size</string>
     <string name="shape">Shape</string>
     <string name="sensitivity">Sensitivity</string>

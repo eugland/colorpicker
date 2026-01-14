@@ -71,6 +71,14 @@ class NavColorNavigator(
         nav.navigate(Routes.Settings.LANGUAGE)
     }
 
+    override fun openThemeSettings() {
+        nav.navigate(Routes.Settings.THEME)
+    }
+
+    override fun openCrosshairSettings() {
+        nav.navigate(Routes.Settings.CROSSHAIR)
+    }
+
     override fun back() {
         nav.popBackStack()
     }
