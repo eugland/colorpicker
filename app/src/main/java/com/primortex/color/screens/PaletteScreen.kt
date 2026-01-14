@@ -6,7 +6,7 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateColor
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
@@ -65,6 +65,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Offset
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -499,23 +500,23 @@ private fun ColorSearchBar(
 @Composable
 private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
     val transition = rememberInfiniteTransition(label = "water-flow")
-    val deepBlue by transition.animateColor(
-        initialValue = Color(0xFF2D7DD2),
-        targetValue = Color(0xFF3FA9F5),
+    val waveShift by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 9000, easing = LinearEasing),
+            animation = tween(durationMillis = 14000, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "water-blue"
+        label = "wave-shift"
     )
-    val teal by transition.animateColor(
-        initialValue = Color(0xFF3EDBF0),
-        targetValue = Color(0xFF4BC6B9),
+    val waveDrift by transition.animateFloat(
+        initialValue = 1f,
+        targetValue = 0f,
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 11000, easing = LinearEasing),
+            animation = tween(durationMillis = 18000, easing = LinearEasing),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "water-teal"
+        label = "wave-drift"
     )
     val surfaceShape = RoundedCornerShape(22.dp)
 
@@ -526,7 +527,20 @@ private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
             .clip(surfaceShape)
             .background(
                 Brush.linearGradient(
-                    listOf(deepBlue, teal, deepBlue.copy(alpha = 0.9f))
+                    colors = listOf(
+                        Color(0xFF1B6EF3),
+                        Color(0xFF2FD1C6),
+                        Color(0xFF5EC8FF),
+                        Color(0xFF3561E8)
+                    ),
+                    start = Offset(
+                        x = -220f + (520f * waveShift),
+                        y = 20f + (140f * waveDrift)
+                    ),
+                    end = Offset(
+                        x = 520f + (520f * waveShift),
+                        y = 280f + (140f * waveDrift)
+                    )
                 )
             )
             .border(1.dp, MaterialTheme.colorScheme.outlineVariant, surfaceShape)
@@ -534,17 +548,27 @@ private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
             .padding(18.dp),
         contentAlignment = Alignment.CenterStart
     ) {
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(
-                stringResource(R.string.pick_color_here),
-                style = MaterialTheme.typography.titleLarge,
-                color = Color.White
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Icon(
+                Icons.Filled.PhotoCamera,
+                contentDescription = null,
+                tint = Color.White
             )
-            Text(
-                stringResource(R.string.pick_color_here_description),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.9f)
-            )
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(
+                    stringResource(R.string.pick_color_here),
+                    style = MaterialTheme.typography.titleLarge,
+                    color = Color.White
+                )
+                Text(
+                    stringResource(R.string.pick_color_here_description),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.White.copy(alpha = 0.9f)
+                )
+            }
         }
     }
 }
