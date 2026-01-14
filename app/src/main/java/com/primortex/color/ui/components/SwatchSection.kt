@@ -6,15 +6,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorDetailsService
 
 @Composable
 fun SwatchSection(
@@ -75,12 +76,12 @@ fun SwatchSection(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         } else {
-            FlowRow(
+            LazyRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(2.dp), // SpaceBetween
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(horizontal = 4.dp)
             ) {
-                visiblePicks.forEach { pick ->
+                items(visiblePicks, key = { it.argb }) { pick ->
                     Swatch(
                         argb = pick.argb,
                         onClick = { onSwatchClick(pick) },
@@ -106,29 +107,30 @@ fun SwatchSection(
 
 @Composable
 fun Swatch(argb: Int, onClick: () -> Unit, label: String) {
-    val cellW = 72.dp
+    val cellSize = 72.dp
+    val shape = RoundedCornerShape(10.dp)
+    val onColor = remember(argb) { ColorDetailsService.details(argb).recommendedOnColor }
 
-    Column(
-        modifier = Modifier.width(cellW),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Box(
+        modifier = Modifier
+            .size(cellSize)
+            .clip(shape)
+            .background(Color(argb))
+            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, shape)
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center
     ) {
-        Box(
-            Modifier
-                .size(44.dp)
-                .clip(CircleShape)
-                .background(Color(argb))
-                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
-                .clickable(onClick = onClick)
-        )
-        Spacer(Modifier.height(6.dp))
         Text(
             text = label,
             style = MaterialTheme.typography.labelSmall,
-            maxLines = 2,                        // 👈 key
+            color = Color(onColor),
+            maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             textAlign = TextAlign.Center,
             lineHeight = 12.sp,
-            modifier = Modifier.fillMaxWidth()   // 👈 uses the fixed cell width
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 6.dp)
         )
     }
 }
