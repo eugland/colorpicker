@@ -38,6 +38,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material3.AlertDialog
@@ -63,9 +64,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Offset
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -314,7 +315,9 @@ fun PaletteScreen(
             } else {
                 val hasMoreThanThreshold = savedPalettes.size > paletteThreshold
                 val visiblePalettes =
-                    if (!hasMoreThanThreshold || showAllPalettes) savedPalettes else savedPalettes.take(paletteThreshold)
+                    if (!hasMoreThanThreshold || showAllPalettes) savedPalettes else savedPalettes.take(
+                        paletteThreshold
+                    )
                 items(visiblePalettes, key = { it.id }) { p ->
                     PaletteCard(
                         palette = p,
@@ -330,7 +333,11 @@ fun PaletteScreen(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(16.dp)
                         ) {
-                            Text(if (showAllPalettes) stringResource(R.string.show_less) else stringResource(R.string.show_more))
+                            Text(
+                                if (showAllPalettes) stringResource(R.string.show_less) else stringResource(
+                                    R.string.show_more
+                                )
+                            )
                         }
                     }
                 }
