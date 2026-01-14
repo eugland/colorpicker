@@ -2,7 +2,6 @@ package com.primortex.color.screens
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -37,10 +36,16 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.primortex.color.R
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
+
+private val CardOuterSpacing = 20.dp
+private val CardHeaderPaddingH = 16.dp
+private val CardHeaderPaddingV = 12.dp
+private val DividerInsetH = 16.dp
 
 @Composable
 fun ExploreScreen(
@@ -66,7 +71,7 @@ fun ExploreScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(CardOuterSpacing)
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(
@@ -80,62 +85,25 @@ fun ExploreScreen(
                 )
             }
 
-            // --- App preferences card (Theme, Language, etc.) ---
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(
-                    modifier = Modifier.padding(vertical = 6.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Text(
-                        stringResource(R.string.app_preferences),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
-                    )
-
-                    Column(
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        ListItem(
-                            headlineContent = { Text(stringResource(R.string.theme)) },
-                            supportingContent = { Text(stringResource(themeMode.labelRes)) },
-                            leadingContent = {
-                                Icon(
-                                    imageVector = Icons.Outlined.DarkMode,
-                                    contentDescription = null
-                                )
-                            },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    onOpenThemeSettings()
-                                }
-                        )
-                    }
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.language)) },
-                        supportingContent = { Text(stringResource(appLanguage.labelRes)) },
-                        leadingContent = {
-                            Icon(
-                                imageVector = Icons.Outlined.Language,
-                                contentDescription = null
-                            )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                onOpenLanguageSettings()
-                            }
-                    )
-                }
+            // App preferences
+            StandardCard(title = stringResource(R.string.app_preferences)) {
+                RowLink(
+                    title = stringResource(R.string.theme),
+                    subtitle = stringResource(themeMode.labelRes),
+                    leadingIcon = Icons.Outlined.DarkMode,
+                    onClick = onOpenThemeSettings
+                )
+                RowDivider()
+                RowLink(
+                    title = stringResource(R.string.language),
+                    subtitle = stringResource(appLanguage.labelRes),
+                    leadingIcon = Icons.Outlined.Language,
+                    onClick = onOpenLanguageSettings
+                )
             }
 
-            // --- Crosshair settings card ---
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+            // Crosshair
+            StandardCard {
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.picker_crosshair)) },
                     supportingContent = {
@@ -145,7 +113,9 @@ fun ExploreScreen(
                                 stringResource(crosshairSize.labelRes),
                                 stringResource(crosshairShape.labelRes),
                                 stringResource(crosshairSensitivity.labelRes)
-                            )
+                            ),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     },
                     leadingContent = {
@@ -155,121 +125,151 @@ fun ExploreScreen(
                             shape = crosshairShape
                         )
                     },
+                    trailingContent = {
+                        Icon(
+                            imageVector = Icons.Outlined.ArrowForwardIos,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {
-                            onOpenCrosshairSettings()
-                        }
+                        .clickable(onClick = onOpenCrosshairSettings)
                 )
             }
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(
-                    modifier = Modifier.padding(vertical = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Text(
-                        stringResource(R.string.information),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
-                    )
-
-                    InfoLink(
-                        title = stringResource(R.string.copyright_notice),
-                        subtitle = stringResource(R.string.copyright_notice_description),
-                        icon = Icons.Outlined.Gavel,
-                        onClick = onOpenCopyright
-                    )
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    InfoLink(
-                        title = stringResource(R.string.privacy_statement),
-                        subtitle = stringResource(R.string.privacy_statement_description),
-                        icon = Icons.Outlined.Description,
-                        onClick = onOpenPrivacy
-                    )
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    InfoLink(
-                        title = stringResource(R.string.terms_of_service),
-                        subtitle = stringResource(R.string.terms_of_service_description),
-                        icon = Icons.Outlined.Description,
-                        onClick = onOpenTerms
-                    )
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    InfoLink(
-                        title = stringResource(R.string.usage_guide),
-                        subtitle = stringResource(R.string.usage_guide_description),
-                        icon = Icons.Outlined.Description,
-                        onClick = onOpenUsage
-                    )
-                }
+            // Information
+            StandardCard(title = stringResource(R.string.information)) {
+                InfoLink(
+                    title = stringResource(R.string.copyright_notice),
+                    subtitle = stringResource(R.string.copyright_notice_description),
+                    icon = Icons.Outlined.Gavel,
+                    onClick = onOpenCopyright
+                )
+                RowDivider()
+                InfoLink(
+                    title = stringResource(R.string.privacy_statement),
+                    subtitle = stringResource(R.string.privacy_statement_description),
+                    icon = Icons.Outlined.Description,
+                    onClick = onOpenPrivacy
+                )
+                RowDivider()
+                InfoLink(
+                    title = stringResource(R.string.terms_of_service),
+                    subtitle = stringResource(R.string.terms_of_service_description),
+                    icon = Icons.Outlined.Description,
+                    onClick = onOpenTerms
+                )
+                RowDivider()
+                InfoLink(
+                    title = stringResource(R.string.usage_guide),
+                    subtitle = stringResource(R.string.usage_guide_description),
+                    icon = Icons.Outlined.Description,
+                    onClick = onOpenUsage
+                )
             }
 
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-                Column(
-                    modifier = Modifier.padding(vertical = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    Text(
-                        stringResource(R.string.feedback),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
-                    )
-
-                    InfoLink(
-                        title = stringResource(R.string.send_feedback),
-                        subtitle = stringResource(R.string.send_feedback_description),
-                        icon = Icons.Outlined.Feedback,
-                        onClick = {
-                            openUrl(
-                                context,
-                                "https://docs.google.com/forms/d/e/1FAIpQLScd5C3ut3O1nHnIBKtq9QD7FkNuNAKIjzfZyRRtZKRHUptkrQ/viewform?usp=dialog",
-                                openInApp = true
-                            )
-                        }
-                    )
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    InfoLink(
-                        title = stringResource(R.string.rate_us),
-                        subtitle = stringResource(R.string.rate_us_description),
-                        icon = Icons.Outlined.StarRate,
-                        onClick = {
-                            openUrl(
-                                context,
-                                "https://play.google.com/store/apps/details?id=com.primortex.color"
-                            )
-                        }
-                    )
-
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-
-                    InfoLink(
-                        title = stringResource(R.string.share_app),
-                        subtitle = stringResource(R.string.share_app_description),
-                        icon = Icons.Outlined.Share,
-                        onClick = {
-                            shareText(
-                                context,
-                                context.getString(
-                                    R.string.share_app_text,
-                                    "https://play.google.com/store/apps/details?id=com.primortex.color"
-                                )
-                            )
-                        }
-                    )
-                }
+            // Feedback
+            StandardCard(title = stringResource(R.string.feedback)) {
+                InfoLink(
+                    title = stringResource(R.string.send_feedback),
+                    subtitle = stringResource(R.string.send_feedback_description),
+                    icon = Icons.Outlined.Feedback,
+                    onClick = {
+                        openUrl(
+                            context,
+                            "https://docs.google.com/forms/d/e/1FAIpQLScd5C3ut3O1nHnIBKtq9QD7FkNuNAKIjzfZyRRtZKRHUptkrQ/viewform?usp=dialog",
+                            openInApp = true
+                        )
+                    }
+                )
+                RowDivider()
+                InfoLink(
+                    title = stringResource(R.string.rate_us),
+                    subtitle = stringResource(R.string.rate_us_description),
+                    icon = Icons.Outlined.StarRate,
+                    onClick = {
+                        openUrl(
+                            context,
+                            "https://play.google.com/store/apps/details?id=com.primortex.color",
+                            openInApp = true
+                        )
+                    }
+                )
+                RowDivider()
+                InfoLink(
+                    title = stringResource(R.string.share_app),
+                    subtitle = stringResource(R.string.share_app_description),
+                    icon = Icons.Outlined.Share,
+                    onClick = {
+                        shareText(
+                            context
+                        )
+                    }
+                )
             }
         }
     }
+}
+
+@Composable
+private fun StandardCard(
+    title: String? = null,
+    content: @Composable () -> Unit
+) {
+    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
+            if (title != null) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(
+                        horizontal = CardHeaderPaddingH,
+                        vertical = CardHeaderPaddingV
+                    )
+                )
+            }
+            content()
+        }
+    }
+}
+
+@Composable
+private fun RowDivider() {
+    HorizontalDivider(modifier = Modifier.padding(horizontal = DividerInsetH))
+}
+
+@Composable
+private fun RowLink(
+    title: String,
+    subtitle: String,
+    leadingIcon: ImageVector,
+    onClick: () -> Unit
+) {
+    ListItem(
+        headlineContent = { Text(title) },
+        supportingContent = {
+            Text(
+                subtitle,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        },
+        leadingContent = {
+            Icon(imageVector = leadingIcon, contentDescription = null)
+        },
+        trailingContent = {
+            Icon(
+                imageVector = Icons.Outlined.ArrowForwardIos,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+    )
 }
 
 @Composable
@@ -308,12 +308,8 @@ private fun InfoLink(
     )
 }
 
-private fun openUrl(context: Context, url: String) {
-    openUrl(context, url, openInApp = false)
-}
-
 private fun openUrl(context: Context, url: String, openInApp: Boolean) {
-    val uri = Uri.parse(url)
+    val uri = url.toUri()
     if (openInApp) {
         val customTabsIntent = CustomTabsIntent.Builder().build()
         customTabsIntent.launchUrl(context, uri)
@@ -323,9 +319,13 @@ private fun openUrl(context: Context, url: String, openInApp: Boolean) {
     }
 }
 
-private fun shareText(context: Context, text: String) {
+private fun shareText(context: Context) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
+        val text = context.getString(
+            R.string.share_app_text,
+            "https://play.google.com/store/apps/details?id=com.primortex.color"
+        )
         putExtra(Intent.EXTRA_TEXT, text)
     }
     context.startActivity(Intent.createChooser(intent, null))
