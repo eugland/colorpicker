@@ -4,6 +4,11 @@ package com.primortex.color.screens
 import android.util.Log
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateColor
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -58,6 +63,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
@@ -116,7 +122,11 @@ object ColorQueryResolver {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit) {
+fun PaletteScreen(
+    innerPadding: PaddingValues,
+    onOpenPalette: (Palette) -> Unit,
+    onOpenLiveCameraPicker: () -> Unit,
+) {
     val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -170,7 +180,8 @@ fun PaletteScreen(innerPadding: PaddingValues, onOpenPalette: (Palette) -> Unit)
                         )
                         searchQuery = ""
                     },
-                    onClear = { searchQuery = "" }
+                    onClear = { searchQuery = "" },
+                    onOpenLiveCameraPicker = onOpenLiveCameraPicker
                 )
             }
 
@@ -399,7 +410,8 @@ private fun ColorSearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
     onClear: () -> Unit,
-    onSubmit: () -> Unit = {}
+    onSubmit: () -> Unit = {},
+    onOpenLiveCameraPicker: () -> Unit
 ) {
     val prompts = remember {
         listOf(
@@ -428,6 +440,9 @@ private fun ColorSearchBar(
     }
 
     Column {
+        LivePickerWaterCard(onOpenLiveCameraPicker = onOpenLiveCameraPicker)
+        Spacer(Modifier.height(14.dp))
+
         Text(
             stringResource(R.string.quick_color_lookup),
             style = MaterialTheme.typography.titleMedium
@@ -478,6 +493,59 @@ private fun ColorSearchBar(
                 .onFocusChanged { focused = it.isFocused },
             shape = RoundedCornerShape(18.dp)
         )
+    }
+}
+
+@Composable
+private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
+    val transition = rememberInfiniteTransition(label = "water-flow")
+    val deepBlue by transition.animateColor(
+        initialValue = Color(0xFF2D7DD2),
+        targetValue = Color(0xFF3FA9F5),
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 9000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "water-blue"
+    )
+    val teal by transition.animateColor(
+        initialValue = Color(0xFF3EDBF0),
+        targetValue = Color(0xFF4BC6B9),
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 11000, easing = LinearEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "water-teal"
+    )
+    val surfaceShape = RoundedCornerShape(22.dp)
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp)
+            .clip(surfaceShape)
+            .background(
+                Brush.linearGradient(
+                    listOf(deepBlue, teal, deepBlue.copy(alpha = 0.9f))
+                )
+            )
+            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, surfaceShape)
+            .clickable(onClick = onOpenLiveCameraPicker)
+            .padding(18.dp),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                stringResource(R.string.pick_color_here),
+                style = MaterialTheme.typography.titleLarge,
+                color = Color.White
+            )
+            Text(
+                stringResource(R.string.pick_color_here_description),
+                style = MaterialTheme.typography.bodyMedium,
+                color = Color.White.copy(alpha = 0.9f)
+            )
+        }
     }
 }
 

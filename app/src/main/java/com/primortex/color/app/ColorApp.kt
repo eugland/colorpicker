@@ -156,7 +156,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tab.PALETTE) {
                     PaletteScreen(
                         innerPadding = inner,
-                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
+                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) },
+                        onOpenLiveCameraPicker = { navigator.openLiveCamera() }
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
