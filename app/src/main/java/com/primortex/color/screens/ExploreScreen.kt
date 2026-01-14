@@ -122,7 +122,8 @@ fun ExploreScreen(
                         CrosshairIndicator(
                             argb = MaterialTheme.colorScheme.primary.toArgb(),
                             size = crosshairSize,
-                            shape = crosshairShape
+                            shape = crosshairShape,
+                            displaySize = 22.dp
                         )
                     },
                     trailingContent = {
