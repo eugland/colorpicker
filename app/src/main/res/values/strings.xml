@@ -161,8 +161,8 @@
 
     <string name="picker_tab_camera">Camera</string>
     <string name="picker_tab_camera_description">Pick colors live or from a photo. Tap any swatch to copy.</string>
-    <string name="pick_color_here">Pick color here</string>
-    <string name="pick_color_here_description">Tap to open live color picking</string>
+    <string name="pick_color_here">Start picking!</string>
+    <string name="pick_color_here_description">Tap for live color picking</string>
     <string name="live_camera">Live Camera</string>
     <string name="live_camera_subtitle">Crosshair + zoom</string>
     <string name="from_album">From Album</string>
