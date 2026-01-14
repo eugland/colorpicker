@@ -79,8 +79,8 @@ fun SwatchSection(
         } else {
             LazyRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(horizontal = 4.dp)
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                contentPadding = PaddingValues(horizontal = 8.dp)
             ) {
                 items(visiblePicks, key = { it.argb }) { pick ->
                     Swatch(
@@ -108,7 +108,7 @@ fun SwatchSection(
 
 @Composable
 fun Swatch(argb: Int, onClick: () -> Unit, label: String) {
-    val cellSize = 72.dp
+    val cellSize = 96.dp
     val shape = RoundedCornerShape(10.dp)
     val onColor = remember(argb) { recommendedOnColor(argb) }
 
