@@ -7,13 +7,13 @@ object InfoContent {
         InfoDetailSection(
             heading = "Ownership",
             paragraphs = listOf(
-                "© 2024 Color Picker by Primortex. All rights reserved. The Color Picker name, logo, and application assets are proprietary and may not be reused without permission."
+                "© 2025 Primortex. All rights reserved. Color Picker, including its name, logo, UI, and application assets, is owned by Primortex and may not be reused without written permission."
             )
         ),
         InfoDetailSection(
             heading = "Third-party components",
             paragraphs = listOf(
-                "Color Picker is built on open-source technologies. We acknowledge and respect the licenses of each library we rely on."
+                "Color Picker is built with open-source technologies. We acknowledge and comply with the licenses of each library we rely on."
             ),
             bullets = listOf(
                 "Jetpack Compose Material 3 for UI components",
@@ -26,7 +26,7 @@ object InfoContent {
         InfoDetailSection(
             heading = "License notes",
             paragraphs = listOf(
-                "All third-party libraries remain the property of their respective owners. Their original licenses are preserved and credited here so you can review them in detail."
+                "All third-party libraries remain the property of their respective owners. Their original licenses are preserved and credited so you can review them in detail."
             )
         )
     )
@@ -35,23 +35,38 @@ object InfoContent {
         InfoDetailSection(
             heading = "On-device processing",
             paragraphs = listOf(
-                "Color sampling happens locally. Camera previews and picked photos are only analyzed to extract color values and are not transmitted to servers."
+                "Color sampling happens locally. Camera previews and picked photos are only analyzed to extract color values and are not transmitted to our servers."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Permissions and data",
+            paragraphs = listOf(
+                "The app requests access only to features needed for color picking, such as the camera and photo library. You can revoke these permissions at any time in your device settings."
+            ),
+            bullets = listOf(
+                "Camera access is used for live sampling and is never recorded or stored by us.",
+                "Photo access is used only when you select an image to sample."
             )
         ),
         InfoDetailSection(
             heading = "Network usage",
             paragraphs = listOf(
-                "Network requests are limited to fetching optional supporting data such as palette names. No personal images or camera frames are uploaded."
+                "Network requests are limited to fetching optional supporting data such as palette names or usage guides. No personal images or camera frames are uploaded."
             ),
             bullets = listOf(
-                "If you prefer a fully offline experience, you can revoke network access at the system level.",
-                "You may revoke camera and photo permissions anytime from your device settings."
+                "If you prefer a fully offline experience, you can revoke network access at the system level."
             )
         ),
         InfoDetailSection(
             heading = "Data retention",
             paragraphs = listOf(
-                "Saved colors and palettes stay on your device until you delete them. Clearing the app data or uninstalling removes your saved items."
+                "Saved colors and palettes stay on your device until you delete them. Clearing app data or uninstalling removes your saved items."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Contact and feedback",
+            paragraphs = listOf(
+                "If you choose to contact support, we will only use the information you provide to respond to your request."
             )
         )
     )
@@ -70,7 +85,13 @@ object InfoContent {
             ),
             bullets = listOf(
                 "Do not use the app in ways that violate applicable laws or regulations.",
-                "Do not attempt to reverse engineer or misuse the app’s services."
+                "Do not attempt to reverse engineer, tamper with, or misuse the app’s services."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Intellectual property",
+            paragraphs = listOf(
+                "The app and all related content are owned by Primortex or its licensors. You may not copy, modify, or redistribute any part of the app except as allowed by law."
             )
         ),
         InfoDetailSection(
@@ -102,7 +123,8 @@ object InfoContent {
                 "Pick a color from a photo",
                 "Save a swatch to your palette",
                 "Compare and copy color values",
-                "Organize palettes"
+                "Organize palettes",
+                "Share or export color values"
             )
         ),
         InfoDetailSection(
@@ -133,6 +155,12 @@ object InfoContent {
             bullets = listOf(
                 "Tap any saved swatch to copy its HEX code or open details for more formats.",
                 "Long-press or use edit actions (where available) to remove colors you no longer need."
+            )
+        ),
+        InfoDetailSection(
+            heading = "Compare and share values",
+            paragraphs = listOf(
+                "Open a saved swatch to compare formats side by side. Use the copy or share actions to send values to your design or development tools."
             )
         ),
         InfoDetailSection(
