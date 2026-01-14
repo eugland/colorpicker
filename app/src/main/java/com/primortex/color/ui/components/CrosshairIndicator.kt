@@ -22,10 +22,11 @@ fun CrosshairIndicator(
     argb: Int,
     size: CrosshairSize,
     shape: CrosshairShape,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    displaySize: Dp? = null
 ) {
     val indicatorColor = Color(argb)
-    val indicatorSize = size.toDp()
+    val indicatorSize = displaySize ?: size.toDp()
     val borderColor = MaterialTheme.colorScheme.surface
 
     when (shape) {

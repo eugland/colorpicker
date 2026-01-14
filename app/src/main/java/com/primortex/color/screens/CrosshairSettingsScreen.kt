@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
@@ -22,6 +23,7 @@ import com.primortex.color.service.CrosshairShape
 import com.primortex.color.service.CrosshairSize
 import com.primortex.color.service.PickerSensitivity
 import com.primortex.color.service.SettingsService
+import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
 
 @Composable
@@ -56,7 +58,14 @@ fun CrosshairSettingsScreen(
                     FilterChip(
                         selected = crosshairSize == size,
                         onClick = { SettingsService.setCrosshairSize(size) },
-                        label = { Text(stringResource(size.labelRes)) }
+                        label = { Text(stringResource(size.labelRes)) },
+                        leadingIcon = {
+                            CrosshairIndicator(
+                                argb = MaterialTheme.colorScheme.primary.toArgb(),
+                                size = size,
+                                shape = crosshairShape
+                            )
+                        }
                     )
                 }
             }
@@ -67,7 +76,15 @@ fun CrosshairSettingsScreen(
                     FilterChip(
                         selected = crosshairShape == shape,
                         onClick = { SettingsService.setCrosshairShape(shape) },
-                        label = { Text(stringResource(shape.labelRes)) }
+                        label = { Text(stringResource(shape.labelRes)) },
+                        leadingIcon = {
+                            CrosshairIndicator(
+                                argb = MaterialTheme.colorScheme.primary.toArgb(),
+                                size = CrosshairSize.Small,
+                                shape = shape,
+                                displaySize = 22.dp
+                            )
+                        }
                     )
                 }
             }
