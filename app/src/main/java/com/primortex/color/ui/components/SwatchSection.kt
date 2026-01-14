@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.recommendedOnColor
 
 @Composable
 fun SwatchSection(
@@ -109,7 +109,7 @@ fun SwatchSection(
 fun Swatch(argb: Int, onClick: () -> Unit, label: String) {
     val cellSize = 72.dp
     val shape = RoundedCornerShape(10.dp)
-    val onColor = remember(argb) { ColorDetailsService.details(argb).recommendedOnColor }
+    val onColor = remember(argb) { recommendedOnColor(argb) }
 
     Box(
         modifier = Modifier

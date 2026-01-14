@@ -62,6 +62,11 @@ fun luminance(rgb: Rgb): Float {
     return (0.2126f * r + 0.7152f * g + 0.0722f * b).coerceIn(0f, 1f)
 }
 
+fun recommendedOnColor(argb: Int): Int {
+    val lum = luminance(argbToRgb(argb))
+    return if (lum < 0.5f) 0xFFFFFFFF.toInt() else 0xFF000000.toInt()
+}
+
 fun hueShift(argb: Int, degrees: Float): Int {
     val rgb = argbToRgb(argb)
     val hsv = FloatArray(3)
