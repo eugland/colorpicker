@@ -103,7 +103,7 @@ fun ExploreScreen(
             }
 
             // Crosshair
-            StandardCard {
+            StandardCard(title = stringResource(R.string.live_picking)) {
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.picker_crosshair)) },
                     supportingContent = {
@@ -275,19 +275,12 @@ private fun RowLink(
 @Composable
 private fun InfoLink(
     title: String,
-    subtitle: String,
+    subtitle: String? = null,
     icon: ImageVector,
     onClick: () -> Unit
 ) {
     ListItem(
         headlineContent = { Text(title) },
-        supportingContent = {
-            Text(
-                subtitle,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        },
         leadingContent = {
             Icon(
                 imageVector = icon,
