@@ -562,7 +562,8 @@ private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
             Icon(
                 Icons.Filled.PhotoCamera,
                 contentDescription = null,
-                tint = Color.White
+                tint = Color.White,
+                modifier = Modifier.size(40.dp)
             )
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(
