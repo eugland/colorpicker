@@ -165,8 +165,10 @@
     <string name="pick_color_here_description">Tap for live color picking</string>
     <string name="live_camera">Live Camera</string>
     <string name="live_camera_subtitle">Crosshair + zoom</string>
+    <string name="live_picker">Live Picker</string>
     <string name="from_album">From Album</string>
     <string name="from_album_subtitle">Pick from a photo</string>
+    <string name="from_gallery">From Gallery</string>
     <string name="tools">Tools</string>
     <string name="color_slider_description">Adjust RGB, HSL, HSV, or CMYK and see live names and hex.</string>
     <string name="color_blind_enhancer">Color-blind enhancer</string>
