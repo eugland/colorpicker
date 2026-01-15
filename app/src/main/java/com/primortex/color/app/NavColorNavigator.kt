@@ -87,6 +87,10 @@ class NavColorNavigator(
         nav.navigate(Routes.List.swatch("saved"))
     }
 
+    override fun openSavedPalettes() {
+        nav.navigate(Routes.List.PALETTE)
+    }
+
     override fun back() {
         nav.popBackStack()
     }

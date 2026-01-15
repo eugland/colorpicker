@@ -44,6 +44,7 @@ import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteDetailScreen
+import com.primortex.color.screens.PaletteListScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 import com.primortex.color.screens.ThemeSelectionScreen
@@ -161,7 +162,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) },
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenRecentColors = { navigator.openRecentColors() },
-                        onOpenSavedColors = { navigator.openSavedColors() }
+                        onOpenSavedColors = { navigator.openSavedColors() },
+                        onOpenSavedPalettes = { navigator.openSavedPalettes() }
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
@@ -263,6 +265,14 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenColorDetail = { pick ->
                             navigator.openColorDetail(pick.argb, pick.name)
                         }
+                    )
+                }
+
+                composable(Routes.List.PALETTE) {
+                    PaletteListScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() },
+                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
                     )
                 }
 

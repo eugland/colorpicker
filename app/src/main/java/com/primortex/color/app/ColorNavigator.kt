@@ -19,5 +19,6 @@ interface ColorNavigator {
     fun openCrosshairSettings()
     fun openRecentColors()
     fun openSavedColors()
+    fun openSavedPalettes()
     fun back()
 }

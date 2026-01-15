@@ -122,6 +122,7 @@ fun PaletteScreen(
     onOpenLiveCameraPicker: () -> Unit,
     onOpenRecentColors: () -> Unit,
     onOpenSavedColors: () -> Unit,
+    onOpenSavedPalettes: () -> Unit,
 ) {
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -144,12 +145,7 @@ fun PaletteScreen(
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
-    var showAllPalettes by remember { mutableStateOf(false) }
-    val paletteThreshold = 4
-
-    LaunchedEffect(savedPalettes.size) {
-        if (savedPalettes.size <= paletteThreshold) showAllPalettes = false
-    }
+    val paletteThreshold = 3
 
     ScreenScaffold(
         R.string.palette,
@@ -312,10 +308,11 @@ fun PaletteScreen(
                 }
             } else {
                 val hasMoreThanThreshold = savedPalettes.size > paletteThreshold
-                val visiblePalettes =
-                    if (!hasMoreThanThreshold || showAllPalettes) savedPalettes else savedPalettes.take(
-                        paletteThreshold
-                    )
+                val visiblePalettes = if (hasMoreThanThreshold) {
+                    savedPalettes.take(paletteThreshold)
+                } else {
+                    savedPalettes
+                }
                 items(visiblePalettes, key = { it.id }) { p ->
                     PaletteCard(
                         palette = p,
@@ -327,15 +324,11 @@ fun PaletteScreen(
                     item { Spacer(Modifier.height(6.dp)) }
                     item {
                         FilledTonalButton(
-                            onClick = { showAllPalettes = !showAllPalettes },
+                            onClick = onOpenSavedPalettes,
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(16.dp)
                         ) {
-                            Text(
-                                if (showAllPalettes) stringResource(R.string.show_less) else stringResource(
-                                    R.string.show_more
-                                )
-                            )
+                            Text(stringResource(R.string.show_more))
                         }
                     }
                 }
@@ -364,6 +357,41 @@ fun PaletteScreen(
             },
             onDismiss = { showClearPalettesDialog = false }
         )
+    }
+}
+
+@Composable
+fun PaletteListScreen(
+    innerPadding: PaddingValues,
+    onBack: () -> Unit,
+    onOpenPalette: (Palette) -> Unit,
+) {
+    val savedPalettes by PaletteService.palettes.collectAsState()
+
+    ScreenScaffold(
+        titleRes = R.string.saved_palettes,
+        innerPadding = innerPadding,
+        onBack = onBack
+    ) {
+        if (savedPalettes.isEmpty()) {
+            Text(
+                stringResource(R.string.no_saved_palettes),
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        } else {
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(bottom = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items(savedPalettes, key = { it.id }) { palette ->
+                    PaletteCard(
+                        palette = palette,
+                        onOpen = { onOpenPalette(palette) }
+                    )
+                }
+            }
+        }
     }
 }
 

@@ -35,6 +35,7 @@ object Routes {
     object List {
         const val SWATCH = "swatch/list"
         const val SWATCH_ROUTE = "$SWATCH?type={type}"
+        const val PALETTE = "palette/list"
 
         fun swatch(type: String): String = "$SWATCH?type=$type"
     }
