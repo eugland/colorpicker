@@ -43,6 +43,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.outlined.Colorize
+import androidx.compose.material.icons.outlined.Gradient
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.R
 
