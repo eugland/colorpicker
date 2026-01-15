@@ -38,6 +38,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
@@ -262,8 +263,11 @@ fun PaletteScreen(
                     onEndSeeMore = onOpenRecentColors,
                     actions = {
                         if (recents.isNotEmpty()) {
-                            TextButton(onClick = onOpenRecentColors) {
-                                Text(stringResource(R.string.see_more))
+                            IconButton(onClick = onOpenRecentColors) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                    contentDescription = stringResource(R.string.see_more)
+                                )
                             }
                         }
                     }
@@ -283,8 +287,11 @@ fun PaletteScreen(
                     onEndSeeMore = onOpenSavedColors,
                     actions = {
                         if (savedColors.isNotEmpty()) {
-                            TextButton(onClick = onOpenSavedColors) {
-                                Text(stringResource(R.string.see_more))
+                            IconButton(onClick = onOpenSavedColors) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                    contentDescription = stringResource(R.string.see_more)
+                                )
                             }
                         }
                     }
