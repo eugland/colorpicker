@@ -32,6 +32,13 @@ object Routes {
         }
     }
 
+    object List {
+        const val SWATCH = "swatch/list"
+        const val SWATCH_ROUTE = "$SWATCH?type={type}"
+
+        fun swatch(type: String): String = "$SWATCH?type=$type"
+    }
+
     object Info {
         const val COPYRIGHT = "info/copyright"
         const val PRIVACY = "info/privacy"

@@ -15,8 +15,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,6 +50,9 @@ fun SwatchSection(
     onSwatchClick: (PickedColor) -> Unit,
     modifier: Modifier = Modifier,
     threshold: Int = 10,
+    showFooterToggle: Boolean = true,
+    showEndSeeMore: Boolean = false,
+    onEndSeeMore: (() -> Unit)? = null,
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -89,9 +96,32 @@ fun SwatchSection(
                         label = pick.name
                     )
                 }
+                if (hasMoreThanThreshold && showEndSeeMore && onEndSeeMore != null) {
+                    item {
+                        Box(
+                            modifier = Modifier
+                                .size(96.dp)
+                                .clip(CircleShape)
+                                .background(MaterialTheme.colorScheme.primaryContainer)
+                                .clickable(onClick = onEndSeeMore)
+                                .border(
+                                    1.dp,
+                                    MaterialTheme.colorScheme.outlineVariant,
+                                    CircleShape
+                                ),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                contentDescription = stringResource(R.string.see_more),
+                                tint = MaterialTheme.colorScheme.tertiaryContainer
+                            )
+                        }
+                    }
+                }
             }
 
-            if (hasMoreThanThreshold) {
+            if (hasMoreThanThreshold && showFooterToggle) {
                 Spacer(Modifier.height(10.dp))
 
                 FilledTonalButton(
