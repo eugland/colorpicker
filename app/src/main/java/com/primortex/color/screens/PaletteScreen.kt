@@ -4,11 +4,6 @@ package com.primortex.color.screens
 import android.util.Log
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.SizeTransform
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -64,8 +59,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
@@ -85,6 +78,7 @@ import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
+import com.primortex.color.ui.components.WaterCard
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -448,7 +442,18 @@ private fun ColorSearchBar(
     }
 
     Column {
-        LivePickerWaterCard(onOpenLiveCameraPicker = onOpenLiveCameraPicker)
+        WaterCard(
+            icon = Icons.Filled.PhotoCamera,
+            title = stringResource(R.string.pick_color_here),
+            description = stringResource(R.string.pick_color_here_description),
+            gradientColors = listOf(
+                Color(0xFF1B6EF3),
+                Color(0xFF2FD1C6),
+                Color(0xFF5EC8FF),
+                Color(0xFF3561E8)
+            ),
+            onClick = onOpenLiveCameraPicker
+        )
         Spacer(Modifier.height(14.dp))
 
         Text(
@@ -503,84 +508,6 @@ private fun ColorSearchBar(
         )
     }
 }
-
-@Composable
-private fun LivePickerWaterCard(onOpenLiveCameraPicker: () -> Unit) {
-    val transition = rememberInfiniteTransition(label = "water-flow")
-    val waveShift by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 14000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "wave-shift"
-    )
-    val waveDrift by transition.animateFloat(
-        initialValue = 1f,
-        targetValue = 0f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 18000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "wave-drift"
-    )
-    val surfaceShape = RoundedCornerShape(22.dp)
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(150.dp)
-            .clip(surfaceShape)
-            .background(
-                Brush.linearGradient(
-                    colors = listOf(
-                        Color(0xFF1B6EF3),
-                        Color(0xFF2FD1C6),
-                        Color(0xFF5EC8FF),
-                        Color(0xFF3561E8)
-                    ),
-                    start = Offset(
-                        x = -220f + (520f * waveShift),
-                        y = 20f + (140f * waveDrift)
-                    ),
-                    end = Offset(
-                        x = 520f + (520f * waveShift),
-                        y = 280f + (140f * waveDrift)
-                    )
-                )
-            )
-            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, surfaceShape)
-            .clickable(onClick = onOpenLiveCameraPicker)
-            .padding(18.dp),
-        contentAlignment = Alignment.CenterStart
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            Icon(
-                Icons.Filled.PhotoCamera,
-                contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier.size(40.dp)
-            )
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(
-                    stringResource(R.string.pick_color_here),
-                    style = MaterialTheme.typography.titleLarge,
-                    color = Color.White
-                )
-                Text(
-                    stringResource(R.string.pick_color_here_description),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Color.White.copy(alpha = 0.9f)
-                )
-            }
-        }
-    }
-}
-
 
 @Composable
 private fun PaletteCard(
