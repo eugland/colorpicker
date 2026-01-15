@@ -125,7 +125,7 @@ fun SwatchListScreen(
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surface
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant
                         ),
                         onClick = { onOpenColorDetail(pick) }
                     ) {
