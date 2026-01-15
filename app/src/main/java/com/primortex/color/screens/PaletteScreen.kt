@@ -128,6 +128,8 @@ fun PaletteScreen(
     innerPadding: PaddingValues,
     onOpenPalette: (Palette) -> Unit,
     onOpenLiveCameraPicker: () -> Unit,
+    onOpenRecentColors: () -> Unit,
+    onOpenSavedColors: () -> Unit,
 ) {
     val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
@@ -256,10 +258,16 @@ fun PaletteScreen(
                     picks = recents,
                     emptyMessage = stringResource(R.string.no_recent_colors),
                     onSwatchClick = { pick -> detailPick = pick },
+                    showFooterToggle = false,
                     actions = {
-                        if (recents.isNotEmpty()) {
-                            TextButton(onClick = { showClearRecentsDialog = true }) {
-                                Text(stringResource(R.string.clear))
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (recents.isNotEmpty()) {
+                                TextButton(onClick = onOpenRecentColors) {
+                                    Text(stringResource(R.string.see_more))
+                                }
+                                TextButton(onClick = { showClearRecentsDialog = true }) {
+                                    Text(stringResource(R.string.clear))
+                                }
                             }
                         }
                     }
@@ -273,10 +281,16 @@ fun PaletteScreen(
                     picks = savedColors,
                     emptyMessage = stringResource(R.string.no_saved_colors),
                     onSwatchClick = { pick -> detailPick = pick },
+                    showFooterToggle = false,
                     actions = {
-                        if (savedColors.isNotEmpty()) {
-                            TextButton(onClick = { showClearSavedDialog = true }) {
-                                Text(stringResource(R.string.clear))
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (savedColors.isNotEmpty()) {
+                                TextButton(onClick = onOpenSavedColors) {
+                                    Text(stringResource(R.string.see_more))
+                                }
+                                TextButton(onClick = { showClearSavedDialog = true }) {
+                                    Text(stringResource(R.string.clear))
+                                }
                             }
                         }
                     }

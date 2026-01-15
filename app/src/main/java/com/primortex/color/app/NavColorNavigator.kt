@@ -79,6 +79,14 @@ class NavColorNavigator(
         nav.navigate(Routes.Settings.CROSSHAIR)
     }
 
+    override fun openRecentColors() {
+        nav.navigate(Routes.List.swatch("recent"))
+    }
+
+    override fun openSavedColors() {
+        nav.navigate(Routes.List.swatch("saved"))
+    }
+
     override fun back() {
         nav.popBackStack()
     }

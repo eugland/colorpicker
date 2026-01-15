@@ -47,6 +47,8 @@ import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 import com.primortex.color.screens.ThemeSelectionScreen
+import com.primortex.color.screens.SwatchListScreen
+import com.primortex.color.screens.SwatchListType
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 
@@ -157,7 +159,9 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     PaletteScreen(
                         innerPadding = inner,
                         onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) },
-                        onOpenLiveCameraPicker = { navigator.openLiveCamera() }
+                        onOpenLiveCameraPicker = { navigator.openLiveCamera() },
+                        onOpenRecentColors = { navigator.openRecentColors() },
+                        onOpenSavedColors = { navigator.openSavedColors() }
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
@@ -238,6 +242,27 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tool.COLOR_BLIND) {
                     ColorBlindEnhancerScreen(
                         onBack = { navigator.back() }
+                    )
+                }
+
+                composable(
+                    route = Routes.List.SWATCH_ROUTE,
+                    arguments = listOf(
+                        navArgument("type") { type = NavType.StringType; defaultValue = "recent" }
+                    )
+                ) { backStackEntry ->
+                    val type = when (backStackEntry.arguments?.getString("type")) {
+                        "saved" -> SwatchListType.SAVED
+                        else -> SwatchListType.RECENT
+                    }
+
+                    SwatchListScreen(
+                        innerPadding = inner,
+                        type = type,
+                        onBack = { navigator.back() },
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(pick.argb, pick.name)
+                        }
                     )
                 }
 

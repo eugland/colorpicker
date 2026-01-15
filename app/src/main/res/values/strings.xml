@@ -25,6 +25,7 @@
     <string name="view_more">View more</string>
     <string name="show_less">Show less</string>
     <string name="show_more">Show more</string>
+    <string name="see_more">See more</string>
     <string name="show_less_caps">SHOW LESS</string>
     <string name="show_more_caps">SHOW MORE</string>
 
@@ -260,6 +261,7 @@
     <string name="search_hint_eight">What does \'Cerulean\' look like?</string>
     <string name="search_hint_nine">What does \'#228B22\' feel like?</string>
     <string name="search_hint_ten">Uncover the shade \'#E97451\'</string>
+    <string name="no_matching_colors">No matching colors</string>
     <string name="palette_color_label">Palette</string>
     <string name="clear_recent">Clear recent</string>
     <string name="clear_saved">Clear saved</string>

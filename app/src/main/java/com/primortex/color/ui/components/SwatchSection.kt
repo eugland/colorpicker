@@ -46,6 +46,7 @@ fun SwatchSection(
     onSwatchClick: (PickedColor) -> Unit,
     modifier: Modifier = Modifier,
     threshold: Int = 10,
+    showFooterToggle: Boolean = true,
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -91,7 +92,7 @@ fun SwatchSection(
                 }
             }
 
-            if (hasMoreThanThreshold) {
+            if (hasMoreThanThreshold && showFooterToggle) {
                 Spacer(Modifier.height(10.dp))
 
                 FilledTonalButton(
