@@ -103,7 +103,10 @@ fun ColorDetailsBottomSheet(
                         .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
                 )
                 Spacer(Modifier.width(12.dp))
-                Column(Modifier.weight(1f)) {
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(2.dp)
+                ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             details.name,
@@ -228,7 +231,7 @@ fun ColorDetailsBottomSheet(
                 )
             }
 
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(24.dp))
         }
     }
 }
