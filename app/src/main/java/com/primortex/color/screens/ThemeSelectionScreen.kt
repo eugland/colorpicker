@@ -13,6 +13,7 @@ import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -73,30 +74,37 @@ private fun ThemeOption(
     selected: Boolean,
     onSelect: () -> Unit
 ) {
-    ListItem(
-        headlineContent = { Text(str(mode.labelRes)) },
-        supportingContent = {
-            if (mode == ThemeMode.SYSTEM) {
-                Text(str(R.string.follows_your_system_theme))
-            }
-        },
-        leadingContent = {
-            Icon(
-                imageVector = Icons.Outlined.DarkMode,
-                contentDescription = null
-            )
-        },
-        trailingContent = {
-            if (selected) {
-                Text(
-                    str(R.string.selected_str),
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.labelLarge
-                )
-            }
-        },
+    Surface(
         modifier = Modifier
-            .padding(vertical = 2.dp)
-            .clickable(onClick = onSelect)
-    )
+            .fillMaxWidth()
+            .padding(vertical = 2.dp),
+        tonalElevation = 2.dp,
+        shape = MaterialTheme.shapes.medium,
+        onClick = onSelect
+    ) {
+        ListItem(
+            headlineContent = { Text(str(mode.labelRes)) },
+            supportingContent = {
+                if (mode == ThemeMode.SYSTEM) {
+                    Text(str(R.string.follows_your_system_theme))
+                }
+            },
+            leadingContent = {
+                Icon(
+                    imageVector = Icons.Outlined.DarkMode,
+                    contentDescription = null
+                )
+            },
+            trailingContent = {
+                if (selected) {
+                    Text(
+                        str(R.string.selected_str),
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
 }
