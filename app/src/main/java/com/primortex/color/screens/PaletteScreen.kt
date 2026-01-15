@@ -291,8 +291,8 @@ fun PaletteScreen(
                         modifier = Modifier.weight(1f)
                     )
                     if (savedPalettes.isNotEmpty()) {
-                        TextButton(onClick = { showClearPalettesDialog = true }) {
-                            Text(stringResource(R.string.clear))
+                        TextButton(onClick = onOpenSavedPalettes) {
+                            Text(stringResource(R.string.see_more))
                         }
                     }
                 }
@@ -376,8 +376,8 @@ fun PaletteListScreen(
         } else {
             savedPalettes.filter { palette ->
                 palette.name.lowercase().contains(lowered) ||
-                    palette.tags.any { it.lowercase().contains(lowered) } ||
-                    palette.note.lowercase().contains(lowered)
+                        palette.tags.any { it.lowercase().contains(lowered) } ||
+                        palette.note.lowercase().contains(lowered)
             }
         }
     }
