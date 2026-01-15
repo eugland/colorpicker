@@ -82,6 +82,13 @@ fun CameraScreen(
             icon = Icons.Filled.PhotoCamera,
             title = stringResource(R.string.pick_color_here),
             description = stringResource(R.string.pick_color_here_description),
+            badgeText = stringResource(R.string.live_picking),
+            gradientColors = listOf(
+                Color(0xFF1B6EF3),
+                Color(0xFF2FD1C6),
+                Color(0xFF5EC8FF),
+                Color(0xFF3561E8)
+            ),
             onClick = onOpenLiveCameraPicker
         )
 
@@ -89,6 +96,13 @@ fun CameraScreen(
             icon = Icons.Filled.Collections,
             title = stringResource(R.string.from_gallery),
             description = stringResource(R.string.from_album_subtitle),
+            badgeText = stringResource(R.string.from_album),
+            gradientColors = listOf(
+                Color(0xFF6D4CFF),
+                Color(0xFFB76BFF),
+                Color(0xFFFFB562),
+                Color(0xFFFF7D76)
+            ),
             onClick = { pickPhotoLauncher.launch("image/*") }
         )
 
@@ -168,6 +182,8 @@ private fun LivePickerWaterCard(
     icon: ImageVector,
     title: String,
     description: String,
+    badgeText: String,
+    gradientColors: List<Color>,
     onClick: () -> Unit
 ) {
     val transition = rememberInfiniteTransition(label = "camera-water-flow")
@@ -190,6 +206,7 @@ private fun LivePickerWaterCard(
         label = "camera-wave-drift"
     )
     val surfaceShape = RoundedCornerShape(22.dp)
+    val badgeShape = RoundedCornerShape(999.dp)
 
     Box(
         modifier = Modifier
@@ -198,12 +215,7 @@ private fun LivePickerWaterCard(
             .clip(surfaceShape)
             .background(
                 Brush.linearGradient(
-                    colors = listOf(
-                        Color(0xFF1B6EF3),
-                        Color(0xFF2FD1C6),
-                        Color(0xFF5EC8FF),
-                        Color(0xFF3561E8)
-                    ),
+                    colors = gradientColors,
                     start = Offset(
                         x = -220f + (520f * waveShift),
                         y = 20f + (140f * waveDrift)
@@ -219,6 +231,23 @@ private fun LivePickerWaterCard(
             .padding(18.dp),
         contentAlignment = Alignment.CenterStart
     ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .background(
+                    color = Color.White.copy(alpha = 0.25f),
+                    shape = badgeShape
+                )
+                .border(1.dp, Color.White.copy(alpha = 0.4f), badgeShape)
+                .padding(horizontal = 12.dp, vertical = 4.dp)
+        ) {
+            Text(
+                badgeText,
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.White
+            )
+        }
+
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp)
