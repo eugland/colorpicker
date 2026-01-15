@@ -152,8 +152,6 @@ fun PaletteScreen(
         }
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
-    var showClearRecentsDialog by remember { mutableStateOf(false) }
-    var showClearSavedDialog by remember { mutableStateOf(false) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
     var showAllPalettes by remember { mutableStateOf(false) }
     val snackbarService = LocalSnackbarService.current
@@ -258,16 +256,14 @@ fun PaletteScreen(
                     picks = recents,
                     emptyMessage = stringResource(R.string.no_recent_colors),
                     onSwatchClick = { pick -> detailPick = pick },
+                    threshold = 6,
                     showFooterToggle = false,
+                    showEndSeeMore = true,
+                    onEndSeeMore = onOpenRecentColors,
                     actions = {
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            if (recents.isNotEmpty()) {
-                                TextButton(onClick = onOpenRecentColors) {
-                                    Text(stringResource(R.string.see_more))
-                                }
-                                TextButton(onClick = { showClearRecentsDialog = true }) {
-                                    Text(stringResource(R.string.clear))
-                                }
+                        if (recents.isNotEmpty()) {
+                            TextButton(onClick = onOpenRecentColors) {
+                                Text(stringResource(R.string.see_more))
                             }
                         }
                     }
@@ -281,16 +277,14 @@ fun PaletteScreen(
                     picks = savedColors,
                     emptyMessage = stringResource(R.string.no_saved_colors),
                     onSwatchClick = { pick -> detailPick = pick },
+                    threshold = 6,
                     showFooterToggle = false,
+                    showEndSeeMore = true,
+                    onEndSeeMore = onOpenSavedColors,
                     actions = {
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            if (savedColors.isNotEmpty()) {
-                                TextButton(onClick = onOpenSavedColors) {
-                                    Text(stringResource(R.string.see_more))
-                                }
-                                TextButton(onClick = { showClearSavedDialog = true }) {
-                                    Text(stringResource(R.string.clear))
-                                }
+                        if (savedColors.isNotEmpty()) {
+                            TextButton(onClick = onOpenSavedColors) {
+                                Text(stringResource(R.string.see_more))
                             }
                         }
                     }
@@ -367,30 +361,6 @@ fun PaletteScreen(
             onDismiss = { detailPick = null },
             onOpenColorDetail = { s -> detailPick = s }, // tap similar colors to jump
             skipPartiallyExpanded = true
-        )
-    }
-
-    if (showClearRecentsDialog) {
-        ConfirmClearDialog(
-            title = stringResource(R.string.clear_recent_colors_title),
-            description = stringResource(R.string.clear_recent_colors_description),
-            onConfirm = {
-                RecentPicksService.clear()
-                showClearRecentsDialog = false
-            },
-            onDismiss = { showClearRecentsDialog = false }
-        )
-    }
-
-    if (showClearSavedDialog) {
-        ConfirmClearDialog(
-            title = stringResource(R.string.clear_saved_colors_title),
-            description = stringResource(R.string.clear_saved_colors_description),
-            onConfirm = {
-                RecentPicksService.clearSaved()
-                showClearSavedDialog = false
-            },
-            onDismiss = { showClearSavedDialog = false }
         )
     }
 

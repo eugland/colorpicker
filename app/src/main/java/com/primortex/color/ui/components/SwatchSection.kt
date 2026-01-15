@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
@@ -47,6 +48,8 @@ fun SwatchSection(
     modifier: Modifier = Modifier,
     threshold: Int = 10,
     showFooterToggle: Boolean = true,
+    showEndSeeMore: Boolean = false,
+    onEndSeeMore: (() -> Unit)? = null,
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -89,6 +92,33 @@ fun SwatchSection(
                         onClick = { onSwatchClick(pick) },
                         label = pick.name
                     )
+                }
+                if (hasMoreThanThreshold && showEndSeeMore && onEndSeeMore != null) {
+                    item {
+                        Box(
+                            modifier = Modifier
+                                .size(96.dp)
+                                .clip(CircleShape)
+                                .background(MaterialTheme.colorScheme.primaryContainer)
+                                .clickable(onClick = onEndSeeMore)
+                                .border(
+                                    1.dp,
+                                    MaterialTheme.colorScheme.outlineVariant,
+                                    CircleShape
+                                ),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = stringResource(R.string.see_more_ellipsis),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                textAlign = TextAlign.Center,
+                                maxLines = 2,
+                                overflow = TextOverflow.Ellipsis,
+                                modifier = Modifier.padding(horizontal = 6.dp)
+                            )
+                        }
+                    }
                 }
             }
 
