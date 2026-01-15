@@ -114,7 +114,7 @@ fun SwatchSection(
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                                 contentDescription = stringResource(R.string.see_more),
-                                tint = MaterialTheme.colorScheme.onPrimaryContainer
+                                tint = MaterialTheme.colorScheme.tertiaryContainer
                             )
                         }
                     }

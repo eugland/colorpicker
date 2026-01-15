@@ -21,8 +21,8 @@ fun ColorTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> IOSDarkColorScheme
+        else -> IOSLightColorScheme
     }
 
     MaterialTheme(
