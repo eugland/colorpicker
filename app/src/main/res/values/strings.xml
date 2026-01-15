@@ -250,6 +250,7 @@
     <string name="clear_saved_colors_description">This will remove all saved colors.</string>
     <string name="clear_saved_palettes_title">Clear saved palettes?</string>
     <string name="clear_saved_palettes_description">This will remove all saved palettes.</string>
+    <string name="no_matching_palettes">No matching palettes</string>
     <string name="quick_color_lookup">Quick color look up</string>
     <string name="search_placeholder">Search colors or hex codes</string>
     <string name="search_hint_one">Curious about \'Midnight blue\'?</string>

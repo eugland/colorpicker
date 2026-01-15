@@ -36,6 +36,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -367,15 +368,55 @@ fun PaletteListScreen(
     onOpenPalette: (Palette) -> Unit,
 ) {
     val savedPalettes by PaletteService.palettes.collectAsState()
+    var query by remember { mutableStateOf("") }
+    val filteredPalettes = remember(savedPalettes, query) {
+        val lowered = query.trim().lowercase()
+        if (lowered.isBlank()) {
+            savedPalettes
+        } else {
+            savedPalettes.filter { palette ->
+                palette.name.lowercase().contains(lowered) ||
+                    palette.tags.any { it.lowercase().contains(lowered) } ||
+                    palette.note.lowercase().contains(lowered)
+            }
+        }
+    }
 
     ScreenScaffold(
         titleRes = R.string.saved_palettes,
         innerPadding = innerPadding,
         onBack = onBack
     ) {
-        if (savedPalettes.isEmpty()) {
+        OutlinedTextField(
+            value = query,
+            onValueChange = { query = it },
+            leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
+            trailingIcon = {
+                if (query.isNotBlank()) {
+                    IconButton(onClick = { query = "" }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Delete,
+                            contentDescription = stringResource(R.string.clear)
+                        )
+                    }
+                }
+            },
+            placeholder = { Text(stringResource(R.string.search_placeholder)) },
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(Modifier.height(12.dp))
+
+        if (filteredPalettes.isEmpty()) {
+            val emptyText = if (query.isBlank()) {
+                stringResource(R.string.no_saved_palettes)
+            } else {
+                stringResource(R.string.no_matching_palettes)
+            }
             Text(
-                stringResource(R.string.no_saved_palettes),
+                text = emptyText,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         } else {
@@ -384,7 +425,7 @@ fun PaletteListScreen(
                 contentPadding = PaddingValues(bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(savedPalettes, key = { it.id }) { palette ->
+                items(filteredPalettes, key = { it.id }) { palette ->
                     PaletteCard(
                         palette = palette,
                         onOpen = { onOpenPalette(palette) }
