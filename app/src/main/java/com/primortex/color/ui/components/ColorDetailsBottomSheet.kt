@@ -5,7 +5,6 @@ import android.content.Context
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,22 +21,17 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.ContentCopy
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -56,7 +50,6 @@ import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
-import com.primortex.color.service.RecentPicksService
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -79,8 +72,6 @@ fun ColorDetailsBottomSheet(
     val details: ColorDetails = remember(picked.argb) {
         ColorDetailsService.details(picked.argb, similarLimit = 10)
     }
-    val savedColors by RecentPicksService.saved.collectAsState()
-    val isSaved = savedColors.any { it.argb == picked.argb }
 
     ModalBottomSheet(
         sheetState = sheetState,
@@ -94,7 +85,9 @@ fun ColorDetailsBottomSheet(
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 18.dp)
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Box(
                     Modifier
                         .size(64.dp)
@@ -102,98 +95,39 @@ fun ColorDetailsBottomSheet(
                         .background(Color(details.argb))
                         .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
                 )
+
                 Spacer(Modifier.width(12.dp))
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(2.dp)
+
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        details.name,
+                        style = MaterialTheme.typography.titleLarge,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        details.hex,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
+
+                IconButton(
+                    onClick = {
+                        scope.launch {
+                            copyToClipboard(context, clipboard, R.string.copy_hex, details.hex)
+                        }
+                    }
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            details.name,
-                            style = MaterialTheme.typography.headlineSmall,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier
-                                .weight(1f)
-                                .clickable {
-                                    scope.launch {
-                                        copyToClipboard(
-                                            context,
-                                            clipboard,
-                                            R.string.copy_name,
-                                            details.name
-                                        )
-                                    }
-                                }
-                        )
-                        IconButton(onClick = {
-                            scope.launch {
-                                copyToClipboard(
-                                    context,
-                                    clipboard,
-                                    R.string.copy_name,
-                                    details.name
-                                )
-                            }
-                        }) {
-                            Icon(
-                                imageVector = Icons.Outlined.ContentCopy,
-                                contentDescription = stringResource(R.string.copy_name)
-                            )
-                        }
-                    }
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            details.hex,
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            fontFamily = FontFamily.Monospace,
-                            modifier = Modifier
-                                .weight(1f)
-                                .clickable {
-                                    scope.launch {
-                                        copyToClipboard(
-                                            context,
-                                            clipboard,
-                                            R.string.copy_hex,
-                                            details.hex
-                                        )
-                                    }
-                                }
-                        )
-                        IconButton(onClick = {
-                            scope.launch {
-                                copyToClipboard(context, clipboard, R.string.copy_hex, details.hex)
-                            }
-                        }) {
-                            Icon(
-                                imageVector = Icons.Outlined.ContentCopy,
-                                contentDescription = stringResource(R.string.copy_hex)
-                            )
-                        }
-                    }
+                    Icon(
+                        imageVector = Icons.Outlined.ContentCopy,
+                        contentDescription = "Copy color value"
+                    )
                 }
             }
 
             Spacer(Modifier.height(12.dp))
-
-            // Actions
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick = { RecentPicksService.toggleSaved(picked) }) {
-                    Icon(
-                        imageVector = if (isSaved) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-                        contentDescription = null
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        text = if (isSaved) {
-                            stringResource(R.string.saved)
-                        } else {
-                            stringResource(R.string.save)
-                        }
-                    )
-                }
-            }
 
             Spacer(Modifier.height(14.dp))
 
@@ -250,6 +184,7 @@ fun ColorDetailsBottomSheet(
         }
     }
 }
+
 
 @Composable
 private fun KeyValueGrid(items: List<Pair<String, String>>) {
