@@ -343,8 +343,7 @@ fun PaletteScreen(
         ColorDetailsBottomSheet(
             picked = picked,
             onDismiss = { detailPick = null },
-            onOpenColorDetail = { s -> detailPick = s }, // tap similar colors to jump
-            skipPartiallyExpanded = true
+            onOpenColorDetail = { s -> detailPick = s },
         )
     }
 
