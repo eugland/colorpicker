@@ -21,13 +21,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.ui.components.WaterCard
 
 @Composable
@@ -38,8 +37,6 @@ fun CameraScreen(
     onOpenColorBlindEnhancer: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
-    val history by RecentPicksService.history.collectAsState()
-
     val pickPhotoLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->

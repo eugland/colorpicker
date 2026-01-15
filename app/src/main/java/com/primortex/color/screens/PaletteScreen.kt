@@ -60,7 +60,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -74,7 +73,6 @@ import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
-import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
@@ -123,7 +121,6 @@ fun PaletteScreen(
     onOpenPalette: (Palette) -> Unit,
     onOpenLiveCameraPicker: () -> Unit,
 ) {
-    val clipboard = LocalClipboardManager.current
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
         ColorServices.ensure(ctx)
@@ -148,7 +145,6 @@ fun PaletteScreen(
     var showClearSavedDialog by remember { mutableStateOf(false) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
     var showAllPalettes by remember { mutableStateOf(false) }
-    val snackbarService = LocalSnackbarService.current
     val paletteThreshold = 4
 
     LaunchedEffect(savedPalettes.size) {
