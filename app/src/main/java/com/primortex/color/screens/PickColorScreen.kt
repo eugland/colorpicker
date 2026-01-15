@@ -22,9 +22,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material.icons.outlined.Colorize
+import androidx.compose.material.icons.outlined.Gradient
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -42,11 +45,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.outlined.Colorize
-import androidx.compose.material.icons.outlined.Gradient
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.R
+import com.primortex.color.service.RecentPicksService
 
 @Composable
 fun CameraScreen(
@@ -86,7 +86,7 @@ fun CameraScreen(
             gradientColors = listOf(
                 Color(0xFF1B6EF3),
                 Color(0xFF2FD1C6),
-                Color(0xFF5EC8FF),
+                Color(0xFF3FAFE8),
                 Color(0xFF3561E8)
             ),
             onClick = onOpenLiveCameraPicker
@@ -98,10 +98,10 @@ fun CameraScreen(
             description = stringResource(R.string.from_album_subtitle),
             badgeText = stringResource(R.string.from_album),
             gradientColors = listOf(
-                Color(0xFF6D4CFF),
-                Color(0xFFB76BFF),
-                Color(0xFFFFB562),
-                Color(0xFFFF7D76)
+                Color(0xFF5B3FE3), // deeper indigo
+                Color(0xFF9A55E6), // darker violet
+                Color(0xFFE18A3F), // burnt orange
+                Color(0xFFD95B54)  // muted coral
             ),
             onClick = { pickPhotoLauncher.launch("image/*") }
         )
@@ -134,7 +134,10 @@ private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
         ) {
             Icon(Icons.Outlined.Gradient, contentDescription = null)
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(stringResource(R.string.color_slider), style = MaterialTheme.typography.titleMedium)
+                Text(
+                    stringResource(R.string.color_slider),
+                    style = MaterialTheme.typography.titleMedium
+                )
                 Text(
                     stringResource(R.string.color_slider_description),
                     style = MaterialTheme.typography.bodySmall,
