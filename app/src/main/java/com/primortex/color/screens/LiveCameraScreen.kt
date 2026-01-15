@@ -87,7 +87,8 @@ import java.util.concurrent.Executors
 @Composable
 fun LiveCameraScreen(
     onBack: () -> Unit,
-    onOpenPalette: (String, Boolean) -> Unit
+    onOpenPalette: (String, Boolean) -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
 
@@ -366,7 +367,7 @@ fun LiveCameraScreen(
         ColorDetailsBottomSheet(
             picked = picked,
             onDismiss = { detailPick = null },
-            onOpenColorDetail = { p -> detailPick = p }
+            onOpenColorDetail = onOpenColorDetail
         )
     }
 }

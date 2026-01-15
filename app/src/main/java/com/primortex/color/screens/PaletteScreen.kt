@@ -124,6 +124,7 @@ fun PaletteScreen(
     onOpenRecentColors: () -> Unit,
     onOpenSavedColors: () -> Unit,
     onOpenSavedPalettes: () -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -343,7 +344,7 @@ fun PaletteScreen(
         ColorDetailsBottomSheet(
             picked = picked,
             onDismiss = { detailPick = null },
-            onOpenColorDetail = { s -> detailPick = s },
+            onOpenColorDetail = onOpenColorDetail,
         )
     }
 

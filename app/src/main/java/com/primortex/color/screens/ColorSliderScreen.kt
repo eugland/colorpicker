@@ -59,7 +59,8 @@ private enum class SliderMode { RGB, HSL, HSV, CMYK }
 @Composable
 fun ColorSliderScreen(
     innerPadding: PaddingValues,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val context = LocalContext.current
     val clipboard = LocalClipboardManager.current
@@ -315,7 +316,8 @@ fun ColorSliderScreen(
     if (showColorDetails) {
         ColorDetailsBottomSheet(
             picked = picked,
-            onDismiss = { showColorDetails = false }
+            onDismiss = { showColorDetails = false },
+            onOpenColorDetail = onOpenColorDetail
         )
     }
 }

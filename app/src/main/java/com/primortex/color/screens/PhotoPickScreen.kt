@@ -70,6 +70,7 @@ fun PhotoPickScreen(
     photoUri: String,
     onBack: () -> Unit,
     onOpenPalette: (String, Boolean) -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
     val colorNameService = remember(ctx) {
@@ -259,7 +260,7 @@ fun PhotoPickScreen(
         ColorDetailsBottomSheet(
             picked = picked,
             onDismiss = { detailPick = null },
-            onOpenColorDetail = { p -> detailPick = p } // tap similar colors -> jump
+            onOpenColorDetail = onOpenColorDetail
         )
     }
 }

@@ -163,7 +163,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenRecentColors = { navigator.openRecentColors() },
                         onOpenSavedColors = { navigator.openSavedColors() },
-                        onOpenSavedPalettes = { navigator.openSavedPalettes() }
+                        onOpenSavedPalettes = { navigator.openSavedPalettes() },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
@@ -172,7 +173,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Camera.LIVE) {
                     LiveCameraScreen(
                         onBack = { navigator.back() },
-                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                     )
                 }
                 composable(
@@ -188,7 +190,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     PhotoPickScreen(
                         photoUri = uri,
                         onBack = { navigator.back() },
-                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                     )
                 }
 
@@ -238,7 +241,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tool.SLIDER) {
                     ColorSliderScreen(
                         innerPadding = inner,
-                        onBack = { navigator.back() }
+                        onBack = { navigator.back() },
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
                     )
                 }
                 composable(Routes.Tool.COLOR_BLIND) {
