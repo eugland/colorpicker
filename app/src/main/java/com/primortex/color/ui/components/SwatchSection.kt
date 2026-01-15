@@ -102,7 +102,6 @@ fun SwatchSection(
                             modifier = Modifier
                                 .size(96.dp)
                                 .clip(CircleShape)
-                                .background(MaterialTheme.colorScheme.primaryContainer)
                                 .clickable(onClick = onEndSeeMore)
                                 .border(
                                     1.dp,
@@ -114,7 +113,7 @@ fun SwatchSection(
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                                 contentDescription = stringResource(R.string.see_more),
-                                tint = MaterialTheme.colorScheme.tertiaryContainer
+                                tint = MaterialTheme.colorScheme.onSurface
                             )
                         }
                     }
