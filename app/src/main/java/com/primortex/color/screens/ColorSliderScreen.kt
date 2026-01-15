@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ChevronRight
@@ -67,6 +69,8 @@ fun ColorSliderScreen(
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     var showColorDetails by remember { mutableStateOf(false) }
     var sliderMode by remember { mutableStateOf(SliderMode.RGB) }
+    var isSliding by remember { mutableStateOf(false) }
+    val scrollState = rememberScrollState()
     val colorNameService = remember(context) {
         ColorServices.ensure(context)
         ColorServices.colors
@@ -92,7 +96,9 @@ fun ColorSliderScreen(
         onBack = onBack
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(scrollState, enabled = !isSliding),
             verticalArrangement = Arrangement.spacedBy(18.dp)
         ) {
             ColorPreviewCard(
@@ -176,7 +182,9 @@ fun ColorSliderScreen(
                         valueRange = 0f..255f,
                         onValueChange = { value ->
                             argb = toArgb(value.toInt(), rgb.second, rgb.third)
-                        }
+                        },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.green_label),
@@ -184,7 +192,9 @@ fun ColorSliderScreen(
                         valueRange = 0f..255f,
                         onValueChange = { value ->
                             argb = toArgb(rgb.first, value.toInt(), rgb.third)
-                        }
+                        },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.blue_label),
@@ -192,7 +202,9 @@ fun ColorSliderScreen(
                         valueRange = 0f..255f,
                         onValueChange = { value ->
                             argb = toArgb(rgb.first, rgb.second, value.toInt())
-                        }
+                        },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                 }
 
@@ -208,7 +220,9 @@ fun ColorSliderScreen(
                         steps = 0,
                         onValueChange = { value ->
                             argb = ColorUtils.HSLToColor(floatArrayOf(value, hsl[1], hsl[2]))
-                        }
+                        },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.saturation_label),
@@ -217,7 +231,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], value / 100f, hsl[2]))
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.lightness_label),
@@ -226,7 +242,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = ColorUtils.HSLToColor(floatArrayOf(hsl[0], hsl[1], value / 100f))
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                 }
 
@@ -242,7 +260,9 @@ fun ColorSliderScreen(
                         steps = 0,
                         onValueChange = { value ->
                             argb = AndroidColor.HSVToColor(floatArrayOf(value, hsv[1], hsv[2]))
-                        }
+                        },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.saturation_label),
@@ -252,7 +272,9 @@ fun ColorSliderScreen(
                             argb =
                                 AndroidColor.HSVToColor(floatArrayOf(hsv[0], value / 100f, hsv[2]))
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.value_label),
@@ -262,7 +284,9 @@ fun ColorSliderScreen(
                             argb =
                                 AndroidColor.HSVToColor(floatArrayOf(hsv[0], hsv[1], value / 100f))
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                 }
 
@@ -278,7 +302,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = cmykToArgb(value.toInt(), cmyk.m, cmyk.y, cmyk.k)
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.magenta_label),
@@ -287,7 +313,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = cmykToArgb(cmyk.c, value.toInt(), cmyk.y, cmyk.k)
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.yellow_label),
@@ -296,7 +324,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = cmykToArgb(cmyk.c, cmyk.m, value.toInt(), cmyk.k)
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                     LabeledSlider(
                         label = stringResource(R.string.black_label),
@@ -305,7 +335,9 @@ fun ColorSliderScreen(
                         onValueChange = { value ->
                             argb = cmykToArgb(cmyk.c, cmyk.m, cmyk.y, value.toInt())
                         },
-                        valueFormatter = { v -> "${v.toInt()}%" }
+                        valueFormatter = { v -> "${v.toInt()}%" },
+                        onValueChangeFinished = { isSliding = false },
+                        onValueChangeStarted = { isSliding = true }
                     )
                 }
             }
@@ -389,6 +421,8 @@ private fun LabeledSlider(
     onValueChange: (Float) -> Unit,
     valueFormatter: (Float) -> String = { v -> v.toInt().toString() },
     steps: Int = 0,
+    onValueChangeFinished: () -> Unit = {},
+    onValueChangeStarted: () -> Unit = {},
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -398,9 +432,13 @@ private fun LabeledSlider(
         Slider(
             modifier = Modifier.height(28.dp),
             value = value,
-            onValueChange = onValueChange,
+            onValueChange = { newValue ->
+                onValueChangeStarted()
+                onValueChange(newValue)
+            },
             valueRange = valueRange,
             steps = steps,
+            onValueChangeFinished = onValueChangeFinished,
             colors = SliderDefaults.colors(
                 activeTrackColor = MaterialTheme.colorScheme.primary
             )

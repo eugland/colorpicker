@@ -186,6 +186,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var edgeEnabled by remember { mutableStateOf(false) }
     var edgeStrength by remember { mutableStateOf(0.15f) }
     var mode by remember { mutableStateOf(ColorBlindMode.Protanopia) }
+    var isSliding by remember { mutableStateOf(false) }
 
     val runtimeShader = remember(supportsShader) {
         RuntimeShader(COLOR_BLIND_SHADER)
@@ -219,6 +220,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         sheetPeekHeight = 88.dp,
         sheetContainerColor = MaterialTheme.colorScheme.surface,
         sheetShadowElevation = 8.dp,
+        sheetSwipeEnabled = !isSliding,
         sheetDragHandle = { BottomSheetDefaults.DragHandle() },
         sheetContent = {
             ColorBlindEnhancerSheet(
@@ -233,7 +235,8 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                 edgeEnabled = edgeEnabled,
                 onEdgeEnabledChange = { edgeEnabled = it },
                 edgeStrength = edgeStrength,
-                onEdgeStrengthChange = { edgeStrength = it }
+                onEdgeStrengthChange = { edgeStrength = it },
+                onSliderDragChange = { isSliding = it }
             )
         }
     ) { innerPadding ->
@@ -358,7 +361,8 @@ private fun ColorBlindEnhancerSheet(
     edgeEnabled: Boolean,
     onEdgeEnabledChange: (Boolean) -> Unit,
     edgeStrength: Float,
-    onEdgeStrengthChange: (Float) -> Unit
+    onEdgeStrengthChange: (Float) -> Unit,
+    onSliderDragChange: (Boolean) -> Unit
 ) {
     val sheetState = scaffoldState.bottomSheetState
     val isPartial = sheetState.currentValue == SheetValue.PartiallyExpanded
@@ -442,9 +446,13 @@ private fun ColorBlindEnhancerSheet(
                 )
                 Slider(
                     value = intensity,
-                    onValueChange = { onIntensityChange(it) },
+                    onValueChange = {
+                        onSliderDragChange(true)
+                        onIntensityChange(it)
+                    },
                     valueRange = 0f..1f,
-                    enabled = filterEnabled && supportsShader
+                    enabled = filterEnabled && supportsShader,
+                    onValueChangeFinished = { onSliderDragChange(false) }
                 )
             }
 
@@ -466,9 +474,13 @@ private fun ColorBlindEnhancerSheet(
                 }
                 Slider(
                     value = edgeStrength,
-                    onValueChange = { onEdgeStrengthChange(it) },
+                    onValueChange = {
+                        onSliderDragChange(true)
+                        onEdgeStrengthChange(it)
+                    },
                     valueRange = 0f..0.5f,
-                    enabled = filterEnabled && supportsShader && edgeEnabled
+                    enabled = filterEnabled && supportsShader && edgeEnabled,
+                    onValueChangeFinished = { onSliderDragChange(false) }
                 )
             }
         }
