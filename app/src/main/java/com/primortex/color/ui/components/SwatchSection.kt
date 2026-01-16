@@ -89,7 +89,7 @@ fun SwatchSection(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 contentPadding = PaddingValues(horizontal = 8.dp)
             ) {
-                items(visiblePicks, key = { it.argb }) { pick ->
+                items(visiblePicks) { pick ->
                     Swatch(
                         argb = pick.argb,
                         onClick = { onSwatchClick(pick) },

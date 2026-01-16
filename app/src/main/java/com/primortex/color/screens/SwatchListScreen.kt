@@ -72,7 +72,7 @@ fun SwatchListScreen(
         } else {
             picks.filter {
                 it.name.lowercase().contains(lowered) ||
-                    argbToHex(it.argb).lowercase().contains(lowered)
+                        argbToHex(it.argb).lowercase().contains(lowered)
             }
         }
     }
@@ -119,7 +119,7 @@ fun SwatchListScreen(
                 contentPadding = PaddingValues(bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(filtered, key = { it.argb }) { pick ->
+                items(filtered) { pick ->
                     val displayName = pick.name.ifBlank { argbToHex(pick.argb) }
                     Surface(
                         modifier = Modifier.fillMaxWidth(),

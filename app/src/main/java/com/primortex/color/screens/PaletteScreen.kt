@@ -189,10 +189,7 @@ fun PaletteScreen(
 
                 item { Spacer(Modifier.height(6.dp)) }
 
-                items(
-                    items = suggestions,
-                    key = { it.argb }
-                ) { s ->
+                items(suggestions) { s ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -315,7 +312,7 @@ fun PaletteScreen(
                 } else {
                     savedPalettes
                 }
-                items(visiblePalettes, key = { it.id }) { p ->
+                items(visiblePalettes) { p ->
                     PaletteCard(
                         palette = p,
                         onOpen = { onOpenPalette(p) }
@@ -425,7 +422,7 @@ fun PaletteListScreen(
                 contentPadding = PaddingValues(bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(filteredPalettes, key = { it.id }) { palette ->
+                items(filteredPalettes) { palette ->
                     PaletteCard(
                         palette = palette,
                         onOpen = { onOpenPalette(palette) }
@@ -601,7 +598,7 @@ private fun PaletteCard(
             Spacer(Modifier.height(8.dp))
 
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                items(palette.colors.take(10), key = { it.argb }) { p ->
+                items(palette.colors.take(10)) { p ->
                     Box(
                         Modifier
                             .size(28.dp)

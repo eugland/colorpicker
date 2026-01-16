@@ -431,7 +431,7 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
         Spacer(Modifier.width(8.dp))
 
         LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            items(argbs, key = { it }) { a ->
+            items(argbs) { a ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Box(
                         Modifier
@@ -464,7 +464,7 @@ private fun ShadeToneRow(label: String, argbs: List<Int>) {
         )
         Spacer(Modifier.width(8.dp))
         LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            items(argbs, key = { it }) { a ->
+            items(argbs) { a ->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(
                         Modifier
@@ -501,7 +501,7 @@ private fun PaletteSchemeCard(
             Text(scheme.title, style = MaterialTheme.typography.titleSmall)
             Spacer(Modifier.height(8.dp))
             LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                items(scheme.colors, key = { it }) { a ->
+                items(scheme.colors) { a ->
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Box(
                             Modifier

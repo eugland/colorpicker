@@ -21,8 +21,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DeleteForever
@@ -220,7 +220,7 @@ fun PaletteDetailScreen(
                 )
             }
 
-            items(editableColors.size, key = { editableColors[it].argb }) { index ->
+            items(editableColors.size) { index ->
                 val color = editableColors[index]
                 val isDragging = dragState.draggedIndex == index
                 val dragOffset = if (isDragging) dragState.dragOffset else 0f
@@ -466,7 +466,12 @@ private fun ActionRow(
                 ) {
                     DropdownMenuItem(
                         text = { Text(stringResource(R.string.copy_all_hex)) },
-                        leadingIcon = { Icon(Icons.Outlined.ContentCopy, contentDescription = null) },
+                        leadingIcon = {
+                            Icon(
+                                Icons.Outlined.ContentCopy,
+                                contentDescription = null
+                            )
+                        },
                         onClick = {
                             copyMenuExpanded = false
                             onCopyAll()
