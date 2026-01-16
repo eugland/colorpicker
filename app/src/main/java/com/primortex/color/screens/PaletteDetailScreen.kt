@@ -27,7 +27,7 @@ import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.Edit
-import androidx.compose.material.icons.outlined.Save
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -434,7 +434,7 @@ private fun ActionRow(
     ) {
         OutlinedButton(onClick = onToggleEdit) {
             Icon(
-                imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
+                imageVector = if (isEditing) Icons.Outlined.Favorite else Icons.Outlined.Edit,
                 contentDescription = null
             )
             Spacer(Modifier.width(8.dp))

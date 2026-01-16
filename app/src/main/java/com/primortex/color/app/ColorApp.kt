@@ -234,7 +234,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         argb = argb,
                         nameHint = name,
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) },
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                     )
                 }
 
