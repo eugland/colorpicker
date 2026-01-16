@@ -245,7 +245,9 @@ fun PaletteScreen(
                     showFooterToggle = false,
                     showEndSeeMore = true,
                     onEndSeeMore = onOpenRecentColors,
+                    swatchSize = 48.dp,
                     swatchShape = CircleShape,
+                    swatchLabelBelow = true,
                     actions = {
                         if (recents.isNotEmpty()) {
                             TextButton(onClick = onOpenRecentColors) {

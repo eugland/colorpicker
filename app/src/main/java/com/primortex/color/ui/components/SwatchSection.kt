@@ -57,6 +57,7 @@ fun SwatchSection(
     onEndSeeMore: (() -> Unit)? = null,
     swatchSize: Dp = 96.dp,
     swatchShape: Shape = RoundedCornerShape(10.dp),
+    swatchLabelBelow: Boolean = false,
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -101,7 +102,8 @@ fun SwatchSection(
                         onClick = { onSwatchClick(pick) },
                         label = pick.name,
                         size = swatchSize,
-                        shape = swatchShape
+                        shape = swatchShape,
+                        labelBelow = swatchLabelBelow
                     )
                 }
                 if (hasMoreThanThreshold && showEndSeeMore && onEndSeeMore != null) {
@@ -144,29 +146,56 @@ fun SwatchSection(
 }
 
 @Composable
-fun Swatch(argb: Int, onClick: () -> Unit, label: String, size: Dp = 96.dp, shape: Shape = RoundedCornerShape(10.dp)) {
+fun Swatch(
+    argb: Int,
+    onClick: () -> Unit,
+    label: String,
+    size: Dp = 96.dp,
+    shape: Shape = RoundedCornerShape(10.dp),
+    labelBelow: Boolean = false
+) {
     val onColor = remember(argb) { recommendedOnColor(argb) }
 
-    Box(
-        modifier = Modifier
-            .size(size)
-            .clip(shape)
-            .background(Color(argb))
-            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, shape)
-            .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.clickable(onClick = onClick)
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelSmall,
-            color = Color(onColor),
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            textAlign = TextAlign.Center,
-            lineHeight = 12.sp,
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 6.dp)
-        )
+                .size(size)
+                .clip(shape)
+                .background(Color(argb))
+                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, shape),
+            contentAlignment = Alignment.Center
+        ) {
+            if (!labelBelow) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(onColor),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 12.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 6.dp)
+                )
+            }
+        }
+        if (labelBelow) {
+            Spacer(Modifier.height(6.dp))
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 4.dp)
+            )
+        }
     }
 }
