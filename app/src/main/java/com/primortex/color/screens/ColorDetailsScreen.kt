@@ -3,6 +3,7 @@ package com.primortex.color.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,7 +71,8 @@ fun ColorDetailsScreen(
     argb: Int,
     nameHint: String? = null,
     onBack: () -> Unit,
-    onOpenColorDetail: (PickedColor) -> Unit = {} // open similar colors
+    onOpenColorDetail: (PickedColor) -> Unit = {}, // open similar colors
+    onOpenPalette: (String, Boolean) -> Unit = { _, _ -> }
 ) {
     val clipboard = LocalClipboardManager.current
     val context = LocalContext.current
@@ -265,12 +267,6 @@ fun ColorDetailsScreen(
                 stringResource(R.string.color_shades_tints_tones_title, displayName),
                 style = MaterialTheme.typography.titleMedium
             )
-            Spacer(Modifier.height(6.dp))
-            Text(
-                stringResource(R.string.color_shades_tints_tones_description, displayName),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
             Spacer(Modifier.height(10.dp))
             ShadeToneRow(
                 label = stringResource(R.string.tints_label),
@@ -297,12 +293,6 @@ fun ColorDetailsScreen(
             Text(
                 stringResource(R.string.color_palettes_title, displayName),
                 style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.height(6.dp))
-            Text(
-                stringResource(R.string.color_palettes_description, displayName),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(Modifier.height(10.dp))
             val paletteSchemes = listOf(
@@ -335,18 +325,14 @@ fun ColorDetailsScreen(
             paletteSchemes.forEach { scheme ->
                 PaletteSchemeCard(
                     scheme = scheme,
-                    onSavePalette = {
-                        PaletteService.create(
+                    onOpenPalette = {
+                        val saved = PaletteService.create(
                             name = "${displayName} ${scheme.title}",
                             colors = scheme.colors.toPickedColors(),
                             tags = listOf("details"),
                             creationSource = "color_details"
                         )
-                        snackbarService.showMessage(context.getString(R.string.palette_saved))
-                    },
-                    onDownloadPalette = {
-                        clipboard.setText(AnnotatedString(buildPaletteCss(scheme.colors)))
-                        snackbarService.showMessage(context.getString(R.string.exported_css))
+                        onOpenPalette(saved.id, true)
                     }
                 )
                 Spacer(Modifier.height(10.dp))
@@ -489,13 +475,14 @@ private fun ShadeToneRow(label: String, argbs: List<Int>) {
 @Composable
 private fun PaletteSchemeCard(
     scheme: PaletteScheme,
-    onSavePalette: () -> Unit,
-    onDownloadPalette: () -> Unit
+    onOpenPalette: () -> Unit
 ) {
     Surface(
         shape = MaterialTheme.shapes.large,
         tonalElevation = 2.dp,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenPalette() }
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             Text(scheme.title, style = MaterialTheme.typography.titleSmall)
@@ -518,15 +505,6 @@ private fun PaletteSchemeCard(
                             fontFamily = FontFamily.Monospace
                         )
                     }
-                }
-            }
-            Spacer(Modifier.height(10.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick = onSavePalette) {
-                    Text(stringResource(R.string.save_palette))
-                }
-                OutlinedButton(onClick = onDownloadPalette) {
-                    Text(stringResource(R.string.download_palette))
                 }
             }
         }
@@ -639,16 +617,5 @@ private fun List<Int>.toPickedColors(): List<PickedColor> {
     return distinct().map { argb ->
         val name = ColorServices.colors.localNameFromArgb(argb)
         PickedColor(argb, if (name.isBlank()) argbToHex(argb) else name)
-    }
-}
-
-private fun buildPaletteCss(colors: List<Int>): String {
-    return buildString {
-        appendLine(":root {")
-        colors.forEachIndexed { index, color ->
-            append("    --color-${index + 1}: ${argbToHex(color)};")
-            append('\n')
-        }
-        append("}")
     }
 }
