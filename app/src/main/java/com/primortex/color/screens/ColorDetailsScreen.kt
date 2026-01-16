@@ -273,7 +273,7 @@ fun ColorDetailsScreen(
                 argbs = details.tints,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${stringResource(R.string.tints_label)}",
+                        name = "${displayName} ${context.getString(R.string.tints_label)}",
                         colors = (listOf(details.argb) + details.tints).toPickedColors(),
                         tags = listOf("details"),
                         creationSource = "color_details"
@@ -287,7 +287,7 @@ fun ColorDetailsScreen(
                 argbs = details.shades,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${stringResource(R.string.shades_label)}",
+                        name = "${displayName} ${context.getString(R.string.shades_label)}",
                         colors = (listOf(details.argb) + details.shades).toPickedColors(),
                         tags = listOf("details"),
                         creationSource = "color_details"
@@ -301,7 +301,7 @@ fun ColorDetailsScreen(
                 argbs = details.tones,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${stringResource(R.string.tones_label)}",
+                        name = "${displayName} ${context.getString(R.string.tones_label)}",
                         colors = (listOf(details.argb) + details.tones).toPickedColors(),
                         tags = listOf("details"),
                         creationSource = "color_details"
@@ -311,7 +311,7 @@ fun ColorDetailsScreen(
             )
 
             Spacer(Modifier.height(16.dp))
-            
+
             Text(
                 stringResource(R.string.color_palettes_title, displayName),
                 style = MaterialTheme.typography.titleMedium
@@ -484,8 +484,8 @@ private fun ShadeToneRow(
                 modifier = Modifier.width(90.dp),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            Spacer(Modifier.width(8.dp))
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Spacer(Modifier.width(4.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                 items(argbs) { a ->
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Box(
