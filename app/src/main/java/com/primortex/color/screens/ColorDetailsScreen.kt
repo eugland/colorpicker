@@ -348,7 +348,7 @@ fun ColorDetailsScreen(
                         tags = listOf("details"),
                         creationSource = "color_details"
                     )
-                    onOpenPalette(saved.id, true)
+                    onOpenPalette(saved.id, false)
                 }
             )
             Spacer(Modifier.height(8.dp))
@@ -362,7 +362,7 @@ fun ColorDetailsScreen(
                         tags = listOf("details"),
                         creationSource = "color_details"
                     )
-                    onOpenPalette(saved.id, true)
+                    onOpenPalette(saved.id, false)
                 }
             )
             Spacer(Modifier.height(8.dp))
@@ -376,7 +376,7 @@ fun ColorDetailsScreen(
                         tags = listOf("details"),
                         creationSource = "color_details"
                     )
-                    onOpenPalette(saved.id, true)
+                    onOpenPalette(saved.id, false)
                 }
             )
 
@@ -424,7 +424,7 @@ fun ColorDetailsScreen(
                             tags = listOf("details"),
                             creationSource = "color_details"
                         )
-                        onOpenPalette(saved.id, true)
+                        onOpenPalette(saved.id, false)
                     }
                 )
                 Spacer(Modifier.height(10.dp))
@@ -692,16 +692,24 @@ private fun PalettePickerDialog(
                 }
                 OutlinedButton(
                     onClick = {
-                        PaletteService.create(
-                            name = ctx.getString(
-                                R.string.palette_name_with_color,
-                                pickedColor.name
-                            ),
-                            colors = listOf(pickedColor),
-                            tags = listOf("details"),
-                            creationSource = "color_details"
+                        val newPaletteName = ctx.getString(
+                            R.string.palette_name_with_color,
+                            pickedColor.name
                         )
-                        onPaletteCreated(ctx.getString(R.string.palette_saved))
+                        val hasDuplicateName = palettes.any { palette ->
+                            palette.name.equals(newPaletteName, ignoreCase = true)
+                        }
+                        if (hasDuplicateName) {
+                            onPaletteCreated(ctx.getString(R.string.already_in_palette))
+                        } else {
+                            PaletteService.create(
+                                name = newPaletteName,
+                                colors = listOf(pickedColor),
+                                tags = listOf("details"),
+                                creationSource = "color_details"
+                            )
+                            onPaletteCreated(ctx.getString(R.string.palette_saved))
+                        }
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
