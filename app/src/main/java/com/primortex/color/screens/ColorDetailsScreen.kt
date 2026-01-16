@@ -1,6 +1,12 @@
 // com/primortex/color/screens/ColorDetailsScreen.kt
 package com.primortex.color.screens
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -64,6 +70,7 @@ import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
+import androidx.core.graphics.ColorUtils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -124,6 +131,42 @@ fun ColorDetailsScreen(
                 tonalElevation = 2.dp,
                 modifier = Modifier.fillMaxWidth()
             ) {
+                val baseColor = Color(details.argb)
+                val baseHsl = remember(details.argb) {
+                    FloatArray(3).apply { ColorUtils.colorToHSL(details.argb, this) }
+                }
+                val transition = rememberInfiniteTransition(label = "breathingTint")
+                val lightnessShift by transition.animateFloat(
+                    initialValue = 0.06f,
+                    targetValue = 0.1f,
+                    animationSpec = infiniteRepeatable(
+                        animation = tween(durationMillis = 8000, easing = LinearEasing),
+                        repeatMode = RepeatMode.Reverse
+                    ),
+                    label = "lightnessShift"
+                )
+                val tintColor = remember(baseHsl, lightnessShift) {
+                    Color(
+                        ColorUtils.HSLToColor(
+                            floatArrayOf(
+                                baseHsl[0],
+                                baseHsl[1],
+                                (baseHsl[2] + lightnessShift).coerceIn(0f, 1f)
+                            )
+                        )
+                    )
+                }
+                val shadeColor = remember(baseHsl, lightnessShift) {
+                    Color(
+                        ColorUtils.HSLToColor(
+                            floatArrayOf(
+                                baseHsl[0],
+                                baseHsl[1],
+                                (baseHsl[2] - lightnessShift).coerceIn(0f, 1f)
+                            )
+                        )
+                    )
+                }
                 Box(
                     Modifier
                         .fillMaxWidth()
@@ -131,8 +174,9 @@ fun ColorDetailsScreen(
                         .background(
                             Brush.linearGradient(
                                 colors = listOf(
-                                    Color(details.argb),
-                                    Color(details.argb)
+                                    tintColor,
+                                    baseColor,
+                                    shadeColor
                                 )
                             )
                         )
