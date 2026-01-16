@@ -156,6 +156,7 @@ fun Swatch(
     labelBelow: Boolean = false
 ) {
     val onColor = remember(argb) { recommendedOnColor(argb) }
+    val labelHeight = 32.dp
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -188,17 +189,23 @@ fun Swatch(
         }
         if (labelBelow) {
             Spacer(Modifier.height(6.dp))
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Center,
+            Box(
                 modifier = Modifier
                     .width(size)
-                    .padding(horizontal = 4.dp)
-            )
+                    .height(labelHeight)
+            ) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 4.dp)
+                )
+            }
         }
     }
 }
