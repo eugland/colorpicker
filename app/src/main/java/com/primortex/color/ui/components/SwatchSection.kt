@@ -33,9 +33,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.primortex.color.R
@@ -53,6 +55,8 @@ fun SwatchSection(
     showFooterToggle: Boolean = true,
     showEndSeeMore: Boolean = false,
     onEndSeeMore: (() -> Unit)? = null,
+    swatchSize: Dp = 96.dp,
+    swatchShape: Shape = RoundedCornerShape(10.dp),
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -93,20 +97,22 @@ fun SwatchSection(
                     Swatch(
                         argb = pick.argb,
                         onClick = { onSwatchClick(pick) },
-                        label = pick.name
+                        label = pick.name,
+                        size = swatchSize,
+                        shape = swatchShape
                     )
                 }
                 if (hasMoreThanThreshold && showEndSeeMore && onEndSeeMore != null) {
                     item {
                         Box(
                             modifier = Modifier
-                                .size(96.dp)
-                                .clip(CircleShape)
+                                .size(swatchSize)
+                                .clip(swatchShape)
                                 .clickable(onClick = onEndSeeMore)
                                 .border(
                                     1.dp,
                                     MaterialTheme.colorScheme.outlineVariant,
-                                    CircleShape
+                                    swatchShape
                                 ),
                             contentAlignment = Alignment.Center
                         ) {
@@ -136,14 +142,12 @@ fun SwatchSection(
 }
 
 @Composable
-fun Swatch(argb: Int, onClick: () -> Unit, label: String) {
-    val cellSize = 96.dp
-    val shape = RoundedCornerShape(10.dp)
+fun Swatch(argb: Int, onClick: () -> Unit, label: String, size: Dp = 96.dp, shape: Shape = RoundedCornerShape(10.dp)) {
     val onColor = remember(argb) { recommendedOnColor(argb) }
 
     Box(
         modifier = Modifier
-            .size(cellSize)
+            .size(size)
             .clip(shape)
             .background(Color(argb))
             .border(1.dp, MaterialTheme.colorScheme.outlineVariant, shape)
