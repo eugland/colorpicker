@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.ContentCopy
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -92,6 +94,7 @@ fun PaletteDetailScreen(
 
     val palettes by PaletteService.palettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
+    val isFavorite = palette?.tags?.contains(FAVORITE_TAG) == true
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
@@ -165,6 +168,7 @@ fun PaletteDetailScreen(
                     onTagsChange = { tagsInput = it },
                     onNoteChange = { note = it },
                     palette = palette,
+                    isFavorite = isFavorite,
                     onToggleEdit = {
                         if (isEditing) {
                             val tags = tagsInput.split(',').mapNotNull { tag ->
@@ -180,6 +184,17 @@ fun PaletteDetailScreen(
                             snackbarService.showMessage(paletteUpdatedMessage)
                         }
                         isEditing = !isEditing
+                    },
+                    onToggleFavorite = {
+                        val updatedTags = if (isFavorite) {
+                            palette.tags.filterNot { it == FAVORITE_TAG }
+                        } else {
+                            palette.tags + FAVORITE_TAG
+                        }
+                        PaletteService.update(
+                            id = palette.id,
+                            tags = updatedTags
+                        )
                     },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
@@ -321,6 +336,8 @@ private fun smoothGradient(colors: List<PickedColor>): List<Color> {
     return ordered.map { color -> Color(color.argb) }
 }
 
+private const val FAVORITE_TAG = "favorite"
+
 @Composable
 private fun PaletteGradientPreview(colors: List<Color>) {
     val resolvedColors = if (colors.isNotEmpty()) {
@@ -359,7 +376,9 @@ private fun PaletteHeader(
     onTagsChange: (String) -> Unit,
     onNoteChange: (String) -> Unit,
     palette: Palette,
+    isFavorite: Boolean,
     onToggleEdit: () -> Unit,
+    onToggleFavorite: () -> Unit,
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
@@ -408,7 +427,9 @@ private fun PaletteHeader(
 
         ActionRow(
             isEditing = isEditing,
+            isFavorite = isFavorite,
             onToggleEdit = onToggleEdit,
+            onToggleFavorite = onToggleFavorite,
             onCopyAll = onCopyAll,
             onExportCss = onExportCss,
             onDelete = onDelete,
@@ -420,7 +441,9 @@ private fun PaletteHeader(
 @Composable
 private fun ActionRow(
     isEditing: Boolean,
+    isFavorite: Boolean,
     onToggleEdit: () -> Unit,
+    onToggleFavorite: () -> Unit,
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
@@ -432,6 +455,17 @@ private fun ActionRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
+        if (!isEditing) {
+            OutlinedButton(onClick = onToggleFavorite) {
+                Icon(
+                    imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                    contentDescription = null
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(if (isFavorite) stringResource(R.string.saved) else stringResource(R.string.save))
+            }
+        }
+
         OutlinedButton(onClick = onToggleEdit) {
             Icon(
                 imageVector = if (isEditing) Icons.Outlined.Favorite else Icons.Outlined.Edit,

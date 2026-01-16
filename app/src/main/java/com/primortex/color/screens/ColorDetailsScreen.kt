@@ -270,17 +270,44 @@ fun ColorDetailsScreen(
             Spacer(Modifier.height(10.dp))
             ShadeToneRow(
                 label = stringResource(R.string.tints_label),
-                argbs = details.tints
+                argbs = details.tints,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${stringResource(R.string.tints_label)}",
+                        colors = (listOf(details.argb) + details.tints).toPickedColors(),
+                        tags = listOf("details"),
+                        creationSource = "color_details"
+                    )
+                    onOpenPalette(saved.id, true)
+                }
             )
             Spacer(Modifier.height(8.dp))
             ShadeToneRow(
                 label = stringResource(R.string.shades_label),
-                argbs = details.shades
+                argbs = details.shades,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${stringResource(R.string.shades_label)}",
+                        colors = (listOf(details.argb) + details.shades).toPickedColors(),
+                        tags = listOf("details"),
+                        creationSource = "color_details"
+                    )
+                    onOpenPalette(saved.id, true)
+                }
             )
             Spacer(Modifier.height(8.dp))
             ShadeToneRow(
                 label = stringResource(R.string.tones_label),
-                argbs = details.tones
+                argbs = details.tones,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${stringResource(R.string.tones_label)}",
+                        colors = (listOf(details.argb) + details.tones).toPickedColors(),
+                        tags = listOf("details"),
+                        creationSource = "color_details"
+                    )
+                    onOpenPalette(saved.id, true)
+                }
             )
 
             Spacer(Modifier.height(16.dp))
@@ -440,32 +467,47 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
 }
 
 @Composable
-private fun ShadeToneRow(label: String, argbs: List<Int>) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(
-            label,
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.width(90.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(Modifier.width(8.dp))
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            items(argbs) { a ->
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Box(
-                        Modifier
-                            .size(28.dp)
-                            .clip(CircleShape)
-                            .background(Color(a))
-                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        argbToHex(a),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontFamily = FontFamily.Monospace
-                    )
+private fun ShadeToneRow(
+    label: String,
+    argbs: List<Int>,
+    onOpenPalette: () -> Unit
+) {
+    Surface(
+        shape = MaterialTheme.shapes.large,
+        tonalElevation = 2.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenPalette() }
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(12.dp)
+        ) {
+            Text(
+                label,
+                style = MaterialTheme.typography.labelMedium,
+                modifier = Modifier.width(90.dp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.width(8.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                items(argbs) { a ->
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(
+                            Modifier
+                                .size(28.dp)
+                                .clip(CircleShape)
+                                .background(Color(a))
+                                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            argbToHex(a),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontFamily = FontFamily.Monospace
+                        )
+                    }
                 }
             }
         }
