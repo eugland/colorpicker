@@ -30,9 +30,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -68,6 +71,7 @@ import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 import androidx.core.graphics.ColorUtils
@@ -85,6 +89,7 @@ fun ColorDetailsScreen(
     val context = LocalContext.current
     val snackbarService = LocalSnackbarService.current
     val palettes by PaletteService.palettes.collectAsState()
+    val savedColors by RecentPicksService.saved.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
 
     val details: ColorDetails = remember(argb) {
@@ -94,6 +99,7 @@ fun ColorDetailsScreen(
     val pickedColor = remember(details.argb, displayName) {
         PickedColor(details.argb, displayName)
     }
+    val isSaved = savedColors.any { it.argb == pickedColor.argb }
 
     Scaffold(
         topBar = {
@@ -224,15 +230,35 @@ fun ColorDetailsScreen(
 
             // Actions
             FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick = {
-                    clipboard.setText(AnnotatedString(details.hex))
-                    snackbarService.showMessage(context.getString(R.string.hex_copied))
-                }) { Text(stringResource(R.string.copy_hex)) }
-
-                OutlinedButton(onClick = {
-                    clipboard.setText(AnnotatedString(displayName))
-                    snackbarService.showMessage(context.getString(R.string.name_copied))
-                }) { Text(stringResource(R.string.copy_name)) }
+                if (isSaved) {
+                    Button(onClick = {
+                        RecentPicksService.toggleSaved(pickedColor)
+                        snackbarService.showMessage(
+                            context.getString(R.string.removed_from_my_colors)
+                        )
+                    }) {
+                        Icon(
+                            Icons.Filled.Favorite,
+                            contentDescription = null
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.saved))
+                    }
+                } else {
+                    OutlinedButton(onClick = {
+                        RecentPicksService.toggleSaved(pickedColor)
+                        snackbarService.showMessage(
+                            context.getString(R.string.saved_to_my_colors)
+                        )
+                    }) {
+                        Icon(
+                            Icons.Outlined.FavoriteBorder,
+                            contentDescription = null
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.save))
+                    }
+                }
 
                 OutlinedButton(onClick = { showPalettePicker = true }) {
                     Text(stringResource(R.string.add_to_palette))
