@@ -55,7 +55,7 @@ fun ActiveColorSheet(
         Text(
             stringResource(R.string.recent_colors),
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
         )
 
         // Expanded list: user pulls up to see more

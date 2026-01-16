@@ -86,13 +86,17 @@ fun CameraScreen(
         )
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 6.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(stringResource(R.string.tools), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.weight(1f))
 
         }
+
+        Spacer(Modifier.height(6.dp))
 
         ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
         ColorBlindEnhancerCard(onOpenColorBlindEnhancer = onOpenColorBlindEnhancer)

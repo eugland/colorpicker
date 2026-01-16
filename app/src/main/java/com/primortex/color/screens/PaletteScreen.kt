@@ -281,7 +281,9 @@ fun PaletteScreen(
             item {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
                 ) {
                     Text(
                         stringResource(R.string.saved_palettes),
@@ -296,7 +298,7 @@ fun PaletteScreen(
                 }
             }
 
-            item { Spacer(Modifier.height(8.dp)) }
+            item { Spacer(Modifier.height(12.dp)) }
 
             if (savedPalettes.isEmpty()) {
                 item {
@@ -500,13 +502,13 @@ private fun ColorSearchBar(
             ),
             onClick = onOpenLiveCameraPicker
         )
-        Spacer(Modifier.height(14.dp))
+        Spacer(Modifier.height(16.dp))
 
         Text(
             stringResource(R.string.quick_color_lookup),
             style = MaterialTheme.typography.titleMedium
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(12.dp))
 
         OutlinedTextField(
             value = query,

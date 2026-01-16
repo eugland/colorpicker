@@ -66,7 +66,9 @@ fun SwatchSection(
 
     Column(modifier) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -76,7 +78,7 @@ fun SwatchSection(
             )
             actions?.invoke()
         }
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(12.dp))
 
         if (picks.isEmpty()) {
             Text(
