@@ -284,12 +284,7 @@ fun ColorDetailsScreen(
             )
 
             Spacer(Modifier.height(16.dp))
-
-            Text(
-                stringResource(R.string.color_plates_title),
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.height(6.dp))
+            
             Text(
                 stringResource(R.string.color_palettes_title, displayName),
                 style = MaterialTheme.typography.titleMedium
