@@ -25,6 +25,7 @@ private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
 
 object PaletteService {
     private val KEY = stringPreferencesKey("palettes_json")
+    private val KEY_SAVED_IDS = stringPreferencesKey("saved_palette_ids_json")
     private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private lateinit var appContext: Context
@@ -32,6 +33,8 @@ object PaletteService {
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
+    private val _savedIds = MutableStateFlow<Set<String>>(emptySet())
+    val savedIds: StateFlow<Set<String>> = _savedIds
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -44,11 +47,24 @@ object PaletteService {
                     }.getOrDefault(emptyList())
 
                     val seeded = prefs[KEY_SEEDED] == true
-                    Triple(saved, seeded, prefs)
+                    val savedIds = runCatching {
+                        prefs[KEY_SAVED_IDS]?.let { json.decodeFromString<List<String>>(it) }
+                            ?: emptyList()
+                    }.getOrDefault(emptyList())
+                    Quadruple(saved, savedIds, seeded, prefs)
                 }
-                .collect { (saved, seeded, prefs) ->
-                    _palettes.value = saved
+                .collect { (saved, savedIds, seeded, prefs) ->
+                    val resolvedSavedIds = if (prefs[KEY_SAVED_IDS] == null && saved.isNotEmpty()) {
+                        saved.map { it.id }
+                    } else {
+                        savedIds
+                    }
+                    _savedIds.value = resolvedSavedIds.toSet()
+                    _palettes.value = saved.map { palette ->
+                        palette.copy(isSaved = _savedIds.value.contains(palette.id))
+                    }
                     if (!seeded) seedIfNeeded(prefs) // this writes once
+                    seedSavedIdsIfNeeded(prefs, saved, resolvedSavedIds)
                 }
         }
     }
@@ -70,6 +86,7 @@ object PaletteService {
             ),
             tags = listOf("ui", "neutral", "modern"),
             note = "Clean, flexible colors for modern interfaces",
+            isSaved = true,
             createdAt = now,
             updatedAt = now
         )
@@ -87,6 +104,7 @@ object PaletteService {
                 ),
                 tags = listOf("nature", "muted", "warm"),
                 note = "Soft, earthy tones for calm visual design",
+                isSaved = true,
                 createdAt = now,
                 updatedAt = now
             )
@@ -104,6 +122,7 @@ object PaletteService {
             ),
             tags = listOf("nature", "muted", "warm"),
             note = "Soft, earthy tones for calm visual design",
+            isSaved = true,
             createdAt = now,
             updatedAt = now
         )
@@ -131,6 +150,18 @@ object PaletteService {
         }
     }
 
+    private suspend fun seedSavedIdsIfNeeded(
+        prefs: Preferences,
+        saved: List<Palette>,
+        resolvedSavedIds: List<String>
+    ) {
+        if (prefs[KEY_SAVED_IDS] != null || saved.isEmpty()) return
+        val payload = runCatching { json.encodeToString(resolvedSavedIds) }.getOrElse { "[]" }
+        appContext.paletteDataStore.edit { p ->
+            p[KEY_SAVED_IDS] = payload
+        }
+    }
+
     fun create(
         name: String,
         colors: List<PickedColor>,
@@ -145,11 +176,14 @@ object PaletteService {
             colors = colors.distinctBy { it.argb },
             tags = tags,
             note = note,
+            isSaved = true,
             createdAt = now,
             updatedAt = now
         )
         _palettes.update { listOf(p) + it }
+        _savedIds.update { it + p.id }
         persist()
+        persistSavedIds()
         AnalyticsTracker.logPaletteCreated(p, creationSource)
         return p
     }
@@ -170,6 +204,7 @@ object PaletteService {
                     colors = (colors ?: p.colors).distinctBy { it.argb },
                     tags = tags ?: p.tags,
                     note = note ?: p.note,
+                    isSaved = p.isSaved,
                     updatedAt = now
                 )
             }
@@ -177,14 +212,36 @@ object PaletteService {
         persist()
     }
 
+    fun toggleSaved(id: String) {
+        val isSaved = _savedIds.value.contains(id)
+        setSaved(id, !isSaved)
+    }
+
+    fun setSaved(id: String, isSaved: Boolean) {
+        _savedIds.update { ids ->
+            if (isSaved) ids + id else ids - id
+        }
+        _palettes.update { list ->
+            list.map { palette ->
+                if (palette.id != id) palette else palette.copy(isSaved = isSaved)
+            }
+        }
+        persist()
+        persistSavedIds()
+    }
+
     fun delete(id: String) {
         _palettes.update { it.filterNot { p -> p.id == id } }
+        _savedIds.update { it - id }
         persist()
+        persistSavedIds()
     }
 
     fun clear() {
         _palettes.value = emptyList()
+        _savedIds.value = emptySet()
         persist()
+        persistSavedIds()
     }
 
     private fun persist() {
@@ -194,4 +251,14 @@ object PaletteService {
             appContext.paletteDataStore.edit { it[KEY] = payload }
         }
     }
+
+    private fun persistSavedIds() {
+        val snapshot = _savedIds.value.toList()
+        scope.launch {
+            val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
+            appContext.paletteDataStore.edit { it[KEY_SAVED_IDS] = payload }
+        }
+    }
 }
+
+private data class Quadruple<A, B, C, D>(val first: A, val second: B, val third: C, val fourth: D)

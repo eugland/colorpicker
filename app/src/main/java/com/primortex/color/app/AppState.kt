@@ -15,6 +15,7 @@ data class Palette(
     val colors: List<PickedColor>,
     val tags: List<String> = emptyList(),
     val note: String = "",
+    val isSaved: Boolean = false,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = createdAt
 )

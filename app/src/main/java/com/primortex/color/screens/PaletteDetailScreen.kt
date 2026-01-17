@@ -94,7 +94,7 @@ fun PaletteDetailScreen(
 
     val palettes by PaletteService.palettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
-    val isFavorite = palette?.tags?.contains(FAVORITE_TAG) == true
+    val isSaved = palette?.isSaved == true
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
@@ -168,7 +168,7 @@ fun PaletteDetailScreen(
                     onTagsChange = { tagsInput = it },
                     onNoteChange = { note = it },
                     palette = palette,
-                    isFavorite = isFavorite,
+                    isFavorite = isSaved,
                     onToggleEdit = {
                         if (isEditing) {
                             val tags = tagsInput.split(',').mapNotNull { tag ->
@@ -185,17 +185,7 @@ fun PaletteDetailScreen(
                         }
                         isEditing = !isEditing
                     },
-                    onToggleFavorite = {
-                        val updatedTags = if (isFavorite) {
-                            palette.tags.filterNot { it == FAVORITE_TAG }
-                        } else {
-                            palette.tags + FAVORITE_TAG
-                        }
-                        PaletteService.update(
-                            id = palette.id,
-                            tags = updatedTags
-                        )
-                    },
+                    onToggleFavorite = { PaletteService.toggleSaved(palette.id) },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(
@@ -336,7 +326,6 @@ private fun smoothGradient(colors: List<PickedColor>): List<Color> {
     return ordered.map { color -> Color(color.argb) }
 }
 
-private const val FAVORITE_TAG = "favorite"
 
 @Composable
 private fun PaletteGradientPreview(colors: List<Color>) {
