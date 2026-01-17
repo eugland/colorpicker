@@ -55,6 +55,7 @@ import com.primortex.color.screens.PhotoPickScreen
 import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.screens.SwatchListScreen
 import com.primortex.color.screens.SwatchListType
+import com.primortex.color.screens.WallPaintPreviewScreen
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -74,10 +75,13 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
         route.startsWith(Routes.Tab.CAMERA) -> Routes.Tab.CAMERA
         route.startsWith(Routes.Tab.EXPLORE) -> Routes.Tab.EXPLORE
         route.startsWith(Routes.Tool.SLIDER) -> Routes.Tab.CAMERA
+        route.startsWith(Routes.Tool.WALL_PAINT) -> Routes.Tab.CAMERA
         else -> route
     }
 
-    val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
+    val showBottomBar = route.startsWith("tab/") ||
+        route.startsWith(Routes.Tool.SLIDER) ||
+        route.startsWith(Routes.Tool.WALL_PAINT)
     val context = LocalContext.current
     val activityName = remember(context) {
         context.findActivity()?.javaClass?.simpleName ?: "MainActivity"
@@ -176,6 +180,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenColorSlider = { navigator.openColorSlider() },
                         onOpenColorBlindEnhancer = { navigator.openColorBlindEnhancer() },
+                        onOpenWallPaintPreview = { navigator.openWallPaintPreview() },
                         onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
                     )
                 }
@@ -274,6 +279,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
                 composable(Routes.Tool.COLOR_BLIND) {
                     ColorBlindEnhancerScreen(
+                        onBack = { navigator.back() }
+                    )
+                }
+                composable(Routes.Tool.WALL_PAINT) {
+                    WallPaintPreviewScreen(
+                        innerPadding = inner,
                         onBack = { navigator.back() }
                     )
                 }
@@ -439,6 +450,7 @@ private fun screenNameForRoute(route: String): String? {
         Routes.Detail.PALETTE -> "PaletteDetailScreen"
         Routes.Tool.SLIDER -> "ColorSliderScreen"
         Routes.Tool.COLOR_BLIND -> "ColorBlindEnhancerScreen"
+        Routes.Tool.WALL_PAINT -> "WallPaintPreviewScreen"
         Routes.List.SWATCH -> "SwatchListScreen"
         Routes.List.PALETTE -> "PaletteListScreen"
         Routes.Info.COPYRIGHT -> "InfoCopyrightScreen"

@@ -38,6 +38,10 @@ class NavColorNavigator(
         nav.navigate(Routes.Tool.COLOR_BLIND)
     }
 
+    override fun openWallPaintPreview() {
+        nav.navigate(Routes.Tool.WALL_PAINT)
+    }
+
     override fun openPhotoPick(uriString: String) {
         val encoded = java.net.URLEncoder.encode(uriString, "UTF-8")
         nav.navigate(Routes.Camera.photoPickWith(encoded))

@@ -175,6 +175,8 @@
     <string name="color_slider_description">Adjust RGB, HSL, HSV, or CMYK and see live names and hex.</string>
     <string name="color_blind_enhancer">Color-blind enhancer</string>
     <string name="color_blind_enhancer_description">Live camera view tuned for color-vision deficiencies.</string>
+    <string name="wall_paint_preview_title">Wall paint preview</string>
+    <string name="wall_paint_preview_description">Tap a wall and preview paint colors with shading intact.</string>
     <string name="open">Open</string>
     <string name="live_color_picker">Live color picker</string>
     <string name="live_color_picker_description">Point at anything. Pinch to zoom. Add to palette instantly.</string>
@@ -190,6 +192,21 @@
     <string name="color_blind_mode_tritan">Tritan</string>
     <string name="filter_strength">Strength</string>
     <string name="edge_enhancement">Edge enhancement</string>
+
+    <string name="wall_paint_preview_intro">Aim your camera at a wall to preview fresh paint. Tap to segment the wall, then recolor the masked area while preserving shadows and texture.</string>
+    <string name="wall_paint_steps_title">Flow</string>
+    <string name="wall_paint_step_camera">Open the camera and frame the wall you want to update.</string>
+    <string name="wall_paint_step_mask">Tap the wall to auto-segment the surface.</string>
+    <string name="wall_paint_step_color_pick">Pick a paint color (try #F97316).</string>
+    <string name="wall_paint_step_result">Preview the new shade with lighting preserved.</string>
+    <string name="wall_paint_pick_color_title">Pick a color</string>
+    <string name="wall_paint_hex_label">Paint hex color</string>
+    <string name="wall_paint_hex_helper">Enter a 6-digit hex value.</string>
+    <string name="wall_paint_hex_error">Use 6 hex digits, like #F97316.</string>
+    <string name="wall_paint_note_title">Mask-based recolor</string>
+    <string name="wall_paint_note_body">Only the detected wall pixels are tinted, so the existing lighting and texture stay visible.</string>
+    <string name="wall_paint_preview_before">Before</string>
+    <string name="wall_paint_preview_after">After</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>

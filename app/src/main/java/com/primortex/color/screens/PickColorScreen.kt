@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Colorize
 import androidx.compose.material.icons.outlined.Gradient
+import androidx.compose.material.icons.outlined.FormatPaint
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -36,6 +37,7 @@ fun CameraScreen(
     onOpenLiveCameraPicker: () -> Unit,
     onOpenColorSlider: () -> Unit,
     onOpenColorBlindEnhancer: () -> Unit,
+    onOpenWallPaintPreview: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
     val pickPhotoLauncher = rememberLauncherForActivityResult(
@@ -101,6 +103,7 @@ fun CameraScreen(
 
         ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
         ColorBlindEnhancerCard(onOpenColorBlindEnhancer = onOpenColorBlindEnhancer)
+        WallPaintPreviewCard(onOpenWallPaintPreview = onOpenWallPaintPreview)
     }
 }
 
@@ -158,6 +161,37 @@ private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
                 )
             }
             FilledTonalButton(onClick = onOpenColorBlindEnhancer) {
+                Text(stringResource(R.string.open))
+            }
+        }
+    }
+}
+
+@Composable
+private fun WallPaintPreviewCard(onOpenWallPaintPreview: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.extraLarge,
+        onClick = onOpenWallPaintPreview
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Icon(Icons.Outlined.FormatPaint, contentDescription = null)
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    stringResource(R.string.wall_paint_preview_title),
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    stringResource(R.string.wall_paint_preview_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            FilledTonalButton(onClick = onOpenWallPaintPreview) {
                 Text(stringResource(R.string.open))
             }
         }
