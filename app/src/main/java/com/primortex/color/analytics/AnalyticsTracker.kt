@@ -2,6 +2,7 @@ package com.primortex.color.analytics
 
 import android.app.Application
 import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
@@ -39,6 +40,13 @@ object AnalyticsTracker {
             param("palette_id", palette.id)
             param("palette_name", palette.name)
             param("color_count", palette.colors.size.toLong())
+        }
+    }
+
+    fun logScreenView(screenName: String, screenClass: String) {
+        analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
         }
     }
 
