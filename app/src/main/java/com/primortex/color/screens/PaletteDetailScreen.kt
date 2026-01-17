@@ -69,6 +69,7 @@ import androidx.compose.ui.zIndex
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
@@ -97,11 +98,8 @@ fun PaletteDetailScreen(
     val palette = palettes.firstOrNull { it.id == paletteId }
         ?: previewPalettes.firstOrNull { it.id == paletteId }
     val isSaved = palettes.any { it.id == paletteId }
-    var localPalette by remember(paletteId) { mutableStateOf<Palette?>(null) }
-    LaunchedEffect(palette?.id) {
-        palette?.let { localPalette = it }
-    }
-    val paletteSnapshot = localPalette ?: palette
+    val paletteSnapshot = palette
+        ?: ColorServices.selectedPalette?.takeIf { it.id == paletteId }
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.name.orEmpty()) }

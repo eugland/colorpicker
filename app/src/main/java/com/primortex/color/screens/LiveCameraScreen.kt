@@ -355,6 +355,7 @@ fun LiveCameraScreen(
                     colors = palette,
                     creationSource = "live_camera"
                 )
+                ColorServices.selectedPalette = saved
                 palette.clear()
                 snackbarService.showMessage(ctx.getString(R.string.palette_saved))
                 onOpenPalette(saved.id, true)
