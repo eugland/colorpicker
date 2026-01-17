@@ -96,20 +96,25 @@ fun PaletteDetailScreen(
     val previewPalettes by PaletteService.previewPalettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
         ?: previewPalettes.firstOrNull { it.id == paletteId }
-    val isSaved = palettes.any { it.id == palette?.id }
+    val isSaved = palettes.any { it.id == paletteId }
+    var localPalette by rememberSaveable(paletteId) { mutableStateOf<Palette?>(null) }
+    LaunchedEffect(palette?.id) {
+        palette?.let { localPalette = it }
+    }
+    val paletteSnapshot = localPalette ?: palette
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
-    var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
+    var name by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.name.orEmpty()) }
     var tagsInput by rememberSaveable(paletteId) {
         mutableStateOf(
-            palette?.tags?.joinToString(", ").orEmpty()
+            paletteSnapshot?.tags?.joinToString(", ").orEmpty()
         )
     }
-    var note by rememberSaveable(paletteId) { mutableStateOf(palette?.note.orEmpty()) }
+    var note by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.note.orEmpty()) }
     val editableColors = remember(paletteId) { mutableStateListOf<PickedColor>() }
 
-    LaunchedEffect(palette?.id) {
-        palette?.let {
+    LaunchedEffect(paletteSnapshot?.id) {
+        paletteSnapshot?.let {
             name = it.name
             tagsInput = it.tags.joinToString(", ")
             note = it.note
@@ -130,7 +135,7 @@ fun PaletteDetailScreen(
         remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
     val resetEditingState = {
-        palette?.let {
+        paletteSnapshot?.let {
             name = it.name
             tagsInput = it.tags.joinToString(", ")
             note = it.note
@@ -146,7 +151,7 @@ fun PaletteDetailScreen(
         innerPadding = innerPadding,
         onBack = onBack
     ) {
-        if (palette == null) {
+        if (paletteSnapshot == null) {
             Text(text = stringResource(R.string.palette_missing))
             return@ScreenScaffold
         }
@@ -169,7 +174,7 @@ fun PaletteDetailScreen(
                     onNameChange = { name = it },
                     onTagsChange = { tagsInput = it },
                     onNoteChange = { note = it },
-                    palette = palette,
+                    palette = paletteSnapshot,
                     isFavorite = isSaved,
                     onToggleEdit = {
                         if (isEditing) {
@@ -177,7 +182,7 @@ fun PaletteDetailScreen(
                                 tag.trim().takeIf { it.isNotBlank() }
                             }
                             PaletteService.update(
-                                id = palette.id,
+                                id = paletteSnapshot.id,
                                 name = name.ifBlank { paletteLabel },
                                 tags = tags,
                                 note = note,
@@ -187,7 +192,7 @@ fun PaletteDetailScreen(
                         }
                         isEditing = !isEditing
                     },
-                    onToggleFavorite = { PaletteService.toggleSaved(palette) },
+                    onToggleFavorite = { PaletteService.toggleSaved(paletteSnapshot) },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(
@@ -209,7 +214,7 @@ fun PaletteDetailScreen(
                         snackbarService.showMessage(exportedCssMessage)
                     },
                     onDelete = {
-                        PaletteService.delete(palette.id)
+                        PaletteService.delete(paletteSnapshot.id)
                         onBack()
                     },
                     onCancelEdit = {
