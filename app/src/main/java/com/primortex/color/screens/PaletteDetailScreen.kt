@@ -84,6 +84,7 @@ fun PaletteDetailScreen(
     startInEditMode: Boolean,
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit,
+    onPaletteMissing: () -> Unit = onBack,
 ) {
     val clipboard = LocalClipboardManager.current
     val snackbarService = LocalSnackbarService.current
@@ -92,6 +93,7 @@ fun PaletteDetailScreen(
     val paletteUpdatedMessage = stringResource(R.string.palette_updated)
     val copiedAllHexMessage = stringResource(R.string.copied_all_hex)
     val exportedCssMessage = stringResource(R.string.exported_css)
+    val paletteMissingMessage = stringResource(R.string.palette_missing)
 
     val palettes by PaletteService.palettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
@@ -106,6 +108,7 @@ fun PaletteDetailScreen(
     }
     var note by rememberSaveable(paletteId) { mutableStateOf(palette?.note.orEmpty()) }
     val editableColors = remember(paletteId) { mutableStateListOf<PickedColor>() }
+    var handledMissing by rememberSaveable(paletteId) { mutableStateOf(false) }
 
     LaunchedEffect(palette?.id) {
         palette?.let {
@@ -116,6 +119,14 @@ fun PaletteDetailScreen(
                 clear()
                 addAll(it.colors)
             }
+        }
+    }
+
+    LaunchedEffect(palette?.id, handledMissing) {
+        if (palette == null && !handledMissing) {
+            handledMissing = true
+            snackbarService.showMessage(paletteMissingMessage)
+            onPaletteMissing()
         }
     }
 

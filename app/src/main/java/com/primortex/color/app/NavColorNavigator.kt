@@ -44,11 +44,17 @@ class NavColorNavigator(
     }
 
     override fun openPaletteDetail(id: String, edit: Boolean) {
-        nav.navigate(Routes.Detail.palette(id, edit))
+        nav.navigate(Routes.Detail.palette(id, edit)) {
+            popUpTo(Routes.Detail.PALETTE) { inclusive = true }
+            launchSingleTop = true
+        }
     }
 
     override fun openColorDetail(argb: Int, name: String) {
-        nav.navigate(Routes.Detail.to(argb, name))
+        nav.navigate(Routes.Detail.to(argb, name)) {
+            popUpTo(Routes.Detail.COLOR) { inclusive = true }
+            launchSingleTop = true
+        }
     }
 
     override fun openInfoCopyright() {
