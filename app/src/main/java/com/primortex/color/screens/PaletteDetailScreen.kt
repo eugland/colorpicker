@@ -98,7 +98,7 @@ fun PaletteDetailScreen(
     val palette = palettes.firstOrNull { it.id == paletteId }
         ?: previewPalettes.firstOrNull { it.id == paletteId }
     val isSaved = palettes.any { it.id == paletteId }
-    var localPalette by rememberSaveable(paletteId) { mutableStateOf<Palette?>(null) }
+    var localPalette by remember(paletteId) { mutableStateOf<Palette?>(null) }
     LaunchedEffect(palette?.id) {
         palette?.let { localPalette = it }
     }
