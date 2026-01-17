@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import java.security.MessageDigest
 import java.util.UUID
 
 private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
@@ -151,7 +152,12 @@ object PaletteService {
             createdAt = now,
             updatedAt = now
         )
+        val hash = paletteHash(p)
         if (saveOnCreate) {
+            val existing = _palettes.value.firstOrNull { paletteHash(it) == hash }
+            if (existing != null) {
+                return existing
+            }
             _palettes.update { listOf(p) + it }
             persist()
         } else {
@@ -185,9 +191,10 @@ object PaletteService {
     }
 
     fun toggleSaved(palette: Palette) {
-        val exists = _palettes.value.any { it.id == palette.id }
+        val targetHash = paletteHash(palette)
+        val exists = _palettes.value.any { paletteHash(it) == targetHash }
         if (exists) {
-            _palettes.update { it.filterNot { p -> p.id == palette.id } }
+            _palettes.update { list -> list.filterNot { paletteHash(it) == targetHash } }
         } else {
             _palettes.update { listOf(palette) + it }
             _previewPalettes.update { it.filterNot { p -> p.id == palette.id } }
@@ -212,5 +219,16 @@ object PaletteService {
             val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
             appContext.paletteDataStore.edit { it[KEY] = payload }
         }
+    }
+
+    fun paletteHash(palette: Palette): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        val payload = palette.colors
+            .map { it.argb }
+            .sorted()
+            .joinToString(separator = ",")
+            .toByteArray()
+        val hashBytes = digest.digest(payload)
+        return hashBytes.joinToString("") { "%02x".format(it) }
     }
 }

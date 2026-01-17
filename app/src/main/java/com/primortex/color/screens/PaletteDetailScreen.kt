@@ -98,9 +98,10 @@ fun PaletteDetailScreen(
     val previewPalettes by PaletteService.previewPalettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
         ?: previewPalettes.firstOrNull { it.id == paletteId }
-    val isSaved = palettes.any { it.id == paletteId }
     val paletteSnapshot = palette
         ?: ColorServices.selectedPalette?.takeIf { it.id == paletteId }
+    val paletteHash = paletteSnapshot?.let { PaletteService.paletteHash(it) }
+    val isSaved = paletteHash != null && palettes.any { PaletteService.paletteHash(it) == paletteHash }
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.name.orEmpty()) }
