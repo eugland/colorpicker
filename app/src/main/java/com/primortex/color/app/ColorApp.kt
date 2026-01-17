@@ -182,7 +182,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tab.PALETTE) {
                     PaletteScreen(
                         innerPadding = inner,
-                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) },
+                        onOpenPalette = { palette ->
+                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            navigator.openPaletteDetail(palette.id)
+                        },
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenRecentColors = { navigator.openRecentColors() },
                         onOpenSavedColors = { navigator.openSavedColors() },
@@ -300,7 +303,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     PaletteListScreen(
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
+                        onOpenPalette = { palette ->
+                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            navigator.openPaletteDetail(palette.id)
+                        }
                     )
                 }
 

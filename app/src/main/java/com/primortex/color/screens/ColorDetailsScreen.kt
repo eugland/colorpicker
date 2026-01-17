@@ -349,6 +349,7 @@ fun ColorDetailsScreen(
                         saveOnCreate = false,
                         creationSource = "color_details"
                     )
+                    ColorServices.selectedPalette = saved
                     onOpenPalette(saved.id, false)
                 }
             )
@@ -364,6 +365,7 @@ fun ColorDetailsScreen(
                         saveOnCreate = false,
                         creationSource = "color_details"
                     )
+                    ColorServices.selectedPalette = saved
                     onOpenPalette(saved.id, false)
                 }
             )
@@ -379,6 +381,7 @@ fun ColorDetailsScreen(
                         saveOnCreate = false,
                         creationSource = "color_details"
                     )
+                    ColorServices.selectedPalette = saved
                     onOpenPalette(saved.id, false)
                 }
             )
@@ -428,6 +431,7 @@ fun ColorDetailsScreen(
                             saveOnCreate = false,
                             creationSource = "color_details"
                         )
+                        ColorServices.selectedPalette = saved
                         onOpenPalette(saved.id, false)
                     }
                 )

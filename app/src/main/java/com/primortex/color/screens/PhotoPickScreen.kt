@@ -248,6 +248,7 @@ fun PhotoPickScreen(
                         colors = palette,
                         creationSource = "photo_library"
                     )
+                    ColorServices.selectedPalette = saved
                     palette.clear()
                     snackbarService.showMessage(ctx.getString(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
