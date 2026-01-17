@@ -320,6 +320,7 @@ fun ColorDetailsScreen(
                         name = "${displayName} ${context.getString(R.string.tints_label)}",
                         colors = (listOf(details.argb) + details.tints).toPickedColors(),
                         tags = listOf("details"),
+                        saveOnCreate = false,
                         creationSource = "color_details"
                     )
                     onOpenPalette(saved.id, false)
@@ -334,6 +335,7 @@ fun ColorDetailsScreen(
                         name = "${displayName} ${context.getString(R.string.shades_label)}",
                         colors = (listOf(details.argb) + details.shades).toPickedColors(),
                         tags = listOf("details"),
+                        saveOnCreate = false,
                         creationSource = "color_details"
                     )
                     onOpenPalette(saved.id, false)
@@ -348,6 +350,7 @@ fun ColorDetailsScreen(
                         name = "${displayName} ${context.getString(R.string.tones_label)}",
                         colors = (listOf(details.argb) + details.tones).toPickedColors(),
                         tags = listOf("details"),
+                        saveOnCreate = false,
                         creationSource = "color_details"
                     )
                     onOpenPalette(saved.id, false)
@@ -396,6 +399,7 @@ fun ColorDetailsScreen(
                             name = "${displayName} ${scheme.title}",
                             colors = scheme.colors.toPickedColors(),
                             tags = listOf("details"),
+                            saveOnCreate = false,
                             creationSource = "color_details"
                         )
                         onOpenPalette(saved.id, false)

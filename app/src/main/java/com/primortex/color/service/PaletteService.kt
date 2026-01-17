@@ -167,6 +167,7 @@ object PaletteService {
         colors: List<PickedColor>,
         tags: List<String> = emptyList(),
         note: String = "",
+        saveOnCreate: Boolean = true,
         creationSource: String = "unknown"
     ): Palette {
         val now = System.currentTimeMillis()
@@ -176,14 +177,18 @@ object PaletteService {
             colors = colors.distinctBy { it.argb },
             tags = tags,
             note = note,
-            isSaved = true,
+            isSaved = saveOnCreate,
             createdAt = now,
             updatedAt = now
         )
         _palettes.update { listOf(p) + it }
-        _savedIds.update { it + p.id }
+        if (saveOnCreate) {
+            _savedIds.update { it + p.id }
+        }
         persist()
-        persistSavedIds()
+        if (saveOnCreate) {
+            persistSavedIds()
+        }
         AnalyticsTracker.logPaletteCreated(p, creationSource)
         return p
     }
