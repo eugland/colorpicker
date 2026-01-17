@@ -93,8 +93,10 @@ fun PaletteDetailScreen(
     val exportedCssMessage = stringResource(R.string.exported_css)
 
     val palettes by PaletteService.palettes.collectAsState()
+    val previewPalettes by PaletteService.previewPalettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
-    val isSaved = palette?.isSaved == true
+        ?: previewPalettes.firstOrNull { it.id == paletteId }
+    val isSaved = palettes.any { it.id == palette?.id }
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
@@ -185,7 +187,7 @@ fun PaletteDetailScreen(
                         }
                         isEditing = !isEditing
                     },
-                    onToggleFavorite = { PaletteService.toggleSaved(palette.id) },
+                    onToggleFavorite = { PaletteService.toggleSaved(palette) },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(
