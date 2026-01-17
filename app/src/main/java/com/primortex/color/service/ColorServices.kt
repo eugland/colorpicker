@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 object ColorServices {
     private lateinit var colorService: ColorService
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    @Volatile
+    var selectedPalette: com.primortex.color.app.Palette? = null
 
     fun init(context: Context) {
         if (::colorService.isInitialized) return

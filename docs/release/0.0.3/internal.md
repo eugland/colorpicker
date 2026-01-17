@@ -15,7 +15,7 @@
 
 * **Terms of Service Page**
 
-    * New dedicated Terms of Service screen
+    * New dedicated Terms of Service screenq
     * Fully localized and integrated with Info pages
 
 * **Navigation Improvements**

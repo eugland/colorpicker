@@ -1,8 +1,15 @@
 // com/primortex/color/screens/ColorDetailsScreen.kt
 package com.primortex.color.screens
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,9 +30,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -61,8 +71,10 @@ import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.ColorDetailsService
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
+import androidx.core.graphics.ColorUtils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,12 +82,14 @@ fun ColorDetailsScreen(
     argb: Int,
     nameHint: String? = null,
     onBack: () -> Unit,
-    onOpenColorDetail: (PickedColor) -> Unit = {} // open similar colors
+    onOpenColorDetail: (PickedColor) -> Unit = {}, // open similar colors
+    onOpenPalette: (String, Boolean) -> Unit = { _, _ -> }
 ) {
     val clipboard = LocalClipboardManager.current
     val context = LocalContext.current
     val snackbarService = LocalSnackbarService.current
     val palettes by PaletteService.palettes.collectAsState()
+    val savedColors by RecentPicksService.saved.collectAsState()
     var showPalettePicker by remember { mutableStateOf(false) }
 
     val details: ColorDetails = remember(argb) {
@@ -85,6 +99,7 @@ fun ColorDetailsScreen(
     val pickedColor = remember(details.argb, displayName) {
         PickedColor(details.argb, displayName)
     }
+    val isSaved = savedColors.any { it.argb == pickedColor.argb }
 
     Scaffold(
         topBar = {
@@ -122,6 +137,42 @@ fun ColorDetailsScreen(
                 tonalElevation = 2.dp,
                 modifier = Modifier.fillMaxWidth()
             ) {
+                val baseColor = Color(details.argb)
+                val baseHsl = remember(details.argb) {
+                    FloatArray(3).apply { ColorUtils.colorToHSL(details.argb, this) }
+                }
+                val transition = rememberInfiniteTransition(label = "breathingTint")
+                val lightnessShift by transition.animateFloat(
+                    initialValue = 0.06f,
+                    targetValue = 0.1f,
+                    animationSpec = infiniteRepeatable(
+                        animation = tween(durationMillis = 8000, easing = LinearEasing),
+                        repeatMode = RepeatMode.Reverse
+                    ),
+                    label = "lightnessShift"
+                )
+                val tintColor = remember(baseHsl, lightnessShift) {
+                    Color(
+                        ColorUtils.HSLToColor(
+                            floatArrayOf(
+                                baseHsl[0],
+                                baseHsl[1],
+                                (baseHsl[2] + lightnessShift).coerceIn(0f, 1f)
+                            )
+                        )
+                    )
+                }
+                val shadeColor = remember(baseHsl, lightnessShift) {
+                    Color(
+                        ColorUtils.HSLToColor(
+                            floatArrayOf(
+                                baseHsl[0],
+                                baseHsl[1],
+                                (baseHsl[2] - lightnessShift).coerceIn(0f, 1f)
+                            )
+                        )
+                    )
+                }
                 Box(
                     Modifier
                         .fillMaxWidth()
@@ -129,8 +180,9 @@ fun ColorDetailsScreen(
                         .background(
                             Brush.linearGradient(
                                 colors = listOf(
-                                    Color(details.argb),
-                                    Color(details.argb)
+                                    tintColor,
+                                    baseColor,
+                                    shadeColor
                                 )
                             )
                         )
@@ -178,15 +230,35 @@ fun ColorDetailsScreen(
 
             // Actions
             FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick = {
-                    clipboard.setText(AnnotatedString(details.hex))
-                    snackbarService.showMessage(context.getString(R.string.hex_copied))
-                }) { Text(stringResource(R.string.copy_hex)) }
-
-                OutlinedButton(onClick = {
-                    clipboard.setText(AnnotatedString(displayName))
-                    snackbarService.showMessage(context.getString(R.string.name_copied))
-                }) { Text(stringResource(R.string.copy_name)) }
+                if (isSaved) {
+                    Button(onClick = {
+                        RecentPicksService.toggleSaved(pickedColor)
+                        snackbarService.showMessage(
+                            context.getString(R.string.removed_from_my_colors)
+                        )
+                    }) {
+                        Icon(
+                            Icons.Filled.Favorite,
+                            contentDescription = null
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.saved))
+                    }
+                } else {
+                    OutlinedButton(onClick = {
+                        RecentPicksService.toggleSaved(pickedColor)
+                        snackbarService.showMessage(
+                            context.getString(R.string.saved_to_my_colors)
+                        )
+                    }) {
+                        Icon(
+                            Icons.Outlined.FavoriteBorder,
+                            contentDescription = null
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.save))
+                    }
+                }
 
                 OutlinedButton(onClick = { showPalettePicker = true }) {
                     Text(stringResource(R.string.add_to_palette))
@@ -265,44 +337,60 @@ fun ColorDetailsScreen(
                 stringResource(R.string.color_shades_tints_tones_title, displayName),
                 style = MaterialTheme.typography.titleMedium
             )
-            Spacer(Modifier.height(6.dp))
-            Text(
-                stringResource(R.string.color_shades_tints_tones_description, displayName),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
             Spacer(Modifier.height(10.dp))
             ShadeToneRow(
                 label = stringResource(R.string.tints_label),
-                argbs = details.tints
+                argbs = details.tints,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${context.getString(R.string.tints_label)}",
+                        colors = (listOf(details.argb) + details.tints).toPickedColors(),
+                        tags = listOf("details"),
+                        saveOnCreate = false,
+                        creationSource = "color_details"
+                    )
+                    ColorServices.selectedPalette = saved
+                    onOpenPalette(saved.id, false)
+                }
             )
             Spacer(Modifier.height(8.dp))
             ShadeToneRow(
                 label = stringResource(R.string.shades_label),
-                argbs = details.shades
+                argbs = details.shades,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${context.getString(R.string.shades_label)}",
+                        colors = (listOf(details.argb) + details.shades).toPickedColors(),
+                        tags = listOf("details"),
+                        saveOnCreate = false,
+                        creationSource = "color_details"
+                    )
+                    ColorServices.selectedPalette = saved
+                    onOpenPalette(saved.id, false)
+                }
             )
             Spacer(Modifier.height(8.dp))
             ShadeToneRow(
                 label = stringResource(R.string.tones_label),
-                argbs = details.tones
+                argbs = details.tones,
+                onOpenPalette = {
+                    val saved = PaletteService.create(
+                        name = "${displayName} ${context.getString(R.string.tones_label)}",
+                        colors = (listOf(details.argb) + details.tones).toPickedColors(),
+                        tags = listOf("details"),
+                        saveOnCreate = false,
+                        creationSource = "color_details"
+                    )
+                    ColorServices.selectedPalette = saved
+                    onOpenPalette(saved.id, false)
+                }
             )
 
             Spacer(Modifier.height(16.dp))
 
             Text(
-                stringResource(R.string.color_plates_title),
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.height(6.dp))
-            Text(
                 stringResource(R.string.color_palettes_title, displayName),
                 style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(Modifier.height(6.dp))
-            Text(
-                stringResource(R.string.color_palettes_description, displayName),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(Modifier.height(10.dp))
             val paletteSchemes = listOf(
@@ -335,18 +423,16 @@ fun ColorDetailsScreen(
             paletteSchemes.forEach { scheme ->
                 PaletteSchemeCard(
                     scheme = scheme,
-                    onSavePalette = {
-                        PaletteService.create(
+                    onOpenPalette = {
+                        val saved = PaletteService.create(
                             name = "${displayName} ${scheme.title}",
                             colors = scheme.colors.toPickedColors(),
                             tags = listOf("details"),
+                            saveOnCreate = false,
                             creationSource = "color_details"
                         )
-                        snackbarService.showMessage(context.getString(R.string.palette_saved))
-                    },
-                    onDownloadPalette = {
-                        clipboard.setText(AnnotatedString(buildPaletteCss(scheme.colors)))
-                        snackbarService.showMessage(context.getString(R.string.exported_css))
+                        ColorServices.selectedPalette = saved
+                        onOpenPalette(saved.id, false)
                     }
                 )
                 Spacer(Modifier.height(10.dp))
@@ -454,32 +540,47 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
 }
 
 @Composable
-private fun ShadeToneRow(label: String, argbs: List<Int>) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(
-            label,
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.width(90.dp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Spacer(Modifier.width(8.dp))
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            items(argbs) { a ->
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Box(
-                        Modifier
-                            .size(28.dp)
-                            .clip(CircleShape)
-                            .background(Color(a))
-                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        argbToHex(a),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontFamily = FontFamily.Monospace
-                    )
+private fun ShadeToneRow(
+    label: String,
+    argbs: List<Int>,
+    onOpenPalette: () -> Unit
+) {
+    Surface(
+        shape = MaterialTheme.shapes.large,
+        tonalElevation = 2.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenPalette() }
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(12.dp)
+        ) {
+            Text(
+                label,
+                style = MaterialTheme.typography.labelMedium,
+                modifier = Modifier.width(90.dp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.width(4.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                items(argbs) { a ->
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(
+                            Modifier
+                                .size(28.dp)
+                                .clip(CircleShape)
+                                .background(Color(a))
+                                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            argbToHex(a),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontFamily = FontFamily.Monospace
+                        )
+                    }
                 }
             }
         }
@@ -489,13 +590,14 @@ private fun ShadeToneRow(label: String, argbs: List<Int>) {
 @Composable
 private fun PaletteSchemeCard(
     scheme: PaletteScheme,
-    onSavePalette: () -> Unit,
-    onDownloadPalette: () -> Unit
+    onOpenPalette: () -> Unit
 ) {
     Surface(
         shape = MaterialTheme.shapes.large,
         tonalElevation = 2.dp,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenPalette() }
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
             Text(scheme.title, style = MaterialTheme.typography.titleSmall)
@@ -518,15 +620,6 @@ private fun PaletteSchemeCard(
                             fontFamily = FontFamily.Monospace
                         )
                     }
-                }
-            }
-            Spacer(Modifier.height(10.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick = onSavePalette) {
-                    Text(stringResource(R.string.save_palette))
-                }
-                OutlinedButton(onClick = onDownloadPalette) {
-                    Text(stringResource(R.string.download_palette))
                 }
             }
         }
@@ -607,16 +700,24 @@ private fun PalettePickerDialog(
                 }
                 OutlinedButton(
                     onClick = {
-                        PaletteService.create(
-                            name = ctx.getString(
-                                R.string.palette_name_with_color,
-                                pickedColor.name
-                            ),
-                            colors = listOf(pickedColor),
-                            tags = listOf("details"),
-                            creationSource = "color_details"
+                        val newPaletteName = ctx.getString(
+                            R.string.palette_name_with_color,
+                            pickedColor.name
                         )
-                        onPaletteCreated(ctx.getString(R.string.palette_saved))
+                        val hasDuplicateName = palettes.any { palette ->
+                            palette.name.equals(newPaletteName, ignoreCase = true)
+                        }
+                        if (hasDuplicateName) {
+                            onPaletteCreated(ctx.getString(R.string.already_in_palette))
+                        } else {
+                            PaletteService.create(
+                                name = newPaletteName,
+                                colors = listOf(pickedColor),
+                                tags = listOf("details"),
+                                creationSource = "color_details"
+                            )
+                            onPaletteCreated(ctx.getString(R.string.palette_saved))
+                        }
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -639,16 +740,5 @@ private fun List<Int>.toPickedColors(): List<PickedColor> {
     return distinct().map { argb ->
         val name = ColorServices.colors.localNameFromArgb(argb)
         PickedColor(argb, if (name.isBlank()) argbToHex(argb) else name)
-    }
-}
-
-private fun buildPaletteCss(colors: List<Int>): String {
-    return buildString {
-        appendLine(":root {")
-        colors.forEachIndexed { index, color ->
-            append("    --color-${index + 1}: ${argbToHex(color)};")
-            append('\n')
-        }
-        append("}")
     }
 }

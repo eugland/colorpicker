@@ -3,6 +3,7 @@ package com.primortex.color.screens
 import android.content.Context
 import android.content.Intent
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -221,7 +223,7 @@ private fun StandardCard(
     Surface(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
-        tonalElevation = 2.dp
+        tonalElevation = 1.dp
     ) {
         Column {
             if (title != null) {
@@ -229,10 +231,13 @@ private fun StandardCard(
                     text = title,
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(
-                        horizontal = CardHeaderPaddingH,
-                        vertical = CardHeaderPaddingV
-                    )
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.surfaceColorAtElevation(4.dp))
+                        .padding(
+                            horizontal = CardHeaderPaddingH,
+                            vertical = CardHeaderPaddingV
+                        )
                 )
             }
             content()

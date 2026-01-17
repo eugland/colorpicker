@@ -241,11 +241,11 @@ fun PaletteScreen(
                     picks = recents,
                     emptyMessage = stringResource(R.string.no_recent_colors),
                     onSwatchClick = { pick -> detailPick = pick },
-                    threshold = 6,
+                    threshold = 10,
                     showFooterToggle = false,
                     showEndSeeMore = true,
                     onEndSeeMore = onOpenRecentColors,
-                    swatchSize = 48.dp,
+                    swatchSize = 52.dp,
                     swatchShape = CircleShape,
                     swatchLabelBelow = true,
                     actions = {

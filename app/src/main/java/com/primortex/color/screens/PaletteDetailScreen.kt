@@ -21,13 +21,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.DeleteForever
 import androidx.compose.material.icons.outlined.Edit
-import androidx.compose.material.icons.outlined.Save
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -67,6 +70,7 @@ import androidx.compose.ui.zIndex
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
@@ -81,6 +85,7 @@ fun PaletteDetailScreen(
     startInEditMode: Boolean,
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit,
+    onPaletteMissing: () -> Unit = onBack,
 ) {
     val clipboard = LocalClipboardManager.current
     val snackbarService = LocalSnackbarService.current
@@ -89,22 +94,30 @@ fun PaletteDetailScreen(
     val paletteUpdatedMessage = stringResource(R.string.palette_updated)
     val copiedAllHexMessage = stringResource(R.string.copied_all_hex)
     val exportedCssMessage = stringResource(R.string.exported_css)
+    val paletteMissingMessage = stringResource(R.string.palette_missing)
 
     val palettes by PaletteService.palettes.collectAsState()
+    val previewPalettes by PaletteService.previewPalettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
+        ?: previewPalettes.firstOrNull { it.id == paletteId }
+    val paletteSnapshot = palette
+        ?: ColorServices.selectedPalette?.takeIf { it.id == paletteId }
+    val paletteHash = paletteSnapshot?.let { PaletteService.paletteHash(it) }
+    val isSaved = paletteHash != null && palettes.any { PaletteService.paletteHash(it) == paletteHash }
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
-    var name by rememberSaveable(paletteId) { mutableStateOf(palette?.name.orEmpty()) }
+    var name by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.name.orEmpty()) }
     var tagsInput by rememberSaveable(paletteId) {
         mutableStateOf(
-            palette?.tags?.joinToString(", ").orEmpty()
+            paletteSnapshot?.tags?.joinToString(", ").orEmpty()
         )
     }
-    var note by rememberSaveable(paletteId) { mutableStateOf(palette?.note.orEmpty()) }
+    var note by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.note.orEmpty()) }
     val editableColors = remember(paletteId) { mutableStateListOf<PickedColor>() }
+    var handledMissing by rememberSaveable(paletteId) { mutableStateOf(false) }
 
-    LaunchedEffect(palette?.id) {
-        palette?.let {
+    LaunchedEffect(paletteSnapshot?.id) {
+        paletteSnapshot?.let {
             name = it.name
             tagsInput = it.tags.joinToString(", ")
             note = it.note
@@ -112,6 +125,14 @@ fun PaletteDetailScreen(
                 clear()
                 addAll(it.colors)
             }
+        }
+    }
+
+    LaunchedEffect(palette?.id, handledMissing) {
+        if (palette == null && !handledMissing) {
+            handledMissing = true
+            snackbarService.showMessage(paletteMissingMessage)
+            onPaletteMissing()
         }
     }
 
@@ -125,7 +146,7 @@ fun PaletteDetailScreen(
         remember(editableColors.toList()) { smoothGradient(editableColors.toList()) }
 
     val resetEditingState = {
-        palette?.let {
+        paletteSnapshot?.let {
             name = it.name
             tagsInput = it.tags.joinToString(", ")
             note = it.note
@@ -141,7 +162,7 @@ fun PaletteDetailScreen(
         innerPadding = innerPadding,
         onBack = onBack
     ) {
-        if (palette == null) {
+        if (paletteSnapshot == null) {
             Text(text = stringResource(R.string.palette_missing))
             return@ScreenScaffold
         }
@@ -164,14 +185,15 @@ fun PaletteDetailScreen(
                     onNameChange = { name = it },
                     onTagsChange = { tagsInput = it },
                     onNoteChange = { note = it },
-                    palette = palette,
+                    palette = paletteSnapshot,
+                    isFavorite = isSaved,
                     onToggleEdit = {
                         if (isEditing) {
                             val tags = tagsInput.split(',').mapNotNull { tag ->
                                 tag.trim().takeIf { it.isNotBlank() }
                             }
                             PaletteService.update(
-                                id = palette.id,
+                                id = paletteSnapshot.id,
                                 name = name.ifBlank { paletteLabel },
                                 tags = tags,
                                 note = note,
@@ -181,6 +203,7 @@ fun PaletteDetailScreen(
                         }
                         isEditing = !isEditing
                     },
+                    onToggleFavorite = { PaletteService.toggleSaved(paletteSnapshot) },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(
@@ -202,7 +225,7 @@ fun PaletteDetailScreen(
                         snackbarService.showMessage(exportedCssMessage)
                     },
                     onDelete = {
-                        PaletteService.delete(palette.id)
+                        PaletteService.delete(paletteSnapshot.id)
                         onBack()
                     },
                     onCancelEdit = {
@@ -321,6 +344,7 @@ private fun smoothGradient(colors: List<PickedColor>): List<Color> {
     return ordered.map { color -> Color(color.argb) }
 }
 
+
 @Composable
 private fun PaletteGradientPreview(colors: List<Color>) {
     val resolvedColors = if (colors.isNotEmpty()) {
@@ -359,7 +383,9 @@ private fun PaletteHeader(
     onTagsChange: (String) -> Unit,
     onNoteChange: (String) -> Unit,
     palette: Palette,
+    isFavorite: Boolean,
     onToggleEdit: () -> Unit,
+    onToggleFavorite: () -> Unit,
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
@@ -408,7 +434,9 @@ private fun PaletteHeader(
 
         ActionRow(
             isEditing = isEditing,
+            isFavorite = isFavorite,
             onToggleEdit = onToggleEdit,
+            onToggleFavorite = onToggleFavorite,
             onCopyAll = onCopyAll,
             onExportCss = onExportCss,
             onDelete = onDelete,
@@ -420,7 +448,9 @@ private fun PaletteHeader(
 @Composable
 private fun ActionRow(
     isEditing: Boolean,
+    isFavorite: Boolean,
     onToggleEdit: () -> Unit,
+    onToggleFavorite: () -> Unit,
     onCopyAll: () -> Unit,
     onExportCss: () -> Unit,
     onDelete: () -> Unit,
@@ -432,9 +462,31 @@ private fun ActionRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
+        if (!isEditing) {
+            if (isFavorite) {
+                Button(onClick = onToggleFavorite) {
+                    Icon(
+                        imageVector = Icons.Filled.Favorite,
+                        contentDescription = null
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.saved))
+                }
+            } else {
+                OutlinedButton(onClick = onToggleFavorite) {
+                    Icon(
+                        imageVector = Icons.Outlined.FavoriteBorder,
+                        contentDescription = null
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.save))
+                }
+            }
+        }
+
         OutlinedButton(onClick = onToggleEdit) {
             Icon(
-                imageVector = if (isEditing) Icons.Outlined.Save else Icons.Outlined.Edit,
+                imageVector = if (isEditing) Icons.Outlined.Favorite else Icons.Outlined.Edit,
                 contentDescription = null
             )
             Spacer(Modifier.width(8.dp))

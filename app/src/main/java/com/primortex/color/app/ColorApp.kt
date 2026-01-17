@@ -1,5 +1,8 @@
 package com.primortex.color.app
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +18,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -30,6 +34,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.R
+import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.info.InfoContent
 import com.primortex.color.info.InfoContentService
 import com.primortex.color.info.InfoPage
@@ -52,6 +57,8 @@ import com.primortex.color.screens.SwatchListScreen
 import com.primortex.color.screens.SwatchListType
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
@@ -71,6 +78,22 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     }
 
     val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
+    val context = LocalContext.current
+    val activityName = remember(context) {
+        context.findActivity()?.javaClass?.simpleName ?: "MainActivity"
+    }
+
+    LaunchedEffect(nav, activityName) {
+        nav.currentBackStackEntryFlow
+            .map { it.destination.route }
+            .distinctUntilChanged()
+            .collect { currentRoute ->
+                val screenName = currentRoute?.let { screenNameForRoute(it) }
+                if (screenName != null) {
+                    AnalyticsTracker.logScreenView(screenName, activityName)
+                }
+            }
+    }
 
     CompositionLocalProvider(LocalSnackbarService provides snackbarService) {
         Scaffold(
@@ -159,7 +182,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 composable(Routes.Tab.PALETTE) {
                     PaletteScreen(
                         innerPadding = inner,
-                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) },
+                        onOpenPalette = { palette ->
+                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            navigator.openPaletteDetail(palette.id)
+                        },
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenRecentColors = { navigator.openRecentColors() },
                         onOpenSavedColors = { navigator.openSavedColors() },
@@ -234,7 +260,8 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         argb = argb,
                         nameHint = name,
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) },
+                        onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                     )
                 }
 
@@ -276,7 +303,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     PaletteListScreen(
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        onOpenPalette = { palette -> navigator.openPaletteDetail(palette.id) }
+                        onOpenPalette = { palette ->
+                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            navigator.openPaletteDetail(palette.id)
+                        }
                     )
                 }
 
@@ -395,4 +425,40 @@ private fun rememberInfoSections(
         }
     }
     return sections.value
+}
+
+private fun screenNameForRoute(route: String): String? {
+    val baseRoute = route.substringBefore("?")
+    return when (baseRoute) {
+        Routes.Tab.PALETTE -> "PaletteScreen"
+        Routes.Tab.CAMERA -> "CameraScreen"
+        Routes.Tab.EXPLORE -> "ExploreScreen"
+        Routes.Camera.LIVE -> "LiveCameraScreen"
+        Routes.Camera.PHOTO_PICK_ROUTE.substringBefore("?") -> "PhotoPickScreen"
+        Routes.Detail.COLOR -> "ColorDetailsScreen"
+        Routes.Detail.PALETTE -> "PaletteDetailScreen"
+        Routes.Tool.SLIDER -> "ColorSliderScreen"
+        Routes.Tool.COLOR_BLIND -> "ColorBlindEnhancerScreen"
+        Routes.List.SWATCH -> "SwatchListScreen"
+        Routes.List.PALETTE -> "PaletteListScreen"
+        Routes.Info.COPYRIGHT -> "InfoCopyrightScreen"
+        Routes.Info.PRIVACY -> "InfoPrivacyScreen"
+        Routes.Info.TERMS -> "InfoTermsScreen"
+        Routes.Info.USAGE -> "InfoUsageScreen"
+        Routes.Settings.LANGUAGE -> "LanguageSelectionScreen"
+        Routes.Settings.THEME -> "ThemeSelectionScreen"
+        Routes.Settings.CROSSHAIR -> "CrosshairSettingsScreen"
+        else -> baseRoute.takeIf { it.isNotBlank() }
+    }
+}
+
+private fun Context.findActivity(): Activity? {
+    var current = this
+    while (current is ContextWrapper) {
+        if (current is Activity) {
+            return current
+        }
+        current = current.baseContext
+    }
+    return null
 }

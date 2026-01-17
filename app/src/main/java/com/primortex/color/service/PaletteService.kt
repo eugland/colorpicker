@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import java.security.MessageDigest
 import java.util.UUID
 
 private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
@@ -30,8 +31,12 @@ object PaletteService {
     private lateinit var appContext: Context
 
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
+    private val KEY_FIRST_PALETTE_LOGGED = booleanPreferencesKey("first_palette_logged_v1")
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
+    private val _previewPalettes = MutableStateFlow<List<Palette>>(emptyList())
+    val previewPalettes: StateFlow<List<Palette>> = _previewPalettes
+    private var firstPaletteLogged = false
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -48,6 +53,7 @@ object PaletteService {
                 }
                 .collect { (saved, seeded, prefs) ->
                     _palettes.value = saved
+                    firstPaletteLogged = prefs[KEY_FIRST_PALETTE_LOGGED] == true
                     if (!seeded) seedIfNeeded(prefs) // this writes once
                 }
         }
@@ -136,6 +142,7 @@ object PaletteService {
         colors: List<PickedColor>,
         tags: List<String> = emptyList(),
         note: String = "",
+        saveOnCreate: Boolean = true,
         creationSource: String = "unknown"
     ): Palette {
         val now = System.currentTimeMillis()
@@ -148,9 +155,27 @@ object PaletteService {
             createdAt = now,
             updatedAt = now
         )
-        _palettes.update { listOf(p) + it }
-        persist()
+        val hash = paletteHash(p)
+        if (saveOnCreate) {
+            val existing = _palettes.value.firstOrNull { paletteHash(it) == hash }
+            if (existing != null) {
+                return existing
+            }
+            _palettes.update { listOf(p) + it }
+            persist()
+        } else {
+            _previewPalettes.update { listOf(p) + it }
+        }
         AnalyticsTracker.logPaletteCreated(p, creationSource)
+        if (saveOnCreate && !firstPaletteLogged) {
+            AnalyticsTracker.logFirstPaletteCreated(p)
+            firstPaletteLogged = true
+            scope.launch {
+                appContext.paletteDataStore.edit { prefs ->
+                    prefs[KEY_FIRST_PALETTE_LOGGED] = true
+                }
+            }
+        }
         return p
     }
 
@@ -162,6 +187,7 @@ object PaletteService {
         note: String? = null
     ) {
         val now = System.currentTimeMillis()
+        var updatedPalette: Palette? = null
         _palettes.update { list ->
             list.map { p ->
                 if (p.id != id) p
@@ -171,8 +197,21 @@ object PaletteService {
                     tags = tags ?: p.tags,
                     note = note ?: p.note,
                     updatedAt = now
-                )
+                ).also { updatedPalette = it }
             }
+        }
+        persist()
+        updatedPalette?.let { AnalyticsTracker.logPaletteUpdated(it) }
+    }
+
+    fun toggleSaved(palette: Palette) {
+        val targetHash = paletteHash(palette)
+        val exists = _palettes.value.any { paletteHash(it) == targetHash }
+        if (exists) {
+            _palettes.update { list -> list.filterNot { paletteHash(it) == targetHash } }
+        } else {
+            _palettes.update { listOf(palette) + it }
+            _previewPalettes.update { it.filterNot { p -> p.id == palette.id } }
         }
         persist()
     }
@@ -180,10 +219,12 @@ object PaletteService {
     fun delete(id: String) {
         _palettes.update { it.filterNot { p -> p.id == id } }
         persist()
+        AnalyticsTracker.logPaletteDeleted(id)
     }
 
     fun clear() {
         _palettes.value = emptyList()
+        _previewPalettes.value = emptyList()
         persist()
     }
 
@@ -193,5 +234,16 @@ object PaletteService {
             val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
             appContext.paletteDataStore.edit { it[KEY] = payload }
         }
+    }
+
+    fun paletteHash(palette: Palette): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        val payload = palette.colors
+            .map { it.argb }
+            .sorted()
+            .joinToString(separator = ",")
+            .toByteArray()
+        val hashBytes = digest.digest(payload)
+        return hashBytes.joinToString("") { "%02x".format(it) }
     }
 }
