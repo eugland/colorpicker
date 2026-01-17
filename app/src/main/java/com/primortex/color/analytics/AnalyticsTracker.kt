@@ -43,6 +43,56 @@ object AnalyticsTracker {
         }
     }
 
+    fun logPaletteUpdated(palette: Palette) {
+        analytics.logEvent("palette_update") {
+            param("palette_id", palette.id)
+            param("color_count", palette.colors.size.toLong())
+            param("tag_count", palette.tags.size.toLong())
+        }
+    }
+
+    fun logPaletteDeleted(paletteId: String) {
+        analytics.logEvent("palette_delete") {
+            param("palette_id", paletteId)
+        }
+    }
+
+    fun logRecentsCleared() {
+        analytics.logEvent("recents_clear", null)
+    }
+
+    fun logSavedCleared() {
+        analytics.logEvent("saved_clear", null)
+    }
+
+    fun logFirstColorPick(pick: PickedColor) {
+        analytics.logEvent("first_color_pick") {
+            param("color_argb", pick.argb.toLong())
+            param("color_name", pick.name)
+            param("color_hex", pick.argb.toHex())
+        }
+    }
+
+    fun logFirstColorSaved(pick: PickedColor) {
+        analytics.logEvent("first_color_saved") {
+            param("color_argb", pick.argb.toLong())
+            param("color_name", pick.name)
+            param("color_hex", pick.argb.toHex())
+        }
+    }
+
+    fun logFirstPaletteCreated(palette: Palette) {
+        analytics.logEvent("first_palette_create") {
+            param("palette_id", palette.id)
+            param("palette_name", palette.name)
+            param("color_count", palette.colors.size.toLong())
+        }
+    }
+
+    fun logFirstUse() {
+        analytics.logEvent("first_use", null)
+    }
+
     fun logScreenView(screenName: String, screenClass: String) {
         analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)

@@ -31,10 +31,12 @@ object PaletteService {
     private lateinit var appContext: Context
 
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
+    private val KEY_FIRST_PALETTE_LOGGED = booleanPreferencesKey("first_palette_logged_v1")
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
     private val _previewPalettes = MutableStateFlow<List<Palette>>(emptyList())
     val previewPalettes: StateFlow<List<Palette>> = _previewPalettes
+    private var firstPaletteLogged = false
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -51,6 +53,7 @@ object PaletteService {
                 }
                 .collect { (saved, seeded, prefs) ->
                     _palettes.value = saved
+                    firstPaletteLogged = prefs[KEY_FIRST_PALETTE_LOGGED] == true
                     if (!seeded) seedIfNeeded(prefs) // this writes once
                 }
         }
@@ -164,6 +167,15 @@ object PaletteService {
             _previewPalettes.update { listOf(p) + it }
         }
         AnalyticsTracker.logPaletteCreated(p, creationSource)
+        if (saveOnCreate && !firstPaletteLogged) {
+            AnalyticsTracker.logFirstPaletteCreated(p)
+            firstPaletteLogged = true
+            scope.launch {
+                appContext.paletteDataStore.edit { prefs ->
+                    prefs[KEY_FIRST_PALETTE_LOGGED] = true
+                }
+            }
+        }
         return p
     }
 
@@ -175,6 +187,7 @@ object PaletteService {
         note: String? = null
     ) {
         val now = System.currentTimeMillis()
+        var updatedPalette: Palette? = null
         _palettes.update { list ->
             list.map { p ->
                 if (p.id != id) p
@@ -184,10 +197,11 @@ object PaletteService {
                     tags = tags ?: p.tags,
                     note = note ?: p.note,
                     updatedAt = now
-                )
+                ).also { updatedPalette = it }
             }
         }
         persist()
+        updatedPalette?.let { AnalyticsTracker.logPaletteUpdated(it) }
     }
 
     fun toggleSaved(palette: Palette) {
@@ -205,6 +219,7 @@ object PaletteService {
     fun delete(id: String) {
         _palettes.update { it.filterNot { p -> p.id == id } }
         persist()
+        AnalyticsTracker.logPaletteDeleted(id)
     }
 
     fun clear() {

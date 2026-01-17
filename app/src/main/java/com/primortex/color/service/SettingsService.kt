@@ -5,9 +5,11 @@ import android.util.Log
 import androidx.annotation.StringRes
 import androidx.core.os.LocaleListCompat
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.R
+import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.i18n.LocaleManagerBridge
 import kotlinx.coroutines.CoroutineScope
@@ -94,6 +96,7 @@ object SettingsService {
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
     private val KEY_PICKER_SENSITIVITY = stringPreferencesKey("picker_sensitivity")
     private val KEY_APP_LANGUAGE = stringPreferencesKey("app_language")
+    private val KEY_FIRST_USE_LOGGED = booleanPreferencesKey("first_use_logged_v1")
 
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -156,6 +159,13 @@ object SettingsService {
 
             syncPlatformLocale(resolvedLanguage)
             Log.d("AppLanguage", "init: ${_appLanguage.value}")
+
+            if (prefs[KEY_FIRST_USE_LOGGED] != true) {
+                AnalyticsTracker.logFirstUse()
+                appContext.settingsDataStore.edit { updated ->
+                    updated[KEY_FIRST_USE_LOGGED] = true
+                }
+            }
         }
     }
 

@@ -29,6 +29,8 @@ object RecentPicksService {
     private val KEY_HISTORY = stringPreferencesKey("history_json")
     private val KEY_SAVED = stringPreferencesKey("saved_json")
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
+    private val KEY_FIRST_PICK_LOGGED = booleanPreferencesKey("first_pick_logged_v1")
+    private val KEY_FIRST_SAVE_LOGGED = booleanPreferencesKey("first_saved_logged_v1")
     private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val json = Json {
@@ -39,6 +41,8 @@ object RecentPicksService {
     val history: StateFlow<List<PickedColor>> = _history
     private val _saved = MutableStateFlow<List<PickedColor>>(emptyList())
     val saved: StateFlow<List<PickedColor>> = _saved
+    private var firstPickLogged = false
+    private var firstSavedLogged = false
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -64,6 +68,8 @@ object RecentPicksService {
 
             _history.value = saved.take(MAX)
             _saved.value = savedColors.take(MAX)
+            firstPickLogged = prefs[KEY_FIRST_PICK_LOGGED] == true
+            firstSavedLogged = prefs[KEY_FIRST_SAVE_LOGGED] == true
 
             seedIfNeeded(prefs)
         }
@@ -116,6 +122,15 @@ object RecentPicksService {
     // ---- public API ----
     fun addPick(pick: PickedColor, source: String = "unknown") {
         AnalyticsTracker.logColorPicked(pick, source)
+        if (!firstPickLogged) {
+            AnalyticsTracker.logFirstColorPick(pick)
+            firstPickLogged = true
+            scope.launch {
+                appContext.recentsDataStore.edit { prefs ->
+                    prefs[KEY_FIRST_PICK_LOGGED] = true
+                }
+            }
+        }
         _history.update { prev ->
             (listOf(pick) + prev)
                 .distinctBy { it.argb } // optional: dedupe by color
@@ -126,11 +141,13 @@ object RecentPicksService {
 
     fun clear() {
         _history.value = emptyList()
+        AnalyticsTracker.logRecentsCleared()
         persistHistory()
     }
 
     fun clearSaved() {
         _saved.value = emptyList()
+        AnalyticsTracker.logSavedCleared()
         persistSaved()
     }
 
@@ -141,6 +158,15 @@ object RecentPicksService {
                 .take(MAX)
         }
         AnalyticsTracker.logColorSaved(pick, action = "saved")
+        if (!firstSavedLogged) {
+            AnalyticsTracker.logFirstColorSaved(pick)
+            firstSavedLogged = true
+            scope.launch {
+                appContext.recentsDataStore.edit { prefs ->
+                    prefs[KEY_FIRST_SAVE_LOGGED] = true
+                }
+            }
+        }
         persistSaved()
     }
 
