@@ -184,6 +184,7 @@
     <string name="color_blind_enhancer_disclaimer">Non-medical accessibility aid. Colors may differ from reality.</string>
     <string name="color_blind_enhancer_requires_android_13">Requires Android 13+ for GPU shader processing.</string>
     <string name="monochrome_mode">Monochrome mode</string>
+    <string name="color_blind_enhancement">Color-blind enhancement</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>

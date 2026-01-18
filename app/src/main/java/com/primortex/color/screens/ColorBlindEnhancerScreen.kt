@@ -74,6 +74,41 @@ half4 main(float2 coord) {
 }
 """
 
+private const val COLOR_BLIND_ENHANCER_SHADER = """
+uniform shader inner;
+uniform float intensity;
+
+const mat3 rgbToLms = mat3(
+    0.31399022, 0.63951294, 0.04649755,
+    0.15537241, 0.75789446, 0.08670142,
+    0.01775239, 0.10944209, 0.87256922
+);
+const mat3 lmsToRgb = mat3(
+    5.47221206, -4.6419601, 0.16963708,
+    -1.1252419, 2.29317094, -0.1678952,
+    0.02980165, -0.19318073, 1.16364789
+);
+
+vec3 simulateDeuteranopia(vec3 lms) {
+    return vec3(lms.x, 0.494207 * lms.x + 1.24827 * lms.z, lms.z);
+}
+
+vec3 redistributeError(vec3 error) {
+    return vec3(error.g, 0.0, error.g);
+}
+
+half4 main(float2 coord) {
+    half4 c = inner.eval(coord);
+    vec3 rgb = c.rgb;
+    vec3 lms = rgbToLms * rgb;
+    vec3 simLms = simulateDeuteranopia(lms);
+    vec3 simRgb = lmsToRgb * simLms;
+    vec3 error = rgb - simRgb;
+    vec3 corrected = clamp(rgb + redistributeError(error) * intensity, 0.0, 1.0);
+    return half4(corrected, c.a);
+}
+"""
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -104,12 +139,19 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var camera by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
     var monochromeEnabled by remember { mutableStateOf(true) }
+    var enhancerEnabled by remember { mutableStateOf(false) }
 
     val runtimeShader = remember(supportsShader) {
         RuntimeShader(MONOCHROME_SHADER)
     }
+    val enhancerShader = remember(supportsShader) {
+        RuntimeShader(COLOR_BLIND_ENHANCER_SHADER)
+    }
     val renderEffect = remember(runtimeShader) {
         runtimeShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val enhancerRenderEffect = remember(enhancerShader) {
+        enhancerShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
 
     val previewView = remember {
@@ -142,7 +184,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             ColorBlindEnhancerSheet(
                 supportsShader = supportsShader,
                 monochromeEnabled = monochromeEnabled,
-                onToggleMonochrome = { monochromeEnabled = it }
+                onToggleMonochrome = { monochromeEnabled = it },
+                enhancerEnabled = enhancerEnabled,
+                onToggleEnhancer = { enhancerEnabled = it }
             )
         }
     ) { innerPadding ->
@@ -161,6 +205,13 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         if (supportsShader && monochromeEnabled) {
                             if (runtimeShader != null) {
                                 view.setRenderEffect(renderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && enhancerEnabled) {
+                            if (enhancerShader != null) {
+                                enhancerShader.setFloatUniform("intensity", 0.7f)
+                                view.setRenderEffect(enhancerRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
                             }
@@ -255,7 +306,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 private fun ColorBlindEnhancerSheet(
     supportsShader: Boolean,
     monochromeEnabled: Boolean,
-    onToggleMonochrome: (Boolean) -> Unit
+    onToggleMonochrome: (Boolean) -> Unit,
+    enhancerEnabled: Boolean,
+    onToggleEnhancer: (Boolean) -> Unit
 ) {
     Column(
         modifier = Modifier.padding(16.dp),
@@ -291,6 +344,22 @@ private fun ColorBlindEnhancerSheet(
             Switch(
                 checked = monochromeEnabled && supportsShader,
                 onCheckedChange = { onToggleMonochrome(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.color_blind_enhancement),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = enhancerEnabled && supportsShader,
+                onCheckedChange = { onToggleEnhancer(it) },
                 enabled = supportsShader
             )
         }
