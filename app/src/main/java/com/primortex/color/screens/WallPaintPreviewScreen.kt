@@ -1,7 +1,17 @@
 package com.primortex.color.screens
 
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.view.PreviewView
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,11 +47,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import com.primortex.color.R
 import com.primortex.color.service.hexToArgb
 import com.primortex.color.ui.components.ScreenScaffold
@@ -60,6 +78,38 @@ fun WallPaintPreviewScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
+    var hasCameraPerm by remember {
+        mutableStateOf(
+            ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED
+        )
+    }
+    val permLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
+            hasCameraPerm = it
+        }
+    val previewView = remember {
+        PreviewView(context).apply { scaleType = PreviewView.ScaleType.FILL_CENTER }
+    }
+    var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
+    var previewSize by remember { mutableStateOf(IntSize.Zero) }
+    var maskCenter by remember { mutableStateOf<Offset?>(null) }
+
+    androidx.compose.runtime.LaunchedEffect(hasCameraPerm) {
+        if (!hasCameraPerm) {
+            permLauncher.launch(Manifest.permission.CAMERA)
+        }
+    }
+
+    androidx.compose.runtime.DisposableEffect(Unit) {
+        onDispose {
+            cameraProvider?.unbindAll()
+            cameraProvider = null
+        }
+    }
+
     var hexInput by remember { mutableStateOf(suggestedWallColors.first()) }
     val cleanHex = remember(hexInput) { hexInput.trim().removePrefix("#") }
     val isValid = remember(cleanHex) { cleanHex.matches(Regex("^[0-9A-Fa-f]{6}$")) }
@@ -88,6 +138,80 @@ fun WallPaintPreviewScreen(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = MaterialTheme.shapes.extraLarge
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Text(
+                        stringResource(R.string.wall_paint_camera_preview_title),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    Text(
+                        stringResource(R.string.wall_paint_camera_preview_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(220.dp)
+                            .clip(MaterialTheme.shapes.large)
+                            .background(MaterialTheme.colorScheme.surfaceVariant)
+                            .pointerInput(hasCameraPerm) {
+                                if (!hasCameraPerm) return@pointerInput
+                                detectTapGestures { position ->
+                                    maskCenter = position
+                                }
+                            }
+                            .onSizeChanged { previewSize = it }
+                    ) {
+                        if (hasCameraPerm) {
+                            AndroidView(
+                                modifier = Modifier.matchParentSize(),
+                                factory = { previewView },
+                                update = {}
+                            )
+                            androidx.compose.runtime.LaunchedEffect(hasCameraPerm) {
+                                bindWallPaintCamera(
+                                    context = context,
+                                    lifecycleOwner = lifecycleOwner,
+                                    previewView = previewView,
+                                    onCameraProviderReady = { cameraProvider = it }
+                                )
+                            }
+                        } else {
+                            Box(
+                                modifier = Modifier.matchParentSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    stringResource(R.string.camera_permission_required),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+
+                        Canvas(modifier = Modifier.matchParentSize()) {
+                            val center = maskCenter
+                                ?: Offset(
+                                    previewSize.width / 2f,
+                                    previewSize.height / 2f
+                                )
+                            drawCircle(
+                                color = previewColor.copy(alpha = 0.45f),
+                                radius = size.minDimension * 0.35f,
+                                center = center
+                            )
+                        }
+                    }
+                }
+            }
 
             WallPreviewCard(selectedColor = previewColor)
 
@@ -298,4 +422,31 @@ private fun WallPreviewStep(
         androidx.compose.material3.Icon(icon, contentDescription = null)
         Text(text, style = MaterialTheme.typography.bodyMedium)
     }
+}
+
+private fun bindWallPaintCamera(
+    context: android.content.Context,
+    lifecycleOwner: androidx.lifecycle.LifecycleOwner,
+    previewView: PreviewView,
+    onCameraProviderReady: (ProcessCameraProvider) -> Unit
+) {
+    val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
+    cameraProviderFuture.addListener({
+        val cameraProvider = cameraProviderFuture.get()
+        onCameraProviderReady(cameraProvider)
+
+        val preview = Preview.Builder()
+            .build()
+            .also { it.surfaceProvider = previewView.surfaceProvider }
+
+        try {
+            cameraProvider.unbindAll()
+            cameraProvider.bindToLifecycle(
+                lifecycleOwner,
+                CameraSelector.DEFAULT_BACK_CAMERA,
+                preview
+            )
+        } catch (_: Exception) {
+        }
+    }, ContextCompat.getMainExecutor(context))
 }

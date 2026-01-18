@@ -194,6 +194,8 @@
     <string name="edge_enhancement">Edge enhancement</string>
 
     <string name="wall_paint_preview_intro">Aim your camera at a wall to preview fresh paint. Tap to segment the wall, then recolor the masked area while preserving shadows and texture.</string>
+    <string name="wall_paint_camera_preview_title">Camera preview</string>
+    <string name="wall_paint_camera_preview_hint">Tap the wall area in the preview to place the paint mask.</string>
     <string name="wall_paint_steps_title">Flow</string>
     <string name="wall_paint_step_camera">Open the camera and frame the wall you want to update.</string>
     <string name="wall_paint_step_mask">Tap the wall to auto-segment the surface.</string>
