@@ -35,6 +35,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -58,6 +59,8 @@ fun SwatchSection(
     swatchSize: Dp = 96.dp,
     swatchShape: Shape = RoundedCornerShape(10.dp),
     swatchLabelBelow: Boolean = false,
+    labelForPick: (PickedColor) -> String = { pick -> pick.name },
+    labelTextStyle: TextStyle = MaterialTheme.typography.labelSmall,
     actions: (@Composable () -> Unit)? = null,
 ) {
     var showAll by remember { mutableStateOf(false) }
@@ -100,10 +103,11 @@ fun SwatchSection(
                     Swatch(
                         argb = pick.argb,
                         onClick = { onSwatchClick(pick) },
-                        label = pick.name,
+                        label = labelForPick(pick),
                         size = swatchSize,
                         shape = swatchShape,
-                        labelBelow = swatchLabelBelow
+                        labelBelow = swatchLabelBelow,
+                        labelTextStyle = labelTextStyle
                     )
                 }
                 if (hasMoreThanThreshold && showEndSeeMore && onEndSeeMore != null) {
@@ -152,7 +156,8 @@ fun Swatch(
     label: String,
     size: Dp = 96.dp,
     shape: Shape = RoundedCornerShape(10.dp),
-    labelBelow: Boolean = false
+    labelBelow: Boolean = false,
+    labelTextStyle: TextStyle = MaterialTheme.typography.labelSmall
 ) {
     val onColor = remember(argb) { recommendedOnColor(argb) }
     val labelHeight = 32.dp
@@ -174,12 +179,11 @@ fun Swatch(
             if (!labelBelow) {
                 Text(
                     text = label,
-                    style = MaterialTheme.typography.labelSmall,
+                    style = labelTextStyle.copy(lineHeight = 12.sp),
                     color = Color(onColor),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     textAlign = TextAlign.Center,
-                    lineHeight = 12.sp,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 6.dp)
@@ -195,7 +199,7 @@ fun Swatch(
             ) {
                 Text(
                     text = label,
-                    style = MaterialTheme.typography.labelSmall,
+                    style = labelTextStyle,
                     color = MaterialTheme.colorScheme.onSurface,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,

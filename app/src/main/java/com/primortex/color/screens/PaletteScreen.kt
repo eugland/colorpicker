@@ -66,6 +66,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
@@ -248,6 +249,8 @@ fun PaletteScreen(
                     swatchSize = 52.dp,
                     swatchShape = CircleShape,
                     swatchLabelBelow = true,
+                    labelForPick = { pick -> argbToHex(pick.argb) },
+                    labelTextStyle = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp),
                     actions = {
                         if (recents.isNotEmpty()) {
                             TextButton(onClick = onOpenRecentColors) {
