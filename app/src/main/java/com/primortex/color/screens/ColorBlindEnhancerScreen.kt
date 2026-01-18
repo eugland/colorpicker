@@ -207,11 +207,29 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             ColorBlindEnhancerSheet(
                 supportsShader = supportsShader,
                 monochromeEnabled = monochromeEnabled,
-                onToggleMonochrome = { monochromeEnabled = it },
+                onToggleMonochrome = { enabled ->
+                    monochromeEnabled = enabled
+                    if (enabled) {
+                        enhancerEnabled = false
+                        drasticEnabled = false
+                    }
+                },
                 enhancerEnabled = enhancerEnabled,
-                onToggleEnhancer = { enhancerEnabled = it },
+                onToggleEnhancer = { enabled ->
+                    enhancerEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        drasticEnabled = false
+                    }
+                },
                 drasticEnabled = drasticEnabled,
-                onToggleDrastic = { drasticEnabled = it }
+                onToggleDrastic = { enabled ->
+                    drasticEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        enhancerEnabled = false
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -235,7 +253,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             }
                         } else if (supportsShader && enhancerEnabled) {
                             if (enhancerShader != null) {
-                                enhancerShader.setFloatUniform("intensity", 0.7f)
+                                enhancerShader.setFloatUniform("intensity", 1.0f)
                                 view.setRenderEffect(enhancerRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
