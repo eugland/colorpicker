@@ -120,7 +120,10 @@ vec3 saturateColor(vec3 color, float saturation) {
 half4 main(float2 coord) {
     half4 c = inner.eval(coord);
     vec3 boosted = saturateColor(c.rgb, 2.2);
-    boosted = clamp(boosted * 1.25 + vec3(0.05), 0.0, 1.0);
+    float luma = dot(boosted, vec3(0.2126, 0.7152, 0.0722));
+    float highlightTame = smoothstep(0.6, 1.0, luma);
+    vec3 tamed = mix(boosted, boosted * 0.85, highlightTame);
+    boosted = clamp(tamed + vec3(0.02), 0.0, 1.0);
     return half4(boosted, c.a);
 }
 """
