@@ -186,6 +186,10 @@
     <string name="monochrome_mode">Monochrome mode</string>
     <string name="color_blind_enhancement">Color-blind enhancement</string>
     <string name="drastic_mode">Drastic mode</string>
+    <string name="edge_contrast_mode">Edge contrast mode</string>
+    <string name="thermal_mode">Thermal imaging mode</string>
+    <string name="mri_mode">MRI imaging mode</string>
+    <string name="xray_mode">X-ray imaging mode</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>

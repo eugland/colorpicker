@@ -128,6 +128,74 @@ half4 main(float2 coord) {
 }
 """
 
+private const val EDGE_CONTRAST_SHADER = """
+uniform shader inner;
+uniform float2 invSize;
+
+float luminance(vec3 c) {
+    return dot(c, vec3(0.2126, 0.7152, 0.0722));
+}
+
+half4 main(float2 coord) {
+    vec3 center = inner.eval(coord).rgb;
+    vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
+    vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
+    vec3 up = inner.eval(coord + vec2(0.0, -invSize.y)).rgb;
+    vec3 down = inner.eval(coord + vec2(0.0, invSize.y)).rgb;
+    float edge = luminance(center) - (luminance(left) + luminance(right) + luminance(up) + luminance(down)) * 0.25;
+    vec3 boosted = clamp(center + vec3(edge * 1.2), 0.0, 1.0);
+    return half4(boosted, 1.0);
+}
+"""
+
+private const val THERMAL_SHADER = """
+uniform shader inner;
+
+vec3 thermalRamp(float t) {
+    if (t < 0.25) {
+        return mix(vec3(0.02, 0.0, 0.2), vec3(0.0, 0.0, 0.8), t / 0.25);
+    }
+    if (t < 0.5) {
+        return mix(vec3(0.0, 0.0, 0.8), vec3(0.0, 0.8, 0.6), (t - 0.25) / 0.25);
+    }
+    if (t < 0.75) {
+        return mix(vec3(0.0, 0.8, 0.6), vec3(0.9, 0.8, 0.0), (t - 0.5) / 0.25);
+    }
+    return mix(vec3(0.9, 0.8, 0.0), vec3(1.0, 0.2, 0.0), (t - 0.75) / 0.25);
+}
+
+half4 main(float2 coord) {
+    vec3 rgb = inner.eval(coord).rgb;
+    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
+    return half4(thermalRamp(t), 1.0);
+}
+"""
+
+private const val MRI_SHADER = """
+uniform shader inner;
+
+half4 main(float2 coord) {
+    vec3 rgb = inner.eval(coord).rgb;
+    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
+    vec3 cool = vec3(0.1, 0.2, 0.4);
+    vec3 warm = vec3(0.9, 0.7, 0.5);
+    vec3 mapped = mix(cool, warm, pow(t, 0.75));
+    return half4(mapped, 1.0);
+}
+"""
+
+private const val XRAY_SHADER = """
+uniform shader inner;
+
+half4 main(float2 coord) {
+    vec3 rgb = inner.eval(coord).rgb;
+    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
+    float inv = 1.0 - t;
+    vec3 mapped = vec3(inv * 0.9 + 0.1);
+    return half4(mapped, 1.0);
+}
+"""
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -160,6 +228,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var monochromeEnabled by remember { mutableStateOf(true) }
     var enhancerEnabled by remember { mutableStateOf(false) }
     var drasticEnabled by remember { mutableStateOf(false) }
+    var edgeContrastEnabled by remember { mutableStateOf(false) }
+    var thermalEnabled by remember { mutableStateOf(false) }
+    var mriEnabled by remember { mutableStateOf(false) }
+    var xrayEnabled by remember { mutableStateOf(false) }
 
     val runtimeShader = remember(supportsShader) {
         RuntimeShader(MONOCHROME_SHADER)
@@ -178,6 +250,30 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     }
     val drasticRenderEffect = remember(drasticShader) {
         drasticShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val edgeContrastShader = remember(supportsShader) {
+        RuntimeShader(EDGE_CONTRAST_SHADER)
+    }
+    val edgeContrastRenderEffect = remember(edgeContrastShader) {
+        edgeContrastShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val thermalShader = remember(supportsShader) {
+        RuntimeShader(THERMAL_SHADER)
+    }
+    val thermalRenderEffect = remember(thermalShader) {
+        thermalShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val mriShader = remember(supportsShader) {
+        RuntimeShader(MRI_SHADER)
+    }
+    val mriRenderEffect = remember(mriShader) {
+        mriShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val xrayShader = remember(supportsShader) {
+        RuntimeShader(XRAY_SHADER)
+    }
+    val xrayRenderEffect = remember(xrayShader) {
+        xrayShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
 
     val previewView = remember {
@@ -215,6 +311,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     if (enabled) {
                         enhancerEnabled = false
                         drasticEnabled = false
+                        edgeContrastEnabled = false
+                        thermalEnabled = false
+                        mriEnabled = false
+                        xrayEnabled = false
                     }
                 },
                 enhancerEnabled = enhancerEnabled,
@@ -223,6 +323,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     if (enabled) {
                         monochromeEnabled = false
                         drasticEnabled = false
+                        edgeContrastEnabled = false
+                        thermalEnabled = false
+                        mriEnabled = false
+                        xrayEnabled = false
                     }
                 },
                 drasticEnabled = drasticEnabled,
@@ -231,6 +335,58 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     if (enabled) {
                         monochromeEnabled = false
                         enhancerEnabled = false
+                        edgeContrastEnabled = false
+                        thermalEnabled = false
+                        mriEnabled = false
+                        xrayEnabled = false
+                    }
+                },
+                edgeContrastEnabled = edgeContrastEnabled,
+                onToggleEdgeContrast = { enabled ->
+                    edgeContrastEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        enhancerEnabled = false
+                        drasticEnabled = false
+                        thermalEnabled = false
+                        mriEnabled = false
+                        xrayEnabled = false
+                    }
+                },
+                thermalEnabled = thermalEnabled,
+                onToggleThermal = { enabled ->
+                    thermalEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        enhancerEnabled = false
+                        drasticEnabled = false
+                        edgeContrastEnabled = false
+                        mriEnabled = false
+                        xrayEnabled = false
+                    }
+                },
+                mriEnabled = mriEnabled,
+                onToggleMri = { enabled ->
+                    mriEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        enhancerEnabled = false
+                        drasticEnabled = false
+                        edgeContrastEnabled = false
+                        thermalEnabled = false
+                        xrayEnabled = false
+                    }
+                },
+                xrayEnabled = xrayEnabled,
+                onToggleXray = { enabled ->
+                    xrayEnabled = enabled
+                    if (enabled) {
+                        monochromeEnabled = false
+                        enhancerEnabled = false
+                        drasticEnabled = false
+                        edgeContrastEnabled = false
+                        thermalEnabled = false
+                        mriEnabled = false
                     }
                 }
             )
@@ -264,6 +420,33 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         } else if (supportsShader && drasticEnabled) {
                             if (drasticShader != null) {
                                 view.setRenderEffect(drasticRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && edgeContrastEnabled) {
+                            if (edgeContrastShader != null) {
+                                val width = view.width.coerceAtLeast(1)
+                                val height = view.height.coerceAtLeast(1)
+                                edgeContrastShader.setFloatUniform("invSize", 1f / width, 1f / height)
+                                view.setRenderEffect(edgeContrastRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && thermalEnabled) {
+                            if (thermalShader != null) {
+                                view.setRenderEffect(thermalRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && mriEnabled) {
+                            if (mriShader != null) {
+                                view.setRenderEffect(mriRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && xrayEnabled) {
+                            if (xrayShader != null) {
+                                view.setRenderEffect(xrayRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
                             }
@@ -362,7 +545,15 @@ private fun ColorBlindEnhancerSheet(
     enhancerEnabled: Boolean,
     onToggleEnhancer: (Boolean) -> Unit,
     drasticEnabled: Boolean,
-    onToggleDrastic: (Boolean) -> Unit
+    onToggleDrastic: (Boolean) -> Unit,
+    edgeContrastEnabled: Boolean,
+    onToggleEdgeContrast: (Boolean) -> Unit,
+    thermalEnabled: Boolean,
+    onToggleThermal: (Boolean) -> Unit,
+    mriEnabled: Boolean,
+    onToggleMri: (Boolean) -> Unit,
+    xrayEnabled: Boolean,
+    onToggleXray: (Boolean) -> Unit
 ) {
     Column(
         modifier = Modifier.padding(16.dp),
@@ -430,6 +621,70 @@ private fun ColorBlindEnhancerSheet(
             Switch(
                 checked = drasticEnabled && supportsShader,
                 onCheckedChange = { onToggleDrastic(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.edge_contrast_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = edgeContrastEnabled && supportsShader,
+                onCheckedChange = { onToggleEdgeContrast(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.thermal_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = thermalEnabled && supportsShader,
+                onCheckedChange = { onToggleThermal(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.mri_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = mriEnabled && supportsShader,
+                onCheckedChange = { onToggleMri(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.xray_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = xrayEnabled && supportsShader,
+                onCheckedChange = { onToggleXray(it) },
                 enabled = supportsShader
             )
         }
