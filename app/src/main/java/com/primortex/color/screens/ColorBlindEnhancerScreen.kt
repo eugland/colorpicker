@@ -21,6 +21,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,23 +32,29 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
 import androidx.compose.material.icons.outlined.FlashOff
 import androidx.compose.material.icons.outlined.FlashOn
+import androidx.compose.material.icons.outlined.KeyboardArrowUp
 import androidx.compose.material.icons.outlined.PhotoCamera
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -55,9 +62,11 @@ import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -71,6 +80,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
 import com.primortex.color.ui.LocalSnackbarService
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -249,6 +259,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val supportsShader = remember { Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU }
+    val scope = rememberCoroutineScope()
 
     var hasCameraPerm by remember {
         mutableStateOf(
@@ -348,6 +359,36 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val snackbarService = LocalSnackbarService.current
 
     val scaffoldState = rememberBottomSheetScaffoldState()
+    val sheetState = scaffoldState.bottomSheetState
+    val sheetExpanded by remember {
+        derivedStateOf { sheetState.currentValue == SheetValue.Expanded }
+    }
+    val currentMode by remember(
+        monochromeEnabled,
+        enhancerEnabled,
+        drasticEnabled,
+        edgeContrastEnabled,
+        animateEnabled,
+        cyberEnabled,
+        thermalEnabled,
+        mriEnabled,
+        xrayEnabled
+    ) {
+        derivedStateOf {
+            when {
+                drasticEnabled -> EnhancerMode.Drastic
+                enhancerEnabled -> EnhancerMode.Enhance
+                monochromeEnabled -> EnhancerMode.Monochrome
+                edgeContrastEnabled -> EnhancerMode.Edge
+                animateEnabled -> EnhancerMode.Animate
+                cyberEnabled -> EnhancerMode.Cyber
+                thermalEnabled -> EnhancerMode.Thermal
+                mriEnabled -> EnhancerMode.Mri
+                xrayEnabled -> EnhancerMode.Xray
+                else -> EnhancerMode.Normal
+            }
+        }
+    }
 
     DisposableEffect(Unit) {
         onDispose {
@@ -605,6 +646,14 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                 }
             }
 
+            if (sheetExpanded) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black.copy(alpha = 0.55f))
+                )
+            }
+
             Surface(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
@@ -640,50 +689,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 }
                             )
                         }
-                        IconButton(
-                            onClick = {
-                                val capture = imageCapture ?: return@IconButton
-                                val name = "CB_${
-                                    SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
-                                }"
-                                val contentValues = ContentValues().apply {
-                                    put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-                                    put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-                                    put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/ColorPicker")
-                                }
-                                val outputOptions = ImageCapture.OutputFileOptions.Builder(
-                                    ctx.contentResolver,
-                                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                                    contentValues
-                                ).build()
-                                capture.takePicture(
-                                    outputOptions,
-                                    cameraExecutor,
-                                    object : ImageCapture.OnImageSavedCallback {
-                                        override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                                            ContextCompat.getMainExecutor(ctx).execute {
-                                                snackbarService.showMessage(
-                                                    ctx.getString(R.string.photo_saved_to_album)
-                                                )
-                                            }
-                                        }
-
-                                        override fun onError(exception: ImageCaptureException) {
-                                            ContextCompat.getMainExecutor(ctx).execute {
-                                                snackbarService.showMessage(
-                                                    ctx.getString(R.string.photo_save_failed)
-                                                )
-                                            }
-                                        }
-                                    }
-                                )
-                            }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Outlined.PhotoCamera,
-                                contentDescription = stringResource(R.string.capture_photo)
-                            )
-                        }
                         IconButton(onClick = {
                             useFrontCamera = !useFrontCamera
                             Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
@@ -693,6 +698,283 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 contentDescription = stringResource(R.string.flip_camera)
                             )
                         }
+                    }
+                }
+            }
+
+            if (!sheetExpanded) {
+                EnhancerControls(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .systemBarsPadding()
+                        .padding(bottom = 12.dp),
+                    currentMode = currentMode,
+                    onModeSelected = { mode ->
+                        when (mode) {
+                            EnhancerMode.Normal -> {
+                                monochromeEnabled = false
+                                enhancerEnabled = false
+                                drasticEnabled = false
+                                edgeContrastEnabled = false
+                                thermalEnabled = false
+                                mriEnabled = false
+                                xrayEnabled = false
+                                animateEnabled = false
+                                cyberEnabled = false
+                            }
+                            }
+
+                            EnhancerMode.Drastic -> onToggleMode(
+                                on = { drasticEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Enhance -> onToggleMode(
+                                on = { enhancerEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Monochrome -> onToggleMode(
+                                on = { monochromeEnabled = true },
+                                off = {
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Edge -> onToggleMode(
+                                on = { edgeContrastEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Animate -> onToggleMode(
+                                on = { animateEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Cyber -> onToggleMode(
+                                on = { cyberEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Thermal -> onToggleMode(
+                                on = { thermalEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    mriEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Mri -> onToggleMode(
+                                on = { mriEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    xrayEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+
+                            EnhancerMode.Xray -> onToggleMode(
+                                on = { xrayEnabled = true },
+                                off = {
+                                    monochromeEnabled = false
+                                    enhancerEnabled = false
+                                    drasticEnabled = false
+                                    edgeContrastEnabled = false
+                                    thermalEnabled = false
+                                    mriEnabled = false
+                                    animateEnabled = false
+                                    cyberEnabled = false
+                                }
+                            )
+                        }
+                    },
+                    onCapture = {
+                        val capture = imageCapture ?: return@EnhancerControls
+                        val name = "CB_${
+                            SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+                        }"
+                        val contentValues = ContentValues().apply {
+                            put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+                            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+                            put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/ColorPicker")
+                        }
+                        val outputOptions = ImageCapture.OutputFileOptions.Builder(
+                            ctx.contentResolver,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            contentValues
+                        ).build()
+                        capture.takePicture(
+                            outputOptions,
+                            cameraExecutor,
+                            object : ImageCapture.OnImageSavedCallback {
+                                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                                    ContextCompat.getMainExecutor(ctx).execute {
+                                        snackbarService.showMessage(
+                                            ctx.getString(R.string.photo_saved_to_album)
+                                        )
+                                    }
+                                }
+
+                                override fun onError(exception: ImageCaptureException) {
+                                    ContextCompat.getMainExecutor(ctx).execute {
+                                        snackbarService.showMessage(
+                                            ctx.getString(R.string.photo_save_failed)
+                                        )
+                                    }
+                                }
+                            }
+                        )
+                    },
+                    onExpandFilters = {
+                        scope.launch {
+                            sheetState.expand()
+                        }
+                    }
+                )
+            }
+        }
+    }
+}
+
+private enum class EnhancerMode(val labelRes: Int) {
+    Normal(R.string.mode_normal),
+    Drastic(R.string.drastic_mode),
+    Enhance(R.string.color_blind_enhancement),
+    Monochrome(R.string.monochrome_mode),
+    Edge(R.string.edge_contrast_mode),
+    Animate(R.string.animate_mode),
+    Cyber(R.string.cyber_mode),
+    Thermal(R.string.thermal_mode),
+    Mri(R.string.mri_mode),
+    Xray(R.string.xray_mode)
+}
+
+private fun onToggleMode(on: () -> Unit, off: () -> Unit) {
+    off()
+    on()
+}
+
+@Composable
+private fun EnhancerControls(
+    modifier: Modifier,
+    currentMode: EnhancerMode,
+    onModeSelected: (EnhancerMode) -> Unit,
+    onCapture: () -> Unit,
+    onExpandFilters: () -> Unit
+) {
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        IconButton(
+            onClick = onCapture,
+            modifier = Modifier
+                .size(76.dp)
+                .background(
+                    MaterialTheme.colorScheme.primaryContainer,
+                    CircleShape
+                )
+        ) {
+            Icon(
+                imageVector = Icons.Outlined.PhotoCamera,
+                contentDescription = stringResource(R.string.capture_photo),
+                tint = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+        }
+
+        FilledTonalButton(
+            onClick = onExpandFilters,
+            modifier = Modifier.padding(horizontal = 16.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Outlined.KeyboardArrowUp,
+                contentDescription = null
+            )
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.filters_pull_up))
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState())
+                .padding(horizontal = 12.dp, vertical = 6.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            EnhancerMode.values().forEach { mode ->
+                val selected = mode == currentMode
+                if (selected) {
+                    Button(onClick = { onModeSelected(mode) }) {
+                        Text(stringResource(mode.labelRes))
+                    }
+                } else {
+                    FilledTonalButton(onClick = { onModeSelected(mode) }) {
+                        Text(stringResource(mode.labelRes))
                     }
                 }
             }
