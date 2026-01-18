@@ -1,8 +1,8 @@
 package com.primortex.color.screens
 
 import android.Manifest
-import android.content.Context
 import android.content.ContentValues
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.RenderEffect
 import android.graphics.RuntimeShader
@@ -35,10 +35,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
@@ -575,7 +576,11 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             if (edgeContrastShader != null) {
                                 val width = view.width.coerceAtLeast(1)
                                 val height = view.height.coerceAtLeast(1)
-                                edgeContrastShader.setFloatUniform("invSize", 1f / width, 1f / height)
+                                edgeContrastShader.setFloatUniform(
+                                    "invSize",
+                                    1f / width,
+                                    1f / height
+                                )
                                 view.setRenderEffect(edgeContrastRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
