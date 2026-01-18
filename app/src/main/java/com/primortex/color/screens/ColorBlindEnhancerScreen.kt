@@ -722,7 +722,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 animateEnabled = false
                                 cyberEnabled = false
                             }
-                            }
 
                             EnhancerMode.Drastic -> onToggleMode(
                                 on = { drasticEnabled = true },
