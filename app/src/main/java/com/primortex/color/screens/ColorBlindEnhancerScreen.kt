@@ -16,7 +16,10 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,11 +33,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
@@ -47,6 +51,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -56,10 +61,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
@@ -517,48 +524,98 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         }
 
         if (showModeGrid) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.6f))
-                    .clickable { showModeGrid = false }
-            )
-            Surface(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-                    .systemBarsPadding(),
-                tonalElevation = 6.dp,
-                shape = MaterialTheme.shapes.extraLarge
-            ) {
-                Column(
-                    modifier = Modifier.padding(20.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+            val modes = EnhancerMode.values().toList()
+            val columns = 2
+
+            // Tune these to match your ModeGridItem visual size
+            val itemHeight = 108
+            val vSpacing = 12
+            val rows = (modes.size + columns - 1) / columns
+            val gridHeight = rows * itemHeight + (rows - 1).coerceAtLeast(0) * vSpacing
+
+            Box(modifier = Modifier.fillMaxSize()) {
+
+                // Scrim (tap outside to close)
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black.copy(alpha = 0.55f))
+                        .clickable { showModeGrid = false }
+                )
+
+                // Sheet
+                Surface(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .fillMaxWidth()
+                        .systemBarsPadding(),
+                    tonalElevation = 10.dp,
+                    shadowElevation = 10.dp,
+                    shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)
                 ) {
-                    Text(
-                        text = stringResource(R.string.filter_grid_title),
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(2),
-                        verticalArrangement = Arrangement.spacedBy(12.dp),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp),
-                        modifier = Modifier.height(360.dp)
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            // prevent clicks inside sheet from closing it
+                            .clickable(enabled = false) {}
+                            .padding(horizontal = 20.dp)
+                            .padding(top = 10.dp, bottom = 64.dp),
+                        verticalArrangement = Arrangement.spacedBy(14.dp)
                     ) {
-                        items(EnhancerMode.values()) { mode ->
-                            ModeGridItem(
-                                mode = mode,
-                                selected = mode == selectedMode,
-                                onSelect = {
-                                    selectedMode = mode
-                                    showModeGrid = false
-                                }
+                        // Handle
+                        Box(
+                            modifier = Modifier
+                                .align(Alignment.CenterHorizontally)
+                                .width(44.dp)
+                                .height(5.dp)
+                                .clip(RoundedCornerShape(999.dp))
+                                .background(MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.35f))
+                        )
+
+                        // Header row (title + close)
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = stringResource(R.string.filter_grid_title),
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.weight(1f)
                             )
+
+                            TextButton(onClick = { showModeGrid = false }) {
+                                Text("Close")
+                            }
+                        }
+
+                        // Grid (not scrollable; shows all items)
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(columns),
+                            userScrollEnabled = false,
+                            verticalArrangement = Arrangement.spacedBy(vSpacing.dp),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(gridHeight.dp)
+                        ) {
+                            items(modes) { mode ->
+                                Box(modifier = Modifier.height(itemHeight.dp)) {
+                                    ModeGridItem(
+                                        mode = mode,
+                                        selected = mode == selectedMode,
+                                        onSelect = {
+                                            selectedMode = mode
+                                            showModeGrid = false
+                                        }
+                                    )
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+
 
         Box(
             modifier = Modifier
@@ -629,30 +686,87 @@ private fun ModeGridItem(
         EnhancerMode.Xray -> Color(0xFF607D8B)
     }
 
+    val shape = RoundedCornerShape(16.dp)
+    val borderColor =
+        if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant
+    val containerColor = if (selected)
+        MaterialTheme.colorScheme.primaryContainer
+    else
+        MaterialTheme.colorScheme.surface
+
+    val elevation by animateDpAsState(
+        targetValue = if (selected) 8.dp else 1.dp,
+        label = "modeCardElevation"
+    )
+
     Surface(
         modifier = Modifier
             .fillMaxWidth()
+            .clip(shape)
             .clickable(onClick = onSelect),
-        tonalElevation = if (selected) 6.dp else 1.dp,
-        shape = MaterialTheme.shapes.medium
+        color = containerColor,
+        tonalElevation = elevation,
+        shadowElevation = if (selected) 2.dp else 0.dp,
+        shape = shape,
+        border = BorderStroke(1.dp, borderColor)
     ) {
         Column(
             modifier = Modifier.padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
+            // Top row: label + selected indicator
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(mode.labelRes),
+                    style = MaterialTheme.typography.titleSmall,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f)
+                )
+
+                if (selected) {
+                    // simple "check pill"
+                    Surface(
+                        color = MaterialTheme.colorScheme.primary,
+                        shape = RoundedCornerShape(999.dp)
+                    ) {
+                        Text(
+                            text = "Selected",
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            style = MaterialTheme.typography.labelSmall,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
+            }
+
+            // Preview strip (looks like a mini mode preview)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(64.dp)
-                    .background(previewColor, CircleShape)
+                    .height(42.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(previewColor.copy(alpha = 0.92f))
+                    .border(
+                        width = if (selected) 2.dp else 1.dp,
+                        color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant,
+                        shape = RoundedCornerShape(12.dp)
+                    )
             )
-            Text(
-                text = stringResource(mode.labelRes),
-                style = MaterialTheme.typography.bodyMedium
-            )
+
+            // Optional: tiny helper text (if you have one)
+            // Text(
+            //     text = "Tap to apply",
+            //     style = MaterialTheme.typography.labelMedium,
+            //     color = MaterialTheme.colorScheme.onSurfaceVariant
+            // )
         }
     }
 }
+
 
 private fun bindEnhancerCamera(
     context: Context,
