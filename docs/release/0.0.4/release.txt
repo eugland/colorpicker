@@ -1,0 +1,45 @@
+# 📦 Release Notes — v0.0.3
+
+## ✨ Improvements & Enhancements
+
+### 🧭 Navigation & Flow
+
+* Introduced a **navigation depth cap** to prevent circular back navigation loops (Color → Palette → Color → Palette)
+* Improved back-stack behavior for a more predictable and stable navigation experience
+
+### 🎨 Color & Palette UI Updates
+
+* Added a **color tint visual effect** to the Color Details screen for richer feedback
+* Updated **color preview styles**:
+
+  * Recent colors now display as **circular swatches**
+  * Saved colors use **square swatches**
+  * Palette colors are shown in a **vertical list**
+* Changed palette colors to use **horizontal scrolling** for better visibility
+* Added **spacing (gaps)** to the Palette screen header for improved layout clarity
+* Applied **fancy WaterCard styling** to:
+
+  * *Start Picking*
+  * *Pick From Album* entry points
+
+### ⚙️ Settings & Visual Polish
+
+* Fixed **tonal elevation issues** so the Settings screens render more consistently and readably
+* Improved overall visual hierarchy and surface contrast
+
+---
+
+## 🐞 Bug Fixes
+
+* Fixed an issue where **saved color palettes did not update the button state correctly**
+* Removed **Hex copy**, **Name copy**, and **Favorite** buttons from the Palette section in Color Details to reduce UI clutter and confusion
+
+---
+
+## 📊 Analytics & Performance
+
+* Improved analytics implementation to:
+
+  * Reduce resource consumption
+  * Provide **more fine-grained event tracking**
+  * Offer better control over logged user interactions
