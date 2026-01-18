@@ -109,6 +109,22 @@ half4 main(float2 coord) {
 }
 """
 
+private const val DRASTIC_SHADER = """
+uniform shader inner;
+
+vec3 saturateColor(vec3 color, float saturation) {
+    float y = dot(color, vec3(0.2126, 0.7152, 0.0722));
+    return mix(vec3(y), color, saturation);
+}
+
+half4 main(float2 coord) {
+    half4 c = inner.eval(coord);
+    vec3 boosted = saturateColor(c.rgb, 2.2);
+    boosted = clamp(boosted * 1.25 + vec3(0.05), 0.0, 1.0);
+    return half4(boosted, c.a);
+}
+"""
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -140,6 +156,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 
     var monochromeEnabled by remember { mutableStateOf(true) }
     var enhancerEnabled by remember { mutableStateOf(false) }
+    var drasticEnabled by remember { mutableStateOf(false) }
 
     val runtimeShader = remember(supportsShader) {
         RuntimeShader(MONOCHROME_SHADER)
@@ -152,6 +169,12 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     }
     val enhancerRenderEffect = remember(enhancerShader) {
         enhancerShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val drasticShader = remember(supportsShader) {
+        RuntimeShader(DRASTIC_SHADER)
+    }
+    val drasticRenderEffect = remember(drasticShader) {
+        drasticShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
 
     val previewView = remember {
@@ -186,7 +209,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                 monochromeEnabled = monochromeEnabled,
                 onToggleMonochrome = { monochromeEnabled = it },
                 enhancerEnabled = enhancerEnabled,
-                onToggleEnhancer = { enhancerEnabled = it }
+                onToggleEnhancer = { enhancerEnabled = it },
+                drasticEnabled = drasticEnabled,
+                onToggleDrastic = { drasticEnabled = it }
             )
         }
     ) { innerPadding ->
@@ -212,6 +237,12 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             if (enhancerShader != null) {
                                 enhancerShader.setFloatUniform("intensity", 0.7f)
                                 view.setRenderEffect(enhancerRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        } else if (supportsShader && drasticEnabled) {
+                            if (drasticShader != null) {
+                                view.setRenderEffect(drasticRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
                             }
@@ -308,7 +339,9 @@ private fun ColorBlindEnhancerSheet(
     monochromeEnabled: Boolean,
     onToggleMonochrome: (Boolean) -> Unit,
     enhancerEnabled: Boolean,
-    onToggleEnhancer: (Boolean) -> Unit
+    onToggleEnhancer: (Boolean) -> Unit,
+    drasticEnabled: Boolean,
+    onToggleDrastic: (Boolean) -> Unit
 ) {
     Column(
         modifier = Modifier.padding(16.dp),
@@ -360,6 +393,22 @@ private fun ColorBlindEnhancerSheet(
             Switch(
                 checked = enhancerEnabled && supportsShader,
                 onCheckedChange = { onToggleEnhancer(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.drastic_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = drasticEnabled && supportsShader,
+                onCheckedChange = { onToggleDrastic(it) },
                 enabled = supportsShader
             )
         }
