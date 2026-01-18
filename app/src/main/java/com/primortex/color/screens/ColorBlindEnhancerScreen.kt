@@ -1,13 +1,11 @@
 package com.primortex.color.screens
 
 import android.Manifest
-import android.content.ContentValues
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.RenderEffect
 import android.graphics.RuntimeShader
 import android.os.Build
-import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import android.view.Surface
@@ -15,12 +13,11 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,20 +28,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.windowInsetsTopHeight
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
 import androidx.compose.material.icons.outlined.FlashOff
 import androidx.compose.material.icons.outlined.FlashOn
-import androidx.compose.material.icons.outlined.PhotoCamera
 import androidx.compose.material3.Button
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -69,12 +65,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
-import com.primortex.color.ui.LocalSnackbarService
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 private const val MONOCHROME_SHADER = """
 uniform shader inner;
@@ -334,17 +324,12 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         }
     }
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
-    var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
-    val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
-    val snackbarService = LocalSnackbarService.current
 
-    var filterMenuExpanded by remember { mutableStateOf(false) }
+    var showModeGrid by remember { mutableStateOf(false) }
 
     DisposableEffect(Unit) {
         onDispose {
             cameraProvider?.unbindAll()
-            imageCapture = null
-            cameraExecutor.shutdown()
         }
     }
 
@@ -465,7 +450,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         CameraSelector.DEFAULT_BACK_CAMERA
                     },
                     onCameraProviderReady = { cameraProvider = it },
-                    onImageCaptureReady = { imageCapture = it },
                     onCameraReady = { camera = it }
                 )
             }
@@ -482,6 +466,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                 }
             }
         }
+
 
         Surface(
             modifier = Modifier
@@ -531,117 +516,86 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             }
         }
 
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .padding(top = 86.dp)
-                .padding(horizontal = 16.dp)
-                .fillMaxWidth()
-        ) {
-            Column {
-                Text(
-                    text = stringResource(R.string.filter_label),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(Modifier.height(6.dp))
-                Surface(
-                    color = MaterialTheme.colorScheme.surface,
-                    tonalElevation = 2.dp,
-                    shadowElevation = 2.dp,
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 6.dp)
+        if (showModeGrid) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.6f))
+                    .clickable { showModeGrid = false }
+            )
+            Surface(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .systemBarsPadding(),
+                tonalElevation = 6.dp,
+                shape = MaterialTheme.shapes.extraLarge
+            ) {
+                Column(
+                    modifier = Modifier.padding(20.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 14.dp, vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                    Text(
+                        text = stringResource(R.string.filter_grid_title),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LazyVerticalGrid(
+                        columns = GridCells.Fixed(2),
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        modifier = Modifier.height(360.dp)
                     ) {
-                        Text(
-                            text = stringResource(R.string.filter_spinner_title),
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                        Spacer(Modifier.weight(1f))
-                        Button(onClick = { filterMenuExpanded = true }) {
-                            Text(stringResource(selectedMode.labelRes))
+                        items(EnhancerMode.values()) { mode ->
+                            ModeGridItem(
+                                mode = mode,
+                                selected = mode == selectedMode,
+                                onSelect = {
+                                    selectedMode = mode
+                                    showModeGrid = false
+                                }
+                            )
                         }
                     }
                 }
             }
+        }
 
-            DropdownMenu(
-                expanded = filterMenuExpanded,
-                onDismissRequest = { filterMenuExpanded = false }
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .systemBarsPadding()
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+                .fillMaxWidth()
+        ) {
+            Surface(
+                color = MaterialTheme.colorScheme.surface,
+                tonalElevation = 6.dp,
+                shape = MaterialTheme.shapes.large,
+                modifier = Modifier.fillMaxWidth()
             ) {
-                EnhancerMode.values().forEach { mode ->
-                    DropdownMenuItem(
-                        text = { Text(stringResource(mode.labelRes)) },
-                        onClick = {
-                            selectedMode = mode
-                            filterMenuExpanded = false
-                        }
+                Row(
+                    modifier = Modifier
+                        .clickable { showModeGrid = true }
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(R.string.filter_selector_label),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(Modifier.weight(1f))
+                    Text(
+                        text = stringResource(selectedMode.labelRes),
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
         }
-
-        IconButton(
-            onClick = {
-                val capture = imageCapture ?: return@IconButton
-                val name = "CB_${
-                    SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
-                }"
-                val contentValues = ContentValues().apply {
-                    put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-                    put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-                    put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/ColorPicker")
-                }
-                val outputOptions = ImageCapture.OutputFileOptions.Builder(
-                    ctx.contentResolver,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    contentValues
-                ).build()
-                capture.takePicture(
-                    outputOptions,
-                    cameraExecutor,
-                    object : ImageCapture.OnImageSavedCallback {
-                        override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                            ContextCompat.getMainExecutor(ctx).execute {
-                                snackbarService.showMessage(
-                                    ctx.getString(R.string.photo_saved_to_album)
-                                )
-                            }
-                        }
-
-                        override fun onError(exception: ImageCaptureException) {
-                            ContextCompat.getMainExecutor(ctx).execute {
-                                snackbarService.showMessage(
-                                    ctx.getString(R.string.photo_save_failed)
-                                )
-                            }
-                        }
-                    }
-                )
-            },
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .systemBarsPadding()
-                .padding(bottom = 28.dp)
-                .size(92.dp)
-                .background(MaterialTheme.colorScheme.primary, CircleShape)
-        ) {
-            Icon(
-                imageVector = Icons.Outlined.PhotoCamera,
-                contentDescription = stringResource(R.string.capture_photo),
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
-        }
     }
-
 }
+
 
 private enum class EnhancerMode(val labelRes: Int) {
     Normal(R.string.mode_normal),
@@ -656,13 +610,56 @@ private enum class EnhancerMode(val labelRes: Int) {
     Xray(R.string.xray_mode)
 }
 
+@Composable
+private fun ModeGridItem(
+    mode: EnhancerMode,
+    selected: Boolean,
+    onSelect: () -> Unit
+) {
+    val previewColor = when (mode) {
+        EnhancerMode.Normal -> MaterialTheme.colorScheme.surfaceVariant
+        EnhancerMode.Drastic -> Color(0xFFEF6C00)
+        EnhancerMode.Enhance -> Color(0xFF00897B)
+        EnhancerMode.Monochrome -> Color(0xFF9E9E9E)
+        EnhancerMode.Edge -> Color(0xFF5C6BC0)
+        EnhancerMode.Animate -> Color(0xFFE91E63)
+        EnhancerMode.Cyber -> Color(0xFF00BCD4)
+        EnhancerMode.Thermal -> Color(0xFFFF7043)
+        EnhancerMode.Mri -> Color(0xFF7E57C2)
+        EnhancerMode.Xray -> Color(0xFF607D8B)
+    }
+
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onSelect),
+        tonalElevation = if (selected) 6.dp else 1.dp,
+        shape = MaterialTheme.shapes.medium
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(64.dp)
+                    .background(previewColor, CircleShape)
+            )
+            Text(
+                text = stringResource(mode.labelRes),
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+    }
+}
+
 private fun bindEnhancerCamera(
     context: Context,
     lifecycleOwner: LifecycleOwner,
     previewView: PreviewView,
     cameraSelector: CameraSelector,
     onCameraProviderReady: (ProcessCameraProvider) -> Unit,
-    onImageCaptureReady: (ImageCapture) -> Unit,
     onCameraReady: (androidx.camera.core.Camera) -> Unit
 ) {
     val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
@@ -676,18 +673,12 @@ private fun bindEnhancerCamera(
             .build()
             .also { it.surfaceProvider = previewView.surfaceProvider }
 
-        val capture = ImageCapture.Builder()
-            .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
-            .build()
-        onImageCaptureReady(capture)
-
         try {
             cameraProvider.unbindAll()
             val camera = cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,
-                preview,
-                capture
+                preview
             )
             onCameraReady(camera)
         } catch (_: Exception) {
