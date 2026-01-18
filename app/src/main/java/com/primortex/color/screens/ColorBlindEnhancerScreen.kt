@@ -205,7 +205,8 @@ half4 main(float2 coord) {
     vec3 rgb = inner.eval(coord).rgb;
     float y = dot(rgb, vec3(0.2126, 0.7152, 0.0722));
     float q = floor(y * 6.0 + 0.5) / 6.0;
-    vec3 toon = mix(vec3(q), rgb, 0.15);
+    vec3 boosted = mix(vec3(y), rgb, 1.6);
+    vec3 toon = mix(vec3(q), boosted, 0.6);
     return half4(toon, 1.0);
 }
 """
