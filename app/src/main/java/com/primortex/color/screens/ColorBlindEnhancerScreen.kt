@@ -2,10 +2,12 @@ package com.primortex.color.screens
 
 import android.Manifest
 import android.content.Context
+import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.graphics.RenderEffect
 import android.graphics.RuntimeShader
 import android.os.Build
+import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import android.view.Surface
@@ -13,6 +15,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -36,6 +40,7 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
 import androidx.compose.material.icons.outlined.FlashOff
 import androidx.compose.material.icons.outlined.FlashOn
+import androidx.compose.material.icons.outlined.PhotoCamera
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.Button
@@ -65,6 +70,12 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
+import com.primortex.color.ui.LocalSnackbarService
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 private const val MONOCHROME_SHADER = """
 uniform shader inner;
@@ -260,9 +271,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var torchOn by remember { mutableStateOf(false) }
     var camera by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
-    var monochromeEnabled by remember { mutableStateOf(true) }
+    var monochromeEnabled by remember { mutableStateOf(false) }
     var enhancerEnabled by remember { mutableStateOf(false) }
-    var drasticEnabled by remember { mutableStateOf(false) }
+    var drasticEnabled by remember { mutableStateOf(true) }
     var edgeContrastEnabled by remember { mutableStateOf(false) }
     var thermalEnabled by remember { mutableStateOf(false) }
     var mriEnabled by remember { mutableStateOf(false) }
@@ -332,12 +343,17 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         }
     }
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
+    var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
+    val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
+    val snackbarService = LocalSnackbarService.current
 
     val scaffoldState = rememberBottomSheetScaffoldState()
 
     DisposableEffect(Unit) {
         onDispose {
             cameraProvider?.unbindAll()
+            imageCapture = null
+            cameraExecutor.shutdown()
         }
     }
 
@@ -571,6 +587,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             CameraSelector.DEFAULT_BACK_CAMERA
                         },
                         onCameraProviderReady = { cameraProvider = it },
+                        onImageCaptureReady = { imageCapture = it },
                         onCameraReady = { camera = it }
                     )
                 }
@@ -621,6 +638,50 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 } else {
                                     stringResource(R.string.flash_off)
                                 }
+                            )
+                        }
+                        IconButton(
+                            onClick = {
+                                val capture = imageCapture ?: return@IconButton
+                                val name = "CB_${
+                                    SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+                                }"
+                                val contentValues = ContentValues().apply {
+                                    put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+                                    put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+                                    put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/ColorPicker")
+                                }
+                                val outputOptions = ImageCapture.OutputFileOptions.Builder(
+                                    ctx.contentResolver,
+                                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                                    contentValues
+                                ).build()
+                                capture.takePicture(
+                                    outputOptions,
+                                    cameraExecutor,
+                                    object : ImageCapture.OnImageSavedCallback {
+                                        override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                                            ContextCompat.getMainExecutor(ctx).execute {
+                                                snackbarService.showMessage(
+                                                    ctx.getString(R.string.photo_saved_to_album)
+                                                )
+                                            }
+                                        }
+
+                                        override fun onError(exception: ImageCaptureException) {
+                                            ContextCompat.getMainExecutor(ctx).execute {
+                                                snackbarService.showMessage(
+                                                    ctx.getString(R.string.photo_save_failed)
+                                                )
+                                            }
+                                        }
+                                    }
+                                )
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.PhotoCamera,
+                                contentDescription = stringResource(R.string.capture_photo)
                             )
                         }
                         IconButton(onClick = {
@@ -691,6 +752,22 @@ private fun ColorBlindEnhancerSheet(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
+                text = stringResource(R.string.color_blind_enhancement),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = enhancerEnabled && supportsShader,
+                onCheckedChange = { onToggleEnhancer(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
                 text = stringResource(R.string.monochrome_mode),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.weight(1f)
@@ -707,13 +784,13 @@ private fun ColorBlindEnhancerSheet(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = stringResource(R.string.color_blind_enhancement),
+                text = stringResource(R.string.edge_contrast_mode),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.weight(1f)
             )
             Switch(
-                checked = enhancerEnabled && supportsShader,
-                onCheckedChange = { onToggleEnhancer(it) },
+                checked = edgeContrastEnabled && supportsShader,
+                onCheckedChange = { onToggleEdgeContrast(it) },
                 enabled = supportsShader
             )
         }
@@ -739,13 +816,29 @@ private fun ColorBlindEnhancerSheet(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = stringResource(R.string.edge_contrast_mode),
+                text = stringResource(R.string.animate_mode),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.weight(1f)
             )
             Switch(
-                checked = edgeContrastEnabled && supportsShader,
-                onCheckedChange = { onToggleEdgeContrast(it) },
+                checked = animateEnabled && supportsShader,
+                onCheckedChange = { onToggleAnimate(it) },
+                enabled = supportsShader
+            )
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.cyber_mode),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
+            Switch(
+                checked = cyberEnabled && supportsShader,
+                onCheckedChange = { onToggleCyber(it) },
                 enabled = supportsShader
             )
         }
@@ -797,38 +890,6 @@ private fun ColorBlindEnhancerSheet(
                 enabled = supportsShader
             )
         }
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.animate_mode),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f)
-            )
-            Switch(
-                checked = animateEnabled && supportsShader,
-                onCheckedChange = { onToggleAnimate(it) },
-                enabled = supportsShader
-            )
-        }
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(R.string.cyber_mode),
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f)
-            )
-            Switch(
-                checked = cyberEnabled && supportsShader,
-                onCheckedChange = { onToggleCyber(it) },
-                enabled = supportsShader
-            )
-        }
     }
 }
 
@@ -838,6 +899,7 @@ private fun bindEnhancerCamera(
     previewView: PreviewView,
     cameraSelector: CameraSelector,
     onCameraProviderReady: (ProcessCameraProvider) -> Unit,
+    onImageCaptureReady: (ImageCapture) -> Unit,
     onCameraReady: (androidx.camera.core.Camera) -> Unit
 ) {
     val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
@@ -851,12 +913,18 @@ private fun bindEnhancerCamera(
             .build()
             .also { it.surfaceProvider = previewView.surfaceProvider }
 
+        val capture = ImageCapture.Builder()
+            .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+            .build()
+        onImageCaptureReady(capture)
+
         try {
             cameraProvider.unbindAll()
             val camera = cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,
-                preview
+                preview,
+                capture
             )
             onCameraReady(camera)
         } catch (_: Exception) {

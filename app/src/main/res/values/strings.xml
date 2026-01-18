@@ -192,6 +192,9 @@
     <string name="xray_mode">X-ray imaging mode</string>
     <string name="animate_mode">Animate style mode</string>
     <string name="cyber_mode">Cyber style mode</string>
+    <string name="capture_photo">Capture photo</string>
+    <string name="photo_saved_to_album">Saved to album ✅</string>
+    <string name="photo_save_failed">Save failed</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>
