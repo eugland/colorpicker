@@ -22,11 +22,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material.icons.outlined.Cameraswitch
@@ -298,45 +299,47 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             Surface(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
-                    .fillMaxWidth()
-                    .statusBarsPadding(),
+                    .fillMaxWidth(),
                 tonalElevation = 2.dp,
                 color = MaterialTheme.colorScheme.surface
             ) {
-                Row(
-                    Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBackIosNew,
-                            contentDescription = stringResource(R.string.back)
-                        )
-                    }
+                Column {
+                    Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
+                    Row(
+                        Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.Filled.ArrowBackIosNew,
+                                contentDescription = stringResource(R.string.back)
+                            )
+                        }
 
-                    Text(
-                        stringResource(R.string.color_blind_enhancer_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.weight(1f)
-                    )
-                    IconButton(onClick = { torchOn = !torchOn }) {
-                        Icon(
-                            imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
-                            contentDescription = if (torchOn) {
-                                stringResource(R.string.flash_on)
-                            } else {
-                                stringResource(R.string.flash_off)
-                            }
+                        Text(
+                            stringResource(R.string.color_blind_enhancer_title),
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.weight(1f)
                         )
-                    }
-                    IconButton(onClick = {
-                        useFrontCamera = !useFrontCamera
-                        Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
-                    }) {
-                        Icon(
-                            imageVector = Icons.Outlined.Cameraswitch,
-                            contentDescription = stringResource(R.string.flip_camera)
-                        )
+                        IconButton(onClick = { torchOn = !torchOn }) {
+                            Icon(
+                                imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
+                                contentDescription = if (torchOn) {
+                                    stringResource(R.string.flash_on)
+                                } else {
+                                    stringResource(R.string.flash_off)
+                                }
+                            )
+                        }
+                        IconButton(onClick = {
+                            useFrontCamera = !useFrontCamera
+                            Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
+                        }) {
+                            Icon(
+                                imageVector = Icons.Outlined.Cameraswitch,
+                                contentDescription = stringResource(R.string.flip_camera)
+                            )
+                        }
                     }
                 }
             }
