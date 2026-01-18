@@ -183,13 +183,15 @@
     <string name="color_blind_enhancer_subtitle">Accessibility camera filter</string>
     <string name="color_blind_enhancer_disclaimer">Non-medical accessibility aid. Colors may differ from reality.</string>
     <string name="color_blind_enhancer_requires_android_13">Requires Android 13+ for GPU shader processing.</string>
-    <string name="filter_enabled">Filter enabled</string>
-    <string name="deficiency_mode">Deficiency mode</string>
-    <string name="color_blind_mode_protan">Protan</string>
-    <string name="color_blind_mode_deutan">Deutan</string>
-    <string name="color_blind_mode_tritan">Tritan</string>
-    <string name="filter_strength">Strength</string>
-    <string name="edge_enhancement">Edge enhancement</string>
+    <string name="monochrome_mode">Monochrome mode</string>
+    <string name="color_blind_enhancement">Color-blind enhancement</string>
+    <string name="drastic_mode">Drastic mode</string>
+    <string name="edge_contrast_mode">Edge contrast mode</string>
+    <string name="thermal_mode">Thermal imaging mode</string>
+    <string name="mri_mode">MRI imaging mode</string>
+    <string name="xray_mode">X-ray imaging mode</string>
+    <string name="animate_mode">Animate style mode</string>
+    <string name="cyber_mode">Cyber style mode</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>
