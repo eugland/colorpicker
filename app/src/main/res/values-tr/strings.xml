@@ -2,7 +2,6 @@
     <string name="app_name">Renk</string>
 
     <string name="back">Geri</string>
-    <string name="close">Kapat</string>
     <string name="clear">Temizle</string>
     <string name="cancel">İptal</string>
     <string name="copy">Kopyala</string>
@@ -11,7 +10,6 @@
     <string name="save">Kaydet</string>
     <string name="saved">Kaydedildi</string>
     <string name="delete">Sil</string>
-    <string name="more_options">Daha fazla seçenek</string>
 
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Daha fazla göster</string>
     <string name="show_less">Daha az göster</string>
     <string name="show_more">Daha fazla göster</string>
-    <string name="show_less_caps">DAHA AZ GÖSTER</string>
-    <string name="show_more_caps">DAHA FAZLA GÖSTER</string>
 
+    <string name="see_more">Daha fazla gör</string>
     <string name="theme_system_default">Sistem varsayılanı</string>
     <string name="theme_light">Açık</string>
     <string name="theme_dark">Koyu</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s zaten palette</string>
     <string name="palette_full_message">Palet dolu (10 renk). Paleti kaydetmek ve yenisine başlamak için palete dokunun.</string>
     <string name="palette_empty_start_adding">Palet boş, renk eklemeye başlayın</string>
-    <string name="palette_saved_toast">Palet kaydedildi ✅</string>
     <string name="palette_default_name">Palet %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">canlı-seçim</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Renklerim\'e kaydedildi</string>
     <string name="no_palettes_available">Kullanılabilir palet yok. Önce bir tane oluşturun.</string>
     <string name="add_to_palette">Palete ekle</string>
+    <string name="palette_scheme_square">Kare Palet</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Kırmızı</string>
     <string name="green_label">Yeşil</string>
     <string name="blue_label">Mavi</string>
+    <string name="yellow_label">Sarı</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Ton</string>
     <string name="saturation_label">Doygunluk</string>
     <string name="lightness_label">Açıklık</string>
-    <string name="select_palette">Palet seç</string>
+    <string name="sliders_label">Kaydırıcılar</string>
     <string name="palette_color_count">%1$d renk</string>
     <string name="more_details">Daha fazla ayrıntı</string>
     <string name="already_in_palette">Zaten palette</string>
     <string name="palette_full">Palet dolu (10 renk)</string>
     <string name="added_to_palette">Palete eklendi</string>
     <string name="hex_copied">HEX kopyalandı</string>
-    <string name="name_copied">Ad kopyalandı</string>
     <string name="copy_hex">HEX kopyala</string>
-    <string name="copy_name">Adı kopyala</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Metin %1$s</string>
     <string name="white_label">Beyaz</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Benzer</string>
     <string name="similar_colors">Benzer renkler</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Renkleri canlı veya fotoğraftan seçin. Kopyalamak için bir örneğe dokunun.</string>
-    <string name="live_camera">Canlı kamera</string>
-    <string name="live_camera_subtitle">Nişangâh + yakınlaştırma</string>
+    <string name="pick_color_here_description">Canlı renk seçimi için dokunun</string>
     <string name="from_album">Albümden</string>
     <string name="from_album_subtitle">Fotoğraftan seç</string>
+    <string name="from_gallery">Galeriden</string>
     <string name="tools">Araçlar</string>
     <string name="color_slider_description">RGB veya HSL ayarlayın, adları ve HEX\'i canlı görün. Kaydedin veya palet oluşturun.</string>
+    <string name="color_blind_enhancer_description">Renk görme bozuklukları için ayarlanmış canlı kamera görünümü</string>
     <string name="open">Aç</string>
-    <string name="live_color_picker">Canlı renk seçici</string>
-    <string name="live_color_picker_description">Herhangi bir şeye doğrultun. Yakınlaştırmak için kıstırın. Palete anında ekleyin.</string>
-    <string name="start_live_picking">Canlı seçimi başlat</string>
 
+    <string name="filter_selector_label">Filtre</string>
     <string name="settings_title">Ayarlar</string>
     <string name="settings_description">Uygulamanın görünümünü ve nişangâhın davranışını ayarlayın.</string>
     <string name="app_preferences">Uygulama tercihleri</string>
     <string name="theme">Tema</string>
-    <string name="theme_description">Uygulamanın görünümünü seçin.</string>
+    <string name="follows_your_system_theme">Sistem temasını takip eder</string>
     <string name="language">Dil</string>
     <string name="picker_crosshair">Seçici nişangâh</string>
     <string name="picker_crosshair_description">Renk örneklerken kullanılan nişangâhı ayarlayın.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Boyut</string>
     <string name="shape">Şekil</string>
     <string name="sensitivity">Hassasiyet</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Sahiplik, üçüncü taraf bileşenler ve lisans ayrıntıları</string>
     <string name="privacy_statement">Gizlilik bildirimi</string>
     <string name="privacy_statement_description">Kamera ve fotoğraf verileri cihazda nasıl kalır</string>
+    <string name="terms_of_service_description">Uygulama şartlarını ve kullanım yönergelerini inceleyin</string>
     <string name="usage_guide">Kullanım kılavuzu</string>
     <string name="usage_guide_description">Adım adım kılavuz ve temel görevler dizini</string>
     <string name="feedback">Geri bildirim</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Bizi değerlendirin</string>
     <string name="rate_us_description">Play Store\'da hızlıca puan verin.</string>
 
+    <string name="share_app_text">Google Play\'de Color Picker\'a göz atın: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Renkleri canlı veya fotoğraftan seçin. Kopyalamak için bir örneğe dokunun.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Palet boş, renk eklemeye başlayın</string>
     <string name="photo_palette_saved">Palet kaydedildi ✅</string>
 
-    <string name="added_to_recents">Sonlara eklendi</string>
     <string name="suggestions">Öneriler</string>
     <string name="saved_colors">Kaydedilen renkler</string>
     <string name="saved_palettes">Kaydedilen paletler</string>
     <string name="no_recent_colors">Henüz son renk yok. Renk seçmek için 🧪\'a dokunun.</string>
     <string name="no_saved_colors">Henüz kaydedilmiş renk yok.</string>
     <string name="no_saved_palettes">Henüz kaydedilmiş palet yok.</string>
-    <string name="clear_recent_colors_title">Son renkler temizlensin mi?</string>
-    <string name="clear_recent_colors_description">Bu, tüm son renkleri kaldırır.</string>
-    <string name="clear_saved_colors_title">Kaydedilen renkler temizlensin mi?</string>
-    <string name="clear_saved_colors_description">Bu, tüm kaydedilen renkleri kaldırır.</string>
     <string name="clear_saved_palettes_title">Kaydedilen paletler temizlensin mi?</string>
     <string name="clear_saved_palettes_description">Bu, tüm kaydedilen paletleri kaldırır.</string>
+    <string name="no_matching_palettes">Eşleşen palet yok</string>
     <string name="quick_color_lookup">Hızlı renk arama</string>
     <string name="search_placeholder">Renkleri veya HEX kodlarını ara</string>
     <string name="search_hint_one">\'Midnight blue\' merak mı ediyorsunuz?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">\'Cerulean\' nasıl görünüyor?</string>
     <string name="search_hint_nine">\'#228B22\' nasıl hissettiriyor?</string>
     <string name="search_hint_ten">\'#E97451\' tonunu keşfedin</string>
-    <string name="palette_color_label">Palet</string>
-    <string name="clear_recent">Sonları temizle</string>
-    <string name="clear_saved">Kaydedilenleri temizle</string>
-    <string name="clear_palettes">Paletleri temizle</string>
-    <string name="copy_hex_content_description">HEX kopyala</string>
 
+    <string name="no_matching_colors">Eşleşen renk yok</string>
     <string name="palette_bar_clear">Paleti temizle</string>
     <string name="palette_bar_palette">Palet</string>
     <string name="palette_bar_add_color">Renk ekle</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Açıklama</string>
     <string name="copy_all_hex">HEX kopyala</string>
     <string name="export_css">CSS kopyala</string>
-    <string name="remove_from_favourites">Paleti sil</string>
     <string name="view_more_indicator">Daha fazla göster ›</string>
     <string name="save_changes">Değişiklikleri kaydet</string>
     <string name="edit_palette">Düzenle</string>
     <string name="palette_updated">Palet güncellendi</string>
     <string name="copied_all_hex">Tüm HEX değerleri kopyalandı</string>
     <string name="exported_css">CSS panoya kopyalandı</string>
-    <string name="reorder">Yeniden sırala</string>
     <string name="splash_loading_message">Paletinizi hazırlıyoruz…</string>
+    <string name="create_new_palette">Yeni palet oluştur</string>
+    <string name="palette_name_with_color">%1$s Paleti</string>
+    <string name="color_shades_tints_tones_title">%1$s renk tonları, tintler ve gölgeler</string>
+    <string name="tints_label">Tintler</string>
+    <string name="shades_label">Gölgeler</string>
+    <string name="tones_label">Tonlar</string>
+    <string name="color_palettes_title">%1$s renk paletleri</string>
+    <string name="palette_scheme_complementary">Tamamlayıcı palet</string>
+    <string name="palette_scheme_analogous">Benzer palet</string>
+    <string name="palette_scheme_split_complementary">Bölünmüş tamamlayıcı palet</string>
+    <string name="palette_scheme_triadic">Triadik palet</string>
+    <string name="palette_scheme_tetradic">Tetradik palet</string>
+    <string name="cyan_label">Camgöbeği</string>
+    <string name="magenta_label">Macenta</string>
+    <string name="value_label">Değer</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Seçime başla!</string>
+    <string name="color_blind_enhancer">Renk körlüğü güçlendirici</string>
+    <string name="color_blind_enhancer_title">Renk körlüğü güçlendirici</string>
+    <string name="monochrome_mode">Tek renkli mod</string>
+    <string name="color_blind_enhancement">Renk körlüğü iyileştirmesi</string>
+    <string name="drastic_mode">Drastik mod</string>
+    <string name="edge_contrast_mode">Kenar kontrast modu</string>
+    <string name="thermal_mode">Termal görüntüleme modu</string>
+    <string name="mri_mode">MRI görüntüleme modu</string>
+    <string name="xray_mode">X-ışını görüntüleme modu</string>
+    <string name="animate_mode">Animasyon stil modu</string>
+    <string name="cyber_mode">Siber stil modu</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Filtre seç</string>
+    <string name="choose_theme">Tema seç</string>
+    <string name="choose_theme_description">Size en uygun görünümü seçin.</string>
+    <string name="terms_of_service">Hizmet şartları</string>
+    <string name="share_app">Uygulamayı paylaş</string>
+    <string name="share_app_description">Play Store bağlantısını arkadaşlara gönder.</string>
 </resources>

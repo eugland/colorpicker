@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">Zurück</string>
-    <string name="close">Schließen</string>
     <string name="clear">Leeren</string>
     <string name="cancel">Abbrechen</string>
     <string name="copy">Kopieren</string>
@@ -11,7 +10,6 @@
     <string name="save">Speichern</string>
     <string name="saved">Gespeichert</string>
     <string name="delete">Löschen</string>
-    <string name="more_options">Weitere Optionen</string>
 
     <string name="palette">Palette</string>
     <string name="camera">Kamera</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Mehr anzeigen</string>
     <string name="show_less">Weniger anzeigen</string>
     <string name="show_more">Mehr anzeigen</string>
-    <string name="show_less_caps">WENIGER ANZEIGEN</string>
-    <string name="show_more_caps">MEHR ANZEIGEN</string>
 
     <string name="theme_system_default">Systemstandard</string>
     <string name="theme_light">Hell</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s ist bereits in der Palette</string>
     <string name="palette_full_message">Palette ist voll (10 Farben). Tippe auf die Palette, um sie zu speichern und eine neue zu starten.</string>
     <string name="palette_empty_start_adding">Palette leer, beginne Farben hinzuzufügen</string>
-    <string name="palette_saved_toast">Palette gespeichert ✅</string>
     <string name="palette_default_name">Palette %1$d</string>
     <string name="palette_tag_camera">Kamera</string>
     <string name="palette_tag_live_pick">Live-Auswahl</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">In meinen Farben gespeichert</string>
     <string name="no_palettes_available">Keine Paletten verfügbar. Erstelle zuerst eine.</string>
     <string name="add_to_palette">Zur Palette hinzufügen</string>
+    <string name="palette_scheme_square">Quadratische Palette</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Rot</string>
     <string name="green_label">Grün</string>
     <string name="blue_label">Blau</string>
+    <string name="yellow_label">Gelb</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Farbton</string>
     <string name="saturation_label">Sättigung</string>
     <string name="lightness_label">Helligkeit</string>
-    <string name="select_palette">Palette auswählen</string>
+    <string name="sliders_label">Schieberegler</string>
     <string name="palette_color_count">%1$d Farben</string>
     <string name="more_details">Mehr Details</string>
     <string name="already_in_palette">Bereits in der Palette</string>
     <string name="palette_full">Palette voll (10 Farben)</string>
     <string name="added_to_palette">Zur Palette hinzugefügt</string>
     <string name="hex_copied">HEX kopiert</string>
-    <string name="name_copied">Name kopiert</string>
     <string name="copy_hex">HEX kopieren</string>
-    <string name="copy_name">Name kopieren</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Text %1$s</string>
     <string name="white_label">Weiß</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Analog</string>
     <string name="similar_colors">Ähnliche Farben</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Farben live oder aus einem Foto auswählen. Tippe auf ein Farbfeld, um zu kopieren.</string>
-    <string name="live_camera">Live-Kamera</string>
-    <string name="live_camera_subtitle">Fadenkreuz + Zoom</string>
+    <string name="pick_color_here_description">Tippen für Live-Farbauswahl</string>
     <string name="from_album">Aus Album</string>
     <string name="from_album_subtitle">Aus einem Foto auswählen</string>
+    <string name="from_gallery">Aus Galerie</string>
     <string name="tools">Werkzeuge</string>
     <string name="color_slider_description">RGB oder HSL anpassen und Live-Namen und HEX sehen. Speichern oder Paletten erstellen.</string>
+    <string name="color_blind_enhancer_description">Live-Kameraansicht für Farbsehschwächen</string>
     <string name="open">Öffnen</string>
-    <string name="live_color_picker">Live-Farbwähler</string>
-    <string name="live_color_picker_description">Auf etwas zeigen. Zum Zoomen ziehen. Sofort zur Palette hinzufügen.</string>
-    <string name="start_live_picking">Live-Auswahl starten</string>
 
+    <string name="filter_selector_label">Filter</string>
     <string name="settings_title">Einstellungen</string>
     <string name="settings_description">Passe das Aussehen der App und das Fadenkreuz des Farbwählers an.</string>
     <string name="app_preferences">App-Einstellungen</string>
     <string name="theme">Thema</string>
-    <string name="theme_description">Wähle, wie die App aussieht.</string>
+    <string name="follows_your_system_theme">Folgt dem Systemdesign</string>
     <string name="language">Sprache</string>
     <string name="picker_crosshair">Farbwähler-Fadenkreuz</string>
     <string name="picker_crosshair_description">Passe das Fadenkreuz an, das beim Farbabtasten verwendet wird.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Größe</string>
     <string name="shape">Form</string>
     <string name="sensitivity">Empfindlichkeit</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Eigentum, Drittanbieterkomponenten und Lizenzdetails</string>
     <string name="privacy_statement">Datenschutzerklärung</string>
     <string name="privacy_statement_description">Wie Kamera- und Fotodaten auf dem Gerät bleiben</string>
+    <string name="terms_of_service_description">App-Bedingungen und Nutzungsrichtlinien anzeigen</string>
     <string name="usage_guide">Bedienungsanleitung</string>
     <string name="usage_guide_description">Schritt-für-Schritt-Anleitung und Index für wichtige Aufgaben</string>
     <string name="feedback">Feedback</string>
     <string name="send_feedback">Feedback senden</string>
-    <string name="send_feedback_description">Teile, was du verbessert sehen möchtest.</string>
-    <string name="rate_us">Bewerte uns</string>
-    <string name="rate_us_description">Hinterlasse eine kurze Bewertung im Play Store.</string>
+    <string name="send_feedback_description">Teilen Sie mit, was verbessert werden soll.</string>
+    <string name="rate_us">Bewerten Sie uns</string>
+    <string name="rate_us_description">Hinterlassen Sie eine kurze Bewertung im Play Store.</string>
 
+    <string name="share_app_text">Sehen Sie sich Color Picker bei Google Play an: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Farben live oder aus einem Foto auswählen. Tippe auf ein Farbfeld, um zu kopieren.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Palette leer, beginne Farben hinzuzufügen</string>
     <string name="photo_palette_saved">Palette gespeichert ✅</string>
 
-    <string name="added_to_recents">Zu den zuletzt verwendeten hinzugefügt</string>
     <string name="suggestions">Vorschläge</string>
     <string name="saved_colors">Gespeicherte Farben</string>
     <string name="saved_palettes">Gespeicherte Paletten</string>
     <string name="no_recent_colors">Noch keine zuletzt verwendeten Farben. Tippe auf 🧪, um eine Farbe auszuwählen.</string>
     <string name="no_saved_colors">Noch keine gespeicherten Farben.</string>
     <string name="no_saved_palettes">Noch keine gespeicherten Paletten.</string>
-    <string name="clear_recent_colors_title">Zuletzt verwendete Farben löschen?</string>
-    <string name="clear_recent_colors_description">Dies entfernt alle zuletzt verwendeten Farben.</string>
-    <string name="clear_saved_colors_title">Gespeicherte Farben löschen?</string>
-    <string name="clear_saved_colors_description">Dies entfernt alle gespeicherten Farben.</string>
     <string name="clear_saved_palettes_title">Gespeicherte Paletten löschen?</string>
     <string name="clear_saved_palettes_description">Dies entfernt alle gespeicherten Paletten.</string>
+    <string name="no_matching_palettes">Keine passenden Paletten</string>
     <string name="quick_color_lookup">Schnellsuche nach Farben</string>
     <string name="search_placeholder">Farben oder HEX-Codes suchen</string>
     <string name="search_hint_one">Neugierig auf \'Midnight blue\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Wie sieht \'Cerulean\' aus?</string>
     <string name="search_hint_nine">Wie fühlt sich \'#228B22\' an?</string>
     <string name="search_hint_ten">Entdecke den Farbton \'#E97451\'</string>
-    <string name="palette_color_label">Palette</string>
-    <string name="clear_recent">Zuletzt verwendete löschen</string>
-    <string name="clear_saved">Gespeicherte löschen</string>
-    <string name="clear_palettes">Paletten löschen</string>
-    <string name="copy_hex_content_description">HEX kopieren</string>
+    <string name="no_matching_colors">Keine passenden Farben</string>
 
     <string name="palette_bar_clear">Palette leeren</string>
     <string name="palette_bar_palette">Palette</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Beschreibung</string>
     <string name="copy_all_hex">HEX kopieren</string>
     <string name="export_css">CSS kopieren</string>
-    <string name="remove_from_favourites">Palette löschen</string>
     <string name="view_more_indicator">Mehr anzeigen ›</string>
     <string name="save_changes">Änderungen speichern</string>
     <string name="edit_palette">Bearbeiten</string>
     <string name="palette_updated">Palette aktualisiert</string>
     <string name="copied_all_hex">Alle HEX-Werte kopiert</string>
     <string name="exported_css">CSS in die Zwischenablage kopiert</string>
-    <string name="reorder">Neu anordnen</string>
     <string name="splash_loading_message">Deine Palette wird vorbereitet…</string>
+    <string name="see_more">Mehr anzeigen</string>
+    <string name="create_new_palette">Neue Palette erstellen</string>
+    <string name="palette_name_with_color">%1$s Palette</string>
+    <string name="color_shades_tints_tones_title">Farbschattierungen, Tönungen und Nuancen von %1$s</string>
+    <string name="tints_label">Helle Töne</string>
+    <string name="shades_label">Dunkle Töne</string>
+    <string name="tones_label">Gedämpfte Töne</string>
+    <string name="color_palettes_title">%1$s Farbpaletten</string>
+    <string name="palette_scheme_complementary">Komplementäre Palette</string>
+    <string name="palette_scheme_analogous">Analoge Palette</string>
+    <string name="palette_scheme_split_complementary">Geteilte komplementäre Palette</string>
+    <string name="palette_scheme_triadic">Triadische Palette</string>
+    <string name="palette_scheme_tetradic">Tetradische Palette</string>
+    <string name="cyan_label">Cyan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Wert</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Auswahl starten!</string>
+    <string name="color_blind_enhancer">Farbenblindheits-Verbesserung</string>
+    <string name="color_blind_enhancer_title">Farbenblindheits-Verbesserung</string>
+    <string name="monochrome_mode">Monochrom-Modus</string>
+    <string name="color_blind_enhancement">Farbenblindheits-Verbesserung</string>
+    <string name="drastic_mode">Intensivmodus</string>
+    <string name="edge_contrast_mode">Kantenkontrastmodus</string>
+    <string name="thermal_mode">Thermischer Bildmodus</string>
+    <string name="mri_mode">MRT-Bildmodus</string>
+    <string name="xray_mode">Röntgenbildmodus</string>
+    <string name="animate_mode">Animierter Stilmodus</string>
+    <string name="cyber_mode">Cyber-Stilmodus</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Filter auswählen</string>
+    <string name="choose_theme">Design auswählen</string>
+    <string name="choose_theme_description">Wählen Sie den Look, der am besten zu Ihnen passt.</string>
+    <string name="terms_of_service">Nutzungsbedingungen</string>
+    <string name="share_app">App teilen</string>
+    <string name="share_app_description">Senden Sie den Play-Store-Link an Freunde.</string>
 </resources>

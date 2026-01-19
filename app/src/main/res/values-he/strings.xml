@@ -2,7 +2,6 @@
     <string name="app_name">צבע</string>
 
     <string name="back">חזרה</string>
-    <string name="close">סגור</string>
     <string name="clear">נקה</string>
     <string name="cancel">ביטול</string>
     <string name="copy">העתק</string>
@@ -11,7 +10,6 @@
     <string name="save">שמור</string>
     <string name="saved">נשמר</string>
     <string name="delete">מחק</string>
-    <string name="more_options">אפשרויות נוספות</string>
 
     <string name="palette">פלטה</string>
     <string name="camera">מצלמה</string>
@@ -25,9 +23,8 @@
     <string name="view_more">הצג עוד</string>
     <string name="show_less">הצג פחות</string>
     <string name="show_more">הצג יותר</string>
-    <string name="show_less_caps">הצג פחות</string>
-    <string name="show_more_caps">הצג יותר</string>
 
+    <string name="see_more">ראה עוד</string>
     <string name="theme_system_default">ברירת מחדל של המערכת</string>
     <string name="theme_light">בהיר</string>
     <string name="theme_dark">כהה</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s כבר בפלטה</string>
     <string name="palette_full_message">הפלטה מלאה (10 צבעים). הקש על הפלטה כדי לשמור ולהתחיל חדשה.</string>
     <string name="palette_empty_start_adding">הפלטה ריקה, התחל להוסיף צבעים</string>
-    <string name="palette_saved_toast">הפלטה נשמרה ✅</string>
     <string name="palette_default_name">פלטה %1$d</string>
     <string name="palette_tag_camera">מצלמה</string>
     <string name="palette_tag_live_pick">בחירה-חיה</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">נשמר בצבעים שלי</string>
     <string name="no_palettes_available">אין פלטות זמינות. צור אחת תחילה.</string>
     <string name="add_to_palette">הוסף לפלטה</string>
+    <string name="palette_scheme_square">פלטה מרובעת</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">אדום</string>
     <string name="green_label">ירוק</string>
     <string name="blue_label">כחול</string>
+    <string name="yellow_label">צהוב</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">גוון</string>
     <string name="saturation_label">רווייה</string>
     <string name="lightness_label">בהירות</string>
-    <string name="select_palette">בחר פלטה</string>
+    <string name="sliders_label">מחוונים</string>
     <string name="palette_color_count">%1$d צבעים</string>
     <string name="more_details">פרטים נוספים</string>
     <string name="already_in_palette">כבר בפלטה</string>
     <string name="palette_full">הפלטה מלאה (10 צבעים)</string>
     <string name="added_to_palette">נוסף לפלטה</string>
     <string name="hex_copied">HEX הועתק</string>
-    <string name="name_copied">השם הועתק</string>
     <string name="copy_hex">העתק HEX</string>
-    <string name="copy_name">העתק שם</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">טקסט %1$s</string>
     <string name="white_label">לבן</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">אנלוגי</string>
     <string name="similar_colors">צבעים דומים</string>
 
-    <string name="picker_tab_camera">מצלמה</string>
-    <string name="picker_tab_camera_description">בחר צבעים בזמן אמת או מתמונה. הקש על דוגמית כדי להעתיק.</string>
-    <string name="live_camera">מצלמה חיה</string>
-    <string name="live_camera_subtitle">כוונת + זום</string>
+    <string name="pick_color_here_description">הקש לבחירת צבע חיה</string>
     <string name="from_album">מהאלבום</string>
     <string name="from_album_subtitle">בחר מתמונה</string>
+    <string name="from_gallery">מהגלריה</string>
     <string name="tools">כלים</string>
     <string name="color_slider_description">כוון RGB או HSL וראה שמות ו-HEX בזמן אמת. שמור או בנה פלטות.</string>
+    <string name="color_blind_enhancer_description">תצוגת מצלמה חיה מותאמת לליקויי ראיית צבע</string>
     <string name="open">פתח</string>
-    <string name="live_color_picker">בוחר צבעים חי</string>
-    <string name="live_color_picker_description">כוון לכל דבר. צביטה לזום. הוסף לפלטה מיד.</string>
-    <string name="start_live_picking">התחל בחירה חיה</string>
 
+    <string name="filter_selector_label">פילטר</string>
     <string name="settings_title">הגדרות</string>
     <string name="settings_description">התאם איך האפליקציה נראית ואיך הכוונת מתנהגת.</string>
     <string name="app_preferences">העדפות אפליקציה</string>
     <string name="theme">ערכת נושא</string>
-    <string name="theme_description">בחר איך האפליקציה נראית.</string>
+    <string name="follows_your_system_theme">עוקב אחר ערכת הנושא של המערכת</string>
     <string name="language">שפה</string>
     <string name="picker_crosshair">כוונת</string>
     <string name="picker_crosshair_description">התאם את הכוונת המשמשת בדגימת צבעים.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">גודל</string>
     <string name="shape">צורה</string>
     <string name="sensitivity">רגישות</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">בעלות, רכיבי צד שלישי ופרטי רישוי</string>
     <string name="privacy_statement">הצהרת פרטיות</string>
     <string name="privacy_statement_description">איך נתוני מצלמה ותמונות נשארים במכשיר</string>
+    <string name="terms_of_service_description">עיין בתנאי האפליקציה ובהנחיות השימוש</string>
     <string name="usage_guide">מדריך שימוש</string>
     <string name="usage_guide_description">מדריך שלב-אחר-שלב ואינדקס למשימות מרכזיות</string>
     <string name="feedback">משוב</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">דרג אותנו</string>
     <string name="rate_us_description">השאר דירוג קצר בחנות Play.</string>
 
+    <string name="share_app_text">בדוק את Color Picker ב-Google Play: %1$s</string>
     <string name="camera_title">מצלמה</string>
     <string name="camera_intro">בחר צבעים בזמן אמת או מתמונה. הקש על דוגמית כדי להעתיק.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">הפלטה ריקה, התחל להוסיף צבעים</string>
     <string name="photo_palette_saved">הפלטה נשמרה ✅</string>
 
-    <string name="added_to_recents">נוסף לאחרונים</string>
     <string name="suggestions">הצעות</string>
     <string name="saved_colors">צבעים שמורים</string>
     <string name="saved_palettes">פלטות שמורות</string>
     <string name="no_recent_colors">אין צבעים אחרונים עדיין. הקש על 🧪 כדי לבחור צבע.</string>
     <string name="no_saved_colors">אין צבעים שמורים עדיין.</string>
     <string name="no_saved_palettes">אין פלטות שמורות עדיין.</string>
-    <string name="clear_recent_colors_title">לנקות צבעים אחרונים?</string>
-    <string name="clear_recent_colors_description">זה יסיר את כל הצבעים האחרונים.</string>
-    <string name="clear_saved_colors_title">לנקות צבעים שמורים?</string>
-    <string name="clear_saved_colors_description">זה יסיר את כל הצבעים השמורים.</string>
     <string name="clear_saved_palettes_title">לנקות פלטות שמורות?</string>
     <string name="clear_saved_palettes_description">זה יסיר את כל הפלטות השמורות.</string>
+    <string name="no_matching_palettes">אין פלטות תואמות</string>
     <string name="quick_color_lookup">חיפוש צבע מהיר</string>
     <string name="search_placeholder">חפש צבעים או קודי hex</string>
     <string name="search_hint_one">סקרן לגבי \'Midnight blue\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">איך נראה \'Cerulean\'?</string>
     <string name="search_hint_nine">איך מרגיש \'#228B22\'?</string>
     <string name="search_hint_ten">חשוף את הגוון \'#E97451\'</string>
-    <string name="palette_color_label">פלטה</string>
-    <string name="clear_recent">נקה אחרונים</string>
-    <string name="clear_saved">נקה שמורים</string>
-    <string name="clear_palettes">נקה פלטות</string>
-    <string name="copy_hex_content_description">העתק HEX</string>
 
+    <string name="no_matching_colors">אין צבעים תואמים</string>
     <string name="palette_bar_clear">נקה פלטה</string>
     <string name="palette_bar_palette">פלטה</string>
     <string name="palette_bar_add_color">הוסף צבע</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">תיאור</string>
     <string name="copy_all_hex">העתק HEX</string>
     <string name="export_css">העתק CSS</string>
-    <string name="remove_from_favourites">מחק פלטה</string>
     <string name="view_more_indicator">הצג עוד ›</string>
     <string name="save_changes">שמור שינויים</string>
     <string name="edit_palette">ערוך</string>
     <string name="palette_updated">הפלטה עודכנה</string>
     <string name="copied_all_hex">כל ערכי ה-HEX הועתקו</string>
     <string name="exported_css">CSS הועתק ללוח</string>
-    <string name="reorder">סדר מחדש</string>
     <string name="splash_loading_message">מחמם את הפלטה שלך…</string>
+    <string name="create_new_palette">צור פלטה חדשה</string>
+    <string name="palette_name_with_color">פלטת %1$s</string>
+    <string name="color_shades_tints_tones_title">גווני צבע, טינטים וטונים של %1$s</string>
+    <string name="tints_label">טינטים</string>
+    <string name="shades_label">גוונים כהים</string>
+    <string name="tones_label">טונים</string>
+    <string name="color_palettes_title">פלטות צבע %1$s</string>
+    <string name="palette_scheme_complementary">פלטה משלימה</string>
+    <string name="palette_scheme_analogous">פלטה אנלוגית</string>
+    <string name="palette_scheme_split_complementary">פלטה משלימה מפוצלת</string>
+    <string name="palette_scheme_triadic">פלטה טריאדית</string>
+    <string name="palette_scheme_tetradic">פלטה טטרדית</string>
+    <string name="cyan_label">ציאן</string>
+    <string name="magenta_label">מג\'נטה</string>
+    <string name="value_label">ערך</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">התחל לבחור!</string>
+    <string name="color_blind_enhancer">שיפור לעיוורון צבעים</string>
+    <string name="color_blind_enhancer_title">שיפור לעיוורון צבעים</string>
+    <string name="monochrome_mode">מצב מונוכרום</string>
+    <string name="color_blind_enhancement">שיפור עיוורון צבעים</string>
+    <string name="drastic_mode">מצב חזק</string>
+    <string name="edge_contrast_mode">מצב ניגודיות קצוות</string>
+    <string name="thermal_mode">מצב הדמיה תרמית</string>
+    <string name="mri_mode">מצב הדמיית MRI</string>
+    <string name="xray_mode">מצב הדמיית רנטגן</string>
+    <string name="animate_mode">מצב סגנון מונפש</string>
+    <string name="cyber_mode">מצב סגנון סייבר</string>
+    <string name="mode_normal">רגיל</string>
+    <string name="filter_grid_title">בחר פילטר</string>
+    <string name="choose_theme">בחר ערכת נושא</string>
+    <string name="choose_theme_description">בחר את המראה שמתאים לך ביותר.</string>
+    <string name="terms_of_service">תנאי שימוש</string>
+    <string name="share_app">שתף אפליקציה</string>
+    <string name="share_app_description">שלח את קישור ה-Play Store לחברים.</string>
 </resources>

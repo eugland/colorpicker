@@ -2,7 +2,6 @@
     <string name="app_name">Färg</string>
 
     <string name="back">Tillbaka</string>
-    <string name="close">Stäng</string>
     <string name="clear">Rensa</string>
     <string name="cancel">Avbryt</string>
     <string name="copy">Kopiera</string>
@@ -11,7 +10,6 @@
     <string name="save">Spara</string>
     <string name="saved">Sparat</string>
     <string name="delete">Ta bort</string>
-    <string name="more_options">Fler alternativ</string>
 
     <string name="palette">Palett</string>
     <string name="camera">Kamera</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Visa mer</string>
     <string name="show_less">Visa mindre</string>
     <string name="show_more">Visa mer</string>
-    <string name="show_less_caps">VISA MINDRE</string>
-    <string name="show_more_caps">VISA MER</string>
 
+    <string name="see_more">Visa mer</string>
     <string name="theme_system_default">Systemstandard</string>
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s finns redan i paletten</string>
     <string name="palette_full_message">Paletten är full (10 färger). Tryck på paletten för att spara den och starta en ny.</string>
     <string name="palette_empty_start_adding">Paletten är tom, börja lägga till färger</string>
-    <string name="palette_saved_toast">Paletten sparad ✅</string>
     <string name="palette_default_name">Palett %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">live-pick</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Sparad i Mina färger</string>
     <string name="no_palettes_available">Inga paletter tillgängliga. Skapa en först.</string>
     <string name="add_to_palette">Lägg till i palett</string>
+    <string name="palette_scheme_square">Fyrkantig palett</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Röd</string>
     <string name="green_label">Grön</string>
     <string name="blue_label">Blå</string>
+    <string name="yellow_label">Gul</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Nyans</string>
     <string name="saturation_label">Mättnad</string>
     <string name="lightness_label">Ljusstyrka</string>
-    <string name="select_palette">Välj palett</string>
+    <string name="sliders_label">Reglage</string>
     <string name="palette_color_count">%1$d färger</string>
     <string name="more_details">Mer detaljer</string>
     <string name="already_in_palette">Redan i paletten</string>
     <string name="palette_full">Paletten är full (10 färger)</string>
     <string name="added_to_palette">Tillagd i palett</string>
     <string name="hex_copied">HEX kopierad</string>
-    <string name="name_copied">Namn kopierat</string>
     <string name="copy_hex">Kopiera HEX</string>
-    <string name="copy_name">Kopiera namn</string>
     <string name="luma_label">Luminans %1$d%%</string>
     <string name="text_recommendation">Text %1$s</string>
     <string name="white_label">Vit</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Analoga</string>
     <string name="similar_colors">Liknande färger</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Plocka färger live eller från ett foto. Tryck på en provruta för att kopiera.</string>
-    <string name="live_camera">Livekamera</string>
-    <string name="live_camera_subtitle">Hårkors + zoom</string>
+    <string name="pick_color_here_description">Tryck för live-färgval</string>
     <string name="from_album">Från album</string>
     <string name="from_album_subtitle">Välj från ett foto</string>
+    <string name="from_gallery">Från galleri</string>
     <string name="tools">Verktyg</string>
     <string name="color_slider_description">Justera RGB eller HSL och se namn och HEX live. Spara eller bygg paletter.</string>
+    <string name="color_blind_enhancer_description">Direkt kameravy anpassad för färgseendestörningar</string>
     <string name="open">Öppna</string>
-    <string name="live_color_picker">Live färgväljare</string>
-    <string name="live_color_picker_description">Peka på vad som helst. Nyp för att zooma. Lägg till i paletten direkt.</string>
-    <string name="start_live_picking">Starta live-pickning</string>
 
+    <string name="filter_selector_label">Filter</string>
     <string name="settings_title">Inställningar</string>
     <string name="settings_description">Justera hur appen ser ut och hur plockarens hårkors beter sig.</string>
     <string name="app_preferences">Appinställningar</string>
     <string name="theme">Tema</string>
-    <string name="theme_description">Välj hur appen ser ut.</string>
+    <string name="follows_your_system_theme">Följer systemtemat</string>
     <string name="language">Språk</string>
     <string name="picker_crosshair">Plockarens hårkors</string>
     <string name="picker_crosshair_description">Justera hårkorset som används när färger samplas.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Storlek</string>
     <string name="shape">Form</string>
     <string name="sensitivity">Känslighet</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Ägarskap, tredjepartskomponenter och licensinformation</string>
     <string name="privacy_statement">Integritetspolicy</string>
     <string name="privacy_statement_description">Hur kamera- och fotodata stannar på enheten</string>
+    <string name="terms_of_service_description">Granska appens villkor och användningsriktlinjer</string>
     <string name="usage_guide">Användningsguide</string>
     <string name="usage_guide_description">Steg-för-steg-guide och index för viktiga uppgifter</string>
     <string name="feedback">Feedback</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Betygsätt oss</string>
     <string name="rate_us_description">Lämna ett snabbt betyg i Play Store.</string>
 
+    <string name="share_app_text">Kolla in Color Picker på Google Play: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Plocka färger live eller från ett foto. Tryck på en provruta för att kopiera.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Paletten är tom, börja lägga till färger</string>
     <string name="photo_palette_saved">Paletten sparad ✅</string>
 
-    <string name="added_to_recents">Tillagd i senaste</string>
     <string name="suggestions">Förslag</string>
     <string name="saved_colors">Sparade färger</string>
     <string name="saved_palettes">Sparade paletter</string>
     <string name="no_recent_colors">Inga senaste färger ännu. Tryck 🧪 för att plocka en färg.</string>
     <string name="no_saved_colors">Inga sparade färger än.</string>
     <string name="no_saved_palettes">Inga sparade paletter än.</string>
-    <string name="clear_recent_colors_title">Rensa senaste färger?</string>
-    <string name="clear_recent_colors_description">Detta tar bort alla senaste färger.</string>
-    <string name="clear_saved_colors_title">Rensa sparade färger?</string>
-    <string name="clear_saved_colors_description">Detta tar bort alla sparade färger.</string>
     <string name="clear_saved_palettes_title">Rensa sparade paletter?</string>
     <string name="clear_saved_palettes_description">Detta tar bort alla sparade paletter.</string>
+    <string name="no_matching_palettes">Inga matchande paletter</string>
     <string name="quick_color_lookup">Snabb färgsökning</string>
     <string name="search_placeholder">Sök färger eller HEX-koder</string>
     <string name="search_hint_one">Nyfiken på \'Midnight blue\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Hur ser \'Cerulean\' ut?</string>
     <string name="search_hint_nine">Hur känns \'#228B22\'?</string>
     <string name="search_hint_ten">Upptäck nyansen \'#E97451\'</string>
-    <string name="palette_color_label">Palett</string>
-    <string name="clear_recent">Rensa senaste</string>
-    <string name="clear_saved">Rensa sparade</string>
-    <string name="clear_palettes">Rensa paletter</string>
-    <string name="copy_hex_content_description">Kopiera HEX</string>
 
+    <string name="no_matching_colors">Inga matchande färger</string>
     <string name="palette_bar_clear">Rensa palett</string>
     <string name="palette_bar_palette">Palett</string>
     <string name="palette_bar_add_color">Lägg till färg</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Beskrivning</string>
     <string name="copy_all_hex">Kopiera HEX</string>
     <string name="export_css">Kopiera CSS</string>
-    <string name="remove_from_favourites">Ta bort palett</string>
     <string name="view_more_indicator">Visa mer ›</string>
     <string name="save_changes">Spara ändringar</string>
     <string name="edit_palette">Redigera</string>
     <string name="palette_updated">Paletten uppdaterad</string>
     <string name="copied_all_hex">Alla HEX-värden kopierade</string>
     <string name="exported_css">CSS kopierad till urklipp</string>
-    <string name="reorder">Ordna om</string>
     <string name="splash_loading_message">Värmer upp din palett…</string>
+    <string name="create_new_palette">Skapa ny palett</string>
+    <string name="palette_name_with_color">%1$s-palett</string>
+    <string name="color_shades_tints_tones_title">%1$s färgnyanser, toner och variationer</string>
+    <string name="tints_label">Toner</string>
+    <string name="shades_label">Skuggor</string>
+    <string name="tones_label">Nyanser</string>
+    <string name="color_palettes_title">%1$s färgpaletter</string>
+    <string name="palette_scheme_complementary">Komplementär palett</string>
+    <string name="palette_scheme_analogous">Analog palett</string>
+    <string name="palette_scheme_split_complementary">Delad komplementär palett</string>
+    <string name="palette_scheme_triadic">Triadisk palett</string>
+    <string name="palette_scheme_tetradic">Tetradisk palett</string>
+    <string name="cyan_label">Cyan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Värde</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Börja välja!</string>
+    <string name="color_blind_enhancer">Färgblindhetsförstärkare</string>
+    <string name="color_blind_enhancer_title">Färgblindhetsförstärkare</string>
+    <string name="monochrome_mode">Monokromt läge</string>
+    <string name="color_blind_enhancement">Förbättring för färgblindhet</string>
+    <string name="drastic_mode">Drastiskt läge</string>
+    <string name="edge_contrast_mode">Kantkontrastläge</string>
+    <string name="thermal_mode">Termiskt bildläge</string>
+    <string name="mri_mode">MRI-bildläge</string>
+    <string name="xray_mode">Röntgenbildläge</string>
+    <string name="animate_mode">Animerat stil-läge</string>
+    <string name="cyber_mode">Cyberstil-läge</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Välj filter</string>
+    <string name="choose_theme">Välj tema</string>
+    <string name="choose_theme_description">Välj det utseende som passar dig bäst.</string>
+    <string name="terms_of_service">Användarvillkor</string>
+    <string name="share_app">Dela app</string>
+    <string name="share_app_description">Skicka Play Store-länken till vänner.</string>
 </resources>

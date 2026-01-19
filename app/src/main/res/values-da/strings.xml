@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">Tilbage</string>
-    <string name="close">Luk</string>
     <string name="clear">Ryd</string>
     <string name="cancel">Annuller</string>
     <string name="copy">Kopiér</string>
@@ -11,7 +10,6 @@
     <string name="save">Gem</string>
     <string name="saved">Gemt</string>
     <string name="delete">Slet</string>
-    <string name="more_options">Flere muligheder</string>
 
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Se flere</string>
     <string name="show_less">Vis mindre</string>
     <string name="show_more">Vis flere</string>
-    <string name="show_less_caps">VIS MINDRE</string>
-    <string name="show_more_caps">VIS FLERE</string>
 
     <string name="theme_system_default">Systemstandard</string>
     <string name="theme_light">Lys</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s er allerede i paletten</string>
     <string name="palette_full_message">Paletten er fuld (10 farver). Tryk på paletten for at gemme den og starte en ny.</string>
     <string name="palette_empty_start_adding">Paletten er tom, begynd at tilføje farver</string>
-    <string name="palette_saved_toast">Palet gemt ✅</string>
     <string name="palette_default_name">Palet %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">live-udvælgelse</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">Gemt i Mine farver</string>
     <string name="no_palettes_available">Ingen paletter tilgængelige. Opret en først.</string>
     <string name="add_to_palette">Føj til palet</string>
+    <string name="palette_scheme_square">Firkantet palette</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Rød</string>
     <string name="green_label">Grøn</string>
     <string name="blue_label">Blå</string>
+    <string name="yellow_label">Gul</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Farvetone</string>
     <string name="saturation_label">Mætning</string>
     <string name="lightness_label">Lyshed</string>
-    <string name="select_palette">Vælg palet</string>
+    <string name="sliders_label">Skydere</string>
     <string name="palette_color_count">%1$d farver</string>
     <string name="more_details">Flere detaljer</string>
     <string name="already_in_palette">Allerede i paletten</string>
     <string name="palette_full">Paletten er fuld (10 farver)</string>
     <string name="added_to_palette">Tilføjet til paletten</string>
     <string name="hex_copied">HEX kopieret</string>
-    <string name="name_copied">Navn kopieret</string>
     <string name="copy_hex">Kopiér HEX</string>
-    <string name="copy_name">Kopiér navn</string>
     <string name="luma_label">Lysstyrke %1$d%%</string>
     <string name="text_recommendation">Tekst %1$s</string>
     <string name="white_label">Hvid</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Analog</string>
     <string name="similar_colors">Lignende farver</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Vælg farver live eller fra et foto. Tryk på en farveprøve for at kopiere.</string>
-    <string name="live_camera">Live-kamera</string>
-    <string name="live_camera_subtitle">Sigtekorn + zoom</string>
+    <string name="pick_color_here_description">Tryk for live farvevalg</string>
     <string name="from_album">Fra album</string>
     <string name="from_album_subtitle">Vælg fra et foto</string>
+    <string name="from_gallery">Fra galleri</string>
     <string name="tools">Værktøjer</string>
     <string name="color_slider_description">Juster RGB eller HSL og se navne og hex live. Gem eller byg paletter.</string>
+    <string name="color_blind_enhancer_description">Live kameravisning tilpasset farvesynsproblemer</string>
     <string name="open">Åbn</string>
-    <string name="live_color_picker">Live farvevælger</string>
-    <string name="live_color_picker_description">Peg på hvad som helst. Knib for at zoome. Føj til palet med det samme.</string>
-    <string name="start_live_picking">Start live-udvælgelse</string>
 
+    <string name="filter_selector_label">Filter</string>
     <string name="settings_title">Indstillinger</string>
     <string name="settings_description">Juster hvordan appen ser ud, og hvordan picker-sigtekornet opfører sig.</string>
     <string name="app_preferences">App-præferencer</string>
     <string name="theme">Tema</string>
-    <string name="theme_description">Vælg hvordan appen ser ud.</string>
+    <string name="follows_your_system_theme">Følger systemtema</string>
     <string name="language">Sprog</string>
     <string name="picker_crosshair">Picker-sigtekorn</string>
     <string name="picker_crosshair_description">Juster sigtekornet, der bruges ved farveprøvetagning.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Størrelse</string>
     <string name="shape">Form</string>
     <string name="sensitivity">Følsomhed</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Ejerskab, tredjepartskomponenter og licensdetaljer</string>
     <string name="privacy_statement">Privatlivserklæring</string>
     <string name="privacy_statement_description">Hvordan kamera- og fotodata forbliver på enheden</string>
+    <string name="terms_of_service_description">Gennemse appens vilkår og brugsretningslinjer</string>
     <string name="usage_guide">Brugsvejledning</string>
     <string name="usage_guide_description">Trinvis vejledning og indeks for centrale opgaver</string>
     <string name="feedback">Feedback</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_description">Del hvad du gerne vil se forbedret.</string>
     <string name="rate_us">Bedøm os</string>
-    <string name="rate_us_description">Giv en hurtig vurdering i Play Store.</string>
+    <string name="rate_us_description">Giv en hurtig vurdering i Play Butik.</string>
 
+    <string name="share_app_text">Se Color Picker på Google Play: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Vælg farver live eller fra et foto. Tryk på en farveprøve for at kopiere.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Paletten er tom, begynd at tilføje farver</string>
     <string name="photo_palette_saved">Palet gemt ✅</string>
 
-    <string name="added_to_recents">Tilføjet til seneste</string>
     <string name="suggestions">Forslag</string>
     <string name="saved_colors">Gemte farver</string>
     <string name="saved_palettes">Gemte paletter</string>
     <string name="no_recent_colors">Ingen seneste farver endnu. Tryk på 🧪 for at vælge en farve.</string>
     <string name="no_saved_colors">Ingen gemte farver endnu.</string>
     <string name="no_saved_palettes">Ingen gemte paletter endnu.</string>
-    <string name="clear_recent_colors_title">Ryd seneste farver?</string>
-    <string name="clear_recent_colors_description">Dette fjerner alle seneste farver.</string>
-    <string name="clear_saved_colors_title">Ryd gemte farver?</string>
-    <string name="clear_saved_colors_description">Dette fjerner alle gemte farver.</string>
     <string name="clear_saved_palettes_title">Ryd gemte paletter?</string>
     <string name="clear_saved_palettes_description">Dette fjerner alle gemte paletter.</string>
+    <string name="no_matching_palettes">Ingen matchende paletter</string>
     <string name="quick_color_lookup">Hurtig farveopslag</string>
     <string name="search_placeholder">Søg efter farver eller hex-koder</string>
     <string name="search_hint_one">Nysgerrig på \'Midnight blue\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Hvordan ser \'Cerulean\' ud?</string>
     <string name="search_hint_nine">Hvordan føles \'#228B22\'?</string>
     <string name="search_hint_ten">Find nuancen \'#E97451\'</string>
-    <string name="palette_color_label">Palet</string>
-    <string name="clear_recent">Ryd seneste</string>
-    <string name="clear_saved">Ryd gemte</string>
-    <string name="clear_palettes">Ryd paletter</string>
-    <string name="copy_hex_content_description">Kopiér HEX</string>
+    <string name="no_matching_colors">Ingen matchende farver</string>
 
     <string name="palette_bar_clear">Ryd palet</string>
     <string name="palette_bar_palette">Palet</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Beskrivelse</string>
     <string name="copy_all_hex">Kopiér HEX</string>
     <string name="export_css">Kopiér CSS</string>
-    <string name="remove_from_favourites">Slet palet</string>
     <string name="view_more_indicator">Se flere ›</string>
     <string name="save_changes">Gem ændringer</string>
     <string name="edit_palette">Rediger</string>
     <string name="palette_updated">Palet opdateret</string>
     <string name="copied_all_hex">Kopierede alle HEX-værdier</string>
     <string name="exported_css">Kopierede CSS til udklipsholderen</string>
-    <string name="reorder">Omarranger</string>
     <string name="splash_loading_message">Varmer din palet op…</string>
+    <string name="see_more">Se mere</string>
+    <string name="create_new_palette">Opret ny palette</string>
+    <string name="palette_name_with_color">%1$s Palette</string>
+    <string name="color_shades_tints_tones_title">%1$s farvenuancer, toner og nuancer</string>
+    <string name="tints_label">Lyse nuancer</string>
+    <string name="shades_label">Mørke nuancer</string>
+    <string name="tones_label">Toner</string>
+    <string name="color_palettes_title">%1$s farvepaletter</string>
+    <string name="palette_scheme_complementary">Komplementær palette</string>
+    <string name="palette_scheme_analogous">Analog palette</string>
+    <string name="palette_scheme_split_complementary">Split-komplementær palette</string>
+    <string name="palette_scheme_triadic">Triadisk palette</string>
+    <string name="palette_scheme_tetradic">Tetradisk palette</string>
+    <string name="cyan_label">Cyan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Værdi</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Start farvevalg!</string>
+    <string name="color_blind_enhancer">Farveblindhedsforbedring</string>
+    <string name="color_blind_enhancer_title">Farveblindhedsforbedring</string>
+    <string name="monochrome_mode">Monokrom tilstand</string>
+    <string name="color_blind_enhancement">Farveblindhedsforbedring</string>
+    <string name="drastic_mode">Intens tilstand</string>
+    <string name="edge_contrast_mode">Kantkontrasttilstand</string>
+    <string name="thermal_mode">Termisk billedtilstand</string>
+    <string name="mri_mode">MRI-billedtilstand</string>
+    <string name="xray_mode">Røntgenbilledtilstand</string>
+    <string name="animate_mode">Animeret stil</string>
+    <string name="cyber_mode">Cyber-stil</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Vælg et filter</string>
+    <string name="choose_theme">Vælg tema</string>
+    <string name="choose_theme_description">Vælg det udseende, der passer dig bedst.</string>
+    <string name="terms_of_service">Servicevilkår</string>
+    <string name="share_app">Del app</string>
+    <string name="share_app_description">Send Play Butik-linket til venner.</string>
 </resources>

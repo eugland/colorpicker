@@ -2,7 +2,6 @@
     <string name="app_name">رنگ</string>
 
     <string name="back">واپس</string>
-    <string name="close">بند کریں</string>
     <string name="clear">صاف کریں</string>
     <string name="cancel">منسوخ کریں</string>
     <string name="copy">کاپی کریں</string>
@@ -11,7 +10,6 @@
     <string name="save">محفوظ کریں</string>
     <string name="saved">محفوظ ہو گیا</string>
     <string name="delete">حذف کریں</string>
-    <string name="more_options">مزید اختیارات</string>
 
     <string name="palette">پیلیٹ</string>
     <string name="camera">کیمرہ</string>
@@ -25,9 +23,8 @@
     <string name="view_more">مزید دیکھیں</string>
     <string name="show_less">کم دکھائیں</string>
     <string name="show_more">مزید دکھائیں</string>
-    <string name="show_less_caps">کم دکھائیں</string>
-    <string name="show_more_caps">مزید دکھائیں</string>
 
+    <string name="see_more">مزید دیکھیں</string>
     <string name="theme_system_default">سسٹم ڈیفالٹ</string>
     <string name="theme_light">ہلکا</string>
     <string name="theme_dark">گہرا</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s پہلے ہی پیلیٹ میں ہے</string>
     <string name="palette_full_message">پیلیٹ بھر گیا ہے (10 رنگ)۔ پیلیٹ کو محفوظ کرنے اور نیا شروع کرنے کے لیے پیلیٹ پر ٹیپ کریں۔</string>
     <string name="palette_empty_start_adding">پیلیٹ خالی ہے، رنگ شامل کرنا شروع کریں</string>
-    <string name="palette_saved_toast">پیلیٹ محفوظ ہو گیا ✅</string>
     <string name="palette_default_name">پیلیٹ %1$d</string>
     <string name="palette_tag_camera">کیمرہ</string>
     <string name="palette_tag_live_pick">براہِ راست انتخاب</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">میرے رنگوں میں محفوظ ہو گیا</string>
     <string name="no_palettes_available">کوئی پیلیٹ دستیاب نہیں۔ پہلے ایک بنائیں۔</string>
     <string name="add_to_palette">پیلیٹ میں شامل کریں</string>
+    <string name="palette_scheme_square">مربع پیلیٹ</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">سرخ</string>
     <string name="green_label">سبز</string>
     <string name="blue_label">نیلا</string>
+    <string name="yellow_label">پیلا</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">ہیو</string>
     <string name="saturation_label">سیچوریشن</string>
     <string name="lightness_label">لائٹنس</string>
-    <string name="select_palette">پیلیٹ منتخب کریں</string>
+    <string name="sliders_label">سلائیڈرز</string>
     <string name="palette_color_count">%1$d رنگ</string>
     <string name="more_details">مزید تفصیل</string>
     <string name="already_in_palette">پہلے ہی پیلیٹ میں</string>
     <string name="palette_full">پیلیٹ بھر گیا (10 رنگ)</string>
     <string name="added_to_palette">پیلیٹ میں شامل کیا گیا</string>
     <string name="hex_copied">HEX کاپی ہو گیا</string>
-    <string name="name_copied">نام کاپی ہو گیا</string>
     <string name="copy_hex">HEX کاپی کریں</string>
-    <string name="copy_name">نام کاپی کریں</string>
     <string name="luma_label">لُوما %1$d%%</string>
     <string name="text_recommendation">متن %1$s</string>
     <string name="white_label">سفید</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">متشابہ</string>
     <string name="similar_colors">مشابہ رنگ</string>
 
-    <string name="picker_tab_camera">کیمرہ</string>
-    <string name="picker_tab_camera_description">براہِ راست یا تصویر سے رنگ منتخب کریں۔ کاپی کرنے کے لیے کسی نمونے پر ٹیپ کریں۔</string>
-    <string name="live_camera">براہِ راست کیمرہ</string>
-    <string name="live_camera_subtitle">کراس ہیئر + زوم</string>
+    <string name="pick_color_here_description">براہ راست رنگ کے انتخاب کے لیے ٹیپ کریں</string>
     <string name="from_album">البم سے</string>
     <string name="from_album_subtitle">تصویر سے منتخب کریں</string>
+    <string name="from_gallery">گیلری سے</string>
     <string name="tools">اوزار</string>
     <string name="color_slider_description">RGB یا HSL کو ایڈجسٹ کریں اور نام و HEX براہِ راست دیکھیں۔ محفوظ کریں یا پیلیٹ بنائیں۔</string>
+    <string name="color_blind_enhancer_description">رنگ بینائی کی کمی کے لیے ترتیب دیا گیا براہ راست کیمرہ منظر</string>
     <string name="open">کھولیں</string>
-    <string name="live_color_picker">براہِ راست رنگ منتخب کنندہ</string>
-    <string name="live_color_picker_description">کسی بھی چیز کی طرف اشارہ کریں۔ زوم کے لیے پنچ کریں۔ فوراً پیلیٹ میں شامل کریں۔</string>
-    <string name="start_live_picking">براہِ راست انتخاب شروع کریں</string>
 
+    <string name="filter_selector_label">فلٹر</string>
     <string name="settings_title">ترتیبات</string>
     <string name="settings_description">ایپ کی شکل اور کراس ہیئر کے برتاؤ کو ترتیب دیں۔</string>
     <string name="app_preferences">ایپ ترجیحات</string>
     <string name="theme">تھیم</string>
-    <string name="theme_description">ایپ کی شکل منتخب کریں۔</string>
+    <string name="follows_your_system_theme">سسٹم تھیم کی پیروی کرتا ہے</string>
     <string name="language">زبان</string>
     <string name="picker_crosshair">کراس ہیئر</string>
     <string name="picker_crosshair_description">رنگ نمونہ لینے کے لیے استعمال ہونے والے کراس ہیئر کو ایڈجسٹ کریں۔</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">سائز</string>
     <string name="shape">شکل</string>
     <string name="sensitivity">حساسیت</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">ملکیت، تیسرے فریق کے اجزاء اور لائسنس کی تفصیلات</string>
     <string name="privacy_statement">رازداری بیان</string>
     <string name="privacy_statement_description">کیمرہ اور تصویر کا ڈیٹا ڈیوائس پر کیسے رہتا ہے</string>
+    <string name="terms_of_service_description">ایپ کی شرائط اور استعمال کی ہدایات کا جائزہ لیں</string>
     <string name="usage_guide">استعمال کی رہنمائی</string>
     <string name="usage_guide_description">مرحلہ وار رہنمائی اور اہم کاموں کا اشاریہ</string>
     <string name="feedback">رائے</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">ہمیں ریٹ کریں</string>
     <string name="rate_us_description">Play Store پر جلدی ریٹنگ دیں۔</string>
 
+    <string name="share_app_text">Google Play پر Color Picker دیکھیں: %1$s</string>
     <string name="camera_title">کیمرہ</string>
     <string name="camera_intro">براہِ راست یا تصویر سے رنگ منتخب کریں۔ کاپی کے لیے کسی نمونے پر ٹیپ کریں۔</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">پیلیٹ خالی ہے، رنگ شامل کرنا شروع کریں</string>
     <string name="photo_palette_saved">پیلیٹ محفوظ ہو گیا ✅</string>
 
-    <string name="added_to_recents">حالیہ میں شامل کیا گیا</string>
     <string name="suggestions">تجاویز</string>
     <string name="saved_colors">محفوظ رنگ</string>
     <string name="saved_palettes">محفوظ پیلیٹس</string>
     <string name="no_recent_colors">ابھی کوئی حالیہ رنگ نہیں۔ رنگ چننے کے لیے 🧪 پر ٹیپ کریں۔</string>
     <string name="no_saved_colors">ابھی کوئی محفوظ رنگ نہیں۔</string>
     <string name="no_saved_palettes">ابھی کوئی محفوظ پیلیٹ نہیں۔</string>
-    <string name="clear_recent_colors_title">حالیہ رنگ صاف کریں؟</string>
-    <string name="clear_recent_colors_description">اس سے تمام حالیہ رنگ ہٹ جائیں گے۔</string>
-    <string name="clear_saved_colors_title">محفوظ رنگ صاف کریں؟</string>
-    <string name="clear_saved_colors_description">اس سے تمام محفوظ رنگ ہٹ جائیں گے۔</string>
     <string name="clear_saved_palettes_title">محفوظ پیلیٹس صاف کریں؟</string>
     <string name="clear_saved_palettes_description">اس سے تمام محفوظ پیلیٹس ہٹ جائیں گے۔</string>
+    <string name="no_matching_palettes">کوئی مماثل پیلیٹ نہیں</string>
     <string name="quick_color_lookup">فوری رنگ تلاش</string>
     <string name="search_placeholder">رنگ یا HEX کوڈ تلاش کریں</string>
     <string name="search_hint_one">\'Midnight blue\' کے بارے میں جاننا ہے؟</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">\'Cerulean\' کیسا لگتا ہے؟</string>
     <string name="search_hint_nine">\'#228B22\' کیسا محسوس ہوتا ہے؟</string>
     <string name="search_hint_ten">\'#E97451\' کا شیڈ دریافت کریں</string>
-    <string name="palette_color_label">پیلیٹ</string>
-    <string name="clear_recent">حالیہ صاف کریں</string>
-    <string name="clear_saved">محفوظ صاف کریں</string>
-    <string name="clear_palettes">پیلیٹس صاف کریں</string>
-    <string name="copy_hex_content_description">HEX کاپی کریں</string>
 
+    <string name="no_matching_colors">کوئی مماثل رنگ نہیں</string>
     <string name="palette_bar_clear">پیلیٹ صاف کریں</string>
     <string name="palette_bar_palette">پیلیٹ</string>
     <string name="palette_bar_add_color">رنگ شامل کریں</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">تفصیل</string>
     <string name="copy_all_hex">HEX کاپی کریں</string>
     <string name="export_css">CSS کاپی کریں</string>
-    <string name="remove_from_favourites">پیلیٹ حذف کریں</string>
     <string name="view_more_indicator">مزید دیکھیں ›</string>
     <string name="save_changes">تبدیلیاں محفوظ کریں</string>
     <string name="edit_palette">ترمیم کریں</string>
     <string name="palette_updated">پیلیٹ اپ ڈیٹ ہو گیا</string>
     <string name="copied_all_hex">تمام HEX قدریں کاپی ہو گئیں</string>
     <string name="exported_css">CSS کلپ بورڈ پر کاپی ہو گیا</string>
-    <string name="reorder">دوبارہ ترتیب دیں</string>
     <string name="splash_loading_message">آپ کے پیلیٹ کو گرم کیا جا رہا ہے…</string>
+    <string name="create_new_palette">نیا پیلیٹ بنائیں</string>
+    <string name="palette_name_with_color">%1$s پیلیٹ</string>
+    <string name="color_shades_tints_tones_title">%1$s رنگ کے شیڈز، ٹِنٹس اور ٹونز</string>
+    <string name="tints_label">ٹِنٹس</string>
+    <string name="shades_label">شیڈز</string>
+    <string name="tones_label">ٹونز</string>
+    <string name="color_palettes_title">%1$s رنگ پیلیٹس</string>
+    <string name="palette_scheme_complementary">تکمیلی پیلیٹ</string>
+    <string name="palette_scheme_analogous">مشابہ پیلیٹ</string>
+    <string name="palette_scheme_split_complementary">تقسیم شدہ تکمیلی پیلیٹ</string>
+    <string name="palette_scheme_triadic">تثلیثی پیلیٹ</string>
+    <string name="palette_scheme_tetradic">چہارگونی پیلیٹ</string>
+    <string name="cyan_label">سائن</string>
+    <string name="magenta_label">میجینٹا</string>
+    <string name="value_label">قدر</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">انتخاب شروع کریں!</string>
+    <string name="color_blind_enhancer">رنگ اندھے پن کا معاون</string>
+    <string name="color_blind_enhancer_title">رنگ اندھے پن کا معاون</string>
+    <string name="monochrome_mode">یک رنگی موڈ</string>
+    <string name="color_blind_enhancement">رنگ اندھے پن میں بہتری</string>
+    <string name="drastic_mode">شدید موڈ</string>
+    <string name="edge_contrast_mode">کناروں کے تضاد کا موڈ</string>
+    <string name="thermal_mode">تھرمل امیجنگ موڈ</string>
+    <string name="mri_mode">MRI امیجنگ موڈ</string>
+    <string name="xray_mode">ایکس رے امیجنگ موڈ</string>
+    <string name="animate_mode">اینیمیٹڈ اسٹائل موڈ</string>
+    <string name="cyber_mode">سائبر اسٹائل موڈ</string>
+    <string name="mode_normal">معمول</string>
+    <string name="filter_grid_title">فلٹر منتخب کریں</string>
+    <string name="choose_theme">تھیم منتخب کریں</string>
+    <string name="choose_theme_description">وہ انداز منتخب کریں جو آپ کے لیے سب سے بہتر ہو۔</string>
+    <string name="terms_of_service">سروس کی شرائط</string>
+    <string name="share_app">ایپ شیئر کریں</string>
+    <string name="share_app_description">Play Store کا لنک دوستوں کو بھیجیں۔</string>
 </resources>

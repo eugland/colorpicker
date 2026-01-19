@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">رجوع</string>
-    <string name="close">إغلاق</string>
     <string name="clear">مسح</string>
     <string name="cancel">إلغاء</string>
     <string name="copy">نسخ</string>
@@ -11,7 +10,6 @@
     <string name="save">حفظ</string>
     <string name="saved">تم الحفظ</string>
     <string name="delete">حذف</string>
-    <string name="more_options">خيارات إضافية</string>
 
     <string name="palette">لوحة</string>
     <string name="camera">الكاميرا</string>
@@ -25,8 +23,6 @@
     <string name="view_more">عرض المزيد</string>
     <string name="show_less">عرض أقل</string>
     <string name="show_more">عرض أكثر</string>
-    <string name="show_less_caps">عرض أقل</string>
-    <string name="show_more_caps">عرض المزيد</string>
 
     <string name="theme_system_default">إعداد النظام الافتراضي</string>
     <string name="theme_light">فاتح</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s موجود بالفعل في اللوحة</string>
     <string name="palette_full_message">اللوحة ممتلئة (10 ألوان). اضغط على اللوحة لحفظها وبدء لوحة جديدة.</string>
     <string name="palette_empty_start_adding">اللوحة فارغة، ابدأ بإضافة الألوان</string>
-    <string name="palette_saved_toast">تم حفظ اللوحة ✅</string>
     <string name="palette_default_name">لوحة %1$d</string>
     <string name="palette_tag_camera">camera</string>
     <string name="palette_tag_live_pick">live-pick</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">تم الحفظ في ألواني</string>
     <string name="no_palettes_available">لا توجد لوحات متاحة. أنشئ واحدة أولاً.</string>
     <string name="add_to_palette">إضافة إلى اللوحة</string>
+    <string name="palette_scheme_square">لوحة ألوان مربعة</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">أحمر</string>
     <string name="green_label">أخضر</string>
     <string name="blue_label">أزرق</string>
+    <string name="yellow_label">أصفر</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">التدرج</string>
     <string name="saturation_label">التشبع</string>
     <string name="lightness_label">الإضاءة</string>
-    <string name="select_palette">اختر لوحة</string>
+    <string name="sliders_label">أشرطة التحكم</string>
     <string name="palette_color_count">%1$d ألوان</string>
     <string name="more_details">مزيد من التفاصيل</string>
     <string name="already_in_palette">موجود بالفعل في اللوحة</string>
     <string name="palette_full">اللوحة ممتلئة (10 ألوان)</string>
     <string name="added_to_palette">تمت الإضافة إلى اللوحة</string>
     <string name="hex_copied">تم نسخ HEX</string>
-    <string name="name_copied">تم نسخ الاسم</string>
     <string name="copy_hex">نسخ HEX</string>
-    <string name="copy_name">نسخ الاسم</string>
     <string name="luma_label">السطوع %1$d%%</string>
     <string name="text_recommendation">نص %1$s</string>
     <string name="white_label">أبيض</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">متجاور</string>
     <string name="similar_colors">ألوان مشابهة</string>
 
-    <string name="picker_tab_camera">الكاميرا</string>
-    <string name="picker_tab_camera_description">التقط الألوان مباشرة أو من صورة. اضغط على أي عينة لنسخها.</string>
-    <string name="live_camera">الكاميرا المباشرة</string>
-    <string name="live_camera_subtitle">علامة التقاطع + تكبير</string>
+    <string name="pick_color_here_description">اضغط لالتقاط الألوان مباشرة</string>
     <string name="from_album">من الألبوم</string>
     <string name="from_album_subtitle">اختر من صورة</string>
+    <string name="from_gallery">من المعرض</string>
     <string name="tools">الأدوات</string>
     <string name="color_slider_description">اضبط RGB أو HSL وشاهد الأسماء وhex مباشرة. احفظ أو أنشئ لوحات.</string>
+    <string name="color_blind_enhancer_description">عرض مباشر للكاميرا مهيأ لضعف تمييز الألوان</string>
     <string name="open">فتح</string>
-    <string name="live_color_picker">منتقي الألوان المباشر</string>
-    <string name="live_color_picker_description">أشر إلى أي شيء. قرّب للتكبير. أضف إلى اللوحة فوراً.</string>
-    <string name="start_live_picking">ابدأ الالتقاط المباشر</string>
 
+    <string name="filter_selector_label">مرشح</string>
     <string name="settings_title">الإعدادات</string>
     <string name="settings_description">اضبط مظهر التطبيق وكيفية عمل علامة التقاطع في المنتقي.</string>
     <string name="app_preferences">تفضيلات التطبيق</string>
     <string name="theme">السمة</string>
-    <string name="theme_description">اختر مظهر التطبيق.</string>
+    <string name="follows_your_system_theme">يتبع نمط النظام</string>
     <string name="language">اللغة</string>
     <string name="picker_crosshair">علامة التقاطع للمنتقي</string>
     <string name="picker_crosshair_description">اضبط علامة التقاطع المستخدمة عند أخذ عينات الألوان.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">الحجم</string>
     <string name="shape">الشكل</string>
     <string name="sensitivity">الحساسية</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">الملكية والمكونات الخارجية وتفاصيل الترخيص</string>
     <string name="privacy_statement">بيان الخصوصية</string>
     <string name="privacy_statement_description">كيف تبقى بيانات الكاميرا والصور على الجهاز</string>
+    <string name="terms_of_service_description">راجع شروط التطبيق وإرشادات الاستخدام</string>
     <string name="usage_guide">دليل الاستخدام</string>
     <string name="usage_guide_description">دليل خطوة بخطوة وفهرس للمهام الأساسية</string>
-    <string name="feedback">الملاحظات</string>
+    <string name="feedback">ملاحظات</string>
     <string name="send_feedback">إرسال ملاحظات</string>
-    <string name="send_feedback_description">شارك ما تريد تحسينه.</string>
+    <string name="send_feedback_description">شارك ما ترغب في تحسينه.</string>
     <string name="rate_us">قيّمنا</string>
-    <string name="rate_us_description">اترك تقييماً سريعاً في متجر Play.</string>
+    <string name="rate_us_description">اترك تقييمًا سريعًا على متجر Play.</string>
 
+    <string name="share_app_text">اطّلع على Color Picker على متجر Google Play: %1$s</string>
     <string name="camera_title">الكاميرا</string>
     <string name="camera_intro">التقط الألوان مباشرة أو من صورة. اضغط على أي عينة لنسخها.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">اللوحة فارغة، ابدأ بإضافة الألوان</string>
     <string name="photo_palette_saved">تم حفظ اللوحة ✅</string>
 
-    <string name="added_to_recents">تمت الإضافة إلى الأخيرة</string>
     <string name="suggestions">اقتراحات</string>
     <string name="saved_colors">الألوان المحفوظة</string>
     <string name="saved_palettes">اللوحات المحفوظة</string>
     <string name="no_recent_colors">لا توجد ألوان حديثة بعد. اضغط على 🧪 لالتقاط لون.</string>
     <string name="no_saved_colors">لا توجد ألوان محفوظة بعد.</string>
     <string name="no_saved_palettes">لا توجد لوحات محفوظة بعد.</string>
-    <string name="clear_recent_colors_title">مسح الألوان الأخيرة؟</string>
-    <string name="clear_recent_colors_description">سيؤدي هذا إلى إزالة جميع الألوان الأخيرة.</string>
-    <string name="clear_saved_colors_title">مسح الألوان المحفوظة؟</string>
-    <string name="clear_saved_colors_description">سيؤدي هذا إلى إزالة جميع الألوان المحفوظة.</string>
     <string name="clear_saved_palettes_title">مسح اللوحات المحفوظة؟</string>
     <string name="clear_saved_palettes_description">سيؤدي هذا إلى إزالة جميع اللوحات المحفوظة.</string>
+    <string name="no_matching_palettes">لا توجد لوحات ألوان مطابقة</string>
     <string name="quick_color_lookup">بحث سريع عن الألوان</string>
     <string name="search_placeholder">ابحث عن الألوان أو أكواد hex</string>
     <string name="search_hint_one">هل أنت فضولي بشأن \"Midnight blue\"؟</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">كيف يبدو \"Cerulean\"؟</string>
     <string name="search_hint_nine">كيف يبدو \"#228B22\"؟</string>
     <string name="search_hint_ten">اكشف الظل \"#E97451\"</string>
-    <string name="palette_color_label">لوحة</string>
-    <string name="clear_recent">مسح الأخيرة</string>
-    <string name="clear_saved">مسح المحفوظة</string>
-    <string name="clear_palettes">مسح اللوحات</string>
-    <string name="copy_hex_content_description">نسخ HEX</string>
+    <string name="no_matching_colors">لا توجد ألوان مطابقة</string>
 
     <string name="palette_bar_clear">مسح اللوحة</string>
     <string name="palette_bar_palette">لوحة</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">الوصف</string>
     <string name="copy_all_hex">نسخ HEX</string>
     <string name="export_css">نسخ CSS</string>
-    <string name="remove_from_favourites">حذف اللوحة</string>
     <string name="view_more_indicator">عرض المزيد ›</string>
     <string name="save_changes">حفظ التغييرات</string>
     <string name="edit_palette">تحرير</string>
     <string name="palette_updated">تم تحديث اللوحة</string>
     <string name="copied_all_hex">تم نسخ جميع قيم HEX</string>
     <string name="exported_css">تم نسخ CSS إلى الحافظة</string>
-    <string name="reorder">إعادة ترتيب</string>
     <string name="splash_loading_message">جارٍ تجهيز لوحتك…</string>
+    <string name="see_more">عرض المزيد</string>
+    <string name="create_new_palette">إنشاء لوحة ألوان جديدة</string>
+    <string name="palette_name_with_color">لوحة ألوان %1$s</string>
+    <string name="color_shades_tints_tones_title">درجات وألوان %1$s الفاتحة والداكنة والمتوسطة</string>
+    <string name="tints_label">درجات فاتحة</string>
+    <string name="shades_label">درجات داكنة</string>
+    <string name="tones_label">درجات متوسطة</string>
+    <string name="color_palettes_title">لوحات ألوان %1$s</string>
+    <string name="palette_scheme_complementary">لوحة ألوان متكاملة</string>
+    <string name="palette_scheme_analogous">لوحة ألوان متشابهة</string>
+    <string name="palette_scheme_split_complementary">لوحة ألوان متكاملة منقسمة</string>
+    <string name="palette_scheme_triadic">لوحة ألوان ثلاثية</string>
+    <string name="palette_scheme_tetradic">لوحة ألوان رباعية</string>
+    <string name="cyan_label">سماوي</string>
+    <string name="magenta_label">أرجواني</string>
+    <string name="value_label">القيمة</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">ابدأ الالتقاط!</string>
+    <string name="color_blind_enhancer">محسّن عمى الألوان</string>
+    <string name="color_blind_enhancer_title">محسّن عمى الألوان</string>
+    <string name="monochrome_mode">وضع أحادي اللون</string>
+    <string name="color_blind_enhancement">تحسين عمى الألوان</string>
+    <string name="drastic_mode">وضع قوي</string>
+    <string name="edge_contrast_mode">وضع تعزيز الحواف</string>
+    <string name="thermal_mode">وضع التصوير الحراري</string>
+    <string name="mri_mode">وضع تصوير MRI</string>
+    <string name="xray_mode">وضع تصوير الأشعة السينية</string>
+    <string name="animate_mode">وضع النمط المتحرك</string>
+    <string name="cyber_mode">وضع النمط السيبراني</string>
+    <string name="mode_normal">عادي</string>
+    <string name="filter_grid_title">اختر مرشحًا</string>
+    <string name="choose_theme">اختر النمط</string>
+    <string name="choose_theme_description">اختر المظهر الذي يناسبك أكثر.</string>
+    <string name="terms_of_service">شروط الخدمة</string>
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="share_app_description">أرسل رابط متجر Play إلى أصدقائك.</string>
 </resources>

@@ -2,7 +2,6 @@
     <string name="app_name">Màu</string>
 
     <string name="back">Quay lại</string>
-    <string name="close">Đóng</string>
     <string name="clear">Xóa</string>
     <string name="cancel">Hủy</string>
     <string name="copy">Sao chép</string>
@@ -11,7 +10,6 @@
     <string name="save">Lưu</string>
     <string name="saved">Đã lưu</string>
     <string name="delete">Xóa</string>
-    <string name="more_options">Thêm tùy chọn</string>
 
     <string name="palette">Bảng màu</string>
     <string name="camera">Máy ảnh</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Xem thêm</string>
     <string name="show_less">Hiển thị ít hơn</string>
     <string name="show_more">Hiển thị nhiều hơn</string>
-    <string name="show_less_caps">HIỂN THỊ ÍT HƠN</string>
-    <string name="show_more_caps">HIỂN THỊ NHIỀU HƠN</string>
 
+    <string name="see_more">Xem thêm</string>
     <string name="theme_system_default">Mặc định hệ thống</string>
     <string name="theme_light">Sáng</string>
     <string name="theme_dark">Tối</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s đã có trong bảng màu</string>
     <string name="palette_full_message">Bảng màu đã đầy (10 màu). Chạm vào bảng màu để lưu và bắt đầu bảng mới.</string>
     <string name="palette_empty_start_adding">Bảng màu trống, hãy bắt đầu thêm màu</string>
-    <string name="palette_saved_toast">Đã lưu bảng màu ✅</string>
     <string name="palette_default_name">Bảng màu %1$d</string>
     <string name="palette_tag_camera">máy ảnh</string>
     <string name="palette_tag_live_pick">chọn-trực-tiếp</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Đã lưu vào Màu của tôi</string>
     <string name="no_palettes_available">Không có bảng màu nào. Hãy tạo một bảng trước.</string>
     <string name="add_to_palette">Thêm vào bảng màu</string>
+    <string name="palette_scheme_square">Bảng màu vuông</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Đỏ</string>
     <string name="green_label">Xanh lá</string>
     <string name="blue_label">Xanh dương</string>
+    <string name="yellow_label">Màu vàng</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Tông</string>
     <string name="saturation_label">Độ bão hòa</string>
     <string name="lightness_label">Độ sáng</string>
-    <string name="select_palette">Chọn bảng màu</string>
+    <string name="sliders_label">Thanh trượt</string>
     <string name="palette_color_count">%1$d màu</string>
     <string name="more_details">Chi tiết hơn</string>
     <string name="already_in_palette">Đã có trong bảng màu</string>
     <string name="palette_full">Bảng màu đầy (10 màu)</string>
     <string name="added_to_palette">Đã thêm vào bảng màu</string>
     <string name="hex_copied">Đã sao chép HEX</string>
-    <string name="name_copied">Đã sao chép tên</string>
     <string name="copy_hex">Sao chép HEX</string>
-    <string name="copy_name">Sao chép tên</string>
     <string name="luma_label">Độ sáng %1$d%%</string>
     <string name="text_recommendation">Văn bản %1$s</string>
     <string name="white_label">Trắng</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Tương đồng</string>
     <string name="similar_colors">Màu tương tự</string>
 
-    <string name="picker_tab_camera">Máy ảnh</string>
-    <string name="picker_tab_camera_description">Chọn màu trực tiếp hoặc từ ảnh. Chạm vào mẫu để sao chép.</string>
-    <string name="live_camera">Máy ảnh trực tiếp</string>
-    <string name="live_camera_subtitle">Dấu ngắm + zoom</string>
+    <string name="pick_color_here_description">Chạm để chọn màu trực tiếp</string>
     <string name="from_album">Từ album</string>
     <string name="from_album_subtitle">Chọn từ ảnh</string>
+    <string name="from_gallery">Từ thư viện</string>
     <string name="tools">Công cụ</string>
     <string name="color_slider_description">Điều chỉnh RGB hoặc HSL và xem tên cùng HEX trực tiếp. Lưu hoặc tạo bảng màu.</string>
+    <string name="color_blind_enhancer_description">Chế độ xem camera trực tiếp được điều chỉnh cho khiếm khuyết thị giác màu</string>
     <string name="open">Mở</string>
-    <string name="live_color_picker">Trình chọn màu trực tiếp</string>
-    <string name="live_color_picker_description">Chỉ vào bất cứ thứ gì. Chụm để zoom. Thêm vào bảng màu ngay.</string>
-    <string name="start_live_picking">Bắt đầu chọn trực tiếp</string>
 
+    <string name="filter_selector_label">Bộ lọc</string>
     <string name="settings_title">Cài đặt</string>
     <string name="settings_description">Tinh chỉnh giao diện và cách dấu ngắm hoạt động.</string>
     <string name="app_preferences">Tùy chọn ứng dụng</string>
     <string name="theme">Chủ đề</string>
-    <string name="theme_description">Chọn giao diện của ứng dụng.</string>
+    <string name="follows_your_system_theme">Theo chủ đề hệ thống</string>
     <string name="language">Ngôn ngữ</string>
     <string name="picker_crosshair">Dấu ngắm</string>
     <string name="picker_crosshair_description">Điều chỉnh dấu ngắm khi lấy mẫu màu.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Kích thước</string>
     <string name="shape">Hình dạng</string>
     <string name="sensitivity">Độ nhạy</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Quyền sở hữu, thành phần bên thứ ba và chi tiết cấp phép</string>
     <string name="privacy_statement">Tuyên bố quyền riêng tư</string>
     <string name="privacy_statement_description">Cách dữ liệu máy ảnh và ảnh ở lại trên thiết bị</string>
+    <string name="terms_of_service_description">Xem lại điều khoản ứng dụng và hướng dẫn sử dụng</string>
     <string name="usage_guide">Hướng dẫn sử dụng</string>
     <string name="usage_guide_description">Hướng dẫn từng bước và mục lục tác vụ chính</string>
     <string name="feedback">Phản hồi</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Đánh giá chúng tôi</string>
     <string name="rate_us_description">Để lại đánh giá nhanh trên Play Store.</string>
 
+    <string name="share_app_text">Xem Color Picker trên Google Play: %1$s</string>
     <string name="camera_title">Máy ảnh</string>
     <string name="camera_intro">Chọn màu trực tiếp hoặc từ ảnh. Chạm vào mẫu để sao chép.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Bảng màu trống, hãy bắt đầu thêm màu</string>
     <string name="photo_palette_saved">Đã lưu bảng màu ✅</string>
 
-    <string name="added_to_recents">Đã thêm vào gần đây</string>
     <string name="suggestions">Gợi ý</string>
     <string name="saved_colors">Màu đã lưu</string>
     <string name="saved_palettes">Bảng màu đã lưu</string>
     <string name="no_recent_colors">Chưa có màu gần đây. Chạm 🧪 để chọn màu.</string>
     <string name="no_saved_colors">Chưa có màu đã lưu.</string>
     <string name="no_saved_palettes">Chưa có bảng màu đã lưu.</string>
-    <string name="clear_recent_colors_title">Xóa màu gần đây?</string>
-    <string name="clear_recent_colors_description">Thao tác này sẽ xóa tất cả màu gần đây.</string>
-    <string name="clear_saved_colors_title">Xóa màu đã lưu?</string>
-    <string name="clear_saved_colors_description">Thao tác này sẽ xóa tất cả màu đã lưu.</string>
     <string name="clear_saved_palettes_title">Xóa bảng màu đã lưu?</string>
     <string name="clear_saved_palettes_description">Thao tác này sẽ xóa tất cả bảng màu đã lưu.</string>
+    <string name="no_matching_palettes">Không có bảng màu phù hợp</string>
     <string name="quick_color_lookup">Tra cứu màu nhanh</string>
     <string name="search_placeholder">Tìm màu hoặc mã HEX</string>
     <string name="search_hint_one">Tò mò về \'Midnight blue\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">\'Cerulean\' trông như thế nào?</string>
     <string name="search_hint_nine">\'#228B22\' mang cảm giác gì?</string>
     <string name="search_hint_ten">Khám phá sắc thái \'#E97451\'</string>
-    <string name="palette_color_label">Bảng màu</string>
-    <string name="clear_recent">Xóa gần đây</string>
-    <string name="clear_saved">Xóa đã lưu</string>
-    <string name="clear_palettes">Xóa bảng màu</string>
-    <string name="copy_hex_content_description">Sao chép HEX</string>
 
+    <string name="no_matching_colors">Không có màu phù hợp</string>
     <string name="palette_bar_clear">Xóa bảng màu</string>
     <string name="palette_bar_palette">Bảng màu</string>
     <string name="palette_bar_add_color">Thêm màu</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Mô tả</string>
     <string name="copy_all_hex">Sao chép HEX</string>
     <string name="export_css">Sao chép CSS</string>
-    <string name="remove_from_favourites">Xóa bảng màu</string>
     <string name="view_more_indicator">Xem thêm ›</string>
     <string name="save_changes">Lưu thay đổi</string>
     <string name="edit_palette">Chỉnh sửa</string>
     <string name="palette_updated">Bảng màu đã được cập nhật</string>
     <string name="copied_all_hex">Đã sao chép tất cả giá trị HEX</string>
     <string name="exported_css">Đã sao chép CSS vào clipboard</string>
-    <string name="reorder">Sắp xếp lại</string>
     <string name="splash_loading_message">Đang làm nóng bảng màu của bạn…</string>
+    <string name="create_new_palette">Tạo bảng màu mới</string>
+    <string name="palette_name_with_color">Bảng màu %1$s</string>
+    <string name="color_shades_tints_tones_title">Sắc độ, tông và biến thể màu của %1$s</string>
+    <string name="tints_label">Tint</string>
+    <string name="shades_label">Shade</string>
+    <string name="tones_label">Tone</string>
+    <string name="color_palettes_title">Bảng màu %1$s</string>
+    <string name="palette_scheme_complementary">Bảng màu bổ sung</string>
+    <string name="palette_scheme_analogous">Bảng màu tương đồng</string>
+    <string name="palette_scheme_split_complementary">Bảng màu bổ sung tách</string>
+    <string name="palette_scheme_triadic">Bảng màu bộ ba</string>
+    <string name="palette_scheme_tetradic">Bảng màu bộ bốn</string>
+    <string name="cyan_label">Lục lam</string>
+    <string name="magenta_label">Đỏ tía</string>
+    <string name="value_label">Giá trị</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Bắt đầu chọn màu!</string>
+    <string name="color_blind_enhancer">Trình hỗ trợ mù màu</string>
+    <string name="color_blind_enhancer_title">Trình hỗ trợ mù màu</string>
+    <string name="monochrome_mode">Chế độ đơn sắc</string>
+    <string name="color_blind_enhancement">Cải thiện cho mù màu</string>
+    <string name="drastic_mode">Chế độ mạnh</string>
+    <string name="edge_contrast_mode">Chế độ tương phản cạnh</string>
+    <string name="thermal_mode">Chế độ hình ảnh nhiệt</string>
+    <string name="mri_mode">Chế độ hình ảnh MRI</string>
+    <string name="xray_mode">Chế độ hình ảnh X-quang</string>
+    <string name="animate_mode">Chế độ phong cách hoạt hình</string>
+    <string name="cyber_mode">Chế độ phong cách cyber</string>
+    <string name="mode_normal">Bình thường</string>
+    <string name="filter_grid_title">Chọn bộ lọc</string>
+    <string name="choose_theme">Chọn chủ đề</string>
+    <string name="choose_theme_description">Chọn giao diện phù hợp nhất với bạn.</string>
+    <string name="terms_of_service">Điều khoản dịch vụ</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="share_app_description">Gửi liên kết Play Store cho bạn bè.</string>
 </resources>

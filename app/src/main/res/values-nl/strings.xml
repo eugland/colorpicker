@@ -2,7 +2,6 @@
     <string name="app_name">kleur</string>
 
     <string name="back">Terug</string>
-    <string name="close">Sluiten</string>
     <string name="clear">Wissen</string>
     <string name="cancel">Annuleren</string>
     <string name="copy">Kopiëren</string>
@@ -11,7 +10,6 @@
     <string name="save">Opslaan</string>
     <string name="saved">Opgeslagen</string>
     <string name="delete">Verwijderen</string>
-    <string name="more_options">Meer opties</string>
 
     <string name="palette">Palet</string>
     <string name="camera">Camera</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Meer bekijken</string>
     <string name="show_less">Minder tonen</string>
     <string name="show_more">Meer tonen</string>
-    <string name="show_less_caps">MINDER TONEN</string>
-    <string name="show_more_caps">MEER TONEN</string>
 
     <string name="theme_system_default">Systeemstandaard</string>
     <string name="theme_light">Licht</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s staat al in het palet</string>
     <string name="palette_full_message">Palet is vol (10 kleuren). Tik op het palet om het op te slaan en een nieuwe te starten.</string>
     <string name="palette_empty_start_adding">Palet leeg, begin met kleuren toevoegen</string>
-    <string name="palette_saved_toast">Palet opgeslagen ✅</string>
     <string name="palette_default_name">Palet %1$d</string>
     <string name="palette_tag_camera">camera</string>
     <string name="palette_tag_live_pick">live-pick</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">Opgeslagen in Mijn kleuren</string>
     <string name="no_palettes_available">Geen paletten beschikbaar. Maak er eerst een.</string>
     <string name="add_to_palette">Toevoegen aan palet</string>
+    <string name="palette_scheme_square">Vierkant palet</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Rood</string>
     <string name="green_label">Groen</string>
     <string name="blue_label">Blauw</string>
+    <string name="yellow_label">Geel</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Tint</string>
     <string name="saturation_label">Verzadiging</string>
     <string name="lightness_label">Lichtheid</string>
-    <string name="select_palette">Palet selecteren</string>
+    <string name="sliders_label">Schuifregelaars</string>
     <string name="palette_color_count">%1$d kleuren</string>
     <string name="more_details">Meer details</string>
     <string name="already_in_palette">Al in het palet</string>
     <string name="palette_full">Palet vol (10 kleuren)</string>
     <string name="added_to_palette">Toegevoegd aan palet</string>
     <string name="hex_copied">HEX gekopieerd</string>
-    <string name="name_copied">Naam gekopieerd</string>
     <string name="copy_hex">HEX kopiëren</string>
-    <string name="copy_name">Naam kopiëren</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Tekst %1$s</string>
     <string name="white_label">Wit</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Analoog</string>
     <string name="similar_colors">Vergelijkbare kleuren</string>
 
-    <string name="picker_tab_camera">Camera</string>
-    <string name="picker_tab_camera_description">Kies kleuren live of uit een foto. Tik op een swatch om te kopiëren.</string>
-    <string name="live_camera">Live camera</string>
-    <string name="live_camera_subtitle">Kruisdraden + zoom</string>
+    <string name="pick_color_here_description">Tik voor live kleurkeuze</string>
     <string name="from_album">Uit album</string>
     <string name="from_album_subtitle">Kies uit een foto</string>
+    <string name="from_gallery">Uit galerij</string>
     <string name="tools">Tools</string>
     <string name="color_slider_description">Pas RGB of HSL aan en zie live namen en HEX. Opslaan of paletten maken.</string>
+    <string name="color_blind_enhancer_description">Live camerabeeld afgestemd op kleurenzichtbeperkingen</string>
     <string name="open">Openen</string>
-    <string name="live_color_picker">Live kleurkiezer</string>
-    <string name="live_color_picker_description">Richt op iets. Knijp om te zoomen. Voeg direct toe aan het palet.</string>
-    <string name="start_live_picking">Live kiezen starten</string>
 
+    <string name="filter_selector_label">Filter</string>
     <string name="settings_title">Instellingen</string>
     <string name="settings_description">Stel in hoe de app eruitziet en hoe het kruisdraad van de kiezer reageert.</string>
     <string name="app_preferences">App-voorkeuren</string>
     <string name="theme">Thema</string>
-    <string name="theme_description">Kies hoe de app eruitziet.</string>
+    <string name="follows_your_system_theme">Volgt systeemthema</string>
     <string name="language">Taal</string>
     <string name="picker_crosshair">Kruisdraad</string>
     <string name="picker_crosshair_description">Pas het kruisdraad aan dat wordt gebruikt bij het bemonsteren van kleuren.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Grootte</string>
     <string name="shape">Vorm</string>
     <string name="sensitivity">Gevoeligheid</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Eigendom, onderdelen van derden en licentiedetails</string>
     <string name="privacy_statement">Privacyverklaring</string>
     <string name="privacy_statement_description">Hoe camera- en fotodata op het apparaat blijven</string>
+    <string name="terms_of_service_description">Bekijk de app-voorwaarden en gebruiksrichtlijnen</string>
     <string name="usage_guide">Gebruikshandleiding</string>
     <string name="usage_guide_description">Stapsgewijze handleiding en index voor kerntaken</string>
     <string name="feedback">Feedback</string>
-    <string name="send_feedback">Feedback sturen</string>
+    <string name="send_feedback">Feedback verzenden</string>
     <string name="send_feedback_description">Deel wat je verbeterd wilt zien.</string>
     <string name="rate_us">Beoordeel ons</string>
     <string name="rate_us_description">Laat een snelle beoordeling achter in de Play Store.</string>
 
+    <string name="share_app_text">Bekijk Color Picker op Google Play: %1$s</string>
     <string name="camera_title">Camera</string>
     <string name="camera_intro">Kies kleuren live of uit een foto. Tik op een swatch om te kopiëren.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Palet leeg, begin met kleuren toevoegen</string>
     <string name="photo_palette_saved">Palet opgeslagen ✅</string>
 
-    <string name="added_to_recents">Toegevoegd aan recent</string>
     <string name="suggestions">Suggesties</string>
     <string name="saved_colors">Opgeslagen kleuren</string>
     <string name="saved_palettes">Opgeslagen paletten</string>
     <string name="no_recent_colors">Nog geen recente kleuren. Tik op 🧪 om een kleur te kiezen.</string>
     <string name="no_saved_colors">Nog geen opgeslagen kleuren.</string>
     <string name="no_saved_palettes">Nog geen opgeslagen paletten.</string>
-    <string name="clear_recent_colors_title">Recente kleuren wissen?</string>
-    <string name="clear_recent_colors_description">Dit verwijdert alle recente kleuren.</string>
-    <string name="clear_saved_colors_title">Opgeslagen kleuren wissen?</string>
-    <string name="clear_saved_colors_description">Dit verwijdert alle opgeslagen kleuren.</string>
     <string name="clear_saved_palettes_title">Opgeslagen paletten wissen?</string>
     <string name="clear_saved_palettes_description">Dit verwijdert alle opgeslagen paletten.</string>
+    <string name="no_matching_palettes">Geen overeenkomende paletten</string>
     <string name="quick_color_lookup">Snelle kleurzoeker</string>
     <string name="search_placeholder">Zoek kleuren of HEX-codes</string>
     <string name="search_hint_one">Nieuwsgierig naar \'Midnachtblauw\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Hoe ziet \'Cerulean\' eruit?</string>
     <string name="search_hint_nine">Hoe voelt \'#228B22\'?</string>
     <string name="search_hint_ten">Onthul de tint \'#E97451\'</string>
-    <string name="palette_color_label">Palet</string>
-    <string name="clear_recent">Recent wissen</string>
-    <string name="clear_saved">Opgeslagen wissen</string>
-    <string name="clear_palettes">Paletten wissen</string>
-    <string name="copy_hex_content_description">HEX kopiëren</string>
+    <string name="no_matching_colors">Geen overeenkomende kleuren</string>
 
     <string name="palette_bar_clear">Palet wissen</string>
     <string name="palette_bar_palette">Palet</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Beschrijving</string>
     <string name="copy_all_hex">HEX kopiëren</string>
     <string name="export_css">CSS kopiëren</string>
-    <string name="remove_from_favourites">Palet verwijderen</string>
     <string name="view_more_indicator">Meer bekijken ›</string>
     <string name="save_changes">Wijzigingen opslaan</string>
     <string name="edit_palette">Bewerken</string>
     <string name="palette_updated">Palet bijgewerkt</string>
     <string name="copied_all_hex">Alle HEX-waarden gekopieerd</string>
     <string name="exported_css">CSS naar klembord gekopieerd</string>
-    <string name="reorder">Herschikken</string>
     <string name="splash_loading_message">Je palet wordt opgewarmd…</string>
+    <string name="see_more">Meer bekijken</string>
+    <string name="create_new_palette">Nieuw palet maken</string>
+    <string name="palette_name_with_color">%1$s Palet</string>
+    <string name="color_shades_tints_tones_title">%1$s kleurschakeringen, tinten en tonen</string>
+    <string name="tints_label">Tinten</string>
+    <string name="shades_label">Schaduwen</string>
+    <string name="tones_label">Tonen</string>
+    <string name="color_palettes_title">%1$s kleurpaletten</string>
+    <string name="palette_scheme_complementary">Complementair palet</string>
+    <string name="palette_scheme_analogous">Analoog palet</string>
+    <string name="palette_scheme_split_complementary">Gesplitst complementair palet</string>
+    <string name="palette_scheme_triadic">Triadisch palet</string>
+    <string name="palette_scheme_tetradic">Tetradisch palet</string>
+    <string name="cyan_label">Cyaan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Waarde</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Begin met kiezen!</string>
+    <string name="color_blind_enhancer">Kleurenblindheidsverbeteraar</string>
+    <string name="color_blind_enhancer_title">Kleurenblindheidsverbeteraar</string>
+    <string name="monochrome_mode">Monochrome modus</string>
+    <string name="color_blind_enhancement">Kleurenblindheidsverbetering</string>
+    <string name="drastic_mode">Intensieve modus</string>
+    <string name="edge_contrast_mode">Randcontrastmodus</string>
+    <string name="thermal_mode">Thermische beeldmodus</string>
+    <string name="mri_mode">MRI-beeldmodus</string>
+    <string name="xray_mode">Röntgenbeeldmodus</string>
+    <string name="animate_mode">Geanimeerde stijlmodus</string>
+    <string name="cyber_mode">Cyberstijlmodus</string>
+    <string name="mode_normal">Normaal</string>
+    <string name="filter_grid_title">Kies een filter</string>
+    <string name="choose_theme">Kies thema</string>
+    <string name="choose_theme_description">Kies de look die het beste bij je past.</string>
+    <string name="terms_of_service">Servicevoorwaarden</string>
+    <string name="share_app">App delen</string>
+    <string name="share_app_description">Stuur de Play Store-link naar vrienden.</string>
 </resources>

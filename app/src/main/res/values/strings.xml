@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">Back</string>
-    <string name="close">Close</string>
     <string name="clear">Clear</string>
     <string name="cancel">Cancel</string>
     <string name="copy">Copy</string>
@@ -11,7 +10,6 @@
     <string name="save">Save</string>
     <string name="saved">Saved</string>
     <string name="delete">Delete</string>
-    <string name="more_options">More options</string>
 
     <string name="palette">Palette</string>
     <string name="camera">Camera</string>
@@ -26,9 +24,6 @@
     <string name="show_less">Show less</string>
     <string name="show_more">Show more</string>
     <string name="see_more">See more</string>
-    <string name="see_more_ellipsis">See more...</string>
-    <string name="show_less_caps">SHOW LESS</string>
-    <string name="show_more_caps">SHOW MORE</string>
 
     <string name="theme_system_default">System</string>
     <string name="theme_light">Light</string>
@@ -93,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s already in palette</string>
     <string name="palette_full_message">Palette is full (10 colors). Tap the palette to save it and start a new one.</string>
     <string name="palette_empty_start_adding">Palette empty, start adding colors</string>
-    <string name="palette_saved_toast">Palette saved ✅</string>
     <string name="palette_default_name">Palette %1$d</string>
     <string name="palette_tag_camera">camera</string>
     <string name="palette_tag_live_pick">live-pick</string>
@@ -105,18 +99,13 @@
     <string name="saved_to_my_colors">Saved to My colors</string>
     <string name="no_palettes_available">No palettes available. Create one first.</string>
     <string name="add_to_palette">Add to palette</string>
-    <string name="save_palette">Save palette</string>
-    <string name="download_palette">Download palette</string>
     <string name="create_new_palette">Create new palette</string>
     <string name="palette_name_with_color">%1$s Palette</string>
     <string name="color_shades_tints_tones_title">%1$s Color Shades, Tints and Tones</string>
-    <string name="color_shades_tints_tones_description">%1$s comes alive through a spectrum of shades, tints, and tones, each offering a variation of this regal color. Explore the subtle differences and discover how each variant enhances the beauty and versatility of %1$s.</string>
     <string name="tints_label">Tints</string>
     <string name="shades_label">Shades</string>
     <string name="tones_label">Tones</string>
-    <string name="color_plates_title">Color Plates</string>
     <string name="color_palettes_title">%1$s Color Palettes</string>
-    <string name="color_palettes_description">Explore the versatile %1$s color palettes, including Complementary, Analogous, Split-Complementary, Triadic, Tetradic, and Square schemes. These diverse palettes provide a range of harmonious color combinations, perfect for enhancing your design projects.</string>
     <string name="palette_scheme_complementary">Complementary Palette</string>
     <string name="palette_scheme_analogous">Analogous Palette</string>
     <string name="palette_scheme_split_complementary">Split-Complementary Palette</string>
@@ -137,16 +126,13 @@
     <string name="value_label">Value</string>
     <string name="cmyk_label">CMYK</string>
     <string name="sliders_label">Sliders</string>
-    <string name="select_palette">Select palette</string>
     <string name="palette_color_count">%1$d colors</string>
     <string name="more_details">More details</string>
     <string name="already_in_palette">Already in palette</string>
     <string name="palette_full">Palette full (10 colors)</string>
     <string name="added_to_palette">Added to palette</string>
     <string name="hex_copied">Copied HEX</string>
-    <string name="name_copied">Copied name</string>
     <string name="copy_hex">Copy HEX</string>
-    <string name="copy_name">Copy name</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Text %1$s</string>
     <string name="white_label">White</string>
@@ -161,13 +147,8 @@
     <string name="harmony_analogous">Analogous</string>
     <string name="similar_colors">Similar colors</string>
 
-    <string name="picker_tab_camera">Camera</string>
-    <string name="picker_tab_camera_description">Pick colors live or from a photo. Tap any swatch to copy.</string>
     <string name="pick_color_here">Start picking!</string>
     <string name="pick_color_here_description">Tap for live color picking</string>
-    <string name="live_camera">Live Camera</string>
-    <string name="live_camera_subtitle">Crosshair + zoom</string>
-    <string name="live_picker">Live Picker</string>
     <string name="from_album">From Album</string>
     <string name="from_album_subtitle">Pick from a photo</string>
     <string name="from_gallery">From Gallery</string>
@@ -176,13 +157,7 @@
     <string name="color_blind_enhancer">Color-blind enhancer</string>
     <string name="color_blind_enhancer_description">Live camera view tuned for color-vision deficiencies.</string>
     <string name="open">Open</string>
-    <string name="live_color_picker">Live color picker</string>
-    <string name="live_color_picker_description">Point at anything. Pinch to zoom. Add to palette instantly.</string>
-    <string name="start_live_picking">Start Live Picking</string>
     <string name="color_blind_enhancer_title">Color-blind enhancer</string>
-    <string name="color_blind_enhancer_subtitle">Accessibility camera filter</string>
-    <string name="color_blind_enhancer_disclaimer">Non-medical accessibility aid. Colors may differ from reality.</string>
-    <string name="color_blind_enhancer_requires_android_13">Requires Android 13+ for GPU shader processing.</string>
     <string name="monochrome_mode">Monochrome mode</string>
     <string name="color_blind_enhancement">Color-blind enhancement</string>
     <string name="drastic_mode">Drastic mode</string>
@@ -200,13 +175,11 @@
     <string name="settings_description">Tune how the app looks and how the picker crosshair behaves.</string>
     <string name="app_preferences">App preferences</string>
     <string name="theme">Theme</string>
-    <string name="theme_description">Choose how the app looks.</string>
     <string name="choose_theme">Choose theme</string>
     <string name="choose_theme_description">Pick the look that suits you best.</string>
     <string name="follows_your_system_theme">Follows your system theme</string>
     <string name="language">Language</string>
     <string name="picker_crosshair">Picker crosshair</string>
-    <string name="picker_crosshair_preview">Crosshair preview</string>
     <string name="picker_crosshair_description">Adjust the crosshair used when sampling colors.</string>
     <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Size</string>
@@ -242,17 +215,12 @@
     <string name="photo_palette_empty">Palette empty, start adding colors</string>
     <string name="photo_palette_saved">Palette saved ✅</string>
 
-    <string name="added_to_recents">Added to recents</string>
     <string name="suggestions">Suggestions</string>
     <string name="saved_colors">Saved colors</string>
     <string name="saved_palettes">Saved palettes</string>
     <string name="no_recent_colors">No recent colors yet. Tap 🧪 to pick a color.</string>
     <string name="no_saved_colors">No saved colors yet.</string>
     <string name="no_saved_palettes">No saved palettes yet.</string>
-    <string name="clear_recent_colors_title">Clear recent colors?</string>
-    <string name="clear_recent_colors_description">This will remove all recent colors.</string>
-    <string name="clear_saved_colors_title">Clear saved colors?</string>
-    <string name="clear_saved_colors_description">This will remove all saved colors.</string>
     <string name="clear_saved_palettes_title">Clear saved palettes?</string>
     <string name="clear_saved_palettes_description">This will remove all saved palettes.</string>
     <string name="no_matching_palettes">No matching palettes</string>
@@ -269,11 +237,6 @@
     <string name="search_hint_nine">What does \'#228B22\' feel like?</string>
     <string name="search_hint_ten">Uncover the shade \'#E97451\'</string>
     <string name="no_matching_colors">No matching colors</string>
-    <string name="palette_color_label">Palette</string>
-    <string name="clear_recent">Clear recent</string>
-    <string name="clear_saved">Clear saved</string>
-    <string name="clear_palettes">Clear palettes</string>
-    <string name="copy_hex_content_description">Copy HEX</string>
 
     <string name="palette_bar_clear">Clear palette</string>
     <string name="palette_bar_palette">Palette</string>
@@ -285,13 +248,11 @@
     <string name="palette_description_label">Description</string>
     <string name="copy_all_hex">Copy HEX</string>
     <string name="export_css">Copy CSS</string>
-    <string name="remove_from_favourites">Delete palette</string>
     <string name="view_more_indicator">View more ›</string>
     <string name="save_changes">Save changes</string>
     <string name="edit_palette">Edit</string>
     <string name="palette_updated">Palette updated</string>
     <string name="copied_all_hex">Copied all HEX values</string>
     <string name="exported_css">Copied CSS to clipboard</string>
-    <string name="reorder">Reorder</string>
     <string name="splash_loading_message">Warming up your palette…</string>
 </resources>

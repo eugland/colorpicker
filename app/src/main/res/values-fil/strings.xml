@@ -2,7 +2,6 @@
     <string name="app_name">Kulay</string>
 
     <string name="back">Bumalik</string>
-    <string name="close">Isara</string>
     <string name="clear">Burahin</string>
     <string name="cancel">Kanselahin</string>
     <string name="copy">Kopyahin</string>
@@ -11,7 +10,6 @@
     <string name="save">I-save</string>
     <string name="saved">Naka-save</string>
     <string name="delete">Tanggalin</string>
-    <string name="more_options">Higit pang opsyon</string>
 
     <string name="palette">Paleta</string>
     <string name="camera">Kamera</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Tingnan pa</string>
     <string name="show_less">Ipakita nang mas kaunti</string>
     <string name="show_more">Ipakita nang mas marami</string>
-    <string name="show_less_caps">IPAKITA NANG MAS KAUNTI</string>
-    <string name="show_more_caps">IPAKITA NANG MAS MARAMI</string>
 
     <string name="theme_system_default">Default ng system</string>
     <string name="theme_light">Maliwanag</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s nasa paleta na</string>
     <string name="palette_full_message">Puno na ang paleta (10 kulay). I-tap ang paleta para i-save at magsimula ng bago.</string>
     <string name="palette_empty_start_adding">Walang laman ang paleta, magsimulang magdagdag ng mga kulay</string>
-    <string name="palette_saved_toast">Na-save ang paleta ✅</string>
     <string name="palette_default_name">Paleta %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">live-pick</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">Na-save sa Aking mga kulay</string>
     <string name="no_palettes_available">Walang available na paleta. Gumawa muna ng isa.</string>
     <string name="add_to_palette">Idagdag sa paleta</string>
+    <string name="palette_scheme_square">Square palette</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Pula</string>
     <string name="green_label">Berde</string>
     <string name="blue_label">Asul</string>
+    <string name="yellow_label">Dilaw</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Hue</string>
     <string name="saturation_label">Saturation</string>
     <string name="lightness_label">Liwanag</string>
-    <string name="select_palette">Pumili ng paleta</string>
+    <string name="sliders_label">Mga slider</string>
     <string name="palette_color_count">%1$d na kulay</string>
     <string name="more_details">Higit pang detalye</string>
     <string name="already_in_palette">Nasa paleta na</string>
     <string name="palette_full">Puno ang paleta (10 kulay)</string>
     <string name="added_to_palette">Idinagdag sa paleta</string>
     <string name="hex_copied">Nakopya ang HEX</string>
-    <string name="name_copied">Nakopya ang pangalan</string>
     <string name="copy_hex">Kopyahin ang HEX</string>
-    <string name="copy_name">Kopyahin ang pangalan</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Teksto %1$s</string>
     <string name="white_label">Puti</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Magkakatulad</string>
     <string name="similar_colors">Magkakatulad na mga kulay</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Pumili ng mga kulay nang live o mula sa larawan. I-tap ang anumang swatch para kopyahin.</string>
-    <string name="live_camera">Live na Kamera</string>
-    <string name="live_camera_subtitle">Crosshair + zoom</string>
+    <string name="pick_color_here_description">I-tap para sa live na pagpili ng kulay</string>
     <string name="from_album">Mula sa Album</string>
     <string name="from_album_subtitle">Pumili mula sa larawan</string>
+    <string name="from_gallery">Mula sa gallery</string>
     <string name="tools">Mga tool</string>
     <string name="color_slider_description">Ayusin ang RGB o HSL at makita ang mga live na pangalan at HEX. Mag-save o gumawa ng mga paleta.</string>
+    <string name="color_blind_enhancer_description">Live na camera view para sa color-vision deficiency</string>
     <string name="open">Buksan</string>
-    <string name="live_color_picker">Live na picker ng kulay</string>
-    <string name="live_color_picker_description">Itutok sa kahit ano. I-pinch para mag-zoom. Idagdag sa paleta agad.</string>
-    <string name="start_live_picking">Simulan ang Live Picking</string>
 
+    <string name="filter_selector_label">Filter</string>
     <string name="settings_title">Mga Setting</string>
     <string name="settings_description">Iayos kung paano ang hitsura ng app at kung paano gumagalaw ang crosshair.</string>
     <string name="app_preferences">Mga kagustuhan sa app</string>
     <string name="theme">Tema</string>
-    <string name="theme_description">Piliin ang hitsura ng app.</string>
+    <string name="follows_your_system_theme">Sumusunod sa system theme</string>
     <string name="language">Wika</string>
     <string name="picker_crosshair">Crosshair ng picker</string>
     <string name="picker_crosshair_description">Ayusin ang crosshair na ginagamit kapag kumukuha ng kulay.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Laki</string>
     <string name="shape">Hugis</string>
     <string name="sensitivity">Sensitibidad</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Pagmamay-ari, third-party na bahagi, at mga detalye ng lisensya</string>
     <string name="privacy_statement">Pahayag sa privacy</string>
     <string name="privacy_statement_description">Paano nananatili sa device ang data ng camera at larawan</string>
+    <string name="terms_of_service_description">Suriin ang mga tuntunin at gabay sa paggamit ng app</string>
     <string name="usage_guide">Gabay sa paggamit</string>
     <string name="usage_guide_description">Hakbang-hakbang na gabay at index para sa mahahalagang gawain</string>
     <string name="feedback">Feedback</string>
     <string name="send_feedback">Magpadala ng feedback</string>
-    <string name="send_feedback_description">Ibahagi kung ano ang nais mong mapabuti.</string>
+    <string name="send_feedback_description">Ibahagi kung ano ang gusto mong mapabuti.</string>
     <string name="rate_us">I-rate kami</string>
     <string name="rate_us_description">Mag-iwan ng mabilis na rating sa Play Store.</string>
 
+    <string name="share_app_text">Tingnan ang Color Picker sa Google Play: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Pumili ng mga kulay nang live o mula sa larawan. I-tap ang anumang swatch para kopyahin.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Walang laman ang paleta, magsimulang magdagdag ng mga kulay</string>
     <string name="photo_palette_saved">Na-save ang paleta ✅</string>
 
-    <string name="added_to_recents">Idinagdag sa mga kamakailan</string>
     <string name="suggestions">Mga mungkahi</string>
     <string name="saved_colors">Mga na-save na kulay</string>
     <string name="saved_palettes">Mga na-save na paleta</string>
     <string name="no_recent_colors">Wala pang kamakailang kulay. I-tap ang 🧪 para pumili ng kulay.</string>
     <string name="no_saved_colors">Wala pang na-save na kulay.</string>
     <string name="no_saved_palettes">Wala pang na-save na paleta.</string>
-    <string name="clear_recent_colors_title">I-clear ang mga kamakailang kulay?</string>
-    <string name="clear_recent_colors_description">Aalisin nito ang lahat ng kamakailang kulay.</string>
-    <string name="clear_saved_colors_title">I-clear ang mga na-save na kulay?</string>
-    <string name="clear_saved_colors_description">Aalisin nito ang lahat ng na-save na kulay.</string>
     <string name="clear_saved_palettes_title">I-clear ang mga na-save na paleta?</string>
     <string name="clear_saved_palettes_description">Aalisin nito ang lahat ng na-save na paleta.</string>
+    <string name="no_matching_palettes">Walang tugmang palette</string>
     <string name="quick_color_lookup">Mabilis na paghahanap ng kulay</string>
     <string name="search_placeholder">Maghanap ng mga kulay o hex code</string>
     <string name="search_hint_one">Naiintriga sa \'Midnight blue\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Ano ang itsura ng \'Cerulean\'?</string>
     <string name="search_hint_nine">Ano ang pakiramdam ng \'#228B22\'?</string>
     <string name="search_hint_ten">Tuklasin ang lilim na \'#E97451\'</string>
-    <string name="palette_color_label">Paleta</string>
-    <string name="clear_recent">I-clear ang kamakailan</string>
-    <string name="clear_saved">I-clear ang na-save</string>
-    <string name="clear_palettes">I-clear ang mga paleta</string>
-    <string name="copy_hex_content_description">Kopyahin ang HEX</string>
+    <string name="no_matching_colors">Walang tugmang kulay</string>
 
     <string name="palette_bar_clear">I-clear ang paleta</string>
     <string name="palette_bar_palette">Paleta</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Paglalarawan</string>
     <string name="copy_all_hex">Kopyahin ang HEX</string>
     <string name="export_css">Kopyahin ang CSS</string>
-    <string name="remove_from_favourites">Tanggalin ang paleta</string>
     <string name="view_more_indicator">Tingnan pa ›</string>
     <string name="save_changes">I-save ang mga pagbabago</string>
     <string name="edit_palette">I-edit</string>
     <string name="palette_updated">Na-update ang paleta</string>
     <string name="copied_all_hex">Nakopya ang lahat ng HEX</string>
     <string name="exported_css">Nakopya ang CSS sa clipboard</string>
-    <string name="reorder">Ayusin ang pagkakasunod</string>
     <string name="splash_loading_message">Inihahanda ang iyong paleta…</string>
+    <string name="see_more">Tingnan pa</string>
+    <string name="create_new_palette">Gumawa ng bagong palette</string>
+    <string name="palette_name_with_color">%1$s Palette</string>
+    <string name="color_shades_tints_tones_title">Mga shade, tint, at tone ng %1$s</string>
+    <string name="tints_label">Mga tint</string>
+    <string name="shades_label">Mga shade</string>
+    <string name="tones_label">Mga tone</string>
+    <string name="color_palettes_title">Mga palette ng %1$s</string>
+    <string name="palette_scheme_complementary">Complementary palette</string>
+    <string name="palette_scheme_analogous">Analogous palette</string>
+    <string name="palette_scheme_split_complementary">Split-complementary palette</string>
+    <string name="palette_scheme_triadic">Triadic palette</string>
+    <string name="palette_scheme_tetradic">Tetradic palette</string>
+    <string name="cyan_label">Cyan</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Halaga</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Simulan ang pagpili!</string>
+    <string name="color_blind_enhancer">Color-blind enhancer</string>
+    <string name="color_blind_enhancer_title">Color-blind enhancer</string>
+    <string name="monochrome_mode">Monochrome mode</string>
+    <string name="color_blind_enhancement">Color-blind enhancement</string>
+    <string name="drastic_mode">Matinding mode</string>
+    <string name="edge_contrast_mode">Edge contrast mode</string>
+    <string name="thermal_mode">Thermal imaging mode</string>
+    <string name="mri_mode">MRI imaging mode</string>
+    <string name="xray_mode">X-ray imaging mode</string>
+    <string name="animate_mode">Animated style mode</string>
+    <string name="cyber_mode">Cyber style mode</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Pumili ng filter</string>
+    <string name="choose_theme">Pumili ng tema</string>
+    <string name="choose_theme_description">Piliin ang itsurang pinakabagay sa iyo.</string>
+    <string name="terms_of_service">Mga tuntunin ng serbisyo</string>
+    <string name="share_app">Ibahagi ang app</string>
+    <string name="share_app_description">Ipadala ang Play Store link sa mga kaibigan.</string>
 </resources>

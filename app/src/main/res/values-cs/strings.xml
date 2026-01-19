@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">Zpět</string>
-    <string name="close">Zavřít</string>
     <string name="clear">Vymazat</string>
     <string name="cancel">Zrušit</string>
     <string name="copy">Kopírovat</string>
@@ -11,7 +10,6 @@
     <string name="save">Uložit</string>
     <string name="saved">Uloženo</string>
     <string name="delete">Odstranit</string>
-    <string name="more_options">Další možnosti</string>
 
     <string name="palette">Paleta</string>
     <string name="camera">Fotoaparát</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Zobrazit více</string>
     <string name="show_less">Zobrazit méně</string>
     <string name="show_more">Zobrazit více</string>
-    <string name="show_less_caps">ZOBRAZIT MÉNĚ</string>
-    <string name="show_more_caps">ZOBRAZIT VÍCE</string>
 
     <string name="theme_system_default">Systémové výchozí</string>
     <string name="theme_light">Světlý</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s už je v paletě</string>
     <string name="palette_full_message">Paleta je plná (10 barev). Klepněte na paletu, uložte ji a začněte novou.</string>
     <string name="palette_empty_start_adding">Paleta je prázdná, začněte přidávat barvy</string>
-    <string name="palette_saved_toast">Paleta uložena ✅</string>
     <string name="palette_default_name">Paleta %1$d</string>
     <string name="palette_tag_camera">fotoaparát</string>
     <string name="palette_tag_live_pick">živé-snímání</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">Uloženo do Moje barvy</string>
     <string name="no_palettes_available">Žádné palety nejsou k dispozici. Nejprve nějakou vytvořte.</string>
     <string name="add_to_palette">Přidat do palety</string>
+    <string name="palette_scheme_square">Čtvercová paleta</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Červená</string>
     <string name="green_label">Zelená</string>
     <string name="blue_label">Modrá</string>
+    <string name="yellow_label">Žlutá</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Odstín</string>
     <string name="saturation_label">Sytost</string>
     <string name="lightness_label">Světlost</string>
-    <string name="select_palette">Vyberte paletu</string>
+    <string name="sliders_label">Posuvníky</string>
     <string name="palette_color_count">%1$d barev</string>
     <string name="more_details">Více detailů</string>
     <string name="already_in_palette">Už je v paletě</string>
     <string name="palette_full">Paleta plná (10 barev)</string>
     <string name="added_to_palette">Přidáno do palety</string>
     <string name="hex_copied">HEX zkopírován</string>
-    <string name="name_copied">Název zkopírován</string>
     <string name="copy_hex">Kopírovat HEX</string>
-    <string name="copy_name">Kopírovat název</string>
     <string name="luma_label">Jas %1$d%%</string>
     <string name="text_recommendation">Text %1$s</string>
     <string name="white_label">Bílá</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Analogické</string>
     <string name="similar_colors">Podobné barvy</string>
 
-    <string name="picker_tab_camera">Fotoaparát</string>
-    <string name="picker_tab_camera_description">Vyberte barvy živě nebo z fotografie. Klepnutím na vzorek zkopírujete.</string>
-    <string name="live_camera">Živý fotoaparát</string>
-    <string name="live_camera_subtitle">Zaměřovač + přiblížení</string>
+    <string name="pick_color_here_description">Klepnutím vyberte barvu živě</string>
     <string name="from_album">Z alba</string>
     <string name="from_album_subtitle">Vybrat z fotografie</string>
+    <string name="from_gallery">Z galerie</string>
     <string name="tools">Nástroje</string>
     <string name="color_slider_description">Upravte RGB nebo HSL a sledujte názvy a HEX v reálném čase. Uložte nebo tvořte palety.</string>
+    <string name="color_blind_enhancer_description">Živý náhled kamery přizpůsobený poruchám barevného vidění</string>
     <string name="open">Otevřít</string>
-    <string name="live_color_picker">Živý výběr barvy</string>
-    <string name="live_color_picker_description">Miřte na cokoliv. Přiblížení gestem. Okamžitě přidejte do palety.</string>
-    <string name="start_live_picking">Spustit živý výběr</string>
 
+    <string name="filter_selector_label">Filtr</string>
     <string name="settings_title">Nastavení</string>
     <string name="settings_description">Upravte vzhled aplikace a chování zaměřovače.</string>
     <string name="app_preferences">Předvolby aplikace</string>
     <string name="theme">Motiv</string>
-    <string name="theme_description">Vyberte vzhled aplikace.</string>
+    <string name="follows_your_system_theme">Sleduje motiv systému</string>
     <string name="language">Jazyk</string>
     <string name="picker_crosshair">Zaměřovač</string>
     <string name="picker_crosshair_description">Upravte zaměřovač používaný při snímání barev.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Velikost</string>
     <string name="shape">Tvar</string>
     <string name="sensitivity">Citlivost</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Vlastnictví, součásti třetích stran a licence</string>
     <string name="privacy_statement">Prohlášení o ochraně soukromí</string>
     <string name="privacy_statement_description">Jak data z fotoaparátu a fotek zůstávají v zařízení</string>
+    <string name="terms_of_service_description">Zobrazit podmínky aplikace a pokyny k používání</string>
     <string name="usage_guide">Průvodce použitím</string>
     <string name="usage_guide_description">Podrobný průvodce a rejstřík klíčových úloh</string>
     <string name="feedback">Zpětná vazba</string>
     <string name="send_feedback">Odeslat zpětnou vazbu</string>
-    <string name="send_feedback_description">Sdílejte, co byste chtěli vylepšit.</string>
+    <string name="send_feedback_description">Sdílejte, co byste chtěli zlepšit.</string>
     <string name="rate_us">Ohodnoťte nás</string>
-    <string name="rate_us_description">Zanechte rychlé hodnocení v Obchodě Play.</string>
+    <string name="rate_us_description">Zanechte rychlé hodnocení v obchodě Play.</string>
 
+    <string name="share_app_text">Podívejte se na Color Picker v Google Play: %1$s</string>
     <string name="camera_title">Fotoaparát</string>
     <string name="camera_intro">Vyberte barvy živě nebo z fotografie. Klepnutím na vzorek zkopírujete.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Paleta je prázdná, začněte přidávat barvy</string>
     <string name="photo_palette_saved">Paleta uložena ✅</string>
 
-    <string name="added_to_recents">Přidáno do nedávných</string>
     <string name="suggestions">Návrhy</string>
     <string name="saved_colors">Uložené barvy</string>
     <string name="saved_palettes">Uložené palety</string>
     <string name="no_recent_colors">Zatím žádné nedávné barvy. Klepněte na 🧪 a vyberte barvu.</string>
     <string name="no_saved_colors">Zatím žádné uložené barvy.</string>
     <string name="no_saved_palettes">Zatím žádné uložené palety.</string>
-    <string name="clear_recent_colors_title">Vymazat nedávné barvy?</string>
-    <string name="clear_recent_colors_description">Tímto odstraníte všechny nedávné barvy.</string>
-    <string name="clear_saved_colors_title">Vymazat uložené barvy?</string>
-    <string name="clear_saved_colors_description">Tímto odstraníte všechny uložené barvy.</string>
     <string name="clear_saved_palettes_title">Vymazat uložené palety?</string>
     <string name="clear_saved_palettes_description">Tímto odstraníte všechny uložené palety.</string>
+    <string name="no_matching_palettes">Žádné odpovídající palety</string>
     <string name="quick_color_lookup">Rychlé vyhledání barvy</string>
     <string name="search_placeholder">Hledejte barvy nebo kódy HEX</string>
     <string name="search_hint_one">Zajímá vás \'Midnight blue\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Jak vypadá \'Cerulean\'?</string>
     <string name="search_hint_nine">Jaký pocit vyvolává \'#228B22\'?</string>
     <string name="search_hint_ten">Odhalte odstín \'#E97451\'</string>
-    <string name="palette_color_label">Paleta</string>
-    <string name="clear_recent">Vymazat nedávné</string>
-    <string name="clear_saved">Vymazat uložené</string>
-    <string name="clear_palettes">Vymazat palety</string>
-    <string name="copy_hex_content_description">Kopírovat HEX</string>
+    <string name="no_matching_colors">Žádné odpovídající barvy</string>
 
     <string name="palette_bar_clear">Vymazat paletu</string>
     <string name="palette_bar_palette">Paleta</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Popis</string>
     <string name="copy_all_hex">Kopírovat HEX</string>
     <string name="export_css">Kopírovat CSS</string>
-    <string name="remove_from_favourites">Odstranit paletu</string>
     <string name="view_more_indicator">Zobrazit více ›</string>
     <string name="save_changes">Uložit změny</string>
     <string name="edit_palette">Upravit</string>
     <string name="palette_updated">Paleta aktualizována</string>
     <string name="copied_all_hex">Zkopírovány všechny HEX hodnoty</string>
     <string name="exported_css">CSS zkopírováno do schránky</string>
-    <string name="reorder">Přeuspořádat</string>
     <string name="splash_loading_message">Zahříváme paletu…</string>
+    <string name="see_more">Zobrazit více</string>
+    <string name="create_new_palette">Vytvořit novou paletu</string>
+    <string name="palette_name_with_color">Paleta %1$s</string>
+    <string name="color_shades_tints_tones_title">Odstíny, tóny a barevné varianty %1$s</string>
+    <string name="tints_label">Světlé odstíny</string>
+    <string name="shades_label">Tmavé odstíny</string>
+    <string name="tones_label">Tlumené tóny</string>
+    <string name="color_palettes_title">Palety barev %1$s</string>
+    <string name="palette_scheme_complementary">Komplementární paleta</string>
+    <string name="palette_scheme_analogous">Analogická paleta</string>
+    <string name="palette_scheme_split_complementary">Dělená komplementární paleta</string>
+    <string name="palette_scheme_triadic">Triadická paleta</string>
+    <string name="palette_scheme_tetradic">Tetradická paleta</string>
+    <string name="cyan_label">Azurová</string>
+    <string name="magenta_label">Purpurová</string>
+    <string name="value_label">Hodnota</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Začít vybírat!</string>
+    <string name="color_blind_enhancer">Zvýraznění pro barvoslepé</string>
+    <string name="color_blind_enhancer_title">Zvýraznění pro barvoslepé</string>
+    <string name="monochrome_mode">Monochromatický režim</string>
+    <string name="color_blind_enhancement">Zvýraznění barvosleposti</string>
+    <string name="drastic_mode">Intenzivní režim</string>
+    <string name="edge_contrast_mode">Režim zvýraznění hran</string>
+    <string name="thermal_mode">Termální zobrazení</string>
+    <string name="mri_mode">MRI zobrazení</string>
+    <string name="xray_mode">Rentgenové zobrazení</string>
+    <string name="animate_mode">Animovaný styl</string>
+    <string name="cyber_mode">Kybernetický styl</string>
+    <string name="mode_normal">Normální</string>
+    <string name="filter_grid_title">Vyberte filtr</string>
+    <string name="choose_theme">Vyberte motiv</string>
+    <string name="choose_theme_description">Vyberte vzhled, který vám nejvíce vyhovuje.</string>
+    <string name="terms_of_service">Podmínky služby</string>
+    <string name="share_app">Sdílet aplikaci</string>
+    <string name="share_app_description">Pošlete odkaz na obchod Play přátelům.</string>
 </resources>

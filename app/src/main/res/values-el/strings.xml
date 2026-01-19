@@ -2,7 +2,6 @@
     <string name="app_name">χρώμα</string>
 
     <string name="back">Πίσω</string>
-    <string name="close">Κλείσιμο</string>
     <string name="clear">Εκκαθάριση</string>
     <string name="cancel">Ακύρωση</string>
     <string name="copy">Αντιγραφή</string>
@@ -11,7 +10,6 @@
     <string name="save">Αποθήκευση</string>
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="delete">Διαγραφή</string>
-    <string name="more_options">Περισσότερες επιλογές</string>
 
     <string name="palette">Παλέτα</string>
     <string name="camera">Κάμερα</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Προβολή περισσότερων</string>
     <string name="show_less">Προβολή λιγότερων</string>
     <string name="show_more">Προβολή περισσότερων</string>
-    <string name="show_less_caps">ΛΙΓΟΤΕΡΑ</string>
-    <string name="show_more_caps">ΠΕΡΙΣΣΟΤΕΡΑ</string>
 
+    <string name="see_more">Δείτε περισσότερα</string>
     <string name="theme_system_default">Προεπιλογή συστήματος</string>
     <string name="theme_light">Φωτεινό</string>
     <string name="theme_dark">Σκοτεινό</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">Το %1$s βρίσκεται ήδη στην παλέτα</string>
     <string name="palette_full_message">Η παλέτα είναι πλήρης (10 χρώματα). Πατήστε την παλέτα για να την αποθηκεύσετε και να ξεκινήσετε νέα.</string>
     <string name="palette_empty_start_adding">Η παλέτα είναι άδεια, ξεκινήστε να προσθέτετε χρώματα</string>
-    <string name="palette_saved_toast">Η παλέτα αποθηκεύτηκε ✅</string>
     <string name="palette_default_name">Παλέτα %1$d</string>
     <string name="palette_tag_camera">κάμερα</string>
     <string name="palette_tag_live_pick">ζωντανή-επιλογή</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Αποθηκεύτηκε στα Χρώματά μου</string>
     <string name="no_palettes_available">Δεν υπάρχουν διαθέσιμες παλέτες. Δημιουργήστε μία πρώτα.</string>
     <string name="add_to_palette">Προσθήκη στην παλέτα</string>
+    <string name="palette_scheme_square">Τετραγωνική παλέτα</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Κόκκινο</string>
     <string name="green_label">Πράσινο</string>
     <string name="blue_label">Μπλε</string>
+    <string name="yellow_label">Κίτρινο</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Απόχρωση</string>
     <string name="saturation_label">Κορεσμός</string>
     <string name="lightness_label">Φωτεινότητα</string>
-    <string name="select_palette">Επιλογή παλέτας</string>
+    <string name="sliders_label">Ρυθμιστικά</string>
     <string name="palette_color_count">%1$d χρώματα</string>
     <string name="more_details">Περισσότερες λεπτομέρειες</string>
     <string name="already_in_palette">Ήδη στην παλέτα</string>
     <string name="palette_full">Η παλέτα είναι πλήρης (10 χρώματα)</string>
     <string name="added_to_palette">Προστέθηκε στην παλέτα</string>
     <string name="hex_copied">Αντιγράφηκε το HEX</string>
-    <string name="name_copied">Αντιγράφηκε το όνομα</string>
     <string name="copy_hex">Αντιγραφή HEX</string>
-    <string name="copy_name">Αντιγραφή ονόματος</string>
     <string name="luma_label">Φωτεινότητα %1$d%%</string>
     <string name="text_recommendation">Κείμενο %1$s</string>
     <string name="white_label">Λευκό</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Ανάλογα</string>
     <string name="similar_colors">Παρόμοια χρώματα</string>
 
-    <string name="picker_tab_camera">Κάμερα</string>
-    <string name="picker_tab_camera_description">Επιλέξτε χρώματα ζωντανά ή από φωτογραφία. Πατήστε οποιοδήποτε δείγμα για αντιγραφή.</string>
-    <string name="live_camera">Ζωντανή κάμερα</string>
-    <string name="live_camera_subtitle">Σταυρόνημα + ζουμ</string>
+    <string name="pick_color_here_description">Πατήστε για ζωντανή επιλογή χρώματος</string>
     <string name="from_album">Από το άλμπουμ</string>
     <string name="from_album_subtitle">Επιλογή από φωτογραφία</string>
+    <string name="from_gallery">Από τη συλλογή</string>
     <string name="tools">Εργαλεία</string>
     <string name="color_slider_description">Ρυθμίστε RGB ή HSL και δείτε ζωντανά ονόματα και hex. Αποθηκεύστε ή δημιουργήστε παλέτες.</string>
+    <string name="color_blind_enhancer_description">Ζωντανή προβολή κάμερας προσαρμοσμένη για ελλείψεις χρωματικής όρασης</string>
     <string name="open">Άνοιγμα</string>
-    <string name="live_color_picker">Ζωντανός επιλογέας χρωμάτων</string>
-    <string name="live_color_picker_description">Στοχεύστε οτιδήποτε. Τσιμπήστε για ζουμ. Προσθήκη στην παλέτα αμέσως.</string>
-    <string name="start_live_picking">Έναρξη ζωντανής επιλογής</string>
 
+    <string name="filter_selector_label">Φίλτρο</string>
     <string name="settings_title">Ρυθμίσεις</string>
     <string name="settings_description">Ρυθμίστε την εμφάνιση της εφαρμογής και τη συμπεριφορά του σταυρονήματος επιλογής.</string>
     <string name="app_preferences">Προτιμήσεις εφαρμογής</string>
     <string name="theme">Θέμα</string>
-    <string name="theme_description">Επιλέξτε την εμφάνιση της εφαρμογής.</string>
+    <string name="follows_your_system_theme">Ακολουθεί το θέμα συστήματος</string>
     <string name="language">Γλώσσα</string>
     <string name="picker_crosshair">Σταυρόνημα επιλογής</string>
     <string name="picker_crosshair_description">Ρυθμίστε το σταυρόνημα που χρησιμοποιείται στη δειγματοληψία χρωμάτων.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Μέγεθος</string>
     <string name="shape">Σχήμα</string>
     <string name="sensitivity">Ευαισθησία</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Ιδιοκτησία, στοιχεία τρίτων και λεπτομέρειες αδειοδότησης</string>
     <string name="privacy_statement">Δήλωση απορρήτου</string>
     <string name="privacy_statement_description">Πώς τα δεδομένα κάμερας και φωτογραφιών παραμένουν στη συσκευή</string>
+    <string name="terms_of_service_description">Ελέγξτε τους όρους και τις οδηγίες χρήσης της εφαρμογής</string>
     <string name="usage_guide">Οδηγός χρήσης</string>
     <string name="usage_guide_description">Οδηγός βήμα προς βήμα και ευρετήριο για βασικές εργασίες</string>
     <string name="feedback">Ανατροφοδότηση</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Αξιολογήστε μας</string>
     <string name="rate_us_description">Αφήστε μια γρήγορη αξιολόγηση στο Play Store.</string>
 
+    <string name="share_app_text">Δείτε το Color Picker στο Google Play: %1$s</string>
     <string name="camera_title">Κάμερα</string>
     <string name="camera_intro">Επιλέξτε χρώματα ζωντανά ή από φωτογραφία. Πατήστε οποιοδήποτε δείγμα για αντιγραφή.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Η παλέτα είναι άδεια, ξεκινήστε να προσθέτετε χρώματα</string>
     <string name="photo_palette_saved">Η παλέτα αποθηκεύτηκε ✅</string>
 
-    <string name="added_to_recents">Προστέθηκε στα πρόσφατα</string>
     <string name="suggestions">Προτάσεις</string>
     <string name="saved_colors">Αποθηκευμένα χρώματα</string>
     <string name="saved_palettes">Αποθηκευμένες παλέτες</string>
     <string name="no_recent_colors">Δεν υπάρχουν ακόμη πρόσφατα χρώματα. Πατήστε 🧪 για να επιλέξετε ένα χρώμα.</string>
     <string name="no_saved_colors">Δεν υπάρχουν αποθηκευμένα χρώματα.</string>
     <string name="no_saved_palettes">Δεν υπάρχουν αποθηκευμένες παλέτες.</string>
-    <string name="clear_recent_colors_title">Εκκαθάριση πρόσφατων χρωμάτων;</string>
-    <string name="clear_recent_colors_description">Αυτό θα αφαιρέσει όλα τα πρόσφατα χρώματα.</string>
-    <string name="clear_saved_colors_title">Εκκαθάριση αποθηκευμένων χρωμάτων;</string>
-    <string name="clear_saved_colors_description">Αυτό θα αφαιρέσει όλα τα αποθηκευμένα χρώματα.</string>
     <string name="clear_saved_palettes_title">Εκκαθάριση αποθηκευμένων παλετών;</string>
     <string name="clear_saved_palettes_description">Αυτό θα αφαιρέσει όλες τις αποθηκευμένες παλέτες.</string>
+    <string name="no_matching_palettes">Δεν υπάρχουν αντίστοιχες παλέτες</string>
     <string name="quick_color_lookup">Γρήγορη αναζήτηση χρώματος</string>
     <string name="search_placeholder">Αναζήτηση χρωμάτων ή κωδικών hex</string>
     <string name="search_hint_one">Περίεργοι για το \'Midnight blue\';</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Πώς μοιάζει το \'Cerulean\';</string>
     <string name="search_hint_nine">Πώς αισθάνεται το \'#228B22\';</string>
     <string name="search_hint_ten">Ανακαλύψτε την απόχρωση \'#E97451\'</string>
-    <string name="palette_color_label">Παλέτα</string>
-    <string name="clear_recent">Εκκαθάριση πρόσφατων</string>
-    <string name="clear_saved">Εκκαθάριση αποθηκευμένων</string>
-    <string name="clear_palettes">Εκκαθάριση παλετών</string>
-    <string name="copy_hex_content_description">Αντιγραφή HEX</string>
 
+    <string name="no_matching_colors">Δεν υπάρχουν αντίστοιχα χρώματα</string>
     <string name="palette_bar_clear">Εκκαθάριση παλέτας</string>
     <string name="palette_bar_palette">Παλέτα</string>
     <string name="palette_bar_add_color">Προσθήκη χρώματος</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Περιγραφή</string>
     <string name="copy_all_hex">Αντιγραφή HEX</string>
     <string name="export_css">Αντιγραφή CSS</string>
-    <string name="remove_from_favourites">Διαγραφή παλέτας</string>
     <string name="view_more_indicator">Προβολή περισσότερων ›</string>
     <string name="save_changes">Αποθήκευση αλλαγών</string>
     <string name="edit_palette">Επεξεργασία</string>
     <string name="palette_updated">Η παλέτα ενημερώθηκε</string>
     <string name="copied_all_hex">Αντιγράφηκαν όλες οι τιμές HEX</string>
     <string name="exported_css">Το CSS αντιγράφηκε στο πρόχειρο</string>
-    <string name="reorder">Αναδιάταξη</string>
     <string name="splash_loading_message">Ζεσταίνουμε την παλέτα σας…</string>
+    <string name="create_new_palette">Δημιουργία νέας παλέτας</string>
+    <string name="palette_name_with_color">Παλέτα %1$s</string>
+    <string name="color_shades_tints_tones_title">Αποχρώσεις, τόνοι και παραλλαγές του %1$s</string>
+    <string name="tints_label">Ανοιχτές αποχρώσεις</string>
+    <string name="shades_label">Σκούρες αποχρώσεις</string>
+    <string name="tones_label">Τόνοι</string>
+    <string name="color_palettes_title">Παλέτες χρωμάτων %1$s</string>
+    <string name="palette_scheme_complementary">Συμπληρωματική παλέτα</string>
+    <string name="palette_scheme_analogous">Ανάλογη παλέτα</string>
+    <string name="palette_scheme_split_complementary">Διασπασμένη συμπληρωματική παλέτα</string>
+    <string name="palette_scheme_triadic">Τριαδική παλέτα</string>
+    <string name="palette_scheme_tetradic">Τετραδική παλέτα</string>
+    <string name="cyan_label">Κυανό</string>
+    <string name="magenta_label">Ματζέντα</string>
+    <string name="value_label">Τιμή</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Ξεκινήστε την επιλογή!</string>
+    <string name="color_blind_enhancer">Ενίσχυση αχρωματοψίας</string>
+    <string name="color_blind_enhancer_title">Ενίσχυση αχρωματοψίας</string>
+    <string name="monochrome_mode">Λειτουργία μονόχρωμη</string>
+    <string name="color_blind_enhancement">Ενίσχυση αχρωματοψίας</string>
+    <string name="drastic_mode">Έντονη λειτουργία</string>
+    <string name="edge_contrast_mode">Λειτουργία αντίθεσης άκρων</string>
+    <string name="thermal_mode">Λειτουργία θερμικής απεικόνισης</string>
+    <string name="mri_mode">Λειτουργία απεικόνισης MRI</string>
+    <string name="xray_mode">Λειτουργία απεικόνισης ακτίνων Χ</string>
+    <string name="animate_mode">Λειτουργία κινούμενου στυλ</string>
+    <string name="cyber_mode">Λειτουργία κυβερνοστυλ</string>
+    <string name="mode_normal">Κανονικό</string>
+    <string name="filter_grid_title">Επιλέξτε φίλτρο</string>
+    <string name="choose_theme">Επιλέξτε θέμα</string>
+    <string name="choose_theme_description">Επιλέξτε την εμφάνιση που σας ταιριάζει καλύτερα.</string>
+    <string name="terms_of_service">Όροι χρήσης</string>
+    <string name="share_app">Μοιραστείτε την εφαρμογή</string>
+    <string name="share_app_description">Στείλτε τον σύνδεσμο του Play Store σε φίλους.</string>
 </resources>

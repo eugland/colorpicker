@@ -2,7 +2,6 @@
     <string name="app_name">culoare</string>
 
     <string name="back">Înapoi</string>
-    <string name="close">Închide</string>
     <string name="clear">Golește</string>
     <string name="cancel">Anulează</string>
     <string name="copy">Copiază</string>
@@ -11,7 +10,6 @@
     <string name="save">Salvează</string>
     <string name="saved">Salvat</string>
     <string name="delete">Șterge</string>
-    <string name="more_options">Mai multe opțiuni</string>
 
     <string name="palette">Paletă</string>
     <string name="camera">Cameră</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Vezi mai mult</string>
     <string name="show_less">Arată mai puțin</string>
     <string name="show_more">Arată mai mult</string>
-    <string name="show_less_caps">ARATĂ MAI PUȚIN</string>
-    <string name="show_more_caps">ARATĂ MAI MULT</string>
 
+    <string name="see_more">Vezi mai mult</string>
     <string name="theme_system_default">Implicit sistem</string>
     <string name="theme_light">Luminos</string>
     <string name="theme_dark">Întunecat</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s este deja în paletă</string>
     <string name="palette_full_message">Paleta este plină (10 culori). Atinge paleta pentru a o salva și a începe una nouă.</string>
     <string name="palette_empty_start_adding">Paletă goală, începe să adaugi culori</string>
-    <string name="palette_saved_toast">Paletă salvată ✅</string>
     <string name="palette_default_name">Paletă %1$d</string>
     <string name="palette_tag_camera">cameră</string>
     <string name="palette_tag_live_pick">selectare-live</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Salvat în Culorile mele</string>
     <string name="no_palettes_available">Nu există palete disponibile. Creează una mai întâi.</string>
     <string name="add_to_palette">Adaugă la paletă</string>
+    <string name="palette_scheme_square">Paletă pătrată</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Roșu</string>
     <string name="green_label">Verde</string>
     <string name="blue_label">Albastru</string>
+    <string name="yellow_label">Galben</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Nuanță</string>
     <string name="saturation_label">Saturație</string>
     <string name="lightness_label">Luminozitate</string>
-    <string name="select_palette">Selectează paleta</string>
+    <string name="sliders_label">Glisoare</string>
     <string name="palette_color_count">%1$d culori</string>
     <string name="more_details">Mai multe detalii</string>
     <string name="already_in_palette">Deja în paletă</string>
     <string name="palette_full">Paletă plină (10 culori)</string>
     <string name="added_to_palette">Adăugat la paletă</string>
     <string name="hex_copied">HEX copiat</string>
-    <string name="name_copied">Nume copiat</string>
     <string name="copy_hex">Copiază HEX</string>
-    <string name="copy_name">Copiază numele</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Text %1$s</string>
     <string name="white_label">Alb</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Analogă</string>
     <string name="similar_colors">Culori similare</string>
 
-    <string name="picker_tab_camera">Cameră</string>
-    <string name="picker_tab_camera_description">Selectează culori live sau dintr-o fotografie. Atinge orice mostră pentru a copia.</string>
-    <string name="live_camera">Cameră live</string>
-    <string name="live_camera_subtitle">Țintă + zoom</string>
+    <string name="pick_color_here_description">Atingeți pentru selectarea culorii în timp real</string>
     <string name="from_album">Din album</string>
     <string name="from_album_subtitle">Selectează dintr-o fotografie</string>
+    <string name="from_gallery">Din galerie</string>
     <string name="tools">Instrumente</string>
     <string name="color_slider_description">Ajustează RGB sau HSL și vezi numele și HEX în timp real. Salvează sau construiește palete.</string>
+    <string name="color_blind_enhancer_description">Vizualizare live a camerei ajustată pentru deficiențe de vedere a culorilor</string>
     <string name="open">Deschide</string>
-    <string name="live_color_picker">Selector de culori live</string>
-    <string name="live_color_picker_description">Îndreaptă către orice. Ciupire pentru zoom. Adaugă instant în paletă.</string>
-    <string name="start_live_picking">Începe selectarea live</string>
 
+    <string name="filter_selector_label">Filtru</string>
     <string name="settings_title">Setări</string>
     <string name="settings_description">Ajustează cum arată aplicația și cum se comportă ținta selectorului.</string>
     <string name="app_preferences">Preferințe aplicație</string>
     <string name="theme">Temă</string>
-    <string name="theme_description">Alege cum arată aplicația.</string>
+    <string name="follows_your_system_theme">Urmează tema sistemului</string>
     <string name="language">Limbă</string>
     <string name="picker_crosshair">Țintă selector</string>
     <string name="picker_crosshair_description">Ajustează ținta folosită la eșantionarea culorilor.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Dimensiune</string>
     <string name="shape">Formă</string>
     <string name="sensitivity">Sensibilitate</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Proprietate, componente terțe și detalii de licență</string>
     <string name="privacy_statement">Declarație de confidențialitate</string>
     <string name="privacy_statement_description">Cum rămân datele camerei și fotografiilor pe dispozitiv</string>
+    <string name="terms_of_service_description">Consultați termenii aplicației și ghidurile de utilizare</string>
     <string name="usage_guide">Ghid de utilizare</string>
     <string name="usage_guide_description">Ghid pas cu pas și index pentru sarcinile cheie</string>
     <string name="feedback">Feedback</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Evaluează-ne</string>
     <string name="rate_us_description">Lasă o evaluare rapidă în Play Store.</string>
 
+    <string name="share_app_text">Descoperiți Color Picker pe Google Play: %1$s</string>
     <string name="camera_title">Cameră</string>
     <string name="camera_intro">Selectează culori live sau dintr-o fotografie. Atinge orice mostră pentru a copia.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Paletă goală, începe să adaugi culori</string>
     <string name="photo_palette_saved">Paletă salvată ✅</string>
 
-    <string name="added_to_recents">Adăugat la recente</string>
     <string name="suggestions">Sugestii</string>
     <string name="saved_colors">Culori salvate</string>
     <string name="saved_palettes">Palete salvate</string>
     <string name="no_recent_colors">Nu există culori recente încă. Atinge 🧪 pentru a selecta o culoare.</string>
     <string name="no_saved_colors">Nu există culori salvate încă.</string>
     <string name="no_saved_palettes">Nu există palete salvate încă.</string>
-    <string name="clear_recent_colors_title">Golești culorile recente?</string>
-    <string name="clear_recent_colors_description">Asta va elimina toate culorile recente.</string>
-    <string name="clear_saved_colors_title">Golești culorile salvate?</string>
-    <string name="clear_saved_colors_description">Asta va elimina toate culorile salvate.</string>
     <string name="clear_saved_palettes_title">Golești paletele salvate?</string>
     <string name="clear_saved_palettes_description">Asta va elimina toate paletele salvate.</string>
+    <string name="no_matching_palettes">Nu există palete corespunzătoare</string>
     <string name="quick_color_lookup">Căutare rapidă de culori</string>
     <string name="search_placeholder">Caută culori sau coduri HEX</string>
     <string name="search_hint_one">Curios despre \'albastru de miezul nopții\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Cum arată \'Cerulean\'?</string>
     <string name="search_hint_nine">Cum se simte \'#228B22\'?</string>
     <string name="search_hint_ten">Dezvăluie nuanța \'#E97451\'</string>
-    <string name="palette_color_label">Paletă</string>
-    <string name="clear_recent">Golește recentele</string>
-    <string name="clear_saved">Golește salvatele</string>
-    <string name="clear_palettes">Golește paletele</string>
-    <string name="copy_hex_content_description">Copiază HEX</string>
 
+    <string name="no_matching_colors">Nu există culori corespunzătoare</string>
     <string name="palette_bar_clear">Golește paleta</string>
     <string name="palette_bar_palette">Paletă</string>
     <string name="palette_bar_add_color">Adaugă culoare</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Descriere</string>
     <string name="copy_all_hex">Copiază HEX</string>
     <string name="export_css">Copiază CSS</string>
-    <string name="remove_from_favourites">Șterge paleta</string>
     <string name="view_more_indicator">Vezi mai mult ›</string>
     <string name="save_changes">Salvează modificările</string>
     <string name="edit_palette">Editează</string>
     <string name="palette_updated">Paletă actualizată</string>
     <string name="copied_all_hex">Toate valorile HEX au fost copiate</string>
     <string name="exported_css">CSS copiat în clipboard</string>
-    <string name="reorder">Rearanjează</string>
     <string name="splash_loading_message">Îți încălzim paleta…</string>
+    <string name="create_new_palette">Creați o paletă nouă</string>
+    <string name="palette_name_with_color">Paleta %1$s</string>
+    <string name="color_shades_tints_tones_title">Nuanțe, tente și tonuri de culoare %1$s</string>
+    <string name="tints_label">Tente</string>
+    <string name="shades_label">Nuanțe</string>
+    <string name="tones_label">Tonuri</string>
+    <string name="color_palettes_title">Palete de culori %1$s</string>
+    <string name="palette_scheme_complementary">Paletă complementară</string>
+    <string name="palette_scheme_analogous">Paletă analogă</string>
+    <string name="palette_scheme_split_complementary">Paletă complementară divizată</string>
+    <string name="palette_scheme_triadic">Paletă triadică</string>
+    <string name="palette_scheme_tetradic">Paletă tetradică</string>
+    <string name="cyan_label">Cian</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Valoare</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Începe selecția!</string>
+    <string name="color_blind_enhancer">Amplificator pentru daltonism</string>
+    <string name="color_blind_enhancer_title">Amplificator pentru daltonism</string>
+    <string name="monochrome_mode">Mod monocrom</string>
+    <string name="color_blind_enhancement">Îmbunătățire pentru daltonism</string>
+    <string name="drastic_mode">Mod drastic</string>
+    <string name="edge_contrast_mode">Mod de contrast al marginilor</string>
+    <string name="thermal_mode">Mod de imagistică termică</string>
+    <string name="mri_mode">Mod de imagistică MRI</string>
+    <string name="xray_mode">Mod de imagistică cu raze X</string>
+    <string name="animate_mode">Mod de stil animat</string>
+    <string name="cyber_mode">Mod de stil cyber</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Alege un filtru</string>
+    <string name="choose_theme">Alege temă</string>
+    <string name="choose_theme_description">Alege aspectul care ți se potrivește cel mai bine.</string>
+    <string name="terms_of_service">Termeni de serviciu</string>
+    <string name="share_app">Partajează aplicația</string>
+    <string name="share_app_description">Trimite linkul Play Store prietenilor.</string>
 </resources>

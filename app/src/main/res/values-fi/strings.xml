@@ -2,7 +2,6 @@
     <string name="app_name">color</string>
 
     <string name="back">Takaisin</string>
-    <string name="close">Sulje</string>
     <string name="clear">Tyhjennä</string>
     <string name="cancel">Peruuta</string>
     <string name="copy">Kopioi</string>
@@ -11,7 +10,6 @@
     <string name="save">Tallenna</string>
     <string name="saved">Tallennettu</string>
     <string name="delete">Poista</string>
-    <string name="more_options">Lisää vaihtoehtoja</string>
 
     <string name="palette">Paletti</string>
     <string name="camera">Kamera</string>
@@ -25,8 +23,6 @@
     <string name="view_more">Näytä lisää</string>
     <string name="show_less">Näytä vähemmän</string>
     <string name="show_more">Näytä enemmän</string>
-    <string name="show_less_caps">NÄYTÄ VÄHEMMÄN</string>
-    <string name="show_more_caps">NÄYTÄ ENEMMÄN</string>
 
     <string name="theme_system_default">Järjestelmän oletus</string>
     <string name="theme_light">Vaalea</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s on jo paletissa</string>
     <string name="palette_full_message">Paletti on täynnä (10 väriä). Napauta palettia tallentaaksesi sen ja aloita uusi.</string>
     <string name="palette_empty_start_adding">Paletti on tyhjä, aloita värien lisääminen</string>
-    <string name="palette_saved_toast">Paletti tallennettu ✅</string>
     <string name="palette_default_name">Paletti %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">live-poiminta</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">Tallennettu omiin väreihin</string>
     <string name="no_palettes_available">Paletteja ei ole. Luo ensin yksi.</string>
     <string name="add_to_palette">Lisää palettiin</string>
+    <string name="palette_scheme_square">Neliöpaletti</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Punainen</string>
     <string name="green_label">Vihreä</string>
     <string name="blue_label">Sininen</string>
+    <string name="yellow_label">Keltainen</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Sävy</string>
     <string name="saturation_label">Kylläisyys</string>
     <string name="lightness_label">Vaaleus</string>
-    <string name="select_palette">Valitse paletti</string>
+    <string name="sliders_label">Liukusäätimet</string>
     <string name="palette_color_count">%1$d väriä</string>
     <string name="more_details">Lisätiedot</string>
     <string name="already_in_palette">Jo paletissa</string>
     <string name="palette_full">Paletti täynnä (10 väriä)</string>
     <string name="added_to_palette">Lisätty palettiin</string>
     <string name="hex_copied">HEX kopioitu</string>
-    <string name="name_copied">Nimi kopioitu</string>
     <string name="copy_hex">Kopioi HEX</string>
-    <string name="copy_name">Kopioi nimi</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Teksti %1$s</string>
     <string name="white_label">Valkoinen</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">Analoginen</string>
     <string name="similar_colors">Samankaltaiset värit</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Poimi värejä livenä tai valokuvasta. Napauta mitä tahansa värinäytettä kopioidaksesi.</string>
-    <string name="live_camera">Live-kamera</string>
-    <string name="live_camera_subtitle">Tähtäin + zoom</string>
+    <string name="pick_color_here_description">Napauta reaaliaikaista värinpoimintaa varten</string>
     <string name="from_album">Albumista</string>
     <string name="from_album_subtitle">Poimi valokuvasta</string>
+    <string name="from_gallery">Galleriasta</string>
     <string name="tools">Työkalut</string>
     <string name="color_slider_description">Säädä RGB:tä tai HSL:ää ja näe nimet ja hex-arvot livenä. Tallenna tai rakenna paletteja.</string>
+    <string name="color_blind_enhancer_description">Reaaliaikainen kameranäkymä värinäön haasteisiin</string>
     <string name="open">Avaa</string>
-    <string name="live_color_picker">Live-väripoimija</string>
-    <string name="live_color_picker_description">Osoita mihin tahansa. Nipistä zoomataksesi. Lisää palettiin heti.</string>
-    <string name="start_live_picking">Aloita live-poiminta</string>
 
+    <string name="filter_selector_label">Suodatin</string>
     <string name="settings_title">Asetukset</string>
     <string name="settings_description">Säädä sovelluksen ulkoasua ja poimintatähtäimen toimintaa.</string>
     <string name="app_preferences">Sovelluksen asetukset</string>
     <string name="theme">Teema</string>
-    <string name="theme_description">Valitse sovelluksen ulkoasu.</string>
+    <string name="follows_your_system_theme">Seuraa järjestelmän teemaa</string>
     <string name="language">Kieli</string>
     <string name="picker_crosshair">Poimintatähtäin</string>
     <string name="picker_crosshair_description">Säädä värien näytteenotossa käytettävää tähtäintä.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Koko</string>
     <string name="shape">Muoto</string>
     <string name="sensitivity">Herkkyys</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">Omistajuus, kolmannen osapuolen komponentit ja lisenssitiedot</string>
     <string name="privacy_statement">Tietosuojaseloste</string>
     <string name="privacy_statement_description">Miten kamera- ja valokuvatiedot pysyvät laitteessa</string>
+    <string name="terms_of_service_description">Tarkista sovelluksen ehdot ja käyttöohjeet</string>
     <string name="usage_guide">Käyttöopas</string>
     <string name="usage_guide_description">Vaiheittainen opas ja hakemisto tärkeimpiin tehtäviin</string>
     <string name="feedback">Palaute</string>
-    <string name="send_feedback">Lähetä palautetta</string>
-    <string name="send_feedback_description">Kerro, mitä haluat parantaa.</string>
+    <string name="send_feedback">Lähetä palaute</string>
+    <string name="send_feedback_description">Jaa, mitä haluaisit parantaa.</string>
     <string name="rate_us">Arvostele meidät</string>
-    <string name="rate_us_description">Jätä nopea arvio Play Kauppaan.</string>
+    <string name="rate_us_description">Anna nopea arvostelu Play Kaupassa.</string>
 
+    <string name="share_app_text">Katso Color Picker Google Playssa: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Poimi värejä livenä tai valokuvasta. Napauta mitä tahansa värinäytettä kopioidaksesi.</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">Paletti on tyhjä, aloita värien lisääminen</string>
     <string name="photo_palette_saved">Paletti tallennettu ✅</string>
 
-    <string name="added_to_recents">Lisätty viimeisimpiin</string>
     <string name="suggestions">Ehdotukset</string>
     <string name="saved_colors">Tallennetut värit</string>
     <string name="saved_palettes">Tallennetut paletit</string>
     <string name="no_recent_colors">Ei vielä viimeisimpiä värejä. Napauta 🧪 poimiaksesi värin.</string>
     <string name="no_saved_colors">Ei tallennettuja värejä vielä.</string>
     <string name="no_saved_palettes">Ei tallennettuja paletteja vielä.</string>
-    <string name="clear_recent_colors_title">Tyhjennetäänkö viimeisimmät värit?</string>
-    <string name="clear_recent_colors_description">Tämä poistaa kaikki viimeisimmät värit.</string>
-    <string name="clear_saved_colors_title">Tyhjennetäänkö tallennetut värit?</string>
-    <string name="clear_saved_colors_description">Tämä poistaa kaikki tallennetut värit.</string>
     <string name="clear_saved_palettes_title">Tyhjennetäänkö tallennetut paletit?</string>
     <string name="clear_saved_palettes_description">Tämä poistaa kaikki tallennetut paletit.</string>
+    <string name="no_matching_palettes">Ei vastaavia paletteja</string>
     <string name="quick_color_lookup">Pikavärien haku</string>
     <string name="search_placeholder">Hae värejä tai hex-koodeja</string>
     <string name="search_hint_one">Utelias \'Yönsinisestä\'?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">Miltä \'Cerulean\' näyttää?</string>
     <string name="search_hint_nine">Miltä \'#228B22\' tuntuu?</string>
     <string name="search_hint_ten">Paljasta sävy \'#E97451\'</string>
-    <string name="palette_color_label">Paletti</string>
-    <string name="clear_recent">Tyhjennä viimeisimmät</string>
-    <string name="clear_saved">Tyhjennä tallennetut</string>
-    <string name="clear_palettes">Tyhjennä paletit</string>
-    <string name="copy_hex_content_description">Kopioi HEX</string>
+    <string name="no_matching_colors">Ei vastaavia värejä</string>
 
     <string name="palette_bar_clear">Tyhjennä paletti</string>
     <string name="palette_bar_palette">Paletti</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">Kuvaus</string>
     <string name="copy_all_hex">Kopioi HEX</string>
     <string name="export_css">Kopioi CSS</string>
-    <string name="remove_from_favourites">Poista paletti</string>
     <string name="view_more_indicator">Näytä lisää ›</string>
     <string name="save_changes">Tallenna muutokset</string>
     <string name="edit_palette">Muokkaa</string>
     <string name="palette_updated">Paletti päivitetty</string>
     <string name="copied_all_hex">Kaikki HEX-arvot kopioitu</string>
     <string name="exported_css">CSS kopioitu leikepöydälle</string>
-    <string name="reorder">Järjestä uudelleen</string>
     <string name="splash_loading_message">Paletti lämmitetään…</string>
+    <string name="see_more">Näytä lisää</string>
+    <string name="create_new_palette">Luo uusi paletti</string>
+    <string name="palette_name_with_color">%1$s Paletti</string>
+    <string name="color_shades_tints_tones_title">%1$s värisävyt, sävyt ja vivahteet</string>
+    <string name="tints_label">Vaaleat sävyt</string>
+    <string name="shades_label">Tummat sävyt</string>
+    <string name="tones_label">Vivahteet</string>
+    <string name="color_palettes_title">%1$s väripaletit</string>
+    <string name="palette_scheme_complementary">Komplementaarinen paletti</string>
+    <string name="palette_scheme_analogous">Analoginen paletti</string>
+    <string name="palette_scheme_split_complementary">Jaettu komplementaarinen paletti</string>
+    <string name="palette_scheme_triadic">Triadinen paletti</string>
+    <string name="palette_scheme_tetradic">Tetradinen paletti</string>
+    <string name="cyan_label">Syaani</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Arvo</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Aloita poiminta!</string>
+    <string name="color_blind_enhancer">Värisokeuden parannus</string>
+    <string name="color_blind_enhancer_title">Värisokeuden parannus</string>
+    <string name="monochrome_mode">Yksivärinen tila</string>
+    <string name="color_blind_enhancement">Värisokeuden parannus</string>
+    <string name="drastic_mode">Voimakas tila</string>
+    <string name="edge_contrast_mode">Reunakontrastitila</string>
+    <string name="thermal_mode">Lämpökuvaustila</string>
+    <string name="mri_mode">MRI-kuvaustila</string>
+    <string name="xray_mode">Röntgenkuvaustila</string>
+    <string name="animate_mode">Animoitu tyyli</string>
+    <string name="cyber_mode">Kybertyyli</string>
+    <string name="mode_normal">Normaali</string>
+    <string name="filter_grid_title">Valitse suodatin</string>
+    <string name="choose_theme">Valitse teema</string>
+    <string name="choose_theme_description">Valitse sinulle parhaiten sopiva ulkoasu.</string>
+    <string name="terms_of_service">Käyttöehdot</string>
+    <string name="share_app">Jaa sovellus</string>
+    <string name="share_app_description">Lähetä Play Kaupan linkki ystäville.</string>
 </resources>

@@ -3,7 +3,6 @@
     <string name="app_name">color</string>
 
     <string name="back">返回</string>
-    <string name="close">关闭</string>
     <string name="clear">清除</string>
     <string name="cancel">取消</string>
     <string name="copy">复制</string>
@@ -12,7 +11,6 @@
     <string name="save">保存</string>
     <string name="saved">已保存</string>
     <string name="delete">删除</string>
-    <string name="more_options">更多选项</string>
 
     <string name="palette">调色板</string>
     <string name="camera">相机</string>
@@ -26,8 +24,6 @@
     <string name="view_more">查看更多</string>
     <string name="show_less">显示更少</string>
     <string name="show_more">显示更多</string>
-    <string name="show_less_caps">显示更少</string>
-    <string name="show_more_caps">显示更多</string>
 
     <string name="theme_system_default">系统默认</string>
     <string name="theme_light">亮色</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s 已在调色板中</string>
     <string name="palette_full_message">调色板已满（10 种颜色）。点击调色板保存并开始新的调色板。</string>
     <string name="palette_empty_start_adding">调色板为空，开始添加颜色</string>
-    <string name="palette_saved_toast">调色板已保存 ✅</string>
     <string name="palette_default_name">调色板 %1$d</string>
     <string name="palette_tag_camera">相机</string>
     <string name="palette_tag_live_pick">实时取色</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">已保存到我的颜色</string>
     <string name="no_palettes_available">暂无调色板。请先创建一个。</string>
     <string name="add_to_palette">添加到调色板</string>
+    <string name="palette_scheme_square">方形调色板</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">红</string>
     <string name="green_label">绿</string>
     <string name="blue_label">蓝</string>
+    <string name="yellow_label">黄色</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">色相</string>
     <string name="saturation_label">饱和度</string>
     <string name="lightness_label">明度</string>
-    <string name="select_palette">选择调色板</string>
+    <string name="sliders_label">滑块</string>
     <string name="palette_color_count">%1$d 种颜色</string>
     <string name="more_details">更多详情</string>
     <string name="already_in_palette">已在调色板中</string>
     <string name="palette_full">调色板已满（10 种颜色）</string>
     <string name="added_to_palette">已添加到调色板</string>
     <string name="hex_copied">已复制 HEX</string>
-    <string name="name_copied">已复制名称</string>
     <string name="copy_hex">复制 HEX</string>
-    <string name="copy_name">复制名称</string>
     <string name="luma_label">亮度 %1$d%%</string>
     <string name="text_recommendation">文本 %1$s</string>
     <string name="white_label">白色</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">类似色</string>
     <string name="similar_colors">相似颜色</string>
 
-    <string name="picker_tab_camera">相机</string>
-    <string name="picker_tab_camera_description">实时取色或从照片中取色。点击任意色块即可复制。</string>
-    <string name="live_camera">实时相机</string>
-    <string name="live_camera_subtitle">十字准星 + 缩放</string>
+    <string name="pick_color_here_description">点击进行实时取色</string>
     <string name="from_album">来自相册</string>
     <string name="from_album_subtitle">从照片中取色</string>
+    <string name="from_gallery">从图库</string>
     <string name="tools">工具</string>
     <string name="color_slider_description">调整 RGB 或 HSL 并实时查看名称和十六进制值。保存或创建调色板。</string>
+    <string name="color_blind_enhancer_description">为色觉障碍优化的实时相机视图</string>
     <string name="open">打开</string>
-    <string name="live_color_picker">实时颜色取样器</string>
-    <string name="live_color_picker_description">对准任何东西。双指缩放。立即添加到调色板。</string>
-    <string name="start_live_picking">开始实时取色</string>
 
+    <string name="filter_selector_label">滤镜</string>
     <string name="settings_title">设置</string>
     <string name="settings_description">调整应用外观和取色十字准星行为。</string>
     <string name="app_preferences">应用偏好</string>
     <string name="theme">主题</string>
-    <string name="theme_description">选择应用的外观。</string>
+    <string name="follows_your_system_theme">跟随系统主题</string>
     <string name="language">语言</string>
     <string name="picker_crosshair">取色十字准星</string>
     <string name="picker_crosshair_description">调整取样颜色时使用的十字准星。</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">大小</string>
     <string name="shape">形状</string>
     <string name="sensitivity">灵敏度</string>
@@ -165,10 +158,12 @@
     <string name="copyright_notice_description">所有权、第三方组件和许可详情</string>
     <string name="privacy_statement">隐私声明</string>
     <string name="privacy_statement_description">相机和照片数据如何保持在设备上</string>
+    <string name="terms_of_service_description">查看应用条款和使用指南</string>
     <string name="usage_guide">使用指南</string>
     <string name="usage_guide_description">关键任务的分步指南和索引</string>
 
-    <string name="rate_us_description">喜欢的话，快来Play Store为我们打分吧！</string>
+    <string name="rate_us_description">在 Play 商店留下快速评分。</string>
+    <string name="share_app_text">在 Google Play 上查看 Color Picker：%1$s</string>
     <string name="camera_title">相机</string>
     <string name="camera_intro">实时取色或从照片中取色。点击任意色块即可复制。</string>
 
@@ -180,19 +175,15 @@
     <string name="photo_palette_empty">调色板为空，开始添加颜色</string>
     <string name="photo_palette_saved">调色板已保存 ✅</string>
 
-    <string name="added_to_recents">已添加到最近</string>
     <string name="suggestions">建议</string>
     <string name="saved_colors">已保存的颜色</string>
     <string name="saved_palettes">已保存的调色板</string>
     <string name="no_recent_colors">还没有最近颜色。点击 🧪 以取色。</string>
     <string name="no_saved_colors">还没有保存的颜色。</string>
     <string name="no_saved_palettes">还没有保存的调色板。</string>
-    <string name="clear_recent_colors_title">清除最近颜色？</string>
-    <string name="clear_recent_colors_description">这将移除所有最近颜色。</string>
-    <string name="clear_saved_colors_title">清除保存的颜色？</string>
-    <string name="clear_saved_colors_description">这将移除所有保存的颜色。</string>
     <string name="clear_saved_palettes_title">清除保存的调色板？</string>
     <string name="clear_saved_palettes_description">这将移除所有保存的调色板。</string>
+    <string name="no_matching_palettes">没有匹配的调色板</string>
     <string name="quick_color_lookup">快速颜色查询</string>
     <string name="search_placeholder">搜索颜色或十六进制代码</string>
 
@@ -208,11 +199,7 @@
     <string name="search_hint_ten">揭开“#E97451”的色调</string>
 
 
-    <string name="palette_color_label">调色板</string>
-    <string name="clear_recent">清除最近</string>
-    <string name="clear_saved">清除已保存</string>
-    <string name="clear_palettes">清除调色板</string>
-    <string name="copy_hex_content_description">复制HEX</string>
+    <string name="no_matching_colors">没有匹配的颜色</string>
 
 
     <string name="palette_bar_clear">清空调色板</string>
@@ -225,17 +212,51 @@
     <string name="palette_description_label">描述</string>
     <string name="copy_all_hex">复制所有 HEX 值</string>
     <string name="export_css">导出为 CSS</string>
-    <string name="remove_from_favourites">从收藏中移除</string>
     <string name="view_more_indicator">查看更多 ›</string>
     <string name="save_changes">保存更改</string>
     <string name="edit_palette">编辑</string>
     <string name="palette_updated">调色板已更新</string>
     <string name="copied_all_hex">已复制所有 HEX 值</string>
     <string name="exported_css">已将 CSS 复制到剪贴板</string>
-    <string name="reorder">重新排序</string>
     <string name="splash_loading_message">正在唤醒你的调色板…</string>
     <string name="feedback">反馈</string>
     <string name="send_feedback">发送反馈</string>
-    <string name="send_feedback_description">分享您希望看到改进的地方。</string>
-    <string name="rate_us">为我们发声</string>
+    <string name="send_feedback_description">分享你希望改进的内容。</string>
+    <string name="rate_us">为我们评分</string>
+    <string name="see_more">查看更多</string>
+    <string name="create_new_palette">创建新调色板</string>
+    <string name="palette_name_with_color">%1$s 调色板</string>
+    <string name="color_shades_tints_tones_title">%1$s 的色阶、色调与明度</string>
+    <string name="tints_label">浅色</string>
+    <string name="shades_label">深色</string>
+    <string name="tones_label">中色</string>
+    <string name="color_palettes_title">%1$s 调色板组合</string>
+    <string name="palette_scheme_complementary">互补色调色板</string>
+    <string name="palette_scheme_analogous">类似色调色板</string>
+    <string name="palette_scheme_split_complementary">分裂互补色调色板</string>
+    <string name="palette_scheme_triadic">三色调色板</string>
+    <string name="palette_scheme_tetradic">四色调色板</string>
+    <string name="cyan_label">青色</string>
+    <string name="magenta_label">洋红</string>
+    <string name="value_label">数值</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">开始取色！</string>
+    <string name="color_blind_enhancer">色盲增强</string>
+    <string name="color_blind_enhancer_title">色盲增强</string>
+    <string name="monochrome_mode">单色模式</string>
+    <string name="color_blind_enhancement">色盲增强模式</string>
+    <string name="drastic_mode">强烈模式</string>
+    <string name="edge_contrast_mode">边缘对比模式</string>
+    <string name="thermal_mode">热成像模式</string>
+    <string name="mri_mode">MRI 成像模式</string>
+    <string name="xray_mode">X 光成像模式</string>
+    <string name="animate_mode">动画风格模式</string>
+    <string name="cyber_mode">赛博风格模式</string>
+    <string name="mode_normal">普通</string>
+    <string name="filter_grid_title">选择滤镜</string>
+    <string name="choose_theme">选择主题</string>
+    <string name="choose_theme_description">选择最适合你的外观。</string>
+    <string name="terms_of_service">服务条款</string>
+    <string name="share_app">分享应用</string>
+    <string name="share_app_description">将 Play 商店链接发送给朋友。</string>
 </resources>

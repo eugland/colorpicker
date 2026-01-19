@@ -2,7 +2,6 @@
     <string name="app_name">warna</string>
 
     <string name="back">Kembali</string>
-    <string name="close">Tutup</string>
     <string name="clear">Kosongkan</string>
     <string name="cancel">Batal</string>
     <string name="copy">Salin</string>
@@ -11,7 +10,6 @@
     <string name="save">Simpan</string>
     <string name="saved">Disimpan</string>
     <string name="delete">Padam</string>
-    <string name="more_options">Pilihan lain</string>
 
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Lihat lagi</string>
     <string name="show_less">Tunjuk kurang</string>
     <string name="show_more">Tunjuk lagi</string>
-    <string name="show_less_caps">TUNJUK KURANG</string>
-    <string name="show_more_caps">TUNJUK LAGI</string>
 
+    <string name="see_more">Lihat lagi</string>
     <string name="theme_system_default">Lalai sistem</string>
     <string name="theme_light">Cerah</string>
     <string name="theme_dark">Gelap</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s sudah ada dalam palet</string>
     <string name="palette_full_message">Palet penuh (10 warna). Ketik palet untuk menyimpannya dan mula yang baharu.</string>
     <string name="palette_empty_start_adding">Palet kosong, mula tambah warna</string>
-    <string name="palette_saved_toast">Palet disimpan ✅</string>
     <string name="palette_default_name">Palet %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">pilih-langsung</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Disimpan ke Warna saya</string>
     <string name="no_palettes_available">Tiada palet tersedia. Cipta satu dahulu.</string>
     <string name="add_to_palette">Tambah ke palet</string>
+    <string name="palette_scheme_square">Palet Segi Empat</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Merah</string>
     <string name="green_label">Hijau</string>
     <string name="blue_label">Biru</string>
+    <string name="yellow_label">Kuning</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Rona</string>
     <string name="saturation_label">Ketepuan</string>
     <string name="lightness_label">Kecerahan</string>
-    <string name="select_palette">Pilih palet</string>
+    <string name="sliders_label">Peluncur</string>
     <string name="palette_color_count">%1$d warna</string>
     <string name="more_details">Butiran lanjut</string>
     <string name="already_in_palette">Sudah dalam palet</string>
     <string name="palette_full">Palet penuh (10 warna)</string>
     <string name="added_to_palette">Ditambah ke palet</string>
     <string name="hex_copied">HEX disalin</string>
-    <string name="name_copied">Nama disalin</string>
     <string name="copy_hex">Salin HEX</string>
-    <string name="copy_name">Salin nama</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Teks %1$s</string>
     <string name="white_label">Putih</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Seiras</string>
     <string name="similar_colors">Warna serupa</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Pilih warna secara langsung atau daripada foto. Ketik mana-mana swatch untuk menyalin.</string>
-    <string name="live_camera">Kamera langsung</string>
-    <string name="live_camera_subtitle">Sasar + zum</string>
+    <string name="pick_color_here_description">Ketik untuk pemilihan warna secara langsung</string>
     <string name="from_album">Dari Album</string>
     <string name="from_album_subtitle">Pilih daripada foto</string>
+    <string name="from_gallery">Dari Galeri</string>
     <string name="tools">Alat</string>
     <string name="color_slider_description">Laraskan RGB atau HSL dan lihat nama serta HEX secara langsung. Simpan atau bina palet.</string>
+    <string name="color_blind_enhancer_description">Paparan kamera langsung yang ditala untuk kekurangan penglihatan warna</string>
     <string name="open">Buka</string>
-    <string name="live_color_picker">Pemilih warna langsung</string>
-    <string name="live_color_picker_description">Halakan pada apa sahaja. Cubit untuk zum. Tambah ke palet serta-merta.</string>
-    <string name="start_live_picking">Mulakan Pemilihan Langsung</string>
 
+    <string name="filter_selector_label">Penapis</string>
     <string name="settings_title">Tetapan</string>
     <string name="settings_description">Laraskan rupa aplikasi dan bagaimana sasar pemilih berfungsi.</string>
     <string name="app_preferences">Keutamaan aplikasi</string>
     <string name="theme">Tema</string>
-    <string name="theme_description">Pilih rupa aplikasi.</string>
+    <string name="follows_your_system_theme">Mengikuti tema sistem anda</string>
     <string name="language">Bahasa</string>
     <string name="picker_crosshair">Sasar pemilih</string>
     <string name="picker_crosshair_description">Laraskan sasar yang digunakan ketika menyampel warna.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Saiz</string>
     <string name="shape">Bentuk</string>
     <string name="sensitivity">Kepekaan</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Pemilikan, komponen pihak ketiga, dan butiran lesen</string>
     <string name="privacy_statement">Penyataan privasi</string>
     <string name="privacy_statement_description">Bagaimana data kamera dan foto kekal di peranti</string>
+    <string name="terms_of_service_description">Semak terma aplikasi dan garis panduan penggunaan</string>
     <string name="usage_guide">Panduan penggunaan</string>
     <string name="usage_guide_description">Panduan langkah demi langkah dan indeks untuk tugas utama</string>
     <string name="feedback">Maklum balas</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Nilai kami</string>
     <string name="rate_us_description">Berikan penilaian ringkas di Play Store.</string>
 
+    <string name="share_app_text">Lihat Color Picker di Google Play: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Pilih warna secara langsung atau daripada foto. Ketik mana-mana swatch untuk menyalin.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Palet kosong, mula tambah warna</string>
     <string name="photo_palette_saved">Palet disimpan ✅</string>
 
-    <string name="added_to_recents">Ditambah ke terkini</string>
     <string name="suggestions">Cadangan</string>
     <string name="saved_colors">Warna disimpan</string>
     <string name="saved_palettes">Palet disimpan</string>
     <string name="no_recent_colors">Tiada warna terkini lagi. Ketik 🧪 untuk memilih warna.</string>
     <string name="no_saved_colors">Tiada warna disimpan lagi.</string>
     <string name="no_saved_palettes">Tiada palet disimpan lagi.</string>
-    <string name="clear_recent_colors_title">Kosongkan warna terkini?</string>
-    <string name="clear_recent_colors_description">Ini akan membuang semua warna terkini.</string>
-    <string name="clear_saved_colors_title">Kosongkan warna disimpan?</string>
-    <string name="clear_saved_colors_description">Ini akan membuang semua warna disimpan.</string>
     <string name="clear_saved_palettes_title">Kosongkan palet disimpan?</string>
     <string name="clear_saved_palettes_description">Ini akan membuang semua palet disimpan.</string>
+    <string name="no_matching_palettes">Tiada palet yang sepadan</string>
     <string name="quick_color_lookup">Carian warna pantas</string>
     <string name="search_placeholder">Cari warna atau kod HEX</string>
     <string name="search_hint_one">Ingin tahu tentang \'Biru midnight\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Bagaimana rupa \'Cerulean\'?</string>
     <string name="search_hint_nine">Bagaimana rasa \'#228B22\'?</string>
     <string name="search_hint_ten">Bongkar tona \'#E97451\'</string>
-    <string name="palette_color_label">Palet</string>
-    <string name="clear_recent">Kosongkan terkini</string>
-    <string name="clear_saved">Kosongkan disimpan</string>
-    <string name="clear_palettes">Kosongkan palet</string>
-    <string name="copy_hex_content_description">Salin HEX</string>
 
+    <string name="no_matching_colors">Tiada warna yang sepadan</string>
     <string name="palette_bar_clear">Kosongkan palet</string>
     <string name="palette_bar_palette">Palet</string>
     <string name="palette_bar_add_color">Tambah warna</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Penerangan</string>
     <string name="copy_all_hex">Salin HEX</string>
     <string name="export_css">Salin CSS</string>
-    <string name="remove_from_favourites">Padam palet</string>
     <string name="view_more_indicator">Lihat lagi ›</string>
     <string name="save_changes">Simpan perubahan</string>
     <string name="edit_palette">Edit</string>
     <string name="palette_updated">Palet dikemas kini</string>
     <string name="copied_all_hex">Semua nilai HEX disalin</string>
     <string name="exported_css">CSS disalin ke papan klip</string>
-    <string name="reorder">Susun semula</string>
     <string name="splash_loading_message">Memanaskan palet anda…</string>
+    <string name="create_new_palette">Cipta palet baharu</string>
+    <string name="palette_name_with_color">Palet %1$s</string>
+    <string name="color_shades_tints_tones_title">Bayang, tint dan ton warna %1$s</string>
+    <string name="tints_label">Tint</string>
+    <string name="shades_label">Bayang</string>
+    <string name="tones_label">Ton</string>
+    <string name="color_palettes_title">Palet warna %1$s</string>
+    <string name="palette_scheme_complementary">Palet pelengkap</string>
+    <string name="palette_scheme_analogous">Palet analog</string>
+    <string name="palette_scheme_split_complementary">Palet pelengkap terpisah</string>
+    <string name="palette_scheme_triadic">Palet triadik</string>
+    <string name="palette_scheme_tetradic">Palet tetradik</string>
+    <string name="cyan_label">Sian</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Nilai</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Mulakan pemilihan!</string>
+    <string name="color_blind_enhancer">Peningkat buta warna</string>
+    <string name="color_blind_enhancer_title">Peningkat buta warna</string>
+    <string name="monochrome_mode">Mod monokrom</string>
+    <string name="color_blind_enhancement">Peningkatan buta warna</string>
+    <string name="drastic_mode">Mod drastik</string>
+    <string name="edge_contrast_mode">Mod kontras tepi</string>
+    <string name="thermal_mode">Mod pengimejan terma</string>
+    <string name="mri_mode">Mod pengimejan MRI</string>
+    <string name="xray_mode">Mod pengimejan sinar-X</string>
+    <string name="animate_mode">Mod gaya animasi</string>
+    <string name="cyber_mode">Mod gaya siber</string>
+    <string name="mode_normal">Normal</string>
+    <string name="filter_grid_title">Pilih penapis</string>
+    <string name="choose_theme">Pilih tema</string>
+    <string name="choose_theme_description">Pilih penampilan yang paling sesuai untuk anda.</string>
+    <string name="terms_of_service">Terma perkhidmatan</string>
+    <string name="share_app">Kongsi aplikasi</string>
+    <string name="share_app_description">Hantar pautan Play Store kepada rakan.</string>
 </resources>

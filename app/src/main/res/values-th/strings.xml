@@ -2,7 +2,6 @@
     <string name="app_name">สี</string>
 
     <string name="back">ย้อนกลับ</string>
-    <string name="close">ปิด</string>
     <string name="clear">ล้าง</string>
     <string name="cancel">ยกเลิก</string>
     <string name="copy">คัดลอก</string>
@@ -11,7 +10,6 @@
     <string name="save">บันทึก</string>
     <string name="saved">บันทึกแล้ว</string>
     <string name="delete">ลบ</string>
-    <string name="more_options">ตัวเลือกเพิ่มเติม</string>
 
     <string name="palette">พาเลตต์</string>
     <string name="camera">กล้อง</string>
@@ -25,9 +23,8 @@
     <string name="view_more">ดูเพิ่มเติม</string>
     <string name="show_less">แสดงน้อยลง</string>
     <string name="show_more">แสดงเพิ่มเติม</string>
-    <string name="show_less_caps">แสดงน้อยลง</string>
-    <string name="show_more_caps">แสดงเพิ่มเติม</string>
 
+    <string name="see_more">ดูเพิ่มเติม</string>
     <string name="theme_system_default">ค่าเริ่มต้นของระบบ</string>
     <string name="theme_light">สว่าง</string>
     <string name="theme_dark">มืด</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s อยู่ในพาเลตต์แล้ว</string>
     <string name="palette_full_message">พาเลตต์เต็มแล้ว (10 สี) แตะพาเลตต์เพื่อบันทึกและเริ่มใหม่</string>
     <string name="palette_empty_start_adding">พาเลตต์ว่าง เริ่มเพิ่มสีได้เลย</string>
-    <string name="palette_saved_toast">บันทึกพาเลตต์แล้ว ✅</string>
     <string name="palette_default_name">พาเลตต์ %1$d</string>
     <string name="palette_tag_camera">กล้อง</string>
     <string name="palette_tag_live_pick">เลือกสด</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">บันทึกในสีของฉันแล้ว</string>
     <string name="no_palettes_available">ไม่มีพาเลตต์ให้ใช้ กรุณาสร้างก่อน</string>
     <string name="add_to_palette">เพิ่มไปยังพาเลตต์</string>
+    <string name="palette_scheme_square">พาเล็ตสี่เหลี่ยม</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">แดง</string>
     <string name="green_label">เขียว</string>
     <string name="blue_label">น้ำเงิน</string>
+    <string name="yellow_label">สีเหลือง</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">เฉด</string>
     <string name="saturation_label">ความอิ่มสี</string>
     <string name="lightness_label">ความสว่าง</string>
-    <string name="select_palette">เลือกพาเลตต์</string>
+    <string name="sliders_label">ตัวเลื่อน</string>
     <string name="palette_color_count">%1$d สี</string>
     <string name="more_details">รายละเอียดเพิ่มเติม</string>
     <string name="already_in_palette">อยู่ในพาเลตต์แล้ว</string>
     <string name="palette_full">พาเลตต์เต็ม (10 สี)</string>
     <string name="added_to_palette">เพิ่มไปยังพาเลตต์แล้ว</string>
     <string name="hex_copied">คัดลอก HEX แล้ว</string>
-    <string name="name_copied">คัดลอกชื่อแล้ว</string>
     <string name="copy_hex">คัดลอก HEX</string>
-    <string name="copy_name">คัดลอกชื่อ</string>
     <string name="luma_label">ความสว่าง %1$d%%</string>
     <string name="text_recommendation">ข้อความ %1$s</string>
     <string name="white_label">ขาว</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">สีข้างเคียง</string>
     <string name="similar_colors">สีที่คล้ายกัน</string>
 
-    <string name="picker_tab_camera">กล้อง</string>
-    <string name="picker_tab_camera_description">เลือกสีแบบสดหรือจากรูปภาพ แตะตัวอย่างเพื่อคัดลอก</string>
-    <string name="live_camera">กล้องสด</string>
-    <string name="live_camera_subtitle">กากบาท + ซูม</string>
+    <string name="pick_color_here_description">แตะเพื่อเลือกสีแบบเรียลไทม์</string>
     <string name="from_album">จากอัลบั้ม</string>
     <string name="from_album_subtitle">เลือกจากรูปภาพ</string>
+    <string name="from_gallery">จากแกลเลอรี</string>
     <string name="tools">เครื่องมือ</string>
     <string name="color_slider_description">ปรับ RGB หรือ HSL และดูชื่อกับ HEX แบบสด บันทึกหรือสร้างพาเลตต์</string>
+    <string name="color_blind_enhancer_description">มุมมองกล้องสดที่ปรับสำหรับความบกพร่องด้านการมองเห็นสี</string>
     <string name="open">เปิด</string>
-    <string name="live_color_picker">ตัวเลือกสีแบบสด</string>
-    <string name="live_color_picker_description">ชี้ไปที่อะไรก็ได้ บีบเพื่อซูม เพิ่มลงพาเลตต์ทันที</string>
-    <string name="start_live_picking">เริ่มเลือกแบบสด</string>
 
+    <string name="filter_selector_label">ฟิลเตอร์</string>
     <string name="settings_title">การตั้งค่า</string>
     <string name="settings_description">ปรับรูปแบบแอปและพฤติกรรมกากบาทของตัวเลือกสี</string>
     <string name="app_preferences">การตั้งค่าแอป</string>
     <string name="theme">ธีม</string>
-    <string name="theme_description">เลือกหน้าตาของแอป</string>
+    <string name="follows_your_system_theme">ตามธีมของระบบ</string>
     <string name="language">ภาษา</string>
     <string name="picker_crosshair">กากบาทตัวเลือกสี</string>
     <string name="picker_crosshair_description">ปรับกากบาทที่ใช้ตอนเก็บสี</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">ขนาด</string>
     <string name="shape">รูปทรง</string>
     <string name="sensitivity">ความไว</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">ความเป็นเจ้าของ องค์ประกอบของบุคคลที่สาม และรายละเอียดใบอนุญาต</string>
     <string name="privacy_statement">นโยบายความเป็นส่วนตัว</string>
     <string name="privacy_statement_description">ข้อมูลกล้องและรูปภาพอยู่ในอุปกรณ์อย่างไร</string>
+    <string name="terms_of_service_description">ตรวจสอบข้อกำหนดและแนวทางการใช้งานของแอป</string>
     <string name="usage_guide">คู่มือการใช้งาน</string>
     <string name="usage_guide_description">คู่มือทีละขั้นตอนและดัชนีงานสำคัญ</string>
     <string name="feedback">ข้อเสนอแนะ</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">ให้คะแนนเรา</string>
     <string name="rate_us_description">ให้คะแนนสั้นๆ ใน Play Store</string>
 
+    <string name="share_app_text">ดู Color Picker บน Google Play: %1$s</string>
     <string name="camera_title">กล้อง</string>
     <string name="camera_intro">เลือกสีแบบสดหรือจากรูปภาพ แตะตัวอย่างเพื่อคัดลอก</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">พาเลตต์ว่าง เริ่มเพิ่มสีได้เลย</string>
     <string name="photo_palette_saved">บันทึกพาเลตต์แล้ว ✅</string>
 
-    <string name="added_to_recents">เพิ่มไปยังล่าสุดแล้ว</string>
     <string name="suggestions">คำแนะนำ</string>
     <string name="saved_colors">สีที่บันทึกไว้</string>
     <string name="saved_palettes">พาเลตต์ที่บันทึกไว้</string>
     <string name="no_recent_colors">ยังไม่มีสีล่าสุด แตะ 🧪 เพื่อเลือกสี</string>
     <string name="no_saved_colors">ยังไม่มีสีที่บันทึกไว้</string>
     <string name="no_saved_palettes">ยังไม่มีพาเลตต์ที่บันทึกไว้</string>
-    <string name="clear_recent_colors_title">ล้างสีล่าสุด?</string>
-    <string name="clear_recent_colors_description">การดำเนินการนี้จะลบสีล่าสุดทั้งหมด</string>
-    <string name="clear_saved_colors_title">ล้างสีที่บันทึกไว้?</string>
-    <string name="clear_saved_colors_description">การดำเนินการนี้จะลบสีที่บันทึกไว้ทั้งหมด</string>
     <string name="clear_saved_palettes_title">ล้างพาเลตต์ที่บันทึกไว้?</string>
     <string name="clear_saved_palettes_description">การดำเนินการนี้จะลบพาเลตต์ที่บันทึกไว้ทั้งหมด</string>
+    <string name="no_matching_palettes">ไม่มีพาเล็ตที่ตรงกัน</string>
     <string name="quick_color_lookup">ค้นหาสีอย่างรวดเร็ว</string>
     <string name="search_placeholder">ค้นหาสีหรือรหัส HEX</string>
     <string name="search_hint_one">สงสัย \'Midnight blue\' ไหม?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">\'Cerulean\' หน้าตาเป็นอย่างไร?</string>
     <string name="search_hint_nine">\'#228B22\' ให้ความรู้สึกอย่างไร?</string>
     <string name="search_hint_ten">ค้นพบเฉดสี \'#E97451\'</string>
-    <string name="palette_color_label">พาเลตต์</string>
-    <string name="clear_recent">ล้างล่าสุด</string>
-    <string name="clear_saved">ล้างที่บันทึกไว้</string>
-    <string name="clear_palettes">ล้างพาเลตต์</string>
-    <string name="copy_hex_content_description">คัดลอก HEX</string>
 
+    <string name="no_matching_colors">ไม่มีสีที่ตรงกัน</string>
     <string name="palette_bar_clear">ล้างพาเลตต์</string>
     <string name="palette_bar_palette">พาเลตต์</string>
     <string name="palette_bar_add_color">เพิ่มสี</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">คำอธิบาย</string>
     <string name="copy_all_hex">คัดลอก HEX</string>
     <string name="export_css">คัดลอก CSS</string>
-    <string name="remove_from_favourites">ลบพาเลตต์</string>
     <string name="view_more_indicator">ดูเพิ่มเติม ›</string>
     <string name="save_changes">บันทึกการเปลี่ยนแปลง</string>
     <string name="edit_palette">แก้ไข</string>
     <string name="palette_updated">อัปเดตพาเลตต์แล้ว</string>
     <string name="copied_all_hex">คัดลอกค่า HEX ทั้งหมดแล้ว</string>
     <string name="exported_css">คัดลอก CSS ไปยังคลิปบอร์ดแล้ว</string>
-    <string name="reorder">จัดเรียงใหม่</string>
     <string name="splash_loading_message">กำลังอุ่นเครื่องพาเลตต์ของคุณ…</string>
+    <string name="create_new_palette">สร้างพาเล็ตใหม่</string>
+    <string name="palette_name_with_color">พาเล็ต %1$s</string>
+    <string name="color_shades_tints_tones_title">เฉด สีอ่อน และโทนของสี %1$s</string>
+    <string name="tints_label">สีอ่อน</string>
+    <string name="shades_label">เฉด</string>
+    <string name="tones_label">โทน</string>
+    <string name="color_palettes_title">พาเล็ตสี %1$s</string>
+    <string name="palette_scheme_complementary">พาเล็ตสีตรงข้าม</string>
+    <string name="palette_scheme_analogous">พาเล็ตสีใกล้เคียง</string>
+    <string name="palette_scheme_split_complementary">พาเล็ตสีตรงข้ามแบบแยก</string>
+    <string name="palette_scheme_triadic">พาเล็ตสีสามส่วน</string>
+    <string name="palette_scheme_tetradic">พาเล็ตสีสี่ส่วน</string>
+    <string name="cyan_label">ไซแอน</string>
+    <string name="magenta_label">มาเจนตา</string>
+    <string name="value_label">ค่า</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">เริ่มเลือกสี!</string>
+    <string name="color_blind_enhancer">ตัวช่วยสำหรับตาบอดสี</string>
+    <string name="color_blind_enhancer_title">ตัวช่วยสำหรับตาบอดสี</string>
+    <string name="monochrome_mode">โหมดขาวดำ</string>
+    <string name="color_blind_enhancement">การปรับปรุงสำหรับตาบอดสี</string>
+    <string name="drastic_mode">โหมดรุนแรง</string>
+    <string name="edge_contrast_mode">โหมดเพิ่มคอนทราสต์ขอบ</string>
+    <string name="thermal_mode">โหมดถ่ายภาพความร้อน</string>
+    <string name="mri_mode">โหมดถ่ายภาพ MRI</string>
+    <string name="xray_mode">โหมดถ่ายภาพเอกซเรย์</string>
+    <string name="animate_mode">โหมดสไตล์แอนิเมชัน</string>
+    <string name="cyber_mode">โหมดสไตล์ไซเบอร์</string>
+    <string name="mode_normal">ปกติ</string>
+    <string name="filter_grid_title">เลือกฟิลเตอร์</string>
+    <string name="choose_theme">เลือกธีม</string>
+    <string name="choose_theme_description">เลือกสไตล์ที่เหมาะกับคุณที่สุด</string>
+    <string name="terms_of_service">ข้อกำหนดในการให้บริการ</string>
+    <string name="share_app">แชร์แอป</string>
+    <string name="share_app_description">ส่งลิงก์ Play Store ให้เพื่อน</string>
 </resources>

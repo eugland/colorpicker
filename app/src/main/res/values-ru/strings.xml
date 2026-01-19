@@ -2,7 +2,6 @@
     <string name="app_name">Цвет</string>
 
     <string name="back">Назад</string>
-    <string name="close">Закрыть</string>
     <string name="clear">Очистить</string>
     <string name="cancel">Отмена</string>
     <string name="copy">Копировать</string>
@@ -11,7 +10,6 @@
     <string name="save">Сохранить</string>
     <string name="saved">Сохранено</string>
     <string name="delete">Удалить</string>
-    <string name="more_options">Больше вариантов</string>
 
     <string name="palette">Палитра</string>
     <string name="camera">Камера</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Показать больше</string>
     <string name="show_less">Показать меньше</string>
     <string name="show_more">Показать больше</string>
-    <string name="show_less_caps">ПОКАЗАТЬ МЕНЬШЕ</string>
-    <string name="show_more_caps">ПОКАЗАТЬ БОЛЬШЕ</string>
 
+    <string name="see_more">Смотреть больше</string>
     <string name="theme_system_default">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s уже в палитре</string>
     <string name="palette_full_message">Палитра заполнена (10 цветов). Нажмите на палитру, чтобы сохранить её и начать новую.</string>
     <string name="palette_empty_start_adding">Палитра пуста, добавьте цвета</string>
-    <string name="palette_saved_toast">Палитра сохранена ✅</string>
     <string name="palette_default_name">Палитра %1$d</string>
     <string name="palette_tag_camera">камера</string>
     <string name="palette_tag_live_pick">живой-подбор</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Сохранено в Моих цветах</string>
     <string name="no_palettes_available">Нет доступных палитр. Сначала создайте одну.</string>
     <string name="add_to_palette">Добавить в палитру</string>
+    <string name="palette_scheme_square">Квадратная палитра</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Красный</string>
     <string name="green_label">Зелёный</string>
     <string name="blue_label">Синий</string>
+    <string name="yellow_label">Жёлтый</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Тон</string>
     <string name="saturation_label">Насыщенность</string>
     <string name="lightness_label">Светлота</string>
-    <string name="select_palette">Выберите палитру</string>
+    <string name="sliders_label">Ползунки</string>
     <string name="palette_color_count">%1$d цветов</string>
     <string name="more_details">Подробнее</string>
     <string name="already_in_palette">Уже в палитре</string>
     <string name="palette_full">Палитра заполнена (10 цветов)</string>
     <string name="added_to_palette">Добавлено в палитру</string>
     <string name="hex_copied">HEX скопирован</string>
-    <string name="name_copied">Имя скопировано</string>
     <string name="copy_hex">Копировать HEX</string>
-    <string name="copy_name">Копировать имя</string>
     <string name="luma_label">Яркость %1$d%%</string>
     <string name="text_recommendation">Текст %1$s</string>
     <string name="white_label">Белый</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Аналогичные</string>
     <string name="similar_colors">Похожие цвета</string>
 
-    <string name="picker_tab_camera">Камера</string>
-    <string name="picker_tab_camera_description">Подбирайте цвета вживую или с фото. Нажмите на образец, чтобы скопировать.</string>
-    <string name="live_camera">Живая камера</string>
-    <string name="live_camera_subtitle">Перекрестие + масштаб</string>
+    <string name="pick_color_here_description">Нажмите для выбора цвета в реальном времени</string>
     <string name="from_album">Из альбома</string>
     <string name="from_album_subtitle">Выбрать из фото</string>
+    <string name="from_gallery">Из галереи</string>
     <string name="tools">Инструменты</string>
     <string name="color_slider_description">Настраивайте RGB или HSL и смотрите названия и HEX вживую. Сохраняйте или создавайте палитры.</string>
+    <string name="color_blind_enhancer_description">Прямой вид с камеры, настроенный для нарушений цветового зрения</string>
     <string name="open">Открыть</string>
-    <string name="live_color_picker">Живой подбор цвета</string>
-    <string name="live_color_picker_description">Наводите на что угодно. Щипком увеличивайте. Сразу добавляйте в палитру.</string>
-    <string name="start_live_picking">Начать живой подбор</string>
 
+    <string name="filter_selector_label">Фильтр</string>
     <string name="settings_title">Настройки</string>
     <string name="settings_description">Настройте внешний вид и поведение перекрестия.</string>
     <string name="app_preferences">Настройки приложения</string>
     <string name="theme">Тема</string>
-    <string name="theme_description">Выберите внешний вид приложения.</string>
+    <string name="follows_your_system_theme">Следует системной теме</string>
     <string name="language">Язык</string>
     <string name="picker_crosshair">Перекрестие</string>
     <string name="picker_crosshair_description">Настройте перекрестие при выборе цвета.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Размер</string>
     <string name="shape">Форма</string>
     <string name="sensitivity">Чувствительность</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Владельцы, сторонние компоненты и лицензии</string>
     <string name="privacy_statement">Политика конфиденциальности</string>
     <string name="privacy_statement_description">Как данные камеры и фото остаются на устройстве</string>
+    <string name="terms_of_service_description">Ознакомьтесь с условиями и правилами использования приложения</string>
     <string name="usage_guide">Руководство по использованию</string>
     <string name="usage_guide_description">Пошаговое руководство и указатель задач</string>
     <string name="feedback">Отзывы</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Оцените нас</string>
     <string name="rate_us_description">Оставьте быструю оценку в Play Store.</string>
 
+    <string name="share_app_text">Посмотрите Color Picker в Google Play: %1$s</string>
     <string name="camera_title">Камера</string>
     <string name="camera_intro">Подбирайте цвета вживую или с фото. Нажмите на образец, чтобы скопировать.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">Палитра пуста, добавьте цвета</string>
     <string name="photo_palette_saved">Палитра сохранена ✅</string>
 
-    <string name="added_to_recents">Добавлено в недавние</string>
     <string name="suggestions">Рекомендации</string>
     <string name="saved_colors">Сохранённые цвета</string>
     <string name="saved_palettes">Сохранённые палитры</string>
     <string name="no_recent_colors">Недавних цветов нет. Нажмите 🧪, чтобы подобрать цвет.</string>
     <string name="no_saved_colors">Нет сохранённых цветов.</string>
     <string name="no_saved_palettes">Нет сохранённых палитр.</string>
-    <string name="clear_recent_colors_title">Очистить недавние цвета?</string>
-    <string name="clear_recent_colors_description">Это удалит все недавние цвета.</string>
-    <string name="clear_saved_colors_title">Очистить сохранённые цвета?</string>
-    <string name="clear_saved_colors_description">Это удалит все сохранённые цвета.</string>
     <string name="clear_saved_palettes_title">Очистить сохранённые палитры?</string>
     <string name="clear_saved_palettes_description">Это удалит все сохранённые палитры.</string>
+    <string name="no_matching_palettes">Нет подходящих палитр</string>
     <string name="quick_color_lookup">Быстрый поиск цвета</string>
     <string name="search_placeholder">Ищите цвета или HEX-коды</string>
     <string name="search_hint_one">Интересно, что такое \'Midnight blue\'?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Как выглядит \'Cerulean\'?</string>
     <string name="search_hint_nine">Как ощущается \'#228B22\'?</string>
     <string name="search_hint_ten">Откройте оттенок \'#E97451\'</string>
-    <string name="palette_color_label">Палитра</string>
-    <string name="clear_recent">Очистить недавние</string>
-    <string name="clear_saved">Очистить сохранённые</string>
-    <string name="clear_palettes">Очистить палитры</string>
-    <string name="copy_hex_content_description">Копировать HEX</string>
 
+    <string name="no_matching_colors">Нет подходящих цветов</string>
     <string name="palette_bar_clear">Очистить палитру</string>
     <string name="palette_bar_palette">Палитра</string>
     <string name="palette_bar_add_color">Добавить цвет</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Описание</string>
     <string name="copy_all_hex">Копировать HEX</string>
     <string name="export_css">Копировать CSS</string>
-    <string name="remove_from_favourites">Удалить палитру</string>
     <string name="view_more_indicator">Показать больше ›</string>
     <string name="save_changes">Сохранить изменения</string>
     <string name="edit_palette">Изменить</string>
     <string name="palette_updated">Палитра обновлена</string>
     <string name="copied_all_hex">Скопированы все HEX</string>
     <string name="exported_css">CSS скопирован в буфер</string>
-    <string name="reorder">Упорядочить</string>
     <string name="splash_loading_message">Разогреваем вашу палитру…</string>
+    <string name="create_new_palette">Создать новую палитру</string>
+    <string name="palette_name_with_color">Палитра %1$s</string>
+    <string name="color_shades_tints_tones_title">Оттенки, тона и вариации цвета %1$s</string>
+    <string name="tints_label">Тинты</string>
+    <string name="shades_label">Оттенки</string>
+    <string name="tones_label">Тоны</string>
+    <string name="color_palettes_title">Цветовые палитры %1$s</string>
+    <string name="palette_scheme_complementary">Дополнительная палитра</string>
+    <string name="palette_scheme_analogous">Аналоговая палитра</string>
+    <string name="palette_scheme_split_complementary">Разделённая дополнительная палитра</string>
+    <string name="palette_scheme_triadic">Триадная палитра</string>
+    <string name="palette_scheme_tetradic">Тетрадная палитра</string>
+    <string name="cyan_label">Голубой</string>
+    <string name="magenta_label">Пурпурный</string>
+    <string name="value_label">Значение</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Начать выбор!</string>
+    <string name="color_blind_enhancer">Усилитель для дальтоников</string>
+    <string name="color_blind_enhancer_title">Усилитель для дальтоников</string>
+    <string name="monochrome_mode">Монохромный режим</string>
+    <string name="color_blind_enhancement">Улучшение для дальтоников</string>
+    <string name="drastic_mode">Режим высокой интенсивности</string>
+    <string name="edge_contrast_mode">Режим контраста краёв</string>
+    <string name="thermal_mode">Режим тепловизора</string>
+    <string name="mri_mode">Режим МРТ</string>
+    <string name="xray_mode">Режим рентгена</string>
+    <string name="animate_mode">Режим анимированного стиля</string>
+    <string name="cyber_mode">Кибер-стиль</string>
+    <string name="mode_normal">Обычный</string>
+    <string name="filter_grid_title">Выбрать фильтр</string>
+    <string name="choose_theme">Выбрать тему</string>
+    <string name="choose_theme_description">Выберите внешний вид, который подходит вам лучше всего.</string>
+    <string name="terms_of_service">Условия обслуживания</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="share_app_description">Отправьте ссылку Play Store друзьям.</string>
 </resources>

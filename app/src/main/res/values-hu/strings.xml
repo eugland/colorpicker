@@ -2,7 +2,6 @@
     <string name="app_name">szín</string>
 
     <string name="back">Vissza</string>
-    <string name="close">Bezárás</string>
     <string name="clear">Törlés</string>
     <string name="cancel">Mégse</string>
     <string name="copy">Másolás</string>
@@ -11,7 +10,6 @@
     <string name="save">Mentés</string>
     <string name="saved">Elmentve</string>
     <string name="delete">Törlés</string>
-    <string name="more_options">További lehetőségek</string>
 
     <string name="palette">Paletta</string>
     <string name="camera">Kamera</string>
@@ -25,9 +23,8 @@
     <string name="view_more">Továbbiak</string>
     <string name="show_less">Kevesebb</string>
     <string name="show_more">Több</string>
-    <string name="show_less_caps">KEVESEBB</string>
-    <string name="show_more_caps">TÖBB</string>
 
+    <string name="see_more">Továbbiak megtekintése</string>
     <string name="theme_system_default">Rendszer alapértelmezett</string>
     <string name="theme_light">Világos</string>
     <string name="theme_dark">Sötét</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s már a palettán</string>
     <string name="palette_full_message">A paletta tele van (10 szín). Koppints a palettára a mentéshez és új indításához.</string>
     <string name="palette_empty_start_adding">A paletta üres, kezdj el színeket hozzáadni</string>
-    <string name="palette_saved_toast">Paletta elmentve ✅</string>
     <string name="palette_default_name">Paletta %1$d</string>
     <string name="palette_tag_camera">kamera</string>
     <string name="palette_tag_live_pick">élő-kiválasztás</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">Elmentve a Saját színekhez</string>
     <string name="no_palettes_available">Nincs elérhető paletta. Előbb hozz létre egyet.</string>
     <string name="add_to_palette">Hozzáadás a palettához</string>
+    <string name="palette_scheme_square">Négyzetes paletta</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">Piros</string>
     <string name="green_label">Zöld</string>
     <string name="blue_label">Kék</string>
+    <string name="yellow_label">Sárga</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">Árnyalat</string>
     <string name="saturation_label">Telítettség</string>
     <string name="lightness_label">Világosság</string>
-    <string name="select_palette">Paletta kiválasztása</string>
+    <string name="sliders_label">Csúszkák</string>
     <string name="palette_color_count">%1$d szín</string>
     <string name="more_details">További részletek</string>
     <string name="already_in_palette">Már a palettán</string>
     <string name="palette_full">Paletta tele (10 szín)</string>
     <string name="added_to_palette">Hozzáadva a palettához</string>
     <string name="hex_copied">HEX másolva</string>
-    <string name="name_copied">Név másolva</string>
     <string name="copy_hex">HEX másolása</string>
-    <string name="copy_name">Név másolása</string>
     <string name="luma_label">Luma %1$d%%</string>
     <string name="text_recommendation">Szöveg %1$s</string>
     <string name="white_label">Fehér</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">Analóg</string>
     <string name="similar_colors">Hasonló színek</string>
 
-    <string name="picker_tab_camera">Kamera</string>
-    <string name="picker_tab_camera_description">Válassz színeket élőben vagy fotóról. Koppints bármely mintára a másoláshoz.</string>
-    <string name="live_camera">Élő kamera</string>
-    <string name="live_camera_subtitle">Célkereszt + zoom</string>
+    <string name="pick_color_here_description">Érintse meg az élő színválasztáshoz</string>
     <string name="from_album">Albumból</string>
     <string name="from_album_subtitle">Válassz fotóból</string>
+    <string name="from_gallery">Galériából</string>
     <string name="tools">Eszközök</string>
     <string name="color_slider_description">Állítsd az RGB-t vagy HSL-t, és nézd az élő neveket és HEX-et. Ments vagy építs palettákat.</string>
+    <string name="color_blind_enhancer_description">Élő kameranézet színlátási problémákhoz igazítva</string>
     <string name="open">Megnyitás</string>
-    <string name="live_color_picker">Élő színválasztó</string>
-    <string name="live_color_picker_description">Irányíts bármire. Csippents a nagyításhoz. Azonnal add a palettához.</string>
-    <string name="start_live_picking">Élő kiválasztás indítása</string>
 
+    <string name="filter_selector_label">Szűrő</string>
     <string name="settings_title">Beállítások</string>
     <string name="settings_description">Állítsd be az app kinézetét és a célkereszt viselkedését.</string>
     <string name="app_preferences">Alkalmazásbeállítások</string>
     <string name="theme">Téma</string>
-    <string name="theme_description">Válaszd ki az app kinézetét.</string>
+    <string name="follows_your_system_theme">A rendszer témáját követi</string>
     <string name="language">Nyelv</string>
     <string name="picker_crosshair">Célkereszt</string>
     <string name="picker_crosshair_description">Állítsd be a mintavételezéskor használt célkeresztet.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">Méret</string>
     <string name="shape">Alak</string>
     <string name="sensitivity">Érzékenység</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">Tulajdonjog, harmadik fél összetevők és licenc részletek</string>
     <string name="privacy_statement">Adatvédelmi nyilatkozat</string>
     <string name="privacy_statement_description">Hogyan maradnak a kamera- és fotóadatok az eszközön</string>
+    <string name="terms_of_service_description">Tekintse át az alkalmazás feltételeit és használati útmutatóját</string>
     <string name="usage_guide">Használati útmutató</string>
     <string name="usage_guide_description">Lépésről lépésre útmutató és index a fő feladatokhoz</string>
     <string name="feedback">Visszajelzés</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">Értékelj minket</string>
     <string name="rate_us_description">Adj gyors értékelést a Play Áruházban.</string>
 
+    <string name="share_app_text">Nézze meg a Color Picker alkalmazást a Google Playen: %1$s</string>
     <string name="camera_title">Kamera</string>
     <string name="camera_intro">Válassz színeket élőben vagy fotóról. Koppints bármely mintára a másoláshoz.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">A paletta üres, kezdj el színeket hozzáadni</string>
     <string name="photo_palette_saved">Paletta elmentve ✅</string>
 
-    <string name="added_to_recents">Hozzáadva a legutóbbiakhoz</string>
     <string name="suggestions">Javaslatok</string>
     <string name="saved_colors">Mentett színek</string>
     <string name="saved_palettes">Mentett paletták</string>
     <string name="no_recent_colors">Még nincsenek legutóbbi színek. Koppints 🧪-re a szín választásához.</string>
     <string name="no_saved_colors">Még nincsenek mentett színek.</string>
     <string name="no_saved_palettes">Még nincsenek mentett paletták.</string>
-    <string name="clear_recent_colors_title">Törlöd a legutóbbi színeket?</string>
-    <string name="clear_recent_colors_description">Ez eltávolítja az összes legutóbbi színt.</string>
-    <string name="clear_saved_colors_title">Törlöd a mentett színeket?</string>
-    <string name="clear_saved_colors_description">Ez eltávolítja az összes mentett színt.</string>
     <string name="clear_saved_palettes_title">Törlöd a mentett palettákat?</string>
     <string name="clear_saved_palettes_description">Ez eltávolítja az összes mentett palettát.</string>
+    <string name="no_matching_palettes">Nincs megfelelő paletta</string>
     <string name="quick_color_lookup">Gyors színkeresés</string>
     <string name="search_placeholder">Színek vagy hex kódok keresése</string>
     <string name="search_hint_one">Kíváncsi a \'Midnight blue\'-ra?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">Hogy néz ki a \'Cerulean\'?</string>
     <string name="search_hint_nine">Milyen érzés a \'#228B22\'?</string>
     <string name="search_hint_ten">Fedd fel a \'#E97451\' árnyalatot</string>
-    <string name="palette_color_label">Paletta</string>
-    <string name="clear_recent">Legutóbbiak törlése</string>
-    <string name="clear_saved">Mentettek törlése</string>
-    <string name="clear_palettes">Paletták törlése</string>
-    <string name="copy_hex_content_description">HEX másolása</string>
 
+    <string name="no_matching_colors">Nincs megfelelő szín</string>
     <string name="palette_bar_clear">Paletta törlése</string>
     <string name="palette_bar_palette">Paletta</string>
     <string name="palette_bar_add_color">Szín hozzáadása</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">Leírás</string>
     <string name="copy_all_hex">HEX másolása</string>
     <string name="export_css">CSS másolása</string>
-    <string name="remove_from_favourites">Paletta törlése</string>
     <string name="view_more_indicator">Továbbiak ›</string>
     <string name="save_changes">Változások mentése</string>
     <string name="edit_palette">Szerkesztés</string>
     <string name="palette_updated">Paletta frissítve</string>
     <string name="copied_all_hex">Összes HEX érték másolva</string>
     <string name="exported_css">A CSS a vágólapra másolva</string>
-    <string name="reorder">Átrendezés</string>
     <string name="splash_loading_message">Paletta előkészítése…</string>
+    <string name="create_new_palette">Új paletta létrehozása</string>
+    <string name="palette_name_with_color">%1$s paletta</string>
+    <string name="color_shades_tints_tones_title">%1$s színárnyalatok, tinták és tónusok</string>
+    <string name="tints_label">Tinták</string>
+    <string name="shades_label">Árnyalatok</string>
+    <string name="tones_label">Tónusok</string>
+    <string name="color_palettes_title">%1$s színpaletták</string>
+    <string name="palette_scheme_complementary">Komplementer paletta</string>
+    <string name="palette_scheme_analogous">Analóg paletta</string>
+    <string name="palette_scheme_split_complementary">Osztott komplementer paletta</string>
+    <string name="palette_scheme_triadic">Triádikus paletta</string>
+    <string name="palette_scheme_tetradic">Tetrádikus paletta</string>
+    <string name="cyan_label">Cián</string>
+    <string name="magenta_label">Magenta</string>
+    <string name="value_label">Érték</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">Kezdje el a kiválasztást!</string>
+    <string name="color_blind_enhancer">Színtévesztés javítása</string>
+    <string name="color_blind_enhancer_title">Színtévesztés javítása</string>
+    <string name="monochrome_mode">Monokróm mód</string>
+    <string name="color_blind_enhancement">Színtévesztés javítása</string>
+    <string name="drastic_mode">Intenzív mód</string>
+    <string name="edge_contrast_mode">Élkontraszt mód</string>
+    <string name="thermal_mode">Hőkép mód</string>
+    <string name="mri_mode">MRI képalkotó mód</string>
+    <string name="xray_mode">Röntgen képalkotó mód</string>
+    <string name="animate_mode">Animált stílus mód</string>
+    <string name="cyber_mode">Cyber stílus mód</string>
+    <string name="mode_normal">Normál</string>
+    <string name="filter_grid_title">Szűrő kiválasztása</string>
+    <string name="choose_theme">Téma kiválasztása</string>
+    <string name="choose_theme_description">Válassza ki az Önnek leginkább megfelelő megjelenést.</string>
+    <string name="terms_of_service">Szolgáltatási feltételek</string>
+    <string name="share_app">Alkalmazás megosztása</string>
+    <string name="share_app_description">Küldje el a Play Áruház linkjét ismerőseinek.</string>
 </resources>

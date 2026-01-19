@@ -2,7 +2,6 @@
     <string name="app_name">색상</string>
 
     <string name="back">뒤로</string>
-    <string name="close">닫기</string>
     <string name="clear">지우기</string>
     <string name="cancel">취소</string>
     <string name="copy">복사</string>
@@ -11,7 +10,6 @@
     <string name="save">저장</string>
     <string name="saved">저장됨</string>
     <string name="delete">삭제</string>
-    <string name="more_options">추가 옵션</string>
 
     <string name="palette">팔레트</string>
     <string name="camera">카메라</string>
@@ -25,9 +23,8 @@
     <string name="view_more">더 보기</string>
     <string name="show_less">간단히</string>
     <string name="show_more">더 보기</string>
-    <string name="show_less_caps">간단히 보기</string>
-    <string name="show_more_caps">더 보기</string>
 
+    <string name="see_more">더 보기</string>
     <string name="theme_system_default">시스템 기본값</string>
     <string name="theme_light">라이트</string>
     <string name="theme_dark">다크</string>
@@ -91,7 +88,6 @@
     <string name="palette_already_in_palette">%1$s 이미 팔레트에 있음</string>
     <string name="palette_full_message">팔레트가 가득 찼습니다(10색). 팔레트를 탭하여 저장하고 새로 시작하세요.</string>
     <string name="palette_empty_start_adding">팔레트가 비어 있습니다. 색상을 추가하세요</string>
-    <string name="palette_saved_toast">팔레트 저장됨 ✅</string>
     <string name="palette_default_name">팔레트 %1$d</string>
     <string name="palette_tag_camera">카메라</string>
     <string name="palette_tag_live_pick">라이브-픽</string>
@@ -103,24 +99,24 @@
     <string name="saved_to_my_colors">내 색상에 저장됨</string>
     <string name="no_palettes_available">팔레트가 없습니다. 먼저 생성하세요.</string>
     <string name="add_to_palette">팔레트에 추가</string>
+    <string name="palette_scheme_square">정사각형 팔레트</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">빨강</string>
     <string name="green_label">초록</string>
     <string name="blue_label">파랑</string>
+    <string name="yellow_label">노랑</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">색조</string>
     <string name="saturation_label">채도</string>
     <string name="lightness_label">명도</string>
-    <string name="select_palette">팔레트 선택</string>
+    <string name="sliders_label">슬라이더</string>
     <string name="palette_color_count">%1$d가지 색</string>
     <string name="more_details">자세히</string>
     <string name="already_in_palette">이미 팔레트에 있음</string>
     <string name="palette_full">팔레트가 가득 참(10색)</string>
     <string name="added_to_palette">팔레트에 추가됨</string>
     <string name="hex_copied">HEX 복사됨</string>
-    <string name="name_copied">이름 복사됨</string>
     <string name="copy_hex">HEX 복사</string>
-    <string name="copy_name">이름 복사</string>
     <string name="luma_label">휘도 %1$d%%</string>
     <string name="text_recommendation">텍스트 %1$s</string>
     <string name="white_label">흰색</string>
@@ -135,27 +131,25 @@
     <string name="harmony_analogous">유사색</string>
     <string name="similar_colors">유사한 색상</string>
 
-    <string name="picker_tab_camera">카메라</string>
-    <string name="picker_tab_camera_description">라이브 또는 사진에서 색상을 선택합니다. 스와치를 탭하면 복사됩니다.</string>
-    <string name="live_camera">라이브 카메라</string>
-    <string name="live_camera_subtitle">크로스헤어 + 줌</string>
+    <string name="pick_color_here_description">실시간 색상 선택을 위해 탭</string>
     <string name="from_album">앨범에서</string>
     <string name="from_album_subtitle">사진에서 선택</string>
+    <string name="from_gallery">갤러리에서</string>
     <string name="tools">도구</string>
     <string name="color_slider_description">RGB 또는 HSL을 조정하고 이름과 HEX를 실시간으로 확인하세요. 저장하거나 팔레트를 만드세요.</string>
+    <string name="color_blind_enhancer_description">색각 이상에 맞게 조정된 실시간 카메라 보기</string>
     <string name="open">열기</string>
-    <string name="live_color_picker">라이브 컬러 피커</string>
-    <string name="live_color_picker_description">어디든 가리키세요. 핀치로 확대. 즉시 팔레트에 추가.</string>
-    <string name="start_live_picking">라이브 선택 시작</string>
 
+    <string name="filter_selector_label">필터</string>
     <string name="settings_title">설정</string>
     <string name="settings_description">앱 모양과 피커 크로스헤어 동작을 조정합니다.</string>
     <string name="app_preferences">앱 환경설정</string>
     <string name="theme">테마</string>
-    <string name="theme_description">앱 모양을 선택하세요.</string>
+    <string name="follows_your_system_theme">시스템 테마를 따름</string>
     <string name="language">언어</string>
     <string name="picker_crosshair">피커 크로스헤어</string>
     <string name="picker_crosshair_description">색상을 샘플링할 때 사용하는 크로스헤어를 조정합니다.</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">크기</string>
     <string name="shape">모양</string>
     <string name="sensitivity">민감도</string>
@@ -165,6 +159,7 @@
     <string name="copyright_notice_description">소유권, 타사 구성 요소 및 라이선스 세부 정보</string>
     <string name="privacy_statement">개인정보 보호정책</string>
     <string name="privacy_statement_description">카메라와 사진 데이터가 기기에만 유지되는 방법</string>
+    <string name="terms_of_service_description">앱 약관 및 사용 지침 확인</string>
     <string name="usage_guide">사용 가이드</string>
     <string name="usage_guide_description">주요 작업을 위한 단계별 가이드와 색인</string>
     <string name="feedback">피드백</string>
@@ -173,6 +168,7 @@
     <string name="rate_us">평가하기</string>
     <string name="rate_us_description">Play 스토어에 간단히 평가를 남겨주세요.</string>
 
+    <string name="share_app_text">Google Play에서 Color Picker 확인: %1$s</string>
     <string name="camera_title">카메라</string>
     <string name="camera_intro">라이브 또는 사진에서 색상을 선택합니다. 스와치를 탭하면 복사됩니다.</string>
 
@@ -184,19 +180,15 @@
     <string name="photo_palette_empty">팔레트가 비어 있습니다. 색상을 추가하세요</string>
     <string name="photo_palette_saved">팔레트 저장됨 ✅</string>
 
-    <string name="added_to_recents">최근 항목에 추가됨</string>
     <string name="suggestions">추천</string>
     <string name="saved_colors">저장된 색상</string>
     <string name="saved_palettes">저장된 팔레트</string>
     <string name="no_recent_colors">최근 색상이 없습니다. 🧪를 탭하여 색상을 선택하세요.</string>
     <string name="no_saved_colors">저장된 색상이 없습니다.</string>
     <string name="no_saved_palettes">저장된 팔레트가 없습니다.</string>
-    <string name="clear_recent_colors_title">최근 색상을 지울까요?</string>
-    <string name="clear_recent_colors_description">모든 최근 색상이 삭제됩니다.</string>
-    <string name="clear_saved_colors_title">저장된 색상을 지울까요?</string>
-    <string name="clear_saved_colors_description">모든 저장된 색상이 삭제됩니다.</string>
     <string name="clear_saved_palettes_title">저장된 팔레트를 지울까요?</string>
     <string name="clear_saved_palettes_description">모든 저장된 팔레트가 삭제됩니다.</string>
+    <string name="no_matching_palettes">일치하는 팔레트 없음</string>
     <string name="quick_color_lookup">빠른 색상 조회</string>
     <string name="search_placeholder">색상 또는 HEX 코드 검색</string>
     <string name="search_hint_one">\'미드나이트 블루\'가 궁금하신가요?</string>
@@ -209,12 +201,8 @@
     <string name="search_hint_eight">\'세룰리언\'은 어떤 색일까요?</string>
     <string name="search_hint_nine">\'#228B22\'는 어떤 느낌일까요?</string>
     <string name="search_hint_ten">\'#E97451\'의 색조를 밝혀보세요</string>
-    <string name="palette_color_label">팔레트</string>
-    <string name="clear_recent">최근 항목 지우기</string>
-    <string name="clear_saved">저장 항목 지우기</string>
-    <string name="clear_palettes">팔레트 지우기</string>
-    <string name="copy_hex_content_description">HEX 복사</string>
 
+    <string name="no_matching_colors">일치하는 색상 없음</string>
     <string name="palette_bar_clear">팔레트 비우기</string>
     <string name="palette_bar_palette">팔레트</string>
     <string name="palette_bar_add_color">색상 추가</string>
@@ -225,13 +213,46 @@
     <string name="palette_description_label">설명</string>
     <string name="copy_all_hex">HEX 복사</string>
     <string name="export_css">CSS 복사</string>
-    <string name="remove_from_favourites">팔레트 삭제</string>
     <string name="view_more_indicator">더 보기 ›</string>
     <string name="save_changes">변경사항 저장</string>
     <string name="edit_palette">편집</string>
     <string name="palette_updated">팔레트 업데이트됨</string>
     <string name="copied_all_hex">모든 HEX 값 복사됨</string>
     <string name="exported_css">CSS를 클립보드에 복사함</string>
-    <string name="reorder">순서 변경</string>
     <string name="splash_loading_message">팔레트를 준비하는 중…</string>
+    <string name="create_new_palette">새 팔레트 만들기</string>
+    <string name="palette_name_with_color">%1$s 팔레트</string>
+    <string name="color_shades_tints_tones_title">%1$s 색상 셰이드, 틴트 및 톤</string>
+    <string name="tints_label">틴트</string>
+    <string name="shades_label">셰이드</string>
+    <string name="tones_label">톤</string>
+    <string name="color_palettes_title">%1$s 색상 팔레트</string>
+    <string name="palette_scheme_complementary">보색 팔레트</string>
+    <string name="palette_scheme_analogous">유사색 팔레트</string>
+    <string name="palette_scheme_split_complementary">분할 보색 팔레트</string>
+    <string name="palette_scheme_triadic">삼색 팔레트</string>
+    <string name="palette_scheme_tetradic">사색 팔레트</string>
+    <string name="cyan_label">시안</string>
+    <string name="magenta_label">마젠타</string>
+    <string name="value_label">값</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">색상 선택 시작!</string>
+    <string name="color_blind_enhancer">색각 보정</string>
+    <string name="color_blind_enhancer_title">색각 보정</string>
+    <string name="monochrome_mode">단색 모드</string>
+    <string name="color_blind_enhancement">색각 보정 강화</string>
+    <string name="drastic_mode">강조 모드</string>
+    <string name="edge_contrast_mode">윤곽 대비 모드</string>
+    <string name="thermal_mode">열화상 모드</string>
+    <string name="mri_mode">MRI 영상 모드</string>
+    <string name="xray_mode">X선 영상 모드</string>
+    <string name="animate_mode">애니메이션 스타일 모드</string>
+    <string name="cyber_mode">사이버 스타일 모드</string>
+    <string name="mode_normal">일반</string>
+    <string name="filter_grid_title">필터 선택</string>
+    <string name="choose_theme">테마 선택</string>
+    <string name="choose_theme_description">가장 잘 어울리는 스타일을 선택하세요.</string>
+    <string name="terms_of_service">서비스 약관</string>
+    <string name="share_app">앱 공유</string>
+    <string name="share_app_description">Play 스토어 링크를 친구에게 보내세요.</string>
 </resources>

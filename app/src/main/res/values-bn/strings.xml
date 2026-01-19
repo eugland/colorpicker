@@ -2,7 +2,6 @@
     <string name="app_name">রং</string>
 
     <string name="back">পিছনে</string>
-    <string name="close">বন্ধ</string>
     <string name="clear">মুছুন</string>
     <string name="cancel">বাতিল</string>
     <string name="copy">কপি</string>
@@ -11,7 +10,6 @@
     <string name="save">সংরক্ষণ</string>
     <string name="saved">সংরক্ষিত</string>
     <string name="delete">মুছুন</string>
-    <string name="more_options">আরও বিকল্প</string>
 
     <string name="palette">প্যালেট</string>
     <string name="camera">ক্যামেরা</string>
@@ -25,8 +23,6 @@
     <string name="view_more">আরও দেখুন</string>
     <string name="show_less">কম দেখান</string>
     <string name="show_more">আরও দেখান</string>
-    <string name="show_less_caps">কম দেখান</string>
-    <string name="show_more_caps">আরও দেখান</string>
 
     <string name="theme_system_default">সিস্টেম ডিফল্ট</string>
     <string name="theme_light">হালকা</string>
@@ -91,7 +87,6 @@
     <string name="palette_already_in_palette">%1$s ইতিমধ্যে প্যালেটে আছে</string>
     <string name="palette_full_message">প্যালেট পূর্ণ (১০টি রং)। সংরক্ষণ করে নতুনটি শুরু করতে প্যালেটে ট্যাপ করুন।</string>
     <string name="palette_empty_start_adding">প্যালেট ফাঁকা, রং যোগ করা শুরু করুন</string>
-    <string name="palette_saved_toast">প্যালেট সংরক্ষিত ✅</string>
     <string name="palette_default_name">প্যালেট %1$d</string>
     <string name="palette_tag_camera">ক্যামেরা</string>
     <string name="palette_tag_live_pick">লাইভ-পিক</string>
@@ -103,24 +98,24 @@
     <string name="saved_to_my_colors">আমার রং-এ সংরক্ষিত</string>
     <string name="no_palettes_available">কোনও প্যালেট নেই। আগে একটি তৈরি করুন।</string>
     <string name="add_to_palette">প্যালেটে যোগ করুন</string>
+    <string name="palette_scheme_square">বর্গাকার প্যালেট</string>
     <string name="rgb_label">RGB</string>
     <string name="red_label">লাল</string>
     <string name="green_label">সবুজ</string>
     <string name="blue_label">নীল</string>
+    <string name="yellow_label">হলুদ</string>
     <string name="hsl_label">HSL</string>
     <string name="hue_label">হিউ</string>
     <string name="saturation_label">স্যাচুরেশন</string>
     <string name="lightness_label">উজ্জ্বলতা</string>
-    <string name="select_palette">প্যালেট নির্বাচন করুন</string>
+    <string name="sliders_label">স্লাইডার</string>
     <string name="palette_color_count">%1$dটি রং</string>
     <string name="more_details">আরও বিস্তারিত</string>
     <string name="already_in_palette">ইতিমধ্যেই প্যালেটে আছে</string>
     <string name="palette_full">প্যালেট পূর্ণ (১০টি রং)</string>
     <string name="added_to_palette">প্যালেটে যোগ হয়েছে</string>
     <string name="hex_copied">HEX কপি হয়েছে</string>
-    <string name="name_copied">নাম কপি হয়েছে</string>
     <string name="copy_hex">HEX কপি করুন</string>
-    <string name="copy_name">নাম কপি করুন</string>
     <string name="luma_label">লুমা %1$d%%</string>
     <string name="text_recommendation">লেখা %1$s</string>
     <string name="white_label">সাদা</string>
@@ -135,27 +130,25 @@
     <string name="harmony_analogous">সাদৃশ্যপূর্ণ</string>
     <string name="similar_colors">সদৃশ রং</string>
 
-    <string name="picker_tab_camera">ক্যামেরা</string>
-    <string name="picker_tab_camera_description">লাইভ বা ছবি থেকে রং তুলুন। যেকোনো সোয়াচে ট্যাপ করে কপি করুন।</string>
-    <string name="live_camera">লাইভ ক্যামেরা</string>
-    <string name="live_camera_subtitle">ক্রসহেয়ার + জুম</string>
+    <string name="pick_color_here_description">লাইভ রঙ বাছাইয়ের জন্য ট্যাপ করুন</string>
     <string name="from_album">অ্যালবাম থেকে</string>
     <string name="from_album_subtitle">একটি ছবি থেকে রং তুলুন</string>
+    <string name="from_gallery">গ্যালারি থেকে</string>
     <string name="tools">টুলস</string>
     <string name="color_slider_description">RGB বা HSL সামঞ্জস্য করুন এবং লাইভ নাম ও হেক্স দেখুন। সংরক্ষণ করুন বা প্যালেট তৈরি করুন।</string>
+    <string name="color_blind_enhancer_description">রঙ-দৃষ্টি সমস্যার জন্য টিউন করা লাইভ ক্যামেরা ভিউ</string>
     <string name="open">খুলুন</string>
-    <string name="live_color_picker">লাইভ রং পিকার</string>
-    <string name="live_color_picker_description">যেকোনো কিছুর দিকে ধরুন। জুম করতে পিঞ্চ করুন। সঙ্গে সঙ্গে প্যালেটে যোগ করুন।</string>
-    <string name="start_live_picking">লাইভ পিকিং শুরু করুন</string>
 
+    <string name="filter_selector_label">ফিল্টার</string>
     <string name="settings_title">সেটিংস</string>
     <string name="settings_description">অ্যাপের চেহারা এবং পিকারের ক্রসহেয়ার কেমন হবে তা ঠিক করুন।</string>
     <string name="app_preferences">অ্যাপ পছন্দসমূহ</string>
     <string name="theme">থিম</string>
-    <string name="theme_description">অ্যাপটি কেমন দেখাবে তা বেছে নিন।</string>
+    <string name="follows_your_system_theme">সিস্টেম থিম অনুসরণ করে</string>
     <string name="language">ভাষা</string>
     <string name="picker_crosshair">পিকার ক্রসহেয়ার</string>
     <string name="picker_crosshair_description">রং নমুনা নেওয়ার সময় ব্যবহৃত ক্রসহেয়ারটি সামঞ্জস্য করুন।</string>
+    <string name="picker_crosshair_summary">%1$s • %2$s • %3$s</string>
     <string name="size">আকার</string>
     <string name="shape">আকৃতি</string>
     <string name="sensitivity">সংবেদনশীলতা</string>
@@ -165,14 +158,16 @@
     <string name="copyright_notice_description">মালিকানা, তৃতীয়-পক্ষ উপাদান এবং লাইসেন্সিং বিবরণ</string>
     <string name="privacy_statement">গোপনীয়তা বিবৃতি</string>
     <string name="privacy_statement_description">ক্যামেরা ও ছবি ডেটা কীভাবে ডিভাইসেই থাকে</string>
+    <string name="terms_of_service_description">অ্যাপের শর্তাবলি ও ব্যবহার নির্দেশিকা পর্যালোচনা করুন</string>
     <string name="usage_guide">ব্যবহার নির্দেশিকা</string>
     <string name="usage_guide_description">মূল কাজগুলোর ধাপে ধাপে গাইড এবং সূচি</string>
     <string name="feedback">মতামত</string>
     <string name="send_feedback">মতামত পাঠান</string>
-    <string name="send_feedback_description">আপনি কী উন্নতি চান তা জানান।</string>
-    <string name="rate_us">রেটিং দিন</string>
-    <string name="rate_us_description">প্লে স্টোরে দ্রুত একটি রেটিং দিন।</string>
+    <string name="send_feedback_description">আপনি কী উন্নত দেখতে চান তা জানান।</string>
+    <string name="rate_us">আমাদের রেট দিন</string>
+    <string name="rate_us_description">Play Store-এ একটি দ্রুত রেটিং দিন।</string>
 
+    <string name="share_app_text">Google Play-এ Color Picker দেখুন: %1$s</string>
     <string name="camera_title">ক্যামেরা</string>
     <string name="camera_intro">লাইভ বা ছবি থেকে রং তুলুন। যেকোনো সোয়াচে ট্যাপ করে কপি করুন।</string>
 
@@ -184,19 +179,15 @@
     <string name="photo_palette_empty">প্যালেট ফাঁকা, রং যোগ করা শুরু করুন</string>
     <string name="photo_palette_saved">প্যালেট সংরক্ষিত ✅</string>
 
-    <string name="added_to_recents">সাম্প্রতিকে যোগ হয়েছে</string>
     <string name="suggestions">প্রস্তাবনা</string>
     <string name="saved_colors">সংরক্ষিত রং</string>
     <string name="saved_palettes">সংরক্ষিত প্যালেট</string>
     <string name="no_recent_colors">এখনো কোনো সাম্প্রতিক রং নেই। রং তুলতে 🧪 এ ট্যাপ করুন।</string>
     <string name="no_saved_colors">এখনো কোনো সংরক্ষিত রং নেই।</string>
     <string name="no_saved_palettes">এখনো কোনো সংরক্ষিত প্যালেট নেই।</string>
-    <string name="clear_recent_colors_title">সাম্প্রতিক রং মুছবেন?</string>
-    <string name="clear_recent_colors_description">এতে সব সাম্প্রতিক রং মুছে যাবে।</string>
-    <string name="clear_saved_colors_title">সংরক্ষিত রং মুছবেন?</string>
-    <string name="clear_saved_colors_description">এতে সব সংরক্ষিত রং মুছে যাবে।</string>
     <string name="clear_saved_palettes_title">সংরক্ষিত প্যালেট মুছবেন?</string>
     <string name="clear_saved_palettes_description">এতে সব সংরক্ষিত প্যালেট মুছে যাবে।</string>
+    <string name="no_matching_palettes">মিলে যাওয়া কোনো প্যালেট নেই</string>
     <string name="quick_color_lookup">দ্রুত রং খোঁজা</string>
     <string name="search_placeholder">রং বা হেক্স কোড খুঁজুন</string>
     <string name="search_hint_one">\'Midnight blue\' সম্পর্কে কৌতূহলী?</string>
@@ -209,11 +200,7 @@
     <string name="search_hint_eight">\'Cerulean\' কেমন দেখায়?</string>
     <string name="search_hint_nine">\'#228B22\' কেমন মনে হয়?</string>
     <string name="search_hint_ten">\'#E97451\' এর শেড উন্মোচন করুন</string>
-    <string name="palette_color_label">প্যালেট</string>
-    <string name="clear_recent">সাম্প্রতিক মুছুন</string>
-    <string name="clear_saved">সংরক্ষিত মুছুন</string>
-    <string name="clear_palettes">প্যালেট মুছুন</string>
-    <string name="copy_hex_content_description">HEX কপি করুন</string>
+    <string name="no_matching_colors">মিলে যাওয়া কোনো রঙ নেই</string>
 
     <string name="palette_bar_clear">প্যালেট পরিষ্কার করুন</string>
     <string name="palette_bar_palette">প্যালেট</string>
@@ -225,13 +212,47 @@
     <string name="palette_description_label">বিবরণ</string>
     <string name="copy_all_hex">HEX কপি করুন</string>
     <string name="export_css">CSS কপি করুন</string>
-    <string name="remove_from_favourites">প্যালেট মুছুন</string>
     <string name="view_more_indicator">আরও দেখুন ›</string>
     <string name="save_changes">পরিবর্তন সংরক্ষণ করুন</string>
     <string name="edit_palette">সম্পাদনা</string>
     <string name="palette_updated">প্যালেট আপডেট হয়েছে</string>
     <string name="copied_all_hex">সব HEX মান কপি হয়েছে</string>
     <string name="exported_css">CSS ক্লিপবোর্ডে কপি হয়েছে</string>
-    <string name="reorder">পুনর্বিন্যাস</string>
     <string name="splash_loading_message">আপনার প্যালেট প্রস্তুত করা হচ্ছে…</string>
+    <string name="see_more">আরও দেখুন</string>
+    <string name="create_new_palette">নতুন প্যালেট তৈরি করুন</string>
+    <string name="palette_name_with_color">%1$s প্যালেট</string>
+    <string name="color_shades_tints_tones_title">%1$s রঙের শেড, টিন্ট ও টোন</string>
+    <string name="tints_label">টিন্ট</string>
+    <string name="shades_label">শেড</string>
+    <string name="tones_label">টোন</string>
+    <string name="color_palettes_title">%1$s রঙের প্যালেট</string>
+    <string name="palette_scheme_complementary">পরিপূরক প্যালেট</string>
+    <string name="palette_scheme_analogous">সাদৃশ্যপূর্ণ প্যালেট</string>
+    <string name="palette_scheme_split_complementary">বিভক্ত-পরিপূরক প্যালেট</string>
+    <string name="palette_scheme_triadic">ত্রয়ী প্যালেট</string>
+    <string name="palette_scheme_tetradic">চতুর্ভুজ প্যালেট</string>
+    <string name="cyan_label">সায়ান</string>
+    <string name="magenta_label">ম্যাজেন্টা</string>
+    <string name="value_label">মান</string>
+    <string name="cmyk_label">CMYK</string>
+    <string name="pick_color_here">রঙ বাছাই শুরু করুন!</string>
+    <string name="color_blind_enhancer">রঙ-অন্ধত্ব সহায়ক</string>
+    <string name="color_blind_enhancer_title">রঙ-অন্ধত্ব সহায়ক</string>
+    <string name="monochrome_mode">একবর্ণ মোড</string>
+    <string name="color_blind_enhancement">রঙ-অন্ধত্ব উন্নতকরণ</string>
+    <string name="drastic_mode">তীব্র মোড</string>
+    <string name="edge_contrast_mode">প্রান্ত কনট্রাস্ট মোড</string>
+    <string name="thermal_mode">থার্মাল ইমেজিং মোড</string>
+    <string name="mri_mode">MRI ইমেজিং মোড</string>
+    <string name="xray_mode">এক্স-রে ইমেজিং মোড</string>
+    <string name="animate_mode">অ্যানিমেট স্টাইল মোড</string>
+    <string name="cyber_mode">সাইবার স্টাইল মোড</string>
+    <string name="mode_normal">সাধারণ</string>
+    <string name="filter_grid_title">একটি ফিল্টার নির্বাচন করুন</string>
+    <string name="choose_theme">থিম নির্বাচন করুন</string>
+    <string name="choose_theme_description">আপনার জন্য উপযুক্ত চেহারা বেছে নিন।</string>
+    <string name="terms_of_service">পরিষেবার শর্তাবলি</string>
+    <string name="share_app">অ্যাপ শেয়ার করুন</string>
+    <string name="share_app_description">বন্ধুদের সাথে Play Store লিংক পাঠান।</string>
 </resources>
