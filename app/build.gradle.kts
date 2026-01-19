@@ -5,6 +5,7 @@ plugins {
 
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -80,6 +81,9 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
