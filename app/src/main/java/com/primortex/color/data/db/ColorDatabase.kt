@@ -3,6 +3,7 @@ package com.primortex.color.data.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.withTransaction
 import com.primortex.color.data.db.dao.PaletteDao
 import com.primortex.color.data.db.dao.RecentPickDao
 import com.primortex.color.data.db.entities.PaletteColorEntity
@@ -29,6 +30,6 @@ abstract class ColorDatabase : RoomDatabase(), ColorDatabaseApi {
     abstract override fun paletteDao(): PaletteDao
 
     override suspend fun <T> runInTransaction(block: suspend () -> T): T {
-        return androidx.room.withTransaction { block() }
+        return withTransaction { block() }
     }
 }
