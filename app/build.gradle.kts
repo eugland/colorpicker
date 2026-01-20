@@ -90,7 +90,6 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.appcompat)
-    implementation(libs.mlkit.face.detection)
 
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)

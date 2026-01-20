@@ -9,8 +9,6 @@ import android.os.Build
 import android.util.Log
 import android.util.Size
 import android.view.Surface
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -60,7 +58,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -74,13 +71,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.face.FaceDetection
-import com.google.mlkit.vision.face.FaceDetector
-import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.primortex.color.R
-import java.util.concurrent.Executors
-import java.util.concurrent.atomic.AtomicBoolean
 
 private const val MONOCHROME_SHADER = """
 uniform shader inner;
@@ -217,9 +208,6 @@ half4 main(float2 coord) {
 private const val ANIMATE_SHADER = """
 uniform shader inner;
 uniform float2 invSize;
-uniform float2 faceCenter;
-uniform float faceRadius;
-uniform float faceStrength;
 
 float luminance(vec3 c) {
     return dot(c, vec3(0.2126, 0.7152, 0.0722));
@@ -231,7 +219,6 @@ vec3 saturateColor(vec3 color, float saturation) {
 }
 
 half4 main(float2 coord) {
-    vec2 uv = coord * invSize;
     vec3 center = inner.eval(coord).rgb;
     vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
     vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
@@ -240,18 +227,14 @@ half4 main(float2 coord) {
 
     float edge = abs(luminance(left) - luminance(right)) +
         abs(luminance(up) - luminance(down));
-    float edgeMask = smoothstep(0.08, 0.22, edge);
+    float edgeMask = smoothstep(0.06, 0.16, edge);
 
     float y = luminance(center);
-    float quantized = floor(y * 4.0 + 0.5) / 4.0;
-    vec3 flattened = mix(vec3(quantized), center, 0.35);
-    vec3 boosted = saturateColor(flattened, 1.45);
-    vec3 warm = boosted + vec3(0.02, 0.01, -0.01);
-    vec3 outlined = mix(warm, warm * 0.35, edgeMask);
-    float faceMask = 1.0 - smoothstep(faceRadius * 0.65, faceRadius, distance(uv, faceCenter));
-    vec3 skinSmooth = saturateColor(mix(outlined, vec3(quantized), 0.55), 1.2) + vec3(0.02, 0.015, 0.01);
-    vec3 finalColor = mix(outlined, skinSmooth, faceStrength * faceMask);
-    return half4(clamp(finalColor, 0.0, 1.0), 1.0);
+    float quantized = floor(y * 3.0 + 0.5) / 3.0;
+    vec3 flattened = mix(vec3(quantized), center, 0.18);
+    vec3 boosted = saturateColor(flattened, 1.65);
+    vec3 outlined = mix(boosted, vec3(0.05), edgeMask);
+    return half4(clamp(outlined, 0.0, 1.0), 1.0);
 }
 """
 
@@ -305,28 +288,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var camera by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
     var selectedMode by remember { mutableStateOf(EnhancerMode.Drastic) }
-    val selectedModeState = rememberUpdatedState(selectedMode)
-
-    var animeFaceState by remember {
-        mutableStateOf(AnimeFaceState())
-    }
-    val faceDetector = remember {
-        FaceDetection.getClient(
-            FaceDetectorOptions.Builder()
-                .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_FAST)
-                .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_NONE)
-                .setContourMode(FaceDetectorOptions.CONTOUR_MODE_NONE)
-                .build()
-        )
-    }
-    val analysisExecutor = remember { Executors.newSingleThreadExecutor() }
-    val analysisInFlight = remember { AtomicBoolean(false) }
-    val imageAnalysis = remember {
-        ImageAnalysis.Builder()
-            .setTargetResolution(Size(640, 480))
-            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-            .build()
-    }
 
     val runtimeShader = remember(supportsShader) {
         RuntimeShader(MONOCHROME_SHADER)
@@ -394,21 +355,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     var showModeGrid by remember { mutableStateOf(false) }
 
     DisposableEffect(Unit) {
-        val mainExecutor = ContextCompat.getMainExecutor(ctx)
-        imageAnalysis.setAnalyzer(analysisExecutor) { imageProxy ->
-            runAnimeAnalyzer(
-                imageProxy = imageProxy,
-                selectedMode = selectedModeState.value,
-                faceDetector = faceDetector,
-                inFlight = analysisInFlight,
-                mainExecutor = mainExecutor,
-                onFaceUpdate = { animeFaceState = it }
-            )
-        }
         onDispose {
-            imageAnalysis.clearAnalyzer()
-            analysisExecutor.shutdown()
-            faceDetector.close()
             cameraProvider?.unbindAll()
         }
     }
@@ -506,19 +453,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                     1f / width,
                                     1f / height
                                 )
-                                animateShader.setFloatUniform(
-                                    "faceCenter",
-                                    animeFaceState.centerX,
-                                    animeFaceState.centerY
-                                )
-                                animateShader.setFloatUniform(
-                                    "faceRadius",
-                                    animeFaceState.radius
-                                )
-                                animateShader.setFloatUniform(
-                                    "faceStrength",
-                                    animeFaceState.strength
-                                )
                                 view.setRenderEffect(animateRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
@@ -549,7 +483,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     } else {
                         CameraSelector.DEFAULT_BACK_CAMERA
                     },
-                    imageAnalysis = imageAnalysis,
                     onCameraProviderReady = { cameraProvider = it },
                     onCameraReady = { camera = it }
                 )
@@ -867,7 +800,6 @@ private fun bindEnhancerCamera(
     lifecycleOwner: LifecycleOwner,
     previewView: PreviewView,
     cameraSelector: CameraSelector,
-    imageAnalysis: ImageAnalysis,
     onCameraProviderReady: (ProcessCameraProvider) -> Unit,
     onCameraReady: (androidx.camera.core.Camera) -> Unit
 ) {
@@ -887,79 +819,10 @@ private fun bindEnhancerCamera(
             val camera = cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,
-                preview,
-                imageAnalysis
+                preview
             )
             onCameraReady(camera)
         } catch (_: Exception) {
         }
     }, ContextCompat.getMainExecutor(context))
-}
-
-private data class AnimeFaceState(
-    val centerX: Float = 0.5f,
-    val centerY: Float = 0.5f,
-    val radius: Float = 0f,
-    val strength: Float = 0f
-)
-
-private fun runAnimeAnalyzer(
-    imageProxy: ImageProxy,
-    selectedMode: EnhancerMode,
-    faceDetector: FaceDetector,
-    inFlight: AtomicBoolean,
-    mainExecutor: java.util.concurrent.Executor,
-    onFaceUpdate: (AnimeFaceState) -> Unit
-) {
-    if (selectedMode != EnhancerMode.Animate) {
-        imageProxy.close()
-        onFaceUpdate(AnimeFaceState())
-        return
-    }
-    val mediaImage = imageProxy.image
-    if (mediaImage == null || !inFlight.compareAndSet(false, true)) {
-        imageProxy.close()
-        return
-    }
-    val rotation = imageProxy.imageInfo.rotationDegrees
-    val image = InputImage.fromMediaImage(mediaImage, rotation)
-    faceDetector.process(image)
-        .addOnSuccessListener(mainExecutor) { faces ->
-            val face = faces.maxByOrNull { it.boundingBox.width() * it.boundingBox.height() }
-            if (face == null) {
-                onFaceUpdate(AnimeFaceState())
-                return@addOnSuccessListener
-            }
-            val imageWidth = if (rotation == 90 || rotation == 270) {
-                imageProxy.height.toFloat()
-            } else {
-                imageProxy.width.toFloat()
-            }
-            val imageHeight = if (rotation == 90 || rotation == 270) {
-                imageProxy.width.toFloat()
-            } else {
-                imageProxy.height.toFloat()
-            }
-            val centerX = (face.boundingBox.exactCenterX() / imageWidth).coerceIn(0f, 1f)
-            val centerY = (face.boundingBox.exactCenterY() / imageHeight).coerceIn(0f, 1f)
-            val radius = (
-                maxOf(face.boundingBox.width().toFloat() / imageWidth,
-                    face.boundingBox.height().toFloat() / imageHeight) * 0.6f
-                ).coerceIn(0.1f, 0.8f)
-            onFaceUpdate(
-                AnimeFaceState(
-                    centerX = centerX,
-                    centerY = centerY,
-                    radius = radius,
-                    strength = 1f
-                )
-            )
-        }
-        .addOnFailureListener(mainExecutor) {
-            onFaceUpdate(AnimeFaceState())
-        }
-        .addOnCompleteListener {
-            inFlight.set(false)
-            imageProxy.close()
-        }
 }

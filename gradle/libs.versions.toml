@@ -21,7 +21,6 @@ navigationCompose = "2.8.9"
 accompanistNavigation = "0.34.0"
 datastore = "1.1.1"
 coil = "2.7.0"
-mlkitFace = "16.1.6"
 
 [libraries]
 androidx-compose-material-icons-core = { module = "androidx.compose.material:material-icons-core" }
@@ -62,7 +61,6 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
-mlkit-face-detection = { module = "com.google.mlkit:face-detection", version.ref = "mlkitFace" }
 
 
 [plugins]
