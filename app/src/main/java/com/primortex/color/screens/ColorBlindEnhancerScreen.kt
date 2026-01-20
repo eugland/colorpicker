@@ -209,32 +209,76 @@ private const val ANIMATE_SHADER = """
 uniform shader inner;
 uniform float2 invSize;
 
-float luminance(vec3 c) {
+float lum(vec3 c) {
     return dot(c, vec3(0.2126, 0.7152, 0.0722));
 }
 
-vec3 saturateColor(vec3 color, float saturation) {
-    float y = luminance(color);
-    return mix(vec3(y), color, saturation);
+vec3 bilateral5(float2 uv, vec3 c0) {
+    float wSum = 1.0;
+    vec3 sum = c0;
+
+    float2 o1 = vec2(invSize.x, 0.0);
+    float2 o2 = vec2(0.0, invSize.y);
+
+    vec3 cL = inner.eval(uv - o1).rgb;
+    vec3 cR = inner.eval(uv + o1).rgb;
+    vec3 cU = inner.eval(uv - o2).rgb;
+    vec3 cD = inner.eval(uv + o2).rgb;
+
+    float sigma = 0.14;
+    float wL = exp(-dot(cL - c0, cL - c0) / (sigma * sigma));
+    float wR = exp(-dot(cR - c0, cR - c0) / (sigma * sigma));
+    float wU = exp(-dot(cU - c0, cU - c0) / (sigma * sigma));
+    float wD = exp(-dot(cD - c0, cD - c0) / (sigma * sigma));
+
+    sum += cL * wL;
+    wSum += wL;
+    sum += cR * wR;
+    wSum += wR;
+    sum += cU * wU;
+    wSum += wU;
+    sum += cD * wD;
+    wSum += wD;
+
+    return sum / wSum;
 }
 
-half4 main(float2 coord) {
-    vec3 center = inner.eval(coord).rgb;
-    vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
-    vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
-    vec3 up = inner.eval(coord + vec2(0.0, -invSize.y)).rgb;
-    vec3 down = inner.eval(coord + vec2(0.0, invSize.y)).rgb;
+half4 main(float2 uv) {
+    vec3 c0 = inner.eval(uv).rgb;
+    vec3 smoothC = bilateral5(uv, c0);
 
-    float edge = abs(luminance(left) - luminance(right)) +
-        abs(luminance(up) - luminance(down));
-    float edgeMask = smoothstep(0.06, 0.16, edge);
+    float y = lum(smoothC);
+    float bands = 5.0;
+    float q = floor(y * bands) / (bands - 1.0);
+    q = clamp(q, 0.0, 1.0);
+    vec3 toon = mix(vec3(q), smoothC, 0.55);
 
-    float y = luminance(center);
-    float quantized = floor(y * 3.0 + 0.5) / 3.0;
-    vec3 flattened = mix(vec3(quantized), center, 0.18);
-    vec3 boosted = saturateColor(flattened, 1.65);
-    vec3 outlined = mix(boosted, vec3(0.05), edgeMask);
-    return half4(clamp(outlined, 0.0, 1.0), 1.0);
+    vec3 cL = inner.eval(uv + vec2(-invSize.x, 0.0)).rgb;
+    vec3 cR = inner.eval(uv + vec2(invSize.x, 0.0)).rgb;
+    vec3 cU = inner.eval(uv + vec2(0.0, -invSize.y)).rgb;
+    vec3 cD = inner.eval(uv + vec2(0.0, invSize.y)).rgb;
+    vec3 cUL = inner.eval(uv + vec2(-invSize.x, -invSize.y)).rgb;
+    vec3 cUR = inner.eval(uv + vec2(invSize.x, -invSize.y)).rgb;
+    vec3 cDL = inner.eval(uv + vec2(-invSize.x, invSize.y)).rgb;
+    vec3 cDR = inner.eval(uv + vec2(invSize.x, invSize.y)).rgb;
+
+    float lL = lum(cL);
+    float lR = lum(cR);
+    float lU = lum(cU);
+    float lD = lum(cD);
+    float lUL = lum(cUL);
+    float lUR = lum(cUR);
+    float lDL = lum(cDL);
+    float lDR = lum(cDR);
+
+    float gx = (-lUL - 2.0 * lL - lDL) + (lUR + 2.0 * lR + lDR);
+    float gy = (-lUL - 2.0 * lU - lUR) + (lDL + 2.0 * lD + lDR);
+    float edge = sqrt(gx * gx + gy * gy);
+
+    float edgeMask = smoothstep(0.10, 0.22, edge);
+    vec3 inkColor = vec3(0.06);
+    vec3 outC = mix(toon, inkColor, edgeMask);
+    return half4(clamp(outC, 0.0, 1.0), 1.0);
 }
 """
 
