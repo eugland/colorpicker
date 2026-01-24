@@ -7,10 +7,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.weight
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.Icon
@@ -29,6 +31,7 @@ fun ScreenScaffold(
     @StringRes titleRes: Int,
     innerPadding: PaddingValues,
     onBack: (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {},
     content: @Composable ColumnScope.() -> Unit
 ) {
     Box(
@@ -48,6 +51,8 @@ fun ScreenScaffold(
                     }
                 }
                 Text(stringResource(titleRes), style = MaterialTheme.typography.titleLarge)
+                Spacer(Modifier.weight(1f))
+                actions()
             }
             Spacer(Modifier.height(12.dp))
             content()

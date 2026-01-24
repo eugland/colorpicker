@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
@@ -24,6 +25,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -65,6 +68,7 @@ fun SwatchListScreen(
     }
 
     var query by remember { mutableStateOf("") }
+    var menuExpanded by remember { mutableStateOf(false) }
     val filtered = remember(picks, query) {
         val lowered = query.trim().lowercase()
         if (lowered.isBlank()) {
@@ -76,8 +80,41 @@ fun SwatchListScreen(
             }
         }
     }
+    val clearAll: () -> Unit = {
+        when (type) {
+            SwatchListType.RECENT -> RecentPicksService.clear()
+            SwatchListType.SAVED -> RecentPicksService.clearSaved()
+        }
+    }
 
-    ScreenScaffold(titleRes, innerPadding, onBack = onBack) {
+    ScreenScaffold(
+        titleRes = titleRes,
+        innerPadding = innerPadding,
+        onBack = onBack,
+        actions = {
+            IconButton(
+                onClick = { menuExpanded = true },
+                enabled = picks.isNotEmpty()
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.MoreVert,
+                    contentDescription = stringResource(R.string.more_options)
+                )
+            }
+            DropdownMenu(
+                expanded = menuExpanded,
+                onDismissRequest = { menuExpanded = false }
+            ) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.delete_all)) },
+                    onClick = {
+                        menuExpanded = false
+                        clearAll()
+                    }
+                )
+            }
+        }
+    ) {
         OutlinedTextField(
             value = query,
             onValueChange = { query = it },
