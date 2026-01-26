@@ -3,6 +3,8 @@ package com.primortex.color.screens
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.graphics.RenderEffect
 import android.graphics.RuntimeShader
 import android.os.Build
@@ -13,6 +15,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -58,6 +62,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -70,8 +75,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import androidx.core.math.MathUtils
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 private const val MONOCHROME_SHADER = """
 uniform shader inner;
@@ -238,40 +246,6 @@ half4 main(float2 coord) {
 }
 """
 
-private const val INTRINSIC_SHADER = """
-uniform shader inner;
-
-float luminance(vec3 c) {
-    return dot(c, vec3(0.2126, 0.7152, 0.0722));
-}
-
-half4 main(float2 coord) {
-    vec3 rgb = inner.eval(coord).rgb;
-    float sum = max(rgb.r + rgb.g + rgb.b, 0.001);
-    float rawLuma = luminance(rgb);
-    float sat = length(rgb - vec3(rawLuma));
-    vec3 chroma = rgb / sum;
-    float chromaMax = max(max(chroma.r, chroma.g), chroma.b);
-    float chromaStrength = smoothstep(0.12, 0.35, sat);
-    vec3 normalized = mix(
-        chroma,
-        chroma / max(chromaMax, 0.001),
-        chromaStrength
-    );
-
-    float luma = luminance(normalized);
-    float target = 0.65;
-    float lumaScale = clamp(target / max(luma, 0.001), 0.85, 1.15);
-    vec3 balanced = normalized * lumaScale;
-
-    float highlight = smoothstep(0.85, 0.98, rawLuma);
-    float lowSat = 1.0 - smoothstep(0.05, 0.2, sat);
-    vec3 flattened = mix(rgb, balanced, 0.65);
-    vec3 result = mix(flattened, balanced, highlight * lowSat * 0.6);
-    return half4(clamp(result, 0.0, 1.0), 1.0);
-}
-"""
-
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -357,12 +331,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val cyberRenderEffect = remember(cyberShader) {
         cyberShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val intrinsicShader = remember(supportsShader) {
-        RuntimeShader(INTRINSIC_SHADER)
-    }
-    val intrinsicRenderEffect = remember(intrinsicShader) {
-        intrinsicShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
-    }
+    var intrinsicMlEffect by remember { mutableStateOf<RenderEffect?>(null) }
+    val cameraExecutor = remember { Executors.newSingleThreadExecutor() }
+    val mainExecutor = remember(ctx) { ContextCompat.getMainExecutor(ctx) }
 
     val previewView = remember {
         PreviewView(ctx).apply {
@@ -377,6 +348,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     DisposableEffect(Unit) {
         onDispose {
             cameraProvider?.unbindAll()
+            cameraExecutor.shutdown()
         }
     }
 
@@ -481,11 +453,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         }
 
                         EnhancerMode.Intrinsic -> {
-                            if (intrinsicShader != null) {
-                                view.setRenderEffect(intrinsicRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
+                            view.setRenderEffect(intrinsicMlEffect)
                         }
 
                         EnhancerMode.Normal -> view.setRenderEffect(null)
@@ -493,6 +461,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                 }
             )
 
+            val selectedModeState = rememberUpdatedState(selectedMode)
             LaunchedEffect(hasCameraPerm, useFrontCamera) {
                 if (!hasCameraPerm) return@LaunchedEffect
                 bindEnhancerCamera(
@@ -505,7 +474,24 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         CameraSelector.DEFAULT_BACK_CAMERA
                     },
                     onCameraProviderReady = { cameraProvider = it },
-                    onCameraReady = { camera = it }
+                    onCameraReady = { camera = it },
+                    cameraExecutor = cameraExecutor,
+                    onAnalyzeFrame = { image ->
+                        if (selectedModeState.value != EnhancerMode.Intrinsic) {
+                            image.close()
+                            return@bindEnhancerCamera
+                        }
+                        val gains = estimateIlluminantGains(image)
+                        image.close()
+                        if (gains != null) {
+                            val effect = RenderEffect.createColorFilterEffect(
+                                ColorMatrixColorFilter(createColorMatrix(gains))
+                            )
+                            mainExecutor.execute {
+                                intrinsicMlEffect = effect
+                            }
+                        }
+                    }
                 )
             }
         } else {
@@ -817,6 +803,157 @@ private fun ModeGridItem(
     }
 }
 
+private fun estimateIlluminantGains(image: ImageProxy): FloatArray? {
+    if (image.format != android.graphics.ImageFormat.YUV_420_888) return null
+    val samples = collectChromaSamples(image)
+    if (samples.size < 8) return null
+
+    val centers = kMeansChroma(samples, k = 2, iterations = 6)
+    val neutral = floatArrayOf(1f / 3f, 1f / 3f, 1f / 3f)
+    val chosen = centers.minByOrNull { distance(it, neutral) } ?: return null
+    val gains = floatArrayOf(
+        MathUtils.clamp(neutral[0] / chosen[0], 0.7f, 1.4f),
+        MathUtils.clamp(neutral[1] / chosen[1], 0.7f, 1.4f),
+        MathUtils.clamp(neutral[2] / chosen[2], 0.7f, 1.4f)
+    )
+    return gains
+}
+
+private fun collectChromaSamples(image: ImageProxy): List<FloatArray> {
+    val samples = ArrayList<FloatArray>()
+    val w = image.width
+    val h = image.height
+    val stepX = (w / 10).coerceAtLeast(1)
+    val stepY = (h / 10).coerceAtLeast(1)
+    var y = stepY / 2
+    while (y < h) {
+        var x = stepX / 2
+        while (x < w) {
+            val rgb = sampleRgb(image, x, y) ?: run {
+                x += stepX
+                continue
+            }
+            val sum = rgb[0] + rgb[1] + rgb[2]
+            if (sum > 0.05f) {
+                val chroma = floatArrayOf(rgb[0] / sum, rgb[1] / sum, rgb[2] / sum)
+                val luma = luminance(rgb)
+                val sat = length(rgb[0] - luma, rgb[1] - luma, rgb[2] - luma)
+                if (sat > 0.02f) {
+                    samples.add(chroma)
+                }
+            }
+            x += stepX
+        }
+        y += stepY
+    }
+    return samples
+}
+
+private fun kMeansChroma(
+    samples: List<FloatArray>,
+    k: Int,
+    iterations: Int
+): List<FloatArray> {
+    val first = samples.first()
+    var farthest = first
+    var maxDist = 0f
+    for (sample in samples) {
+        val dist = distance(sample, first)
+        if (dist > maxDist) {
+            maxDist = dist
+            farthest = sample
+        }
+    }
+    val centers = MutableList(k) { idx ->
+        if (idx == 0) first.copyOf() else farthest.copyOf()
+    }
+
+    repeat(iterations) {
+        val sums = Array(k) { floatArrayOf(0f, 0f, 0f) }
+        val counts = IntArray(k)
+        for (sample in samples) {
+            var best = 0
+            var bestDist = Float.MAX_VALUE
+            for (i in 0 until k) {
+                val dist = distance(sample, centers[i])
+                if (dist < bestDist) {
+                    bestDist = dist
+                    best = i
+                }
+            }
+            sums[best][0] += sample[0]
+            sums[best][1] += sample[1]
+            sums[best][2] += sample[2]
+            counts[best] += 1
+        }
+        for (i in 0 until k) {
+            if (counts[i] > 0) {
+                centers[i][0] = sums[i][0] / counts[i]
+                centers[i][1] = sums[i][1] / counts[i]
+                centers[i][2] = sums[i][2] / counts[i]
+            }
+        }
+    }
+    return centers
+}
+
+private fun sampleRgb(image: ImageProxy, x: Int, y: Int): FloatArray? {
+    val yPlane = image.planes[0]
+    val uPlane = image.planes[1]
+    val vPlane = image.planes[2]
+
+    val yBuf = yPlane.buffer
+    val uBuf = uPlane.buffer
+    val vBuf = vPlane.buffer
+
+    val yRowStride = yPlane.rowStride
+    val yPixelStride = yPlane.pixelStride
+    val uRowStride = uPlane.rowStride
+    val uPixelStride = uPlane.pixelStride
+    val vRowStride = vPlane.rowStride
+    val vPixelStride = vPlane.pixelStride
+
+    val yIndex = yRowStride * y + yPixelStride * x
+    val uvX = x / 2
+    val uvY = y / 2
+    val uIndex = uRowStride * uvY + uPixelStride * uvX
+    val vIndex = vRowStride * uvY + vPixelStride * uvX
+
+    if (yIndex >= yBuf.limit() || uIndex >= uBuf.limit() || vIndex >= vBuf.limit()) return null
+
+    val yf = (yBuf.get(yIndex).toInt() and 0xFF).toFloat()
+    val uf = (uBuf.get(uIndex).toInt() and 0xFF).toFloat() - 128f
+    val vf = (vBuf.get(vIndex).toInt() and 0xFF).toFloat() - 128f
+
+    val r = (yf + 1.402f * vf).coerceIn(0f, 255f)
+    val g = (yf - 0.344136f * uf - 0.714136f * vf).coerceIn(0f, 255f)
+    val b = (yf + 1.772f * uf).coerceIn(0f, 255f)
+
+    return floatArrayOf(r / 255f, g / 255f, b / 255f)
+}
+
+private fun luminance(rgb: FloatArray): Float {
+    return 0.2126f * rgb[0] + 0.7152f * rgb[1] + 0.0722f * rgb[2]
+}
+
+private fun length(x: Float, y: Float, z: Float): Float {
+    return kotlin.math.sqrt(x * x + y * y + z * z)
+}
+
+private fun distance(a: FloatArray, b: FloatArray): Float {
+    return length(a[0] - b[0], a[1] - b[1], a[2] - b[2])
+}
+
+private fun createColorMatrix(gains: FloatArray): ColorMatrix {
+    return ColorMatrix(
+        floatArrayOf(
+            gains[0], 0f, 0f, 0f, 0f,
+            0f, gains[1], 0f, 0f, 0f,
+            0f, 0f, gains[2], 0f, 0f,
+            0f, 0f, 0f, 1f, 0f
+        )
+    )
+}
 
 private fun bindEnhancerCamera(
     context: Context,
@@ -824,7 +961,9 @@ private fun bindEnhancerCamera(
     previewView: PreviewView,
     cameraSelector: CameraSelector,
     onCameraProviderReady: (ProcessCameraProvider) -> Unit,
-    onCameraReady: (androidx.camera.core.Camera) -> Unit
+    onCameraReady: (androidx.camera.core.Camera) -> Unit,
+    cameraExecutor: ExecutorService,
+    onAnalyzeFrame: (ImageProxy) -> Unit
 ) {
     val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
     cameraProviderFuture.addListener({
@@ -837,12 +976,21 @@ private fun bindEnhancerCamera(
             .build()
             .also { it.surfaceProvider = previewView.surfaceProvider }
 
+        val analysis = ImageAnalysis.Builder()
+            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+            .build()
+
+        analysis.setAnalyzer(cameraExecutor) { image ->
+            onAnalyzeFrame(image)
+        }
+
         try {
             cameraProvider.unbindAll()
             val camera = cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,
-                preview
+                preview,
+                analysis
             )
             onCameraReady(camera)
         } catch (_: Exception) {
