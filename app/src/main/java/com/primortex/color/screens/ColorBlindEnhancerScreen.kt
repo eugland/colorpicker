@@ -248,20 +248,26 @@ float luminance(vec3 c) {
 half4 main(float2 coord) {
     vec3 rgb = inner.eval(coord).rgb;
     float sum = max(rgb.r + rgb.g + rgb.b, 0.001);
+    float rawLuma = luminance(rgb);
+    float sat = length(rgb - vec3(rawLuma));
     vec3 chroma = rgb / sum;
     float chromaMax = max(max(chroma.r, chroma.g), chroma.b);
-    vec3 normalized = chroma / max(chromaMax, 0.001);
+    float chromaStrength = smoothstep(0.12, 0.35, sat);
+    vec3 normalized = mix(
+        chroma,
+        chroma / max(chromaMax, 0.001),
+        chromaStrength
+    );
 
     float luma = luminance(normalized);
     float target = 0.65;
-    vec3 balanced = normalized * (target / max(luma, 0.001));
+    float lumaScale = clamp(target / max(luma, 0.001), 0.85, 1.15);
+    vec3 balanced = normalized * lumaScale;
 
-    float rawLuma = luminance(rgb);
-    float sat = length(rgb - vec3(rawLuma));
-    float highlight = smoothstep(0.75, 0.98, rawLuma);
+    float highlight = smoothstep(0.85, 0.98, rawLuma);
     float lowSat = 1.0 - smoothstep(0.05, 0.2, sat);
     vec3 flattened = mix(rgb, balanced, 0.65);
-    vec3 result = mix(flattened, balanced, highlight * lowSat);
+    vec3 result = mix(flattened, balanced, highlight * lowSat * 0.6);
     return half4(clamp(result, 0.0, 1.0), 1.0);
 }
 """
