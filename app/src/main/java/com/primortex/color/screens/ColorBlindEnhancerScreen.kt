@@ -332,6 +332,8 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         cyberShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
     var intrinsicMlEffect by remember { mutableStateOf<RenderEffect?>(null) }
+    var smoothedGains by remember { mutableStateOf<FloatArray?>(null) }
+    val gainHistory = remember { ArrayDeque<FloatArray>() }
     val cameraExecutor = remember { Executors.newSingleThreadExecutor() }
     val mainExecutor = remember(ctx) { ContextCompat.getMainExecutor(ctx) }
 
@@ -484,11 +486,13 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         val gains = estimateIlluminantGains(image)
                         image.close()
                         if (gains != null) {
-                            val effect = RenderEffect.createColorFilterEffect(
-                                ColorMatrixColorFilter(createColorMatrix(gains))
-                            )
+                            val medianGains = updateGainHistory(gainHistory, gains, maxSamples = 8)
                             mainExecutor.execute {
-                                intrinsicMlEffect = effect
+                                val blended = smoothGains(smoothedGains, medianGains, 0.2f)
+                                smoothedGains = blended
+                                intrinsicMlEffect = RenderEffect.createColorFilterEffect(
+                                    ColorMatrixColorFilter(createColorMatrix(blended))
+                                )
                             }
                         }
                     }
@@ -838,7 +842,8 @@ private fun collectChromaSamples(image: ImageProxy): List<FloatArray> {
                 val chroma = floatArrayOf(rgb[0] / sum, rgb[1] / sum, rgb[2] / sum)
                 val luma = luminance(rgb)
                 val sat = length(rgb[0] - luma, rgb[1] - luma, rgb[2] - luma)
-                if (sat > 0.02f) {
+                val specular = luma > 0.85f && sat < 0.08f
+                if (!specular && sat > 0.02f) {
                     samples.add(chroma)
                 }
             }
@@ -942,6 +947,56 @@ private fun length(x: Float, y: Float, z: Float): Float {
 
 private fun distance(a: FloatArray, b: FloatArray): Float {
     return length(a[0] - b[0], a[1] - b[1], a[2] - b[2])
+}
+
+private fun updateGainHistory(
+    history: ArrayDeque<FloatArray>,
+    gains: FloatArray,
+    maxSamples: Int
+): FloatArray {
+    synchronized(history) {
+        history.addLast(gains.copyOf())
+        while (history.size > maxSamples) {
+            history.removeFirst()
+        }
+        return medianGains(history)
+    }
+}
+
+private fun medianGains(history: ArrayDeque<FloatArray>): FloatArray {
+    val r = ArrayList<Float>(history.size)
+    val g = ArrayList<Float>(history.size)
+    val b = ArrayList<Float>(history.size)
+    for (sample in history) {
+        r.add(sample[0])
+        g.add(sample[1])
+        b.add(sample[2])
+    }
+    return floatArrayOf(
+        medianOf(r),
+        medianOf(g),
+        medianOf(b)
+    )
+}
+
+private fun medianOf(values: ArrayList<Float>): Float {
+    values.sort()
+    val mid = values.size / 2
+    return if (values.size % 2 == 0) {
+        (values[mid - 1] + values[mid]) * 0.5f
+    } else {
+        values[mid]
+    }
+}
+
+private fun smoothGains(previous: FloatArray?, current: FloatArray, alpha: Float): FloatArray {
+    if (previous == null) return current.copyOf()
+    val t = alpha.coerceIn(0f, 1f)
+    return floatArrayOf(
+        previous[0] + (current[0] - previous[0]) * t,
+        previous[1] + (current[1] - previous[1]) * t,
+        previous[2] + (current[2] - previous[2]) * t
+    )
 }
 
 private fun createColorMatrix(gains: FloatArray): ColorMatrix {
