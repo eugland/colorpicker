@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -33,6 +34,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Palette
@@ -48,6 +50,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -371,6 +375,7 @@ fun PaletteListScreen(
 ) {
     val savedPalettes by PaletteService.palettes.collectAsState()
     var query by remember { mutableStateOf("") }
+    var menuExpanded by remember { mutableStateOf(false) }
     val filteredPalettes = remember(savedPalettes, query) {
         val lowered = query.trim().lowercase()
         if (lowered.isBlank()) {
@@ -387,7 +392,32 @@ fun PaletteListScreen(
     ScreenScaffold(
         titleRes = R.string.saved_palettes,
         innerPadding = innerPadding,
-        onBack = onBack
+        onBack = onBack,
+        actions = {
+            Box(Modifier.wrapContentSize(Alignment.TopEnd)) {
+                IconButton(
+                    onClick = { menuExpanded = true },
+                    enabled = savedPalettes.isNotEmpty()
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.MoreVert,
+                        contentDescription = stringResource(R.string.more_options)
+                    )
+                }
+                DropdownMenu(
+                    expanded = menuExpanded,
+                    onDismissRequest = { menuExpanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.delete_all)) },
+                        onClick = {
+                            menuExpanded = false
+                            PaletteService.clear()
+                        }
+                    )
+                }
+            }
+        }
     ) {
         OutlinedTextField(
             value = query,
