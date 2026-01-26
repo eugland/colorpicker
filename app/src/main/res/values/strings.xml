@@ -167,6 +167,7 @@
     <string name="xray_mode">X-ray imaging mode</string>
     <string name="animate_mode">Animate style mode</string>
     <string name="cyber_mode">Cyber style mode</string>
+    <string name="intrinsic_mode">Intrinsic color mode</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Choose a filter</string>
     <string name="filter_selector_label">Filter</string>

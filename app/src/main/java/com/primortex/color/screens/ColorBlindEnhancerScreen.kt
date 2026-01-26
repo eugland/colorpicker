@@ -238,6 +238,34 @@ half4 main(float2 coord) {
 }
 """
 
+private const val INTRINSIC_SHADER = """
+uniform shader inner;
+
+float luminance(vec3 c) {
+    return dot(c, vec3(0.2126, 0.7152, 0.0722));
+}
+
+half4 main(float2 coord) {
+    vec3 rgb = inner.eval(coord).rgb;
+    float sum = max(rgb.r + rgb.g + rgb.b, 0.001);
+    vec3 chroma = rgb / sum;
+    float chromaMax = max(max(chroma.r, chroma.g), chroma.b);
+    vec3 normalized = chroma / max(chromaMax, 0.001);
+
+    float luma = luminance(normalized);
+    float target = 0.65;
+    vec3 balanced = normalized * (target / max(luma, 0.001));
+
+    float rawLuma = luminance(rgb);
+    float sat = length(rgb - vec3(rawLuma));
+    float highlight = smoothstep(0.75, 0.98, rawLuma);
+    float lowSat = 1.0 - smoothstep(0.05, 0.2, sat);
+    vec3 flattened = mix(rgb, balanced, 0.65);
+    vec3 result = mix(flattened, balanced, highlight * lowSat);
+    return half4(clamp(result, 0.0, 1.0), 1.0);
+}
+"""
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -322,6 +350,12 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     }
     val cyberRenderEffect = remember(cyberShader) {
         cyberShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
+    }
+    val intrinsicShader = remember(supportsShader) {
+        RuntimeShader(INTRINSIC_SHADER)
+    }
+    val intrinsicRenderEffect = remember(intrinsicShader) {
+        intrinsicShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
 
     val previewView = remember {
@@ -435,6 +469,14 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         EnhancerMode.Cyber -> {
                             if (cyberShader != null) {
                                 view.setRenderEffect(cyberRenderEffect)
+                            } else {
+                                view.setRenderEffect(null)
+                            }
+                        }
+
+                        EnhancerMode.Intrinsic -> {
+                            if (intrinsicShader != null) {
+                                view.setRenderEffect(intrinsicRenderEffect)
                             } else {
                                 view.setRenderEffect(null)
                             }
@@ -664,7 +706,8 @@ private enum class EnhancerMode(val labelRes: Int) {
     Cyber(R.string.cyber_mode),
     Thermal(R.string.thermal_mode),
     Mri(R.string.mri_mode),
-    Xray(R.string.xray_mode)
+    Xray(R.string.xray_mode),
+    Intrinsic(R.string.intrinsic_mode)
 }
 
 @Composable
@@ -684,6 +727,7 @@ private fun ModeGridItem(
         EnhancerMode.Thermal -> Color(0xFFFF7043)
         EnhancerMode.Mri -> Color(0xFF7E57C2)
         EnhancerMode.Xray -> Color(0xFF607D8B)
+        EnhancerMode.Intrinsic -> Color(0xFF26A69A)
     }
 
     val shape = RoundedCornerShape(16.dp)
