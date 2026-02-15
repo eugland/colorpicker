@@ -20,7 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
@@ -94,3 +94,4 @@ data class InfoDetailSection(
     val paragraphs: List<String>,
     val bullets: List<String> = emptyList()
 )
+

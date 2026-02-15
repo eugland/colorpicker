@@ -25,7 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.ui.components.WaterCard
@@ -163,3 +163,4 @@ private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
         }
     }
 }
+

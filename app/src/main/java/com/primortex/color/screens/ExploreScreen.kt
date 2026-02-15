@@ -36,7 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import com.primortex.color.R
@@ -333,3 +333,4 @@ private fun shareText(context: Context) {
     }
     context.startActivity(Intent.createChooser(intent, null))
 }
+

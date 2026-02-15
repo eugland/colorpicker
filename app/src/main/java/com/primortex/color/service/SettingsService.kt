@@ -10,6 +10,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
+import com.primortex.color.i18n.AppStrings
 import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.i18n.LocaleManagerBridge
 import kotlinx.coroutines.CoroutineScope
@@ -158,6 +159,7 @@ object SettingsService {
             }
 
             syncPlatformLocale(resolvedLanguage)
+            AppStrings.clear()
             Log.d("AppLanguage", "init: ${_appLanguage.value}")
 
             if (prefs[KEY_FIRST_USE_LOGGED] != true) {
@@ -195,6 +197,7 @@ object SettingsService {
         Log.d("AppLanguage", "setAppLanguage: $language")
         LanguageCache.set(appContext, language.languageTag)
         syncPlatformLocale(language)
+        AppStrings.clear()
         persist()
     }
 

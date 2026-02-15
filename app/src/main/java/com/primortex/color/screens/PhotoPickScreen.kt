@@ -47,7 +47,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.AppStrings
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
@@ -221,10 +222,10 @@ fun PhotoPickScreen(
                 onAddColor = {
                     when {
                         pickedColor in palette -> snackbarService.showMessage(
-                            ctx.getString(R.string.photo_already_in_palette, pickedColor.name)
+                            AppStrings.get(R.string.photo_already_in_palette, pickedColor.name)
                         )
 
-                        palette.size >= 10 -> snackbarService.showMessage(ctx.getString(R.string.photo_palette_full_message))
+                        palette.size >= 10 -> snackbarService.showMessage(AppStrings.get(R.string.photo_palette_full_message))
                         else -> {
                             palette.add(pickedColor)
                         }
@@ -232,25 +233,25 @@ fun PhotoPickScreen(
                 },
                 onAddPalette = {
                     if (palette.isEmpty()) {
-                        snackbarService.showMessage(ctx.getString(R.string.photo_palette_empty))
+                        snackbarService.showMessage(AppStrings.get(R.string.photo_palette_empty))
                         return@PaletteBar
                     }
 
                     val saved = PaletteService.create(
-                        name = ctx.getString(
+                        name = AppStrings.get(
                             R.string.palette_default_name,
                             PaletteService.palettes.value.size + 1
                         ),
                         tags = listOf(
-                            ctx.getString(R.string.palette_tag_photo),
-                            ctx.getString(R.string.palette_tag_pick)
+                            AppStrings.get(R.string.palette_tag_photo),
+                            AppStrings.get(R.string.palette_tag_pick)
                         ),
                         colors = palette,
                         creationSource = "photo_library"
                     )
                     ColorServices.selectedPalette = saved
                     palette.clear()
-                    snackbarService.showMessage(ctx.getString(R.string.photo_palette_saved))
+                    snackbarService.showMessage(AppStrings.get(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
                 }
             )
@@ -294,3 +295,4 @@ private fun sampleBitmapAtTapFit(
 
     return bmp.getPixel(bx, by)
 }
+

@@ -61,8 +61,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import com.primortex.color.i18n.AppStrings
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
@@ -326,17 +327,17 @@ fun LiveCameraScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 14.dp),
             palette = palette,
-            onAddColor = {
-                RecentPicksService.addPick(pickedColor, source = "live_camera")
-                when {
-                    pickedColor in palette -> snackbarService.showMessage(
-                        ctx.getString(
+                onAddColor = {
+                    RecentPicksService.addPick(pickedColor, source = "live_camera")
+                    when {
+                        pickedColor in palette -> snackbarService.showMessage(
+                        AppStrings.get(
                             R.string.palette_already_in_palette,
                             pickedColor.name
                         )
                     )
 
-                    palette.size >= 10 -> snackbarService.showMessage(ctx.getString(R.string.palette_full_message))
+                    palette.size >= 10 -> snackbarService.showMessage(AppStrings.get(R.string.palette_full_message))
                     else -> {
                         palette.add(pickedColor)
                     }
@@ -344,24 +345,24 @@ fun LiveCameraScreen(
             },
             onAddPalette = {
                 if (palette.isEmpty()) {
-                    snackbarService.showMessage(ctx.getString(R.string.palette_empty_start_adding))
+                    snackbarService.showMessage(AppStrings.get(R.string.palette_empty_start_adding))
                     return@PaletteBar
                 }
                 val saved = PaletteService.create(
-                    name = ctx.getString(
+                    name = AppStrings.get(
                         R.string.palette_default_name,
                         PaletteService.palettes.value.size + 1
                     ),
                     tags = listOf(
-                        ctx.getString(R.string.palette_tag_camera),
-                        ctx.getString(R.string.palette_tag_live_pick)
+                        AppStrings.get(R.string.palette_tag_camera),
+                        AppStrings.get(R.string.palette_tag_live_pick)
                     ),
                     colors = palette,
                     creationSource = "live_camera"
                 )
                 ColorServices.selectedPalette = saved
                 palette.clear()
-                snackbarService.showMessage(ctx.getString(R.string.palette_saved))
+                snackbarService.showMessage(AppStrings.get(R.string.palette_saved))
                 onOpenPalette(saved.id, true)
             },
             onClearPalette = { palette.clear() }
@@ -464,3 +465,4 @@ private fun bindCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+

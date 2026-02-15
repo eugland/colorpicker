@@ -70,7 +70,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -833,7 +833,8 @@ private fun collectChromaSamples(image: ImageProxy): List<FloatArray> {
     while (y < h) {
         var x = stepX / 2
         while (x < w) {
-            val rgb = sampleRgb(image, x, y) ?: run {
+            val rgb = sampleRgb(image, x, y)
+            if (rgb == null) {
                 x += stepX
                 continue
             }
@@ -1052,3 +1053,4 @@ private fun bindEnhancerCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+

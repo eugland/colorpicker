@@ -59,8 +59,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.AppStrings
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
@@ -87,7 +87,6 @@ fun ColorDetailsScreen(
     onOpenPalette: (String, Boolean) -> Unit = { _, _ -> }
 ) {
     val clipboard = LocalClipboardManager.current
-    val context = LocalContext.current
     val snackbarService = LocalSnackbarService.current
     val palettes by PaletteService.palettes.collectAsState()
     val savedColors by RecentPicksService.saved.collectAsState()
@@ -218,7 +217,7 @@ fun ColorDetailsScreen(
                 }
                 IconButton(onClick = {
                     clipboard.setText(AnnotatedString(details.hex))
-                    snackbarService.showMessage(context.getString(R.string.hex_copied))
+                    snackbarService.showMessage(AppStrings.get(R.string.hex_copied))
                 }) {
                     Icon(
                         Icons.Outlined.ContentCopy,
@@ -235,7 +234,7 @@ fun ColorDetailsScreen(
                     Button(onClick = {
                         RecentPicksService.toggleSaved(pickedColor)
                         snackbarService.showMessage(
-                            context.getString(R.string.removed_from_my_colors)
+                            AppStrings.get(R.string.removed_from_my_colors)
                         )
                     }) {
                         Icon(
@@ -249,7 +248,7 @@ fun ColorDetailsScreen(
                     OutlinedButton(onClick = {
                         RecentPicksService.toggleSaved(pickedColor)
                         snackbarService.showMessage(
-                            context.getString(R.string.saved_to_my_colors)
+                            AppStrings.get(R.string.saved_to_my_colors)
                         )
                     }) {
                         Icon(
@@ -344,7 +343,7 @@ fun ColorDetailsScreen(
                 argbs = details.tints,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${context.getString(R.string.tints_label)}",
+                        name = "${displayName} ${AppStrings.get(R.string.tints_label)}",
                         colors = (listOf(details.argb) + details.tints).toPickedColors(),
                         tags = listOf("details"),
                         saveOnCreate = false,
@@ -360,7 +359,7 @@ fun ColorDetailsScreen(
                 argbs = details.shades,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${context.getString(R.string.shades_label)}",
+                        name = "${displayName} ${AppStrings.get(R.string.shades_label)}",
                         colors = (listOf(details.argb) + details.shades).toPickedColors(),
                         tags = listOf("details"),
                         saveOnCreate = false,
@@ -376,7 +375,7 @@ fun ColorDetailsScreen(
                 argbs = details.tones,
                 onOpenPalette = {
                     val saved = PaletteService.create(
-                        name = "${displayName} ${context.getString(R.string.tones_label)}",
+                        name = "${displayName} ${AppStrings.get(R.string.tones_label)}",
                         colors = (listOf(details.argb) + details.tones).toPickedColors(),
                         tags = listOf("details"),
                         saveOnCreate = false,
@@ -662,7 +661,6 @@ private fun PalettePickerDialog(
     onPaletteUpdated: (String) -> Unit,
     onPaletteCreated: (String) -> Unit
 ) {
-    val ctx = LocalContext.current
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.add_to_palette)) },
@@ -676,17 +674,17 @@ private fun PalettePickerDialog(
                             onClick = {
                                 when {
                                     palette.colors.any { it.argb == pickedColor.argb } ->
-                                        onPaletteUpdated(ctx.getString(R.string.already_in_palette))
+                                        onPaletteUpdated(AppStrings.get(R.string.already_in_palette))
 
                                     palette.colors.size >= 10 ->
-                                        onPaletteUpdated(ctx.getString(R.string.palette_full))
+                                        onPaletteUpdated(AppStrings.get(R.string.palette_full))
 
                                     else -> {
                                         PaletteService.update(
                                             id = palette.id,
                                             colors = palette.colors + pickedColor
                                         )
-                                        onPaletteUpdated(ctx.getString(R.string.added_to_palette))
+                                        onPaletteUpdated(AppStrings.get(R.string.added_to_palette))
                                     }
                                 }
                             },
@@ -701,7 +699,7 @@ private fun PalettePickerDialog(
                 }
                 OutlinedButton(
                     onClick = {
-                        val newPaletteName = ctx.getString(
+                        val newPaletteName = AppStrings.get(
                             R.string.palette_name_with_color,
                             pickedColor.name
                         )
@@ -709,7 +707,7 @@ private fun PalettePickerDialog(
                             palette.name.equals(newPaletteName, ignoreCase = true)
                         }
                         if (hasDuplicateName) {
-                            onPaletteCreated(ctx.getString(R.string.already_in_palette))
+                            onPaletteCreated(AppStrings.get(R.string.already_in_palette))
                         } else {
                             PaletteService.create(
                                 name = newPaletteName,
@@ -717,7 +715,7 @@ private fun PalettePickerDialog(
                                 tags = listOf("details"),
                                 creationSource = "color_details"
                             )
-                            onPaletteCreated(ctx.getString(R.string.palette_saved))
+                            onPaletteCreated(AppStrings.get(R.string.palette_saved))
                         }
                     },
                     modifier = Modifier.fillMaxWidth()
@@ -743,3 +741,4 @@ private fun List<Int>.toPickedColors(): List<PickedColor> {
         PickedColor(argb, if (name.isBlank()) argbToHex(argb) else name)
     }
 }
+
