@@ -38,7 +38,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
@@ -443,3 +443,4 @@ private fun cmykToArgb(c: Int, m: Int, y: Int, k: Int): Int {
     val b = (255f * (1f - yf) * (1f - kf)).toInt()
     return toArgb(r, g, b)
 }
+

@@ -19,13 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.service.SettingsService
-import com.primortex.color.service.ThemeMode
+import com.primortex.color.data.enums.ThemeMode
 import com.primortex.color.ui.components.ScreenScaffold
-import androidx.compose.ui.res.stringResource as str
+import com.primortex.color.i18n.stringResource as str
 
 @Composable
 fun ThemeSelectionScreen(
@@ -108,3 +108,5 @@ private fun ThemeOption(
         )
     }
 }
+
+

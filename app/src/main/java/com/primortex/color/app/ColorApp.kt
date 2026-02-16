@@ -20,12 +20,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.produceState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import androidx.compose.runtime.remember
+import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -36,8 +34,6 @@ import androidx.navigation.navArgument
 import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.info.InfoContent
-import com.primortex.color.info.InfoContentService
-import com.primortex.color.info.InfoPage
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
 import com.primortex.color.screens.ColorDetailsScreen
@@ -45,7 +41,6 @@ import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.CrosshairSettingsScreen
 import com.primortex.color.screens.ExploreScreen
 import com.primortex.color.screens.InfoDetailScreen
-import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.screens.LanguageSelectionScreen
 import com.primortex.color.screens.LiveCameraScreen
 import com.primortex.color.screens.PaletteDetailScreen
@@ -54,7 +49,7 @@ import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.screens.SwatchListScreen
-import com.primortex.color.screens.SwatchListType
+import com.primortex.color.data.enums.SwatchListType
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -311,58 +306,38 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
 
                 composable(Routes.Info.COPYRIGHT) {
-                    val sections = rememberInfoSections(
-                        page = InfoPage.COPYRIGHT,
-                        fallback = InfoContent.copyrightSections
-                    )
-
                     InfoDetailScreen(
                         title = stringResource(R.string.copyright_notice),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = sections
+                        sections = InfoContent.copyrightSections
                     )
                 }
 
                 composable(Routes.Info.PRIVACY) {
-                    val sections = rememberInfoSections(
-                        page = InfoPage.PRIVACY,
-                        fallback = InfoContent.privacySections
-                    )
-
                     InfoDetailScreen(
                         title = stringResource(R.string.privacy_statement),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = sections
+                        sections = InfoContent.privacySections
                     )
                 }
 
                 composable(Routes.Info.TERMS) {
-                    val sections = rememberInfoSections(
-                        page = InfoPage.TERMS,
-                        fallback = InfoContent.termsSections
-                    )
-
                     InfoDetailScreen(
                         title = stringResource(R.string.terms_of_service),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = sections
+                        sections = InfoContent.termsSections
                     )
                 }
 
                 composable(Routes.Info.USAGE) {
-                    val sections = rememberInfoSections(
-                        page = InfoPage.USAGE,
-                        fallback = InfoContent.usageSections
-                    )
-
                     InfoDetailScreen(
                         title = stringResource(R.string.usage_guide),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = sections
+                        sections = InfoContent.usageSections
                     )
                 }
 
@@ -409,24 +384,6 @@ private fun ExploreRoute(
     )
 }
 
-@Composable
-private fun rememberInfoSections(
-    page: InfoPage,
-    fallback: List<InfoDetailSection>
-): List<InfoDetailSection> {
-    val context = LocalContext.current
-    val locales = LocalConfiguration.current.locales
-    val languageTag = if (locales.isEmpty) null else locales[0]?.toLanguageTag()
-    val service = remember { InfoContentService(context) }
-
-    val sections = produceState(initialValue = fallback, page, languageTag) {
-        service.loadSections(page, languageTag, fallback) { updated ->
-            value = updated
-        }
-    }
-    return sections.value
-}
-
 private fun screenNameForRoute(route: String): String? {
     val baseRoute = route.substringBefore("?")
     return when (baseRoute) {
@@ -462,3 +419,5 @@ private fun Context.findActivity(): Activity? {
     }
     return null
 }
+
+
