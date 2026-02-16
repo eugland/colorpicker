@@ -1,41 +1,52 @@
 package com.primortex.color.app
 
 import androidx.navigation.NavController
+import androidx.navigation.NavOptionsBuilder
 
 class NavColorNavigator(
     private val nav: NavController
 ) : ColorNavigator {
+    private fun NavController.navigateIfNotCurrent(route: String) {
+        if (currentDestination?.route == route) return
+        navigate(route)
+    }
+
+    private fun NavController.navigateIfNotCurrent(
+        route: String,
+        builder: NavOptionsBuilder.() -> Unit
+    ) {
+        if (currentDestination?.route == route) return
+        navigate(route, builder)
+    }
+
     override fun openPaletteTab() {
-        nav.navigate(Routes.Tab.PALETTE) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = false }
-            launchSingleTop = true
+        nav.navigateIfNotCurrent(Routes.Tab.PALETTE) {
+            popUpTo(Routes.Tab.PALETTE) { inclusive = false }
         }
     }
 
     override fun openCameraTab() {
-        nav.navigate(Routes.Tab.CAMERA) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = true }
-            launchSingleTop = true
+        nav.navigateIfNotCurrent(Routes.Tab.CAMERA) {
+            popUpTo(Routes.Tab.PALETTE) { inclusive = false }
         }
     }
 
     override fun openExploreTab() {
-        nav.navigate(Routes.Tab.EXPLORE) {
-            popUpTo(Routes.Tab.CAMERA) { inclusive = false }
-            launchSingleTop = true
+        nav.navigateIfNotCurrent(Routes.Tab.EXPLORE) {
+            popUpTo(Routes.Tab.PALETTE) { inclusive = false }
         }
     }
 
     override fun openLiveCamera() {
-        nav.navigate(Routes.Camera.LIVE)
+        nav.navigateIfNotCurrent(Routes.Camera.LIVE)
     }
 
     override fun openColorSlider() {
-        nav.navigate(Routes.Tool.SLIDER)
+        nav.navigateIfNotCurrent(Routes.Tool.SLIDER)
     }
 
     override fun openColorBlindEnhancer() {
-        nav.navigate(Routes.Tool.COLOR_BLIND)
+        nav.navigateIfNotCurrent(Routes.Tool.COLOR_BLIND)
     }
 
     override fun openPhotoPick(uriString: String) {
@@ -46,55 +57,59 @@ class NavColorNavigator(
     override fun openPaletteDetail(id: String, edit: Boolean) {
         nav.navigate(Routes.Detail.palette(id, edit)) {
             popUpTo(Routes.Detail.PALETTE) { inclusive = true }
-            launchSingleTop = true
         }
     }
 
     override fun openColorDetail(argb: Int, name: String) {
         nav.navigate(Routes.Detail.to(argb, name)) {
             popUpTo(Routes.Detail.COLOR) { inclusive = true }
-            launchSingleTop = true
         }
     }
 
     override fun openInfoCopyright() {
-        nav.navigate(Routes.Info.COPYRIGHT)
+        nav.navigateIfNotCurrent(Routes.Info.COPYRIGHT)
     }
 
     override fun openInfoPrivacy() {
-        nav.navigate(Routes.Info.PRIVACY)
+        nav.navigateIfNotCurrent(Routes.Info.PRIVACY)
     }
 
     override fun openInfoTerms() {
-        nav.navigate(Routes.Info.TERMS)
+        nav.navigateIfNotCurrent(Routes.Info.TERMS)
     }
 
     override fun openInfoUsage() {
-        nav.navigate(Routes.Info.USAGE)
+        nav.navigateIfNotCurrent(Routes.Info.USAGE)
     }
 
     override fun openLanguageSettings() {
-        nav.navigate(Routes.Settings.LANGUAGE)
+        nav.navigateIfNotCurrent(Routes.Settings.LANGUAGE)
     }
 
     override fun openThemeSettings() {
-        nav.navigate(Routes.Settings.THEME)
+        nav.navigateIfNotCurrent(Routes.Settings.THEME)
     }
 
     override fun openCrosshairSettings() {
-        nav.navigate(Routes.Settings.CROSSHAIR)
+        nav.navigateIfNotCurrent(Routes.Settings.CROSSHAIR)
     }
 
     override fun openRecentColors() {
+        if (nav.currentDestination?.route == Routes.List.SWATCH_ROUTE &&
+            nav.currentBackStackEntry?.arguments?.getString("type") == "recent"
+        ) return
         nav.navigate(Routes.List.swatch("recent"))
     }
 
     override fun openSavedColors() {
+        if (nav.currentDestination?.route == Routes.List.SWATCH_ROUTE &&
+            nav.currentBackStackEntry?.arguments?.getString("type") == "saved"
+        ) return
         nav.navigate(Routes.List.swatch("saved"))
     }
 
     override fun openSavedPalettes() {
-        nav.navigate(Routes.List.PALETTE)
+        nav.navigateIfNotCurrent(Routes.List.PALETTE)
     }
 
     override fun back() {

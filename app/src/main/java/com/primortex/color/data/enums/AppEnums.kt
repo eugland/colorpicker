@@ -3,15 +3,6 @@ package com.primortex.color.data.enums
 import androidx.annotation.StringRes
 import com.primortex.color.R
 
-enum class Tab { Camera, Palette, Explore }
-
-enum class InfoPage(val path: String) {
-    COPYRIGHT("copyright"),
-    PRIVACY("privacy"),
-    TERMS("tos"),
-    USAGE("usage")
-}
-
 enum class PaletteSchemeType {
     Complementary,
     Analogous,
