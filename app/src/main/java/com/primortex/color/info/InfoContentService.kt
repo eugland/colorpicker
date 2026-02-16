@@ -2,6 +2,7 @@ package com.primortex.color.info
 
 import android.content.Context
 import android.util.Log
+import com.primortex.color.data.enums.InfoPage
 import com.primortex.color.screens.InfoDetailSection
 import com.primortex.color.service.ApiService
 import io.ktor.client.HttpClient
@@ -110,13 +111,6 @@ class InfoContentService(
     }
 }
 
-enum class InfoPage(val path: String) {
-    COPYRIGHT("copyright"),
-    PRIVACY("privacy"),
-    TERMS("tos"),
-    USAGE("usage")
-}
-
 @Serializable
 private data class RemoteInfoContent(
     val version: Int = 0,
@@ -154,3 +148,4 @@ private fun List<RemoteInfoSection>.toSections(): List<InfoDetailSection> =
                 bullets = section.bullets
             )
         }
+

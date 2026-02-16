@@ -44,14 +44,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
+import com.primortex.color.data.enums.SwatchListType
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ScreenScaffold
-
-enum class SwatchListType {
-    RECENT,
-    SAVED
-}
 
 @Composable
 fun SwatchListScreen(
@@ -218,4 +214,5 @@ fun SwatchListScreen(
         }
     }
 }
+
 

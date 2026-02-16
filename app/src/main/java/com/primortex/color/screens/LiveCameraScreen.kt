@@ -72,7 +72,7 @@ import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorServices
 import com.primortex.color.service.PaletteService
-import com.primortex.color.service.PickerSensitivity
+import com.primortex.color.data.enums.PickerSensitivity
 import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.SettingsService
 import com.primortex.color.service.rgbDistSq
@@ -465,4 +465,5 @@ private fun bindCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+
 

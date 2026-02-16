@@ -14,8 +14,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.primortex.color.service.CrosshairShape
-import com.primortex.color.service.CrosshairSize
+import com.primortex.color.data.enums.CrosshairShape
+import com.primortex.color.data.enums.CrosshairSize
 
 @Composable
 fun CrosshairIndicator(
@@ -100,3 +100,4 @@ private fun CrosshairPreview() {
         shape = CrosshairShape.Cross
     )
 }
+

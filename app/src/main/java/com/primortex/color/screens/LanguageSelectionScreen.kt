@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.service.AppLanguage
+import com.primortex.color.data.enums.AppLanguage
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.i18n.stringResource as str
@@ -110,4 +110,5 @@ private fun LanguageOption(
         )
     }
 }
+
 

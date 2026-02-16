@@ -37,7 +37,7 @@ import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.info.InfoContent
 import com.primortex.color.info.InfoContentService
-import com.primortex.color.info.InfoPage
+import com.primortex.color.data.enums.InfoPage
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
 import com.primortex.color.screens.ColorDetailsScreen
@@ -54,7 +54,7 @@ import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
 import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.screens.SwatchListScreen
-import com.primortex.color.screens.SwatchListType
+import com.primortex.color.data.enums.SwatchListType
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -462,4 +462,5 @@ private fun Context.findActivity(): Activity? {
     }
     return null
 }
+
 

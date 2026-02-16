@@ -20,7 +20,7 @@ import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.i18n.LocaleManagerBridge
 import com.primortex.color.i18n.LocaleUtil
 import com.primortex.color.service.SettingsService
-import com.primortex.color.service.ThemeMode
+import com.primortex.color.data.enums.ThemeMode
 import com.primortex.color.ui.theme.ColorTheme
 import com.primortex.color.ui.components.AnimatedSplashHost
 
@@ -68,3 +68,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
