@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">ملکیت</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex۔ جملہ حقوق محفوظ ہیں۔ Color Picker، جس میں اس کا نام، لوگو، UI اور ایپ کے اثاثے شامل ہیں، Primortex کی ملکیت ہے اور تحریری اجازت کے بغیر دوبارہ استعمال نہیں کیا جا سکتا۔</string>
+
+    <string name="info_copyright_third_party_heading">فریق ثالث کے اجزا</string>
+    <string name="info_copyright_third_party_p1">Color Picker اوپن سورس ٹیکنالوجیز سے بنایا گیا ہے۔ ہم ہر اس لائبریری کے لائسنس کو تسلیم کرتے ہیں اور ان کی پابندی کرتے ہیں جس پر ہم انحصار کرتے ہیں۔</string>
+    <string name="info_copyright_third_party_b1">UI اجزا کے لیے Jetpack Compose Material 3</string>
+    <string name="info_copyright_third_party_b2">کیمرہ انضمام کے لیے CameraX</string>
+    <string name="info_copyright_third_party_b3">تصاویر لوڈ کرنے کے لیے Coil</string>
+    <string name="info_copyright_third_party_b4">ہلکی نیٹ ورکنگ کے لیے Ktor</string>
+    <string name="info_copyright_third_party_b5">ایپ کے اندر نیویگیشن کے لیے Navigation Compose اور Accompanist Navigation Animation</string>
+
+    <string name="info_copyright_license_notes_heading">لائسنس نوٹس</string>
+    <string name="info_copyright_license_notes_p1">تمام فریق ثالث لائبریریاں اپنے متعلقہ مالکان کی ملکیت رہتی ہیں۔ ان کے اصل لائسنس محفوظ اور درج کیے جاتے ہیں تاکہ آپ انہیں تفصیل سے دیکھ سکیں۔</string>
+
+    <string name="info_privacy_on_device_heading">ڈیوائس پر پروسیسنگ</string>
+    <string name="info_privacy_on_device_p1">رنگ کا نمونہ مقامی طور پر لیا جاتا ہے۔ کیمرہ پری ویو اور منتخب تصاویر کو صرف رنگ کی قدریں نکالنے کے لیے تجزیہ کیا جاتا ہے اور انہیں ہمارے سرورز پر منتقل نہیں کیا جاتا۔</string>
+
+    <string name="info_privacy_permissions_heading">اجازتیں اور ڈیٹا</string>
+    <string name="info_privacy_permissions_p1">ایپ صرف انہی خصوصیات تک رسائی مانگتی ہے جو رنگ چننے کے لیے ضروری ہیں، جیسے کیمرہ اور فوٹو لائبریری۔ آپ ان اجازتوں کو کسی بھی وقت ڈیوائس سیٹنگز میں واپس لے سکتے ہیں۔</string>
+    <string name="info_privacy_permissions_b1">کیمرہ رسائی لائیو سیمپلنگ کے لیے استعمال ہوتی ہے اور ہماری طرف سے کبھی ریکارڈ یا محفوظ نہیں کی جاتی۔</string>
+    <string name="info_privacy_permissions_b2">فوٹو رسائی صرف اس وقت استعمال ہوتی ہے جب آپ نمونہ لینے کے لیے تصویر منتخب کریں۔</string>
+
+    <string name="info_privacy_network_heading">نیٹ ورک استعمال</string>
+    <string name="info_privacy_network_p1">نیٹ ورک درخواستیں اختیاری معاون ڈیٹا جیسے پیلیٹ نام یا استعمال گائیڈز حاصل کرنے تک محدود ہیں۔ کوئی ذاتی تصویر یا کیمرہ فریم اپ لوڈ نہیں کیا جاتا۔</string>
+    <string name="info_privacy_network_b1">اگر آپ مکمل آف لائن تجربہ چاہتے ہیں تو آپ سسٹم لیول پر نیٹ ورک رسائی منسوخ کر سکتے ہیں۔</string>
+
+    <string name="info_privacy_retention_heading">ڈیٹا برقرار رکھنا</string>
+    <string name="info_privacy_retention_p1">محفوظ رنگ اور پیلیٹس آپ کے ڈیوائس پر رہتے ہیں جب تک آپ انہیں حذف نہ کریں۔ ایپ ڈیٹا صاف کرنے یا ایپ ان انسٹال کرنے سے محفوظ آئٹمز ختم ہو جاتے ہیں۔</string>
+
+    <string name="info_privacy_contact_heading">رابطہ اور فیڈبیک</string>
+    <string name="info_privacy_contact_p1">اگر آپ سپورٹ سے رابطہ کرتے ہیں تو ہم صرف وہی معلومات استعمال کریں گے جو آپ اپنی درخواست کے جواب کے لیے فراہم کریں گے۔</string>
+
+    <string name="info_terms_acceptance_heading">شرائط کی قبولیت</string>
+    <string name="info_terms_acceptance_p1">Color Picker استعمال کرنے سے آپ ان شرائطِ خدمت سے اتفاق کرتے ہیں۔ اگر آپ متفق نہیں ہیں تو براہ کرم ایپ کا استعمال بند کر دیں۔</string>
+
+    <string name="info_terms_usage_heading">ایپ کا استعمال</string>
+    <string name="info_terms_usage_p1">Color Picker ذاتی اور پیشہ ورانہ رنگ حوالہ کے لیے فراہم کیا جاتا ہے۔ آپ ایپ کے استعمال اور رنگ انتخاب کے نتائج کے ذمہ دار ہیں۔</string>
+    <string name="info_terms_usage_b1">ایپ کو ایسے طریقوں سے استعمال نہ کریں جو قابلِ اطلاق قوانین یا ضوابط کی خلاف ورزی کریں۔</string>
+    <string name="info_terms_usage_b2">ایپ کی خدمات پر ریورس انجینئرنگ، چھیڑ چھاڑ یا غلط استعمال کی کوشش نہ کریں۔</string>
+
+    <string name="info_terms_ip_heading">دانشورانہ ملکیت</string>
+    <string name="info_terms_ip_p1">ایپ اور اس سے متعلق تمام مواد Primortex یا اس کے لائسنس دہندگان کی ملکیت ہیں۔ قانون کی اجازت کے بغیر آپ ایپ کے کسی بھی حصے کو نقل، ترمیم یا دوبارہ تقسیم نہیں کر سکتے۔</string>
+
+    <string name="info_terms_availability_heading">مواد اور دستیابی</string>
+    <string name="info_terms_availability_p1">ہم کسی بھی وقت خصوصیات کو اپ ڈیٹ یا بند کر سکتے ہیں۔ اختیاری آن لائن مواد جیسا ہے ویسا فراہم کیا جاتا ہے اور بغیر اطلاع تبدیل ہو سکتا ہے۔</string>
+
+    <string name="info_terms_liability_heading">ذمہ داری کی حد</string>
+    <string name="info_terms_liability_p1">Color Picker جیسا ہے ویسا بغیر کسی ضمانت کے فراہم کیا جاتا ہے۔ قانون کی اجازت کی حد تک، ایپ کے استعمال سے ہونے والے نقصانات کے لیے ہم ذمہ دار نہیں ہیں۔</string>
+
+    <string name="info_terms_contact_heading">رابطہ</string>
+    <string name="info_terms_contact_p1">اگر آپ کو ان شرائط کے بارے میں سوالات ہوں تو ایپ کے فیڈبیک فارم کے ذریعے رابطہ کریں۔</string>
+
+    <string name="info_usage_quick_index_heading">فوری اشاریہ</string>
+    <string name="info_usage_quick_index_p1">جس کام کی ضرورت ہو اس پر سیدھا جائیں۔</string>
+    <string name="info_usage_quick_index_b1">لائیو کیمرہ سے رنگ منتخب کریں</string>
+    <string name="info_usage_quick_index_b2">تصویر سے رنگ منتخب کریں</string>
+    <string name="info_usage_quick_index_b3">اپنے پیلیٹ میں ایک سویچ محفوظ کریں</string>
+    <string name="info_usage_quick_index_b4">رنگ کی قدریں موازنہ اور کاپی کریں</string>
+    <string name="info_usage_quick_index_b5">پیلیٹس منظم کریں</string>
+    <string name="info_usage_quick_index_b6">رنگ کی قدریں شیئر یا ایکسپورٹ کریں</string>
+
+    <string name="info_usage_live_camera_heading">لائیو کیمرہ سے رنگ منتخب کریں</string>
+    <string name="info_usage_live_camera_p1">Explore یا Camera ٹیب سے Live Camera کھولیں۔ کراس ہیئر کو ہدف پر رکھیں، درستگی کے لیے پنچ زوم کریں، پھر اسے لاک کرنے کے لیے سویچ پری ویو پر ٹیپ کریں۔</string>
+    <string name="info_usage_live_camera_b1">بہتر درستگی کے لیے Explore &gt; Settings میں کراس ہیئر کا سائز اور شکل ایڈجسٹ کریں۔</string>
+    <string name="info_usage_live_camera_b2">کم روشنی کے مناظر میں مستحکم گرفت یا ٹرائی پوڈ استعمال کریں۔</string>
+
+    <string name="info_usage_photo_heading">تصویر سے رنگ منتخب کریں</string>
+    <string name="info_usage_photo_p1">Photo Pick منتخب کریں، گیلری سے تصویر لیں، پھر اسی نقطے کا رنگ لینے کے لیے تصویر میں کہیں بھی ٹیپ کریں۔</string>
+    <string name="info_usage_photo_b1">چھوٹی تفصیلات الگ کرنے کے لیے ٹیپ کرنے سے پہلے تصویر کو زوم کریں۔</string>
+    <string name="info_usage_photo_b2">اگر آپ صرف رنگ دیکھنا چاہتے ہیں تو محفوظ کیے بغیر واپس جانے کے لیے بیک استعمال کریں۔</string>
+
+    <string name="info_usage_save_reuse_heading">سویچ محفوظ کریں اور دوبارہ استعمال کریں</string>
+    <string name="info_usage_save_reuse_p1">رنگ حاصل کرنے کے بعد Save ٹیپ کریں تاکہ وہ آپ کے پیلیٹ میں محفوظ ہو جائے۔ ہر محفوظ سویچ میں کاپی کے لیے HEX، RGB اور HSL قدریں شامل ہوتی ہیں۔</string>
+    <string name="info_usage_save_reuse_b1">HEX کوڈ کاپی کرنے یا مزید فارمیٹس کے لیے تفصیل کھولنے کے لیے کسی بھی محفوظ سویچ پر ٹیپ کریں۔</string>
+    <string name="info_usage_save_reuse_b2">لانگ پریس یا ایڈٹ ایکشنز (جہاں دستیاب ہوں) استعمال کر کے غیر ضروری رنگ ہٹا دیں۔</string>
+
+    <string name="info_usage_compare_share_heading">قدروں کا موازنہ اور شیئر کریں</string>
+    <string name="info_usage_compare_share_p1">فارمیٹس کو ساتھ ساتھ موازنہ کرنے کے لیے محفوظ سویچ کھولیں۔ اپنی ڈیزائن یا ڈیولپمنٹ ٹولز میں قدریں بھیجنے کے لیے کاپی یا شیئر ایکشن استعمال کریں۔</string>
+
+    <string name="info_usage_organize_heading">پیلیٹس منظم کریں</string>
+    <string name="info_usage_organize_p1">متعلقہ سویچز گروپ کرنے کے لیے Palette ٹیب کھولیں۔ موجودہ پروجیکٹ پر فوکس رکھنے کے لیے آئٹمز کو دوبارہ ترتیب دیں یا حذف کریں۔</string>
+</resources>

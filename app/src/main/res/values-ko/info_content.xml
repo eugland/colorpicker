@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">소유권</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. 모든 권리 보유. Color Picker의 이름, 로고, UI, 앱 자산을 포함한 모든 요소는 Primortex의 소유이며, 서면 허가 없이 재사용할 수 없습니다.</string>
+
+    <string name="info_copyright_third_party_heading">타사 구성 요소</string>
+    <string name="info_copyright_third_party_p1">Color Picker는 오픈소스 기술을 기반으로 만들어졌습니다. 사용 중인 각 라이브러리의 라이선스를 존중하고 준수합니다.</string>
+    <string name="info_copyright_third_party_b1">UI 구성 요소용 Jetpack Compose Material 3</string>
+    <string name="info_copyright_third_party_b2">카메라 통합용 CameraX</string>
+    <string name="info_copyright_third_party_b3">이미지 로딩용 Coil</string>
+    <string name="info_copyright_third_party_b4">경량 네트워킹용 Ktor</string>
+    <string name="info_copyright_third_party_b5">앱 내 내비게이션용 Navigation Compose 및 Accompanist Navigation Animation</string>
+
+    <string name="info_copyright_license_notes_heading">라이선스 안내</string>
+    <string name="info_copyright_license_notes_p1">모든 타사 라이브러리는 각 권리자의 자산입니다. 원본 라이선스는 유지되고 명시되어 상세 내용을 확인할 수 있습니다.</string>
+
+    <string name="info_privacy_on_device_heading">기기 내 처리</string>
+    <string name="info_privacy_on_device_p1">색상 샘플링은 로컬에서 수행됩니다. 카메라 미리보기와 선택한 사진은 색상 값 추출 목적으로만 분석되며, 당사 서버로 전송되지 않습니다.</string>
+
+    <string name="info_privacy_permissions_heading">권한 및 데이터</string>
+    <string name="info_privacy_permissions_p1">앱은 카메라, 사진 라이브러리 등 색상 선택에 필요한 기능에만 접근 권한을 요청합니다. 이 권한은 기기 설정에서 언제든지 철회할 수 있습니다.</string>
+    <string name="info_privacy_permissions_b1">카메라 접근은 실시간 샘플링에만 사용되며 당사가 녹화하거나 저장하지 않습니다.</string>
+    <string name="info_privacy_permissions_b2">사진 접근은 샘플링할 이미지를 선택할 때에만 사용됩니다.</string>
+
+    <string name="info_privacy_network_heading">네트워크 사용</string>
+    <string name="info_privacy_network_p1">네트워크 요청은 팔레트 이름이나 사용 가이드 같은 선택적 보조 데이터 조회로 제한됩니다. 개인 이미지나 카메라 프레임은 업로드되지 않습니다.</string>
+    <string name="info_privacy_network_b1">완전 오프라인 사용을 원하면 시스템 수준에서 네트워크 접근을 차단할 수 있습니다.</string>
+
+    <string name="info_privacy_retention_heading">데이터 보관</string>
+    <string name="info_privacy_retention_p1">저장한 색상과 팔레트는 직접 삭제할 때까지 기기에 보관됩니다. 앱 데이터 삭제 또는 앱 제거 시 저장 항목이 삭제됩니다.</string>
+
+    <string name="info_privacy_contact_heading">문의 및 피드백</string>
+    <string name="info_privacy_contact_p1">지원팀에 문의할 경우, 요청에 답변하기 위해 제공한 정보만 사용합니다.</string>
+
+    <string name="info_terms_acceptance_heading">약관 동의</string>
+    <string name="info_terms_acceptance_p1">Color Picker를 사용하면 본 서비스 약관에 동의한 것으로 간주됩니다. 동의하지 않으면 앱 사용을 중단해 주세요.</string>
+
+    <string name="info_terms_usage_heading">앱 사용</string>
+    <string name="info_terms_usage_p1">Color Picker는 개인 및 전문 색상 참조용으로 제공됩니다. 앱 사용 방식과 색상 선택 결과에 대한 책임은 사용자에게 있습니다.</string>
+    <string name="info_terms_usage_b1">관련 법률 또는 규정을 위반하는 방식으로 앱을 사용하지 마세요.</string>
+    <string name="info_terms_usage_b2">앱 서비스를 역공학, 변조 또는 오용하지 마세요.</string>
+
+    <string name="info_terms_ip_heading">지식 재산권</string>
+    <string name="info_terms_ip_p1">앱과 관련된 모든 콘텐츠는 Primortex 또는 라이선스 제공자의 소유입니다. 법이 허용하는 경우를 제외하고 앱의 어떤 부분도 복사, 수정, 재배포할 수 없습니다.</string>
+
+    <string name="info_terms_availability_heading">콘텐츠 및 제공 상태</string>
+    <string name="info_terms_availability_p1">당사는 언제든지 기능을 업데이트하거나 중단할 수 있습니다. 선택적 온라인 콘텐츠는 있는 그대로 제공되며 사전 고지 없이 변경될 수 있습니다.</string>
+
+    <string name="info_terms_liability_heading">책임의 제한</string>
+    <string name="info_terms_liability_p1">Color Picker는 어떠한 보증도 없이 있는 그대로 제공됩니다. 법이 허용하는 범위에서 당사는 앱 사용으로 인한 손해에 대해 책임을 지지 않습니다.</string>
+
+    <string name="info_terms_contact_heading">연락처</string>
+    <string name="info_terms_contact_p1">약관 관련 문의는 앱 내 피드백 양식을 통해 연락해 주세요.</string>
+
+    <string name="info_usage_quick_index_heading">빠른 색인</string>
+    <string name="info_usage_quick_index_p1">필요한 작업으로 바로 이동하세요.</string>
+    <string name="info_usage_quick_index_b1">실시간 카메라에서 색상 선택</string>
+    <string name="info_usage_quick_index_b2">사진에서 색상 선택</string>
+    <string name="info_usage_quick_index_b3">스와치를 팔레트에 저장</string>
+    <string name="info_usage_quick_index_b4">색상 값 비교 및 복사</string>
+    <string name="info_usage_quick_index_b5">팔레트 정리</string>
+    <string name="info_usage_quick_index_b6">색상 값 공유 또는 내보내기</string>
+
+    <string name="info_usage_live_camera_heading">실시간 카메라에서 색상 선택</string>
+    <string name="info_usage_live_camera_p1">Explore 또는 Camera 탭에서 Live Camera를 엽니다. 십자선을 대상에 맞추고 핀치 줌으로 정밀도를 높인 뒤, 스와치 미리보기를 눌러 고정합니다.</string>
+    <string name="info_usage_live_camera_b1">정확도를 높이려면 Explore &gt; Settings에서 십자선 크기와 모양을 조정하세요.</string>
+    <string name="info_usage_live_camera_b2">저조도 환경에서는 손떨림을 줄이거나 삼각대를 사용하세요.</string>
+
+    <string name="info_usage_photo_heading">사진에서 색상 선택</string>
+    <string name="info_usage_photo_p1">Photo Pick을 선택하고 갤러리에서 이미지를 고른 다음, 사진의 원하는 지점을 눌러 해당 위치의 색상을 샘플링하세요.</string>
+    <string name="info_usage_photo_b1">작은 디테일을 정확히 잡으려면 탭하기 전에 사진을 확대하세요.</string>
+    <string name="info_usage_photo_b2">색상 확인만 하려면 저장하지 않고 뒤로 돌아가세요.</string>
+
+    <string name="info_usage_save_reuse_heading">스와치 저장 및 재사용</string>
+    <string name="info_usage_save_reuse_p1">색상을 캡처한 후 Save를 눌러 팔레트에 저장하세요. 저장된 각 스와치에는 복사용 HEX, RGB, HSL 값이 기록됩니다.</string>
+    <string name="info_usage_save_reuse_b1">저장된 스와치를 누르면 HEX 코드를 복사하거나 자세한 형식을 확인할 수 있습니다.</string>
+    <string name="info_usage_save_reuse_b2">길게 누르기 또는 편집 기능(지원 시)으로 필요 없는 색상을 제거하세요.</string>
+
+    <string name="info_usage_compare_share_heading">값 비교 및 공유</string>
+    <string name="info_usage_compare_share_p1">저장된 스와치를 열어 형식을 나란히 비교하세요. 복사 또는 공유 기능으로 디자인/개발 도구에 값을 보낼 수 있습니다.</string>
+
+    <string name="info_usage_organize_heading">팔레트 정리</string>
+    <string name="info_usage_organize_p1">Palette 탭을 열어 관련 스와치를 그룹화하세요. 항목을 재정렬하거나 제거해 현재 프로젝트에 맞게 팔레트를 유지할 수 있습니다.</string>
+</resources>

@@ -310,7 +310,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         title = stringResource(R.string.copyright_notice),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = InfoContent.copyrightSections
+                        sections = InfoContent.copyrightSections()
                     )
                 }
 
@@ -319,7 +319,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         title = stringResource(R.string.privacy_statement),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = InfoContent.privacySections
+                        sections = InfoContent.privacySections()
                     )
                 }
 
@@ -328,7 +328,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         title = stringResource(R.string.terms_of_service),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = InfoContent.termsSections
+                        sections = InfoContent.termsSections()
                     )
                 }
 
@@ -337,7 +337,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         title = stringResource(R.string.usage_guide),
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        sections = InfoContent.usageSections
+                        sections = InfoContent.usageSections()
                     )
                 }
 

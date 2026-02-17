@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Tulajdonjog</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Minden jog fenntartva. A Color Picker neve, logoja, felulete es alkalmazas-eroforrasai a Primortex tulajdonat kepezik, es irasbeli engedely nelkul nem hasznalhatok ujra.</string>
+
+    <string name="info_copyright_third_party_heading">Harmadik fel komponensek</string>
+    <string name="info_copyright_third_party_p1">A Color Picker nyilt forraskodu technologiakra epul. Elismerjuk es betartjuk az osszes hasznalt konyvtar licencet.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 UI komponensekhez</string>
+    <string name="info_copyright_third_party_b2">CameraX kamera-integraciohoz</string>
+    <string name="info_copyright_third_party_b3">Coil kepbetolteshez</string>
+    <string name="info_copyright_third_party_b4">Ktor konnyu halozati muveletekhez</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose es Accompanist Navigation Animation alkalmazason beluli navigaciohoz</string>
+
+    <string name="info_copyright_license_notes_heading">Licenc-megjegyzesek</string>
+    <string name="info_copyright_license_notes_p1">Minden harmadik fel konyvtara a megfelelo tulajdonosok tulajdona marad. Az eredeti licencek megmaradnak es hivatkozva vannak reszletes attekinteshez.</string>
+
+    <string name="info_privacy_on_device_heading">Eszkozon torteno feldolgozas</string>
+    <string name="info_privacy_on_device_p1">A szinmintavetel helyben tortenik. A kamera-elonezetek es a kivalasztott kepek csak a szinertekek kinyeresehez elemzodnek, es nem kerulnek a szervereinkre.</string>
+
+    <string name="info_privacy_permissions_heading">Engedelyek es adatok</string>
+    <string name="info_privacy_permissions_p1">Az alkalmazas csak a szinkivalasztashoz szukseges funkciokhoz ker hozzaferest, peldaul kamera es fototar. Ezeket az engedelyeket barmikor visszavonhatja a keszulek beallitasainal.</string>
+    <string name="info_privacy_permissions_b1">A kamera-hozzaferes eloben vett mintavetelre szolgál, es mi nem rogzitjuk vagy taroljuk.</string>
+    <string name="info_privacy_permissions_b2">A foto-hozzaferest csak akkor hasznaljuk, ha kepet valaszt mintavetelhez.</string>
+
+    <string name="info_privacy_network_heading">Halozathasznalat</string>
+    <string name="info_privacy_network_p1">A halozati kerelmek opcionális tamogato adatokra korlatozodnak, peldaul palettanevek vagy hasznalati utmutatok. Szemelyes kep vagy kamerakepkocka nem kerul feltoltesre.</string>
+    <string name="info_privacy_network_b1">Ha teljesen offline elmenyt szeretne, rendszer-szinten visszavonhatja a halozati hozzaferest.</string>
+
+    <string name="info_privacy_retention_heading">Adatmegorzes</string>
+    <string name="info_privacy_retention_p1">A mentett szinek es palettak az eszkozon maradnak, amig torli oket. Az appadatok torlese vagy az alkalmazas eltavolitasa eltavolitja a mentett elemeket.</string>
+
+    <string name="info_privacy_contact_heading">Kapcsolat es visszajelzes</string>
+    <string name="info_privacy_contact_p1">Ha kapcsolatba lep a tamogatassal, csak az On altal megadott informaciokat hasznaljuk a valaszadashoz.</string>
+
+    <string name="info_terms_acceptance_heading">Feltetelek elfogadasa</string>
+    <string name="info_terms_acceptance_p1">A Color Picker hasznalataval elfogadja ezeket a szolgaltatasi felteteleket. Ha nem ert egyet, hagyja abba az alkalmazas hasznalatat.</string>
+
+    <string name="info_terms_usage_heading">Alkalmazashasznalat</string>
+    <string name="info_terms_usage_p1">A Color Picker szemelyes es professzionalis szinreferenciahoz keszult. On felel az alkalmazas hasznalatanak modjaert es a valasztasok eredmenyeiert.</string>
+    <string name="info_terms_usage_b1">Ne hasznalja az alkalmazast olyan modon, amely serti az ervenyes jogszabalyokat vagy eloirasokat.</string>
+    <string name="info_terms_usage_b2">Ne probalja visszafejteni, manipulalni vagy visszaelni az alkalmazas szolgaltatasaival.</string>
+
+    <string name="info_terms_ip_heading">Szellemi tulajdon</string>
+    <string name="info_terms_ip_p1">Az alkalmazas es minden kapcsolodo tartalom a Primortex vagy licencadói tulajdona. Nem masolhato, nem modosithato es nem terjesztheto ujra, kiveve ahol azt a jog engedi.</string>
+
+    <string name="info_terms_availability_heading">Tartalom es elerhetoseg</string>
+    <string name="info_terms_availability_p1">A funkciokat barmikor frissithetjuk vagy megszuntethetjuk. Az opcionális online tartalom jelen allapotban erheto el, es elozetes ertesites nelkul valtozhat.</string>
+
+    <string name="info_terms_liability_heading">Felelossegkorlatozas</string>
+    <string name="info_terms_liability_p1">A Color Picker garanciak nelkul, jelen allapotban erheto el. A jog altal megengedett mertekben nem vallalunk felelosseget az alkalmazas hasznalatabol eredő karokert.</string>
+
+    <string name="info_terms_contact_heading">Kapcsolat</string>
+    <string name="info_terms_contact_p1">Ha kerdese van ezekkel a feltetelekkel kapcsolatban, lepjen kapcsolatba velunk az alkalmazason beluli visszajelzo urlapon.</string>
+
+    <string name="info_usage_quick_index_heading">Gyors index</string>
+    <string name="info_usage_quick_index_p1">Ugorjon azonnal a szukseges feladatra.</string>
+    <string name="info_usage_quick_index_b1">Szin kivalasztasa Live Camera nezetbol</string>
+    <string name="info_usage_quick_index_b2">Szin kivalasztasa foto alapjan</string>
+    <string name="info_usage_quick_index_b3">Minta mentese palettaba</string>
+    <string name="info_usage_quick_index_b4">Szinertekek osszehasonlitasa es masolasa</string>
+    <string name="info_usage_quick_index_b5">Palettak rendszerezese</string>
+    <string name="info_usage_quick_index_b6">Szinertekek megosztasa vagy exportalasa</string>
+
+    <string name="info_usage_live_camera_heading">Szin kivalasztasa Live Camera nezetbol</string>
+    <string name="info_usage_live_camera_p1">Nyissa meg a Live Camera nezetet az Explore vagy Camera fulrol. Irazitsa a celkeresztet a celra, csippentessel zoomoljon pontositashoz, majd erintse meg a minta-elonezetet a rogziteshez.</string>
+    <string name="info_usage_live_camera_b1">A jobb pontossagert allitsa a celkereszt meretet es alakjat az Explore &gt; Settings menuben.</string>
+    <string name="info_usage_live_camera_b2">Gyenge fenyben hasznaljon stabil fogast vagy allvanyt.</string>
+
+    <string name="info_usage_photo_heading">Szin kivalasztasa foto alapjan</string>
+    <string name="info_usage_photo_p1">Valassza a Photo Pick lehetoseget, valasszon kepet a galeriabol, majd erintse meg a foto barmely pontjat az ottani szin mintazashoz.</string>
+    <string name="info_usage_photo_b1">Erintes elott nagyitsa fel a kepet az apro reszletek elkulonitesehez.</string>
+    <string name="info_usage_photo_b2">Ha csak ellenorizni szeretne egy szint, lepjen vissza mentes nelkul.</string>
+
+    <string name="info_usage_save_reuse_heading">Mintak mentese es ujrafelhasznalasa</string>
+    <string name="info_usage_save_reuse_p1">A szin rogzitese utan erintse meg a Save gombot a palettaba menteshez. Minden mentett minta HEX, RGB es HSL ertekeket tarol masolashoz.</string>
+    <string name="info_usage_save_reuse_b1">Erintsen meg egy mentett mintat a HEX kod masolasahoz, vagy nyissa meg a reszleteket tovabbi formatumokhoz.</string>
+    <string name="info_usage_save_reuse_b2">Hosszan nyomja vagy hasznalja a szerkesztesi muveleteket (ha elerheto) a mar nem szukseges szinek torlesehez.</string>
+
+    <string name="info_usage_compare_share_heading">Ertekek osszehasonlitasa es megosztasa</string>
+    <string name="info_usage_compare_share_p1">Nyisson meg egy mentett mintat a formatumok egymas melletti osszehasonlitashoz. Hasznalja a masolas vagy megosztas funkciot az ertekek kuldesere a tervezesi vagy fejlesztoi eszkozeibe.</string>
+
+    <string name="info_usage_organize_heading">Palettak rendszerezese</string>
+    <string name="info_usage_organize_p1">Nyissa meg a Palette fulet a kapcsolodo mintak csoportositasahoz. Rendezze at vagy torolje az elemeket, hogy a paletta az aktualis projektre fokuszaljon.</string>
+</resources>

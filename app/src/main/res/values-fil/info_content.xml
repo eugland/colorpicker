@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Pagmamay-ari</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Lahat ng karapatan ay nakalaan. Ang Color Picker, kasama ang pangalan, logo, UI, at mga asset ng app, ay pagmamay-ari ng Primortex at hindi maaaring muling gamitin nang walang nakasulat na pahintulot.</string>
+
+    <string name="info_copyright_third_party_heading">Mga third-party na bahagi</string>
+    <string name="info_copyright_third_party_p1">Ang Color Picker ay binuo gamit ang open-source na teknolohiya. Kinikilala at sinusunod namin ang mga lisensya ng bawat library na ginagamit namin.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 para sa mga UI component</string>
+    <string name="info_copyright_third_party_b2">CameraX para sa camera integration</string>
+    <string name="info_copyright_third_party_b3">Coil para sa image loading</string>
+    <string name="info_copyright_third_party_b4">Ktor para sa magaan na networking</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose at Accompanist Navigation Animation para sa in-app navigation</string>
+
+    <string name="info_copyright_license_notes_heading">Mga tala sa lisensya</string>
+    <string name="info_copyright_license_notes_p1">Lahat ng third-party na library ay nananatiling pag-aari ng kani-kanilang may-ari. Pinananatili at ina-attribute ang mga orihinal na lisensya para sa detalyadong pagsusuri.</string>
+
+    <string name="info_privacy_on_device_heading">On-device na pagproseso</string>
+    <string name="info_privacy_on_device_p1">Lokal na nangyayari ang color sampling. Ang camera previews at napiling larawan ay sinusuri lamang para kunin ang values ng kulay at hindi ipinapadala sa aming servers.</string>
+
+    <string name="info_privacy_permissions_heading">Permissions at data</string>
+    <string name="info_privacy_permissions_p1">Humihingi lang ang app ng access sa mga feature na kailangan sa pagpili ng kulay, gaya ng camera at photo library. Maaari mong bawiin ang mga permission na ito anumang oras sa settings ng device.</string>
+    <string name="info_privacy_permissions_b1">Ginagamit ang camera access para sa live sampling at hindi namin nirerecord o iniimbak.</string>
+    <string name="info_privacy_permissions_b2">Ginagamit lang ang photo access kapag pumipili ka ng image para sa sampling.</string>
+
+    <string name="info_privacy_network_heading">Paggamit ng network</string>
+    <string name="info_privacy_network_p1">Limitado ang network requests sa optional na support data tulad ng names ng palette o usage guides. Walang personal na images o camera frames na inu-upload.</string>
+    <string name="info_privacy_network_b1">Kung gusto mo ng full offline na karanasan, maaari mong bawiin ang network access sa system level.</string>
+
+    <string name="info_privacy_retention_heading">Data retention</string>
+    <string name="info_privacy_retention_p1">Mananatili sa iyong device ang saved colors at palettes hanggang burahin mo. Ang pag-clear ng app data o pag-uninstall ay mag-aalis ng saved items.</string>
+
+    <string name="info_privacy_contact_heading">Contact at feedback</string>
+    <string name="info_privacy_contact_p1">Kung pipiliin mong makipag-ugnayan sa support, ang impormasyong ibibigay mo lang ang gagamitin namin para tumugon sa iyong request.</string>
+
+    <string name="info_terms_acceptance_heading">Pagtanggap sa mga tuntunin</string>
+    <string name="info_terms_acceptance_p1">Sa paggamit ng Color Picker, sumasang-ayon ka sa terms of service na ito. Kung hindi ka sumasang-ayon, itigil ang paggamit ng app.</string>
+
+    <string name="info_terms_usage_heading">Paggamit ng app</string>
+    <string name="info_terms_usage_p1">Ang Color Picker ay para sa personal at propesyonal na color reference. Ikaw ang responsable sa paraan ng paggamit mo ng app at sa anumang resulta ng color selections mo.</string>
+    <string name="info_terms_usage_b1">Huwag gamitin ang app sa paraang lumalabag sa naaangkop na batas o regulasyon.</string>
+    <string name="info_terms_usage_b2">Huwag subukang i-reverse engineer, pakialaman, o abusuhin ang services ng app.</string>
+
+    <string name="info_terms_ip_heading">Intellectual property</string>
+    <string name="info_terms_ip_p1">Ang app at lahat ng kaugnay na content ay pag-aari ng Primortex o ng mga licensor nito. Hindi mo maaaring kopyahin, baguhin, o ipamahagi muli ang anumang bahagi ng app maliban kung pinapayagan ng batas.</string>
+
+    <string name="info_terms_availability_heading">Content at availability</string>
+    <string name="info_terms_availability_p1">Maari naming i-update o ihinto ang mga feature anumang oras. Ang optional online content ay ibinibigay as-is at maaaring magbago nang walang abiso.</string>
+
+    <string name="info_terms_liability_heading">Limitasyon ng pananagutan</string>
+    <string name="info_terms_liability_p1">Ang Color Picker ay ibinibigay as-is, walang anumang uri ng garantiya. Hanggang sa pinapayagan ng batas, hindi kami mananagot sa pinsalang dulot ng paggamit ng app.</string>
+
+    <string name="info_terms_contact_heading">Contact</string>
+    <string name="info_terms_contact_p1">Kung may tanong ka tungkol sa mga terms na ito, makipag-ugnayan sa amin sa feedback form sa app.</string>
+
+    <string name="info_usage_quick_index_heading">Quick index</string>
+    <string name="info_usage_quick_index_p1">Pumunta agad sa task na kailangan mo.</string>
+    <string name="info_usage_quick_index_b1">Pumili ng kulay mula sa Live Camera</string>
+    <string name="info_usage_quick_index_b2">Pumili ng kulay mula sa larawan</string>
+    <string name="info_usage_quick_index_b3">I-save ang swatch sa palette mo</string>
+    <string name="info_usage_quick_index_b4">I-compare at kopyahin ang values ng kulay</string>
+    <string name="info_usage_quick_index_b5">Ayusin ang palettes</string>
+    <string name="info_usage_quick_index_b6">I-share o i-export ang values ng kulay</string>
+
+    <string name="info_usage_live_camera_heading">Pumili ng kulay mula sa Live Camera</string>
+    <string name="info_usage_live_camera_p1">Buksan ang Live Camera mula sa Explore o Camera tab. Itapat ang crosshair sa target, i-pinch para mag-zoom nang mas eksakto, tapos i-tap ang swatch preview para i-lock.</string>
+    <string name="info_usage_live_camera_b1">I-adjust ang laki at hugis ng crosshair sa Explore &gt; Settings para sa mas mahusay na accuracy.</string>
+    <string name="info_usage_live_camera_b2">Gumamit ng steady na hawak o tripod sa mababang ilaw.</string>
+
+    <string name="info_usage_photo_heading">Pumili ng kulay mula sa larawan</string>
+    <string name="info_usage_photo_p1">Piliin ang Photo Pick, pumili ng image mula sa gallery, at i-tap ang kahit anong bahagi ng larawan para kunin ang kulay sa puntong iyon.</string>
+    <string name="info_usage_photo_b1">Mag-zoom in sa larawan bago mag-tap para ma-isolate ang maliliit na detalye.</string>
+    <string name="info_usage_photo_b2">Gamitin ang back para bumalik nang hindi nagsa-save kung gusto mo lang suriin ang kulay.</string>
+
+    <string name="info_usage_save_reuse_heading">I-save at muling gamitin ang swatches</string>
+    <string name="info_usage_save_reuse_p1">Pagkatapos makuha ang kulay, i-tap ang Save para mai-store sa palette mo. Bawat saved swatch ay may HEX, RGB, at HSL values para sa pagkopya.</string>
+    <string name="info_usage_save_reuse_b1">I-tap ang saved swatch para kopyahin ang HEX code o buksan ang details para sa mas maraming format.</string>
+    <string name="info_usage_save_reuse_b2">Long-press o gumamit ng edit actions (kung available) para alisin ang mga kulay na hindi na kailangan.</string>
+
+    <string name="info_usage_compare_share_heading">I-compare at i-share ang values</string>
+    <string name="info_usage_compare_share_p1">Buksan ang saved swatch para i-compare ang formats nang magkatabi. Gamitin ang copy o share para ipadala ang values sa design o development tools mo.</string>
+
+    <string name="info_usage_organize_heading">Ayusin ang palettes</string>
+    <string name="info_usage_organize_p1">Buksan ang Palette tab para i-group ang magkakaugnay na swatches. I-rearrange o alisin ang items para manatiling naka-focus ang palette sa kasalukuyang project.</string>
+</resources>

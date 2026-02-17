@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Quyen so huu</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Bao luu moi quyen. Color Picker, bao gom ten, logo, giao dien va tai nguyen ung dung, thuoc so huu cua Primortex va khong duoc tai su dung khi chua co su dong y bang van ban.</string>
+
+    <string name="info_copyright_third_party_heading">Thanh phan ben thu ba</string>
+    <string name="info_copyright_third_party_p1">Color Picker duoc xay dung bang cong nghe ma nguon mo. Chung toi ton trong va tuan thu giay phep cua tung thu vien su dung.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 cho thanh phan UI</string>
+    <string name="info_copyright_third_party_b2">CameraX cho tich hop camera</string>
+    <string name="info_copyright_third_party_b3">Coil cho tai anh</string>
+    <string name="info_copyright_third_party_b4">Ktor cho ket noi mang nhe</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose va Accompanist Navigation Animation cho dieu huong trong ung dung</string>
+
+    <string name="info_copyright_license_notes_heading">Ghi chu giay phep</string>
+    <string name="info_copyright_license_notes_p1">Moi thu vien ben thu ba van thuoc ve chu so huu tuong ung. Giay phep goc duoc giu nguyen va ghi ro de ban co the xem chi tiet.</string>
+
+    <string name="info_privacy_on_device_heading">Xu ly tren thiet bi</string>
+    <string name="info_privacy_on_device_p1">Viec lay mau mau dien ra cuc bo. Ban xem truoc camera va anh da chon chi duoc phan tich de trich xuat gia tri mau va khong duoc gui len may chu cua chung toi.</string>
+
+    <string name="info_privacy_permissions_heading">Quyen truy cap va du lieu</string>
+    <string name="info_privacy_permissions_p1">Ung dung chi yeu cau truy cap cac tinh nang can thiet de chon mau, nhu camera va thu vien anh. Ban co the thu hoi cac quyen nay bat cu luc nao trong cai dat thiet bi.</string>
+    <string name="info_privacy_permissions_b1">Quyen camera duoc dung cho lay mau truc tiep va khong bao gio duoc chung toi ghi hinh hoac luu tru.</string>
+    <string name="info_privacy_permissions_b2">Quyen truy cap anh chi duoc dung khi ban chon anh de lay mau.</string>
+
+    <string name="info_privacy_network_heading">Su dung mang</string>
+    <string name="info_privacy_network_p1">Yeu cau mang chi gioi han o du lieu ho tro tuy chon nhu ten bang mau hoac huong dan su dung. Khong co anh ca nhan hay khung hinh camera nao duoc tai len.</string>
+    <string name="info_privacy_network_b1">Neu ban muon trai nghiem hoan toan offline, ban co the thu hoi truy cap mang o cap he thong.</string>
+
+    <string name="info_privacy_retention_heading">Luu tru du lieu</string>
+    <string name="info_privacy_retention_p1">Mau va bang mau da luu se o tren thiet bi cho den khi ban xoa. Xoa du lieu ung dung hoac go cai dat se xoa cac muc da luu.</string>
+
+    <string name="info_privacy_contact_heading">Lien he va phan hoi</string>
+    <string name="info_privacy_contact_p1">Neu ban lien he ho tro, chung toi chi su dung thong tin ban cung cap de phan hoi yeu cau.</string>
+
+    <string name="info_terms_acceptance_heading">Chap nhan dieu khoan</string>
+    <string name="info_terms_acceptance_p1">Khi su dung Color Picker, ban dong y voi cac dieu khoan dich vu nay. Neu khong dong y, vui long ngung su dung ung dung.</string>
+
+    <string name="info_terms_usage_heading">Su dung ung dung</string>
+    <string name="info_terms_usage_p1">Color Picker duoc cung cap cho muc dich tham khao mau sac ca nhan va chuyen nghiep. Ban chiu trach nhiem ve cach su dung ung dung va ket qua tu viec chon mau.</string>
+    <string name="info_terms_usage_b1">Khong su dung ung dung theo cach vi pham phap luat hoac quy dinh hien hanh.</string>
+    <string name="info_terms_usage_b2">Khong co gang dao nguoc, can thiep hoac lam dung dich vu cua ung dung.</string>
+
+    <string name="info_terms_ip_heading">So huu tri tue</string>
+    <string name="info_terms_ip_p1">Ung dung va toan bo noi dung lien quan thuoc ve Primortex hoac ben cap phep. Ban khong duoc sao chep, chinh sua hoac phan phoi lai bat ky phan nao cua ung dung, tru khi duoc phap luat cho phep.</string>
+
+    <string name="info_terms_availability_heading">Noi dung va tinh san sang</string>
+    <string name="info_terms_availability_p1">Chung toi co the cap nhat hoac ngung tinh nang bat cu luc nao. Noi dung truc tuyen tuy chon duoc cung cap theo hien trang va co the thay doi khong bao truoc.</string>
+
+    <string name="info_terms_liability_heading">Gioi han trach nhiem</string>
+    <string name="info_terms_liability_p1">Color Picker duoc cung cap theo hien trang, khong kem bao dam nao. Trong pham vi phap luat cho phep, chung toi khong chiu trach nhiem cho thiet hai phat sinh tu viec su dung ung dung.</string>
+
+    <string name="info_terms_contact_heading">Lien he</string>
+    <string name="info_terms_contact_p1">Neu ban co cau hoi ve cac dieu khoan nay, hay lien he qua bieu mau phan hoi trong ung dung.</string>
+
+    <string name="info_usage_quick_index_heading">Muc luc nhanh</string>
+    <string name="info_usage_quick_index_p1">Di den ngay tac vu ban can.</string>
+    <string name="info_usage_quick_index_b1">Chon mau tu Live Camera</string>
+    <string name="info_usage_quick_index_b2">Chon mau tu anh</string>
+    <string name="info_usage_quick_index_b3">Luu swatch vao bang mau</string>
+    <string name="info_usage_quick_index_b4">So sanh va sao chep gia tri mau</string>
+    <string name="info_usage_quick_index_b5">Sap xep bang mau</string>
+    <string name="info_usage_quick_index_b6">Chia se hoac xuat gia tri mau</string>
+
+    <string name="info_usage_live_camera_heading">Chon mau tu Live Camera</string>
+    <string name="info_usage_live_camera_p1">Mo Live Camera tu tab Explore hoac Camera. Dua tam ngam vao muc tieu, chup de zoom de chinh xac hon, sau do cham vao xem truoc swatch de khoa.</string>
+    <string name="info_usage_live_camera_b1">Dieu chinh kich thuoc va hinh dang tam ngam trong Explore &gt; Settings de tang do chinh xac.</string>
+    <string name="info_usage_live_camera_b2">Dung tay chac hoac tripod trong dieu kien anh sang yeu.</string>
+
+    <string name="info_usage_photo_heading">Chon mau tu anh</string>
+    <string name="info_usage_photo_p1">Chon Photo Pick, chon anh tu thu vien, sau do cham vao bat ky diem nao tren anh de lay mau tai diem do.</string>
+    <string name="info_usage_photo_b1">Phong to anh truoc khi cham de tach cac chi tiet nho.</string>
+    <string name="info_usage_photo_b2">Dung quay lai khong luu neu ban chi muon kiem tra mau.</string>
+
+    <string name="info_usage_save_reuse_heading">Luu va tai su dung swatch</string>
+    <string name="info_usage_save_reuse_p1">Sau khi bat duoc mau, cham Save de luu vao bang mau. Moi swatch da luu ghi lai gia tri HEX, RGB va HSL de sao chep.</string>
+    <string name="info_usage_save_reuse_b1">Cham vao swatch da luu de sao chep ma HEX hoac mo chi tiet cho nhieu dinh dang hon.</string>
+    <string name="info_usage_save_reuse_b2">Nhan giu hoac dung thao tac sua (neu co) de xoa cac mau khong con can.</string>
+
+    <string name="info_usage_compare_share_heading">So sanh va chia se gia tri</string>
+    <string name="info_usage_compare_share_p1">Mo mot swatch da luu de so sanh cac dinh dang canh nhau. Dung sao chep hoac chia se de gui gia tri den cong cu thiet ke hoac phat trien cua ban.</string>
+
+    <string name="info_usage_organize_heading">Sap xep bang mau</string>
+    <string name="info_usage_organize_p1">Mo tab Palette de nhom cac swatch lien quan. Sap xep lai hoac xoa muc de giu bang mau tap trung vao du an hien tai.</string>
+</resources>

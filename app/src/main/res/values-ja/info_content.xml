@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">所有権</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. 無断転載を禁じます。Color Picker の名称、ロゴ、UI、アプリ資産を含むすべての要素は Primortex に帰属し、書面による許可なく再利用できません。</string>
+
+    <string name="info_copyright_third_party_heading">サードパーティーコンポーネント</string>
+    <string name="info_copyright_third_party_p1">Color Picker はオープンソース技術を用いて構築されています。使用している各ライブラリのライセンスを尊重し、遵守しています。</string>
+    <string name="info_copyright_third_party_b1">UI コンポーネントに Jetpack Compose Material 3 を使用</string>
+    <string name="info_copyright_third_party_b2">カメラ連携に CameraX を使用</string>
+    <string name="info_copyright_third_party_b3">画像読み込みに Coil を使用</string>
+    <string name="info_copyright_third_party_b4">軽量ネットワーキングに Ktor を使用</string>
+    <string name="info_copyright_third_party_b5">アプリ内ナビゲーションに Navigation Compose と Accompanist Navigation Animation を使用</string>
+
+    <string name="info_copyright_license_notes_heading">ライセンスに関する注意</string>
+    <string name="info_copyright_license_notes_p1">すべてのサードパーティーライブラリは各権利者に帰属します。元のライセンスは保持・明記され、詳細を確認できます。</string>
+
+    <string name="info_privacy_on_device_heading">端末内処理</string>
+    <string name="info_privacy_on_device_p1">色のサンプリングは端末内で行われます。カメラプレビューや選択した写真は色値抽出のためにのみ解析され、当社サーバーには送信されません。</string>
+
+    <string name="info_privacy_permissions_heading">権限とデータ</string>
+    <string name="info_privacy_permissions_p1">アプリは、カメラや写真ライブラリなど色の取得に必要な機能のみにアクセスを要求します。これらの権限は端末設定からいつでも取り消せます。</string>
+    <string name="info_privacy_permissions_b1">カメラ権限はライブサンプリングのみに使用され、当社が録画・保存することはありません。</string>
+    <string name="info_privacy_permissions_b2">写真へのアクセスは、サンプル対象の画像を選択した場合にのみ使用されます。</string>
+
+    <string name="info_privacy_network_heading">ネットワーク利用</string>
+    <string name="info_privacy_network_p1">ネットワークリクエストは、パレット名や利用ガイドなど任意の補助データ取得に限定されます。個人画像やカメラフレームがアップロードされることはありません。</string>
+    <string name="info_privacy_network_b1">完全オフラインを希望する場合は、システム設定でネットワークアクセスを無効化できます。</string>
+
+    <string name="info_privacy_retention_heading">データ保持</string>
+    <string name="info_privacy_retention_p1">保存した色とパレットは、削除するまで端末に残ります。アプリデータの消去やアンインストールで保存項目は削除されます。</string>
+
+    <string name="info_privacy_contact_heading">お問い合わせとフィードバック</string>
+    <string name="info_privacy_contact_p1">サポートへ連絡した場合、当社は回答のために提供された情報のみを使用します。</string>
+
+    <string name="info_terms_acceptance_heading">規約への同意</string>
+    <string name="info_terms_acceptance_p1">Color Picker を使用することで、本利用規約に同意したものとみなされます。同意しない場合はアプリの利用を中止してください。</string>
+
+    <string name="info_terms_usage_heading">アプリの利用</string>
+    <string name="info_terms_usage_p1">Color Picker は個人および業務での色参照用途として提供されます。アプリの利用方法および結果については利用者が責任を負います。</string>
+    <string name="info_terms_usage_b1">適用される法令や規制に違反する方法でアプリを使用しないでください。</string>
+    <string name="info_terms_usage_b2">アプリのサービスをリバースエンジニアリング、改ざん、または不正利用しないでください。</string>
+
+    <string name="info_terms_ip_heading">知的財産権</string>
+    <string name="info_terms_ip_p1">アプリおよび関連コンテンツは Primortex またはそのライセンサーに帰属します。法令で認められる場合を除き、複製、改変、再配布はできません。</string>
+
+    <string name="info_terms_availability_heading">コンテンツと提供状況</string>
+    <string name="info_terms_availability_p1">当社は機能をいつでも更新または終了する場合があります。任意のオンラインコンテンツは現状有姿で提供され、予告なく変更されることがあります。</string>
+
+    <string name="info_terms_liability_heading">責任の制限</string>
+    <string name="info_terms_liability_p1">Color Picker はいかなる保証もなく現状有姿で提供されます。法令で許される範囲で、当社はアプリ利用に起因する損害について責任を負いません。</string>
+
+    <string name="info_terms_contact_heading">連絡先</string>
+    <string name="info_terms_contact_p1">本規約に関する質問は、アプリ内のフィードバックフォームからお問い合わせください。</string>
+
+    <string name="info_usage_quick_index_heading">クイックインデックス</string>
+    <string name="info_usage_quick_index_p1">必要な作業へすぐ移動できます。</string>
+    <string name="info_usage_quick_index_b1">ライブカメラから色を取得</string>
+    <string name="info_usage_quick_index_b2">写真から色を取得</string>
+    <string name="info_usage_quick_index_b3">スウォッチをパレットに保存</string>
+    <string name="info_usage_quick_index_b4">色値を比較・コピー</string>
+    <string name="info_usage_quick_index_b5">パレットを整理</string>
+    <string name="info_usage_quick_index_b6">色値を共有またはエクスポート</string>
+
+    <string name="info_usage_live_camera_heading">ライブカメラから色を取得</string>
+    <string name="info_usage_live_camera_p1">Explore または Camera タブからライブカメラを開きます。対象に照準を合わせ、ピンチで拡大して精度を上げ、スウォッチプレビューをタップして確定します。</string>
+    <string name="info_usage_live_camera_b1">精度を高めるには、Explore &gt; Settings で照準のサイズと形状を調整してください。</string>
+    <string name="info_usage_live_camera_b2">暗所では手ぶれを抑えるか三脚を使用してください。</string>
+
+    <string name="info_usage_photo_heading">写真から色を取得</string>
+    <string name="info_usage_photo_p1">Photo Pick を選択し、ギャラリーから画像を選んで、写真上の任意の位置をタップするとその点の色を取得できます。</string>
+    <string name="info_usage_photo_b1">小さな部分を正確に取るには、タップ前に画像を拡大してください。</string>
+    <string name="info_usage_photo_b2">色の確認だけなら、保存せずに戻るを押して終了できます。</string>
+
+    <string name="info_usage_save_reuse_heading">スウォッチの保存と再利用</string>
+    <string name="info_usage_save_reuse_p1">色を取得したら Save をタップしてパレットに保存します。保存された各スウォッチには HEX、RGB、HSL の値が記録され、コピーできます。</string>
+    <string name="info_usage_save_reuse_b1">保存済みスウォッチをタップすると HEX をコピー、または詳細で他形式を確認できます。</string>
+    <string name="info_usage_save_reuse_b2">不要な色は長押しまたは編集操作（利用可能な場合）で削除してください。</string>
+
+    <string name="info_usage_compare_share_heading">値の比較と共有</string>
+    <string name="info_usage_compare_share_p1">保存済みスウォッチを開くと形式を並べて比較できます。コピーまたは共有機能で、デザイン・開発ツールへ値を送れます。</string>
+
+    <string name="info_usage_organize_heading">パレットを整理</string>
+    <string name="info_usage_organize_p1">Palette タブを開いて関連スウォッチをまとめます。並べ替えや削除で、現在のプロジェクトに集中したパレットを維持できます。</string>
+</resources>

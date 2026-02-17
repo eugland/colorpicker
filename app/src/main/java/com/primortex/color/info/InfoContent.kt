@@ -1,173 +1,158 @@
 package com.primortex.color.info
 
+import androidx.annotation.StringRes
+import com.primortex.color.R
+import com.primortex.color.i18n.AppStrings
 import com.primortex.color.screens.InfoDetailSection
 
 object InfoContent {
-    val copyrightSections = listOf(
-        InfoDetailSection(
-            heading = "Ownership",
-            paragraphs = listOf(
-                "© 2025 Primortex. All rights reserved. Color Picker, including its name, logo, UI, and application assets, is owned by Primortex and may not be reused without written permission."
+    fun copyrightSections(): List<InfoDetailSection> = COPYRIGHT_SECTIONS.resolve()
+
+    fun privacySections(): List<InfoDetailSection> = PRIVACY_SECTIONS.resolve()
+
+    fun termsSections(): List<InfoDetailSection> = TERMS_SECTIONS.resolve()
+
+    fun usageSections(): List<InfoDetailSection> = USAGE_SECTIONS.resolve()
+
+    private val COPYRIGHT_SECTIONS = listOf(
+        InfoSectionRes(
+            headingRes = R.string.info_copyright_ownership_heading,
+            paragraphRes = listOf(R.string.info_copyright_ownership_p1)
+        ),
+        InfoSectionRes(
+            headingRes = R.string.info_copyright_third_party_heading,
+            paragraphRes = listOf(R.string.info_copyright_third_party_p1),
+            bulletRes = listOf(
+                R.string.info_copyright_third_party_b1,
+                R.string.info_copyright_third_party_b2,
+                R.string.info_copyright_third_party_b3,
+                R.string.info_copyright_third_party_b4,
+                R.string.info_copyright_third_party_b5
             )
         ),
-        InfoDetailSection(
-            heading = "Third-party components",
-            paragraphs = listOf(
-                "Color Picker is built with open-source technologies. We acknowledge and comply with the licenses of each library we rely on."
-            ),
-            bullets = listOf(
-                "Jetpack Compose Material 3 for UI components",
-                "CameraX for camera integration",
-                "Coil for image loading",
-                "Ktor for lightweight networking",
-                "Navigation Compose and Accompanist Navigation Animation for in-app navigation"
-            )
-        ),
-        InfoDetailSection(
-            heading = "License notes",
-            paragraphs = listOf(
-                "All third-party libraries remain the property of their respective owners. Their original licenses are preserved and credited so you can review them in detail."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_copyright_license_notes_heading,
+            paragraphRes = listOf(R.string.info_copyright_license_notes_p1)
         )
     )
 
-    val privacySections = listOf(
-        InfoDetailSection(
-            heading = "On-device processing",
-            paragraphs = listOf(
-                "Color sampling happens locally. Camera previews and picked photos are only analyzed to extract color values and are not transmitted to our servers."
+    private val PRIVACY_SECTIONS = listOf(
+        InfoSectionRes(
+            headingRes = R.string.info_privacy_on_device_heading,
+            paragraphRes = listOf(R.string.info_privacy_on_device_p1)
+        ),
+        InfoSectionRes(
+            headingRes = R.string.info_privacy_permissions_heading,
+            paragraphRes = listOf(R.string.info_privacy_permissions_p1),
+            bulletRes = listOf(
+                R.string.info_privacy_permissions_b1,
+                R.string.info_privacy_permissions_b2
             )
         ),
-        InfoDetailSection(
-            heading = "Permissions and data",
-            paragraphs = listOf(
-                "The app requests access only to features needed for color picking, such as the camera and photo library. You can revoke these permissions at any time in your device settings."
-            ),
-            bullets = listOf(
-                "Camera access is used for live sampling and is never recorded or stored by us.",
-                "Photo access is used only when you select an image to sample."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_privacy_network_heading,
+            paragraphRes = listOf(R.string.info_privacy_network_p1),
+            bulletRes = listOf(R.string.info_privacy_network_b1)
         ),
-        InfoDetailSection(
-            heading = "Network usage",
-            paragraphs = listOf(
-                "Network requests are limited to fetching optional supporting data such as palette names or usage guides. No personal images or camera frames are uploaded."
-            ),
-            bullets = listOf(
-                "If you prefer a fully offline experience, you can revoke network access at the system level."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_privacy_retention_heading,
+            paragraphRes = listOf(R.string.info_privacy_retention_p1)
         ),
-        InfoDetailSection(
-            heading = "Data retention",
-            paragraphs = listOf(
-                "Saved colors and palettes stay on your device until you delete them. Clearing app data or uninstalling removes your saved items."
-            )
-        ),
-        InfoDetailSection(
-            heading = "Contact and feedback",
-            paragraphs = listOf(
-                "If you choose to contact support, we will only use the information you provide to respond to your request."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_privacy_contact_heading,
+            paragraphRes = listOf(R.string.info_privacy_contact_p1)
         )
     )
 
-    val termsSections = listOf(
-        InfoDetailSection(
-            heading = "Acceptance of terms",
-            paragraphs = listOf(
-                "By using Color Picker, you agree to these terms of service. If you do not agree, please discontinue use of the app."
+    private val TERMS_SECTIONS = listOf(
+        InfoSectionRes(
+            headingRes = R.string.info_terms_acceptance_heading,
+            paragraphRes = listOf(R.string.info_terms_acceptance_p1)
+        ),
+        InfoSectionRes(
+            headingRes = R.string.info_terms_usage_heading,
+            paragraphRes = listOf(R.string.info_terms_usage_p1),
+            bulletRes = listOf(
+                R.string.info_terms_usage_b1,
+                R.string.info_terms_usage_b2
             )
         ),
-        InfoDetailSection(
-            heading = "App usage",
-            paragraphs = listOf(
-                "Color Picker is provided for personal and professional color reference. You are responsible for how you use the app and any results from your color selections."
-            ),
-            bullets = listOf(
-                "Do not use the app in ways that violate applicable laws or regulations.",
-                "Do not attempt to reverse engineer, tamper with, or misuse the app’s services."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_terms_ip_heading,
+            paragraphRes = listOf(R.string.info_terms_ip_p1)
         ),
-        InfoDetailSection(
-            heading = "Intellectual property",
-            paragraphs = listOf(
-                "The app and all related content are owned by Primortex or its licensors. You may not copy, modify, or redistribute any part of the app except as allowed by law."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_terms_availability_heading,
+            paragraphRes = listOf(R.string.info_terms_availability_p1)
         ),
-        InfoDetailSection(
-            heading = "Content and availability",
-            paragraphs = listOf(
-                "We may update or discontinue features at any time. Optional online content is provided as-is and may change without notice."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_terms_liability_heading,
+            paragraphRes = listOf(R.string.info_terms_liability_p1)
         ),
-        InfoDetailSection(
-            heading = "Limitation of liability",
-            paragraphs = listOf(
-                "Color Picker is provided “as is” without warranties of any kind. To the extent permitted by law, we are not liable for damages arising from use of the app."
-            )
-        ),
-        InfoDetailSection(
-            heading = "Contact",
-            paragraphs = listOf(
-                "If you have questions about these terms, please reach out through the feedback form in the app."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_terms_contact_heading,
+            paragraphRes = listOf(R.string.info_terms_contact_p1)
         )
     )
 
-    val usageSections = listOf(
-        InfoDetailSection(
-            heading = "Quick index",
-            paragraphs = listOf("Jump to the task you need."),
-            bullets = listOf(
-                "Pick a color from Live Camera",
-                "Pick a color from a photo",
-                "Save a swatch to your palette",
-                "Compare and copy color values",
-                "Organize palettes",
-                "Share or export color values"
+    private val USAGE_SECTIONS = listOf(
+        InfoSectionRes(
+            headingRes = R.string.info_usage_quick_index_heading,
+            paragraphRes = listOf(R.string.info_usage_quick_index_p1),
+            bulletRes = listOf(
+                R.string.info_usage_quick_index_b1,
+                R.string.info_usage_quick_index_b2,
+                R.string.info_usage_quick_index_b3,
+                R.string.info_usage_quick_index_b4,
+                R.string.info_usage_quick_index_b5,
+                R.string.info_usage_quick_index_b6
             )
         ),
-        InfoDetailSection(
-            heading = "Pick a color from Live Camera",
-            paragraphs = listOf(
-                "Open Live Camera from the Explore or Camera tab. Aim the crosshair at the target, pinch to zoom for precision, then tap the swatch preview to lock it in."
-            ),
-            bullets = listOf(
-                "Adjust crosshair size and shape in Explore > Settings for better accuracy.",
-                "Use a steady grip or tripod for low-light scenes."
+        InfoSectionRes(
+            headingRes = R.string.info_usage_live_camera_heading,
+            paragraphRes = listOf(R.string.info_usage_live_camera_p1),
+            bulletRes = listOf(
+                R.string.info_usage_live_camera_b1,
+                R.string.info_usage_live_camera_b2
             )
         ),
-        InfoDetailSection(
-            heading = "Pick a color from a photo",
-            paragraphs = listOf(
-                "Choose Photo Pick, select an image from your gallery, then tap anywhere on the photo to sample the color at that point."
-            ),
-            bullets = listOf(
-                "Zoom into the photo before tapping to isolate small details.",
-                "Use back to return without saving if you just want to inspect a color."
+        InfoSectionRes(
+            headingRes = R.string.info_usage_photo_heading,
+            paragraphRes = listOf(R.string.info_usage_photo_p1),
+            bulletRes = listOf(
+                R.string.info_usage_photo_b1,
+                R.string.info_usage_photo_b2
             )
         ),
-        InfoDetailSection(
-            heading = "Save and reuse swatches",
-            paragraphs = listOf(
-                "After capturing a color, tap Save to store it in your palette. Each saved swatch records HEX, RGB, and HSL values for copying."
-            ),
-            bullets = listOf(
-                "Tap any saved swatch to copy its HEX code or open details for more formats.",
-                "Long-press or use edit actions (where available) to remove colors you no longer need."
+        InfoSectionRes(
+            headingRes = R.string.info_usage_save_reuse_heading,
+            paragraphRes = listOf(R.string.info_usage_save_reuse_p1),
+            bulletRes = listOf(
+                R.string.info_usage_save_reuse_b1,
+                R.string.info_usage_save_reuse_b2
             )
         ),
-        InfoDetailSection(
-            heading = "Compare and share values",
-            paragraphs = listOf(
-                "Open a saved swatch to compare formats side by side. Use the copy or share actions to send values to your design or development tools."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_usage_compare_share_heading,
+            paragraphRes = listOf(R.string.info_usage_compare_share_p1)
         ),
-        InfoDetailSection(
-            heading = "Organize palettes",
-            paragraphs = listOf(
-                "Open the Palette tab to group related swatches. Rearrange or remove items to keep your palette focused on the project at hand."
-            )
+        InfoSectionRes(
+            headingRes = R.string.info_usage_organize_heading,
+            paragraphRes = listOf(R.string.info_usage_organize_p1)
         )
     )
+
+    private data class InfoSectionRes(
+        @StringRes val headingRes: Int,
+        @StringRes val paragraphRes: List<Int>,
+        @StringRes val bulletRes: List<Int> = emptyList()
+    )
+
+    private fun List<InfoSectionRes>.resolve(): List<InfoDetailSection> = map { section ->
+        InfoDetailSection(
+            heading = AppStrings.get(section.headingRes),
+            paragraphs = section.paragraphRes.map { AppStrings.get(it) },
+            bullets = section.bulletRes.map { AppStrings.get(it) }
+        )
+    }
 }

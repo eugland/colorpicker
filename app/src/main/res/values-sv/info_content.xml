@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Agande</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Alla rattigheter forbehallna. Color Picker, inklusive namn, logotyp, UI och appresurser, ags av Primortex och far inte ateranvandas utan skriftligt tillstand.</string>
+
+    <string name="info_copyright_third_party_heading">Tredjepartskomponenter</string>
+    <string name="info_copyright_third_party_p1">Color Picker ar byggd med open-source-teknik. Vi erkanner och foljer licenserna for varje bibliotek vi anvander.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 for UI-komponenter</string>
+    <string name="info_copyright_third_party_b2">CameraX for kameraintegration</string>
+    <string name="info_copyright_third_party_b3">Coil for bildinlasning</string>
+    <string name="info_copyright_third_party_b4">Ktor for lattviktsnatverk</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose och Accompanist Navigation Animation for navigering i appen</string>
+
+    <string name="info_copyright_license_notes_heading">Licensinformation</string>
+    <string name="info_copyright_license_notes_p1">Alla tredjepartsbibliotek tillhor respektive agare. Originallicenserna bevaras och anges for detaljerad granskning.</string>
+
+    <string name="info_privacy_on_device_heading">Bearbetning pa enheten</string>
+    <string name="info_privacy_on_device_p1">Fargsampling sker lokalt. Kameraforhandsvisning och valda bilder analyseras endast for att hamta fargvarden och skickas inte till vara servrar.</string>
+
+    <string name="info_privacy_permissions_heading">Behorigheter och data</string>
+    <string name="info_privacy_permissions_p1">Appen begar bara tillgang till funktioner som behovs for fargval, som kamera och fotobibliotek. Du kan nar som helst aterkalla dessa behorigheter i enhetens installningar.</string>
+    <string name="info_privacy_permissions_b1">Kameratillgang anvands for live-sampling och spelas aldrig in eller lagras av oss.</string>
+    <string name="info_privacy_permissions_b2">Fototillgang anvands endast nar du valjer en bild att sampla.</string>
+
+    <string name="info_privacy_network_heading">Natverksanvandning</string>
+    <string name="info_privacy_network_p1">Natverksanrop ar begransade till valfria stoddata som palettnamn eller anvandningsguider. Inga personliga bilder eller kamerabilder laddas upp.</string>
+    <string name="info_privacy_network_b1">Om du foredrar en helt offline-upplevelse kan du stanga av natverkstillgang pa systemniva.</string>
+
+    <string name="info_privacy_retention_heading">Datalagring</string>
+    <string name="info_privacy_retention_p1">Sparade farger och paletter stannar pa din enhet tills du tar bort dem. Att rensa appdata eller avinstallera appen tar bort sparade objekt.</string>
+
+    <string name="info_privacy_contact_heading">Kontakt och feedback</string>
+    <string name="info_privacy_contact_p1">Om du kontaktar support anvander vi endast informationen du lamnar for att svara pa din forfragan.</string>
+
+    <string name="info_terms_acceptance_heading">Godkannande av villkor</string>
+    <string name="info_terms_acceptance_p1">Genom att anvanda Color Picker godkanner du dessa anvandarvillkor. Om du inte godkanner dem ska du sluta anvanda appen.</string>
+
+    <string name="info_terms_usage_heading">Anvandning av appen</string>
+    <string name="info_terms_usage_p1">Color Picker tillhandahalls for personlig och professionell fargreferens. Du ansvarar for hur du anvander appen och resultaten av dina fargval.</string>
+    <string name="info_terms_usage_b1">Anvand inte appen pa satt som bryter mot gallande lagar eller regler.</string>
+    <string name="info_terms_usage_b2">Forsok inte reverse-engineera, manipulera eller missbruka appens tjanster.</string>
+
+    <string name="info_terms_ip_heading">Immateriella rattigheter</string>
+    <string name="info_terms_ip_p1">Appen och allt relaterat innehall ags av Primortex eller dess licensgivare. Du far inte kopiera, andra eller distribuera nagon del av appen annat an dar lagen tillater det.</string>
+
+    <string name="info_terms_availability_heading">Innehall och tillganglighet</string>
+    <string name="info_terms_availability_p1">Vi kan uppdatera eller avveckla funktioner nar som helst. Valfritt onlineinnehall tillhandahalls i befintligt skick och kan andras utan forvarning.</string>
+
+    <string name="info_terms_liability_heading">Ansvarsbegransning</string>
+    <string name="info_terms_liability_p1">Color Picker tillhandahalls i befintligt skick utan garantier av nagot slag. I den utstrackning lagen tillater ansvarar vi inte for skador som uppstar vid anvandning av appen.</string>
+
+    <string name="info_terms_contact_heading">Kontakt</string>
+    <string name="info_terms_contact_p1">Om du har fragor om dessa villkor, kontakta oss via feedbackformularet i appen.</string>
+
+    <string name="info_usage_quick_index_heading">Snabbindex</string>
+    <string name="info_usage_quick_index_p1">Ga direkt till uppgiften du behover.</string>
+    <string name="info_usage_quick_index_b1">Valj en farg fran Live Camera</string>
+    <string name="info_usage_quick_index_b2">Valj en farg fran ett foto</string>
+    <string name="info_usage_quick_index_b3">Spara en swatch i din palett</string>
+    <string name="info_usage_quick_index_b4">Jamfor och kopiera fargvarden</string>
+    <string name="info_usage_quick_index_b5">Organisera paletter</string>
+    <string name="info_usage_quick_index_b6">Dela eller exportera fargvarden</string>
+
+    <string name="info_usage_live_camera_heading">Valj en farg fran Live Camera</string>
+    <string name="info_usage_live_camera_p1">Oppna Live Camera fran fliken Explore eller Camera. Rikta siktet mot malet, nyp for att zooma for precision och tryck sedan pa swatch-forhandsvisningen for att lasa.</string>
+    <string name="info_usage_live_camera_b1">Justera siktesstorlek och form i Explore &gt; Settings for battre noggrannhet.</string>
+    <string name="info_usage_live_camera_b2">Anvand stadigt grepp eller stativ i svagt ljus.</string>
+
+    <string name="info_usage_photo_heading">Valj en farg fran ett foto</string>
+    <string name="info_usage_photo_p1">Valj Photo Pick, valj en bild fran galleriet och tryck var som helst pa fotot for att sampla fargen pa den punkten.</string>
+    <string name="info_usage_photo_b1">Zooma in pa fotot innan du trycker for att isolera sma detaljer.</string>
+    <string name="info_usage_photo_b2">Ga tillbaka utan att spara om du bara vill kontrollera en farg.</string>
+
+    <string name="info_usage_save_reuse_heading">Spara och ateranvand swatches</string>
+    <string name="info_usage_save_reuse_p1">Efter att du har fangat en farg, tryck pa Save for att lagra den i din palett. Varje sparad swatch lagrar HEX-, RGB- och HSL-varden for kopiering.</string>
+    <string name="info_usage_save_reuse_b1">Tryck pa en sparad swatch for att kopiera HEX-koden eller oppna detaljer for fler format.</string>
+    <string name="info_usage_save_reuse_b2">Langtryck eller anvand redigeringsatgarder (nar tillgangliga) for att ta bort farger du inte langre behover.</string>
+
+    <string name="info_usage_compare_share_heading">Jamfor och dela varden</string>
+    <string name="info_usage_compare_share_p1">Oppna en sparad swatch for att jamfora format sida vid sida. Anvand kopiera eller dela for att skicka varden till dina design- eller utvecklingsverktyg.</string>
+
+    <string name="info_usage_organize_heading">Organisera paletter</string>
+    <string name="info_usage_organize_p1">Oppna fliken Palette for att gruppera relaterade swatches. Ordna om eller ta bort objekt for att halla paletten fokuserad pa aktuellt projekt.</string>
+</resources>

@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">ความเป็นเจ้าของ</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex สงวนลิขสิทธิ์ทั้งหมด Color Picker รวมถึงชื่อ โลโก้ UI และทรัพยากรของแอป เป็นทรัพย์สินของ Primortex และห้ามนำกลับมาใช้ซ้ำโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</string>
+
+    <string name="info_copyright_third_party_heading">ส่วนประกอบจากบุคคลที่สาม</string>
+    <string name="info_copyright_third_party_p1">Color Picker สร้างขึ้นด้วยเทคโนโลยีโอเพนซอร์ส เรารับทราบและปฏิบัติตามใบอนุญาตของทุกไลบรารีที่เราใช้งาน</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 สำหรับคอมโพเนนต์ UI</string>
+    <string name="info_copyright_third_party_b2">CameraX สำหรับการเชื่อมต่อกล้อง</string>
+    <string name="info_copyright_third_party_b3">Coil สำหรับการโหลดภาพ</string>
+    <string name="info_copyright_third_party_b4">Ktor สำหรับเครือข่ายแบบเบา</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose และ Accompanist Navigation Animation สำหรับการนำทางภายในแอป</string>
+
+    <string name="info_copyright_license_notes_heading">หมายเหตุใบอนุญาต</string>
+    <string name="info_copyright_license_notes_p1">ไลบรารีจากบุคคลที่สามทั้งหมดเป็นทรัพย์สินของเจ้าของที่เกี่ยวข้อง ใบอนุญาตต้นฉบับจะถูกเก็บรักษาและให้เครดิตไว้เพื่อให้คุณตรวจสอบรายละเอียดได้</string>
+
+    <string name="info_privacy_on_device_heading">การประมวลผลบนอุปกรณ์</string>
+    <string name="info_privacy_on_device_p1">การสุ่มตัวอย่างสีเกิดขึ้นภายในเครื่อง ภาพพรีวิวจากกล้องและรูปที่เลือกจะถูกวิเคราะห์เพื่อดึงค่าสีเท่านั้น และจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ของเรา</string>
+
+    <string name="info_privacy_permissions_heading">สิทธิ์และข้อมูล</string>
+    <string name="info_privacy_permissions_p1">แอปจะขอเข้าถึงเฉพาะฟีเจอร์ที่จำเป็นต่อการเลือกสี เช่น กล้องและคลังรูปภาพ คุณสามารถเพิกถอนสิทธิ์เหล่านี้ได้ทุกเมื่อในตั้งค่าอุปกรณ์</string>
+    <string name="info_privacy_permissions_b1">การเข้าถึงกล้องใช้สำหรับการสุ่มตัวอย่างแบบสดเท่านั้น และเราไม่บันทึกหรือจัดเก็บข้อมูลดังกล่าว</string>
+    <string name="info_privacy_permissions_b2">การเข้าถึงรูปภาพใช้เฉพาะเมื่อคุณเลือกรูปเพื่อสุ่มตัวอย่างสี</string>
+
+    <string name="info_privacy_network_heading">การใช้งานเครือข่าย</string>
+    <string name="info_privacy_network_p1">คำขอเครือข่ายจำกัดอยู่ที่การดึงข้อมูลเสริมแบบเลือกได้ เช่น ชื่อพาเลตต์หรือคู่มือการใช้งาน ไม่มีการอัปโหลดรูปส่วนตัวหรือเฟรมจากกล้อง</string>
+    <string name="info_privacy_network_b1">หากคุณต้องการใช้งานแบบออฟไลน์ทั้งหมด คุณสามารถปิดการเข้าถึงเครือข่ายในระดับระบบได้</string>
+
+    <string name="info_privacy_retention_heading">การเก็บรักษาข้อมูล</string>
+    <string name="info_privacy_retention_p1">สีและพาเลตต์ที่บันทึกไว้จะอยู่ในอุปกรณ์ของคุณจนกว่าคุณจะลบ การล้างข้อมูลแอปหรือถอนการติดตั้งจะลบรายการที่บันทึกไว้</string>
+
+    <string name="info_privacy_contact_heading">ติดต่อและข้อเสนอแนะ</string>
+    <string name="info_privacy_contact_p1">หากคุณเลือกติดต่อฝ่ายสนับสนุน เราจะใช้ข้อมูลที่คุณให้มาเพื่อการตอบกลับคำขอของคุณเท่านั้น</string>
+
+    <string name="info_terms_acceptance_heading">การยอมรับเงื่อนไข</string>
+    <string name="info_terms_acceptance_p1">เมื่อใช้ Color Picker ถือว่าคุณยอมรับข้อกำหนดการให้บริการนี้ หากคุณไม่ยอมรับ โปรดยุติการใช้งานแอป</string>
+
+    <string name="info_terms_usage_heading">การใช้งานแอป</string>
+    <string name="info_terms_usage_p1">Color Picker มีไว้สำหรับอ้างอิงสีทั้งงานส่วนตัวและงานมืออาชีพ คุณต้องรับผิดชอบต่อวิธีการใช้งานแอปและผลลัพธ์จากการเลือกสีของคุณ</string>
+    <string name="info_terms_usage_b1">ห้ามใช้แอปในลักษณะที่ละเมิดกฎหมายหรือข้อบังคับที่เกี่ยวข้อง</string>
+    <string name="info_terms_usage_b2">ห้ามพยายามทำวิศวกรรมย้อนกลับ ดัดแปลง หรือใช้งานบริการของแอปในทางที่ผิด</string>
+
+    <string name="info_terms_ip_heading">ทรัพย์สินทางปัญญา</string>
+    <string name="info_terms_ip_p1">แอปและเนื้อหาที่เกี่ยวข้องทั้งหมดเป็นของ Primortex หรือผู้ให้สิทธิ์ของบริษัท คุณไม่สามารถคัดลอก แก้ไข หรือแจกจ่ายส่วนใดของแอปได้ ยกเว้นตามที่กฎหมายอนุญาต</string>
+
+    <string name="info_terms_availability_heading">เนื้อหาและความพร้อมใช้งาน</string>
+    <string name="info_terms_availability_p1">เราอาจอัปเดตหรือยกเลิกฟีเจอร์ได้ทุกเมื่อ เนื้อหาออนไลน์แบบเลือกได้ให้บริการตามสภาพที่เป็นอยู่และอาจเปลี่ยนแปลงโดยไม่ต้องแจ้งล่วงหน้า</string>
+
+    <string name="info_terms_liability_heading">ข้อจำกัดความรับผิด</string>
+    <string name="info_terms_liability_p1">Color Picker ให้บริการตามสภาพที่เป็นอยู่โดยไม่มีการรับประกันใด ๆ เท่าที่กฎหมายอนุญาต เราจะไม่รับผิดชอบต่อความเสียหายที่เกิดจากการใช้งานแอป</string>
+
+    <string name="info_terms_contact_heading">ติดต่อ</string>
+    <string name="info_terms_contact_p1">หากคุณมีคำถามเกี่ยวกับเงื่อนไขเหล่านี้ โปรดติดต่อผ่านแบบฟอร์มข้อเสนอแนะในแอป</string>
+
+    <string name="info_usage_quick_index_heading">ดัชนีด่วน</string>
+    <string name="info_usage_quick_index_p1">ไปยังงานที่คุณต้องการได้ทันที</string>
+    <string name="info_usage_quick_index_b1">เลือกสีจากกล้องสด</string>
+    <string name="info_usage_quick_index_b2">เลือกสีจากรูปภาพ</string>
+    <string name="info_usage_quick_index_b3">บันทึกสวอตช์ลงในพาเลตต์ของคุณ</string>
+    <string name="info_usage_quick_index_b4">เปรียบเทียบและคัดลอกค่าสี</string>
+    <string name="info_usage_quick_index_b5">จัดระเบียบพาเลตต์</string>
+    <string name="info_usage_quick_index_b6">แชร์หรือส่งออกค่าสี</string>
+
+    <string name="info_usage_live_camera_heading">เลือกสีจากกล้องสด</string>
+    <string name="info_usage_live_camera_p1">เปิด Live Camera จากแท็บ Explore หรือ Camera เล็งเป้าไปที่จุดที่ต้องการ ซูมด้วยการบีบนิ้วเพื่อความแม่นยำ แล้วแตะพรีวิวสวอตช์เพื่อล็อกสี</string>
+    <string name="info_usage_live_camera_b1">ปรับขนาดและรูปทรงกากบาทใน Explore &gt; Settings เพื่อความแม่นยำที่ดีขึ้น</string>
+    <string name="info_usage_live_camera_b2">ใช้มือที่นิ่งหรือขาตั้งกล้องในฉากที่แสงน้อย</string>
+
+    <string name="info_usage_photo_heading">เลือกสีจากรูปภาพ</string>
+    <string name="info_usage_photo_p1">เลือก Photo Pick เลือกรูปจากแกลเลอรี แล้วแตะจุดใดก็ได้บนรูปเพื่อสุ่มตัวอย่างสี ณ ตำแหน่งนั้น</string>
+    <string name="info_usage_photo_b1">ซูมรูปก่อนแตะเพื่อแยกรายละเอียดเล็ก ๆ</string>
+    <string name="info_usage_photo_b2">ใช้ปุ่มย้อนกลับเพื่อออกโดยไม่บันทึก หากต้องการเพียงตรวจสอบสี</string>
+
+    <string name="info_usage_save_reuse_heading">บันทึกและใช้สวอตช์ซ้ำ</string>
+    <string name="info_usage_save_reuse_p1">หลังจับสีแล้ว แตะ Save เพื่อเก็บไว้ในพาเลตต์ของคุณ สวอตช์ที่บันทึกแต่ละรายการจะเก็บค่า HEX, RGB และ HSL สำหรับการคัดลอก</string>
+    <string name="info_usage_save_reuse_b1">แตะสวอตช์ที่บันทึกเพื่อคัดลอกรหัส HEX หรือเปิดรายละเอียดเพื่อดูรูปแบบเพิ่มเติม</string>
+    <string name="info_usage_save_reuse_b2">กดค้างหรือใช้การแก้ไข (หากมี) เพื่อลบสีที่ไม่ต้องการแล้ว</string>
+
+    <string name="info_usage_compare_share_heading">เปรียบเทียบและแชร์ค่า</string>
+    <string name="info_usage_compare_share_p1">เปิดสวอตช์ที่บันทึกเพื่อเปรียบเทียบรูปแบบแบบเคียงข้าง ใช้คำสั่งคัดลอกหรือแชร์เพื่อส่งค่าไปยังเครื่องมือออกแบบหรือพัฒนาของคุณ</string>
+
+    <string name="info_usage_organize_heading">จัดระเบียบพาเลตต์</string>
+    <string name="info_usage_organize_p1">เปิดแท็บ Palette เพื่อจัดกลุ่มสวอตช์ที่เกี่ยวข้อง จัดเรียงใหม่หรือลบรายการเพื่อให้พาเลตต์โฟกัสกับโปรเจกต์ปัจจุบัน</string>
+</resources>

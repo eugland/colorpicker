@@ -1,0 +1,84 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Proprieta</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tutti i diritti riservati. Color Picker, inclusi nome, logo, interfaccia utente e risorse dell’app, e di proprieta di Primortex e non puo essere riutilizzato senza autorizzazione scritta.</string>
+
+    <string name="info_copyright_third_party_heading">Componenti di terze parti</string>
+    <string name="info_copyright_third_party_p1">Color Picker e sviluppato con tecnologie open source. Riconosciamo e rispettiamo le licenze di ogni libreria utilizzata.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 per componenti UI</string>
+    <string name="info_copyright_third_party_b2">CameraX per integrazione fotocamera</string>
+    <string name="info_copyright_third_party_b3">Coil per caricamento immagini</string>
+    <string name="info_copyright_third_party_b4">Ktor per networking leggero</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose e Accompanist Navigation Animation per la navigazione in-app</string>
+
+    <string name="info_copyright_license_notes_heading">Note sulle licenze</string>
+    <string name="info_copyright_license_notes_p1">Tutte le librerie di terze parti restano di proprieta dei rispettivi titolari. Le licenze originali vengono mantenute e accreditate per consentirti una revisione dettagliata.</string>
+
+    <string name="info_privacy_on_device_heading">Elaborazione sul dispositivo</string>
+    <string name="info_privacy_on_device_p1">Il campionamento colore avviene localmente. Le anteprime della fotocamera e le foto selezionate vengono analizzate solo per estrarre i valori colore e non sono trasmesse ai nostri server.</string>
+
+    <string name="info_privacy_permissions_heading">Permessi e dati</string>
+    <string name="info_privacy_permissions_p1">L’app richiede accesso solo alle funzionalita necessarie per la selezione colore, come fotocamera e libreria foto. Puoi revocare questi permessi in qualsiasi momento dalle impostazioni del dispositivo.</string>
+    <string name="info_privacy_permissions_b1">L’accesso alla fotocamera e usato per il campionamento live e non viene mai registrato o archiviato da noi.</string>
+    <string name="info_privacy_permissions_b2">L’accesso alle foto viene usato solo quando selezioni un’immagine da campionare.</string>
+
+    <string name="info_privacy_network_heading">Uso della rete</string>
+    <string name="info_privacy_network_p1">Le richieste di rete sono limitate al recupero di dati opzionali di supporto, come nomi palette o guide d’uso. Nessuna immagine personale o frame della fotocamera viene caricata.</string>
+    <string name="info_privacy_network_b1">Se preferisci un’esperienza completamente offline, puoi revocare l’accesso alla rete a livello di sistema.</string>
+
+    <string name="info_privacy_retention_heading">Conservazione dei dati</string>
+    <string name="info_privacy_retention_p1">Colori e palette salvati restano sul tuo dispositivo finche non li elimini. La cancellazione dei dati app o la disinstallazione rimuove gli elementi salvati.</string>
+
+    <string name="info_privacy_contact_heading">Contatti e feedback</string>
+    <string name="info_privacy_contact_p1">Se scegli di contattare l’assistenza, useremo solo le informazioni fornite per rispondere alla tua richiesta.</string>
+
+    <string name="info_terms_acceptance_heading">Accettazione dei termini</string>
+    <string name="info_terms_acceptance_p1">Usando Color Picker, accetti questi termini di servizio. Se non sei d’accordo, interrompi l’uso dell’app.</string>
+
+    <string name="info_terms_usage_heading">Uso dell’app</string>
+    <string name="info_terms_usage_p1">Color Picker e fornito per riferimento colore personale e professionale. Sei responsabile del modo in cui usi l’app e dei risultati delle tue selezioni colore.</string>
+    <string name="info_terms_usage_b1">Non usare l’app in modi che violano leggi o regolamenti applicabili.</string>
+    <string name="info_terms_usage_b2">Non tentare di fare reverse engineering, manomettere o usare impropriamente i servizi dell’app.</string>
+
+    <string name="info_terms_ip_heading">Proprieta intellettuale</string>
+    <string name="info_terms_ip_p1">L’app e tutti i contenuti correlati appartengono a Primortex o ai suoi licenzianti. Non puoi copiare, modificare o ridistribuire alcuna parte dell’app salvo quanto consentito dalla legge.</string>
+
+    <string name="info_terms_availability_heading">Contenuti e disponibilita</string>
+    <string name="info_terms_availability_p1">Possiamo aggiornare o interrompere funzionalita in qualsiasi momento. I contenuti online opzionali sono forniti cosi come sono e possono cambiare senza preavviso.</string>
+
+    <string name="info_terms_liability_heading">Limitazione di responsabilita</string>
+    <string name="info_terms_liability_p1">Color Picker e fornito cosi com’e senza garanzie di alcun tipo. Nella misura consentita dalla legge, non siamo responsabili per danni derivanti dall’uso dell’app.</string>
+
+    <string name="info_terms_contact_heading">Contatto</string>
+    <string name="info_terms_contact_p1">Se hai domande su questi termini, contattaci tramite il modulo feedback nell’app.</string>
+
+    <string name="info_usage_quick_index_heading">Indice rapido</string>
+    <string name="info_usage_quick_index_p1">Vai subito all’attivita che ti serve.</string>
+    <string name="info_usage_quick_index_b1">Preleva un colore dalla fotocamera live</string>
+    <string name="info_usage_quick_index_b2">Preleva un colore da una foto</string>
+    <string name="info_usage_quick_index_b3">Salva un campione nella tua palette</string>
+    <string name="info_usage_quick_index_b4">Confronta e copia valori colore</string>
+    <string name="info_usage_quick_index_b5">Organizza palette</string>
+    <string name="info_usage_quick_index_b6">Condividi o esporta valori colore</string>
+
+    <string name="info_usage_live_camera_heading">Preleva un colore dalla fotocamera live</string>
+    <string name="info_usage_live_camera_p1">Apri Fotocamera live dalla scheda Explore o Camera. Punta il mirino sul target, pizzica per zoom di precisione, poi tocca l’anteprima campione per bloccarlo.</string>
+    <string name="info_usage_live_camera_b1">Regola dimensione e forma del mirino in Explore &gt; Settings per maggiore precisione.</string>
+    <string name="info_usage_live_camera_b2">Usa mano stabile o treppiede in scene con poca luce.</string>
+
+    <string name="info_usage_photo_heading">Preleva un colore da una foto</string>
+    <string name="info_usage_photo_p1">Scegli Photo Pick, seleziona un’immagine dalla galleria, poi tocca un punto qualsiasi della foto per campionare il colore in quel punto.</string>
+    <string name="info_usage_photo_b1">Fai zoom sulla foto prima di toccare per isolare dettagli piccoli.</string>
+    <string name="info_usage_photo_b2">Usa indietro per tornare senza salvare se vuoi solo ispezionare un colore.</string>
+
+    <string name="info_usage_save_reuse_heading">Salva e riusa campioni</string>
+    <string name="info_usage_save_reuse_p1">Dopo aver catturato un colore, tocca Save per salvarlo nella palette. Ogni campione salvato registra valori HEX, RGB e HSL da copiare.</string>
+    <string name="info_usage_save_reuse_b1">Tocca un campione salvato per copiare il codice HEX o aprire i dettagli con altri formati.</string>
+    <string name="info_usage_save_reuse_b2">Tieni premuto o usa azioni di modifica (dove disponibili) per rimuovere colori non piu necessari.</string>
+
+    <string name="info_usage_compare_share_heading">Confronta e condividi valori</string>
+    <string name="info_usage_compare_share_p1">Apri un campione salvato per confrontare i formati affiancati. Usa copia o condividi per inviare i valori ai tuoi strumenti di design o sviluppo.</string>
+
+    <string name="info_usage_organize_heading">Organizza palette</string>
+    <string name="info_usage_organize_p1">Apri la scheda Palette per raggruppare campioni correlati. Riordina o rimuovi elementi per mantenere la palette focalizzata sul progetto corrente.</string>
+</resources>
+

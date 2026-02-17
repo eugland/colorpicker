@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Propiedad</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Todos los derechos reservados. Color Picker, incluido su nombre, logotipo, interfaz de usuario y recursos de la aplicacion, es propiedad de Primortex y no puede reutilizarse sin permiso por escrito.</string>
+
+    <string name="info_copyright_third_party_heading">Componentes de terceros</string>
+    <string name="info_copyright_third_party_p1">Color Picker esta desarrollado con tecnologias de codigo abierto. Reconocemos y cumplimos las licencias de cada biblioteca que utilizamos.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 para componentes de UI</string>
+    <string name="info_copyright_third_party_b2">CameraX para integracion de camara</string>
+    <string name="info_copyright_third_party_b3">Coil para carga de imagenes</string>
+    <string name="info_copyright_third_party_b4">Ktor para red ligera</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose y Accompanist Navigation Animation para la navegacion en la app</string>
+
+    <string name="info_copyright_license_notes_heading">Notas de licencia</string>
+    <string name="info_copyright_license_notes_p1">Todas las bibliotecas de terceros siguen siendo propiedad de sus respectivos dueños. Sus licencias originales se conservan y acreditan para que puedas revisarlas en detalle.</string>
+
+    <string name="info_privacy_on_device_heading">Procesamiento en el dispositivo</string>
+    <string name="info_privacy_on_device_p1">El muestreo de color ocurre localmente. Las vistas previas de camara y las fotos seleccionadas solo se analizan para extraer valores de color y no se transmiten a nuestros servidores.</string>
+
+    <string name="info_privacy_permissions_heading">Permisos y datos</string>
+    <string name="info_privacy_permissions_p1">La app solicita acceso solo a funciones necesarias para seleccionar color, como la camara y la biblioteca de fotos. Puedes revocar estos permisos en cualquier momento desde los ajustes del dispositivo.</string>
+    <string name="info_privacy_permissions_b1">El acceso a la camara se usa para muestreo en vivo y nunca lo grabamos ni almacenamos.</string>
+    <string name="info_privacy_permissions_b2">El acceso a fotos se usa solo cuando seleccionas una imagen para muestrear.</string>
+
+    <string name="info_privacy_network_heading">Uso de red</string>
+    <string name="info_privacy_network_p1">Las solicitudes de red se limitan a obtener datos opcionales como nombres de paletas o guias de uso. No se suben imagenes personales ni fotogramas de camara.</string>
+    <string name="info_privacy_network_b1">Si prefieres una experiencia totalmente sin conexion, puedes revocar el acceso a red a nivel del sistema.</string>
+
+    <string name="info_privacy_retention_heading">Retencion de datos</string>
+    <string name="info_privacy_retention_p1">Los colores y paletas guardados permanecen en tu dispositivo hasta que los elimines. Borrar los datos de la app o desinstalarla elimina tus elementos guardados.</string>
+
+    <string name="info_privacy_contact_heading">Contacto y comentarios</string>
+    <string name="info_privacy_contact_p1">Si decides contactar con soporte, solo usaremos la informacion que proporciones para responder a tu solicitud.</string>
+
+    <string name="info_terms_acceptance_heading">Aceptacion de los terminos</string>
+    <string name="info_terms_acceptance_p1">Al usar Color Picker, aceptas estos terminos de servicio. Si no estas de acuerdo, deja de usar la app.</string>
+
+    <string name="info_terms_usage_heading">Uso de la app</string>
+    <string name="info_terms_usage_p1">Color Picker se ofrece para referencia de color personal y profesional. Eres responsable de como usas la app y de cualquier resultado de tus selecciones de color.</string>
+    <string name="info_terms_usage_b1">No uses la app de formas que violen leyes o regulaciones aplicables.</string>
+    <string name="info_terms_usage_b2">No intentes aplicar ingenieria inversa, manipular ni hacer un uso indebido de los servicios de la app.</string>
+
+    <string name="info_terms_ip_heading">Propiedad intelectual</string>
+    <string name="info_terms_ip_p1">La app y todo el contenido relacionado pertenecen a Primortex o a sus licenciantes. No puedes copiar, modificar ni redistribuir ninguna parte de la app salvo que la ley lo permita.</string>
+
+    <string name="info_terms_availability_heading">Contenido y disponibilidad</string>
+    <string name="info_terms_availability_p1">Podemos actualizar o retirar funciones en cualquier momento. El contenido en linea opcional se proporciona tal cual y puede cambiar sin previo aviso.</string>
+
+    <string name="info_terms_liability_heading">Limitacion de responsabilidad</string>
+    <string name="info_terms_liability_p1">Color Picker se proporciona tal cual, sin garantias de ningun tipo. En la medida permitida por la ley, no somos responsables por danos derivados del uso de la app.</string>
+
+    <string name="info_terms_contact_heading">Contacto</string>
+    <string name="info_terms_contact_p1">Si tienes preguntas sobre estos terminos, contactanos mediante el formulario de comentarios de la app.</string>
+
+    <string name="info_usage_quick_index_heading">Indice rapido</string>
+    <string name="info_usage_quick_index_p1">Ve directo a la tarea que necesitas.</string>
+    <string name="info_usage_quick_index_b1">Elegir un color desde Camara en vivo</string>
+    <string name="info_usage_quick_index_b2">Elegir un color desde una foto</string>
+    <string name="info_usage_quick_index_b3">Guardar una muestra en tu paleta</string>
+    <string name="info_usage_quick_index_b4">Comparar y copiar valores de color</string>
+    <string name="info_usage_quick_index_b5">Organizar paletas</string>
+    <string name="info_usage_quick_index_b6">Compartir o exportar valores de color</string>
+
+    <string name="info_usage_live_camera_heading">Elegir un color desde Camara en vivo</string>
+    <string name="info_usage_live_camera_p1">Abre Camara en vivo desde la pestana Explorar o Camara. Apunta la mira al objetivo, pellizca para hacer zoom con precision y luego toca la vista previa de la muestra para fijarla.</string>
+    <string name="info_usage_live_camera_b1">Ajusta tamano y forma de la mira en Explorar &gt; Ajustes para mayor precision.</string>
+    <string name="info_usage_live_camera_b2">Usa un pulso estable o tripode en escenas con poca luz.</string>
+
+    <string name="info_usage_photo_heading">Elegir un color desde una foto</string>
+    <string name="info_usage_photo_p1">Elige Seleccion desde foto, selecciona una imagen de tu galeria y toca cualquier punto de la foto para muestrear el color en ese lugar.</string>
+    <string name="info_usage_photo_b1">Haz zoom en la foto antes de tocar para aislar detalles pequenos.</string>
+    <string name="info_usage_photo_b2">Usa atras para volver sin guardar si solo quieres inspeccionar un color.</string>
+
+    <string name="info_usage_save_reuse_heading">Guardar y reutilizar muestras</string>
+    <string name="info_usage_save_reuse_p1">Despues de capturar un color, toca Guardar para almacenarlo en tu paleta. Cada muestra guardada registra valores HEX, RGB y HSL para copiar.</string>
+    <string name="info_usage_save_reuse_b1">Toca cualquier muestra guardada para copiar su codigo HEX o abrir detalles con mas formatos.</string>
+    <string name="info_usage_save_reuse_b2">Manten pulsado o usa acciones de edicion (cuando esten disponibles) para quitar colores que ya no necesites.</string>
+
+    <string name="info_usage_compare_share_heading">Comparar y compartir valores</string>
+    <string name="info_usage_compare_share_p1">Abre una muestra guardada para comparar formatos lado a lado. Usa copiar o compartir para enviar valores a tus herramientas de diseno o desarrollo.</string>
+
+    <string name="info_usage_organize_heading">Organizar paletas</string>
+    <string name="info_usage_organize_p1">Abre la pestana Paleta para agrupar muestras relacionadas. Reordena o elimina elementos para mantener tu paleta enfocada en el proyecto actual.</string>
+</resources>

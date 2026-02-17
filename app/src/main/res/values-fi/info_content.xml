@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Omistajuus</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Kaikki oikeudet pidatetaan. Color Picker, mukaan lukien nimi, logo, kayttoliittyma ja sovelluksen resurssit, kuuluu Primortexille, eika sita saa kayttaa uudelleen ilman kirjallista lupaa.</string>
+
+    <string name="info_copyright_third_party_heading">Kolmannen osapuolen komponentit</string>
+    <string name="info_copyright_third_party_p1">Color Picker on rakennettu avoimen lahdekoodin teknologioilla. Tunnustamme ja noudatamme kaikkien kayttamiemme kirjastojen lisensseja.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 UI-komponenteille</string>
+    <string name="info_copyright_third_party_b2">CameraX kameraintegraatioon</string>
+    <string name="info_copyright_third_party_b3">Coil kuvien lataamiseen</string>
+    <string name="info_copyright_third_party_b4">Ktor kevyeen verkkoliikenteeseen</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose ja Accompanist Navigation Animation sovelluksen sisaisen navigoinnin toteutukseen</string>
+
+    <string name="info_copyright_license_notes_heading">Lisenssihuomiot</string>
+    <string name="info_copyright_license_notes_p1">Kaikki kolmannen osapuolen kirjastot pysyvat omistajiensa omaisuutena. Alkuperaiset lisenssit sailytetaan ja ilmoitetaan tarkempaa tarkastelua varten.</string>
+
+    <string name="info_privacy_on_device_heading">Kasittely laitteella</string>
+    <string name="info_privacy_on_device_p1">Varinaytteenotto tapahtuu paikallisesti. Kameran esikatselu ja valitut kuvat analysoidaan vain variarvojen poimintaa varten, eika niita laheteta palvelimillemme.</string>
+
+    <string name="info_privacy_permissions_heading">Luvat ja tiedot</string>
+    <string name="info_privacy_permissions_p1">Sovellus pyytää kayttooikeuksia vain toimintoihin, joita variensampylointi vaatii, kuten kameraan ja kuvakirjastoon. Voit peruuttaa luvat milloin tahansa laitteen asetuksista.</string>
+    <string name="info_privacy_permissions_b1">Kameran kayttooikeutta kaytetaan live-sampylointiin, emmeka koskaan tallenna kuvaa.</string>
+    <string name="info_privacy_permissions_b2">Kuvien kayttooikeutta kaytetaan vain, kun valitset kuvan naytteenottoa varten.</string>
+
+    <string name="info_privacy_network_heading">Verkon kaytto</string>
+    <string name="info_privacy_network_p1">Verkkopyynnot rajoittuvat valinnaisiin tukitietoihin, kuten palettien nimiin tai kaytto-ohjeisiin. Henkilokohtaisia kuvia tai kamerakehyksia ei ladata palvelimelle.</string>
+    <string name="info_privacy_network_b1">Jos haluat tayden offline-kokemuksen, voit poistaa verkkoyhteyden kaytosta jarjestelmatasolla.</string>
+
+    <string name="info_privacy_retention_heading">Tietojen sailytys</string>
+    <string name="info_privacy_retention_p1">Tallennetut varit ja paletit pysyvat laitteellasi, kunnes poistat ne. Sovellustietojen tyhjennys tai sovelluksen poistaminen poistaa tallennetut kohteet.</string>
+
+    <string name="info_privacy_contact_heading">Yhteys ja palaute</string>
+    <string name="info_privacy_contact_p1">Jos otat yhteytta tukeen, kaytamme antamiasi tietoja vain pyyntoosi vastaamiseen.</string>
+
+    <string name="info_terms_acceptance_heading">Ehtojen hyvaksyminen</string>
+    <string name="info_terms_acceptance_p1">Kayttamalla Color Pickeria hyvaksyt nama palveluehdot. Jos et hyvaksy ehtoja, lopeta sovelluksen kaytto.</string>
+
+    <string name="info_terms_usage_heading">Sovelluksen kaytto</string>
+    <string name="info_terms_usage_p1">Color Picker on tarkoitettu henkilo- ja ammattikayton vari-viitteeksi. Olet vastuussa tavasta, jolla kaytat sovellusta, seka valintojesi tuloksista.</string>
+    <string name="info_terms_usage_b1">Ala kayta sovellusta tavoilla, jotka rikkovat sovellettavaa lakia tai saantoja.</string>
+    <string name="info_terms_usage_b2">Ala yrita takaisinmallintaa, muokata luvatta tai vaarinkayttaa sovelluksen palveluja.</string>
+
+    <string name="info_terms_ip_heading">Immateriaalioikeudet</string>
+    <string name="info_terms_ip_p1">Sovellus ja siihen liittyva sisalto kuuluu Primortexille tai sen lisenssinantajille. Et saa kopioida, muokata tai jakaa sovelluksen osia uudelleen, ellei laki sita salli.</string>
+
+    <string name="info_terms_availability_heading">Sisalto ja saatavuus</string>
+    <string name="info_terms_availability_p1">Voimme paivittaa tai lopettaa ominaisuuksia milloin tahansa. Valinnainen verkkosisalto tarjotaan sellaisenaan ja voi muuttua ilman ennakkoilmoitusta.</string>
+
+    <string name="info_terms_liability_heading">Vastuunrajoitus</string>
+    <string name="info_terms_liability_p1">Color Picker tarjotaan sellaisenaan ilman minkaanlaisia takuita. Lain sallimissa rajoissa emme vastaa vahingoista, jotka aiheutuvat sovelluksen kaytosta.</string>
+
+    <string name="info_terms_contact_heading">Yhteystiedot</string>
+    <string name="info_terms_contact_p1">Jos sinulla on kysymyksia ehdoista, ota yhteytta sovelluksen palautelomakkeella.</string>
+
+    <string name="info_usage_quick_index_heading">Pikaindeksi</string>
+    <string name="info_usage_quick_index_p1">Siirry suoraan tarvitsemaasi tehtavaan.</string>
+    <string name="info_usage_quick_index_b1">Valitse vari Live Camera -nakyamasta</string>
+    <string name="info_usage_quick_index_b2">Valitse vari valokuvasta</string>
+    <string name="info_usage_quick_index_b3">Tallenna swatch palettiin</string>
+    <string name="info_usage_quick_index_b4">Vertaa ja kopioi variarvoja</string>
+    <string name="info_usage_quick_index_b5">Jarjesta paletteja</string>
+    <string name="info_usage_quick_index_b6">Jaa tai vie variarvoja</string>
+
+    <string name="info_usage_live_camera_heading">Valitse vari Live Camera -nakyamasta</string>
+    <string name="info_usage_live_camera_p1">Avaa Live Camera Explore- tai Camera-valilehdesta. Suuntaa ristain kohteeseen, nipista tarkempaa zoomia varten ja lukitse vari napauttamalla swatch-esikatselua.</string>
+    <string name="info_usage_live_camera_b1">Saea ristaimen kokoa ja muotoa kohdassa Explore &gt; Settings tarkkuuden parantamiseksi.</string>
+    <string name="info_usage_live_camera_b2">Kayta vakaata otetta tai jalustaa heikossa valossa.</string>
+
+    <string name="info_usage_photo_heading">Valitse vari valokuvasta</string>
+    <string name="info_usage_photo_p1">Valitse Photo Pick, valitse kuva galleriasta ja napauta kuvan kohtaa, josta haluat ottaa varinaytteen.</string>
+    <string name="info_usage_photo_b1">Zoomaa kuvaa ennen napautusta pienten yksityiskohtien erottamiseksi.</string>
+    <string name="info_usage_photo_b2">Palaa tallentamatta, jos haluat vain tarkistaa varin.</string>
+
+    <string name="info_usage_save_reuse_heading">Tallenna ja kayta swatcheja uudelleen</string>
+    <string name="info_usage_save_reuse_p1">Kun olet ottanut varin, napauta Save tallentaaksesi sen palettiin. Jokainen tallennettu swatch sisaltaa HEX-, RGB- ja HSL-arvot kopiointia varten.</string>
+    <string name="info_usage_save_reuse_b1">Napauta tallennettua swatchia kopioidaksesi HEX-koodin tai avaa tiedot lisamuotoja varten.</string>
+    <string name="info_usage_save_reuse_b2">Poista tarpeettomat varit pitamalla painettuna tai kayttamalla muokkaustoimintoja (jos saatavilla).</string>
+
+    <string name="info_usage_compare_share_heading">Vertaa ja jaa arvoja</string>
+    <string name="info_usage_compare_share_p1">Avaa tallennettu swatch vertaillaksesi muotoja rinnakkain. Kayta kopioi- tai jaa-toimintoa lahettaaksesi arvot suunnittelu- tai kehitystyokaluihin.</string>
+
+    <string name="info_usage_organize_heading">Jarjesta paletteja</string>
+    <string name="info_usage_organize_p1">Avaa Palette-valilehti ryhmitellaksesi liittyvat swatchit. Jarjesta uudelleen tai poista kohteita, jotta paletti pysyy nykyiseen projektiin keskittyneena.</string>
+</resources>

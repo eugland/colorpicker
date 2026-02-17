@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">בעלות</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. כל הזכויות שמורות. Color Picker, כולל השם, הלוגו, ממשק המשתמש ונכסי האפליקציה, שייך ל-Primortex ואסור לשימוש חוזר ללא אישור בכתב.</string>
+
+    <string name="info_copyright_third_party_heading">רכיבי צד שלישי</string>
+    <string name="info_copyright_third_party_p1">Color Picker בנוי בטכנולוגיות קוד פתוח. אנו מכבדים ופועלים בהתאם לרישיונות של כל ספרייה שעליה אנו מסתמכים.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 עבור רכיבי ממשק</string>
+    <string name="info_copyright_third_party_b2">CameraX עבור שילוב מצלמה</string>
+    <string name="info_copyright_third_party_b3">Coil עבור טעינת תמונות</string>
+    <string name="info_copyright_third_party_b4">Ktor עבור רשת קלה</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose ו-Accompanist Navigation Animation עבור ניווט בתוך האפליקציה</string>
+
+    <string name="info_copyright_license_notes_heading">הערות רישוי</string>
+    <string name="info_copyright_license_notes_p1">כל ספריות הצד השלישי נשארות בבעלות הבעלים שלהן. הרישיונות המקוריים נשמרים ומצוינים כדי שתוכל לעיין בהם בפירוט.</string>
+
+    <string name="info_privacy_on_device_heading">עיבוד במכשיר</string>
+    <string name="info_privacy_on_device_p1">דגימת צבע מתבצעת באופן מקומי. תצוגות מקדימות מהמצלמה ותמונות שנבחרו מנותחות רק כדי לחלץ ערכי צבע ואינן מועברות לשרתים שלנו.</string>
+
+    <string name="info_privacy_permissions_heading">הרשאות ונתונים</string>
+    <string name="info_privacy_permissions_p1">האפליקציה מבקשת גישה רק ליכולות הנדרשות לבחירת צבעים, כמו מצלמה וספריית תמונות. ניתן לבטל הרשאות אלה בכל זמן בהגדרות המכשיר.</string>
+    <string name="info_privacy_permissions_b1">גישה למצלמה משמשת לדגימה חיה בלבד ולעולם אינה מוקלטת או נשמרת אצלנו.</string>
+    <string name="info_privacy_permissions_b2">גישה לתמונות משמשת רק כאשר אתה בוחר תמונה לדגימה.</string>
+
+    <string name="info_privacy_network_heading">שימוש ברשת</string>
+    <string name="info_privacy_network_p1">בקשות רשת מוגבלות לשליפת נתונים תומכים אופציונליים כגון שמות פלטות או מדריכי שימוש. לא מועלים תמונות אישיות או פריימים מהמצלמה.</string>
+    <string name="info_privacy_network_b1">אם אתה מעדיף חוויה לא מקוונת לחלוטין, ניתן לבטל גישת רשת ברמת המערכת.</string>
+
+    <string name="info_privacy_retention_heading">שמירת נתונים</string>
+    <string name="info_privacy_retention_p1">צבעים ופלטות שנשמרו נשארים במכשיר עד שתמחק אותם. ניקוי נתוני האפליקציה או הסרה שלה מוחקים את הפריטים השמורים.</string>
+
+    <string name="info_privacy_contact_heading">יצירת קשר ומשוב</string>
+    <string name="info_privacy_contact_p1">אם תבחר ליצור קשר עם התמיכה, נשתמש רק במידע שתספק כדי להשיב לבקשתך.</string>
+
+    <string name="info_terms_acceptance_heading">קבלת התנאים</string>
+    <string name="info_terms_acceptance_p1">בשימוש ב-Color Picker אתה מסכים לתנאי השירות האלה. אם אינך מסכים, הפסק להשתמש באפליקציה.</string>
+
+    <string name="info_terms_usage_heading">שימוש באפליקציה</string>
+    <string name="info_terms_usage_p1">Color Picker מסופק לעיון בצבעים לשימוש אישי ומקצועי. אתה אחראי לאופן השימוש שלך באפליקציה ולכל תוצאה מבחירות הצבע שלך.</string>
+    <string name="info_terms_usage_b1">אל תשתמש באפליקציה בדרכים שמפרות חוקים או תקנות רלוונטיים.</string>
+    <string name="info_terms_usage_b2">אל תנסה לבצע הנדסה לאחור, לשבש או לעשות שימוש לרעה בשירותי האפליקציה.</string>
+
+    <string name="info_terms_ip_heading">קניין רוחני</string>
+    <string name="info_terms_ip_p1">האפליקציה וכל התוכן הקשור אליה שייכים ל-Primortex או למעניקי הרישיון שלה. אינך רשאי להעתיק, לשנות או להפיץ מחדש כל חלק מהאפליקציה אלא אם החוק מתיר זאת.</string>
+
+    <string name="info_terms_availability_heading">תוכן וזמינות</string>
+    <string name="info_terms_availability_p1">אנו עשויים לעדכן או להפסיק תכונות בכל עת. תוכן מקוון אופציונלי מסופק כפי שהוא ועשוי להשתנות ללא הודעה מוקדמת.</string>
+
+    <string name="info_terms_liability_heading">הגבלת אחריות</string>
+    <string name="info_terms_liability_p1">Color Picker מסופק כפי שהוא ללא אחריות מכל סוג. במידה המרבית המותרת בחוק, איננו אחראים לנזקים הנובעים משימוש באפליקציה.</string>
+
+    <string name="info_terms_contact_heading">יצירת קשר</string>
+    <string name="info_terms_contact_p1">אם יש לך שאלות לגבי תנאים אלה, פנה דרך טופס המשוב באפליקציה.</string>
+
+    <string name="info_usage_quick_index_heading">אינדקס מהיר</string>
+    <string name="info_usage_quick_index_p1">קפוץ למשימה שאתה צריך.</string>
+    <string name="info_usage_quick_index_b1">בחר צבע מהמצלמה החיה</string>
+    <string name="info_usage_quick_index_b2">בחר צבע מתמונה</string>
+    <string name="info_usage_quick_index_b3">שמור דוגמית לפלטה שלך</string>
+    <string name="info_usage_quick_index_b4">השווה והעתק ערכי צבע</string>
+    <string name="info_usage_quick_index_b5">ארגן פלטות</string>
+    <string name="info_usage_quick_index_b6">שתף או ייצא ערכי צבע</string>
+
+    <string name="info_usage_live_camera_heading">בחירת צבע מהמצלמה החיה</string>
+    <string name="info_usage_live_camera_p1">פתח את המצלמה החיה מלשונית Explore או Camera. כוון את הכוונת למטרה, צבוט לזום לדיוק ואז הקש על תצוגת הדוגמית כדי לנעול אותה.</string>
+    <string name="info_usage_live_camera_b1">התאם גודל וצורת כוונת ב-Explore &gt; Settings לדיוק טוב יותר.</string>
+    <string name="info_usage_live_camera_b2">השתמש באחיזה יציבה או בחצובה בסצנות תאורה נמוכה.</string>
+
+    <string name="info_usage_photo_heading">בחירת צבע מתמונה</string>
+    <string name="info_usage_photo_p1">בחר Photo Pick, בחר תמונה מהגלריה, ואז הקש בכל מקום בתמונה כדי לדגום את הצבע בנקודה זו.</string>
+    <string name="info_usage_photo_b1">בצע זום לתמונה לפני ההקשה כדי לבודד פרטים קטנים.</string>
+    <string name="info_usage_photo_b2">השתמש בחזרה כדי לצאת בלי לשמור אם ברצונך רק לבדוק צבע.</string>
+
+    <string name="info_usage_save_reuse_heading">שמירה ושימוש חוזר בדוגמיות</string>
+    <string name="info_usage_save_reuse_p1">לאחר לכידת צבע, הקש Save כדי לשמור אותו בפלטה. כל דוגמית שנשמרת כוללת ערכי HEX, RGB ו-HSL להעתקה.</string>
+    <string name="info_usage_save_reuse_b1">הקש על כל דוגמית שמורה כדי להעתיק את קוד ה-HEX שלה או לפתוח פרטים לפורמטים נוספים.</string>
+    <string name="info_usage_save_reuse_b2">לחיצה ארוכה או פעולות עריכה (כאשר זמינות) מאפשרות להסיר צבעים שאינך צריך עוד.</string>
+
+    <string name="info_usage_compare_share_heading">השוואה ושיתוף ערכים</string>
+    <string name="info_usage_compare_share_p1">פתח דוגמית שמורה כדי להשוות פורמטים זה לצד זה. השתמש בפעולות העתקה או שיתוף כדי לשלוח ערכים לכלי העיצוב או הפיתוח שלך.</string>
+
+    <string name="info_usage_organize_heading">ארגון פלטות</string>
+    <string name="info_usage_organize_p1">פתח את לשונית Palette כדי לקבץ דוגמיות קשורות. סדר מחדש או הסר פריטים כדי להשאיר את הפלטה ממוקדת בפרויקט הנוכחי.</string>
+</resources>

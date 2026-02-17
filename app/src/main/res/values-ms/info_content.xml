@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Pemilikan</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Hak cipta terpelihara. Color Picker, termasuk nama, logo, antara muka, dan aset aplikasi, dimiliki oleh Primortex dan tidak boleh digunakan semula tanpa kebenaran bertulis.</string>
+
+    <string name="info_copyright_third_party_heading">Komponen pihak ketiga</string>
+    <string name="info_copyright_third_party_p1">Color Picker dibina menggunakan teknologi sumber terbuka. Kami mengiktiraf dan mematuhi lesen setiap pustaka yang digunakan.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 untuk komponen UI</string>
+    <string name="info_copyright_third_party_b2">CameraX untuk integrasi kamera</string>
+    <string name="info_copyright_third_party_b3">Coil untuk pemuatan imej</string>
+    <string name="info_copyright_third_party_b4">Ktor untuk rangkaian ringan</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose dan Accompanist Navigation Animation untuk navigasi dalam aplikasi</string>
+
+    <string name="info_copyright_license_notes_heading">Nota lesen</string>
+    <string name="info_copyright_license_notes_p1">Semua pustaka pihak ketiga kekal milik pemilik masing-masing. Lesen asal dikekalkan dan dinyatakan untuk semakan terperinci.</string>
+
+    <string name="info_privacy_on_device_heading">Pemprosesan pada peranti</string>
+    <string name="info_privacy_on_device_p1">Pensampelan warna berlaku secara tempatan. Pratonton kamera dan foto yang dipilih hanya dianalisis untuk mengekstrak nilai warna dan tidak dihantar ke pelayan kami.</string>
+
+    <string name="info_privacy_permissions_heading">Kebenaran dan data</string>
+    <string name="info_privacy_permissions_p1">Aplikasi hanya meminta akses kepada ciri yang diperlukan untuk pemilihan warna, seperti kamera dan pustaka foto. Anda boleh menarik balik kebenaran ini pada bila-bila masa dalam tetapan peranti.</string>
+    <string name="info_privacy_permissions_b1">Akses kamera digunakan untuk pensampelan langsung dan tidak pernah dirakam atau disimpan oleh kami.</string>
+    <string name="info_privacy_permissions_b2">Akses foto hanya digunakan apabila anda memilih imej untuk pensampelan.</string>
+
+    <string name="info_privacy_network_heading">Penggunaan rangkaian</string>
+    <string name="info_privacy_network_p1">Permintaan rangkaian dihadkan kepada data sokongan pilihan seperti nama palet atau panduan penggunaan. Tiada imej peribadi atau bingkai kamera dimuat naik.</string>
+    <string name="info_privacy_network_b1">Jika anda mahukan pengalaman luar talian sepenuhnya, anda boleh menarik balik akses rangkaian pada peringkat sistem.</string>
+
+    <string name="info_privacy_retention_heading">Pengekalan data</string>
+    <string name="info_privacy_retention_p1">Warna dan palet yang disimpan kekal pada peranti anda sehingga dipadam. Membersihkan data aplikasi atau menyahpasang aplikasi akan menghapuskan item tersimpan.</string>
+
+    <string name="info_privacy_contact_heading">Hubungi dan maklum balas</string>
+    <string name="info_privacy_contact_p1">Jika anda menghubungi sokongan, kami hanya menggunakan maklumat yang anda berikan untuk menjawab permintaan anda.</string>
+
+    <string name="info_terms_acceptance_heading">Penerimaan terma</string>
+    <string name="info_terms_acceptance_p1">Dengan menggunakan Color Picker, anda bersetuju dengan terma perkhidmatan ini. Jika tidak bersetuju, sila hentikan penggunaan aplikasi.</string>
+
+    <string name="info_terms_usage_heading">Penggunaan aplikasi</string>
+    <string name="info_terms_usage_p1">Color Picker disediakan untuk rujukan warna peribadi dan profesional. Anda bertanggungjawab terhadap cara penggunaan aplikasi dan hasil pemilihan warna anda.</string>
+    <string name="info_terms_usage_b1">Jangan gunakan aplikasi dengan cara yang melanggar undang-undang atau peraturan yang berkuat kuasa.</string>
+    <string name="info_terms_usage_b2">Jangan cuba membuat kejuruteraan songsang, mengubah suai secara salah, atau menyalah guna perkhidmatan aplikasi.</string>
+
+    <string name="info_terms_ip_heading">Harta intelek</string>
+    <string name="info_terms_ip_p1">Aplikasi dan semua kandungan berkaitan dimiliki oleh Primortex atau pemberi lesennya. Anda tidak boleh menyalin, mengubah, atau mengagihkan semula mana-mana bahagian aplikasi kecuali dibenarkan oleh undang-undang.</string>
+
+    <string name="info_terms_availability_heading">Kandungan dan ketersediaan</string>
+    <string name="info_terms_availability_p1">Kami boleh mengemas kini atau menghentikan ciri pada bila-bila masa. Kandungan dalam talian pilihan disediakan seadanya dan boleh berubah tanpa notis.</string>
+
+    <string name="info_terms_liability_heading">Had liabiliti</string>
+    <string name="info_terms_liability_p1">Color Picker disediakan seadanya tanpa sebarang jaminan. Setakat yang dibenarkan undang-undang, kami tidak bertanggungjawab atas kerosakan akibat penggunaan aplikasi.</string>
+
+    <string name="info_terms_contact_heading">Hubungi</string>
+    <string name="info_terms_contact_p1">Jika anda mempunyai soalan tentang terma ini, hubungi kami melalui borang maklum balas dalam aplikasi.</string>
+
+    <string name="info_usage_quick_index_heading">Indeks pantas</string>
+    <string name="info_usage_quick_index_p1">Terus ke tugasan yang anda perlukan.</string>
+    <string name="info_usage_quick_index_b1">Pilih warna dari Live Camera</string>
+    <string name="info_usage_quick_index_b2">Pilih warna dari foto</string>
+    <string name="info_usage_quick_index_b3">Simpan swatch ke palet anda</string>
+    <string name="info_usage_quick_index_b4">Banding dan salin nilai warna</string>
+    <string name="info_usage_quick_index_b5">Susun palet</string>
+    <string name="info_usage_quick_index_b6">Kongsi atau eksport nilai warna</string>
+
+    <string name="info_usage_live_camera_heading">Pilih warna dari Live Camera</string>
+    <string name="info_usage_live_camera_p1">Buka Live Camera dari tab Explore atau Camera. Halakan crosshair pada sasaran, cubit untuk zum tepat, kemudian ketik pratonton swatch untuk mengunci.</string>
+    <string name="info_usage_live_camera_b1">Laraskan saiz dan bentuk crosshair di Explore &gt; Settings untuk ketepatan lebih baik.</string>
+    <string name="info_usage_live_camera_b2">Gunakan pegangan stabil atau tripod dalam keadaan cahaya rendah.</string>
+
+    <string name="info_usage_photo_heading">Pilih warna dari foto</string>
+    <string name="info_usage_photo_p1">Pilih Photo Pick, pilih imej dari galeri, kemudian ketik mana-mana titik pada foto untuk mengambil sampel warna pada titik tersebut.</string>
+    <string name="info_usage_photo_b1">Zum masuk pada foto sebelum mengetik untuk mengasingkan butiran kecil.</string>
+    <string name="info_usage_photo_b2">Gunakan kembali tanpa simpan jika anda hanya mahu memeriksa warna.</string>
+
+    <string name="info_usage_save_reuse_heading">Simpan dan guna semula swatch</string>
+    <string name="info_usage_save_reuse_p1">Selepas menangkap warna, ketik Save untuk menyimpannya ke palet. Setiap swatch tersimpan merekodkan nilai HEX, RGB, dan HSL untuk disalin.</string>
+    <string name="info_usage_save_reuse_b1">Ketik mana-mana swatch tersimpan untuk menyalin kod HEX atau buka butiran untuk format tambahan.</string>
+    <string name="info_usage_save_reuse_b2">Tekan lama atau gunakan tindakan edit (jika tersedia) untuk membuang warna yang tidak lagi diperlukan.</string>
+
+    <string name="info_usage_compare_share_heading">Banding dan kongsi nilai</string>
+    <string name="info_usage_compare_share_p1">Buka swatch tersimpan untuk membandingkan format secara bersebelahan. Gunakan salin atau kongsi untuk menghantar nilai ke alat reka bentuk atau pembangunan anda.</string>
+
+    <string name="info_usage_organize_heading">Susun palet</string>
+    <string name="info_usage_organize_p1">Buka tab Palette untuk mengumpulkan swatch berkaitan. Susun semula atau buang item agar palet kekal fokus pada projek semasa.</string>
+</resources>

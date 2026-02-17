@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">स्वामित्व</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. सर्वाधिकार सुरक्षित। Color Picker, जिसमें इसका नाम, लोगो, UI और ऐप एसेट शामिल हैं, Primortex की संपत्ति है और लिखित अनुमति के बिना दोबारा उपयोग नहीं किया जा सकता।</string>
+
+    <string name="info_copyright_third_party_heading">थर्ड-पार्टी घटक</string>
+    <string name="info_copyright_third_party_p1">Color Picker ओपन-सोर्स तकनीकों से बनाया गया है। हम जिन लाइब्रेरी पर निर्भर हैं, उनके लाइसेंस का पालन और सम्मान करते हैं।</string>
+    <string name="info_copyright_third_party_b1">UI कंपोनेंट्स के लिए Jetpack Compose Material 3</string>
+    <string name="info_copyright_third_party_b2">कैमरा इंटीग्रेशन के लिए CameraX</string>
+    <string name="info_copyright_third_party_b3">इमेज लोडिंग के लिए Coil</string>
+    <string name="info_copyright_third_party_b4">हल्के नेटवर्किंग के लिए Ktor</string>
+    <string name="info_copyright_third_party_b5">इन-ऐप नेविगेशन के लिए Navigation Compose और Accompanist Navigation Animation</string>
+
+    <string name="info_copyright_license_notes_heading">लाइसेंस नोट्स</string>
+    <string name="info_copyright_license_notes_p1">सभी थर्ड-पार्टी लाइब्रेरी अपने-अपने मालिकों की संपत्ति रहती हैं। उनके मूल लाइसेंस सुरक्षित और श्रेय सहित रखे जाते हैं ताकि आप उन्हें विस्तार से देख सकें।</string>
+
+    <string name="info_privacy_on_device_heading">डिवाइस पर प्रोसेसिंग</string>
+    <string name="info_privacy_on_device_p1">रंग सैंपलिंग लोकली होती है। कैमरा प्रीव्यू और चुनी गई फोटो का विश्लेषण केवल रंग मान निकालने के लिए किया जाता है और उन्हें हमारे सर्वर पर नहीं भेजा जाता।</string>
+
+    <string name="info_privacy_permissions_heading">अनुमतियां और डेटा</string>
+    <string name="info_privacy_permissions_p1">ऐप केवल रंग चुनने के लिए आवश्यक सुविधाओं तक पहुंच मांगता है, जैसे कैमरा और फोटो लाइब्रेरी। आप डिवाइस सेटिंग्स में कभी भी ये अनुमतियां वापस ले सकते हैं।</string>
+    <string name="info_privacy_permissions_b1">कैमरा एक्सेस केवल लाइव सैंपलिंग के लिए उपयोग होता है और हमारे द्वारा कभी रिकॉर्ड या स्टोर नहीं किया जाता।</string>
+    <string name="info_privacy_permissions_b2">फोटो एक्सेस केवल तब उपयोग होता है जब आप सैंपलिंग के लिए कोई चित्र चुनते हैं।</string>
+
+    <string name="info_privacy_network_heading">नेटवर्क उपयोग</string>
+    <string name="info_privacy_network_p1">नेटवर्क अनुरोध केवल वैकल्पिक सहायक डेटा, जैसे पैलेट नाम या उपयोग गाइड, लाने तक सीमित हैं। कोई व्यक्तिगत फोटो या कैमरा फ्रेम अपलोड नहीं किए जाते।</string>
+    <string name="info_privacy_network_b1">यदि आप पूरी तरह ऑफलाइन अनुभव चाहते हैं, तो सिस्टम स्तर पर नेटवर्क एक्सेस बंद कर सकते हैं।</string>
+
+    <string name="info_privacy_retention_heading">डेटा रिटेंशन</string>
+    <string name="info_privacy_retention_p1">सेव किए गए रंग और पैलेट आपके डिवाइस पर तब तक रहते हैं जब तक आप उन्हें हटाते नहीं। ऐप डेटा साफ करने या अनइंस्टॉल करने से सेव आइटम हट जाते हैं।</string>
+
+    <string name="info_privacy_contact_heading">संपर्क और प्रतिक्रिया</string>
+    <string name="info_privacy_contact_p1">यदि आप सपोर्ट से संपर्क करना चुनते हैं, तो हम आपकी दी गई जानकारी का उपयोग केवल आपके अनुरोध का उत्तर देने के लिए करेंगे।</string>
+
+    <string name="info_terms_acceptance_heading">शर्तों की स्वीकृति</string>
+    <string name="info_terms_acceptance_p1">Color Picker का उपयोग करके आप इन सेवा शर्तों से सहमत होते हैं। यदि आप सहमत नहीं हैं, तो कृपया ऐप का उपयोग बंद करें।</string>
+
+    <string name="info_terms_usage_heading">ऐप उपयोग</string>
+    <string name="info_terms_usage_p1">Color Picker व्यक्तिगत और पेशेवर रंग संदर्भ के लिए प्रदान किया गया है। ऐप के उपयोग और आपके रंग चयन के परिणामों की जिम्मेदारी आपकी है।</string>
+    <string name="info_terms_usage_b1">ऐप का उपयोग ऐसे तरीके से न करें जो लागू कानूनों या नियमों का उल्लंघन करे।</string>
+    <string name="info_terms_usage_b2">ऐप की सेवाओं के साथ रिवर्स इंजीनियरिंग, छेड़छाड़ या दुरुपयोग का प्रयास न करें।</string>
+
+    <string name="info_terms_ip_heading">बौद्धिक संपदा</string>
+    <string name="info_terms_ip_p1">ऐप और उससे संबंधित सभी सामग्री Primortex या उसके लाइसेंस प्रदाताओं की संपत्ति है। कानून द्वारा अनुमति के अलावा आप ऐप के किसी भी भाग की कॉपी, संशोधन या पुनर्वितरण नहीं कर सकते।</string>
+
+    <string name="info_terms_availability_heading">सामग्री और उपलब्धता</string>
+    <string name="info_terms_availability_p1">हम किसी भी समय सुविधाओं को अपडेट या बंद कर सकते हैं। वैकल्पिक ऑनलाइन सामग्री जैसा है वैसा प्रदान की जाती है और बिना सूचना बदल सकती है।</string>
+
+    <string name="info_terms_liability_heading">दायित्व की सीमा</string>
+    <string name="info_terms_liability_p1">Color Picker जैसा है वैसा बिना किसी वारंटी के प्रदान किया जाता है। कानून द्वारा अनुमति की सीमा तक, ऐप के उपयोग से होने वाली क्षति के लिए हम जिम्मेदार नहीं हैं।</string>
+
+    <string name="info_terms_contact_heading">संपर्क</string>
+    <string name="info_terms_contact_p1">यदि इन शर्तों के बारे में आपके प्रश्न हैं, तो ऐप में दिए गए फीडबैक फॉर्म के माध्यम से संपर्क करें।</string>
+
+    <string name="info_usage_quick_index_heading">त्वरित सूचकांक</string>
+    <string name="info_usage_quick_index_p1">जिस कार्य की जरूरत है, उस पर सीधे जाएं।</string>
+    <string name="info_usage_quick_index_b1">Live Camera से रंग चुनें</string>
+    <string name="info_usage_quick_index_b2">फोटो से रंग चुनें</string>
+    <string name="info_usage_quick_index_b3">अपने पैलेट में एक स्वैच सेव करें</string>
+    <string name="info_usage_quick_index_b4">रंग मानों की तुलना करें और कॉपी करें</string>
+    <string name="info_usage_quick_index_b5">पैलेट व्यवस्थित करें</string>
+    <string name="info_usage_quick_index_b6">रंग मान साझा या निर्यात करें</string>
+
+    <string name="info_usage_live_camera_heading">Live Camera से रंग चुनें</string>
+    <string name="info_usage_live_camera_p1">Explore या Camera टैब से Live Camera खोलें। क्रॉसहेयर को लक्ष्य पर रखें, सटीकता के लिए पिंच-ज़ूम करें, फिर लॉक करने के लिए स्वैच प्रीव्यू पर टैप करें।</string>
+    <string name="info_usage_live_camera_b1">बेहतर सटीकता के लिए Explore &gt; Settings में क्रॉसहेयर का आकार और आकार-प्रकार समायोजित करें।</string>
+    <string name="info_usage_live_camera_b2">कम रोशनी वाले दृश्यों में स्थिर पकड़ या ट्राइपॉड का उपयोग करें।</string>
+
+    <string name="info_usage_photo_heading">फोटो से रंग चुनें</string>
+    <string name="info_usage_photo_p1">Photo Pick चुनें, गैलरी से एक चित्र चुनें, फिर उस बिंदु का रंग सैंपल करने के लिए फोटो में कहीं भी टैप करें।</string>
+    <string name="info_usage_photo_b1">छोटे विवरण अलग करने के लिए टैप करने से पहले फोटो ज़ूम करें।</string>
+    <string name="info_usage_photo_b2">यदि आप केवल रंग देखना चाहते हैं, तो बिना सेव किए वापस लौटने के लिए Back का उपयोग करें।</string>
+
+    <string name="info_usage_save_reuse_heading">स्वैच सेव करें और दोबारा उपयोग करें</string>
+    <string name="info_usage_save_reuse_p1">रंग कैप्चर करने के बाद, उसे अपने पैलेट में स्टोर करने के लिए Save टैप करें। हर सेव स्वैच में कॉपी करने के लिए HEX, RGB और HSL मान दर्ज होते हैं।</string>
+    <string name="info_usage_save_reuse_b1">HEX कोड कॉपी करने या अधिक फॉर्मेट देखने के लिए किसी सेव स्वैच पर टैप करें।</string>
+    <string name="info_usage_save_reuse_b2">जिन रंगों की जरूरत नहीं, उन्हें हटाने के लिए लॉन्ग-प्रेस या एडिट एक्शन (जहां उपलब्ध हों) उपयोग करें।</string>
+
+    <string name="info_usage_compare_share_heading">मानों की तुलना और साझा करें</string>
+    <string name="info_usage_compare_share_p1">फॉर्मेट्स की साथ-साथ तुलना करने के लिए सेव स्वैच खोलें। मानों को अपने डिज़ाइन या डेवलपमेंट टूल्स में भेजने के लिए कॉपी या शेयर एक्शन उपयोग करें।</string>
+
+    <string name="info_usage_organize_heading">पैलेट व्यवस्थित करें</string>
+    <string name="info_usage_organize_p1">संबंधित स्वैच समूहित करने के लिए Palette टैब खोलें। मौजूदा प्रोजेक्ट पर पैलेट केंद्रित रखने के लिए आइटम पुनर्व्यवस्थित या हटाएं।</string>
+</resources>

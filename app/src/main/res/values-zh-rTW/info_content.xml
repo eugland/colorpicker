@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">所有權</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex。版權所有。Color Picker（包含名稱、標誌、介面與應用資產）屬於 Primortex，未經書面許可不得重複使用。</string>
+
+    <string name="info_copyright_third_party_heading">第三方元件</string>
+    <string name="info_copyright_third_party_p1">Color Picker 使用開源技術建構。我們承認並遵守所使用各項函式庫的授權條款。</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3（UI 元件）</string>
+    <string name="info_copyright_third_party_b2">CameraX（相機整合）</string>
+    <string name="info_copyright_third_party_b3">Coil（圖片載入）</string>
+    <string name="info_copyright_third_party_b4">Ktor（輕量網路請求）</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose 與 Accompanist Navigation Animation（應用內導覽）</string>
+
+    <string name="info_copyright_license_notes_heading">授權說明</string>
+    <string name="info_copyright_license_notes_p1">所有第三方函式庫仍屬其各自權利人所有。其原始授權會被保留並標註，方便你檢視詳細內容。</string>
+
+    <string name="info_privacy_on_device_heading">裝置端處理</string>
+    <string name="info_privacy_on_device_p1">取色在本機完成。相機預覽與你選取的照片僅用於擷取顏色數值，不會傳送到我們的伺服器。</string>
+
+    <string name="info_privacy_permissions_heading">權限與資料</string>
+    <string name="info_privacy_permissions_p1">本應用僅會要求取色必要權限，例如相機與相簿。你可隨時在裝置設定中撤銷這些權限。</string>
+    <string name="info_privacy_permissions_b1">相機權限僅用於即時取色，我們不會錄製或儲存畫面。</string>
+    <string name="info_privacy_permissions_b2">照片權限僅在你選擇圖片取色時使用。</string>
+
+    <string name="info_privacy_network_heading">網路使用</string>
+    <string name="info_privacy_network_p1">網路請求僅限於取得可選的輔助資料，例如調色盤名稱或使用指南。不會上傳個人圖片或相機影格。</string>
+    <string name="info_privacy_network_b1">若你偏好完全離線體驗，可在系統層級停用網路存取。</string>
+
+    <string name="info_privacy_retention_heading">資料保存</string>
+    <string name="info_privacy_retention_p1">已儲存的顏色與調色盤會保留在你的裝置，直到你刪除。清除應用資料或解除安裝會移除這些已儲存項目。</string>
+
+    <string name="info_privacy_contact_heading">聯絡與回饋</string>
+    <string name="info_privacy_contact_p1">若你聯絡客服，我們僅會使用你提供的資訊來回覆你的請求。</string>
+
+    <string name="info_terms_acceptance_heading">條款同意</string>
+    <string name="info_terms_acceptance_p1">使用 Color Picker 即表示你同意本服務條款。若你不同意，請停止使用本應用。</string>
+
+    <string name="info_terms_usage_heading">應用使用</string>
+    <string name="info_terms_usage_p1">Color Picker 提供個人與專業用途的顏色參考。你需對應用的使用方式及取色結果負責。</string>
+    <string name="info_terms_usage_b1">請勿以違反適用法律或規範的方式使用本應用。</string>
+    <string name="info_terms_usage_b2">請勿嘗試對本應用服務進行逆向工程、竄改或濫用。</string>
+
+    <string name="info_terms_ip_heading">智慧財產權</string>
+    <string name="info_terms_ip_p1">本應用及相關內容屬於 Primortex 或其授權方。除法律允許外，不得複製、修改或再散布本應用任何部分。</string>
+
+    <string name="info_terms_availability_heading">內容與可用性</string>
+    <string name="info_terms_availability_p1">我們可能隨時更新或停止功能。可選線上內容按現況提供，並可能在未通知下變更。</string>
+
+    <string name="info_terms_liability_heading">責任限制</string>
+    <string name="info_terms_liability_p1">Color Picker 以現況提供，不附帶任何形式保證。在法律允許範圍內，我們不對因使用本應用造成的損害負責。</string>
+
+    <string name="info_terms_contact_heading">聯絡方式</string>
+    <string name="info_terms_contact_p1">若你對本條款有疑問，請透過應用內回饋表單與我們聯絡。</string>
+
+    <string name="info_usage_quick_index_heading">快速索引</string>
+    <string name="info_usage_quick_index_p1">快速跳轉到你需要的任務。</string>
+    <string name="info_usage_quick_index_b1">從即時相機取色</string>
+    <string name="info_usage_quick_index_b2">從照片取色</string>
+    <string name="info_usage_quick_index_b3">將色票儲存到調色盤</string>
+    <string name="info_usage_quick_index_b4">比較並複製顏色數值</string>
+    <string name="info_usage_quick_index_b5">整理調色盤</string>
+    <string name="info_usage_quick_index_b6">分享或匯出顏色數值</string>
+
+    <string name="info_usage_live_camera_heading">從即時相機取色</string>
+    <string name="info_usage_live_camera_p1">在 Explore 或 Camera 分頁開啟 Live Camera。將準星對準目標，透過雙指縮放提高精準度，然後點擊色票預覽以鎖定。</string>
+    <string name="info_usage_live_camera_b1">可在 Explore &gt; Settings 調整準星大小與形狀以提升準確度。</string>
+    <string name="info_usage_live_camera_b2">在低光環境建議手持穩定或使用腳架。</string>
+
+    <string name="info_usage_photo_heading">從照片取色</string>
+    <string name="info_usage_photo_p1">選擇 Photo Pick，從相簿挑選圖片，點擊照片任一位置即可取樣該點顏色。</string>
+    <string name="info_usage_photo_b1">點擊前先放大照片，可更精準擷取細節。</string>
+    <string name="info_usage_photo_b2">若只想查看顏色，可直接返回而不儲存。</string>
+
+    <string name="info_usage_save_reuse_heading">儲存與重複使用色票</string>
+    <string name="info_usage_save_reuse_p1">擷取顏色後，點擊 Save 以儲存到調色盤。每個已儲存色票都會記錄 HEX、RGB 與 HSL 數值供複製。</string>
+    <string name="info_usage_save_reuse_b1">點擊任一已儲存色票可複製 HEX，或開啟詳細資訊查看更多格式。</string>
+    <string name="info_usage_save_reuse_b2">可長按或使用編輯操作（若有提供）移除不再需要的顏色。</string>
+
+    <string name="info_usage_compare_share_heading">比較與分享數值</string>
+    <string name="info_usage_compare_share_p1">開啟已儲存色票可並排比較格式。使用複製或分享，將數值傳送到你的設計或開發工具。</string>
+
+    <string name="info_usage_organize_heading">整理調色盤</string>
+    <string name="info_usage_organize_p1">開啟 Palette 分頁以分組相關色票。透過重新排序或移除項目，讓調色盤聚焦目前專案。</string>
+</resources>

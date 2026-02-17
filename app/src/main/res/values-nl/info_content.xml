@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Eigendom</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Alle rechten voorbehouden. Color Picker, inclusief naam, logo, UI en app-assets, is eigendom van Primortex en mag niet opnieuw worden gebruikt zonder schriftelijke toestemming.</string>
+
+    <string name="info_copyright_third_party_heading">Componenten van derden</string>
+    <string name="info_copyright_third_party_p1">Color Picker is gebouwd met open-source technologieen. Wij erkennen en volgen de licenties van elke bibliotheek die we gebruiken.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 voor UI-componenten</string>
+    <string name="info_copyright_third_party_b2">CameraX voor camera-integratie</string>
+    <string name="info_copyright_third_party_b3">Coil voor het laden van afbeeldingen</string>
+    <string name="info_copyright_third_party_b4">Ktor voor lichtgewicht netwerkverkeer</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose en Accompanist Navigation Animation voor in-app navigatie</string>
+
+    <string name="info_copyright_license_notes_heading">Licentie-opmerkingen</string>
+    <string name="info_copyright_license_notes_p1">Alle bibliotheken van derden blijven eigendom van hun respectieve eigenaren. Hun originele licenties blijven behouden en worden vermeld voor gedetailleerde inzage.</string>
+
+    <string name="info_privacy_on_device_heading">Verwerking op het apparaat</string>
+    <string name="info_privacy_on_device_p1">Kleurbemonstering gebeurt lokaal. Cameravoorbeelden en geselecteerde fotos worden alleen geanalyseerd om kleurwaarden te extraheren en niet naar onze servers verzonden.</string>
+
+    <string name="info_privacy_permissions_heading">Machtigingen en gegevens</string>
+    <string name="info_privacy_permissions_p1">De app vraagt alleen toegang tot functies die nodig zijn voor kleurselectie, zoals camera en fotobibliotheek. Je kunt deze machtigingen op elk moment intrekken via apparaatinstellingen.</string>
+    <string name="info_privacy_permissions_b1">Camera-toegang wordt gebruikt voor live bemonstering en wordt nooit door ons opgenomen of opgeslagen.</string>
+    <string name="info_privacy_permissions_b2">Foto-toegang wordt alleen gebruikt wanneer je een afbeelding kiest om te bemonsteren.</string>
+
+    <string name="info_privacy_network_heading">Netwerkgebruik</string>
+    <string name="info_privacy_network_p1">Netwerkverzoeken zijn beperkt tot optionele ondersteunende gegevens zoals paletnamen of gebruiksgidsen. Er worden geen persoonlijke afbeeldingen of cameraframes geupload.</string>
+    <string name="info_privacy_network_b1">Als je een volledig offline ervaring wilt, kun je netwerktoegang op systeemniveau intrekken.</string>
+
+    <string name="info_privacy_retention_heading">Gegevensbewaring</string>
+    <string name="info_privacy_retention_p1">Opgeslagen kleuren en paletten blijven op je apparaat totdat je ze verwijdert. App-gegevens wissen of de app verwijderen verwijdert je opgeslagen items.</string>
+
+    <string name="info_privacy_contact_heading">Contact en feedback</string>
+    <string name="info_privacy_contact_p1">Als je contact opneemt met ondersteuning, gebruiken we alleen de door jou verstrekte informatie om te reageren op je verzoek.</string>
+
+    <string name="info_terms_acceptance_heading">Acceptatie van voorwaarden</string>
+    <string name="info_terms_acceptance_p1">Door Color Picker te gebruiken, ga je akkoord met deze servicevoorwaarden. Als je niet akkoord gaat, stop dan met het gebruik van de app.</string>
+
+    <string name="info_terms_usage_heading">Gebruik van de app</string>
+    <string name="info_terms_usage_p1">Color Picker wordt aangeboden voor persoonlijke en professionele kleurreferentie. Je bent verantwoordelijk voor hoe je de app gebruikt en de resultaten van je kleurkeuzes.</string>
+    <string name="info_terms_usage_b1">Gebruik de app niet op manieren die toepasselijke wetten of regels overtreden.</string>
+    <string name="info_terms_usage_b2">Probeer de app-services niet te reverse-engineeren, te manipuleren of te misbruiken.</string>
+
+    <string name="info_terms_ip_heading">Intellectueel eigendom</string>
+    <string name="info_terms_ip_p1">De app en alle gerelateerde inhoud zijn eigendom van Primortex of diens licentiegevers. Je mag geen deel van de app kopieren, wijzigen of herdistribueren behalve waar wettelijk toegestaan.</string>
+
+    <string name="info_terms_availability_heading">Inhoud en beschikbaarheid</string>
+    <string name="info_terms_availability_p1">We kunnen functies op elk moment bijwerken of stopzetten. Optionele online inhoud wordt geleverd zoals deze is en kan zonder kennisgeving veranderen.</string>
+
+    <string name="info_terms_liability_heading">Beperking van aansprakelijkheid</string>
+    <string name="info_terms_liability_p1">Color Picker wordt geleverd zoals deze is, zonder enige garanties. Voor zover wettelijk toegestaan zijn wij niet aansprakelijk voor schade door gebruik van de app.</string>
+
+    <string name="info_terms_contact_heading">Contact</string>
+    <string name="info_terms_contact_p1">Als je vragen hebt over deze voorwaarden, neem dan contact op via het feedbackformulier in de app.</string>
+
+    <string name="info_usage_quick_index_heading">Snelle index</string>
+    <string name="info_usage_quick_index_p1">Ga direct naar de taak die je nodig hebt.</string>
+    <string name="info_usage_quick_index_b1">Kies een kleur vanuit Live Camera</string>
+    <string name="info_usage_quick_index_b2">Kies een kleur vanuit een foto</string>
+    <string name="info_usage_quick_index_b3">Sla een swatch op in je palet</string>
+    <string name="info_usage_quick_index_b4">Vergelijk en kopieer kleurwaarden</string>
+    <string name="info_usage_quick_index_b5">Paletten organiseren</string>
+    <string name="info_usage_quick_index_b6">Kleurwaarden delen of exporteren</string>
+
+    <string name="info_usage_live_camera_heading">Kies een kleur vanuit Live Camera</string>
+    <string name="info_usage_live_camera_p1">Open Live Camera via het tabblad Explore of Camera. Richt het richtkruis op het doel, knijp om te zoomen voor precisie en tik daarna op de swatch-preview om vast te zetten.</string>
+    <string name="info_usage_live_camera_b1">Pas grootte en vorm van het richtkruis aan in Explore &gt; Settings voor betere nauwkeurigheid.</string>
+    <string name="info_usage_live_camera_b2">Gebruik een stabiele hand of statief bij weinig licht.</string>
+
+    <string name="info_usage_photo_heading">Kies een kleur vanuit een foto</string>
+    <string name="info_usage_photo_p1">Kies Photo Pick, selecteer een afbeelding uit je galerij en tik ergens op de foto om daar de kleur te bemonsteren.</string>
+    <string name="info_usage_photo_b1">Zoom in op de foto voordat je tikt om kleine details te isoleren.</string>
+    <string name="info_usage_photo_b2">Gebruik terug om zonder opslaan terug te gaan als je alleen een kleur wilt controleren.</string>
+
+    <string name="info_usage_save_reuse_heading">Swatches opslaan en hergebruiken</string>
+    <string name="info_usage_save_reuse_p1">Nadat je een kleur hebt vastgelegd, tik op Save om op te slaan in je palet. Elke opgeslagen swatch bevat HEX-, RGB- en HSL-waarden om te kopieren.</string>
+    <string name="info_usage_save_reuse_b1">Tik op een opgeslagen swatch om de HEX-code te kopieren of open details voor meer formaten.</string>
+    <string name="info_usage_save_reuse_b2">Houd ingedrukt of gebruik bewerkingsacties (indien beschikbaar) om kleuren te verwijderen die je niet meer nodig hebt.</string>
+
+    <string name="info_usage_compare_share_heading">Waarden vergelijken en delen</string>
+    <string name="info_usage_compare_share_p1">Open een opgeslagen swatch om formaten naast elkaar te vergelijken. Gebruik kopieren of delen om waarden naar je ontwerp- of ontwikkeltools te sturen.</string>
+
+    <string name="info_usage_organize_heading">Paletten organiseren</string>
+    <string name="info_usage_organize_p1">Open het tabblad Palette om gerelateerde swatches te groeperen. Orden opnieuw of verwijder items om je palet gericht te houden op het huidige project.</string>
+</resources>

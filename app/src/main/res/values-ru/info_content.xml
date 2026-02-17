@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Право собственности</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Все права защищены. Color Picker, включая название, логотип, интерфейс и ресурсы приложения, принадлежит Primortex и не может использоваться повторно без письменного разрешения.</string>
+
+    <string name="info_copyright_third_party_heading">Сторонние компоненты</string>
+    <string name="info_copyright_third_party_p1">Color Picker создан с использованием технологий с открытым исходным кодом. Мы соблюдаем лицензии всех используемых библиотек.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 для UI-компонентов</string>
+    <string name="info_copyright_third_party_b2">CameraX для интеграции камеры</string>
+    <string name="info_copyright_third_party_b3">Coil для загрузки изображений</string>
+    <string name="info_copyright_third_party_b4">Ktor для легкого сетевого взаимодействия</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose и Accompanist Navigation Animation для навигации в приложении</string>
+
+    <string name="info_copyright_license_notes_heading">Примечания по лицензиям</string>
+    <string name="info_copyright_license_notes_p1">Все сторонние библиотеки остаются собственностью соответствующих правообладателей. Их оригинальные лицензии сохраняются и указываются для детального ознакомления.</string>
+
+    <string name="info_privacy_on_device_heading">Обработка на устройстве</string>
+    <string name="info_privacy_on_device_p1">Выбор цвета происходит локально. Превью камеры и выбранные фото анализируются только для извлечения цветовых значений и не передаются на наши серверы.</string>
+
+    <string name="info_privacy_permissions_heading">Разрешения и данные</string>
+    <string name="info_privacy_permissions_p1">Приложение запрашивает доступ только к функциям, необходимым для выбора цвета, таким как камера и библиотека фото. Вы можете отозвать эти разрешения в любой момент в настройках устройства.</string>
+    <string name="info_privacy_permissions_b1">Доступ к камере используется для live-выбора и никогда не записывается и не хранится нами.</string>
+    <string name="info_privacy_permissions_b2">Доступ к фото используется только когда вы выбираете изображение для выборки цвета.</string>
+
+    <string name="info_privacy_network_heading">Использование сети</string>
+    <string name="info_privacy_network_p1">Сетевые запросы ограничены получением необязательных вспомогательных данных, например названий палитр или руководств. Личные изображения и кадры камеры не загружаются.</string>
+    <string name="info_privacy_network_b1">Если вы предпочитаете полностью офлайн-режим, вы можете отключить доступ к сети на уровне системы.</string>
+
+    <string name="info_privacy_retention_heading">Хранение данных</string>
+    <string name="info_privacy_retention_p1">Сохраненные цвета и палитры остаются на вашем устройстве, пока вы их не удалите. Очистка данных приложения или удаление приложения удалит сохраненные элементы.</string>
+
+    <string name="info_privacy_contact_heading">Контакты и обратная связь</string>
+    <string name="info_privacy_contact_p1">Если вы обращаетесь в поддержку, мы используем только предоставленную вами информацию для ответа на запрос.</string>
+
+    <string name="info_terms_acceptance_heading">Принятие условий</string>
+    <string name="info_terms_acceptance_p1">Используя Color Picker, вы соглашаетесь с этими условиями обслуживания. Если вы не согласны, прекратите использование приложения.</string>
+
+    <string name="info_terms_usage_heading">Использование приложения</string>
+    <string name="info_terms_usage_p1">Color Picker предоставляется для личной и профессиональной работы с цветом. Вы несете ответственность за способ использования приложения и результаты выбора цветов.</string>
+    <string name="info_terms_usage_b1">Не используйте приложение способами, нарушающими применимые законы или нормы.</string>
+    <string name="info_terms_usage_b2">Не пытайтесь выполнять реверс-инжиниринг, вмешиваться в работу или злоупотреблять сервисами приложения.</string>
+
+    <string name="info_terms_ip_heading">Интеллектуальная собственность</string>
+    <string name="info_terms_ip_p1">Приложение и весь связанный контент принадлежат Primortex или его лицензиарам. Вы не можете копировать, изменять или распространять части приложения, кроме случаев, разрешенных законом.</string>
+
+    <string name="info_terms_availability_heading">Контент и доступность</string>
+    <string name="info_terms_availability_p1">Мы можем обновлять или прекращать функции в любое время. Необязательный онлайн-контент предоставляется как есть и может меняться без уведомления.</string>
+
+    <string name="info_terms_liability_heading">Ограничение ответственности</string>
+    <string name="info_terms_liability_p1">Color Picker предоставляется как есть, без каких-либо гарантий. В пределах, разрешенных законом, мы не несем ответственности за ущерб, возникший при использовании приложения.</string>
+
+    <string name="info_terms_contact_heading">Контакты</string>
+    <string name="info_terms_contact_p1">Если у вас есть вопросы по этим условиям, свяжитесь с нами через форму обратной связи в приложении.</string>
+
+    <string name="info_usage_quick_index_heading">Быстрый индекс</string>
+    <string name="info_usage_quick_index_p1">Перейдите сразу к нужной задаче.</string>
+    <string name="info_usage_quick_index_b1">Выбрать цвет с live-камеры</string>
+    <string name="info_usage_quick_index_b2">Выбрать цвет с фото</string>
+    <string name="info_usage_quick_index_b3">Сохранить образец в палитру</string>
+    <string name="info_usage_quick_index_b4">Сравнить и скопировать цветовые значения</string>
+    <string name="info_usage_quick_index_b5">Организовать палитры</string>
+    <string name="info_usage_quick_index_b6">Поделиться или экспортировать цветовые значения</string>
+
+    <string name="info_usage_live_camera_heading">Выбрать цвет с live-камеры</string>
+    <string name="info_usage_live_camera_p1">Откройте Live Camera на вкладке Explore или Camera. Наведите прицел на объект, увеличьте щипком для точности и нажмите на превью образца, чтобы зафиксировать цвет.</string>
+    <string name="info_usage_live_camera_b1">Настройте размер и форму прицела в Explore &gt; Settings для большей точности.</string>
+    <string name="info_usage_live_camera_b2">В условиях слабого освещения держите устройство устойчиво или используйте штатив.</string>
+
+    <string name="info_usage_photo_heading">Выбрать цвет с фото</string>
+    <string name="info_usage_photo_p1">Выберите Photo Pick, откройте изображение из галереи и нажмите в любой точке фото, чтобы взять цвет в этом месте.</string>
+    <string name="info_usage_photo_b1">Перед нажатием увеличьте фото, чтобы точнее выделить мелкие детали.</string>
+    <string name="info_usage_photo_b2">Если нужно только посмотреть цвет, вернитесь назад без сохранения.</string>
+
+    <string name="info_usage_save_reuse_heading">Сохранение и повторное использование образцов</string>
+    <string name="info_usage_save_reuse_p1">После захвата цвета нажмите Save, чтобы сохранить его в палитру. Каждый сохраненный образец содержит значения HEX, RGB и HSL для копирования.</string>
+    <string name="info_usage_save_reuse_b1">Нажмите на сохраненный образец, чтобы скопировать HEX-код или открыть детали с другими форматами.</string>
+    <string name="info_usage_save_reuse_b2">Удерживайте или используйте действия редактирования (если доступны), чтобы удалить ненужные цвета.</string>
+
+    <string name="info_usage_compare_share_heading">Сравнение и обмен значениями</string>
+    <string name="info_usage_compare_share_p1">Откройте сохраненный образец, чтобы сравнить форматы рядом. Используйте копирование или общий доступ, чтобы отправить значения в ваши инструменты дизайна или разработки.</string>
+
+    <string name="info_usage_organize_heading">Организация палитр</string>
+    <string name="info_usage_organize_p1">Откройте вкладку Palette, чтобы сгруппировать связанные образцы. Переставляйте или удаляйте элементы, чтобы держать палитру сфокусированной на текущем проекте.</string>
+</resources>

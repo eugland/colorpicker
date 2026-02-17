@@ -1,0 +1,84 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Sahiplik</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tum haklari saklidir. Color Picker, adi, logosu, arayuzu ve uygulama varliklari dahil olmak uzere Primortex’e aittir ve yazili izin olmadan yeniden kullanilamaz.</string>
+
+    <string name="info_copyright_third_party_heading">Ucuncu taraf bilesenler</string>
+    <string name="info_copyright_third_party_p1">Color Picker acik kaynak teknolojileri ile gelistirilmistir. Kullandigimiz her kutuphanenin lisanslarini tanir ve bunlara uyariz.</string>
+    <string name="info_copyright_third_party_b1">UI bilesenleri icin Jetpack Compose Material 3</string>
+    <string name="info_copyright_third_party_b2">Kamera entegrasyonu icin CameraX</string>
+    <string name="info_copyright_third_party_b3">Gorsel yukleme icin Coil</string>
+    <string name="info_copyright_third_party_b4">Hafif ag islemleri icin Ktor</string>
+    <string name="info_copyright_third_party_b5">Uygulama ici gezinme icin Navigation Compose ve Accompanist Navigation Animation</string>
+
+    <string name="info_copyright_license_notes_heading">Lisans notlari</string>
+    <string name="info_copyright_license_notes_p1">Tum ucuncu taraf kutuphaneler ilgili sahiplerine aittir. Orijinal lisanslar korunur ve ayrintili inceleme icin belirtilir.</string>
+
+    <string name="info_privacy_on_device_heading">Cihaz uzerinde isleme</string>
+    <string name="info_privacy_on_device_p1">Renk ornekleme yerel olarak yapilir. Kamera onizlemeleri ve secilen fotolar yalnizca renk degerlerini cikarmak icin analiz edilir ve sunucularimiza gonderilmez.</string>
+
+    <string name="info_privacy_permissions_heading">Izinler ve veriler</string>
+    <string name="info_privacy_permissions_p1">Uygulama sadece renk secimi icin gerekli ozelliklere erisim ister; kamera ve fotograf kutuphanesi gibi. Bu izinleri cihaz ayarlarindan istediginiz zaman geri alabilirsiniz.</string>
+    <string name="info_privacy_permissions_b1">Kamera erisimi canli ornekleme icin kullanilir ve tarafimizca asla kaydedilmez veya saklanmaz.</string>
+    <string name="info_privacy_permissions_b2">Fotograf erisimi sadece ornekleme icin bir goruntu sectiginizde kullanilir.</string>
+
+    <string name="info_privacy_network_heading">Ag kullanimi</string>
+    <string name="info_privacy_network_p1">Ag istekleri palet adlari veya kullanim kilavuzlari gibi istege bagli destek verilerini almakla sinirlidir. Kisisel goruntuler veya kamera kareleri yuklenmez.</string>
+    <string name="info_privacy_network_b1">Tamamen cevrimdisi deneyim istiyorsaniz, sistem duzeyinde ag erisimini kapatabilirsiniz.</string>
+
+    <string name="info_privacy_retention_heading">Veri saklama</string>
+    <string name="info_privacy_retention_p1">Kaydedilen renkler ve paletler siz silene kadar cihazinizda kalir. Uygulama verilerini temizlemek veya uygulamayi kaldirmak kayitli ogeleri siler.</string>
+
+    <string name="info_privacy_contact_heading">Iletisim ve geri bildirim</string>
+    <string name="info_privacy_contact_p1">Destek ile iletisime gecerseniz, yalnizca talebinize yanit vermek icin sagladiginiz bilgileri kullaniriz.</string>
+
+    <string name="info_terms_acceptance_heading">Kosullarin kabul edilmesi</string>
+    <string name="info_terms_acceptance_p1">Color Picker’i kullanarak bu hizmet kosullarini kabul etmis olursunuz. Kabul etmiyorsaniz uygulamayi kullanmayi birakin.</string>
+
+    <string name="info_terms_usage_heading">Uygulama kullanimi</string>
+    <string name="info_terms_usage_p1">Color Picker kisisel ve profesyonel renk referansi icin sunulur. Uygulamayi nasil kullandiginizdan ve renk secimlerinizin sonuclarindan siz sorumlusunuz.</string>
+    <string name="info_terms_usage_b1">Uygulamayi yasalara veya duzenlemelere aykiri sekilde kullanmayin.</string>
+    <string name="info_terms_usage_b2">Uygulama hizmetlerini tersine muhendislik yapmayin, kurcalamayin veya kotuye kullanmayin.</string>
+
+    <string name="info_terms_ip_heading">Fikri mulkiyet</string>
+    <string name="info_terms_ip_p1">Uygulama ve ilgili tum icerikler Primortex veya lisans verenlerine aittir. Yasa izin vermedikce uygulamanin hicbir bolumunu kopyalayamaz, degistiremez veya yeniden dagitamazsiniz.</string>
+
+    <string name="info_terms_availability_heading">Icerik ve kullanilabilirlik</string>
+    <string name="info_terms_availability_p1">Ozellikleri istedigimiz zaman guncelleyebilir veya sonlandirabiliriz. Istege bagli cevrimici icerik oldugu gibi sunulur ve bildirim olmadan degisebilir.</string>
+
+    <string name="info_terms_liability_heading">Sorumlulugun sinirlandirilmasi</string>
+    <string name="info_terms_liability_p1">Color Picker herhangi bir garanti olmaksizin oldugu gibi sunulur. Yasanin izin verdigi olcude, uygulamanin kullanimindan dogan zararlardan sorumlu degiliz.</string>
+
+    <string name="info_terms_contact_heading">Iletisim</string>
+    <string name="info_terms_contact_p1">Bu kosullar hakkinda sorulariniz varsa uygulama icindeki geri bildirim formu uzerinden bizimle iletisime gecin.</string>
+
+    <string name="info_usage_quick_index_heading">Hizli dizin</string>
+    <string name="info_usage_quick_index_p1">Ihtiyaciniz olan goreve hizla gidin.</string>
+    <string name="info_usage_quick_index_b1">Live Camera’dan renk sec</string>
+    <string name="info_usage_quick_index_b2">Fotograftan renk sec</string>
+    <string name="info_usage_quick_index_b3">Bir swatch’i paletine kaydet</string>
+    <string name="info_usage_quick_index_b4">Renk degerlerini karsilastir ve kopyala</string>
+    <string name="info_usage_quick_index_b5">Paletleri duzenle</string>
+    <string name="info_usage_quick_index_b6">Renk degerlerini paylas veya disa aktar</string>
+
+    <string name="info_usage_live_camera_heading">Live Camera’dan renk sec</string>
+    <string name="info_usage_live_camera_p1">Explore veya Camera sekmesinden Live Camera’yi acin. Hedefe nisangahi getirip yakinlastirin, sonra swatch onizlemesine dokunarak sabitleyin.</string>
+    <string name="info_usage_live_camera_b1">Daha iyi dogruluk icin Explore &gt; Settings icinde nisangah boyutunu ve sekli ayarlayin.</string>
+    <string name="info_usage_live_camera_b2">Dusuk isikta sabit tutus veya tripod kullanin.</string>
+
+    <string name="info_usage_photo_heading">Fotograftan renk sec</string>
+    <string name="info_usage_photo_p1">Photo Pick’i secin, galeriden bir resim secin ve o noktadaki rengi orneklemek icin fotografta herhangi bir yere dokunun.</string>
+    <string name="info_usage_photo_b1">Kucuk ayrintilari ayirmak icin dokunmadan once fotografta yakinlastirin.</string>
+    <string name="info_usage_photo_b2">Sadece rengi kontrol etmek istiyorsaniz kaydetmeden geri donun.</string>
+
+    <string name="info_usage_save_reuse_heading">Swatch kaydetme ve yeniden kullanma</string>
+    <string name="info_usage_save_reuse_p1">Bir renk yakaladikdan sonra Save’e dokunarak palete kaydedin. Her kayitli swatch kopyalama icin HEX, RGB ve HSL degerlerini tutar.</string>
+    <string name="info_usage_save_reuse_b1">HEX kodunu kopyalamak veya daha fazla format icin ayrintilari acmak icin kayitli bir swatch’e dokunun.</string>
+    <string name="info_usage_save_reuse_b2">Artik gerekmeyen renkleri kaldirmak icin uzun basma veya duzenleme islemlerini (varsa) kullanin.</string>
+
+    <string name="info_usage_compare_share_heading">Degerleri karsilastir ve paylas</string>
+    <string name="info_usage_compare_share_p1">Formatlari yan yana karsilastirmak icin kayitli bir swatch acin. Degerleri tasarim veya gelistirme araclariniza gondermek icin kopyala ya da paylas kullanin.</string>
+
+    <string name="info_usage_organize_heading">Paletleri duzenle</string>
+    <string name="info_usage_organize_p1">Ilgili swatchleri gruplamak icin Palette sekmesini acin. Paletin mevcut projeye odakli kalmasi icin ogeleri yeniden siralayin veya kaldirin.</string>
+</resources>
+

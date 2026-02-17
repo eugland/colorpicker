@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Idioktisia</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Me epifylaxi pantos dikaiomatos. To Color Picker, symperilamvanomenon onomatos, logotypou, UI kai poron efarmogis, anikei stin Primortex kai den epitrepetai epanaxrisi xoris grafi adeia.</string>
+
+    <string name="info_copyright_third_party_heading">Stoixeia triton meron</string>
+    <string name="info_copyright_third_party_p1">To Color Picker einai xeno me texnologies anoiktou kodika. Anerizoyme kai tiroume tis adeies kathe vivliothikis pou xrisimopoioume.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 gia stoixeia UI</string>
+    <string name="info_copyright_third_party_b2">CameraX gia ensomatosi kamerας</string>
+    <string name="info_copyright_third_party_b3">Coil gia fortosi eikonon</string>
+    <string name="info_copyright_third_party_b4">Ktor gia elafry diktiosi</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose kai Accompanist Navigation Animation gia ploigisi stin efarmogi</string>
+
+    <string name="info_copyright_license_notes_heading">Simeioseis adeias</string>
+    <string name="info_copyright_license_notes_p1">Oλες oi vivliothikes triton meron paramenoun stin idioktisia ton antistoixon idioktiton. Oi arxikes adeies diatirountai kai anagrafontai gia leptomeri elegxo.</string>
+
+    <string name="info_privacy_on_device_heading">Epexergasia sti syskevi</string>
+    <string name="info_privacy_on_device_p1">I deigmatolipsia xromatos ginetai topika. Ta preview tis kamerας kai oi epilegmenes fotografies analyontai mono gia exagogi timon xromatos kai den apostellontai stous server mas.</string>
+
+    <string name="info_privacy_permissions_heading">Adeies kai dedomena</string>
+    <string name="info_privacy_permissions_p1">I efarmogi zita prosvasi mono se leitourgies pou apaitountai gia epilogi xromatos, opws kamera kai vivliothiki fotografiwn. Mporite na anakalesete aftes tis adeies opote thelete apo tis rythmiseis syskevis.</string>
+    <string name="info_privacy_permissions_b1">I prosvasi stin kamera xrisimopoieitai gia live deigmatolipsia kai den katagrafetai oute apothikevetai apo emas.</string>
+    <string name="info_privacy_permissions_b2">I prosvasi se fotografies xrisimopoieitai mono otan epilegete eikona gia deigmatolipsia.</string>
+
+    <string name="info_privacy_network_heading">Xrisi diktuou</string>
+    <string name="info_privacy_network_p1">Ta aitimata diktuou periorizontai se proairetika ypostiriktika dedomena opws onomata paleton i odigous xrisis. Den metafortontai prosopikes eikones i frames kamerας.</string>
+    <string name="info_privacy_network_b1">An thelete pliros offline empeiria, mporite na afairesete tin prosvasi sto diktuo se epipedo systimatos.</string>
+
+    <string name="info_privacy_retention_heading">Diatirisi dedomenon</string>
+    <string name="info_privacy_retention_p1">Ta apothikevmena xromata kai paletes paramenoun sti syskevi sas mexri na ta diagrapsete. I ekkatharisi dedomenon efarmogis i apenkatastasi afairei ta apothikevmena stoixeia.</string>
+
+    <string name="info_privacy_contact_heading">Epikoinonia kai sxolia</string>
+    <string name="info_privacy_contact_p1">An epikoinonisete me ypostirixi, tha xrisimopoiisoume mono tis plirofories pou parexete gia apantisi sto aitima sas.</string>
+
+    <string name="info_terms_acceptance_heading">Apodoxi oron</string>
+    <string name="info_terms_acceptance_p1">Me ti xrisi tou Color Picker, symfoneite me aftous tous orous ypiresias. An den symfoneite, diakopste ti xrisi tis efarmogis.</string>
+
+    <string name="info_terms_usage_heading">Xrisi efarmogis</string>
+    <string name="info_terms_usage_p1">To Color Picker parexetai gia prosopiki kai epaggelmatiki anafora xromaton. Eiste ypefthynoi gia ton tropo xrisis tis efarmogis kai ta apotelesmata ton epilogon sas.</string>
+    <string name="info_terms_usage_b1">Min xrisimopoieite tin efarmogi me tropous pou paraviazoun efarmosteo nomo i kanones.</string>
+    <string name="info_terms_usage_b2">Min prospatheite na kanete reverse engineering, na paremvete i na kataxrasteite tis ypiresies tis efarmogis.</string>
+
+    <string name="info_terms_ip_heading">Pnevmatiki idiotisia</string>
+    <string name="info_terms_ip_p1">I efarmogi kai olo to sxetiko periexomeno anikei stin Primortex i stous adeiodotes tis. Den epitrepetai antigrafi, tropopoiisi i anadianomi merous tis efarmogis ektos an epitrepetai apo ton nomo.</string>
+
+    <string name="info_terms_availability_heading">Periexomeno kai diathesimotita</string>
+    <string name="info_terms_availability_p1">Mporoume na enimeronoume i na diakoptoume leitourgies opote dipote. To proairetiko online periexomeno parexetai os exei kai mporei na allaxei xoris proeidopoiisi.</string>
+
+    <string name="info_terms_liability_heading">Periorismos efthynis</string>
+    <string name="info_terms_liability_p1">To Color Picker parexetai os exei, xoris egkyiseis opoioudipote typou. Sto metro pou epitrepei o nomos, den efthinomaste gia zimies apo ti xrisi tis efarmogis.</string>
+
+    <string name="info_terms_contact_heading">Epikoinonia</string>
+    <string name="info_terms_contact_p1">An exete erotiseis sxetika me aftous tous orous, epikoinoniste meso tis formas sxolion stin efarmogi.</string>
+
+    <string name="info_usage_quick_index_heading">Griigoros deiktis</string>
+    <string name="info_usage_quick_index_p1">Pigaine amesa stin ergasia pou xreiazesai.</string>
+    <string name="info_usage_quick_index_b1">Epilogi xromatos apo Live Camera</string>
+    <string name="info_usage_quick_index_b2">Epilogi xromatos apo fotografia</string>
+    <string name="info_usage_quick_index_b3">Apothikeusi swatch stin paleta sou</string>
+    <string name="info_usage_quick_index_b4">Sygrisi kai antigrafi timon xromatos</string>
+    <string name="info_usage_quick_index_b5">Organosi paleton</string>
+    <string name="info_usage_quick_index_b6">Koinopoiisi i exagogi timon xromatos</string>
+
+    <string name="info_usage_live_camera_heading">Epilogi xromatos apo Live Camera</string>
+    <string name="info_usage_live_camera_p1">Anoixe to Live Camera apo to tab Explore i Camera. Stoxeuse me to stauronima, kane pinch gia zoom gia akriveia kai patise to preview tou swatch gia kleidoma.</string>
+    <string name="info_usage_live_camera_b1">Rythmise megethos kai schima stauronimatos sto Explore &gt; Settings gia kaliteri akriveia.</string>
+    <string name="info_usage_live_camera_b2">Xrisimopoiese stathero krathma i tripod se xamilo fos.</string>
+
+    <string name="info_usage_photo_heading">Epilogi xromatos apo fotografia</string>
+    <string name="info_usage_photo_p1">Epilese Photo Pick, dialexe eikona apo ti galleri kai patise opoudipote sti fotografia gia na pareis deigma xromatos sto simeio auto.</string>
+    <string name="info_usage_photo_b1">Kane zoom sti fotografia prin patiseis gia na apomonoseis mikres leptomereies.</string>
+    <string name="info_usage_photo_b2">Xrisimopoiese pisw xoris apothikefsi an theleis mono na elegxeis ena xroma.</string>
+
+    <string name="info_usage_save_reuse_heading">Apothikeusi kai epanaxrisi swatch</string>
+    <string name="info_usage_save_reuse_p1">Meta ti syllipsi xromatos, patise Save gia apothikefsi stin paleta. Kathe apothikevmeno swatch krata HEX, RGB kai HSL times gia antigrafi.</string>
+    <string name="info_usage_save_reuse_b1">Patise se apothikevmeno swatch gia antigrafi HEX i anoixe leptomereies gia perissoteres morfes.</string>
+    <string name="info_usage_save_reuse_b2">Paratetameno patima i energeies epexergasias (otan einai diathesimes) gia afairesi xromaton pou den xreiazesai pia.</string>
+
+    <string name="info_usage_compare_share_heading">Sygrisi kai koinopoiisi timon</string>
+    <string name="info_usage_compare_share_p1">Anoixe apothikevmeno swatch gia sygrisi morfon dipla-dipla. Xrisimopoiese antigrafi i koinopoiisi gia apostoli timon sta ergaleia sxediasis i anaptyxis sou.</string>
+
+    <string name="info_usage_organize_heading">Organosi paleton</string>
+    <string name="info_usage_organize_p1">Anoixe to tab Palette gia omadopoiisi sxetikon swatch. Anadiataxe i afairese stoixeia oste i paleta na paramenei estiasmeni sto trexon ergo.</string>
+</resources>

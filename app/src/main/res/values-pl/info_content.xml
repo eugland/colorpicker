@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Wlasnosc</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Wszelkie prawa zastrzezone. Color Picker, w tym nazwa, logo, interfejs i zasoby aplikacji, nalezy do Primortex i nie moze byc ponownie uzywany bez pisemnej zgody.</string>
+
+    <string name="info_copyright_third_party_heading">Komponenty zewnetrzne</string>
+    <string name="info_copyright_third_party_p1">Color Picker jest zbudowany na technologiach open-source. Uznajemy i przestrzegamy licencji kazdej uzywanej biblioteki.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 dla komponentow UI</string>
+    <string name="info_copyright_third_party_b2">CameraX do integracji kamery</string>
+    <string name="info_copyright_third_party_b3">Coil do ladowania obrazow</string>
+    <string name="info_copyright_third_party_b4">Ktor do lekkiej komunikacji sieciowej</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose i Accompanist Navigation Animation do nawigacji w aplikacji</string>
+
+    <string name="info_copyright_license_notes_heading">Uwagi licencyjne</string>
+    <string name="info_copyright_license_notes_p1">Wszystkie biblioteki zewnetrzne pozostaja wlasnoscia ich wlascicieli. Oryginalne licencje sa zachowane i wskazane do szczegolowego przegladu.</string>
+
+    <string name="info_privacy_on_device_heading">Przetwarzanie na urzadzeniu</string>
+    <string name="info_privacy_on_device_p1">Probkowanie kolorow odbywa sie lokalnie. Podglad kamery i wybrane zdjecia sa analizowane tylko w celu odczytu wartosci koloru i nie sa wysylane na nasze serwery.</string>
+
+    <string name="info_privacy_permissions_heading">Uprawnienia i dane</string>
+    <string name="info_privacy_permissions_p1">Aplikacja prosi tylko o dostep do funkcji potrzebnych do wyboru koloru, takich jak kamera i biblioteka zdjec. Te uprawnienia mozna cofnac w dowolnym momencie w ustawieniach urzadzenia.</string>
+    <string name="info_privacy_permissions_b1">Dostep do kamery jest uzywany do probkowania na zywo i nigdy nie jest przez nas nagrywany ani przechowywany.</string>
+    <string name="info_privacy_permissions_b2">Dostep do zdjec jest uzywany tylko po wybraniu obrazu do probkowania.</string>
+
+    <string name="info_privacy_network_heading">Uzycie sieci</string>
+    <string name="info_privacy_network_p1">Zapytania sieciowe sa ograniczone do opcjonalnych danych pomocniczych, takich jak nazwy palet lub przewodniki. Nie przesylamy prywatnych zdjec ani klatek z kamery.</string>
+    <string name="info_privacy_network_b1">Jesli wolisz tryb calkowicie offline, mozesz odebrac dostep do sieci na poziomie systemu.</string>
+
+    <string name="info_privacy_retention_heading">Przechowywanie danych</string>
+    <string name="info_privacy_retention_p1">Zapisane kolory i palety pozostaja na urzadzeniu do czasu usuniecia. Wyczyszczenie danych aplikacji lub odinstalowanie usuwa zapisane elementy.</string>
+
+    <string name="info_privacy_contact_heading">Kontakt i opinie</string>
+    <string name="info_privacy_contact_p1">Jesli skontaktujesz sie z pomoca, wykorzystamy tylko podane informacje, aby odpowiedziec na Twoja prosbe.</string>
+
+    <string name="info_terms_acceptance_heading">Akceptacja warunkow</string>
+    <string name="info_terms_acceptance_p1">Korzystajac z Color Picker, akceptujesz te warunki uslugi. Jesli sie nie zgadzasz, przerwij korzystanie z aplikacji.</string>
+
+    <string name="info_terms_usage_heading">Korzystanie z aplikacji</string>
+    <string name="info_terms_usage_p1">Color Picker jest przeznaczony do osobistego i profesjonalnego odniesienia kolorow. Odpowiadasz za sposob korzystania z aplikacji i wyniki swoich wyborow.</string>
+    <string name="info_terms_usage_b1">Nie uzywaj aplikacji w sposob naruszajacy obowiazujace prawo lub przepisy.</string>
+    <string name="info_terms_usage_b2">Nie probuj reverse-engineeringu, ingerencji ani naduzywania uslug aplikacji.</string>
+
+    <string name="info_terms_ip_heading">Wlasnosc intelektualna</string>
+    <string name="info_terms_ip_p1">Aplikacja i wszystkie powiazane tresci naleza do Primortex lub jego licencjodawcow. Nie wolno kopiowac, modyfikowac ani redystrybuowac zadnej czesci aplikacji, chyba ze zezwala na to prawo.</string>
+
+    <string name="info_terms_availability_heading">Tresc i dostepnosc</string>
+    <string name="info_terms_availability_p1">Mozemy aktualizowac lub wycofywac funkcje w dowolnym czasie. Opcjonalna tresc online jest dostarczana w stanie obecnym i moze sie zmieniac bez powiadomienia.</string>
+
+    <string name="info_terms_liability_heading">Ograniczenie odpowiedzialnosci</string>
+    <string name="info_terms_liability_p1">Color Picker jest dostarczany w stanie obecnym, bez jakichkolwiek gwarancji. W zakresie dozwolonym przez prawo nie odpowiadamy za szkody wynikajace z uzycia aplikacji.</string>
+
+    <string name="info_terms_contact_heading">Kontakt</string>
+    <string name="info_terms_contact_p1">Jesli masz pytania dotyczace tych warunkow, skontaktuj sie przez formularz opinii w aplikacji.</string>
+
+    <string name="info_usage_quick_index_heading">Szybki indeks</string>
+    <string name="info_usage_quick_index_p1">Przejdz od razu do potrzebnego zadania.</string>
+    <string name="info_usage_quick_index_b1">Pobierz kolor z Live Camera</string>
+    <string name="info_usage_quick_index_b2">Pobierz kolor ze zdjecia</string>
+    <string name="info_usage_quick_index_b3">Zapisz probke w palecie</string>
+    <string name="info_usage_quick_index_b4">Porownaj i skopiuj wartosci kolorow</string>
+    <string name="info_usage_quick_index_b5">Organizuj palety</string>
+    <string name="info_usage_quick_index_b6">Udostepnij lub eksportuj wartosci kolorow</string>
+
+    <string name="info_usage_live_camera_heading">Pobierz kolor z Live Camera</string>
+    <string name="info_usage_live_camera_p1">Otworz Live Camera z karty Explore lub Camera. Ustaw celownik na obiekcie, uszczypnij aby powiekszyc dla precyzji, a nastepnie stuknij podglad probki, aby zablokowac.</string>
+    <string name="info_usage_live_camera_b1">Dostosuj rozmiar i ksztalt celownika w Explore &gt; Settings dla lepszej dokladnosci.</string>
+    <string name="info_usage_live_camera_b2">Przy slabym swietle trzymaj stabilnie lub uzyj statywu.</string>
+
+    <string name="info_usage_photo_heading">Pobierz kolor ze zdjecia</string>
+    <string name="info_usage_photo_p1">Wybierz Photo Pick, wybierz obraz z galerii i stuknij dowolny punkt zdjecia, aby pobrac kolor z tego miejsca.</string>
+    <string name="info_usage_photo_b1">Powieksz zdjecie przed stuknieciem, aby wyizolowac male detale.</string>
+    <string name="info_usage_photo_b2">Wroc bez zapisywania, jesli chcesz tylko sprawdzic kolor.</string>
+
+    <string name="info_usage_save_reuse_heading">Zapisuj i ponownie uzywaj probek</string>
+    <string name="info_usage_save_reuse_p1">Po uchwyceniu koloru stuknij Save, aby zapisac go w palecie. Kazda zapisana probka zawiera wartosci HEX, RGB i HSL do kopiowania.</string>
+    <string name="info_usage_save_reuse_b1">Stuknij zapisana probke, aby skopiowac kod HEX lub otworzyc szczegoly z dodatkowymi formatami.</string>
+    <string name="info_usage_save_reuse_b2">Przytrzymaj lub uzyj akcji edycji (jesli dostepne), aby usunac niepotrzebne kolory.</string>
+
+    <string name="info_usage_compare_share_heading">Porownuj i udostepniaj wartosci</string>
+    <string name="info_usage_compare_share_p1">Otworz zapisana probke, aby porownac formaty obok siebie. Uzyj kopiowania lub udostepniania, aby wyslac wartosci do narzedzi projektowych lub deweloperskich.</string>
+
+    <string name="info_usage_organize_heading">Organizuj palety</string>
+    <string name="info_usage_organize_p1">Otworz karte Palette, aby grupowac powiazane probki. Przestawiaj lub usuwaj elementy, aby utrzymac palete skupiona na biezacym projekcie.</string>
+</resources>

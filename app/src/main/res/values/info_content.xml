@@ -1,0 +1,83 @@
+<resources>
+    <string name="info_copyright_ownership_heading">Ownership</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. All rights reserved. Color Picker, including its name, logo, UI, and application assets, is owned by Primortex and may not be reused without written permission.</string>
+
+    <string name="info_copyright_third_party_heading">Third-party components</string>
+    <string name="info_copyright_third_party_p1">Color Picker is built with open-source technologies. We acknowledge and comply with the licenses of each library we rely on.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 for UI components</string>
+    <string name="info_copyright_third_party_b2">CameraX for camera integration</string>
+    <string name="info_copyright_third_party_b3">Coil for image loading</string>
+    <string name="info_copyright_third_party_b4">Ktor for lightweight networking</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose and Accompanist Navigation Animation for in-app navigation</string>
+
+    <string name="info_copyright_license_notes_heading">License notes</string>
+    <string name="info_copyright_license_notes_p1">All third-party libraries remain the property of their respective owners. Their original licenses are preserved and credited so you can review them in detail.</string>
+
+    <string name="info_privacy_on_device_heading">On-device processing</string>
+    <string name="info_privacy_on_device_p1">Color sampling happens locally. Camera previews and picked photos are only analyzed to extract color values and are not transmitted to our servers.</string>
+
+    <string name="info_privacy_permissions_heading">Permissions and data</string>
+    <string name="info_privacy_permissions_p1">The app requests access only to features needed for color picking, such as the camera and photo library. You can revoke these permissions at any time in your device settings.</string>
+    <string name="info_privacy_permissions_b1">Camera access is used for live sampling and is never recorded or stored by us.</string>
+    <string name="info_privacy_permissions_b2">Photo access is used only when you select an image to sample.</string>
+
+    <string name="info_privacy_network_heading">Network usage</string>
+    <string name="info_privacy_network_p1">Network requests are limited to fetching optional supporting data such as palette names or usage guides. No personal images or camera frames are uploaded.</string>
+    <string name="info_privacy_network_b1">If you prefer a fully offline experience, you can revoke network access at the system level.</string>
+
+    <string name="info_privacy_retention_heading">Data retention</string>
+    <string name="info_privacy_retention_p1">Saved colors and palettes stay on your device until you delete them. Clearing app data or uninstalling removes your saved items.</string>
+
+    <string name="info_privacy_contact_heading">Contact and feedback</string>
+    <string name="info_privacy_contact_p1">If you choose to contact support, we will only use the information you provide to respond to your request.</string>
+
+    <string name="info_terms_acceptance_heading">Acceptance of terms</string>
+    <string name="info_terms_acceptance_p1">By using Color Picker, you agree to these terms of service. If you do not agree, please discontinue use of the app.</string>
+
+    <string name="info_terms_usage_heading">App usage</string>
+    <string name="info_terms_usage_p1">Color Picker is provided for personal and professional color reference. You are responsible for how you use the app and any results from your color selections.</string>
+    <string name="info_terms_usage_b1">Do not use the app in ways that violate applicable laws or regulations.</string>
+    <string name="info_terms_usage_b2">Do not attempt to reverse engineer, tamper with, or misuse the app\'s services.</string>
+
+    <string name="info_terms_ip_heading">Intellectual property</string>
+    <string name="info_terms_ip_p1">The app and all related content are owned by Primortex or its licensors. You may not copy, modify, or redistribute any part of the app except as allowed by law.</string>
+
+    <string name="info_terms_availability_heading">Content and availability</string>
+    <string name="info_terms_availability_p1">We may update or discontinue features at any time. Optional online content is provided as-is and may change without notice.</string>
+
+    <string name="info_terms_liability_heading">Limitation of liability</string>
+    <string name="info_terms_liability_p1">Color Picker is provided as-is without warranties of any kind. To the extent permitted by law, we are not liable for damages arising from use of the app.</string>
+
+    <string name="info_terms_contact_heading">Contact</string>
+    <string name="info_terms_contact_p1">If you have questions about these terms, please reach out through the feedback form in the app.</string>
+
+    <string name="info_usage_quick_index_heading">Quick index</string>
+    <string name="info_usage_quick_index_p1">Jump to the task you need.</string>
+    <string name="info_usage_quick_index_b1">Pick a color from Live Camera</string>
+    <string name="info_usage_quick_index_b2">Pick a color from a photo</string>
+    <string name="info_usage_quick_index_b3">Save a swatch to your palette</string>
+    <string name="info_usage_quick_index_b4">Compare and copy color values</string>
+    <string name="info_usage_quick_index_b5">Organize palettes</string>
+    <string name="info_usage_quick_index_b6">Share or export color values</string>
+
+    <string name="info_usage_live_camera_heading">Pick a color from Live Camera</string>
+    <string name="info_usage_live_camera_p1">Open Live Camera from the Explore or Camera tab. Aim the crosshair at the target, pinch to zoom for precision, then tap the swatch preview to lock it in.</string>
+    <string name="info_usage_live_camera_b1">Adjust crosshair size and shape in Explore &gt; Settings for better accuracy.</string>
+    <string name="info_usage_live_camera_b2">Use a steady grip or tripod for low-light scenes.</string>
+
+    <string name="info_usage_photo_heading">Pick a color from a photo</string>
+    <string name="info_usage_photo_p1">Choose Photo Pick, select an image from your gallery, then tap anywhere on the photo to sample the color at that point.</string>
+    <string name="info_usage_photo_b1">Zoom into the photo before tapping to isolate small details.</string>
+    <string name="info_usage_photo_b2">Use back to return without saving if you just want to inspect a color.</string>
+
+    <string name="info_usage_save_reuse_heading">Save and reuse swatches</string>
+    <string name="info_usage_save_reuse_p1">After capturing a color, tap Save to store it in your palette. Each saved swatch records HEX, RGB, and HSL values for copying.</string>
+    <string name="info_usage_save_reuse_b1">Tap any saved swatch to copy its HEX code or open details for more formats.</string>
+    <string name="info_usage_save_reuse_b2">Long-press or use edit actions (where available) to remove colors you no longer need.</string>
+
+    <string name="info_usage_compare_share_heading">Compare and share values</string>
+    <string name="info_usage_compare_share_p1">Open a saved swatch to compare formats side by side. Use the copy or share actions to send values to your design or development tools.</string>
+
+    <string name="info_usage_organize_heading">Organize palettes</string>
+    <string name="info_usage_organize_p1">Open the Palette tab to group related swatches. Rearrange or remove items to keep your palette focused on the project at hand.</string>
+</resources>

@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">الملكية</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. جميع الحقوق محفوظة. تطبيق Color Picker، بما في ذلك اسمه وشعاره وواجهة المستخدم وأصول التطبيق، مملوك لشركة Primortex ولا يجوز إعادة استخدامه دون إذن كتابي.</string>
+
+    <string name="info_copyright_third_party_heading">مكونات الطرف الثالث</string>
+    <string name="info_copyright_third_party_p1">تم إنشاء Color Picker باستخدام تقنيات مفتوحة المصدر. نحن نقر بالتراخيص الخاصة بكل مكتبة نعتمد عليها ونلتزم بها.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 لمكونات واجهة المستخدم</string>
+    <string name="info_copyright_third_party_b2">CameraX لتكامل الكاميرا</string>
+    <string name="info_copyright_third_party_b3">Coil لتحميل الصور</string>
+    <string name="info_copyright_third_party_b4">Ktor للشبكات الخفيفة</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose و Accompanist Navigation Animation للتنقل داخل التطبيق</string>
+
+    <string name="info_copyright_license_notes_heading">ملاحظات الترخيص</string>
+    <string name="info_copyright_license_notes_p1">تظل جميع مكتبات الطرف الثالث ملكاً لأصحابها. يتم الحفاظ على تراخيصها الأصلية مع الإشارة إليها حتى تتمكن من مراجعتها بالتفصيل.</string>
+
+    <string name="info_privacy_on_device_heading">المعالجة على الجهاز</string>
+    <string name="info_privacy_on_device_p1">تتم معاينة الألوان محلياً. تتم معالجة معاينات الكاميرا والصور المختارة فقط لاستخراج قيم الألوان ولا يتم إرسالها إلى خوادمنا.</string>
+
+    <string name="info_privacy_permissions_heading">الأذونات والبيانات</string>
+    <string name="info_privacy_permissions_p1">يطلب التطبيق الوصول فقط إلى الميزات اللازمة لاختيار الألوان، مثل الكاميرا ومكتبة الصور. يمكنك إلغاء هذه الأذونات في أي وقت من إعدادات جهازك.</string>
+    <string name="info_privacy_permissions_b1">يُستخدم الوصول إلى الكاميرا للمعاينة المباشرة فقط ولا يتم تسجيله أو تخزينه لدينا.</string>
+    <string name="info_privacy_permissions_b2">يُستخدم الوصول إلى الصور فقط عند اختيار صورة للمعاينة.</string>
+
+    <string name="info_privacy_network_heading">استخدام الشبكة</string>
+    <string name="info_privacy_network_p1">طلبات الشبكة تقتصر على جلب بيانات داعمة اختيارية مثل أسماء اللوحات أو أدلة الاستخدام. لا يتم رفع الصور الشخصية أو إطارات الكاميرا.</string>
+    <string name="info_privacy_network_b1">إذا كنت تفضل تجربة غير متصلة بالكامل، يمكنك إلغاء الوصول إلى الشبكة على مستوى النظام.</string>
+
+    <string name="info_privacy_retention_heading">الاحتفاظ بالبيانات</string>
+    <string name="info_privacy_retention_p1">تبقى الألوان واللوحات المحفوظة على جهازك حتى تقوم بحذفها. مسح بيانات التطبيق أو إلغاء تثبيته يزيل العناصر المحفوظة.</string>
+
+    <string name="info_privacy_contact_heading">التواصل والملاحظات</string>
+    <string name="info_privacy_contact_p1">إذا اخترت التواصل مع الدعم، فسنستخدم المعلومات التي تقدمها فقط للرد على طلبك.</string>
+
+    <string name="info_terms_acceptance_heading">قبول الشروط</string>
+    <string name="info_terms_acceptance_p1">باستخدام Color Picker، فإنك توافق على شروط الخدمة هذه. إذا لم توافق، يرجى التوقف عن استخدام التطبيق.</string>
+
+    <string name="info_terms_usage_heading">استخدام التطبيق</string>
+    <string name="info_terms_usage_p1">يتم توفير Color Picker كمرجع ألوان للاستخدام الشخصي والمهني. أنت مسؤول عن كيفية استخدامك للتطبيق وأي نتائج ناتجة عن اختيارات الألوان الخاصة بك.</string>
+    <string name="info_terms_usage_b1">لا تستخدم التطبيق بطرق تنتهك القوانين أو اللوائح المعمول بها.</string>
+    <string name="info_terms_usage_b2">لا تحاول إجراء هندسة عكسية للتطبيق أو العبث به أو إساءة استخدام خدمات التطبيق.</string>
+
+    <string name="info_terms_ip_heading">الملكية الفكرية</string>
+    <string name="info_terms_ip_p1">التطبيق وجميع المحتويات المرتبطة به مملوكة لشركة Primortex أو المرخصين لها. لا يجوز لك نسخ أي جزء من التطبيق أو تعديله أو إعادة توزيعه إلا بما يسمح به القانون.</string>
+
+    <string name="info_terms_availability_heading">المحتوى والتوافر</string>
+    <string name="info_terms_availability_p1">قد نقوم بتحديث الميزات أو إيقافها في أي وقت. يتم تقديم المحتوى الاختياري عبر الإنترنت كما هو وقد يتغير دون إشعار.</string>
+
+    <string name="info_terms_liability_heading">تحديد المسؤولية</string>
+    <string name="info_terms_liability_p1">يتم تقديم Color Picker كما هو دون أي ضمانات من أي نوع. وإلى الحد الذي يسمح به القانون، لسنا مسؤولين عن الأضرار الناتجة عن استخدام التطبيق.</string>
+
+    <string name="info_terms_contact_heading">التواصل</string>
+    <string name="info_terms_contact_p1">إذا كانت لديك أسئلة حول هذه الشروط، يرجى التواصل عبر نموذج الملاحظات داخل التطبيق.</string>
+
+    <string name="info_usage_quick_index_heading">فهرس سريع</string>
+    <string name="info_usage_quick_index_p1">انتقل إلى المهمة التي تحتاجها.</string>
+    <string name="info_usage_quick_index_b1">اختيار لون من Live Camera</string>
+    <string name="info_usage_quick_index_b2">اختيار لون عبر Photo Pick</string>
+    <string name="info_usage_quick_index_b3">حفظ عينة لون في لوحتك</string>
+    <string name="info_usage_quick_index_b4">مقارنة قيم الألوان ونسخها</string>
+    <string name="info_usage_quick_index_b5">تنظيم اللوحات</string>
+    <string name="info_usage_quick_index_b6">مشاركة قيم الألوان أو تصديرها</string>
+
+    <string name="info_usage_live_camera_heading">اختيار لون من Live Camera</string>
+    <string name="info_usage_live_camera_p1">افتح Live Camera من تبويب Explore أو Camera. وجّه مؤشر التصويب نحو الهدف، وقم بالتصغير/التكبير بالقرص للدقة، ثم اضغط معاينة العينة لتثبيتها.</string>
+    <string name="info_usage_live_camera_b1">اضبط حجم وشكل مؤشر التصويب في Explore &gt; Settings لتحسين الدقة.</string>
+    <string name="info_usage_live_camera_b2">استخدم قبضة ثابتة أو حامل ثلاثي للمشاهد منخفضة الإضاءة.</string>
+
+    <string name="info_usage_photo_heading">اختيار لون عبر Photo Pick</string>
+    <string name="info_usage_photo_p1">اختر Photo Pick، وحدد صورة من المعرض، ثم اضغط في أي مكان على الصورة لأخذ عينة اللون من تلك النقطة.</string>
+    <string name="info_usage_photo_b1">قم بتكبير الصورة قبل الضغط لعزل التفاصيل الصغيرة.</string>
+    <string name="info_usage_photo_b2">استخدم Back للعودة دون حفظ إذا كنت تريد فقط فحص لون.</string>
+
+    <string name="info_usage_save_reuse_heading">حفظ العينات وإعادة استخدامها</string>
+    <string name="info_usage_save_reuse_p1">بعد التقاط لون، اضغط Save لتخزينه في لوحتك. كل عينة محفوظة تسجل قيم HEX وRGB وHSL للنسخ.</string>
+    <string name="info_usage_save_reuse_b1">اضغط أي عينة محفوظة لنسخ رمز HEX الخاص بها أو فتح التفاصيل لمزيد من التنسيقات.</string>
+    <string name="info_usage_save_reuse_b2">اضغط مطولاً أو استخدم إجراءات التحرير (عند توفرها) لإزالة الألوان التي لم تعد تحتاجها.</string>
+
+    <string name="info_usage_compare_share_heading">مقارنة القيم ومشاركتها</string>
+    <string name="info_usage_compare_share_p1">افتح عينة محفوظة لمقارنة التنسيقات جنباً إلى جنب. استخدم إجراءات النسخ أو المشاركة لإرسال القيم إلى أدوات التصميم أو التطوير.</string>
+
+    <string name="info_usage_organize_heading">تنظيم اللوحات</string>
+    <string name="info_usage_organize_p1">افتح تبويب Palette لتجميع العينات المرتبطة. أعد ترتيب العناصر أو أزلها للحفاظ على تركيز اللوحة على المشروع الحالي.</string>
+</resources>

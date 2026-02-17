@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Vlastnictvi</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Vsechna prava vyhrazena. Color Picker, vcetne nazvu, loga, uzivatelskeho rozhrani a aktiv aplikace, je vlastnictvim Primortex a bez pisemneho souhlasu nelze znovu pouzit.</string>
+
+    <string name="info_copyright_third_party_heading">Komponenty tretich stran</string>
+    <string name="info_copyright_third_party_p1">Color Picker je postaven na open-source technologiich. Uznavame a dodrzujeme licence kazde knihovny, kterou pouzivame.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 pro komponenty UI</string>
+    <string name="info_copyright_third_party_b2">CameraX pro integraci kamery</string>
+    <string name="info_copyright_third_party_b3">Coil pro nacitani obrazku</string>
+    <string name="info_copyright_third_party_b4">Ktor pro lehkou sitovou komunikaci</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose a Accompanist Navigation Animation pro navigaci v aplikaci</string>
+
+    <string name="info_copyright_license_notes_heading">Poznamky k licenci</string>
+    <string name="info_copyright_license_notes_p1">Vsechny knihovny tretich stran zustavaji majetkem svych vlastniku. Puvodni licence jsou zachovany a uvedeny pro podrobne prostudovani.</string>
+
+    <string name="info_privacy_on_device_heading">Zpracovani v zarizeni</string>
+    <string name="info_privacy_on_device_p1">Vzorkovani barev probiha lokalne. Nahledy z kamery a vybrane fotografie se analyzuji pouze kvuli ziskani barevnych hodnot a neposilaji se na nase servery.</string>
+
+    <string name="info_privacy_permissions_heading">Opravneni a data</string>
+    <string name="info_privacy_permissions_p1">Aplikace vyzaduje pristup jen k funkcim potrebnym pro vyber barvy, jako je kamera a galerie. Tato opravneni muzete kdykoli odebrat v nastaveni zarizeni.</string>
+    <string name="info_privacy_permissions_b1">Pristup ke kamere se pouziva pro zive vzorkovani a nikdy jej nenahravame ani neukladame.</string>
+    <string name="info_privacy_permissions_b2">Pristup k fotkam se pouziva pouze pri vyberu obrazku pro vzorkovani.</string>
+
+    <string name="info_privacy_network_heading">Pouziti site</string>
+    <string name="info_privacy_network_p1">Sitove pozadavky jsou omezeny na volitelna podpurna data, napriklad nazvy palet nebo navody. Osobni obrazky ani snimky z kamery se neodesilaji.</string>
+    <string name="info_privacy_network_b1">Pokud chcete plne offline provoz, muzete sitovy pristup odebrat na urovni systemu.</string>
+
+    <string name="info_privacy_retention_heading">Uchovavani dat</string>
+    <string name="info_privacy_retention_p1">Ulozene barvy a palety zustanou v zarizeni, dokud je nesmazete. Smazani dat aplikace nebo odinstalace odstrani ulozene polozky.</string>
+
+    <string name="info_privacy_contact_heading">Kontakt a zpetna vazba</string>
+    <string name="info_privacy_contact_p1">Pokud kontaktujete podporu, pouzijeme pouze informace, ktere poskytnete, abychom odpovedeli na vas pozadavek.</string>
+
+    <string name="info_terms_acceptance_heading">Prijeti podminek</string>
+    <string name="info_terms_acceptance_p1">Pouzivanim aplikace Color Picker souhlasite s temi to podminkami sluzby. Pokud nesouhlasite, ukoncete pouzivani aplikace.</string>
+
+    <string name="info_terms_usage_heading">Pouzivani aplikace</string>
+    <string name="info_terms_usage_p1">Color Picker je urcen pro osobni i profesionalni praci s barvami. Nesete odpovednost za zpusob pouziti i vysledky svych voleb.</string>
+    <string name="info_terms_usage_b1">Nepouzivejte aplikaci zpusobem, ktery porusuje platne zakony nebo predpisy.</string>
+    <string name="info_terms_usage_b2">Nepokousejte se o reverse engineering, zasahy ani zneuziti sluzeb aplikace.</string>
+
+    <string name="info_terms_ip_heading">Dusevni vlastnictvi</string>
+    <string name="info_terms_ip_p1">Aplikace a souvisejici obsah patri Primortex nebo jeho poskytovatelum licence. Neni dovoleno kopirovat, upravovat ani dale sirit casti aplikace, pokud to zakon nepovoluje.</string>
+
+    <string name="info_terms_availability_heading">Obsah a dostupnost</string>
+    <string name="info_terms_availability_p1">Funkce muzeme kdykoli aktualizovat nebo ukoncit. Volitelny online obsah je poskytovan tak, jak je, a muze se zmenit bez upozorneni.</string>
+
+    <string name="info_terms_liability_heading">Omezeni odpovednosti</string>
+    <string name="info_terms_liability_p1">Color Picker je poskytovan bez zaruk jakehokoli druhu. V rozsahu povolenem zakonem neneseme odpovednost za skody vznikle pouzivanim aplikace.</string>
+
+    <string name="info_terms_contact_heading">Kontakt</string>
+    <string name="info_terms_contact_p1">Mate-li dotazy k temto podminkam, kontaktujte nas pres formular zpetne vazby v aplikaci.</string>
+
+    <string name="info_usage_quick_index_heading">Rychly index</string>
+    <string name="info_usage_quick_index_p1">Prejdete rovnou na ukol, ktery potrebujete.</string>
+    <string name="info_usage_quick_index_b1">Vybrat barvu z Live Camera</string>
+    <string name="info_usage_quick_index_b2">Vybrat barvu z fotografie</string>
+    <string name="info_usage_quick_index_b3">Ulozit vzorek do palety</string>
+    <string name="info_usage_quick_index_b4">Porovnat a zkopirovat barevne hodnoty</string>
+    <string name="info_usage_quick_index_b5">Usporadat palety</string>
+    <string name="info_usage_quick_index_b6">Sdilet nebo exportovat barevne hodnoty</string>
+
+    <string name="info_usage_live_camera_heading">Vybrat barvu z Live Camera</string>
+    <string name="info_usage_live_camera_p1">Otevrete Live Camera z karty Explore nebo Camera. Zamerte kriz na cil, priblizte gestem pro presnost a klepnutim na nahled vzorku barvu uzamknete.</string>
+    <string name="info_usage_live_camera_b1">Upravte velikost a tvar krize v Explore &gt; Settings pro lepsi presnost.</string>
+    <string name="info_usage_live_camera_b2">Pri slabem svetle pouzijte stabilni uchop nebo stativ.</string>
+
+    <string name="info_usage_photo_heading">Vybrat barvu z fotografie</string>
+    <string name="info_usage_photo_p1">Zvolte Photo Pick, vyberte obrazek z galerie a klepnete kamkoli na fotografii pro odebrani vzorku barvy z daneho bodu.</string>
+    <string name="info_usage_photo_b1">Pred klepnutim fotografii priblizte, abyste oddelili male detaily.</string>
+    <string name="info_usage_photo_b2">Tlacitkem zpet se vratite bez ulozeni, pokud chcete jen zkontrolovat barvu.</string>
+
+    <string name="info_usage_save_reuse_heading">Ulozeni a opakovane pouziti vzorku</string>
+    <string name="info_usage_save_reuse_p1">Po zachyceni barvy klepnete na Save pro ulozeni do palety. Kazdy ulozeny vzorek obsahuje hodnoty HEX, RGB a HSL pro kopirovani.</string>
+    <string name="info_usage_save_reuse_b1">Klepnete na ulozeny vzorek pro kopii HEX kodu nebo otevrite detaily pro dalsi formaty.</string>
+    <string name="info_usage_save_reuse_b2">Dlouhym stiskem nebo akcemi uprav (pokud jsou dostupne) odstranite barvy, ktere uz nepotrebujete.</string>
+
+    <string name="info_usage_compare_share_heading">Porovnani a sdileni hodnot</string>
+    <string name="info_usage_compare_share_p1">Otevrete ulozeny vzorek a porovnejte formaty vedle sebe. Pomoci kopirovat nebo sdilet odeslete hodnoty do svych navrhovych nebo vyvojarskych nastroju.</string>
+
+    <string name="info_usage_organize_heading">Usporadat palety</string>
+    <string name="info_usage_organize_p1">Otevrete kartu Palette a seskupte souvisejici vzorky. Preskupte nebo odeberte polozky, aby paleta zustala zamerena na aktualni projekt.</string>
+</resources>

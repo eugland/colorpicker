@@ -1,0 +1,83 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Proprietate</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Toate drepturile rezervate. Color Picker, inclusiv numele, logo-ul, interfata si resursele aplicatiei, apartine Primortex si nu poate fi reutilizat fara acord scris.</string>
+
+    <string name="info_copyright_third_party_heading">Componente terte</string>
+    <string name="info_copyright_third_party_p1">Color Picker este construit cu tehnologii open-source. Recunoastem si respectam licentele fiecarei biblioteci utilizate.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 pentru componente UI</string>
+    <string name="info_copyright_third_party_b2">CameraX pentru integrare camera</string>
+    <string name="info_copyright_third_party_b3">Coil pentru incarcare imagini</string>
+    <string name="info_copyright_third_party_b4">Ktor pentru retea usoara</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose si Accompanist Navigation Animation pentru navigare in aplicatie</string>
+
+    <string name="info_copyright_license_notes_heading">Note de licenta</string>
+    <string name="info_copyright_license_notes_p1">Toate bibliotecile terte raman proprietatea detinatorilor lor. Licentele originale sunt pastrate si mentionate pentru consultare detaliata.</string>
+
+    <string name="info_privacy_on_device_heading">Procesare pe dispozitiv</string>
+    <string name="info_privacy_on_device_p1">Prelevarea culorilor se face local. Preview-urile camerei si fotografiile selectate sunt analizate doar pentru extragerea valorilor de culoare si nu sunt trimise catre serverele noastre.</string>
+
+    <string name="info_privacy_permissions_heading">Permisiuni si date</string>
+    <string name="info_privacy_permissions_p1">Aplicatia solicita acces doar la functiile necesare pentru alegerea culorilor, cum ar fi camera si galeria foto. Puteti revoca aceste permisiuni oricand din setarile dispozitivului.</string>
+    <string name="info_privacy_permissions_b1">Accesul la camera este folosit pentru prelevare live si nu este inregistrat sau stocat de noi.</string>
+    <string name="info_privacy_permissions_b2">Accesul la fotografii este folosit doar cand selectati o imagine pentru prelevare.</string>
+
+    <string name="info_privacy_network_heading">Utilizare retea</string>
+    <string name="info_privacy_network_p1">Cereriile de retea sunt limitate la date optionale de suport, precum nume de palete sau ghiduri de utilizare. Nu se incarca imagini personale sau cadre din camera.</string>
+    <string name="info_privacy_network_b1">Daca preferati o experienta complet offline, puteti revoca accesul la retea la nivel de sistem.</string>
+
+    <string name="info_privacy_retention_heading">Retentie date</string>
+    <string name="info_privacy_retention_p1">Culorile si paletele salvate raman pe dispozitiv pana le stergeti. Stergerea datelor aplicatiei sau dezinstalarea elimina elementele salvate.</string>
+
+    <string name="info_privacy_contact_heading">Contact si feedback</string>
+    <string name="info_privacy_contact_p1">Daca alegeti sa contactati suportul, vom folosi doar informatiile furnizate pentru a raspunde solicitarii.</string>
+
+    <string name="info_terms_acceptance_heading">Acceptarea termenilor</string>
+    <string name="info_terms_acceptance_p1">Prin utilizarea Color Picker, acceptati acesti termeni de serviciu. Daca nu sunteti de acord, opriti utilizarea aplicatiei.</string>
+
+    <string name="info_terms_usage_heading">Utilizarea aplicatiei</string>
+    <string name="info_terms_usage_p1">Color Picker este oferit pentru referinta de culoare personala si profesionala. Sunteti responsabil pentru modul de utilizare a aplicatiei si rezultatele selectiilor de culoare.</string>
+    <string name="info_terms_usage_b1">Nu utilizati aplicatia in moduri care incalca legile sau reglementarile aplicabile.</string>
+    <string name="info_terms_usage_b2">Nu incercati sa faceti reverse engineering, sa alterati sau sa folositi abuziv serviciile aplicatiei.</string>
+
+    <string name="info_terms_ip_heading">Proprietate intelectuala</string>
+    <string name="info_terms_ip_p1">Aplicatia si tot continutul asociat apartin Primortex sau licentiatorilor sai. Nu puteti copia, modifica sau redistribui nicio parte a aplicatiei, exceptand cazurile permise de lege.</string>
+
+    <string name="info_terms_availability_heading">Continut si disponibilitate</string>
+    <string name="info_terms_availability_p1">Putem actualiza sau opri functionalitati in orice moment. Continutul online optional este oferit ca atare si se poate schimba fara notificare.</string>
+
+    <string name="info_terms_liability_heading">Limitarea raspunderii</string>
+    <string name="info_terms_liability_p1">Color Picker este oferit ca atare, fara garantii de niciun fel. In limita permisa de lege, nu suntem raspunzatori pentru daune rezultate din utilizarea aplicatiei.</string>
+
+    <string name="info_terms_contact_heading">Contact</string>
+    <string name="info_terms_contact_p1">Daca aveti intrebari despre acesti termeni, contactati-ne prin formularul de feedback din aplicatie.</string>
+
+    <string name="info_usage_quick_index_heading">Index rapid</string>
+    <string name="info_usage_quick_index_p1">Mergi direct la sarcina de care ai nevoie.</string>
+    <string name="info_usage_quick_index_b1">Alege o culoare din Live Camera</string>
+    <string name="info_usage_quick_index_b2">Alege o culoare dintr-o fotografie</string>
+    <string name="info_usage_quick_index_b3">Salveaza un swatch in paleta</string>
+    <string name="info_usage_quick_index_b4">Compara si copiaza valori de culoare</string>
+    <string name="info_usage_quick_index_b5">Organizeaza palete</string>
+    <string name="info_usage_quick_index_b6">Partajeaza sau exporta valori de culoare</string>
+
+    <string name="info_usage_live_camera_heading">Alege o culoare din Live Camera</string>
+    <string name="info_usage_live_camera_p1">Deschide Live Camera din tabul Explore sau Camera. Aliniaza reticulul pe tinta, ciupeste pentru zoom precis, apoi atinge preview-ul swatch pentru blocare.</string>
+    <string name="info_usage_live_camera_b1">Ajusteaza marimea si forma reticulului in Explore &gt; Settings pentru acuratete mai buna.</string>
+    <string name="info_usage_live_camera_b2">Foloseste mana stabila sau trepied in conditii de lumina slaba.</string>
+
+    <string name="info_usage_photo_heading">Alege o culoare dintr-o fotografie</string>
+    <string name="info_usage_photo_p1">Alege Photo Pick, selecteaza o imagine din galerie, apoi atinge orice punct din fotografie pentru a preleva culoarea din acel loc.</string>
+    <string name="info_usage_photo_b1">Mareste fotografia inainte de atingere pentru a izola detaliile mici.</string>
+    <string name="info_usage_photo_b2">Foloseste inapoi fara salvare daca vrei doar sa verifici o culoare.</string>
+
+    <string name="info_usage_save_reuse_heading">Salvare si reutilizare swatch-uri</string>
+    <string name="info_usage_save_reuse_p1">Dupa capturarea culorii, apasa Save pentru a o salva in paleta. Fiecare swatch salvat inregistreaza valorile HEX, RGB si HSL pentru copiere.</string>
+    <string name="info_usage_save_reuse_b1">Atinge un swatch salvat pentru a copia codul HEX sau deschide detalii pentru mai multe formate.</string>
+    <string name="info_usage_save_reuse_b2">Apasa lung sau foloseste actiuni de editare (cand sunt disponibile) pentru a elimina culorile care nu mai sunt necesare.</string>
+
+    <string name="info_usage_compare_share_heading">Compara si partajeaza valori</string>
+    <string name="info_usage_compare_share_p1">Deschide un swatch salvat pentru a compara formatele alaturat. Foloseste copiere sau partajare pentru a trimite valorile catre unelte de design sau dezvoltare.</string>
+
+    <string name="info_usage_organize_heading">Organizeaza palete</string>
+    <string name="info_usage_organize_p1">Deschide tabul Palette pentru a grupa swatch-uri asociate. Reordoneaza sau elimina elemente pentru a mentine paleta concentrata pe proiectul curent.</string>
+</resources>

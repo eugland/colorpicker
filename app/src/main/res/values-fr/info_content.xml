@@ -1,0 +1,84 @@
+﻿<resources>
+    <string name="info_copyright_ownership_heading">Propriete</string>
+    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tous droits reserves. Color Picker, y compris son nom, son logo, son interface utilisateur et les ressources de l’application, appartient a Primortex et ne peut pas etre reutilise sans autorisation ecrite.</string>
+
+    <string name="info_copyright_third_party_heading">Composants tiers</string>
+    <string name="info_copyright_third_party_p1">Color Picker est construit avec des technologies open source. Nous reconnaissons et respectons les licences de chaque bibliotheque utilisee.</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 pour les composants d’interface</string>
+    <string name="info_copyright_third_party_b2">CameraX pour l’integration camera</string>
+    <string name="info_copyright_third_party_b3">Coil pour le chargement d’images</string>
+    <string name="info_copyright_third_party_b4">Ktor pour un reseau leger</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose et Accompanist Navigation Animation pour la navigation dans l’application</string>
+
+    <string name="info_copyright_license_notes_heading">Notes de licence</string>
+    <string name="info_copyright_license_notes_p1">Toutes les bibliotheques tierces restent la propriete de leurs proprietaires respectifs. Leurs licences d’origine sont conservees et creditees pour examen detaille.</string>
+
+    <string name="info_privacy_on_device_heading">Traitement sur l’appareil</string>
+    <string name="info_privacy_on_device_p1">L’echantillonnage des couleurs se fait localement. Les apercus camera et les photos choisies sont analyses uniquement pour extraire des valeurs de couleur et ne sont pas transmis a nos serveurs.</string>
+
+    <string name="info_privacy_permissions_heading">Autorisations et donnees</string>
+    <string name="info_privacy_permissions_p1">L’application demande l’acces uniquement aux fonctions necessaires au choix de couleur, comme la camera et la phototheque. Vous pouvez retirer ces autorisations a tout moment dans les parametres de l’appareil.</string>
+    <string name="info_privacy_permissions_b1">L’acces camera est utilise pour l’echantillonnage en direct et n’est jamais enregistre ni stocke par nous.</string>
+    <string name="info_privacy_permissions_b2">L’acces aux photos est utilise uniquement lorsque vous choisissez une image a echantillonner.</string>
+
+    <string name="info_privacy_network_heading">Utilisation du reseau</string>
+    <string name="info_privacy_network_p1">Les requetes reseau sont limitees a la recuperation de donnees facultatives telles que les noms de palettes ou des guides d’utilisation. Aucune image personnelle ni image camera n’est televersee.</string>
+    <string name="info_privacy_network_b1">Si vous preferez une experience entierement hors ligne, vous pouvez revoquer l’acces reseau au niveau systeme.</string>
+
+    <string name="info_privacy_retention_heading">Conservation des donnees</string>
+    <string name="info_privacy_retention_p1">Les couleurs et palettes enregistrees restent sur votre appareil jusqu’a suppression. Effacer les donnees de l’application ou la desinstaller supprime vos elements enregistres.</string>
+
+    <string name="info_privacy_contact_heading">Contact et retours</string>
+    <string name="info_privacy_contact_p1">Si vous contactez l’assistance, nous utiliserons uniquement les informations fournies pour repondre a votre demande.</string>
+
+    <string name="info_terms_acceptance_heading">Acceptation des conditions</string>
+    <string name="info_terms_acceptance_p1">En utilisant Color Picker, vous acceptez ces conditions d’utilisation. Si vous n’etes pas d’accord, veuillez cesser d’utiliser l’application.</string>
+
+    <string name="info_terms_usage_heading">Utilisation de l’application</string>
+    <string name="info_terms_usage_p1">Color Picker est fourni pour la reference couleur personnelle et professionnelle. Vous etes responsable de votre utilisation de l’application et des resultats obtenus.</string>
+    <string name="info_terms_usage_b1">N’utilisez pas l’application d’une maniere contraire aux lois ou reglements applicables.</string>
+    <string name="info_terms_usage_b2">N’essayez pas de retroconcevoir, de modifier de facon frauduleuse ou de detourner les services de l’application.</string>
+
+    <string name="info_terms_ip_heading">Propriete intellectuelle</string>
+    <string name="info_terms_ip_p1">L’application et tout le contenu associe appartiennent a Primortex ou a ses concédants. Vous ne pouvez pas copier, modifier ou redistribuer une partie de l’application sauf autorisation legale.</string>
+
+    <string name="info_terms_availability_heading">Contenu et disponibilite</string>
+    <string name="info_terms_availability_p1">Nous pouvons mettre a jour ou interrompre des fonctionnalites a tout moment. Le contenu en ligne facultatif est fourni tel quel et peut changer sans preavis.</string>
+
+    <string name="info_terms_liability_heading">Limitation de responsabilite</string>
+    <string name="info_terms_liability_p1">Color Picker est fourni tel quel, sans garantie d’aucune sorte. Dans les limites autorisees par la loi, nous ne sommes pas responsables des dommages lies a l’utilisation de l’application.</string>
+
+    <string name="info_terms_contact_heading">Contact</string>
+    <string name="info_terms_contact_p1">Si vous avez des questions sur ces conditions, contactez-nous via le formulaire de retours dans l’application.</string>
+
+    <string name="info_usage_quick_index_heading">Index rapide</string>
+    <string name="info_usage_quick_index_p1">Accedez directement a la tache voulue.</string>
+    <string name="info_usage_quick_index_b1">Prelever une couleur depuis la camera en direct</string>
+    <string name="info_usage_quick_index_b2">Prelever une couleur depuis une photo</string>
+    <string name="info_usage_quick_index_b3">Enregistrer un echantillon dans votre palette</string>
+    <string name="info_usage_quick_index_b4">Comparer et copier les valeurs de couleur</string>
+    <string name="info_usage_quick_index_b5">Organiser les palettes</string>
+    <string name="info_usage_quick_index_b6">Partager ou exporter les valeurs de couleur</string>
+
+    <string name="info_usage_live_camera_heading">Prelever une couleur depuis la camera en direct</string>
+    <string name="info_usage_live_camera_p1">Ouvrez Camera en direct depuis l’onglet Explorer ou Camera. Visez la cible avec le reticule, pincez pour zoomer avec precision, puis touchez l’aperçu de l’echantillon pour le verrouiller.</string>
+    <string name="info_usage_live_camera_b1">Ajustez la taille et la forme du reticule dans Explorer &gt; Parametres pour une meilleure precision.</string>
+    <string name="info_usage_live_camera_b2">Utilisez une prise stable ou un trepied en faible luminosite.</string>
+
+    <string name="info_usage_photo_heading">Prelever une couleur depuis une photo</string>
+    <string name="info_usage_photo_p1">Choisissez Selection photo, selectionnez une image de votre galerie, puis touchez n’importe quel point de la photo pour echantillonner la couleur a cet endroit.</string>
+    <string name="info_usage_photo_b1">Zoomez dans la photo avant de toucher pour isoler les petits details.</string>
+    <string name="info_usage_photo_b2">Utilisez retour pour sortir sans enregistrer si vous voulez seulement inspecter une couleur.</string>
+
+    <string name="info_usage_save_reuse_heading">Enregistrer et reutiliser des echantillons</string>
+    <string name="info_usage_save_reuse_p1">Apres avoir capture une couleur, touchez Enregistrer pour la stocker dans votre palette. Chaque echantillon enregistre contient les valeurs HEX, RGB et HSL a copier.</string>
+    <string name="info_usage_save_reuse_b1">Touchez un echantillon enregistre pour copier son code HEX ou ouvrir les details pour plus de formats.</string>
+    <string name="info_usage_save_reuse_b2">Appuyez longuement ou utilisez les actions d’edition (si disponibles) pour supprimer les couleurs inutiles.</string>
+
+    <string name="info_usage_compare_share_heading">Comparer et partager les valeurs</string>
+    <string name="info_usage_compare_share_p1">Ouvrez un echantillon enregistre pour comparer les formats cote a cote. Utilisez copier ou partager pour envoyer les valeurs vers vos outils de conception ou de developpement.</string>
+
+    <string name="info_usage_organize_heading">Organiser les palettes</string>
+    <string name="info_usage_organize_p1">Ouvrez l’onglet Palette pour regrouper les echantillons lies. Reorganisez ou supprimez des elements pour garder votre palette concentree sur le projet en cours.</string>
+</resources>
+

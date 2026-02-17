@@ -20,10 +20,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.i18n.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -74,7 +74,7 @@ fun InfoDetailScreen(
                         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                             section.bullets.forEach { bullet ->
                                 Text(
-                                    text = "• $bullet",
+                                    text = "\u2022 $bullet",
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
@@ -94,4 +94,3 @@ data class InfoDetailSection(
     val paragraphs: List<String>,
     val bullets: List<String> = emptyList()
 )
-
