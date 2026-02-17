@@ -17,31 +17,34 @@ enum class SwatchListType {
     SAVED
 }
 
-enum class CrosshairSize(@StringRes val labelRes: Int) {
+enum class CrosshairSize(@param:StringRes @field:StringRes val labelRes: Int) {
     Small(R.string.crosshair_size_small),
     Medium(R.string.crosshair_size_medium),
     Large(R.string.crosshair_size_large)
 }
 
-enum class CrosshairShape(@StringRes val labelRes: Int) {
+enum class CrosshairShape(@param:StringRes @field:StringRes val labelRes: Int) {
     Circle(R.string.crosshair_shape_circle),
     Square(R.string.crosshair_shape_square),
     Cross(R.string.crosshair_shape_cross)
 }
 
-enum class ThemeMode(@StringRes val labelRes: Int) {
+enum class ThemeMode(@param:StringRes @field:StringRes val labelRes: Int) {
     SYSTEM(R.string.theme_system_default),
     LIGHT(R.string.theme_light),
     DARK(R.string.theme_dark),
 }
 
-enum class PickerSensitivity(@StringRes val labelRes: Int) {
+enum class PickerSensitivity(@param:StringRes @field:StringRes val labelRes: Int) {
     Low(R.string.picker_sensitivity_low),
     Medium(R.string.picker_sensitivity_medium),
     High(R.string.picker_sensitivity_high)
 }
 
-enum class AppLanguage(val languageTag: String?, @StringRes val labelRes: Int) {
+enum class AppLanguage(
+    val languageTag: String?,
+    @param:StringRes @field:StringRes val labelRes: Int
+) {
     SystemDefault(null, R.string.language_system_default),
 
     English("en", R.string.language_english),
