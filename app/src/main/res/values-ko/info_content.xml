@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">소유권</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. 모든 권리 보유. Color Picker의 이름, 로고, UI, 앱 자산을 포함한 모든 요소는 Primortex의 소유이며, 서면 허가 없이 재사용할 수 없습니다.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. 모든 권리 보유. Color Picker의 이름, 로고, UI, 앱 자산을 포함한 모든 요소는 Primortex의 소유이며, 서면 허가 없이 재사용할 수 없습니다.</string>
 
     <string name="info_copyright_third_party_heading">타사 구성 요소</string>
     <string name="info_copyright_third_party_p1">Color Picker는 오픈소스 기술을 기반으로 만들어졌습니다. 사용 중인 각 라이브러리의 라이선스를 존중하고 준수합니다.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">팔레트 정리</string>
     <string name="info_usage_organize_p1">Palette 탭을 열어 관련 스와치를 그룹화하세요. 항목을 재정렬하거나 제거해 현재 프로젝트에 맞게 팔레트를 유지할 수 있습니다.</string>
 </resources>
+

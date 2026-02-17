@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">ملکیت</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex۔ جملہ حقوق محفوظ ہیں۔ Color Picker، جس میں اس کا نام، لوگو، UI اور ایپ کے اثاثے شامل ہیں، Primortex کی ملکیت ہے اور تحریری اجازت کے بغیر دوبارہ استعمال نہیں کیا جا سکتا۔</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex۔ جملہ حقوق محفوظ ہیں۔ Color Picker، جس میں اس کا نام، لوگو، UI اور ایپ کے اثاثے شامل ہیں، Primortex کی ملکیت ہے اور تحریری اجازت کے بغیر دوبارہ استعمال نہیں کیا جا سکتا۔</string>
 
     <string name="info_copyright_third_party_heading">فریق ثالث کے اجزا</string>
     <string name="info_copyright_third_party_p1">Color Picker اوپن سورس ٹیکنالوجیز سے بنایا گیا ہے۔ ہم ہر اس لائبریری کے لائسنس کو تسلیم کرتے ہیں اور ان کی پابندی کرتے ہیں جس پر ہم انحصار کرتے ہیں۔</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">پیلیٹس منظم کریں</string>
     <string name="info_usage_organize_p1">متعلقہ سویچز گروپ کرنے کے لیے Palette ٹیب کھولیں۔ موجودہ پروجیکٹ پر فوکس رکھنے کے لیے آئٹمز کو دوبارہ ترتیب دیں یا حذف کریں۔</string>
 </resources>
+

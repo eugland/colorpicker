@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Proprieta</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tutti i diritti riservati. Color Picker, inclusi nome, logo, interfaccia utente e risorse dell’app, e di proprieta di Primortex e non puo essere riutilizzato senza autorizzazione scritta.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Tutti i diritti riservati. Color Picker, inclusi nome, logo, interfaccia utente e risorse dell’app, e di proprieta di Primortex e non puo essere riutilizzato senza autorizzazione scritta.</string>
 
     <string name="info_copyright_third_party_heading">Componenti di terze parti</string>
     <string name="info_copyright_third_party_p1">Color Picker e sviluppato con tecnologie open source. Riconosciamo e rispettiamo le licenze di ogni libreria utilizzata.</string>
@@ -43,10 +43,10 @@
     <string name="info_terms_ip_p1">L’app e tutti i contenuti correlati appartengono a Primortex o ai suoi licenzianti. Non puoi copiare, modificare o ridistribuire alcuna parte dell’app salvo quanto consentito dalla legge.</string>
 
     <string name="info_terms_availability_heading">Contenuti e disponibilita</string>
-    <string name="info_terms_availability_p1">Possiamo aggiornare o interrompere funzionalita in qualsiasi momento. I contenuti online opzionali sono forniti cosi come sono e possono cambiare senza preavviso.</string>
+    <string name="info_terms_availability_p1">Possiamo aggiornare o interrompere funzionalita in qualsiasi momento. I contenuti online opzionali sono forniti così come sono e possono cambiare senza preavviso.</string>
 
     <string name="info_terms_liability_heading">Limitazione di responsabilita</string>
-    <string name="info_terms_liability_p1">Color Picker e fornito cosi com’e senza garanzie di alcun tipo. Nella misura consentita dalla legge, non siamo responsabili per danni derivanti dall’uso dell’app.</string>
+    <string name="info_terms_liability_p1">Color Picker e fornito così com’e senza garanzie di alcun tipo. Nella misura consentita dalla legge, non siamo responsabili per danni derivanti dall’uso dell’app.</string>
 
     <string name="info_terms_contact_heading">Contatto</string>
     <string name="info_terms_contact_p1">Se hai domande su questi termini, contattaci tramite il modulo feedback nell’app.</string>
@@ -73,7 +73,7 @@
     <string name="info_usage_save_reuse_heading">Salva e riusa campioni</string>
     <string name="info_usage_save_reuse_p1">Dopo aver catturato un colore, tocca Save per salvarlo nella palette. Ogni campione salvato registra valori HEX, RGB e HSL da copiare.</string>
     <string name="info_usage_save_reuse_b1">Tocca un campione salvato per copiare il codice HEX o aprire i dettagli con altri formati.</string>
-    <string name="info_usage_save_reuse_b2">Tieni premuto o usa azioni di modifica (dove disponibili) per rimuovere colori non piu necessari.</string>
+    <string name="info_usage_save_reuse_b2">Tieni premuto o usa azioni di modifica (dove disponibili) per rimuovere colori non più necessari.</string>
 
     <string name="info_usage_compare_share_heading">Confronta e condividi valori</string>
     <string name="info_usage_compare_share_p1">Apri un campione salvato per confrontare i formati affiancati. Usa copia o condividi per inviare i valori ai tuoi strumenti di design o sviluppo.</string>
@@ -81,4 +81,6 @@
     <string name="info_usage_organize_heading">Organizza palette</string>
     <string name="info_usage_organize_p1">Apri la scheda Palette per raggruppare campioni correlati. Riordina o rimuovi elementi per mantenere la palette focalizzata sul progetto corrente.</string>
 </resources>
+
+
 

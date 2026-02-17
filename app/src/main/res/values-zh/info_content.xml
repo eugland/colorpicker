@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">所有权</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex。保留所有权利。Color Picker（包括其名称、标志、界面和应用资源）归 Primortex 所有，未经书面许可不得复用。</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex。保留所有权利。Color Picker（包括其名称、标志、界面和应用资源）归 Primortex 所有，未经书面许可不得复用。</string>
 
     <string name="info_copyright_third_party_heading">第三方组件</string>
     <string name="info_copyright_third_party_p1">Color Picker 基于开源技术构建。我们承认并遵守所使用各个库的许可证要求。</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">整理调色板</string>
     <string name="info_usage_organize_p1">打开 Palette 标签页，将相关色样分组。通过重排或删除项目，让调色板更聚焦当前项目。</string>
 </resources>
+

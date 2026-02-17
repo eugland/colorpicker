@@ -1,6 +1,6 @@
-<resources>
+﻿<resources>
     <string name="info_copyright_ownership_heading">Ownership</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. All rights reserved. Color Picker, including its name, logo, UI, and application assets, is owned by Primortex and may not be reused without written permission.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. All rights reserved. Color Picker, including its name, logo, UI, and application assets, is owned by Primortex and may not be reused without written permission.</string>
 
     <string name="info_copyright_third_party_heading">Third-party components</string>
     <string name="info_copyright_third_party_p1">Color Picker is built with open-source technologies. We acknowledge and comply with the licenses of each library we rely on.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Organize palettes</string>
     <string name="info_usage_organize_p1">Open the Palette tab to group related swatches. Rearrange or remove items to keep your palette focused on the project at hand.</string>
 </resources>
+

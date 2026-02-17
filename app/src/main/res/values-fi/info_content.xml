@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Omistajuus</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Kaikki oikeudet pidatetaan. Color Picker, mukaan lukien nimi, logo, kayttoliittyma ja sovelluksen resurssit, kuuluu Primortexille, eika sita saa kayttaa uudelleen ilman kirjallista lupaa.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Kaikki oikeudet pidatetaan. Color Picker, mukaan lukien nimi, logo, kayttoliittyma ja sovelluksen resurssit, kuuluu Primortexille, eika sita saa kayttaa uudelleen ilman kirjallista lupaa.</string>
 
     <string name="info_copyright_third_party_heading">Kolmannen osapuolen komponentit</string>
     <string name="info_copyright_third_party_p1">Color Picker on rakennettu avoimen lahdekoodin teknologioilla. Tunnustamme ja noudatamme kaikkien kayttamiemme kirjastojen lisensseja.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Jarjesta paletteja</string>
     <string name="info_usage_organize_p1">Avaa Palette-valilehti ryhmitellaksesi liittyvat swatchit. Jarjesta uudelleen tai poista kohteita, jotta paletti pysyy nykyiseen projektiin keskittyneena.</string>
 </resources>
+

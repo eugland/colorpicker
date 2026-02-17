@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">בעלות</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. כל הזכויות שמורות. Color Picker, כולל השם, הלוגו, ממשק המשתמש ונכסי האפליקציה, שייך ל-Primortex ואסור לשימוש חוזר ללא אישור בכתב.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. כל הזכויות שמורות. Color Picker, כולל השם, הלוגו, ממשק המשתמש ונכסי האפליקציה, שייך ל-Primortex ואסור לשימוש חוזר ללא אישור בכתב.</string>
 
     <string name="info_copyright_third_party_heading">רכיבי צד שלישי</string>
     <string name="info_copyright_third_party_p1">Color Picker בנוי בטכנולוגיות קוד פתוח. אנו מכבדים ופועלים בהתאם לרישיונות של כל ספרייה שעליה אנו מסתמכים.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">ארגון פלטות</string>
     <string name="info_usage_organize_p1">פתח את לשונית Palette כדי לקבץ דוגמיות קשורות. סדר מחדש או הסר פריטים כדי להשאיר את הפלטה ממוקדת בפרויקט הנוכחי.</string>
 </resources>
+

@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Quyen so huu</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Bao luu moi quyen. Color Picker, bao gom ten, logo, giao dien va tai nguyen ung dung, thuoc so huu cua Primortex va khong duoc tai su dung khi chua co su dong y bang van ban.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Bao luu moi quyen. Color Picker, bao gom ten, logo, giao dien va tai nguyen ung dung, thuoc so huu cua Primortex va khong duoc tai su dung khi chua co su dong y bang van ban.</string>
 
     <string name="info_copyright_third_party_heading">Thanh phan ben thu ba</string>
     <string name="info_copyright_third_party_p1">Color Picker duoc xay dung bang cong nghe ma nguon mo. Chung toi ton trong va tuan thu giay phep cua tung thu vien su dung.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Sap xep bang mau</string>
     <string name="info_usage_organize_p1">Mo tab Palette de nhom cac swatch lien quan. Sap xep lai hoac xoa muc de giu bang mau tap trung vao du an hien tai.</string>
 </resources>
+

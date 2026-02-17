@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">ความเป็นเจ้าของ</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex สงวนลิขสิทธิ์ทั้งหมด Color Picker รวมถึงชื่อ โลโก้ UI และทรัพยากรของแอป เป็นทรัพย์สินของ Primortex และห้ามนำกลับมาใช้ซ้ำโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex สงวนลิขสิทธิ์ทั้งหมด Color Picker รวมถึงชื่อ โลโก้ UI และทรัพยากรของแอป เป็นทรัพย์สินของ Primortex และห้ามนำกลับมาใช้ซ้ำโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</string>
 
     <string name="info_copyright_third_party_heading">ส่วนประกอบจากบุคคลที่สาม</string>
     <string name="info_copyright_third_party_p1">Color Picker สร้างขึ้นด้วยเทคโนโลยีโอเพนซอร์ส เรารับทราบและปฏิบัติตามใบอนุญาตของทุกไลบรารีที่เราใช้งาน</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">จัดระเบียบพาเลตต์</string>
     <string name="info_usage_organize_p1">เปิดแท็บ Palette เพื่อจัดกลุ่มสวอตช์ที่เกี่ยวข้อง จัดเรียงใหม่หรือลบรายการเพื่อให้พาเลตต์โฟกัสกับโปรเจกต์ปัจจุบัน</string>
 </resources>
+

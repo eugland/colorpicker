@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Vlastnictvi</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Vsechna prava vyhrazena. Color Picker, vcetne nazvu, loga, uzivatelskeho rozhrani a aktiv aplikace, je vlastnictvim Primortex a bez pisemneho souhlasu nelze znovu pouzit.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Vsechna prava vyhrazena. Color Picker, vcetne nazvu, loga, uzivatelskeho rozhrani a aktiv aplikace, je vlastnictvim Primortex a bez pisemneho souhlasu nelze znovu pouzit.</string>
 
     <string name="info_copyright_third_party_heading">Komponenty tretich stran</string>
     <string name="info_copyright_third_party_p1">Color Picker je postaven na open-source technologiich. Uznavame a dodrzujeme licence kazde knihovny, kterou pouzivame.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Usporadat palety</string>
     <string name="info_usage_organize_p1">Otevrete kartu Palette a seskupte souvisejici vzorky. Preskupte nebo odeberte polozky, aby paleta zustala zamerena na aktualni projekt.</string>
 </resources>
+

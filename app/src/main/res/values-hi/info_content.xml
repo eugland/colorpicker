@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">स्वामित्व</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. सर्वाधिकार सुरक्षित। Color Picker, जिसमें इसका नाम, लोगो, UI और ऐप एसेट शामिल हैं, Primortex की संपत्ति है और लिखित अनुमति के बिना दोबारा उपयोग नहीं किया जा सकता।</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. सर्वाधिकार सुरक्षित। Color Picker, जिसमें इसका नाम, लोगो, UI और ऐप एसेट शामिल हैं, Primortex की संपत्ति है और लिखित अनुमति के बिना दोबारा उपयोग नहीं किया जा सकता।</string>
 
     <string name="info_copyright_third_party_heading">थर्ड-पार्टी घटक</string>
     <string name="info_copyright_third_party_p1">Color Picker ओपन-सोर्स तकनीकों से बनाया गया है। हम जिन लाइब्रेरी पर निर्भर हैं, उनके लाइसेंस का पालन और सम्मान करते हैं।</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">पैलेट व्यवस्थित करें</string>
     <string name="info_usage_organize_p1">संबंधित स्वैच समूहित करने के लिए Palette टैब खोलें। मौजूदा प्रोजेक्ट पर पैलेट केंद्रित रखने के लिए आइटम पुनर्व्यवस्थित या हटाएं।</string>
 </resources>
+

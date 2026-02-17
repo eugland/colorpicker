@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Wlasnosc</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Wszelkie prawa zastrzezone. Color Picker, w tym nazwa, logo, interfejs i zasoby aplikacji, nalezy do Primortex i nie moze byc ponownie uzywany bez pisemnej zgody.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Wszelkie prawa zastrzezone. Color Picker, w tym nazwa, logo, interfejs i zasoby aplikacji, nalezy do Primortex i nie moze byc ponownie uzywany bez pisemnej zgody.</string>
 
     <string name="info_copyright_third_party_heading">Komponenty zewnetrzne</string>
     <string name="info_copyright_third_party_p1">Color Picker jest zbudowany na technologiach open-source. Uznajemy i przestrzegamy licencji kazdej uzywanej biblioteki.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Organizuj palety</string>
     <string name="info_usage_organize_p1">Otworz karte Palette, aby grupowac powiazane probki. Przestawiaj lub usuwaj elementy, aby utrzymac palete skupiona na biezacym projekcie.</string>
 </resources>
+

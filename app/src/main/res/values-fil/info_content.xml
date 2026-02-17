@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Pagmamay-ari</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Lahat ng karapatan ay nakalaan. Ang Color Picker, kasama ang pangalan, logo, UI, at mga asset ng app, ay pagmamay-ari ng Primortex at hindi maaaring muling gamitin nang walang nakasulat na pahintulot.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Lahat ng karapatan ay nakalaan. Ang Color Picker, kasama ang pangalan, logo, UI, at mga asset ng app, ay pagmamay-ari ng Primortex at hindi maaaring muling gamitin nang walang nakasulat na pahintulot.</string>
 
     <string name="info_copyright_third_party_heading">Mga third-party na bahagi</string>
     <string name="info_copyright_third_party_p1">Ang Color Picker ay binuo gamit ang open-source na teknolohiya. Kinikilala at sinusunod namin ang mga lisensya ng bawat library na ginagamit namin.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Ayusin ang palettes</string>
     <string name="info_usage_organize_p1">Buksan ang Palette tab para i-group ang magkakaugnay na swatches. I-rearrange o alisin ang items para manatiling naka-focus ang palette sa kasalukuyang project.</string>
 </resources>
+

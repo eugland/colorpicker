@@ -1,14 +1,14 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Eigentum</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Alle Rechte vorbehalten. Color Picker, einschliesslich Name, Logo, Benutzeroberflaeche und App-Ressourcen, ist Eigentum von Primortex und darf ohne schriftliche Genehmigung nicht wiederverwendet werden.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Alle Rechte vorbehalten. Color Picker, einschließlich Name, Logo, Benutzeroberflaeche und App-Ressourcen, ist Eigentum von Primortex und darf ohne schriftliche Genehmigung nicht wiederverwendet werden.</string>
 
     <string name="info_copyright_third_party_heading">Drittanbieter-Komponenten</string>
     <string name="info_copyright_third_party_p1">Color Picker basiert auf Open-Source-Technologien. Wir erkennen die Lizenzen jeder verwendeten Bibliothek an und halten sie ein.</string>
-    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 fuer UI-Komponenten</string>
-    <string name="info_copyright_third_party_b2">CameraX fuer Kamera-Integration</string>
-    <string name="info_copyright_third_party_b3">Coil fuer Bildladen</string>
-    <string name="info_copyright_third_party_b4">Ktor fuer leichtgewichtiges Networking</string>
-    <string name="info_copyright_third_party_b5">Navigation Compose und Accompanist Navigation Animation fuer In-App-Navigation</string>
+    <string name="info_copyright_third_party_b1">Jetpack Compose Material 3 für UI-Komponenten</string>
+    <string name="info_copyright_third_party_b2">CameraX für Kamera-Integration</string>
+    <string name="info_copyright_third_party_b3">Coil für Bildladen</string>
+    <string name="info_copyright_third_party_b4">Ktor für leichtgewichtiges Networking</string>
+    <string name="info_copyright_third_party_b5">Navigation Compose und Accompanist Navigation Animation für In-App-Navigation</string>
 
     <string name="info_copyright_license_notes_heading">Lizenzhinweise</string>
     <string name="info_copyright_license_notes_p1">Alle Drittanbieter-Bibliotheken bleiben Eigentum ihrer jeweiligen Inhaber. Die Original-Lizenzen bleiben erhalten und werden angegeben, damit du sie im Detail pruefen kannst.</string>
@@ -17,8 +17,8 @@
     <string name="info_privacy_on_device_p1">Die Farbermittlung erfolgt lokal. Kamera-Vorschauen und ausgewaehlte Fotos werden nur analysiert, um Farbwerte zu extrahieren, und nicht an unsere Server uebertragen.</string>
 
     <string name="info_privacy_permissions_heading">Berechtigungen und Daten</string>
-    <string name="info_privacy_permissions_p1">Die App fordert nur Zugriff auf Funktionen an, die fuer die Farbauswahl erforderlich sind, etwa Kamera und Fotobibliothek. Du kannst diese Berechtigungen jederzeit in den Geraeteeinstellungen widerrufen.</string>
-    <string name="info_privacy_permissions_b1">Kamerazugriff wird fuer Live-Sampling verwendet und von uns niemals aufgezeichnet oder gespeichert.</string>
+    <string name="info_privacy_permissions_p1">Die App fordert nur Zugriff auf Funktionen an, die für die Farbauswahl erforderlich sind, etwa Kamera und Fotobibliothek. Du kannst diese Berechtigungen jederzeit in den Geraeteeinstellungen widerrufen.</string>
+    <string name="info_privacy_permissions_b1">Kamerazugriff wird für Live-Sampling verwendet und von uns niemals aufgezeichnet oder gespeichert.</string>
     <string name="info_privacy_permissions_b2">Fotozugriff wird nur verwendet, wenn du ein Bild zur Farbauswahl auswaehlst.</string>
 
     <string name="info_privacy_network_heading">Netzwerknutzung</string>
@@ -35,18 +35,18 @@
     <string name="info_terms_acceptance_p1">Durch die Nutzung von Color Picker stimmst du diesen Nutzungsbedingungen zu. Wenn du nicht zustimmst, beende bitte die Nutzung der App.</string>
 
     <string name="info_terms_usage_heading">App-Nutzung</string>
-    <string name="info_terms_usage_p1">Color Picker wird fuer persoenliche und professionelle Farbreferenz bereitgestellt. Du bist fuer die Nutzung der App und alle Ergebnisse deiner Farbauswahl verantwortlich.</string>
+    <string name="info_terms_usage_p1">Color Picker wird für persoenliche und professionelle Farbreferenz bereitgestellt. Du bist für die Nutzung der App und alle Ergebnisse deiner Farbauswahl verantwortlich.</string>
     <string name="info_terms_usage_b1">Nutze die App nicht in einer Weise, die geltende Gesetze oder Vorschriften verletzt.</string>
     <string name="info_terms_usage_b2">Versuche nicht, die App-Dienste rueckzuentwickeln, zu manipulieren oder missbraeuchlich zu verwenden.</string>
 
     <string name="info_terms_ip_heading">Geistiges Eigentum</string>
-    <string name="info_terms_ip_p1">Die App und alle zugehoerigen Inhalte sind Eigentum von Primortex oder dessen Lizenzgebern. Du darfst keinen Teil der App kopieren, aendern oder weiterverteilen, ausser soweit gesetzlich erlaubt.</string>
+    <string name="info_terms_ip_p1">Die App und alle zugehoerigen Inhalte sind Eigentum von Primortex oder dessen Lizenzgebern. Du darfst keinen Teil der App kopieren, aendern oder weiterverteilen, außer soweit gesetzlich erlaubt.</string>
 
     <string name="info_terms_availability_heading">Inhalte und Verfuegbarkeit</string>
     <string name="info_terms_availability_p1">Wir koennen Funktionen jederzeit aktualisieren oder einstellen. Optionale Online-Inhalte werden wie gesehen bereitgestellt und koennen sich ohne Vorankuendigung aendern.</string>
 
     <string name="info_terms_liability_heading">Haftungsbeschraenkung</string>
-    <string name="info_terms_liability_p1">Color Picker wird wie gesehen ohne Gewaehrleistungen bereitgestellt. Soweit gesetzlich zulaessig, haften wir nicht fuer Schaeden aus der Nutzung der App.</string>
+    <string name="info_terms_liability_p1">Color Picker wird wie gesehen ohne Gewaehrleistungen bereitgestellt. Soweit gesetzlich zulaessig, haften wir nicht für Schaeden aus der Nutzung der App.</string>
 
     <string name="info_terms_contact_heading">Kontakt</string>
     <string name="info_terms_contact_p1">Wenn du Fragen zu diesen Bedingungen hast, kontaktiere uns ueber das Feedback-Formular in der App.</string>
@@ -61,8 +61,8 @@
     <string name="info_usage_quick_index_b6">Farbwerte teilen oder exportieren</string>
 
     <string name="info_usage_live_camera_heading">Farbe aus Live-Kamera aufnehmen</string>
-    <string name="info_usage_live_camera_p1">Oeffne Live-Kamera ueber den Tab Entdecken oder Kamera. Richte das Fadenkreuz auf das Ziel, zoome per Pinch fuer Praezision und tippe dann auf die Farbvorschau, um sie zu fixieren.</string>
-    <string name="info_usage_live_camera_b1">Passe Groesse und Form des Fadenkreuzes in Entdecken &gt; Einstellungen fuer bessere Genauigkeit an.</string>
+    <string name="info_usage_live_camera_p1">Oeffne Live-Kamera ueber den Tab Entdecken oder Kamera. Richte das Fadenkreuz auf das Ziel, zoome per Pinch für Praezision und tippe dann auf die Farbvorschau, um sie zu fixieren.</string>
+    <string name="info_usage_live_camera_b1">Passe Größe und Form des Fadenkreuzes in Entdecken &gt; Einstellungen für bessere Genauigkeit an.</string>
     <string name="info_usage_live_camera_b2">Nutze eine ruhige Hand oder ein Stativ bei wenig Licht.</string>
 
     <string name="info_usage_photo_heading">Farbe aus einem Foto aufnehmen</string>
@@ -81,3 +81,5 @@
     <string name="info_usage_organize_heading">Paletten organisieren</string>
     <string name="info_usage_organize_p1">Oeffne den Tab Palette, um zusammengehoerige Farbfelder zu gruppieren. Ordne Elemente neu an oder entferne sie, damit deine Palette auf das aktuelle Projekt fokussiert bleibt.</string>
 </resources>
+
+

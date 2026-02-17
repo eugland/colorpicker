@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">所有權</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex。版權所有。Color Picker（包含名稱、標誌、介面與應用資產）屬於 Primortex，未經書面許可不得重複使用。</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex。版權所有。Color Picker（包含名稱、標誌、介面與應用資產）屬於 Primortex，未經書面許可不得重複使用。</string>
 
     <string name="info_copyright_third_party_heading">第三方元件</string>
     <string name="info_copyright_third_party_p1">Color Picker 使用開源技術建構。我們承認並遵守所使用各項函式庫的授權條款。</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">整理調色盤</string>
     <string name="info_usage_organize_p1">開啟 Palette 分頁以分組相關色票。透過重新排序或移除項目，讓調色盤聚焦目前專案。</string>
 </resources>
+

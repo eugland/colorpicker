@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Sahiplik</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tum haklari saklidir. Color Picker, adi, logosu, arayuzu ve uygulama varliklari dahil olmak uzere Primortex’e aittir ve yazili izin olmadan yeniden kullanilamaz.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Tum haklari saklidir. Color Picker, adi, logosu, arayuzu ve uygulama varliklari dahil olmak uzere Primortex’e aittir ve yazili izin olmadan yeniden kullanilamaz.</string>
 
     <string name="info_copyright_third_party_heading">Ucuncu taraf bilesenler</string>
     <string name="info_copyright_third_party_p1">Color Picker acik kaynak teknolojileri ile gelistirilmistir. Kullandigimiz her kutuphanenin lisanslarini tanir ve bunlara uyariz.</string>
@@ -81,4 +81,5 @@
     <string name="info_usage_organize_heading">Paletleri duzenle</string>
     <string name="info_usage_organize_p1">Ilgili swatchleri gruplamak icin Palette sekmesini acin. Paletin mevcut projeye odakli kalmasi icin ogeleri yeniden siralayin veya kaldirin.</string>
 </resources>
+
 

@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Propriete</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Tous droits reserves. Color Picker, y compris son nom, son logo, son interface utilisateur et les ressources de l’application, appartient a Primortex et ne peut pas etre reutilise sans autorisation ecrite.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Tous droits reserves. Color Picker, y compris son nom, son logo, son interface utilisateur et les ressources de l’application, appartient a Primortex et ne peut pas etre reutilise sans autorisation ecrite.</string>
 
     <string name="info_copyright_third_party_heading">Composants tiers</string>
     <string name="info_copyright_third_party_p1">Color Picker est construit avec des technologies open source. Nous reconnaissons et respectons les licences de chaque bibliotheque utilisee.</string>
@@ -81,4 +81,5 @@
     <string name="info_usage_organize_heading">Organiser les palettes</string>
     <string name="info_usage_organize_p1">Ouvrez l’onglet Palette pour regrouper les echantillons lies. Reorganisez ou supprimez des elements pour garder votre palette concentree sur le projet en cours.</string>
 </resources>
+
 

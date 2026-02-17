@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Eierskap</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Alle rettigheter forbeholdt. Color Picker, inkludert navn, logo, UI og appressurser, eies av Primortex og kan ikke brukes pa nytt uten skriftlig tillatelse.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Alle rettigheter forbeholdt. Color Picker, inkludert navn, logo, UI og appressurser, eies av Primortex og kan ikke brukes pa nytt uten skriftlig tillatelse.</string>
 
     <string name="info_copyright_third_party_heading">Tredjepartskomponenter</string>
     <string name="info_copyright_third_party_p1">Color Picker er bygget med open-source-teknologi. Vi anerkjenner og folger lisensene til hvert bibliotek vi bruker.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Organiser paletter</string>
     <string name="info_usage_organize_p1">Apne Palette-fanen for a gruppere relaterte swatches. Omorganiser eller fjern elementer for a holde paletten fokusert pa gjeldende prosjekt.</string>
 </resources>
+

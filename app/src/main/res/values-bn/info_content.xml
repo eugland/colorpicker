@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">মালিকানা</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex। সর্বস্বত্ব সংরক্ষিত। Color Picker, এর নাম, লোগো, UI এবং অ্যাপের সম্পদসহ, Primortex-এর মালিকানাধীন এবং লিখিত অনুমতি ছাড়া পুনঃব্যবহার করা যাবে না।</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex। সর্বস্বত্ব সংরক্ষিত। Color Picker, এর নাম, লোগো, UI এবং অ্যাপের সম্পদসহ, Primortex-এর মালিকানাধীন এবং লিখিত অনুমতি ছাড়া পুনঃব্যবহার করা যাবে না।</string>
 
     <string name="info_copyright_third_party_heading">তৃতীয় পক্ষের উপাদান</string>
     <string name="info_copyright_third_party_p1">Color Picker ওপেন-সোর্স প্রযুক্তি দিয়ে তৈরি। আমরা যে লাইব্রেরিগুলোর ওপর নির্ভর করি, তাদের প্রতিটি লাইসেন্স মেনে চলি এবং স্বীকার করি।</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">প্যালেট সংগঠিত করুন</string>
     <string name="info_usage_organize_p1">সম্পর্কিত সোয়াচ একসাথে রাখতে Palette ট্যাব খুলুন। বর্তমান প্রজেক্টে ফোকাস রাখতে আইটেম সাজান বা সরান।</string>
 </resources>
+

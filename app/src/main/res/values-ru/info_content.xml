@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Право собственности</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Все права защищены. Color Picker, включая название, логотип, интерфейс и ресурсы приложения, принадлежит Primortex и не может использоваться повторно без письменного разрешения.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Все права защищены. Color Picker, включая название, логотип, интерфейс и ресурсы приложения, принадлежит Primortex и не может использоваться повторно без письменного разрешения.</string>
 
     <string name="info_copyright_third_party_heading">Сторонние компоненты</string>
     <string name="info_copyright_third_party_p1">Color Picker создан с использованием технологий с открытым исходным кодом. Мы соблюдаем лицензии всех используемых библиотек.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Организация палитр</string>
     <string name="info_usage_organize_p1">Откройте вкладку Palette, чтобы сгруппировать связанные образцы. Переставляйте или удаляйте элементы, чтобы держать палитру сфокусированной на текущем проекте.</string>
 </resources>
+

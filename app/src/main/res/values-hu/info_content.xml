@@ -1,6 +1,6 @@
 ﻿<resources>
     <string name="info_copyright_ownership_heading">Tulajdonjog</string>
-    <string name="info_copyright_ownership_p1">(c) 2025 Primortex. Minden jog fenntartva. A Color Picker neve, logoja, felulete es alkalmazas-eroforrasai a Primortex tulajdonat kepezik, es irasbeli engedely nelkul nem hasznalhatok ujra.</string>
+    <string name="info_copyright_ownership_p1">&#169; 2025 Primortex. Minden jog fenntartva. A Color Picker neve, logoja, felulete es alkalmazas-eroforrasai a Primortex tulajdonat kepezik, es irasbeli engedely nelkul nem hasznalhatok ujra.</string>
 
     <string name="info_copyright_third_party_heading">Harmadik fel komponensek</string>
     <string name="info_copyright_third_party_p1">A Color Picker nyilt forraskodu technologiakra epul. Elismerjuk es betartjuk az osszes hasznalt konyvtar licencet.</string>
@@ -81,3 +81,4 @@
     <string name="info_usage_organize_heading">Palettak rendszerezese</string>
     <string name="info_usage_organize_p1">Nyissa meg a Palette fulet a kapcsolodo mintak csoportositasahoz. Rendezze at vagy torolje az elemeket, hogy a paletta az aktualis projektre fokuszaljon.</string>
 </resources>
+
