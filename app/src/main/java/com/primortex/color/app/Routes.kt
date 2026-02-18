@@ -56,6 +56,5 @@ object Routes {
         const val LANGUAGE = "settings/language"
         const val THEME = "settings/theme"
         const val CROSSHAIR = "settings/crosshair"
-        const val COLOR_CATALOGS = "settings/color_catalogs"
     }
 }

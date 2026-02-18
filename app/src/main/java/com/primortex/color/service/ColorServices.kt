@@ -12,9 +12,8 @@ object ColorServices {
     private lateinit var colorService: ColorService
     @Volatile
     var selectedPalette: com.primortex.color.app.Palette? = null
-
     @Volatile
-    private var selectedAssetIds: Set<String> = setOf("colors")
+    private var languageOverrideTag: String? = null
 
     fun init(context: Context) {
         if (::colorService.isInitialized) return
@@ -29,20 +28,19 @@ object ColorServices {
     }
 
     @Synchronized
-    fun setCatalogSelection(assetIds: Set<String>) {
-        selectedAssetIds = if (::appContext.isInitialized) {
-            ColorCatalogImportService.normalizeSelection(appContext, assetIds)
-        } else {
-            assetIds.filter { it.isNotBlank() }.toSet()
-        }
-
+    fun setCatalogSelection(
+        @Suppress("UNUSED_PARAMETER") assetId: String?,
+        languageTag: String? = null
+    ) {
+        languageOverrideTag = languageTag
         if (::colorService.isInitialized) {
             colorService.setColors(loadSelectedColors(appContext))
         }
     }
 
     @Synchronized
-    fun reloadCatalog() {
+    fun reloadCatalog(languageTag: String? = null) {
+        languageOverrideTag = languageTag
         if (::colorService.isInitialized) {
             colorService.setColors(loadSelectedColors(appContext))
         }
@@ -52,14 +50,13 @@ object ColorServices {
         get() {
             check(::colorService.isInitialized) { "ColorServices.init must be called first" }
             return colorService
-        }
+    }
 
     private fun buildService(context: Context): ColorService {
-        selectedAssetIds = ColorCatalogImportService.normalizeSelection(context, selectedAssetIds)
         return ColorService(loadSelectedColors(context))
     }
 
     private fun loadSelectedColors(context: Context): List<ColorSeed> {
-        return ColorCatalogImportService.loadSelectedSeeds(context, selectedAssetIds)
+        return ColorCatalogImportService.loadLocaleSeeds(context, languageOverrideTag)
     }
 }

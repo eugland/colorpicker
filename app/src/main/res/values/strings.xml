@@ -258,8 +258,8 @@
     <string name="copied_all_hex">Copied all HEX values</string>
     <string name="exported_css">Copied CSS to clipboard</string>
     <string name="splash_loading_message">Warming up your palette…</string>
-    <string name="color_catalogs">Color Name Packs</string>
-    <string name="color_catalogs_description">Choose one or more color name packs. Selected packs are loaded from bundled JSON files and used for color matching and search.</string>
+    <string name="color_catalogs">Color Name Pack</string>
+    <string name="color_catalogs_description">Your app language picks the default color name pack. You can select one pack at a time.</string>
     <string name="color_catalogs_none_found">No color name packs were found in app assets.</string>
-    <string name="color_catalogs_summary">Choose which color name packs are active.</string>
+    <string name="color_catalogs_summary">Choose the active color name pack.</string>
 </resources>

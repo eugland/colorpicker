@@ -38,7 +38,6 @@ import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
-import com.primortex.color.screens.ColorCatalogSettingsScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.CrosshairSettingsScreen
@@ -389,13 +388,6 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                 }
 
-                composable(Routes.Settings.COLOR_CATALOGS) {
-                    ColorCatalogSettingsScreen(
-                        innerPadding = inner,
-                        onBack = { navigator.back() }
-                    )
-                }
-
                 composable(Routes.Settings.CROSSHAIR) {
                     CrosshairSettingsScreen(
                         innerPadding = inner,
@@ -416,7 +408,6 @@ private fun ExploreRoute(
         innerPadding = innerPadding,
         onOpenLanguageSettings = { navigator.openLanguageSettings() },
         onOpenThemeSettings = { navigator.openThemeSettings() },
-        onOpenColorCatalogSettings = { navigator.openColorCatalogSettings() },
         onOpenCrosshairSettings = { navigator.openCrosshairSettings() },
         onOpenCopyright = { navigator.openInfoCopyright() },
         onOpenPrivacy = { navigator.openInfoPrivacy() },
@@ -445,7 +436,6 @@ private fun screenNameForRoute(route: String): String? {
         Routes.Info.USAGE -> "InfoUsageScreen"
         Routes.Settings.LANGUAGE -> "LanguageSelectionScreen"
         Routes.Settings.THEME -> "ThemeSelectionScreen"
-        Routes.Settings.COLOR_CATALOGS -> "ColorCatalogSettingsScreen"
         Routes.Settings.CROSSHAIR -> "CrosshairSettingsScreen"
         else -> baseRoute.takeIf { it.isNotBlank() }
     }

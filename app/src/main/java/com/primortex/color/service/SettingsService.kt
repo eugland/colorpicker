@@ -33,7 +33,6 @@ object SettingsService {
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
     private val KEY_PICKER_SENSITIVITY = stringPreferencesKey("picker_sensitivity")
     private val KEY_APP_LANGUAGE = stringPreferencesKey("app_language")
-    private val KEY_COLOR_ASSETS = stringPreferencesKey("color_assets")
     private val KEY_FIRST_USE_LOGGED = booleanPreferencesKey("first_use_logged_v1")
 
     private lateinit var appContext: Context
@@ -53,12 +52,6 @@ object SettingsService {
 
     private val _appLanguage = MutableStateFlow(AppLanguage.SystemDefault)
     val appLanguage: StateFlow<AppLanguage> = _appLanguage.asStateFlow()
-
-    private val _availableColorAssets = MutableStateFlow<List<ColorAssetOption>>(emptyList())
-    val availableColorAssets: StateFlow<List<ColorAssetOption>> = _availableColorAssets.asStateFlow()
-
-    private val _selectedColorAssets = MutableStateFlow<Set<String>>(emptySet())
-    val selectedColorAssets: StateFlow<Set<String>> = _selectedColorAssets.asStateFlow()
 
     fun init(context: Context) {
         if (::appContext.isInitialized) return
@@ -96,17 +89,6 @@ object SettingsService {
 
             _appLanguage.value = resolvedLanguage
 
-            val availableAssets = ColorCatalogImportService.availableAssets(appContext)
-            _availableColorAssets.value = availableAssets
-            val storedAssetIds = prefs[KEY_COLOR_ASSETS]
-                ?.split(',')
-                ?.map { it.trim() }
-                ?.filter { it.isNotBlank() }
-                ?.toSet()
-                ?: emptySet()
-            val selectedAssets = ColorCatalogImportService.normalizeSelection(appContext, storedAssetIds)
-            _selectedColorAssets.value = selectedAssets
-
             val tagToCache = systemTag ?: resolvedLanguage.languageTag
             if (tagToCache != null) {
                 LanguageCache.set(appContext, tagToCache)
@@ -115,7 +97,7 @@ object SettingsService {
             syncPlatformLocale(resolvedLanguage)
             AppStrings.clear()
             Log.d("AppLanguage", "init: ${_appLanguage.value}")
-            syncColorCatalogSelection(selectedAssets)
+            syncColorCatalogSelection(tagToCache)
 
             if (prefs[KEY_FIRST_USE_LOGGED] != true) {
                 AnalyticsTracker.logFirstUse()
@@ -153,20 +135,13 @@ object SettingsService {
         LanguageCache.set(appContext, language.languageTag)
         syncPlatformLocale(language)
         AppStrings.clear()
-        syncColorCatalogSelection(_selectedColorAssets.value)
+        syncColorCatalogSelection(language.languageTag)
         persist()
     }
 
-    fun setSelectedColorAssets(selectedIds: Set<String>) {
-        val next = ColorCatalogImportService.normalizeSelection(appContext, selectedIds)
-        _selectedColorAssets.value = next
-        syncColorCatalogSelection(next)
-        persist()
-    }
-
-    private fun syncColorCatalogSelection(selectedAssets: Set<String>) {
+    private fun syncColorCatalogSelection(languageTag: String? = null) {
         scope.launch {
-            ColorServices.setCatalogSelection(selectedAssets)
+            ColorServices.setCatalogSelection(null, languageTag)
         }
     }
 
@@ -196,7 +171,6 @@ object SettingsService {
         val theme = _themeMode.value.name
         val sensitivity = _pickerSensitivity.value.name
         val language = _appLanguage.value.name
-        val assets = _selectedColorAssets.value.joinToString(",")
 
         scope.launch {
             appContext.settingsDataStore.edit { prefs ->
@@ -205,7 +179,6 @@ object SettingsService {
                 prefs[KEY_THEME_MODE] = theme
                 prefs[KEY_PICKER_SENSITIVITY] = sensitivity
                 prefs[KEY_APP_LANGUAGE] = language
-                prefs[KEY_COLOR_ASSETS] = assets
             }
         }
     }
