@@ -90,6 +90,10 @@ class NavColorNavigator(
         nav.navigateIfNotCurrent(Routes.Settings.THEME)
     }
 
+    override fun openColorCatalogSettings() {
+        nav.navigateIfNotCurrent(Routes.Settings.COLOR_CATALOGS)
+    }
+
     override fun openCrosshairSettings() {
         nav.navigateIfNotCurrent(Routes.Settings.CROSSHAIR)
     }

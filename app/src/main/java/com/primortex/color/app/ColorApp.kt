@@ -1,5 +1,6 @@
 package com.primortex.color.app
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
@@ -20,10 +21,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.runtime.remember
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -33,9 +33,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
+import com.primortex.color.data.enums.SwatchListType
+import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
+import com.primortex.color.screens.ColorCatalogSettingsScreen
 import com.primortex.color.screens.ColorDetailsScreen
 import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.CrosshairSettingsScreen
@@ -47,14 +50,14 @@ import com.primortex.color.screens.PaletteDetailScreen
 import com.primortex.color.screens.PaletteListScreen
 import com.primortex.color.screens.PaletteScreen
 import com.primortex.color.screens.PhotoPickScreen
-import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.screens.SwatchListScreen
-import com.primortex.color.data.enums.SwatchListType
+import com.primortex.color.screens.ThemeSelectionScreen
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.rememberSnackbarService
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 
+@SuppressLint("NewApi")
 @Composable
 fun ColorApp(onLanguageChanged: () -> Unit = {}) {
     val nav = rememberNavController()
@@ -185,7 +188,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         onOpenRecentColors = { navigator.openRecentColors() },
                         onOpenSavedColors = { navigator.openSavedColors() },
                         onOpenSavedPalettes = { navigator.openSavedPalettes() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        }
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
@@ -195,7 +203,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     LiveCameraScreen(
                         onBack = { navigator.back() },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        }
                     )
                 }
                 composable(
@@ -212,7 +225,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         photoUri = uri,
                         onBack = { navigator.back() },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        }
                     )
                 }
 
@@ -234,7 +252,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         paletteId = paletteId,
                         startInEditMode = startInEdit,
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        }
                     )
                 }
 
@@ -255,7 +278,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         argb = argb,
                         nameHint = name,
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) },
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                     )
                 }
@@ -264,7 +292,12 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     ColorSliderScreen(
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick -> navigator.openColorDetail(pick.argb, pick.name) }
+                        onOpenColorDetail = { pick ->
+                            navigator.openColorDetail(
+                                pick.argb,
+                                pick.name
+                            )
+                        }
                     )
                 }
                 composable(Routes.Tool.COLOR_BLIND) {
@@ -356,6 +389,13 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                 }
 
+                composable(Routes.Settings.COLOR_CATALOGS) {
+                    ColorCatalogSettingsScreen(
+                        innerPadding = inner,
+                        onBack = { navigator.back() }
+                    )
+                }
+
                 composable(Routes.Settings.CROSSHAIR) {
                     CrosshairSettingsScreen(
                         innerPadding = inner,
@@ -376,6 +416,7 @@ private fun ExploreRoute(
         innerPadding = innerPadding,
         onOpenLanguageSettings = { navigator.openLanguageSettings() },
         onOpenThemeSettings = { navigator.openThemeSettings() },
+        onOpenColorCatalogSettings = { navigator.openColorCatalogSettings() },
         onOpenCrosshairSettings = { navigator.openCrosshairSettings() },
         onOpenCopyright = { navigator.openInfoCopyright() },
         onOpenPrivacy = { navigator.openInfoPrivacy() },
@@ -404,6 +445,7 @@ private fun screenNameForRoute(route: String): String? {
         Routes.Info.USAGE -> "InfoUsageScreen"
         Routes.Settings.LANGUAGE -> "LanguageSelectionScreen"
         Routes.Settings.THEME -> "ThemeSelectionScreen"
+        Routes.Settings.COLOR_CATALOGS -> "ColorCatalogSettingsScreen"
         Routes.Settings.CROSSHAIR -> "CrosshairSettingsScreen"
         else -> baseRoute.takeIf { it.isNotBlank() }
     }

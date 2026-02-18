@@ -20,6 +20,7 @@ import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Feedback
 import androidx.compose.material.icons.outlined.Gavel
 import androidx.compose.material.icons.outlined.Language
+import androidx.compose.material.icons.outlined.Storage
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.StarRate
 import androidx.compose.material3.HorizontalDivider
@@ -54,6 +55,7 @@ fun ExploreScreen(
     innerPadding: PaddingValues,
     onOpenLanguageSettings: () -> Unit,
     onOpenThemeSettings: () -> Unit,
+    onOpenColorCatalogSettings: () -> Unit,
     onOpenCrosshairSettings: () -> Unit,
     onOpenCopyright: () -> Unit,
     onOpenPrivacy: () -> Unit,
@@ -101,6 +103,13 @@ fun ExploreScreen(
                     subtitle = stringResource(appLanguage.labelRes),
                     leadingIcon = Icons.Outlined.Language,
                     onClick = onOpenLanguageSettings
+                )
+                RowDivider()
+                RowLink(
+                    title = stringResource(R.string.color_catalogs),
+                    subtitle = stringResource(R.string.color_catalogs_summary),
+                    leadingIcon = Icons.Outlined.Storage,
+                    onClick = onOpenColorCatalogSettings
                 )
             }
 

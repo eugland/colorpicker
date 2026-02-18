@@ -90,7 +90,6 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.appcompat)
-
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)
     testImplementation(libs.ktor.client.mock)                  // MockEngine
