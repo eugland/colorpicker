@@ -43,9 +43,9 @@ import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.PickedColor
 import com.primortex.color.data.enums.SwatchListType
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ScreenScaffold
 
@@ -60,9 +60,10 @@ fun SwatchListScreen(
         SwatchListType.RECENT -> R.string.recent_colors
         SwatchListType.SAVED -> R.string.saved_colors
     }
+    val recentPicksService = LocalRecentPicksService.current
     val picks by when (type) {
-        SwatchListType.RECENT -> RecentPicksService.history.collectAsState()
-        SwatchListType.SAVED -> RecentPicksService.saved.collectAsState()
+        SwatchListType.RECENT -> recentPicksService.history.collectAsState()
+        SwatchListType.SAVED -> recentPicksService.saved.collectAsState()
     }
 
     var query by remember { mutableStateOf("") }
@@ -80,8 +81,8 @@ fun SwatchListScreen(
     }
     val clearAll: () -> Unit = {
         when (type) {
-            SwatchListType.RECENT -> RecentPicksService.clear()
-            SwatchListType.SAVED -> RecentPicksService.clearSaved()
+            SwatchListType.RECENT -> recentPicksService.clear()
+            SwatchListType.SAVED -> recentPicksService.clearSaved()
         }
     }
 

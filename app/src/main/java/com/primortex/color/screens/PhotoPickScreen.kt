@@ -54,10 +54,11 @@ import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.primortex.color.R
+import com.primortex.color.app.LocalColorService
+import com.primortex.color.app.LocalPaletteSelectionStore
+import com.primortex.color.app.LocalPaletteService
+import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
-import com.primortex.color.service.PaletteService
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ActiveColorSheet
@@ -74,15 +75,15 @@ fun PhotoPickScreen(
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
-    val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
-        ColorServices.colors
-    }
+    val colorService = LocalColorService.current
+    val paletteService = LocalPaletteService.current
+    val recentPicksService = LocalRecentPicksService.current
+    val paletteSelectionStore = LocalPaletteSelectionStore.current
     val snackbarService = LocalSnackbarService.current
     var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
     val pickedColor by remember {
         derivedStateOf {
-            PickedColor(argb = pickedArgb, name = colorNameService.localNameFromArgb(pickedArgb))
+            PickedColor(argb = pickedArgb, name = colorService.localNameFromArgb(pickedArgb))
         }
     }
     argbToHex(pickedArgb)
@@ -94,7 +95,7 @@ fun PhotoPickScreen(
         skipHiddenState = true
     )
     val scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = sheetState)
-    val recents by RecentPicksService.history.collectAsState()
+    val recents by recentPicksService.history.collectAsState()
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     var frozen by remember { mutableStateOf(false) }
     val painter = rememberAsyncImagePainter(
@@ -194,7 +195,7 @@ fun PhotoPickScreen(
                                 bmp = bmp
                             )
                             sampled?.let { pickedArgb = it }
-                            RecentPicksService.addPick(pickedColor, source = "photo_library")
+                            recentPicksService.addPick(pickedColor, source = "photo_library")
                         }
                     }
             ) {
@@ -237,10 +238,10 @@ fun PhotoPickScreen(
                         return@PaletteBar
                     }
 
-                    val saved = PaletteService.create(
+                    val saved = paletteService.create(
                         name = AppStrings.get(
                             R.string.palette_default_name,
-                            PaletteService.palettes.value.size + 1
+                            paletteService.palettes.value.size + 1
                         ),
                         tags = listOf(
                             AppStrings.get(R.string.palette_tag_photo),
@@ -249,7 +250,7 @@ fun PhotoPickScreen(
                         colors = palette,
                         creationSource = "photo_library"
                     )
-                    ColorServices.selectedPalette = saved
+                    paletteSelectionStore.select(saved)
                     palette.clear()
                     snackbarService.showMessage(AppStrings.get(R.string.photo_palette_saved))
                     onOpenPalette(saved.id, true)
@@ -295,4 +296,7 @@ private fun sampleBitmapAtTapFit(
 
     return bmp.getPixel(bx, by)
 }
+
+
+
 

@@ -47,9 +47,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.app.LocalColorDetailsService
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
-import com.primortex.color.service.ColorDetailsService
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,6 +62,7 @@ fun ColorDetailsBottomSheet(
 ) {
     val clipboard = LocalClipboard.current
     val context = LocalContext.current
+    val colorDetailsService = LocalColorDetailsService.current
     val scope = rememberCoroutineScope()
     val scroll = rememberScrollState()
     val sheetState = rememberModalBottomSheetState(
@@ -70,7 +71,7 @@ fun ColorDetailsBottomSheet(
 
 
     val details: ColorDetails = remember(picked.argb) {
-        ColorDetailsService.details(picked.argb, similarLimit = 10)
+        colorDetailsService.details(picked.argb, similarLimit = 10)
     }
 
     ModalBottomSheet(
@@ -241,4 +242,6 @@ private suspend fun copyToClipboard(
         ).toClipEntry()
     )
 }
+
+
 

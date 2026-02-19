@@ -69,12 +69,13 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
+import com.primortex.color.app.LocalColorService
+import com.primortex.color.app.LocalPaletteSelectionStore
+import com.primortex.color.app.LocalPaletteService
+import com.primortex.color.app.LocalRecentPicksService
+import com.primortex.color.app.LocalSettingsService
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
-import com.primortex.color.service.PaletteService
 import com.primortex.color.data.enums.PickerSensitivity
-import com.primortex.color.service.RecentPicksService
-import com.primortex.color.service.SettingsService
 import com.primortex.color.service.rgbDistSq
 import com.primortex.color.ui.LocalSnackbarService
 import com.primortex.color.ui.components.ActiveColorSheet
@@ -94,12 +95,13 @@ fun LiveCameraScreen(
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
+    val colorService = LocalColorService.current
+    val settingsService = LocalSettingsService.current
+    val recentPicksService = LocalRecentPicksService.current
+    val paletteService = LocalPaletteService.current
+    val paletteSelectionStore = LocalPaletteSelectionStore.current
 
     val lifecycleOwner = LocalLifecycleOwner.current
-    val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
-        ColorServices.colors
-    }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
 
     var hasCameraPerm by remember {
@@ -120,15 +122,15 @@ fun LiveCameraScreen(
     }
 
     var currentArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
-    val crosshairSize by SettingsService.crosshairSize.collectAsState()
-    val crosshairShape by SettingsService.crosshairShape.collectAsState()
-    val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
+    val crosshairSize by settingsService.crosshairSize.collectAsState()
+    val crosshairShape by settingsService.crosshairShape.collectAsState()
+    val pickerSensitivity by settingsService.pickerSensitivity.collectAsState()
     val pickedColor by remember {
         derivedStateOf {
             val argb = currentArgb
             PickedColor(
                 argb = argb,
-                name = colorNameService.localNameFromArgb(argb)
+                name = colorService.localNameFromArgb(argb)
             )
         }
     }
@@ -168,7 +170,7 @@ fun LiveCameraScreen(
         zoomRatio = info.zoomState.value?.zoomRatio ?: 1f
     }
 
-    val recents by RecentPicksService.history.collectAsState()
+    val recents by recentPicksService.history.collectAsState()
     val palette = remember { mutableStateListOf<PickedColor>() }
 
 
@@ -327,10 +329,10 @@ fun LiveCameraScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 14.dp),
             palette = palette,
-                onAddColor = {
-                    RecentPicksService.addPick(pickedColor, source = "live_camera")
-                    when {
-                        pickedColor in palette -> snackbarService.showMessage(
+            onAddColor = {
+                recentPicksService.addPick(pickedColor, source = "live_camera")
+                when {
+                    pickedColor in palette -> snackbarService.showMessage(
                         AppStrings.get(
                             R.string.palette_already_in_palette,
                             pickedColor.name
@@ -348,10 +350,10 @@ fun LiveCameraScreen(
                     snackbarService.showMessage(AppStrings.get(R.string.palette_empty_start_adding))
                     return@PaletteBar
                 }
-                val saved = PaletteService.create(
+                val saved = paletteService.create(
                     name = AppStrings.get(
                         R.string.palette_default_name,
-                        PaletteService.palettes.value.size + 1
+                        paletteService.palettes.value.size + 1
                     ),
                     tags = listOf(
                         AppStrings.get(R.string.palette_tag_camera),
@@ -360,7 +362,7 @@ fun LiveCameraScreen(
                     colors = palette,
                     creationSource = "live_camera"
                 )
-                ColorServices.selectedPalette = saved
+                paletteSelectionStore.select(saved)
                 palette.clear()
                 snackbarService.showMessage(AppStrings.get(R.string.palette_saved))
                 onOpenPalette(saved.id, true)
@@ -465,5 +467,8 @@ private fun bindCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+
+
+
 
 

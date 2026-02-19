@@ -38,7 +38,7 @@ import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
 import com.primortex.color.screens.CameraScreen
 import com.primortex.color.screens.ColorBlindEnhancerScreen
-import com.primortex.color.screens.ColorDetailsScreen
+import com.primortex.color.screens.ColorDetailsRoute
 import com.primortex.color.screens.ColorSliderScreen
 import com.primortex.color.screens.CrosshairSettingsScreen
 import com.primortex.color.screens.ExploreScreen
@@ -76,6 +76,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
 
     val showBottomBar = route.startsWith("tab/") || route.startsWith(Routes.Tool.SLIDER)
     val context = LocalContext.current
+    val paletteSelectionStore = LocalPaletteSelectionStore.current
     val activityName = remember(context) {
         context.findActivity()?.javaClass?.simpleName ?: "MainActivity"
     }
@@ -180,7 +181,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     PaletteScreen(
                         innerPadding = inner,
                         onOpenPalette = { palette ->
-                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            paletteSelectionStore.select(palette)
                             navigator.openPaletteDetail(palette.id)
                         },
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
@@ -266,23 +267,9 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         navArgument("argb") { type = NavType.IntType; defaultValue = 0 },
                         navArgument("name") { type = NavType.StringType; defaultValue = "" }
                     )
-                ) { backStackEntry ->
-                    val argb = backStackEntry.arguments?.getInt("argb") ?: 0
-                    val name = java.net.URLDecoder.decode(
-                        backStackEntry.arguments?.getString("name") ?: "",
-                        "UTF-8"
-                    )
-
-                    ColorDetailsScreen(
-                        argb = argb,
-                        nameHint = name,
+                ) {
+                    ColorDetailsRoute(
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick ->
-                            navigator.openColorDetail(
-                                pick.argb,
-                                pick.name
-                            )
-                        },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                     )
                 }
@@ -331,7 +318,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         innerPadding = inner,
                         onBack = { navigator.back() },
                         onOpenPalette = { palette ->
-                            com.primortex.color.service.ColorServices.selectedPalette = palette
+                            paletteSelectionStore.select(palette)
                             navigator.openPaletteDetail(palette.id)
                         }
                     )
@@ -451,5 +438,6 @@ private fun Context.findActivity(): Activity? {
     }
     return null
 }
+
 
 

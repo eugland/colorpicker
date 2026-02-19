@@ -25,10 +25,10 @@ import androidx.compose.ui.graphics.toArgb
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.app.LocalSettingsService
 import com.primortex.color.data.enums.CrosshairShape
 import com.primortex.color.data.enums.CrosshairSize
 import com.primortex.color.data.enums.PickerSensitivity
-import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
 
@@ -37,9 +37,10 @@ fun CrosshairSettingsScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
-    val crosshairSize by SettingsService.crosshairSize.collectAsState()
-    val crosshairShape by SettingsService.crosshairShape.collectAsState()
-    val pickerSensitivity by SettingsService.pickerSensitivity.collectAsState()
+    val settingsService = LocalSettingsService.current
+    val crosshairSize by settingsService.crosshairSize.collectAsState()
+    val crosshairShape by settingsService.crosshairShape.collectAsState()
+    val pickerSensitivity by settingsService.pickerSensitivity.collectAsState()
 
     ScreenScaffold(
         titleRes = R.string.picker_crosshair,
@@ -83,7 +84,7 @@ fun CrosshairSettingsScreen(
                 CrosshairSize.values().forEach { size ->
                     FilterChip(
                         selected = crosshairSize == size,
-                        onClick = { SettingsService.setCrosshairSize(size) },
+                        onClick = { settingsService.setCrosshairSize(size) },
                         label = { Text(stringResource(size.labelRes)) }
                     )
                 }
@@ -94,7 +95,7 @@ fun CrosshairSettingsScreen(
                 CrosshairShape.values().forEach { shape ->
                     FilterChip(
                         selected = crosshairShape == shape,
-                        onClick = { SettingsService.setCrosshairShape(shape) },
+                        onClick = { settingsService.setCrosshairShape(shape) },
                         label = { Text(stringResource(shape.labelRes)) },
                         leadingIcon = {
                             CrosshairIndicator(
@@ -118,7 +119,7 @@ fun CrosshairSettingsScreen(
                 PickerSensitivity.values().forEach { sensitivity ->
                     FilterChip(
                         selected = pickerSensitivity == sensitivity,
-                        onClick = { SettingsService.setPickerSensitivity(sensitivity) },
+                        onClick = { settingsService.setPickerSensitivity(sensitivity) },
                         label = { Text(stringResource(sensitivity.labelRes)) }
                     )
                 }

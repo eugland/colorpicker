@@ -40,7 +40,7 @@ import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import com.primortex.color.R
-import com.primortex.color.service.SettingsService
+import com.primortex.color.app.LocalSettingsService
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
 
@@ -61,11 +61,12 @@ fun ExploreScreen(
     onOpenUsage: () -> Unit
 ) {
     val context = LocalContext.current
-    val crosshairSize by SettingsService.crosshairSize.collectAsState()
-    val crosshairShape by SettingsService.crosshairShape.collectAsState()
-    val themeMode by SettingsService.themeMode.collectAsState()
-    val appLanguage by SettingsService.appLanguage.collectAsState()
-    val crosshairSensitivity by SettingsService.pickerSensitivity.collectAsState()
+    val settingsService = LocalSettingsService.current
+    val crosshairSize by settingsService.crosshairSize.collectAsState()
+    val crosshairShape by settingsService.crosshairShape.collectAsState()
+    val themeMode by settingsService.themeMode.collectAsState()
+    val appLanguage by settingsService.appLanguage.collectAsState()
+    val crosshairSensitivity by settingsService.pickerSensitivity.collectAsState()
 
     ScreenScaffold(R.string.explore, innerPadding) {
         Column(

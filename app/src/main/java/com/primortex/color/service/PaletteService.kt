@@ -1,4 +1,3 @@
-// com/primortex/color/service/PaletteService.kt
 package com.primortex.color.service
 
 import android.content.Context
@@ -10,6 +9,9 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -24,11 +26,14 @@ import java.util.UUID
 
 private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
 
-object PaletteService {
+@Singleton
+class PaletteService @Inject constructor(
+    @ApplicationContext context: Context
+) {
     private val KEY = stringPreferencesKey("palettes_json")
     private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private lateinit var appContext: Context
+    private val appContext = context.applicationContext
 
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val KEY_FIRST_PALETTE_LOGGED = booleanPreferencesKey("first_palette_logged_v1")
@@ -38,9 +43,7 @@ object PaletteService {
     val previewPalettes: StateFlow<List<Palette>> = _previewPalettes
     private var firstPaletteLogged = false
 
-    fun init(context: Context) {
-        if (::appContext.isInitialized) return
-        appContext = context.applicationContext
+    init {
         scope.launch {
             appContext.paletteDataStore.data
                 .map { prefs ->
@@ -54,7 +57,7 @@ object PaletteService {
                 .collect { (saved, seeded, prefs) ->
                     _palettes.value = saved
                     firstPaletteLogged = prefs[KEY_FIRST_PALETTE_LOGGED] == true
-                    if (!seeded) seedIfNeeded(prefs) // this writes once
+                    if (!seeded) seedIfNeeded(prefs)
                 }
         }
     }
@@ -96,14 +99,9 @@ object PaletteService {
             updatedAt = now
         )
 
-        _palettes.value = listOf(
-            uiNeutrals,
-            mutedNature,
-        )
+        _palettes.value = listOf(uiNeutrals, mutedNature)
 
-        val payload = runCatching {
-            json.encodeToString(_palettes.value)
-        }.getOrElse { "[]" }
+        val payload = runCatching { json.encodeToString(_palettes.value) }.getOrElse { "[]" }
 
         appContext.paletteDataStore.edit { p ->
             p[KEY] = payload

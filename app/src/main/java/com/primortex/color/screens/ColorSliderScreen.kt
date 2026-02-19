@@ -37,16 +37,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.platform.LocalContext
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
+import com.primortex.color.app.LocalColorService
+import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
@@ -61,18 +60,15 @@ fun ColorSliderScreen(
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
-    val context = LocalContext.current
     val clipboard = LocalClipboardManager.current
+    val colorService = LocalColorService.current
+    val recentPicksService = LocalRecentPicksService.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     var showColorDetails by remember { mutableStateOf(false) }
     var sliderMode by remember { mutableStateOf(SliderMode.RGB) }
-    val colorNameService = remember(context) {
-        ColorServices.ensure(context)
-        ColorServices.colors
-    }
 
-    val nearestName = remember(argb) { colorNameService.localNameFromArgb(argb) }
+    val nearestName = remember(argb) { colorService.localNameFromArgb(argb) }
     val picked = remember(argb, nearestName) { PickedColor(argb = argb, name = nearestName) }
     val hex = remember(argb) { argbToHex(argb) }
     val rgb = remember(argb) {
@@ -117,28 +113,28 @@ fun ColorSliderScreen(
                 AssistChip(
                     onClick = {
                         clipboard.setText(AnnotatedString(rgbText))
-                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                        recentPicksService.addPick(picked, source = "color_slider_copy")
                     },
                     label = { Text(rgbText) }
                 )
                 AssistChip(
                     onClick = {
                         clipboard.setText(AnnotatedString(cmykText))
-                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                        recentPicksService.addPick(picked, source = "color_slider_copy")
                     },
                     label = { Text(cmykText) }
                 )
                 AssistChip(
                     onClick = {
                         clipboard.setText(AnnotatedString(hslText))
-                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                        recentPicksService.addPick(picked, source = "color_slider_copy")
                     },
                     label = { Text(hslText) }
                 )
                 AssistChip(
                     onClick = {
                         clipboard.setText(AnnotatedString(hsvText))
-                        RecentPicksService.addPick(picked, source = "color_slider_copy")
+                        recentPicksService.addPick(picked, source = "color_slider_copy")
                     },
                     label = { Text(hsvText) }
                 )
@@ -436,3 +432,6 @@ private fun cmykToArgb(c: Int, m: Int, y: Int, k: Int): Int {
     val b = (255f * (1f - yf) * (1f - kf)).toInt()
     return toArgb(r, g, b)
 }
+
+
+

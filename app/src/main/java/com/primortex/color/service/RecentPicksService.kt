@@ -9,6 +9,9 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.PickedColor
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -19,19 +22,22 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
-private val Context.recentsDataStore by preferencesDataStore(
-    name = "recent_picks"
-)
+private val Context.recentsDataStore by preferencesDataStore(name = "recent_picks")
 
-object RecentPicksService {
+@Singleton
+class RecentPicksService @Inject constructor(
+    @ApplicationContext context: Context
+) {
+    private companion object {
+        const val MAX = 100
+    }
 
-    private const val MAX = 100
     private val KEY_HISTORY = stringPreferencesKey("history_json")
     private val KEY_SAVED = stringPreferencesKey("saved_json")
     private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
     private val KEY_FIRST_PICK_LOGGED = booleanPreferencesKey("first_pick_logged_v1")
     private val KEY_FIRST_SAVE_LOGGED = booleanPreferencesKey("first_saved_logged_v1")
-    private lateinit var appContext: Context
+    private val appContext = context.applicationContext
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val json = Json {
         ignoreUnknownKeys = true
@@ -44,14 +50,11 @@ object RecentPicksService {
     private var firstPickLogged = false
     private var firstSavedLogged = false
 
-    fun init(context: Context) {
-        if (::appContext.isInitialized) return
-        appContext = context.applicationContext
-
+    init {
         scope.launch {
             val prefs = appContext.recentsDataStore.data.first()
 
-            val saved = runCatching {
+            val savedHistory = runCatching {
                 prefs[KEY_HISTORY]?.let { json.decodeFromString<List<PickedColor>>(it) }
                     ?: emptyList()
             }.getOrDefault(emptyList())
@@ -63,10 +66,10 @@ object RecentPicksService {
 
             Log.d(
                 "RecentPicksService",
-                "Loaded ${saved.size} recents and ${savedColors.size} saved colors"
+                "Loaded ${savedHistory.size} recents and ${savedColors.size} saved colors"
             )
 
-            _history.value = saved.take(MAX)
+            _history.value = savedHistory.take(MAX)
             _saved.value = savedColors.take(MAX)
             firstPickLogged = prefs[KEY_FIRST_PICK_LOGGED] == true
             firstSavedLogged = prefs[KEY_FIRST_SAVE_LOGGED] == true
@@ -82,7 +85,6 @@ object RecentPicksService {
         val hasSaved = prefs[KEY_SAVED] != null
 
         val initHistory = listOf(
-            // Modern UI / Neutral
             PickedColor(0xFF0F172A.toInt(), "Slate 900"),
             PickedColor(0xFF475569.toInt(), "Slate 600"),
             PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
@@ -91,7 +93,6 @@ object RecentPicksService {
         )
 
         val initSaved = listOf(
-            // Muted Nature
             PickedColor(0xFF2F5D50.toInt(), "Forest"),
             PickedColor(0xFF7A9B76.toInt(), "Moss"),
             PickedColor(0xFFE6D5B8.toInt(), "Sand"),
@@ -119,7 +120,6 @@ object RecentPicksService {
         }
     }
 
-    // ---- public API ----
     fun addPick(pick: PickedColor, source: String = "unknown") {
         AnalyticsTracker.logColorPicked(pick, source)
         if (!firstPickLogged) {
@@ -133,7 +133,7 @@ object RecentPicksService {
         }
         _history.update { prev ->
             (listOf(pick) + prev)
-                .distinctBy { it.argb } // optional: dedupe by color
+                .distinctBy { it.argb }
                 .take(MAX)
         }
         persistHistory()
@@ -182,14 +182,10 @@ object RecentPicksService {
         if (exists) removeSaved(pick.argb) else addSaved(pick)
     }
 
-    // ---- persistence ----
     private fun persistHistory() {
         val snapshot = _history.value
         scope.launch {
-            val payload = runCatching {
-                json.encodeToString(snapshot)
-            }.getOrElse { "[]" }
-
+            val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
             appContext.recentsDataStore.edit { prefs ->
                 prefs[KEY_HISTORY] = payload
             }
@@ -199,9 +195,7 @@ object RecentPicksService {
     private fun persistSaved() {
         val snapshot = _saved.value
         scope.launch {
-            val payload = runCatching { json.encodeToString(snapshot) }
-                .getOrElse { "[]" }
-
+            val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
             appContext.recentsDataStore.edit { prefs ->
                 prefs[KEY_SAVED] = payload
             }

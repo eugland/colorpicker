@@ -65,18 +65,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.app.LocalColorService
+import com.primortex.color.app.LocalPaletteService
+import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorService
-import com.primortex.color.service.ColorServices
-import com.primortex.color.service.PaletteService
-import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
@@ -130,15 +129,13 @@ fun PaletteScreen(
     onOpenSavedPalettes: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
-    val ctx = LocalContext.current
-    val colorNameService = remember(ctx) {
-        ColorServices.ensure(ctx)
-        ColorServices.colors
-    }
+    val colorService = LocalColorService.current
+    val recentPicksService = LocalRecentPicksService.current
+    val paletteService = LocalPaletteService.current
 
-    val recents by RecentPicksService.history.collectAsState()
-    val savedColors by RecentPicksService.saved.collectAsState()
-    val savedPalettes by PaletteService.palettes.collectAsState()
+    val recents by recentPicksService.history.collectAsState()
+    val savedColors by recentPicksService.saved.collectAsState()
+    val savedPalettes by paletteService.palettes.collectAsState()
 
     var searchQuery by remember { mutableStateOf("") }
     var suggestions by remember { mutableStateOf<List<PickedColor>>(emptyList()) }
@@ -146,7 +143,7 @@ fun PaletteScreen(
         val q = searchQuery
         delay(120) // debounce typing
         suggestions = withContext(Dispatchers.Default) {
-            ColorQueryResolver.search(colorNameService, q, limit = 10)
+            ColorQueryResolver.search(colorService, q, limit = 10)
         }
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
@@ -168,7 +165,7 @@ fun PaletteScreen(
                     onQueryChange = { searchQuery = it },
                     onSubmit = {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
-                        RecentPicksService.addPick(
+                        recentPicksService.addPick(
                             PickedColor(argb = top.argb, name = top.name),
                             source = "palette_search"
                         )
@@ -199,7 +196,7 @@ fun PaletteScreen(
                             .fillMaxWidth()
                             .clickable {
                                 detailPick = s
-                                RecentPicksService.addPick(
+                                recentPicksService.addPick(
                                     PickedColor(
                                         argb = s.argb,
                                         name = s.name
@@ -359,7 +356,7 @@ fun PaletteScreen(
             title = stringResource(R.string.clear_saved_palettes_title),
             description = stringResource(R.string.clear_saved_palettes_description),
             onConfirm = {
-                PaletteService.clear()
+                paletteService.clear()
                 showClearPalettesDialog = false
             },
             onDismiss = { showClearPalettesDialog = false }
@@ -373,7 +370,8 @@ fun PaletteListScreen(
     onBack: () -> Unit,
     onOpenPalette: (Palette) -> Unit,
 ) {
-    val savedPalettes by PaletteService.palettes.collectAsState()
+    val paletteService = LocalPaletteService.current
+    val savedPalettes by paletteService.palettes.collectAsState()
     var query by remember { mutableStateOf("") }
     var menuExpanded by remember { mutableStateOf(false) }
     val filteredPalettes = remember(savedPalettes, query) {
@@ -412,7 +410,7 @@ fun PaletteListScreen(
                         text = { Text(stringResource(R.string.delete_all)) },
                         onClick = {
                             menuExpanded = false
-                            PaletteService.clear()
+                            paletteService.clear()
                         }
                     )
                 }
@@ -647,4 +645,7 @@ private fun PaletteCard(
         }
     }
 }
+
+
+
 

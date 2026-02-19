@@ -61,6 +61,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -68,10 +69,10 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.primortex.color.R
+import com.primortex.color.app.LocalPaletteSelectionStore
+import com.primortex.color.app.LocalPaletteService
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.ColorServices
-import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
 import com.primortex.color.ui.LocalSnackbarService
@@ -88,6 +89,8 @@ fun PaletteDetailScreen(
     onPaletteMissing: () -> Unit = onBack,
 ) {
     val clipboard = LocalClipboardManager.current
+    val paletteSelectionStore = LocalPaletteSelectionStore.current
+    val paletteService = LocalPaletteService.current
     val snackbarService = LocalSnackbarService.current
 
     val paletteLabel = stringResource(R.string.palette)
@@ -96,14 +99,14 @@ fun PaletteDetailScreen(
     val exportedCssMessage = stringResource(R.string.exported_css)
     val paletteMissingMessage = stringResource(R.string.palette_missing)
 
-    val palettes by PaletteService.palettes.collectAsState()
-    val previewPalettes by PaletteService.previewPalettes.collectAsState()
+    val palettes by paletteService.palettes.collectAsState()
+    val previewPalettes by paletteService.previewPalettes.collectAsState()
     val palette = palettes.firstOrNull { it.id == paletteId }
         ?: previewPalettes.firstOrNull { it.id == paletteId }
     val paletteSnapshot = palette
-        ?: ColorServices.selectedPalette?.takeIf { it.id == paletteId }
-    val paletteHash = paletteSnapshot?.let { PaletteService.paletteHash(it) }
-    val isSaved = paletteHash != null && palettes.any { PaletteService.paletteHash(it) == paletteHash }
+        ?: paletteSelectionStore.selected.value?.takeIf { it.id == paletteId }
+    val paletteHash = paletteSnapshot?.let { paletteService.paletteHash(it) }
+    val isSaved = paletteHash != null && palettes.any { paletteService.paletteHash(it) == paletteHash }
 
     var isEditing by rememberSaveable(paletteId) { mutableStateOf(startInEditMode) }
     var name by rememberSaveable(paletteId) { mutableStateOf(paletteSnapshot?.name.orEmpty()) }
@@ -192,7 +195,7 @@ fun PaletteDetailScreen(
                             val tags = tagsInput.split(',').mapNotNull { tag ->
                                 tag.trim().takeIf { it.isNotBlank() }
                             }
-                            PaletteService.update(
+                            paletteService.update(
                                 id = paletteSnapshot.id,
                                 name = name.ifBlank { paletteLabel },
                                 tags = tags,
@@ -203,7 +206,7 @@ fun PaletteDetailScreen(
                         }
                         isEditing = !isEditing
                     },
-                    onToggleFavorite = { PaletteService.toggleSaved(paletteSnapshot) },
+                    onToggleFavorite = { paletteService.toggleSaved(paletteSnapshot) },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(
@@ -225,7 +228,7 @@ fun PaletteDetailScreen(
                         snackbarService.showMessage(exportedCssMessage)
                     },
                     onDelete = {
-                        PaletteService.delete(paletteSnapshot.id)
+                        paletteService.delete(paletteSnapshot.id)
                         onBack()
                     },
                     onCancelEdit = {
@@ -689,4 +692,6 @@ private class DragReorderState(
         }
     }
 }
+
+
 
