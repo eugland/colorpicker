@@ -141,7 +141,7 @@ object SettingsService {
 
     private fun syncColorCatalogSelection(languageTag: String? = null) {
         scope.launch {
-            ColorServices.setCatalogSelection(null, languageTag)
+            ColorServices.setCatalogSelection(languageTag)
         }
     }
 
@@ -184,4 +184,3 @@ object SettingsService {
     }
 
 }
-

@@ -29,7 +29,6 @@ object ColorServices {
 
     @Synchronized
     fun setCatalogSelection(
-        @Suppress("UNUSED_PARAMETER") assetId: String?,
         languageTag: String? = null
     ) {
         languageOverrideTag = languageTag
