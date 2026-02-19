@@ -24,10 +24,6 @@ object AnalyticsTracker {
     @Volatile
     private var client: AnalyticsClient = FirebaseAnalyticsClient()
 
-    fun setClient(analyticsClient: AnalyticsClient) {
-        client = analyticsClient
-    }
-
     fun init(app: Application) {
         client.init(app)
     }

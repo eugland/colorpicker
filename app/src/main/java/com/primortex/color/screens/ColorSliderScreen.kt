@@ -41,7 +41,6 @@ import androidx.compose.ui.platform.LocalContext
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
@@ -322,12 +321,6 @@ fun ColorSliderScreen(
     }
 }
 
-@Preview
-@Composable
-private fun previewPreviewCard() {
-    ColorPreviewCard("Blue-violet", "#883AED", 0xFF7C3AED.toInt()) {}
-}
-
 @Composable
 private fun ColorPreviewCard(
     name: String,
@@ -443,4 +436,3 @@ private fun cmykToArgb(c: Int, m: Int, y: Int, k: Int): Int {
     val b = (255f * (1f - yf) * (1f - kf)).toInt()
     return toArgb(r, g, b)
 }
-

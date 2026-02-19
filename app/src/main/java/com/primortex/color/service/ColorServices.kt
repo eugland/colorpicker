@@ -38,14 +38,6 @@ object ColorServices {
         }
     }
 
-    @Synchronized
-    fun reloadCatalog(languageTag: String? = null) {
-        languageOverrideTag = languageTag
-        if (::colorService.isInitialized) {
-            colorService.setColors(loadSelectedColors(appContext))
-        }
-    }
-
     val colors: ColorService
         get() {
             check(::colorService.isInitialized) { "ColorServices.init must be called first" }

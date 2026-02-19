@@ -11,7 +11,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.primortex.color.data.enums.CrosshairShape
@@ -90,14 +89,3 @@ private fun CrosshairSize.toDp(): Dp = when (this) {
     CrosshairSize.Medium -> 30.dp
     CrosshairSize.Large -> 38.dp
 }
-
-@Preview
-@Composable
-private fun CrosshairPreview() {
-    CrosshairIndicator(
-        argb = 0xFF5E81AC.toInt(),
-        size = CrosshairSize.Medium,
-        shape = CrosshairShape.Cross
-    )
-}
-

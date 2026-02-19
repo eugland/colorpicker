@@ -2,13 +2,6 @@ package com.primortex.color.ui.util
 
 import android.graphics.ImageFormat
 import androidx.camera.core.ImageProxy
-import com.primortex.color.service.argbToRgb
-
-fun argbToRgbString(argb: Int): String {
-    val rgb = argbToRgb(argb)
-    return "RGB(${rgb.r}, ${rgb.g}, ${rgb.b})"
-}
-
 
 fun sampleCenterArgb(image: ImageProxy): Int? {
     if (image.format != ImageFormat.YUV_420_888) return null

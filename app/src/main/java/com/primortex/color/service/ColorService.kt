@@ -1,7 +1,5 @@
 package com.primortex.color.service
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import com.primortex.color.app.PickedColor
 import kotlinx.serialization.Serializable
 
@@ -20,11 +18,7 @@ class ColorService(
         dataset = ColorDataset.from(colors)
     }
 
-    fun nameFromHex(hex: String): String = nameFromArgb(hexToArgb(hex))
-
     fun nameFromArgb(argb: Int): String = dataset.nearestName(argb).name
-
-    fun nameFromColor(color: Color): String = nameFromArgb(color.toArgb())
 
     fun localNameFromArgb(argb: Int): String = nameFromArgb(argb)
 
