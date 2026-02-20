@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.swatchlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,16 +21,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,52 +38,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.app.LocalRecentPicksService
-import com.primortex.color.app.PickedColor
 import com.primortex.color.data.enums.SwatchListType
+import com.primortex.color.i18n.stringResource
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ScreenScaffold
 
 @Composable
 fun SwatchListScreen(
+    uiState: SwatchListUiState,
     innerPadding: PaddingValues,
-    type: SwatchListType,
     onBack: () -> Unit,
-    onOpenColorDetail: (PickedColor) -> Unit,
+    onAction: (SwatchListUiAction) -> Unit
 ) {
-    val titleRes = when (type) {
+    val titleRes = when (uiState.type) {
         SwatchListType.RECENT -> R.string.recent_colors
         SwatchListType.SAVED -> R.string.saved_colors
     }
-    val recentPicksService = LocalRecentPicksService.current
-    val picks by when (type) {
-        SwatchListType.RECENT -> recentPicksService.history.collectAsState()
-        SwatchListType.SAVED -> recentPicksService.saved.collectAsState()
-    }
-
-    var query by remember { mutableStateOf("") }
     var menuExpanded by remember { mutableStateOf(false) }
-    val filtered = remember(picks, query) {
-        val lowered = query.trim().lowercase()
-        if (lowered.isBlank()) {
-            picks
-        } else {
-            picks.filter {
-                it.name.lowercase().contains(lowered) ||
-                        argbToHex(it.argb).lowercase().contains(lowered)
-            }
-        }
-    }
-    val clearAll: () -> Unit = {
-        when (type) {
-            SwatchListType.RECENT -> recentPicksService.clear()
-            SwatchListType.SAVED -> recentPicksService.clearSaved()
-        }
-    }
 
     ScreenScaffold(
         titleRes = titleRes,
@@ -94,7 +67,7 @@ fun SwatchListScreen(
             Box(Modifier.wrapContentSize(Alignment.TopEnd)) {
                 IconButton(
                     onClick = { menuExpanded = true },
-                    enabled = picks.isNotEmpty()
+                    enabled = uiState.picks.isNotEmpty()
                 ) {
                     Icon(
                         imageVector = Icons.Filled.MoreVert,
@@ -109,7 +82,7 @@ fun SwatchListScreen(
                         text = { Text(stringResource(R.string.delete_all)) },
                         onClick = {
                             menuExpanded = false
-                            clearAll()
+                            onAction(SwatchListUiAction.DeleteAll)
                         }
                     )
                 }
@@ -117,12 +90,12 @@ fun SwatchListScreen(
         }
     ) {
         OutlinedTextField(
-            value = query,
-            onValueChange = { query = it },
+            value = uiState.query,
+            onValueChange = { onAction(SwatchListUiAction.QueryChanged(it)) },
             leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
             trailingIcon = {
-                if (query.isNotBlank()) {
-                    IconButton(onClick = { query = "" }) {
+                if (uiState.query.isNotBlank()) {
+                    IconButton(onClick = { onAction(SwatchListUiAction.ClearQuery) }) {
                         Icon(
                             imageVector = Icons.Outlined.Clear,
                             contentDescription = stringResource(R.string.clear)
@@ -138,9 +111,9 @@ fun SwatchListScreen(
 
         Spacer(Modifier.height(12.dp))
 
-        if (filtered.isEmpty()) {
-            val emptyText = if (query.isBlank()) {
-                when (type) {
+        if (uiState.filtered.isEmpty()) {
+            val emptyText = if (uiState.query.isBlank()) {
+                when (uiState.type) {
                     SwatchListType.RECENT -> stringResource(R.string.no_recent_colors)
                     SwatchListType.SAVED -> stringResource(R.string.no_saved_colors)
                 }
@@ -157,14 +130,14 @@ fun SwatchListScreen(
                 contentPadding = PaddingValues(bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(filtered) { pick ->
+                items(uiState.filtered) { pick ->
                     val displayName = pick.name.ifBlank { argbToHex(pick.argb) }
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
                         color = MaterialTheme.colorScheme.surfaceVariant,
                         shape = MaterialTheme.shapes.large,
                         tonalElevation = 2.dp,
-                        onClick = { onOpenColorDetail(pick) }
+                        onClick = { onAction(SwatchListUiAction.OpenColorDetail(pick)) }
                     ) {
                         Row(
                             modifier = Modifier
@@ -215,5 +188,3 @@ fun SwatchListScreen(
         }
     }
 }
-
-

@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.camera
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -163,4 +163,5 @@ private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
         }
     }
 }
+
 

@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.colorblind
 
 import android.Manifest
 import android.content.Context
@@ -70,7 +70,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -78,6 +77,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.math.MathUtils
 import androidx.lifecycle.LifecycleOwner
 import com.primortex.color.R
+import com.primortex.color.i18n.stringResource
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -1053,4 +1053,5 @@ private fun bindEnhancerCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+
 

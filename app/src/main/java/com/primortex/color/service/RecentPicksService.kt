@@ -26,7 +26,8 @@ private val Context.recentsDataStore by preferencesDataStore(name = "recent_pick
 
 @Singleton
 class RecentPicksService @Inject constructor(
-    @ApplicationContext context: Context
+    @ApplicationContext context: Context,
+    private val analyticsTracker: AnalyticsTracker
 ) {
     private companion object {
         const val MAX = 100
@@ -121,9 +122,9 @@ class RecentPicksService @Inject constructor(
     }
 
     fun addPick(pick: PickedColor, source: String = "unknown") {
-        AnalyticsTracker.logColorPicked(pick, source)
+        analyticsTracker.logColorPicked(pick, source)
         if (!firstPickLogged) {
-            AnalyticsTracker.logFirstColorPick(pick)
+            analyticsTracker.logFirstColorPick(pick)
             firstPickLogged = true
             scope.launch {
                 appContext.recentsDataStore.edit { prefs ->
@@ -141,13 +142,13 @@ class RecentPicksService @Inject constructor(
 
     fun clear() {
         _history.value = emptyList()
-        AnalyticsTracker.logRecentsCleared()
+        analyticsTracker.logRecentsCleared()
         persistHistory()
     }
 
     fun clearSaved() {
         _saved.value = emptyList()
-        AnalyticsTracker.logSavedCleared()
+        analyticsTracker.logSavedCleared()
         persistSaved()
     }
 
@@ -157,9 +158,9 @@ class RecentPicksService @Inject constructor(
                 .distinctBy { it.argb }
                 .take(MAX)
         }
-        AnalyticsTracker.logColorSaved(pick, action = "saved")
+        analyticsTracker.logColorSaved(pick, action = "saved")
         if (!firstSavedLogged) {
-            AnalyticsTracker.logFirstColorSaved(pick)
+            analyticsTracker.logFirstColorSaved(pick)
             firstSavedLogged = true
             scope.launch {
                 appContext.recentsDataStore.edit { prefs ->
@@ -173,7 +174,7 @@ class RecentPicksService @Inject constructor(
     fun removeSaved(argb: Int) {
         val color = _saved.value.firstOrNull { it.argb == argb }
         _saved.update { prev -> prev.filterNot { it.argb == argb } }
-        color?.let { AnalyticsTracker.logColorSaved(it, action = "removed") }
+        color?.let { analyticsTracker.logColorSaved(it, action = "removed") }
         persistSaved()
     }
 
@@ -202,3 +203,4 @@ class RecentPicksService @Inject constructor(
         }
     }
 }
+

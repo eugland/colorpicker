@@ -10,7 +10,8 @@ import javax.inject.Singleton
  */
 @Singleton
 class ColorCatalogRepository @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val colorCatalogImportService: ColorCatalogImportService
 ) {
     @Volatile
     private var languageOverrideTag: String? = null
@@ -20,7 +21,7 @@ class ColorCatalogRepository @Inject constructor(
     }
 
     fun loadSelectedColors(): List<ColorSeed> {
-        return ColorCatalogImportService.loadLocaleSeeds(context, languageOverrideTag)
+        return colorCatalogImportService.loadLocaleSeeds(context, languageOverrideTag)
     }
 }
 
@@ -38,3 +39,4 @@ class ColorCatalogCoordinator @Inject constructor(
         colorService.setColors(repository.loadSelectedColors())
     }
 }
+

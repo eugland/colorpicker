@@ -1,5 +1,5 @@
-// com/primortex/color/screens/PaletteScreen.kt
-package com.primortex.color.screens
+// com/primortex/color/features/palette/PaletteScreen.kt
+package com.primortex.color.features.palette
 
 import android.util.Log
 import androidx.compose.animation.AnimatedContent
@@ -69,26 +69,37 @@ import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import com.primortex.color.R
-import com.primortex.color.app.LocalColorService
-import com.primortex.color.app.LocalPaletteService
-import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorDetailsService
 import com.primortex.color.service.ColorService
+import com.primortex.color.service.PaletteSelectionStore
+import com.primortex.color.service.PaletteService
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
 import com.primortex.color.ui.components.WaterCard
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.withContext
 
 
 object ColorQueryResolver {
 
-    fun search(nameService: ColorService, query: String, limit: Int = 10): List<PickedColor> {
+    fun search(
+        query: String,
+        limit: Int = 10,
+        nearestName: (Int) -> String,
+        searchByName: (String, Int) -> List<PickedColor>
+    ): List<PickedColor> {
         val q = query.trim()
         if (q.isBlank()) return emptyList()
 
@@ -96,7 +107,7 @@ object ColorQueryResolver {
         if (isHex(q)) {
             val rgb = q.removePrefix("#").toLong(16).toInt() and 0x00FFFFFF
             val argb = (0xFF shl 24) or rgb   // force alpha = 255
-            val nearest = nameService.localNameFromArgb(argb)
+            val nearest = nearestName(argb)
             Log.d("ColorSearch", "HEX pressed, top=${nearest} #${argb.toString(16)}")
             return listOf(
                 PickedColor(
@@ -108,13 +119,113 @@ object ColorQueryResolver {
         }
 
         // NAME -> name index search
-        return nameService.search(q, limit)
+        return searchByName(q, limit)
     }
 
     private fun isHex(input: String): Boolean {
         val s = input.removePrefix("#")
         return s.length in setOf(3, 6, 8) &&
                 s.all { it.isDigit() || it.lowercaseChar() in 'a'..'f' }
+    }
+}
+
+private const val TAG = "PaletteFlow"
+
+@Composable
+fun PaletteRoute(
+    innerPadding: PaddingValues,
+    onOpenPalette: (String) -> Unit,
+    onOpenLiveCameraPicker: () -> Unit,
+    onOpenRecentColors: () -> Unit,
+    onOpenSavedColors: () -> Unit,
+    onOpenSavedPalettes: () -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
+) {
+    val viewModel: PaletteViewModel = hiltViewModel()
+    PaletteScreen(
+        innerPadding = innerPadding,
+        onOpenPalette = { palette ->
+            viewModel.selectPalette(palette)
+            onOpenPalette(palette.id)
+        },
+        onOpenLiveCameraPicker = onOpenLiveCameraPicker,
+        onOpenRecentColors = onOpenRecentColors,
+        onOpenSavedColors = onOpenSavedColors,
+        onOpenSavedPalettes = onOpenSavedPalettes,
+        onOpenColorDetail = onOpenColorDetail
+    )
+}
+
+@Composable
+fun PaletteListRoute(
+    innerPadding: PaddingValues,
+    onBack: () -> Unit,
+    onOpenPalette: (String) -> Unit
+) {
+    val viewModel: PaletteListViewModel = hiltViewModel()
+    PaletteListScreen(
+        innerPadding = innerPadding,
+        onBack = onBack,
+        onOpenPalette = { palette ->
+            viewModel.selectPalette(palette)
+            onOpenPalette(palette.id)
+        }
+    )
+}
+
+@HiltViewModel
+class PaletteViewModel @Inject constructor(
+    private val colorService: ColorService,
+    private val paletteService: PaletteService,
+    private val recentPicksService: RecentPicksService,
+    val colorDetailsService: ColorDetailsService,
+    private val paletteSelectionStore: PaletteSelectionStore
+) : ViewModel() {
+    val recents: StateFlow<List<PickedColor>> = recentPicksService.history
+    val savedColors: StateFlow<List<PickedColor>> = recentPicksService.saved
+    val savedPalettes: StateFlow<List<Palette>> = paletteService.palettes
+
+    fun selectPalette(palette: Palette) {
+        Log.d(TAG, "selectPalette source=palette_tab id=${palette.id} name=${palette.name}")
+        paletteSelectionStore.select(palette)
+    }
+
+    suspend fun searchSuggestions(query: String, limit: Int = 10): List<PickedColor> {
+        return withContext(Dispatchers.Default) {
+            ColorQueryResolver.search(
+                query = query,
+                limit = limit,
+                nearestName = colorService::localNameFromArgb,
+                searchByName = colorService::search
+            )
+        }
+    }
+
+    fun addSearchPick(pick: PickedColor) {
+        recentPicksService.addPick(pick, source = "palette_search")
+    }
+
+    fun detailsFor(argb: Int) = colorDetailsService.details(argb, similarLimit = 10)
+
+    fun clearPalettes() {
+        paletteService.clear()
+    }
+}
+
+@HiltViewModel
+class PaletteListViewModel @Inject constructor(
+    private val paletteService: PaletteService,
+    private val paletteSelectionStore: PaletteSelectionStore
+) : ViewModel() {
+    val savedPalettes: StateFlow<List<Palette>> = paletteService.palettes
+
+    fun selectPalette(palette: Palette) {
+        Log.d(TAG, "selectPalette source=palette_list id=${palette.id} name=${palette.name}")
+        paletteSelectionStore.select(palette)
+    }
+
+    fun clearPalettes() {
+        paletteService.clear()
     }
 }
 
@@ -129,22 +240,17 @@ fun PaletteScreen(
     onOpenSavedPalettes: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
-    val colorService = LocalColorService.current
-    val recentPicksService = LocalRecentPicksService.current
-    val paletteService = LocalPaletteService.current
-
-    val recents by recentPicksService.history.collectAsState()
-    val savedColors by recentPicksService.saved.collectAsState()
-    val savedPalettes by paletteService.palettes.collectAsState()
+    val viewModel: PaletteViewModel = hiltViewModel()
+    val recents by viewModel.recents.collectAsState()
+    val savedColors by viewModel.savedColors.collectAsState()
+    val savedPalettes by viewModel.savedPalettes.collectAsState()
 
     var searchQuery by remember { mutableStateOf("") }
     var suggestions by remember { mutableStateOf<List<PickedColor>>(emptyList()) }
     LaunchedEffect(searchQuery) {
         val q = searchQuery
         delay(120) // debounce typing
-        suggestions = withContext(Dispatchers.Default) {
-            ColorQueryResolver.search(colorService, q, limit = 10)
-        }
+        suggestions = viewModel.searchSuggestions(q, limit = 10)
     }
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
     var showClearPalettesDialog by remember { mutableStateOf(false) }
@@ -165,10 +271,7 @@ fun PaletteScreen(
                     onQueryChange = { searchQuery = it },
                     onSubmit = {
                         val top = suggestions.firstOrNull() ?: return@ColorSearchBar
-                        recentPicksService.addPick(
-                            PickedColor(argb = top.argb, name = top.name),
-                            source = "palette_search"
-                        )
+                        viewModel.addSearchPick(PickedColor(argb = top.argb, name = top.name))
                         searchQuery = ""
                     },
                     onClear = { searchQuery = "" },
@@ -196,13 +299,7 @@ fun PaletteScreen(
                             .fillMaxWidth()
                             .clickable {
                                 detailPick = s
-                                recentPicksService.addPick(
-                                    PickedColor(
-                                        argb = s.argb,
-                                        name = s.name
-                                    ),
-                                    source = "palette_search"
-                                )
+                                viewModel.addSearchPick(PickedColor(argb = s.argb, name = s.name))
                                 searchQuery = ""
                             }
                             .padding(vertical = 8.dp),
@@ -345,6 +442,7 @@ fun PaletteScreen(
 
     detailPick?.let { picked ->
         ColorDetailsBottomSheet(
+            detailsFor = viewModel::detailsFor,
             picked = picked,
             onDismiss = { detailPick = null },
             onOpenColorDetail = onOpenColorDetail,
@@ -356,7 +454,7 @@ fun PaletteScreen(
             title = stringResource(R.string.clear_saved_palettes_title),
             description = stringResource(R.string.clear_saved_palettes_description),
             onConfirm = {
-                paletteService.clear()
+                viewModel.clearPalettes()
                 showClearPalettesDialog = false
             },
             onDismiss = { showClearPalettesDialog = false }
@@ -370,8 +468,8 @@ fun PaletteListScreen(
     onBack: () -> Unit,
     onOpenPalette: (Palette) -> Unit,
 ) {
-    val paletteService = LocalPaletteService.current
-    val savedPalettes by paletteService.palettes.collectAsState()
+    val viewModel: PaletteListViewModel = hiltViewModel()
+    val savedPalettes by viewModel.savedPalettes.collectAsState()
     var query by remember { mutableStateOf("") }
     var menuExpanded by remember { mutableStateOf(false) }
     val filteredPalettes = remember(savedPalettes, query) {
@@ -410,7 +508,7 @@ fun PaletteListScreen(
                         text = { Text(stringResource(R.string.delete_all)) },
                         onClick = {
                             menuExpanded = false
-                            paletteService.clear()
+                            viewModel.clearPalettes()
                         }
                     )
                 }
@@ -645,6 +743,7 @@ private fun PaletteCard(
         }
     }
 }
+
 
 
 

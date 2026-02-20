@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.colorslider
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -42,16 +42,43 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import com.primortex.color.R
-import com.primortex.color.app.LocalColorService
-import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.ColorService
+import com.primortex.color.service.RecentPicksService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import android.graphics.Color as AndroidColor
 
 private enum class SliderMode { RGB, HSL, HSV, CMYK }
+
+@Composable
+fun ColorSliderRoute(
+    innerPadding: PaddingValues,
+    onBack: () -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
+) {
+    ColorSliderScreen(
+        innerPadding = innerPadding,
+        onBack = onBack,
+        onOpenColorDetail = onOpenColorDetail
+    )
+}
+
+@HiltViewModel
+class ColorSliderViewModel @Inject constructor(
+    val recentPicksService: RecentPicksService,
+    val colorService: ColorService,
+    val colorDetailsService: ColorDetailsService
+) : ViewModel() {
+    fun detailsFor(argb: Int) = colorDetailsService.details(argb, similarLimit = 10)
+}
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -60,9 +87,10 @@ fun ColorSliderScreen(
     onBack: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
+    val viewModel: ColorSliderViewModel = hiltViewModel()
+    val recentPicksService = viewModel.recentPicksService
+    val colorService = viewModel.colorService
     val clipboard = LocalClipboardManager.current
-    val colorService = LocalColorService.current
-    val recentPicksService = LocalRecentPicksService.current
 
     var argb by remember { mutableIntStateOf(0xFF7C3AED.toInt()) }
     var showColorDetails by remember { mutableStateOf(false) }
@@ -310,6 +338,7 @@ fun ColorSliderScreen(
 
     if (showColorDetails) {
         ColorDetailsBottomSheet(
+            detailsFor = viewModel::detailsFor,
             picked = picked,
             onDismiss = { showColorDetails = false },
             onOpenColorDetail = onOpenColorDetail
@@ -432,6 +461,7 @@ private fun cmykToArgb(c: Int, m: Int, y: Int, k: Int): Int {
     val b = (255f * (1f - yf) * (1f - kf)).toInt()
     return toArgb(r, g, b)
 }
+
 
 
 

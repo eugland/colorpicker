@@ -28,7 +28,8 @@ private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
 
 @Singleton
 class PaletteService @Inject constructor(
-    @ApplicationContext context: Context
+    @ApplicationContext context: Context,
+    private val analyticsTracker: AnalyticsTracker
 ) {
     private val KEY = stringPreferencesKey("palettes_json")
     private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
@@ -138,9 +139,9 @@ class PaletteService @Inject constructor(
         } else {
             _previewPalettes.update { listOf(p) + it }
         }
-        AnalyticsTracker.logPaletteCreated(p, creationSource)
+        analyticsTracker.logPaletteCreated(p, creationSource)
         if (saveOnCreate && !firstPaletteLogged) {
-            AnalyticsTracker.logFirstPaletteCreated(p)
+            analyticsTracker.logFirstPaletteCreated(p)
             firstPaletteLogged = true
             scope.launch {
                 appContext.paletteDataStore.edit { prefs ->
@@ -173,7 +174,7 @@ class PaletteService @Inject constructor(
             }
         }
         persist()
-        updatedPalette?.let { AnalyticsTracker.logPaletteUpdated(it) }
+        updatedPalette?.let { analyticsTracker.logPaletteUpdated(it) }
     }
 
     fun toggleSaved(palette: Palette) {
@@ -191,7 +192,7 @@ class PaletteService @Inject constructor(
     fun delete(id: String) {
         _palettes.update { it.filterNot { p -> p.id == id } }
         persist()
-        AnalyticsTracker.logPaletteDeleted(id)
+        analyticsTracker.logPaletteDeleted(id)
     }
 
     fun clear() {
@@ -219,3 +220,4 @@ class PaletteService @Inject constructor(
         return hashBytes.joinToString("") { "%02x".format(it) }
     }
 }
+

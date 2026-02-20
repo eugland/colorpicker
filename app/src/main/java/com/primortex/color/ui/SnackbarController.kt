@@ -1,14 +1,16 @@
 package com.primortex.color.ui
 
+import androidx.annotation.StringRes
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.staticCompositionLocalOf
+import com.primortex.color.i18n.AppStrings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-class SnackbarService(private val scope: CoroutineScope) {
+class SnackbarController(private val scope: CoroutineScope) {
     val hostState = SnackbarHostState()
 
     fun showMessage(message: String) {
@@ -17,14 +19,19 @@ class SnackbarService(private val scope: CoroutineScope) {
             hostState.showSnackbar(message)
         }
     }
+
+    fun showMessage(@StringRes messageRes: Int, vararg formatArgs: Any) {
+        showMessage(AppStrings.get(messageRes, *formatArgs))
+    }
 }
 
-val LocalSnackbarService = staticCompositionLocalOf<SnackbarService> {
-    error("SnackbarService not provided")
+val LocalSnackbarController = staticCompositionLocalOf<SnackbarController> {
+    error("SnackbarController not provided")
 }
 
 @Composable
-fun rememberSnackbarService(): SnackbarService {
+fun rememberSnackbarController(): SnackbarController {
     val scope = rememberCoroutineScope()
-    return remember(scope) { SnackbarService(scope) }
+    return remember(scope) { SnackbarController(scope) }
 }
+

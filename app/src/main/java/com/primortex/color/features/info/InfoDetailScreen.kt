@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.info
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.livecamera
 
 import android.Manifest
 import android.content.Context
@@ -67,24 +67,54 @@ import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModel
 import com.primortex.color.R
-import com.primortex.color.app.LocalColorService
-import com.primortex.color.app.LocalPaletteSelectionStore
-import com.primortex.color.app.LocalPaletteService
-import com.primortex.color.app.LocalRecentPicksService
-import com.primortex.color.app.LocalSettingsService
 import com.primortex.color.app.PickedColor
 import com.primortex.color.data.enums.PickerSensitivity
+import com.primortex.color.service.ColorDetailsService
+import com.primortex.color.service.ColorService
+import com.primortex.color.service.PaletteSelectionStore
+import com.primortex.color.service.PaletteService
+import com.primortex.color.service.RecentPicksService
+import com.primortex.color.service.SettingsService
 import com.primortex.color.service.rgbDistSq
-import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.ui.LocalSnackbarController
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.PaletteBar
 import com.primortex.color.ui.util.sampleCenterArgb
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+
+@Composable
+fun LiveCameraRoute(
+    onBack: () -> Unit,
+    onOpenPalette: (String, Boolean) -> Unit,
+    onOpenColorDetail: (PickedColor) -> Unit
+) {
+    LiveCameraScreen(
+        onBack = onBack,
+        onOpenPalette = onOpenPalette,
+        onOpenColorDetail = onOpenColorDetail
+    )
+}
+
+@HiltViewModel
+class LiveCameraViewModel @Inject constructor(
+    val settingsService: SettingsService,
+    val recentPicksService: RecentPicksService,
+    val paletteService: PaletteService,
+    val paletteSelectionStore: PaletteSelectionStore,
+    val colorService: ColorService,
+    val colorDetailsService: ColorDetailsService
+) : ViewModel() {
+    fun detailsFor(argb: Int) = colorDetailsService.details(argb, similarLimit = 10)
+}
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,12 +124,13 @@ fun LiveCameraScreen(
     onOpenPalette: (String, Boolean) -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
+    val viewModel: LiveCameraViewModel = hiltViewModel()
+    val settingsService = viewModel.settingsService
+    val recentPicksService = viewModel.recentPicksService
+    val paletteService = viewModel.paletteService
+    val paletteSelectionStore = viewModel.paletteSelectionStore
+    val colorService = viewModel.colorService
     val ctx = LocalContext.current
-    val colorService = LocalColorService.current
-    val settingsService = LocalSettingsService.current
-    val recentPicksService = LocalRecentPicksService.current
-    val paletteService = LocalPaletteService.current
-    val paletteSelectionStore = LocalPaletteSelectionStore.current
 
     val lifecycleOwner = LocalLifecycleOwner.current
     var detailPick by remember { mutableStateOf<PickedColor?>(null) }
@@ -142,7 +173,7 @@ fun LiveCameraScreen(
     val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 
-    val snackbarService = LocalSnackbarService.current
+    val snackbarController = LocalSnackbarController.current
     var frozen by remember { mutableStateOf(false) }
     var torchOn by remember { mutableStateOf(false) }
     var useFrontCamera by remember { mutableStateOf(false) }
@@ -332,14 +363,14 @@ fun LiveCameraScreen(
             onAddColor = {
                 recentPicksService.addPick(pickedColor, source = "live_camera")
                 when {
-                    pickedColor in palette -> snackbarService.showMessage(
+                    pickedColor in palette -> snackbarController.showMessage(
                         AppStrings.get(
                             R.string.palette_already_in_palette,
                             pickedColor.name
                         )
                     )
 
-                    palette.size >= 10 -> snackbarService.showMessage(AppStrings.get(R.string.palette_full_message))
+                    palette.size >= 10 -> snackbarController.showMessage(AppStrings.get(R.string.palette_full_message))
                     else -> {
                         palette.add(pickedColor)
                     }
@@ -347,7 +378,7 @@ fun LiveCameraScreen(
             },
             onAddPalette = {
                 if (palette.isEmpty()) {
-                    snackbarService.showMessage(AppStrings.get(R.string.palette_empty_start_adding))
+                    snackbarController.showMessage(AppStrings.get(R.string.palette_empty_start_adding))
                     return@PaletteBar
                 }
                 val saved = paletteService.create(
@@ -364,7 +395,7 @@ fun LiveCameraScreen(
                 )
                 paletteSelectionStore.select(saved)
                 palette.clear()
-                snackbarService.showMessage(AppStrings.get(R.string.palette_saved))
+                snackbarController.showMessage(AppStrings.get(R.string.palette_saved))
                 onOpenPalette(saved.id, true)
             },
             onClearPalette = { palette.clear() }
@@ -373,6 +404,7 @@ fun LiveCameraScreen(
 
     detailPick?.let { picked ->
         ColorDetailsBottomSheet(
+            detailsFor = viewModel::detailsFor,
             picked = picked,
             onDismiss = { detailPick = null },
             onOpenColorDetail = onOpenColorDetail
@@ -467,6 +499,7 @@ private fun bindCamera(
         }
     }, ContextCompat.getMainExecutor(context))
 }
+
 
 
 

@@ -1,11 +1,11 @@
 package com.primortex.color.analytics
 
-import android.app.Application
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import javax.inject.Inject
+import javax.inject.Singleton
 
 interface AnalyticsClient {
-    fun init(app: Application)
     fun logColorPicked(pick: PickedColor, source: String)
     fun logColorSaved(pick: PickedColor, action: String)
     fun logPaletteCreated(palette: Palette, source: String)
@@ -20,14 +20,10 @@ interface AnalyticsClient {
     fun logScreenView(screenName: String, screenClass: String)
 }
 
-object AnalyticsTracker {
-    @Volatile
-    private var client: AnalyticsClient = FirebaseAnalyticsClient()
-
-    fun init(app: Application) {
-        client.init(app)
-    }
-
+@Singleton
+class AnalyticsTracker @Inject constructor(
+    private val client: AnalyticsClient
+) {
     fun logColorPicked(pick: PickedColor, source: String) {
         client.logColorPicked(pick, source)
     }
@@ -76,3 +72,4 @@ object AnalyticsTracker {
         client.logScreenView(screenName, screenClass)
     }
 }
+

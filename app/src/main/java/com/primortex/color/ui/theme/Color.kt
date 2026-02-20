@@ -5,45 +5,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
 
-val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFFE5E5EA),       // iOS Label (dark)
-    onPrimary = Color(0xFF000000),
-
-    secondary = Color(0xFFAEAEB2),     // Secondary label
-    onSecondary = Color(0xFF000000),
-
-    tertiary = Color(0xFF8E8E93),
-
-    background = Color(0xFF000000),    // iOS system background dark
-    onBackground = Color(0xFFE5E5EA),
-
-    surface = Color(0xFF1C1C1E),       // iOS secondary system background
-    onSurface = Color(0xFFE5E5EA),
-
-    outline = Color(0xFF2C2C2E),       // iOS separator dark
-)
-
-
-val LightColorScheme = lightColorScheme(
-    // Primary text & key UI
-    primary = Color(0xFF1C1C1E),       // iOS "Label"
-    onPrimary = Color(0xFFFFFFFF),
-
-    secondary = Color(0xFF3A3A3C),     // iOS "Secondary Label"
-    onSecondary = Color(0xFFFFFFFF),
-
-    tertiary = Color(0xFF8E8E93),      // iOS "Tertiary Label / Separator"
-
-    // Backgrounds
-    background = Color(0xFFF2F2F7),    // iOS System Background (light)
-    onBackground = Color(0xFF1C1C1E),
-
-    surface = Color(0xFFFFFFFF),      // Card / sheet surface
-    onSurface = Color(0xFF1C1C1E),
-
-    outline = Color(0xFFD1D1D6),       // iOS Separator
-)
-
 val IOSLightColorScheme = lightColorScheme(
     primary = Color(0xFF1C1C1E),            // iOS Label
     onPrimary = Color(0xFFFFFFFF),
@@ -157,3 +118,4 @@ val IOSDarkColorScheme = darkColorScheme(
     surfaceContainerLow = Color(0xFF161618),
     surfaceContainerLowest = Color(0xFF0B0B0C),
 )
+

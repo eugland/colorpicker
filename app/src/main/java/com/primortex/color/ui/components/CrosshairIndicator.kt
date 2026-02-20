@@ -89,3 +89,4 @@ private fun CrosshairSize.toDp(): Dp = when (this) {
     CrosshairSize.Medium -> 30.dp
     CrosshairSize.Large -> 38.dp
 }
+

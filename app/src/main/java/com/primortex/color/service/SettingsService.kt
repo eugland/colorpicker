@@ -33,7 +33,8 @@ private val Context.settingsDataStore by preferencesDataStore(name = "settings")
 @Singleton
 class SettingsService @Inject constructor(
     @ApplicationContext context: Context,
-    private val colorCatalogCoordinator: ColorCatalogCoordinator
+    private val colorCatalogCoordinator: ColorCatalogCoordinator,
+    private val analyticsTracker: AnalyticsTracker
 ) {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
@@ -103,7 +104,7 @@ class SettingsService @Inject constructor(
             syncColorCatalogSelection(tagToCache)
 
             if (prefs[KEY_FIRST_USE_LOGGED] != true) {
-                AnalyticsTracker.logFirstUse()
+                analyticsTracker.logFirstUse()
                 appContext.settingsDataStore.edit { updated ->
                     updated[KEY_FIRST_USE_LOGGED] = true
                 }
@@ -184,3 +185,4 @@ class SettingsService @Inject constructor(
         }
     }
 }
+

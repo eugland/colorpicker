@@ -17,3 +17,4 @@ object ColorModule {
         return ColorService(repository.loadSelectedColors())
     }
 }
+

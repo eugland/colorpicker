@@ -25,3 +25,4 @@ class PaletteSelectionStore {
         _selected.value = null
     }
 }
+

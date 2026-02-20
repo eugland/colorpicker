@@ -58,3 +58,4 @@ object Routes {
         const val CROSSHAIR = "settings/crosshair"
     }
 }
+

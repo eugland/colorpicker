@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.themeselection
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,36 +9,31 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Language
+import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.app.LocalSettingsService
-import com.primortex.color.data.enums.AppLanguage
+import com.primortex.color.data.enums.ThemeMode
+import com.primortex.color.i18n.stringResource
 import com.primortex.color.ui.components.ScreenScaffold
-import com.primortex.color.i18n.stringResource as str
 
 @Composable
-fun LanguageSelectionScreen(
+fun ThemeSelectionScreen(
+    uiState: ThemeSelectionUiState,
     innerPadding: PaddingValues,
     onBack: () -> Unit,
-    onLanguageChanged: () -> Unit,
+    onAction: (ThemeSelectionUiAction) -> Unit
 ) {
-    val settingsService = LocalSettingsService.current
-    val selectedLanguage by settingsService.appLanguage.collectAsState()
     val listState = rememberLazyListState()
 
     ScreenScaffold(
-        titleRes = R.string.choose_language,
+        titleRes = R.string.choose_theme,
         innerPadding = innerPadding,
         onBack = onBack
     ) {
@@ -50,20 +45,19 @@ fun LanguageSelectionScreen(
         ) {
             item {
                 Text(
-                    stringResource(R.string.choose_language_description),
+                    stringResource(R.string.choose_theme_description),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
             }
 
-            items(AppLanguage.entries) { language ->
-                LanguageOption(
-                    language = language,
-                    selected = language == selectedLanguage,
+            items(ThemeMode.entries) { mode ->
+                ThemeOption(
+                    mode = mode,
+                    selected = mode == uiState.selectedTheme,
                     onSelect = {
-                        settingsService.setAppLanguage(language)
-                        onLanguageChanged()
+                        onAction(ThemeSelectionUiAction.SelectTheme(mode))
                     }
                 )
             }
@@ -72,8 +66,8 @@ fun LanguageSelectionScreen(
 }
 
 @Composable
-private fun LanguageOption(
-    language: AppLanguage,
+private fun ThemeOption(
+    mode: ThemeMode,
     selected: Boolean,
     onSelect: () -> Unit
 ) {
@@ -86,22 +80,22 @@ private fun LanguageOption(
         onClick = onSelect
     ) {
         ListItem(
-            headlineContent = { Text(str(language.labelRes)) },
+            headlineContent = { Text(stringResource(mode.labelRes)) },
             supportingContent = {
-                if (language == AppLanguage.SystemDefault) {
-                    Text(str(R.string.follows_your_device_language))
+                if (mode == ThemeMode.SYSTEM) {
+                    Text(stringResource(R.string.follows_your_system_theme))
                 }
             },
             leadingContent = {
                 Icon(
-                    imageVector = Icons.Outlined.Language,
+                    imageVector = Icons.Outlined.DarkMode,
                     contentDescription = null
                 )
             },
             trailingContent = {
                 if (selected) {
                     Text(
-                        str(R.string.selected_str),
+                        stringResource(R.string.selected_str),
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.labelLarge
                     )
@@ -111,5 +105,3 @@ private fun LanguageOption(
         )
     }
 }
-
-

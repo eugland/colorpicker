@@ -101,3 +101,4 @@ private data class ColorRecord(
     val argb: Int,
     val lab: Lab
 )
+

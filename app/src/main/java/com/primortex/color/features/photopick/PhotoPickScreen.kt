@@ -1,9 +1,7 @@
-// com/primortex/color/screens/PhotoPickScreen.kt
-package com.primortex.color.screens
+package com.primortex.color.features.photopick
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
@@ -30,12 +28,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -47,20 +41,14 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
-import com.primortex.color.i18n.AppStrings
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.primortex.color.R
-import com.primortex.color.app.LocalColorService
-import com.primortex.color.app.LocalPaletteSelectionStore
-import com.primortex.color.app.LocalPaletteService
-import com.primortex.color.app.LocalRecentPicksService
 import com.primortex.color.app.PickedColor
-import com.primortex.color.service.argbToHex
-import com.primortex.color.ui.LocalSnackbarService
+import com.primortex.color.i18n.stringResource
+import com.primortex.color.service.ColorDetails
 import com.primortex.color.ui.components.ActiveColorSheet
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.PaletteBar
@@ -69,35 +57,21 @@ import kotlin.math.roundToInt
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotoPickScreen(
+    uiState: PhotoPickUiState,
     photoUri: String,
     onBack: () -> Unit,
-    onOpenPalette: (String, Boolean) -> Unit,
+    onAction: (PhotoPickUiAction) -> Unit,
+    detailsFor: (Int) -> ColorDetails,
     onOpenColorDetail: (PickedColor) -> Unit
 ) {
     val ctx = LocalContext.current
-    val colorService = LocalColorService.current
-    val paletteService = LocalPaletteService.current
-    val recentPicksService = LocalRecentPicksService.current
-    val paletteSelectionStore = LocalPaletteSelectionStore.current
-    val snackbarService = LocalSnackbarService.current
-    var pickedArgb by remember { mutableIntStateOf(0xFF7B8266.toInt()) }
-    val pickedColor by remember {
-        derivedStateOf {
-            PickedColor(argb = pickedArgb, name = colorService.localNameFromArgb(pickedArgb))
-        }
-    }
-    argbToHex(pickedArgb)
     var containerWpx by remember { mutableFloatStateOf(0f) }
     var containerHpx by remember { mutableFloatStateOf(0f) }
-    val palette = remember { mutableStateListOf<PickedColor>() }
     val sheetState = rememberStandardBottomSheetState(
         initialValue = SheetValue.PartiallyExpanded,
         skipHiddenState = true
     )
     val scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = sheetState)
-    val recents by recentPicksService.history.collectAsState()
-    var detailPick by remember { mutableStateOf<PickedColor?>(null) }
-    var frozen by remember { mutableStateOf(false) }
     val painter = rememberAsyncImagePainter(
         ImageRequest.Builder(ctx)
             .data(photoUri)
@@ -114,11 +88,9 @@ fun PhotoPickScreen(
         sheetDragHandle = { BottomSheetDefaults.DragHandle() },
         sheetContent = {
             ActiveColorSheet(
-                picked = pickedColor,
-                recents = recents,
-                onTapPick = { pick ->
-                    detailPick = pick
-                },
+                picked = uiState.pickedColor,
+                recents = uiState.recents,
+                onTapPick = { pick -> onAction(PhotoPickUiAction.ShowDetails(pick)) }
             )
         },
         topBar = {
@@ -144,10 +116,10 @@ fun PhotoPickScreen(
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f)
                     )
-                    IconButton(onClick = { frozen = !frozen }) {
+                    IconButton(onClick = { onAction(PhotoPickUiAction.ToggleFreeze) }) {
                         Icon(
-                            imageVector = if (frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
-                            contentDescription = if (frozen) {
+                            imageVector = if (uiState.frozen) Icons.Outlined.PlayCircle else Icons.Outlined.PauseCircle,
+                            contentDescription = if (uiState.frozen) {
                                 stringResource(R.string.resume)
                             } else {
                                 stringResource(R.string.freeze)
@@ -155,7 +127,7 @@ fun PhotoPickScreen(
                         )
                     }
 
-                    IconButton(onClick = { detailPick = pickedColor }) {
+                    IconButton(onClick = { onAction(PhotoPickUiAction.ShowCurrentDetails) }) {
                         Icon(
                             imageVector = Icons.Outlined.Colorize,
                             contentDescription = stringResource(R.string.more_info)
@@ -178,13 +150,9 @@ fun PhotoPickScreen(
                         containerWpx = it.width.toFloat()
                         containerHpx = it.height.toFloat()
                     }
-                    .pointerInput(bitmap, containerWpx, containerHpx) {
+                    .pointerInput(bitmap, containerWpx, containerHpx, uiState.frozen) {
                         detectTapGestures { tap ->
-                            if (frozen) return@detectTapGestures
-                            Log.d(
-                                "PhotoPickScreen",
-                                "tap=$tap, bitmap=${painter.state}"
-                            )
+                            if (uiState.frozen) return@detectTapGestures
                             val bmp = bitmap ?: return@detectTapGestures
                             if (containerWpx <= 1f || containerHpx <= 1f) return@detectTapGestures
 
@@ -194,8 +162,7 @@ fun PhotoPickScreen(
                                 containerH = containerHpx,
                                 bmp = bmp
                             )
-                            sampled?.let { pickedArgb = it }
-                            recentPicksService.addPick(pickedColor, source = "photo_library")
+                            sampled?.let { onAction(PhotoPickUiAction.SampleColor(it)) }
                         }
                     }
             ) {
@@ -219,50 +186,18 @@ fun PhotoPickScreen(
                     .padding(bottom = 20.dp)
                     .fillMaxWidth()
                     .padding(horizontal = 14.dp),
-                palette = palette,
-                onAddColor = {
-                    when {
-                        pickedColor in palette -> snackbarService.showMessage(
-                            AppStrings.get(R.string.photo_already_in_palette, pickedColor.name)
-                        )
-
-                        palette.size >= 10 -> snackbarService.showMessage(AppStrings.get(R.string.photo_palette_full_message))
-                        else -> {
-                            palette.add(pickedColor)
-                        }
-                    }
-                },
-                onAddPalette = {
-                    if (palette.isEmpty()) {
-                        snackbarService.showMessage(AppStrings.get(R.string.photo_palette_empty))
-                        return@PaletteBar
-                    }
-
-                    val saved = paletteService.create(
-                        name = AppStrings.get(
-                            R.string.palette_default_name,
-                            paletteService.palettes.value.size + 1
-                        ),
-                        tags = listOf(
-                            AppStrings.get(R.string.palette_tag_photo),
-                            AppStrings.get(R.string.palette_tag_pick)
-                        ),
-                        colors = palette,
-                        creationSource = "photo_library"
-                    )
-                    paletteSelectionStore.select(saved)
-                    palette.clear()
-                    snackbarService.showMessage(AppStrings.get(R.string.photo_palette_saved))
-                    onOpenPalette(saved.id, true)
-                }
+                palette = uiState.palette,
+                onAddColor = { onAction(PhotoPickUiAction.AddCurrentToPalette) },
+                onAddPalette = { onAction(PhotoPickUiAction.SavePalette) }
             )
         }
     }
 
-    detailPick?.let { picked ->
+    uiState.detailPick?.let { picked ->
         ColorDetailsBottomSheet(
+            detailsFor = detailsFor,
             picked = picked,
-            onDismiss = { detailPick = null },
+            onDismiss = { onAction(PhotoPickUiAction.DismissDetails) },
             onOpenColorDetail = onOpenColorDetail
         )
     }
@@ -288,7 +223,6 @@ private fun sampleBitmapAtTapFit(
     val xIn = tap.x - offsetX
     val yIn = tap.y - offsetY
 
-    // tap outside the drawn image area
     if (xIn < 0f || yIn < 0f || xIn > drawW || yIn > drawH) return null
 
     val bx = (xIn / fitScale).roundToInt().coerceIn(0, bmp.width - 1)
@@ -296,7 +230,3 @@ private fun sampleBitmapAtTapFit(
 
     return bmp.getPixel(bx, by)
 }
-
-
-
-

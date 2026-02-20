@@ -1,4 +1,4 @@
-package com.primortex.color.screens
+package com.primortex.color.features.crosshair
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,22 +22,43 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
-import com.primortex.color.app.LocalSettingsService
 import com.primortex.color.data.enums.CrosshairShape
 import com.primortex.color.data.enums.CrosshairSize
 import com.primortex.color.data.enums.PickerSensitivity
+import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@Composable
+fun CrosshairSettingsRoute(
+    innerPadding: PaddingValues,
+    onBack: () -> Unit
+) {
+    CrosshairSettingsScreen(
+        innerPadding = innerPadding,
+        onBack = onBack
+    )
+}
+
+@HiltViewModel
+class CrosshairSettingsViewModel @Inject constructor(
+    val settingsService: SettingsService
+) : ViewModel()
 
 @Composable
 fun CrosshairSettingsScreen(
     innerPadding: PaddingValues,
     onBack: () -> Unit
 ) {
-    val settingsService = LocalSettingsService.current
+    val viewModel: CrosshairSettingsViewModel = hiltViewModel()
+    val settingsService = viewModel.settingsService
     val crosshairSize by settingsService.crosshairSize.collectAsState()
     val crosshairShape by settingsService.crosshairShape.collectAsState()
     val pickerSensitivity by settingsService.pickerSensitivity.collectAsState()
@@ -139,5 +160,6 @@ private fun SectionHeader(title: String) {
         HorizontalDivider()
     }
 }
+
 
 
