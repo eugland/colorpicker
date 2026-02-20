@@ -25,10 +25,10 @@ import com.primortex.color.ui.components.ScreenScaffold
 
 @Composable
 fun ThemeSelectionScreen(
-    uiState: ThemeSelectionUiState,
+    selectedTheme: ThemeMode,
     innerPadding: PaddingValues,
     onBack: () -> Unit,
-    onAction: (ThemeSelectionUiAction) -> Unit
+    onSelectTheme: (ThemeMode) -> Unit
 ) {
     val listState = rememberLazyListState()
 
@@ -55,9 +55,9 @@ fun ThemeSelectionScreen(
             items(ThemeMode.entries) { mode ->
                 ThemeOption(
                     mode = mode,
-                    selected = mode == uiState.selectedTheme,
+                    selected = mode == selectedTheme,
                     onSelect = {
-                        onAction(ThemeSelectionUiAction.SelectTheme(mode))
+                        onSelectTheme(mode)
                     }
                 )
             }

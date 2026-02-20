@@ -11,6 +11,7 @@
     <string name="saved">محفوظ ہو گیا</string>
     <string name="delete">حذف کریں</string>
 
+    <string name="more_options">مزید اختیارات</string>
     <string name="palette">پیلیٹ</string>
     <string name="camera">کیمرہ</string>
     <string name="explore">دریافت کریں</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">ایکس رے امیجنگ موڈ</string>
     <string name="animate_mode">اینیمیٹڈ اسٹائل موڈ</string>
     <string name="cyber_mode">سائبر اسٹائل موڈ</string>
+    <string name="intrinsic_mode">انٹرنسک (ML) موڈ</string>
     <string name="mode_normal">معمول</string>
     <string name="filter_grid_title">فلٹر منتخب کریں</string>
     <string name="choose_theme">تھیم منتخب کریں</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">سروس کی شرائط</string>
     <string name="share_app">ایپ شیئر کریں</string>
     <string name="share_app_description">Play Store کا لنک دوستوں کو بھیجیں۔</string>
+    <string name="delete_all">سب حذف کریں</string>
+    <string name="color_catalogs">رنگ کے نام کا پیک</string>
+    <string name="color_catalogs_description">آپ کی ایپ کی زبان ڈیفالٹ رنگ نام پیک منتخب کرتی ہے۔ آپ ایک وقت میں صرف ایک پیک منتخب کر سکتے ہیں۔</string>
+    <string name="color_catalogs_none_found">ایپ وسائل میں کوئی رنگ نام پیک نہیں ملا۔</string>
+    <string name="color_catalogs_summary">فعال رنگ نام پیک منتخب کریں۔</string>
 </resources>

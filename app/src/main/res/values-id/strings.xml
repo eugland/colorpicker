@@ -11,6 +11,7 @@
     <string name="saved">Tersimpan</string>
     <string name="delete">Hapus</string>
 
+    <string name="more_options">Opsi lainnya</string>
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
     <string name="explore">Jelajahi</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Mode pencitraan sinar-X</string>
     <string name="animate_mode">Mode gaya animasi</string>
     <string name="cyber_mode">Mode gaya siber</string>
+    <string name="intrinsic_mode">Mode intrinsik (ML)</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Pilih filter</string>
     <string name="choose_theme">Pilih tema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Ketentuan layanan</string>
     <string name="share_app">Bagikan aplikasi</string>
     <string name="share_app_description">Kirim tautan Play Store ke teman.</string>
+    <string name="delete_all">Hapus semua</string>
+    <string name="color_catalogs">Paket nama warna</string>
+    <string name="color_catalogs_description">Bahasa aplikasi Anda memilih paket nama warna default. Anda dapat memilih satu paket setiap kali.</string>
+    <string name="color_catalogs_none_found">Tidak ditemukan paket nama warna di aset aplikasi.</string>
+    <string name="color_catalogs_summary">Pilih paket nama warna yang aktif.</string>
 </resources>

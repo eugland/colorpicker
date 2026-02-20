@@ -11,6 +11,7 @@
     <string name="saved">Sparat</string>
     <string name="delete">Ta bort</string>
 
+    <string name="more_options">Fler alternativ</string>
     <string name="palette">Palett</string>
     <string name="camera">Kamera</string>
     <string name="explore">Utforska</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Röntgenbildläge</string>
     <string name="animate_mode">Animerat stil-läge</string>
     <string name="cyber_mode">Cyberstil-läge</string>
+    <string name="intrinsic_mode">Inbyggt (ML) läge</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Välj filter</string>
     <string name="choose_theme">Välj tema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Användarvillkor</string>
     <string name="share_app">Dela app</string>
     <string name="share_app_description">Skicka Play Store-länken till vänner.</string>
+    <string name="delete_all">Ta bort alla</string>
+    <string name="color_catalogs">Färgnamnspaket</string>
+    <string name="color_catalogs_description">Appens språk väljer standardpaketet med färgnamn. Du kan välja ett paket åt gången.</string>
+    <string name="color_catalogs_none_found">Inga färgnamnspaket hittades i appens resurser.</string>
+    <string name="color_catalogs_summary">Välj det aktiva färgnamnspaketet.</string>
 </resources>

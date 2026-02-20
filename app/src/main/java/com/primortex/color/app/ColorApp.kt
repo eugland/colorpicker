@@ -51,6 +51,7 @@ import com.primortex.color.features.swatchlist.SwatchListRoute
 import com.primortex.color.features.themeselection.ThemeSelectionRoute
 import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
+import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.LocalSnackbarController
 import com.primortex.color.ui.rememberSnackbarController
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -59,6 +60,7 @@ import kotlinx.coroutines.flow.map
 @SuppressLint("NewApi")
 @Composable
 fun ColorApp(
+    settingsService: SettingsService,
     onLanguageChanged: () -> Unit = {},
     onScreenViewed: (String, String) -> Unit
 ) {
@@ -380,6 +382,7 @@ fun ColorApp(
                 composable(Routes.Settings.THEME) {
                     ThemeSelectionRoute(
                         innerPadding = inner,
+                        settingsService = settingsService,
                         onBack = { navigator.back() }
                     )
                 }
@@ -387,6 +390,7 @@ fun ColorApp(
                 composable(Routes.Settings.CROSSHAIR) {
                     CrosshairSettingsRoute(
                         innerPadding = inner,
+                        settingsService = settingsService,
                         onBack = { navigator.back() }
                     )
                 }

@@ -11,6 +11,7 @@
     <string name="saved">Tallennettu</string>
     <string name="delete">Poista</string>
 
+    <string name="more_options">Lisää vaihtoehtoja</string>
     <string name="palette">Paletti</string>
     <string name="camera">Kamera</string>
     <string name="explore">Selaa</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Röntgenkuvaustila</string>
     <string name="animate_mode">Animoitu tyyli</string>
     <string name="cyber_mode">Kybertyyli</string>
+    <string name="intrinsic_mode">Sisäinen (ML)-tila</string>
     <string name="mode_normal">Normaali</string>
     <string name="filter_grid_title">Valitse suodatin</string>
     <string name="choose_theme">Valitse teema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Käyttöehdot</string>
     <string name="share_app">Jaa sovellus</string>
     <string name="share_app_description">Lähetä Play Kaupan linkki ystäville.</string>
+    <string name="delete_all">Poista kaikki</string>
+    <string name="color_catalogs">Värinimipaketti</string>
+    <string name="color_catalogs_description">Sovelluksen kieli valitsee oletusvärinimipaketin. Voit valita vain yhden paketin kerrallaan.</string>
+    <string name="color_catalogs_none_found">Sovelluksen resursseista ei löytynyt värinimipaketteja.</string>
+    <string name="color_catalogs_summary">Valitse aktiivinen värinimipaketti.</string>
 </resources>

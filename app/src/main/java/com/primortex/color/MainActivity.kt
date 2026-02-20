@@ -68,6 +68,7 @@ class MainActivity : ComponentActivity() {
             ColorTheme(darkTheme = darkTheme) {
                 AnimatedSplashHost(showContent = startupReady) {
                     ColorApp(
+                        settingsService = settingsService,
                         onLanguageChanged = ::recreate,
                         onScreenViewed = { screenName, screenClass ->
                             analyticsTracker.logScreenView(screenName, screenClass)

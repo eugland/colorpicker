@@ -17,13 +17,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
@@ -33,35 +31,29 @@ import com.primortex.color.data.enums.PickerSensitivity
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.components.CrosshairIndicator
 import com.primortex.color.ui.components.ScreenScaffold
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
 @Composable
 fun CrosshairSettingsRoute(
     innerPadding: PaddingValues,
+    settingsService: SettingsService,
     onBack: () -> Unit
 ) {
     CrosshairSettingsScreen(
         innerPadding = innerPadding,
+        settingsService = settingsService,
         onBack = onBack
     )
 }
 
-@HiltViewModel
-class CrosshairSettingsViewModel @Inject constructor(
-    val settingsService: SettingsService
-) : ViewModel()
-
 @Composable
 fun CrosshairSettingsScreen(
     innerPadding: PaddingValues,
+    settingsService: SettingsService,
     onBack: () -> Unit
 ) {
-    val viewModel: CrosshairSettingsViewModel = hiltViewModel()
-    val settingsService = viewModel.settingsService
-    val crosshairSize by settingsService.crosshairSize.collectAsState()
-    val crosshairShape by settingsService.crosshairShape.collectAsState()
-    val pickerSensitivity by settingsService.pickerSensitivity.collectAsState()
+    val crosshairSize by settingsService.crosshairSize.collectAsStateWithLifecycle()
+    val crosshairShape by settingsService.crosshairShape.collectAsStateWithLifecycle()
+    val pickerSensitivity by settingsService.pickerSensitivity.collectAsStateWithLifecycle()
 
     ScreenScaffold(
         titleRes = R.string.picker_crosshair,

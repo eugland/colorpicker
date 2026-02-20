@@ -11,6 +11,7 @@
     <string name="saved">सेव किया गया</string>
     <string name="delete">हटाएँ</string>
 
+    <string name="more_options">और विकल्प</string>
     <string name="palette">पैलेट</string>
     <string name="camera">कैमरा</string>
     <string name="explore">एक्सप्लोर करें</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">एक्स-रे इमेजिंग मोड</string>
     <string name="animate_mode">एनिमेटेड स्टाइल मोड</string>
     <string name="cyber_mode">साइबर स्टाइल मोड</string>
+    <string name="intrinsic_mode">आंतरिक (ML) मोड</string>
     <string name="mode_normal">सामान्य</string>
     <string name="filter_grid_title">फ़िल्टर चुनें</string>
     <string name="choose_theme">थीम चुनें</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">सेवा की शर्तें</string>
     <string name="share_app">ऐप साझा करें</string>
     <string name="share_app_description">दोस्तों को Play Store लिंक भेजें।</string>
+    <string name="delete_all">सभी हटाएँ</string>
+    <string name="color_catalogs">रंग नाम पैक</string>
+    <string name="color_catalogs_description">आपकी ऐप भाषा डिफ़ॉल्ट रंग नाम पैक चुनती है। आप एक समय में केवल एक पैक चुन सकते हैं।</string>
+    <string name="color_catalogs_none_found">ऐप संसाधनों में कोई रंग नाम पैक नहीं मिला।</string>
+    <string name="color_catalogs_summary">सक्रिय रंग नाम पैक चुनें।</string>
 </resources>

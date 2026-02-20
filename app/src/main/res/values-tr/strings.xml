@@ -11,6 +11,7 @@
     <string name="saved">Kaydedildi</string>
     <string name="delete">Sil</string>
 
+    <string name="more_options">Daha fazla seçenek</string>
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
     <string name="explore">Keşfet</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">X-ışını görüntüleme modu</string>
     <string name="animate_mode">Animasyon stil modu</string>
     <string name="cyber_mode">Siber stil modu</string>
+    <string name="intrinsic_mode">Yerleşik (ML) modu</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Filtre seç</string>
     <string name="choose_theme">Tema seç</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Hizmet şartları</string>
     <string name="share_app">Uygulamayı paylaş</string>
     <string name="share_app_description">Play Store bağlantısını arkadaşlara gönder.</string>
+    <string name="delete_all">Tümünü sil</string>
+    <string name="color_catalogs">Renk adı paketi</string>
+    <string name="color_catalogs_description">Uygulama dili varsayılan renk adı paketini seçer. Aynı anda yalnızca bir paket seçebilirsiniz.</string>
+    <string name="color_catalogs_none_found">Uygulama varlıklarında renk adı paketi bulunamadı.</string>
+    <string name="color_catalogs_summary">Etkin renk adı paketini seçin.</string>
 </resources>

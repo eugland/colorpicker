@@ -11,6 +11,7 @@
     <string name="saved">تم الحفظ</string>
     <string name="delete">حذف</string>
 
+    <string name="more_options">المزيد من الخيارات</string>
     <string name="palette">لوحة</string>
     <string name="camera">الكاميرا</string>
     <string name="explore">استكشاف</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">وضع تصوير الأشعة السينية</string>
     <string name="animate_mode">وضع النمط المتحرك</string>
     <string name="cyber_mode">وضع النمط السيبراني</string>
+    <string name="intrinsic_mode">وضع داخلي (ML)</string>
     <string name="mode_normal">عادي</string>
     <string name="filter_grid_title">اختر مرشحًا</string>
     <string name="choose_theme">اختر النمط</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">شروط الخدمة</string>
     <string name="share_app">مشاركة التطبيق</string>
     <string name="share_app_description">أرسل رابط متجر Play إلى أصدقائك.</string>
+    <string name="color_catalogs">حزمة أسماء الألوان</string>
+    <string name="color_catalogs_description">تختار لغة التطبيق حزمة أسماء الألوان الافتراضية. يمكنك اختيار حزمة واحدة في كل مرة.</string>
+    <string name="color_catalogs_none_found">لم يتم العثور على أي حزم أسماء ألوان في موارد التطبيق.</string>
+    <string name="color_catalogs_summary">اختر حزمة أسماء الألوان النشطة.</string>
+    <string name="delete_all">حذف الكل</string>
 </resources>

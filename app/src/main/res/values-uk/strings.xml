@@ -11,6 +11,7 @@
     <string name="saved">Збережено</string>
     <string name="delete">Видалити</string>
 
+    <string name="more_options">Додаткові параметри</string>
     <string name="palette">Палітра</string>
     <string name="camera">Камера</string>
     <string name="explore">Огляд</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Режим рентгену</string>
     <string name="animate_mode">Режим анімованого стилю</string>
     <string name="cyber_mode">Режим кіберстилю</string>
+    <string name="intrinsic_mode">Внутрішній (ML) режим</string>
     <string name="mode_normal">Звичайний</string>
     <string name="filter_grid_title">Вибрати фільтр</string>
     <string name="choose_theme">Вибрати тему</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Умови обслуговування</string>
     <string name="share_app">Поділитися додатком</string>
     <string name="share_app_description">Надішліть посилання Play Store друзям.</string>
+    <string name="delete_all">Видалити все</string>
+    <string name="color_catalogs">Пакет назв кольорів</string>
+    <string name="color_catalogs_description">Мова вашого застосунку вибирає стандартний пакет назв кольорів. Ви можете вибрати лише один пакет одночасно.</string>
+    <string name="color_catalogs_none_found">У ресурсах застосунку не знайдено пакетів назв кольорів.</string>
+    <string name="color_catalogs_summary">Виберіть активний пакет назв кольорів.</string>
 </resources>

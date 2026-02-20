@@ -11,6 +11,7 @@
     <string name="saved">Zapisano</string>
     <string name="delete">Usuń</string>
 
+    <string name="more_options">Więcej opcji</string>
     <string name="palette">Paleta</string>
     <string name="camera">Aparat</string>
     <string name="explore">Odkrywaj</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Tryb obrazowania rentgenowskiego</string>
     <string name="animate_mode">Tryb stylu animowanego</string>
     <string name="cyber_mode">Tryb stylu cyber</string>
+    <string name="intrinsic_mode">Tryb wewnętrzny (ML)</string>
     <string name="mode_normal">Normalny</string>
     <string name="filter_grid_title">Wybierz filtr</string>
     <string name="choose_theme">Wybierz motyw</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Warunki korzystania</string>
     <string name="share_app">Udostępnij aplikację</string>
     <string name="share_app_description">Wyślij znajomym link do Play Store.</string>
+    <string name="delete_all">Usuń wszystko</string>
+    <string name="color_catalogs">Pakiet nazw kolorów</string>
+    <string name="color_catalogs_description">Język aplikacji wybiera domyślny pakiet nazw kolorów. Możesz wybrać tylko jeden pakiet naraz.</string>
+    <string name="color_catalogs_none_found">Nie znaleziono pakietów nazw kolorów w zasobach aplikacji.</string>
+    <string name="color_catalogs_summary">Wybierz aktywny pakiet nazw kolorów.</string>
 </resources>

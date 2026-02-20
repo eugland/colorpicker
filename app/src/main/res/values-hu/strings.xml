@@ -11,6 +11,7 @@
     <string name="saved">Elmentve</string>
     <string name="delete">Törlés</string>
 
+    <string name="more_options">További lehetőségek</string>
     <string name="palette">Paletta</string>
     <string name="camera">Kamera</string>
     <string name="explore">Felfedezés</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Röntgen képalkotó mód</string>
     <string name="animate_mode">Animált stílus mód</string>
     <string name="cyber_mode">Cyber stílus mód</string>
+    <string name="intrinsic_mode">Belső (ML) mód</string>
     <string name="mode_normal">Normál</string>
     <string name="filter_grid_title">Szűrő kiválasztása</string>
     <string name="choose_theme">Téma kiválasztása</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Szolgáltatási feltételek</string>
     <string name="share_app">Alkalmazás megosztása</string>
     <string name="share_app_description">Küldje el a Play Áruház linkjét ismerőseinek.</string>
+    <string name="delete_all">Összes törlése</string>
+    <string name="color_catalogs">Színnévcsomag</string>
+    <string name="color_catalogs_description">Az alkalmazás nyelve kiválasztja az alapértelmezett színnévcsomagot. Egyszerre csak egy csomagot választhat.</string>
+    <string name="color_catalogs_none_found">Nem találhatók színnévcsomagok az alkalmazás erőforrásaiban.</string>
+    <string name="color_catalogs_summary">Válassza ki az aktív színnévcsomagot.</string>
 </resources>

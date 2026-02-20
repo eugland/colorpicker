@@ -11,6 +11,7 @@
     <string name="saved">Opgeslagen</string>
     <string name="delete">Verwijderen</string>
 
+    <string name="more_options">Meer opties</string>
     <string name="palette">Palet</string>
     <string name="camera">Camera</string>
     <string name="explore">Verkennen</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Röntgenbeeldmodus</string>
     <string name="animate_mode">Geanimeerde stijlmodus</string>
     <string name="cyber_mode">Cyberstijlmodus</string>
+    <string name="intrinsic_mode">Intrinsieke (ML) modus</string>
     <string name="mode_normal">Normaal</string>
     <string name="filter_grid_title">Kies een filter</string>
     <string name="choose_theme">Kies thema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Servicevoorwaarden</string>
     <string name="share_app">App delen</string>
     <string name="share_app_description">Stuur de Play Store-link naar vrienden.</string>
+    <string name="color_catalogs">Kleurnamenpakket</string>
+    <string name="color_catalogs_description">De taal van uw app kiest het standaard kleurnamenpakket. U kunt telkens één pakket selecteren.</string>
+    <string name="color_catalogs_none_found">Er zijn geen kleurnamenpakketten gevonden in de app-bronnen.</string>
+    <string name="color_catalogs_summary">Kies het actieve kleurnamenpakket.</string>
+    <string name="delete_all">Alles verwijderen</string>
 </resources>

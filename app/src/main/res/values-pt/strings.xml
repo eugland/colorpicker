@@ -11,6 +11,7 @@
     <string name="saved">Guardado</string>
     <string name="delete">Eliminar</string>
 
+    <string name="more_options">Mais opções</string>
     <string name="palette">Paleta</string>
     <string name="camera">Câmara</string>
     <string name="explore">Explorar</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Modo de imagem de raio-X</string>
     <string name="animate_mode">Modo de estilo animado</string>
     <string name="cyber_mode">Modo de estilo cyber</string>
+    <string name="intrinsic_mode">Modo intrínseco (ML)</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Escolher filtro</string>
     <string name="choose_theme">Escolher tema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Termos de serviço</string>
     <string name="share_app">Compartilhar app</string>
     <string name="share_app_description">Envie o link da Play Store para amigos.</string>
+    <string name="delete_all">Excluir tudo</string>
+    <string name="color_catalogs">Pacote de nomes de cores</string>
+    <string name="color_catalogs_description">O idioma do aplicativo seleciona o pacote padrão de nomes de cores. Você pode selecionar apenas um pacote por vez.</string>
+    <string name="color_catalogs_none_found">Nenhum pacote de nomes de cores foi encontrado nos recursos do aplicativo.</string>
+    <string name="color_catalogs_summary">Escolha o pacote de nomes de cores ativo.</string>
 </resources>

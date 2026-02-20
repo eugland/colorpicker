@@ -11,6 +11,7 @@
     <string name="saved">บันทึกแล้ว</string>
     <string name="delete">ลบ</string>
 
+    <string name="more_options">ตัวเลือกเพิ่มเติม</string>
     <string name="palette">พาเลตต์</string>
     <string name="camera">กล้อง</string>
     <string name="explore">สำรวจ</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">โหมดถ่ายภาพเอกซเรย์</string>
     <string name="animate_mode">โหมดสไตล์แอนิเมชัน</string>
     <string name="cyber_mode">โหมดสไตล์ไซเบอร์</string>
+    <string name="intrinsic_mode">โหมดภายใน (ML)</string>
     <string name="mode_normal">ปกติ</string>
     <string name="filter_grid_title">เลือกฟิลเตอร์</string>
     <string name="choose_theme">เลือกธีม</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">ข้อกำหนดในการให้บริการ</string>
     <string name="share_app">แชร์แอป</string>
     <string name="share_app_description">ส่งลิงก์ Play Store ให้เพื่อน</string>
+    <string name="delete_all">ลบทั้งหมด</string>
+    <string name="color_catalogs">แพ็กชื่อสี</string>
+    <string name="color_catalogs_description">ภาษาของแอปจะเลือกแพ็กชื่อสีเริ่มต้น คุณสามารถเลือกได้ครั้งละหนึ่งแพ็ก</string>
+    <string name="color_catalogs_none_found">ไม่พบแพ็กชื่อสีในทรัพยากรของแอป</string>
+    <string name="color_catalogs_summary">เลือกแพ็กชื่อสีที่ใช้งานอยู่</string>
 </resources>

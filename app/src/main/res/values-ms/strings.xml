@@ -11,6 +11,7 @@
     <string name="saved">Disimpan</string>
     <string name="delete">Padam</string>
 
+    <string name="more_options">Lebih banyak pilihan</string>
     <string name="palette">Palet</string>
     <string name="camera">Kamera</string>
     <string name="explore">Teroka</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Mod pengimejan sinar-X</string>
     <string name="animate_mode">Mod gaya animasi</string>
     <string name="cyber_mode">Mod gaya siber</string>
+    <string name="intrinsic_mode">Mod intrinsik (ML)</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Pilih penapis</string>
     <string name="choose_theme">Pilih tema</string>
@@ -255,4 +257,9 @@
     <string name="terms_of_service">Terma perkhidmatan</string>
     <string name="share_app">Kongsi aplikasi</string>
     <string name="share_app_description">Hantar pautan Play Store kepada rakan.</string>
+    <string name="delete_all">Padam semua</string>
+    <string name="color_catalogs">Pek nama warna</string>
+    <string name="color_catalogs_description">Bahasa aplikasi anda memilih pek nama warna lalai. Anda boleh memilih satu pek pada satu masa.</string>
+    <string name="color_catalogs_none_found">Tiada pek nama warna ditemui dalam aset aplikasi.</string>
+    <string name="color_catalogs_summary">Pilih pek nama warna yang aktif.</string>
 </resources>
