@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority blauw",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice blauw",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy oranje",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "amber",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "amethist",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash wit",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique brons",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique robijn",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique wit",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao engels",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple groen",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "abrikoos",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic limoen",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army groen",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide geel",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash grijs",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "azuur",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled blauw",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby blauw",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby blauw Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby roze",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller roze",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie roze",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie roze Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn rood",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship grijs",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau blauw",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo robijn",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre bruin",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter limoen",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "zwart",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "zwart Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "zwart chocolade",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "zwart koffie",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "zwart koraal",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "zwart olijf",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "zwart Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off brons",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard blauw",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood rood",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "blauw",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "blauw Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "blauw Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "blauw Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "blauw Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "blauw Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "blauw Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "blauw Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "blauw Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "blauw saffier",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "blauw Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "blauw grijs",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "blauw groen",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "blauw groen Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "blauw violet",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "blauw violet Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "blauw violet Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi blauw",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle groen",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick rood",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "helder groen",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "helder Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "helder kastanjebruin",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "helder marine blauw",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "helder roze",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "helder geel Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant roos",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink roze",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing groen",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "brons",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "bruin",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "bruin Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick groen",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud groen",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished bruin",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt oranje",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet blauw",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet blauw Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet grijs",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium groen",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium oranje",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium rood",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium geel",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona groen",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge blauw",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo roze",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary geel",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple rood",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy roze",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean groen",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation roze",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina blauw",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot oranje",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton groen",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon blauw",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon groen",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic blauw",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean blauw",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG blauw",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG rood",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne roze",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "houtskool",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston groen",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm roze",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom roze",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China roze",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China roos",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese rood",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese violet",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese geel",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "chocolade Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "chocolade Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome geel",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt blauw",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa bruin",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "koffie",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia blauw",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo roze",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool grijs",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "koper",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "koper Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "koper Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "koper rood",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "koper roos",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "koraal",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "koraal roze",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower blauw",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos roze",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote bruin",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "crème",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "karmozijn",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyaan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyaan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber geel",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "donker blauw grijs",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "donker bruin",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "donker Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "donker Cornflower blauw",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "donker cyaan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "donker elektrisch blauw",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "donker Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "donker groen",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "donker groen X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "donker Jungle groen",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "donker khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "donker Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "donker Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "donker Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "donker magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "donker Medium grijs",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "donker Moss groen",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "donker olijf groen",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "donker oranje",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "donker Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "donker Pastel groen",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "donker paars",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "donker rood",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "donker zalm",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "donker zee groen",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "donker Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "donker hemel blauw",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "donker Slate blauw",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "donker Slate grijs",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "donker lente groen",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "donker turkoois",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "donker violet",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth groen",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S grijs",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "diep Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "diep Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "diep Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "diep Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "diep Jungle groen",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "diep roze",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "diep saffraan",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "diep hemel blauw",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "diep Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "diep Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim blauw",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim grijs",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger blauw",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood roos",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke blauw",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch wit",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth geel",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie zwart",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian blauw",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "elektrisch blauw",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "elektrisch groen",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "elektrisch indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "elektrisch limoen",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "elektrisch paars",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "elektrisch violet",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "smaragd",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "engels groen",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "engels lavendel",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "engels rood",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "engels Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "engels violet",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton blauw",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu rood",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango roze",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern groen",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery roos",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine rood",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral wit",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent blauw",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "bos groen Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "bos groen Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "bos groen Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "frans beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "frans Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "frans blauw",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "frans Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "frans Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "frans limoen",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "frans Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "frans roze",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "frans Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "frans roos",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "frans hemel blauw",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "frans violet",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia paars",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia roos",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost wit",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go groen",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "goud",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "goud Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "goud metaal",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "goud Web gouden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "goud Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "gouden bruin",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "gouden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "gouden geel",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite grijs",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "grijs HTML CSS grijs",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "grijs X 11 grijs",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "groen",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "groen Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "groen HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "groen Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "groen Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "groen Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "groen Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "groen Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "groen X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "groen Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "groen Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "groen blauw",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "groen blauw Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "groen cyaan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "groen geel",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "groen geel Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han blauw",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han paars",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa geel",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest goud",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope grijs",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu blauw",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S groen",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot roze",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter groen",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating smaragd",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial rood",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India groen",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian rood",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian geel",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "indigo blauw",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein blauw",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International oranje Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International oranje Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International oranje gouden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic groen",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian hemel blauw",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "ivoor",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle groen",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly groen",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key limoen",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "khaki HTML CSS khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "khaki X 11 licht khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu groen",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu paars",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid lavendel",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel groen",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "lavendel Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "lavendel Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "lavendel blauw",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "lavendel Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "lavendel grijs",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "lavendel magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn groen",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon geel",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon geel Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "licht abrikoos",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "licht blauw",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "licht bruin",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "licht chocolade Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "licht Cobalt blauw",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "licht koraal",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "licht Cornflower blauw",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "licht karmozijn",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "licht cyaan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "licht diep roze",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "licht frans beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "licht Fuchsia roze",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "licht goud",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "licht Goldenrod geel",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "licht grijs",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "licht Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "licht groen",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "licht Hot roze",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "licht khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "licht magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "licht Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "licht Moss groen",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "licht oranje",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "licht Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "licht Pastel paars",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "licht Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "licht roze",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "licht rood",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "licht rood oker",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "licht zalm",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "licht zalm roze",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "licht zee groen",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "licht zilver",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "licht hemel blauw",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "licht Slate grijs",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "licht staal blauw",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "licht Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "licht geel",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "limoen Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "limoen Web X 11 groen",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "limoen groen",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln groen",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran paars",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy blauw",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl roze",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic munt",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle blauw",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango groen",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "kastanjebruin Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "kastanjebruin HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "kastanjebruin X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum blauw",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum blauw groen",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum blauw paars",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum groen",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum groen geel",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum oranje",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum paars",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum rood",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum rood paars",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum geel",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum geel rood",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May groen",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya blauw",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium blauw",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple rood",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium elektrisch blauw",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle groen",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium lavendel magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian blauw",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium paars",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium rood violet",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium robijn",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium zee groen",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium hemel blauw",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate blauw",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium lente Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium lente groen",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium turkoois",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan rood",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium violet rood",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow abrikoos",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow geel",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metaal goud",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metaal Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metaal Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican roze",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle blauw",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle blauw groen",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle blauw paars",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle groen",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle groen geel",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle grijs",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle paars",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle rood",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle rood paars",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle geel",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle geel rood",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "middernacht",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "middernacht blauw",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "middernacht groen Eagle groen",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado geel",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi roze",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion geel",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "munt",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "munt crème",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "munt groen",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty roos",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning blauw",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss groen",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten roze",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu groen",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle groen",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic kastanjebruin",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples geel",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo wit",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "marine blauw",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "marine blauw Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon blauw",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon groen",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York roze",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo rood",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo blauw",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "oceaan blauw",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "oceaan groen",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "oker",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office groen",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old goud",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old lavendel",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old roos",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old zilver",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "olijf",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "olijf Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "olijf Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "olijf groen",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "oranje",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "oranje Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "oranje Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "oranje Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "oranje Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "oranje Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "oranje Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "oranje Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "oranje rood",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "oranje rood Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "oranje geel",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "oranje geel Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid roze",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou karmozijn rood",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous oranje",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford blauw",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific blauw",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan groen",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate blauw",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate paars",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "bleek aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "bleek Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "bleek koper",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "bleek goud",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "bleek Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "bleek lavendel",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "bleek roze",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "bleek pruim",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "bleek paars Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "bleek rood violet",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "bleek Robin Egg blauw",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "bleek zilver",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "bleek lente Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "bleek Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy paars",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese groen",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise roze",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris groen",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel roze",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S grijs",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "perzik",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "perzik Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "parel goud",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly paars",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian blauw",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian groen",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian oranje",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian roze",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian pruim",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian rood",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian roos",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter blauw",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo blauw",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo groen",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee blauw",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy roze",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine groen",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "roze",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "roze Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "roze Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "roze Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "roze lavendel",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "roze Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "pruim",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "pruim Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump paars",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland oranje",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder blauw",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton oranje",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian blauw",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic paars",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman bruin Ups bruin",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "paars",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "paars HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "paars Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "paars X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "paars Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "paars marine",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "paars Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "paars pruim",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen blauw",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen roze",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick zilver",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical rood",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin zwart",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry roos",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle roos",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca paars",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "rood",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "rood Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "rood Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "rood Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "rood Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "rood Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "rood Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "rood Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "rood oranje",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "rood oranje Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "rood oranje Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "rood paars",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "rood violet",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "rood violet Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "rood violet Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration zwart",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution blauw",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich zwart",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich zwart Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich zwart Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich kastanjebruin",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle groen",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg blauw",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metaal",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman zilver",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "roos",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "roos Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "roos Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "roos Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "roos Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "roos roze",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "roos Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "roos rood",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "roos Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "roos Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy bruin",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal blauw donker",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal blauw licht",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal paars",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal geel",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine rood",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "robijn",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "robijn rood",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian groen",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian violet",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty rood",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State groen",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle bruin",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety oranje",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety oranje Blaze oranje",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety geel",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "saffraan",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "zalm",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "zalm roze",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy bruin",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap groen",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "saffier",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "saffier Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "saffier blauw",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen goud",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "scharlaken",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss roze",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus geel",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin groen",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "zee groen",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "zee groen Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal bruin",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective geel",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow blauw",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock groen",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen groen",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking roze",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking roze Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "zilver",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "zilver Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "zilver metaal",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "zilver Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "zilver Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "zilver Lake blauw",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "zilver roze",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "zilver Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling rood",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling zonsopgang",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "hemel blauw",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "hemel blauw Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "hemel magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate blauw",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate grijs",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy groen",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt donker Powder blauw",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky zwart",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "sneeuw",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid roze",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic zilver",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish blauw",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish grijs",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish groen",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish oranje",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish roze",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish rood",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish hemel blauw",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish violet",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "lente Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "lente Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "lente groen",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "lente groen Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S blauw",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command blauw",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "staal blauw",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "staal roze",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "staal blauwgroen",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain geel",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar pruim",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "zonsondergang",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super roze",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet bruin",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango roze",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart oranje",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe grijs",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea groen",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea roos",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "blauwgroen",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "blauwgroen blauw",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian roze",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me roze",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany blauw",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium geel",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain bos",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "echt blauw",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts blauw",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "turkoois",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "turkoois blauw",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "turkoois groen",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle groen",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan bruin",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan rood",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight lavendel",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian paars",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua blauw",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua rood",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra roze",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra rood",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine blauw",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations blauw",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow geel",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up bos groen",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up kastanjebruin",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell rood",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa blauw",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke bruin",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas goud",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian rood",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "violet",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "violet Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "violet Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "violet Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "violet Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "violet blauw",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "violet blauw Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "violet rood",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian groen",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid hemel blauw",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid violet",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm zwart",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "wit",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild blauw Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "winter hemel",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood bruin",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale blauw",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "geel",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "geel Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "geel Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "geel Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "geel Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "geel Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "geel Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "geel oranje",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "geel oranje Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "geel Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "geel groen",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "geel groen Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "geel groen Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn blauw",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

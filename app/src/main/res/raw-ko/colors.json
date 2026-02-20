@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority 파랑",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice 파랑",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy 주황",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "Amber",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "Amethyst",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash 흰색",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique Bronze",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique Ruby",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique 흰색",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao 잉글리시",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple 초록",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "Apricot",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "Aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic Lime",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army 초록",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide 노랑",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash 회색",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "Azure",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled 파랑",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby 파랑",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby 파랑 Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby 핑크",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller 핑크",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie 핑크",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie 핑크 Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn 빨강",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship 회색",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau 파랑",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "Beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo Ruby",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre 갈색",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter Lime",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "검정",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "검정 Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "검정 초콜릿",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "검정 커피",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "검정 Coral",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "검정 Olive",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "검정 Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off Bronze",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard 파랑",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood 빨강",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "파랑",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "파랑 Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "파랑 Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "파랑 Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "파랑 Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "파랑 Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "파랑 Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "파랑 Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "파랑 Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "파랑 Sapphire",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "파랑 Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "파랑 회색",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "파랑 초록",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "파랑 초록 Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "파랑 바이올렛",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "파랑 바이올렛 Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "파랑 바이올렛 Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi 파랑",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle 초록",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick 빨강",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "브라이트 초록",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "브라이트 Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "브라이트 maroon",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "브라이트 navy 파랑",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "브라이트 핑크",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "브라이트 노랑 Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant rose",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink 핑크",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing 초록",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "Bronze",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "갈색",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "갈색 Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick 초록",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud 초록",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished 갈색",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt 주황",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet 파랑",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet 파랑 Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet 회색",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium 초록",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium 주황",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium 빨강",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium 노랑",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona 초록",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge 파랑",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo 핑크",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary 노랑",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple 빨강",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy 핑크",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean 초록",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation 핑크",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina 파랑",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot 주황",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton 초록",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon 파랑",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon 초록",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic 파랑",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean 파랑",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG 파랑",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG 빨강",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne 핑크",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "Charcoal",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston 초록",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm 핑크",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom 핑크",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China 핑크",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China rose",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese 빨강",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese 바이올렛",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese 노랑",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "초콜릿 Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "초콜릿 Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome 노랑",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt 파랑",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa 갈색",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "커피",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia 파랑",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo 핑크",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool 회색",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "Copper",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "Copper Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "Copper Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "Copper 빨강",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "Copper rose",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "Coral",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "Coral 핑크",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower 파랑",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos 핑크",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote 갈색",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "Cream",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "Crimson",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber 노랑",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "다크 파랑 회색",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "다크 갈색",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "다크 Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "다크 Cornflower 파랑",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "다크 cyan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "다크 electric 파랑",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "다크 Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "다크 초록",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "다크 초록 X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "다크 Jungle 초록",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "다크 Khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "다크 Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "다크 Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "다크 Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "다크 magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "다크 Medium 회색",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "다크 Moss 초록",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "다크 Olive 초록",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "다크 주황",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "다크 Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "다크 Pastel 초록",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "다크 보라",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "다크 빨강",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "다크 Salmon",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "다크 바다 초록",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "다크 Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "다크 sky 파랑",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "다크 Slate 파랑",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "다크 Slate 회색",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "다크 봄 초록",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "다크 Turquoise",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "다크 바이올렛",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth 초록",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S 회색",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "딥 Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "딥 Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "딥 Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "딥 Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "딥 Jungle 초록",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "딥 핑크",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "딥 Saffron",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "딥 sky 파랑",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "딥 Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "딥 Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim 파랑",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim 회색",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger 파랑",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood rose",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke 파랑",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch 흰색",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth 노랑",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie 검정",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian 파랑",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "electric 파랑",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "electric 초록",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "electric Indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "electric Lime",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "electric 보라",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "electric 바이올렛",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "Emerald",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "잉글리시 초록",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "잉글리시 Lavender",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "잉글리시 빨강",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "잉글리시 Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "잉글리시 바이올렛",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton 파랑",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu 빨강",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango 핑크",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern 초록",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery rose",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine 빨강",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral 흰색",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent 파랑",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "숲 초록 Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "숲 초록 Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "숲 초록 Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "프렌치 Beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "프렌치 Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "프렌치 파랑",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "프렌치 Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "프렌치 Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "프렌치 Lime",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "프렌치 Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "프렌치 핑크",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "프렌치 Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "프렌치 rose",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "프렌치 sky 파랑",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "프렌치 바이올렛",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia 보라",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia rose",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost 흰색",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go 초록",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "금색",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "금색 Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "금색 metallic",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "금색 Web golden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "금색 Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "golden 갈색",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "golden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "golden 노랑",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite 회색",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "회색 HTML CSS 회색",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "회색 X 11 회색",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "초록",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "초록 Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "초록 HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "초록 Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "초록 Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "초록 Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "초록 Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "초록 Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "초록 X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "초록 Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "초록 Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "초록 파랑",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "초록 파랑 Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "초록 cyan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "초록 노랑",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "초록 노랑 Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han 파랑",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han 보라",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa 노랑",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest 금색",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope 회색",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu 파랑",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S 초록",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot 핑크",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter 초록",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating Emerald",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial 빨강",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India 초록",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian 빨강",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian 노랑",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "Indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "Indigo 파랑",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "Indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein 파랑",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International 주황 Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International 주황 Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International 주황 golden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic 초록",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian sky 파랑",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Ivory",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle 초록",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly 초록",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key Lime",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "Khaki HTML CSS Khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "Khaki X 11 라이트 Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu 초록",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu 보라",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid Lavender",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel 초록",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "Lavender Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "Lavender Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "Lavender 파랑",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Lavender Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "Lavender 회색",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "Lavender magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn 초록",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon 노랑",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon 노랑 Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "라이트 Apricot",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "라이트 파랑",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "라이트 갈색",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "라이트 초콜릿 Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "라이트 Cobalt 파랑",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "라이트 Coral",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "라이트 Cornflower 파랑",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "라이트 Crimson",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "라이트 cyan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "라이트 딥 핑크",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "라이트 프렌치 Beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "라이트 Fuchsia 핑크",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "라이트 금색",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "라이트 Goldenrod 노랑",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "라이트 회색",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "라이트 Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "라이트 초록",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "라이트 Hot 핑크",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "라이트 Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "라이트 magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "라이트 Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "라이트 Moss 초록",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "라이트 주황",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "라이트 Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "라이트 Pastel 보라",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "라이트 Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "라이트 핑크",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "라이트 빨강",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "라이트 빨강 Ochre",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "라이트 Salmon",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "라이트 Salmon 핑크",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "라이트 바다 초록",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "라이트 은색",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "라이트 sky 파랑",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "라이트 Slate 회색",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "라이트 Steel 파랑",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "라이트 Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "라이트 노랑",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "Lime Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Lime Web X 11 초록",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "Lime 초록",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln 초록",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran 보라",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy 파랑",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl 핑크",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic Mint",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle 파랑",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango 초록",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "maroon Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "maroon HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "maroon X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum 파랑",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum 파랑 초록",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum 파랑 보라",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum 초록",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum 초록 노랑",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum 주황",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum 보라",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum 빨강",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum 빨강 보라",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum 노랑",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum 노랑 빨강",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May 초록",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya 파랑",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium 파랑",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple 빨강",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium electric 파랑",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle 초록",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium Lavender magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian 파랑",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium 보라",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium 빨강 바이올렛",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium Ruby",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium 바다 초록",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium sky 파랑",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate 파랑",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium 봄 Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium 봄 초록",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium Turquoise",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan 빨강",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium 바이올렛 빨강",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow Apricot",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow 노랑",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metallic 금색",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metallic Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metallic Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican 핑크",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle 파랑",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle 파랑 초록",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle 파랑 보라",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle 초록",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle 초록 노랑",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle 회색",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle 보라",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle 빨강",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle 빨강 보라",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle 노랑",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle 노랑 빨강",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "자정",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "자정 파랑",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "자정 초록 Eagle 초록",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado 노랑",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi 핑크",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion 노랑",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "Mint",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "Mint Cream",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "Mint 초록",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty rose",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode Beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning 파랑",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss 초록",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten 핑크",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu 초록",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle 초록",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic maroon",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples 노랑",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo 흰색",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "navy 파랑",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "navy 파랑 Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon 파랑",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon 초록",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York 핑크",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo 빨강",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo 파랑",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "대양 파랑",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "대양 초록",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "Ochre",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office 초록",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old 금색",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old Lavender",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old rose",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old 은색",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Olive",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "Olive Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "Olive Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "Olive 초록",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "주황",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "주황 Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "주황 Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "주황 Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "주황 Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "주황 Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "주황 Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "주황 Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "주황 빨강",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "주황 빨강 Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "주황 노랑",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "주황 노랑 Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid 핑크",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou Crimson 빨강",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous 주황",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford 파랑",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific 파랑",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan 초록",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate 파랑",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate 보라",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "페일 Aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "페일 Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "페일 Copper",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "페일 금색",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "페일 Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "페일 Lavender",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "페일 핑크",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "페일 Plum",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "페일 보라 Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "페일 빨강 바이올렛",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "페일 Robin Egg 파랑",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "페일 은색",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "페일 봄 Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "페일 Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy 보라",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese 초록",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise 핑크",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris 초록",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel 핑크",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S 회색",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "Peach",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "Peach Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "Pearl 금색",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly 보라",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian 파랑",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian 초록",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian Indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian 주황",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian 핑크",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian Plum",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian 빨강",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian rose",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter 파랑",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo 파랑",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo 초록",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee 파랑",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy 핑크",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine 초록",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "핑크",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "핑크 Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "핑크 Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "핑크 Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "핑크 Lavender",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "핑크 Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "Plum",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "Plum Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump 보라",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland 주황",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder 파랑",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton 주황",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian 파랑",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic 보라",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman 갈색 Ups 갈색",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "보라",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "보라 HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "보라 Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "보라 X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "보라 Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "보라 navy",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "보라 Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "보라 Plum",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen 파랑",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen 핑크",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick 은색",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical 빨강",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin 검정",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry rose",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle rose",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca 보라",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "빨강",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "빨강 Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "빨강 Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "빨강 Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "빨강 Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "빨강 Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "빨강 Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "빨강 Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "빨강 주황",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "빨강 주황 Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "빨강 주황 Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "빨강 보라",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "빨강 바이올렛",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "빨강 바이올렛 Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "빨강 바이올렛 Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration 검정",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution 파랑",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich 검정",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich 검정 Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich 검정 Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich maroon",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle 초록",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg 파랑",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metallic",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman 은색",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "rose",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "rose Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "rose Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "rose Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "rose Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "rose 핑크",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "rose Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "rose 빨강",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "rose Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "rose Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy 갈색",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal 파랑 다크",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal 파랑 라이트",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal 보라",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal 노랑",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine 빨강",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "Ruby",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "Ruby 빨강",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian 초록",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian 바이올렛",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty 빨강",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State 초록",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle 갈색",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety 주황",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety 주황 Blaze 주황",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety 노랑",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "Saffron",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "Salmon",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "Salmon 핑크",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy 갈색",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap 초록",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "Sapphire",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "Sapphire Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Sapphire 파랑",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen 금색",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "Scarlet",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss 핑크",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus 노랑",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin 초록",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "바다 초록",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "바다 초록 Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal 갈색",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective 노랑",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow 파랑",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock 초록",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen 초록",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking 핑크",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking 핑크 Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "은색",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "은색 Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "은색 metallic",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "은색 Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "은색 Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "은색 Lake 파랑",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "은색 핑크",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "은색 Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling 빨강",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling 일출",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "sky 파랑",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "sky 파랑 Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "sky magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate 파랑",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate 회색",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy 초록",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt 다크 Powder 파랑",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky 검정",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "Snow",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid 핑크",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic 은색",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish 파랑",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish 회색",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish 초록",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish 주황",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish 핑크",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish 빨강",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish sky 파랑",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish 바이올렛",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "봄 Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "봄 Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "봄 초록",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "봄 초록 Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S 파랑",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command 파랑",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "Steel 파랑",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "Steel 핑크",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "Steel Teal",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain 노랑",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar Plum",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "석양",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super 핑크",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet 갈색",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango 핑크",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart 주황",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe 회색",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea 초록",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea rose",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Teal",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "Teal 파랑",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian 핑크",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me 핑크",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany 파랑",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium 노랑",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain 숲",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "트루 파랑",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts 파랑",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "Turquoise",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "Turquoise 파랑",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "Turquoise 초록",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle 초록",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan 갈색",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan 빨강",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight Lavender",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian 보라",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua 파랑",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua 빨강",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra 핑크",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra 빨강",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine 파랑",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations 파랑",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow 노랑",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up 숲 초록",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up maroon",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell 빨강",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa 파랑",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke 갈색",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas 금색",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian 빨강",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "바이올렛",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "바이올렛 Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "바이올렛 Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "바이올렛 Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "바이올렛 Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "바이올렛 파랑",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "바이올렛 파랑 Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "바이올렛 빨강",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian 초록",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid sky 파랑",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid 바이올렛",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm 검정",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "흰색",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild 파랑 Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "겨울 sky",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood 갈색",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale 파랑",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "노랑",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "노랑 Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "노랑 Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "노랑 Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "노랑 Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "노랑 Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "노랑 Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "노랑 주황",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "노랑 주황 Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "노랑 Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "노랑 초록",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "노랑 초록 Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "노랑 초록 Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn 파랑",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

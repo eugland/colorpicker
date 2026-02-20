@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority mavi",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice mavi",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy turuncu",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "kehribar",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "ametist",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash beyaz",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique bronz",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique yakut",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique beyaz",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao ingiliz",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple yeşil",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "kayısı",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic misket limonu",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army yeşil",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide sarı",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash gri",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "gök mavisi",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled mavi",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby mavi",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby mavi Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby pembe",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller pembe",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie pembe",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie pembe Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn kırmızı",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship gri",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau mavi",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo yakut",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre kahverengi",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter misket limonu",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "siyah",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "siyah Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "siyah çikolata",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "siyah kahve",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "siyah mercan",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "siyah zeytin",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "siyah Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off bronz",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard mavi",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood kırmızı",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "mavi",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "mavi Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "mavi Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "mavi Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "mavi Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "mavi Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "mavi Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "mavi Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "mavi Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "mavi safir",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "mavi Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "mavi gri",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "mavi yeşil",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "mavi yeşil Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "mavi menekşe",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "mavi menekşe Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "mavi menekşe Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi mavi",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle yeşil",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick kırmızı",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "parlak yeşil",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "parlak Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "parlak bordo",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "parlak lacivert mavi",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "parlak pembe",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "parlak sarı Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant gül",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink pembe",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing yeşil",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "bronz",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "kahverengi",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "kahverengi Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick yeşil",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud yeşil",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished kahverengi",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt turuncu",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet mavi",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet mavi Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet gri",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium yeşil",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium turuncu",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium kırmızı",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium sarı",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona yeşil",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge mavi",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo pembe",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary sarı",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple kırmızı",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy pembe",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean yeşil",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation pembe",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina mavi",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot turuncu",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton yeşil",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon mavi",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon yeşil",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic mavi",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean mavi",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG mavi",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG kırmızı",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne pembe",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "kömür",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston yeşil",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm pembe",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom pembe",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China pembe",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China gül",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese kırmızı",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese menekşe",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese sarı",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "çikolata Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "çikolata Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome sarı",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt mavi",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa kahverengi",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "kahve",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia mavi",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo pembe",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool gri",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "bakır",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "bakır Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "bakır Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "bakır kırmızı",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "bakır gül",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "mercan",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "mercan pembe",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower mavi",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos pembe",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote kahverengi",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "krem",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "kızıl",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "camgöbeği",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "camgöbeği Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber sarı",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "koyu mavi gri",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "koyu kahverengi",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "koyu Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "koyu Cornflower mavi",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "koyu camgöbeği",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "koyu elektrik mavi",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "koyu Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "koyu yeşil",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "koyu yeşil X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "koyu Jungle yeşil",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "koyu haki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "koyu Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "koyu Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "koyu Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "koyu magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "koyu Medium gri",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "koyu Moss yeşil",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "koyu zeytin yeşil",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "koyu turuncu",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "koyu Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "koyu Pastel yeşil",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "koyu mor",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "koyu kırmızı",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "koyu somon",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "koyu deniz yeşil",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "koyu Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "koyu gökyüzü mavi",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "koyu Slate mavi",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "koyu Slate gri",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "koyu ilkbahar yeşil",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "koyu turkuaz",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "koyu menekşe",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth yeşil",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S gri",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "derin Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "derin Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "derin Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "derin Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "derin Jungle yeşil",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "derin pembe",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "derin safran",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "derin gökyüzü mavi",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "derin Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "derin Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim mavi",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim gri",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger mavi",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood gül",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke mavi",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch beyaz",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth sarı",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie siyah",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian mavi",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "elektrik mavi",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "elektrik yeşil",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "elektrik çivit",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "elektrik misket limonu",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "elektrik mor",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "elektrik menekşe",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "zümrüt",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "ingiliz yeşil",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "ingiliz lavanta",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "ingiliz kırmızı",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "ingiliz Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "ingiliz menekşe",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton mavi",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu kırmızı",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango pembe",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern yeşil",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery gül",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine kırmızı",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral beyaz",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent mavi",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "orman yeşil Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "orman yeşil Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "orman yeşil Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "fransız beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "fransız Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "fransız mavi",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "fransız Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "fransız Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "fransız misket limonu",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "fransız Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "fransız pembe",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "fransız Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "fransız gül",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "fransız gökyüzü mavi",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "fransız menekşe",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia mor",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia gül",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost beyaz",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go yeşil",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "altın",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "altın Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "altın metalik",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "altın Web altın",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "altın Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "altın kahverengi",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "altın Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "altın sarı",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite gri",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "gri HTML CSS gri",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "gri X 11 gri",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "yeşil",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "yeşil Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "yeşil HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "yeşil Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "yeşil Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "yeşil Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "yeşil Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "yeşil Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "yeşil X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "yeşil Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "yeşil Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "yeşil mavi",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "yeşil mavi Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "yeşil camgöbeği",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "yeşil sarı",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "yeşil sarı Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han mavi",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han mor",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa sarı",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest altın",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope gri",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu mavi",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S yeşil",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot pembe",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter yeşil",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating zümrüt",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial kırmızı",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India yeşil",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian kırmızı",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian sarı",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "çivit",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "çivit mavi",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "çivit Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein mavi",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International turuncu Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International turuncu Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International turuncu altın Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic yeşil",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian gökyüzü mavi",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "fildişi",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle yeşil",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly yeşil",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key misket limonu",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "haki HTML CSS haki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "haki X 11 açık haki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu yeşil",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu mor",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid lavanta",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel yeşil",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "lavanta Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "lavanta Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "lavanta mavi",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "lavanta Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "lavanta gri",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "lavanta magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn yeşil",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon sarı",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon sarı Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "açık kayısı",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "açık mavi",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "açık kahverengi",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "açık çikolata Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "açık Cobalt mavi",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "açık mercan",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "açık Cornflower mavi",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "açık kızıl",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "açık camgöbeği",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "açık derin pembe",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "açık fransız beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "açık Fuchsia pembe",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "açık altın",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "açık Goldenrod sarı",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "açık gri",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "açık Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "açık yeşil",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "açık Hot pembe",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "açık haki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "açık magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "açık Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "açık Moss yeşil",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "açık turuncu",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "açık Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "açık Pastel mor",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "açık Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "açık pembe",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "açık kırmızı",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "açık kırmızı oker",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "açık somon",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "açık somon pembe",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "açık deniz yeşil",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "açık gümüş",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "açık gökyüzü mavi",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "açık Slate gri",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "açık çelik mavi",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "açık Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "açık sarı",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "misket limonu Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "misket limonu Web X 11 yeşil",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "misket limonu yeşil",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln yeşil",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran mor",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy mavi",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl pembe",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic nane",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle mavi",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango yeşil",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "bordo Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "bordo HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "bordo X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum mavi",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum mavi yeşil",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum mavi mor",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum yeşil",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum yeşil sarı",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum turuncu",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum mor",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum kırmızı",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum kırmızı mor",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum sarı",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum sarı kırmızı",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May yeşil",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya mavi",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium mavi",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple kırmızı",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium elektrik mavi",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle yeşil",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium lavanta magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian mavi",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium mor",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium kırmızı menekşe",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium yakut",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium deniz yeşil",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium gökyüzü mavi",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate mavi",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium ilkbahar Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium ilkbahar yeşil",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium turkuaz",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan kırmızı",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium menekşe kırmızı",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow kayısı",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow sarı",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metalik altın",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metalik Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metalik Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican pembe",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle mavi",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle mavi yeşil",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle mavi mor",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle yeşil",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle yeşil sarı",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle gri",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle mor",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle kırmızı",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle kırmızı mor",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle sarı",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle sarı kırmızı",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "gece yarısı",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "gece yarısı mavi",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "gece yarısı yeşil Eagle yeşil",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado sarı",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi pembe",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion sarı",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "nane",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "nane krem",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "nane yeşil",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty gül",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning mavi",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss yeşil",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten pembe",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu yeşil",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle yeşil",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic bordo",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples sarı",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo beyaz",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "lacivert mavi",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "lacivert mavi Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon mavi",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon yeşil",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York pembe",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo kırmızı",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo mavi",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "okyanus mavi",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "okyanus yeşil",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "oker",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office yeşil",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old altın",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old lavanta",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old gül",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old gümüş",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "zeytin",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "zeytin Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "zeytin Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "zeytin yeşil",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "turuncu",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "turuncu Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "turuncu Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "turuncu Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "turuncu Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "turuncu Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "turuncu Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "turuncu Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "turuncu kırmızı",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "turuncu kırmızı Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "turuncu sarı",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "turuncu sarı Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid pembe",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou kızıl kırmızı",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous turuncu",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford mavi",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific mavi",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan yeşil",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate mavi",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate mor",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "soluk aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "soluk Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "soluk bakır",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "soluk altın",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "soluk Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "soluk lavanta",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "soluk pembe",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "soluk erik",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "soluk mor Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "soluk kırmızı menekşe",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "soluk Robin Egg mavi",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "soluk gümüş",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "soluk ilkbahar Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "soluk Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy mor",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese yeşil",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise pembe",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris yeşil",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel pembe",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S gri",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "şeftali",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "şeftali Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "inci altın",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly mor",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian mavi",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian yeşil",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian çivit",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian turuncu",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian pembe",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian erik",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian kırmızı",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian gül",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter mavi",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo mavi",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo yeşil",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee mavi",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy pembe",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine yeşil",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "pembe",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "pembe Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "pembe Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "pembe Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "pembe lavanta",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "pembe Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "erik",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "erik Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump mor",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland turuncu",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder mavi",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton turuncu",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian mavi",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic mor",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman kahverengi Ups kahverengi",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "mor",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "mor HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "mor Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "mor X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "mor Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "mor lacivert",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "mor Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "mor erik",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen mavi",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen pembe",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick gümüş",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical kırmızı",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin siyah",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry gül",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle gül",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca mor",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "kırmızı",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "kırmızı Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "kırmızı Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "kırmızı Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "kırmızı Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "kırmızı Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "kırmızı Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "kırmızı Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "kırmızı turuncu",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "kırmızı turuncu Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "kırmızı turuncu Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "kırmızı mor",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "kırmızı menekşe",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "kırmızı menekşe Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "kırmızı menekşe Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration siyah",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution mavi",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich siyah",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich siyah Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich siyah Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich bordo",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle yeşil",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg mavi",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metalik",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman gümüş",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "gül",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "gül Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "gül Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "gül Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "gül Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "gül pembe",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "gül Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "gül kırmızı",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "gül Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "gül Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy kahverengi",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal mavi koyu",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal mavi açık",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal mor",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal sarı",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine kırmızı",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "yakut",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "yakut kırmızı",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian yeşil",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian menekşe",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty kırmızı",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State yeşil",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle kahverengi",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety turuncu",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety turuncu Blaze turuncu",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety sarı",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "safran",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "somon",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "somon pembe",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy kahverengi",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap yeşil",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "safir",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "safir Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "safir mavi",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen altın",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "al",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss pembe",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus sarı",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin yeşil",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "deniz yeşil",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "deniz yeşil Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal kahverengi",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective sarı",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow mavi",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock yeşil",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen yeşil",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking pembe",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking pembe Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "gümüş",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "gümüş Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "gümüş metalik",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "gümüş Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "gümüş Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "gümüş Lake mavi",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "gümüş pembe",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "gümüş Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling kırmızı",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling gün doğumu",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "gökyüzü mavi",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "gökyüzü mavi Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "gökyüzü magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate mavi",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate gri",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy yeşil",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt koyu Powder mavi",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky siyah",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "kar",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid pembe",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic gümüş",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish mavi",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish gri",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish yeşil",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish turuncu",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish pembe",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish kırmızı",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish gökyüzü mavi",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish menekşe",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "ilkbahar Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "ilkbahar Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "ilkbahar yeşil",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "ilkbahar yeşil Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S mavi",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command mavi",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "çelik mavi",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "çelik pembe",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "çelik camgöbeği",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain sarı",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar erik",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "gün batımı",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super pembe",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet kahverengi",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango pembe",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart turuncu",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe gri",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea yeşil",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea gül",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "camgöbeği",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "camgöbeği mavi",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian pembe",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me pembe",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany mavi",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium sarı",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain orman",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "gerçek mavi",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts mavi",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "turkuaz",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "turkuaz mavi",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "turkuaz yeşil",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle yeşil",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan kahverengi",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan kırmızı",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight lavanta",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian mor",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua mavi",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua kırmızı",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra pembe",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra kırmızı",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine mavi",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations mavi",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow sarı",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up orman yeşil",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up bordo",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell kırmızı",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa mavi",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke kahverengi",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas altın",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian kırmızı",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "menekşe",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "menekşe Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "menekşe Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "menekşe Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "menekşe Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "menekşe mavi",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "menekşe mavi Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "menekşe kırmızı",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian yeşil",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid gökyüzü mavi",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid menekşe",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm siyah",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "beyaz",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild mavi Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "kış gökyüzü",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood kahverengi",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale mavi",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "sarı",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "sarı Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "sarı Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "sarı Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "sarı Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "sarı Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "sarı Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "sarı turuncu",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "sarı turuncu Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "sarı Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "sarı yeşil",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "sarı yeşil Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "sarı yeşil Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn mavi",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]
