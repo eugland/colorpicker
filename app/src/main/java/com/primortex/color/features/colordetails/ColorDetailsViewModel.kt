@@ -73,7 +73,10 @@ class ColorDetailsViewModel @Inject constructor(
             }
 
             ColorDetailsUiAction.ToggleSavedClicked -> {
-                recentPicksService.toggleSaved(pickedColor)
+                recentPicksService.toggleSaved(
+                    pick = pickedColor,
+                    isCurrentlySaved = _uiState.value.isSaved
+                )
                 val message = if (_uiState.value.isSaved) AppStrings.get(R.string.removed_from_my_colors)
                 else AppStrings.get(R.string.saved_to_my_colors)
                 viewModelScope.launch { _effects.emit(ColorDetailsEffect.ShowMessage(message)) }

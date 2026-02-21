@@ -34,6 +34,7 @@ class RecentPicksServiceUnitTest {
         service.addPick(blue, source = "unit")
         service.addPick(red, source = "unit")
 
+        waitUntil { service.history.value == listOf(red, blue) }
         assertEquals(listOf(red, blue), service.history.value)
         assertTrue(events.contains("picked"))
     }
@@ -48,10 +49,12 @@ class RecentPicksServiceUnitTest {
         service.clearSaved()
 
         val green = PickedColor(0xFF00FF00.toInt(), "Green")
-        service.toggleSaved(green)
+        service.toggleSaved(green, isCurrentlySaved = false)
+        waitUntil { service.saved.value == listOf(green) }
         assertEquals(listOf(green), service.saved.value)
 
-        service.toggleSaved(green)
+        service.toggleSaved(green, isCurrentlySaved = true)
+        waitUntil { service.saved.value.isEmpty() }
         assertTrue(service.saved.value.isEmpty())
     }
 
@@ -66,12 +69,23 @@ class RecentPicksServiceUnitTest {
         service.clear()
         service.clearSaved()
 
+        waitUntil { service.history.value.isEmpty() && service.saved.value.isEmpty() }
         assertFalse(service.history.value.isNotEmpty())
         assertFalse(service.saved.value.isNotEmpty())
     }
 
     private fun waitForInit() {
         Thread.sleep(300)
+    }
+
+    private fun waitUntil(timeoutMs: Long = 2000, condition: () -> Boolean) {
+        val start = System.currentTimeMillis()
+        while (!condition()) {
+            if (System.currentTimeMillis() - start > timeoutMs) {
+                throw AssertionError("Timed out waiting for condition")
+            }
+            Thread.sleep(25)
+        }
     }
 
     private fun testAnalyticsClient(events: MutableList<String>) = object : AnalyticsClient {

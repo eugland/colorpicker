@@ -85,12 +85,15 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
+    kapt(libs.androidx.room.compiler)
 
 
     // Coil for image loading (photo pick screen)
