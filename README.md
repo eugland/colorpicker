@@ -51,3 +51,75 @@ Color catalog JSON maps currently available:
 ## Project Docs
 
 - Script usage: [`scripts/README.md`](scripts/README.md)
+
+## Reliability Test Plan
+
+This plan focuses on failures that would break core app trust: wrong color mapping, broken locale catalogs, and silent data parsing regressions.
+
+### 1) Unit Tests (Fast Gate)
+
+Run on every change:
+
+- `./gradlew :app:testDebugUnitTest`
+
+Critical coverage:
+
+- `ColorService` input validation:
+  - invalid hex values are dropped
+  - blank names are ignored
+- normalization + lookup behavior:
+  - case-insensitive/trimmed name lookup
+  - `setColors()` replaces catalog and invalidates old lookup state
+- search correctness:
+  - `startsWith` matches rank before `contains`
+  - blank queries return no results
+  - result `limit` is respected
+- nearest-color mapping:
+  - deterministic nearest-name result for close ARGB inputs
+
+Pass criteria:
+
+- all unit tests pass
+- no flaky/non-deterministic assertions
+
+### 2) Instrumented Tests (Android Resource + Locale Gate)
+
+Run before release and after locale/catalog changes:
+
+- `./gradlew :app:connectedDebugAndroidTest`
+
+Critical coverage:
+
+- `ColorCatalogImportService` default catalog load is non-empty
+- locale-tag loading remains functional for representative locales:
+  - `ja`, `fr`, `es`, `it`, `zh`, `zh-CN`, `zh-TW`
+- unknown locale tag still yields a usable catalog (fallback behavior)
+
+Pass criteria:
+
+- all instrumented tests pass on at least one CI/device API level
+- no locale returns an empty catalog unless explicitly intentional
+
+### 3) Resource Integrity Checks (Catalog Quality Gate)
+
+Run after editing any `res/raw*/colors.json`:
+
+- verify JSON parseability for all locale files
+- verify UTF-8 without BOM
+- verify expected entry counts for locale strategy:
+  - full locales match base catalog size
+  - copied/specialized locales match their source strategy by design
+- verify duplicate policy:
+  - names and hex duplicates are either intentionally allowed or explicitly resolved
+
+### 4) Suggested CI Order
+
+1. `:app:testDebugUnitTest`
+2. `:app:assembleDebug`
+3. `:app:connectedDebugAndroidTest` (device/emulator lane)
+
+### 5) Reliability Bar for Merge
+
+- no failing tests
+- no new untested behavior in color parsing/search/locale loading
+- locale catalog edits include at least one validation run in CI logs

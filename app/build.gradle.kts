@@ -45,6 +45,9 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
     androidResources {
         generateLocaleConfig = true
     }
@@ -97,6 +100,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)
+    testImplementation("org.robolectric:robolectric:4.13")
     testImplementation(libs.ktor.client.mock)                  // MockEngine
     testImplementation(libs.ktor.client.content.negotiation)   // needed by test HttpClient
     testImplementation(libs.ktor.serialization.kotlinx.json)   // needed by test HttpClient
