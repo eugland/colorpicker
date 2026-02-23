@@ -1,8 +1,10 @@
 package com.primortex.color.service
 
 import android.content.Context
+import com.primortex.color.R
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.i18n.AppStrings
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.UUID
 import javax.inject.Inject
@@ -44,10 +46,14 @@ class SeedService @Inject constructor(
 
         val modernUiNeutrals = Palette(
             id = UUID.randomUUID().toString(),
-            name = "Modern UI Neutrals",
+            name = AppStrings.get(R.string.seed_modern_ui_neutrals_name),
             colors = modernUiNeutralColors,
-            tags = listOf("ui", "neutral", "modern"),
-            note = "Clean, flexible colors for modern interfaces",
+            tags = listOf(
+                AppStrings.get(R.string.seed_modern_ui_neutrals_tag_ui),
+                AppStrings.get(R.string.seed_modern_ui_neutrals_tag_neutral),
+                AppStrings.get(R.string.seed_modern_ui_neutrals_tag_modern)
+            ),
+            note = AppStrings.get(R.string.seed_modern_ui_neutrals_note),
             createdAt = now,
             updatedAt = now
         )

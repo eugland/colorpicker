@@ -622,7 +622,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             )
 
                             TextButton(onClick = { showModeGrid = false }) {
-                                Text("Close")
+                                Text(stringResource(R.string.close))
                             }
                         }
 
@@ -774,7 +774,7 @@ private fun ModeGridItem(
                         shape = RoundedCornerShape(999.dp)
                     ) {
                         Text(
-                            text = "Selected",
+                            text = stringResource(R.string.selected_str),
                             color = MaterialTheme.colorScheme.onPrimary,
                             style = MaterialTheme.typography.labelSmall,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)

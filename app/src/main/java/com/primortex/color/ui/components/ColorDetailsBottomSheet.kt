@@ -122,7 +122,7 @@ fun ColorDetailsBottomSheet(
                 ) {
                     Icon(
                         imageVector = Icons.Outlined.ContentCopy,
-                        contentDescription = "Copy color value"
+                        contentDescription = stringResource(R.string.copy_hex)
                     )
                 }
             }

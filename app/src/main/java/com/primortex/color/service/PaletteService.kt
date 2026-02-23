@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.i18n.AppStrings
 import com.primortex.color.service.palette.PaletteDatabase
 import com.primortex.color.service.palette.toDomain
 import com.primortex.color.service.palette.toEntity
@@ -105,7 +107,7 @@ class PaletteService @Inject constructor(
         val now = System.currentTimeMillis()
         val p = Palette(
             id = UUID.randomUUID().toString(),
-            name = name.ifBlank { "Palette" },
+            name = name.ifBlank { AppStrings.get(R.string.palette) },
             colors = colors.distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE),
             tags = tags,
             note = note,
