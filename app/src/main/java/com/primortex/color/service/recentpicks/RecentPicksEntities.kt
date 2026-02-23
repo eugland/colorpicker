@@ -18,12 +18,6 @@ data class SavedPickEntity(
     val updatedAt: Long
 )
 
-@Entity(tableName = "recent_picks_meta")
-data class RecentPicksMetaEntity(
-    @PrimaryKey val key: String,
-    val value: String
-)
-
 internal fun RecentPickHistoryEntity.toPickedColor(): PickedColor = PickedColor(argb = argb, name = name)
 
 internal fun SavedPickEntity.toPickedColor(): PickedColor = PickedColor(argb = argb, name = name)

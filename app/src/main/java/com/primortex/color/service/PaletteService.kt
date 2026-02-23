@@ -2,11 +2,12 @@ package com.primortex.color.service
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.palette.PaletteDatabase
-import com.primortex.color.service.palette.PaletteMetaEntity
 import com.primortex.color.service.palette.toDomain
 import com.primortex.color.service.palette.toEntity
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -19,7 +20,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.security.MessageDigest
 import java.util.UUID
 import java.util.concurrent.Executors
@@ -36,9 +36,14 @@ class PaletteService @Inject constructor(
     }
 
     companion object {
-        const val META_KEY_SEEDED = "seeded_v1"
-        const val META_KEY_FIRST_PALETTE_LOGGED = "first_palette_logged_v1"
+        private const val PREFS_NAME = "palette_flags"
+        private const val PREF_KEY_FIRST_PALETTE_LOGGED = "first_palette_logged_v1"
         const val MAX_COLORS_PER_PALETTE = 5
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS palette_meta")
+            }
+        }
     }
 
     private object PaletteDbHolder {
@@ -52,6 +57,7 @@ class PaletteService @Inject constructor(
                     PaletteDatabase::class.java,
                     "palettes.db"
                 )
+                    .addMigrations(MIGRATION_1_2)
                     .setQueryExecutor(executor)
                     .setTransactionExecutor(executor)
                     .build()
@@ -64,6 +70,7 @@ class PaletteService @Inject constructor(
     private val dbExecutor = PaletteDbHolder.executor
     private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
     private val dao = PaletteDbHolder.get(appContext).paletteDao()
+    private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
     private val _previewPalettes = MutableStateFlow<List<Palette>>(emptyList())
@@ -71,55 +78,20 @@ class PaletteService @Inject constructor(
     private var firstPaletteLogged = false
 
     init {
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             _palettes.value = dao.loadAll().map { it.toDomain() }
-            firstPaletteLogged = dao.getMeta(META_KEY_FIRST_PALETTE_LOGGED) == "true"
-            seedIfNeeded()
         }
+        firstPaletteLogged = prefs.getBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, false)
     }
 
-    private suspend fun seedIfNeeded() {
-        if (dao.getMeta(META_KEY_SEEDED) == "true") return
-
-        val now = System.currentTimeMillis()
-
-        val uiNeutrals = Palette(
-            id = UUID.randomUUID().toString(),
-            name = "Modern UI Neutrals",
-            colors = listOf(
-                PickedColor(0xFF0F172A.toInt(), "Slate 900"),
-                PickedColor(0xFF475569.toInt(), "Slate 600"),
-                PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
-                PickedColor(0xFF0EA5E9.toInt(), "Sky 500"),
-                PickedColor(0xFF10B981.toInt(), "Emerald 500"),
-            ),
-            tags = listOf("ui", "neutral", "modern"),
-            note = "Clean, flexible colors for modern interfaces",
-            createdAt = now,
-            updatedAt = now
-        )
-
-        val mutedNature = Palette(
-            id = UUID.randomUUID().toString(),
-            name = "Muted Nature",
-            colors = listOf(
-                PickedColor(0xFF2F5D50.toInt(), "Forest"),
-                PickedColor(0xFF7A9B76.toInt(), "Moss"),
-                PickedColor(0xFFE6D5B8.toInt(), "Sand"),
-                PickedColor(0xFFC97C5D.toInt(), "Clay"),
-                PickedColor(0xFF3A3A3A.toInt(), "Ink"),
-            ),
-            tags = listOf("nature", "muted", "warm"),
-            note = "Soft, earthy tones for calm visual design",
-            createdAt = now,
-            updatedAt = now
-        )
-
-        val seeded = listOf(uiNeutrals, mutedNature)
-        _palettes.value = seeded
-        dao.clearPalettes()
-        dao.insertAll(seeded.map { it.toEntity() })
-        dao.upsertMeta(PaletteMetaEntity(META_KEY_SEEDED, "true"))
+    suspend fun seedPalettesIfEmpty(palettes: List<Palette>) {
+        if (dao.loadAll().isEmpty()) {
+            _palettes.value = palettes
+            dao.clearPalettes()
+            if (palettes.isNotEmpty()) {
+                dao.insertAll(palettes.map { it.toEntity() })
+            }
+        }
     }
 
     fun create(
@@ -155,9 +127,7 @@ class PaletteService @Inject constructor(
         if (saveOnCreate && !firstPaletteLogged) {
             analyticsTracker.logFirstPaletteCreated(p)
             firstPaletteLogged = true
-            scope.launch {
-                dao.upsertMeta(PaletteMetaEntity(META_KEY_FIRST_PALETTE_LOGGED, "true"))
-            }
+            prefs.edit().putBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, true).apply()
         }
         return p
     }

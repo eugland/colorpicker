@@ -6,10 +6,9 @@ import androidx.room.RoomDatabase
 @Database(
     entities = [
         RecentPickHistoryEntity::class,
-        SavedPickEntity::class,
-        RecentPicksMetaEntity::class
+        SavedPickEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class RecentPicksDatabase : RoomDatabase() {

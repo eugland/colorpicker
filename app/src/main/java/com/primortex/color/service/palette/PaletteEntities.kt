@@ -17,12 +17,6 @@ data class PaletteEntity(
     val updatedAt: Long
 )
 
-@Entity(tableName = "palette_meta")
-data class PaletteMetaEntity(
-    @PrimaryKey val key: String,
-    val value: String
-)
-
 private val paletteJson = Json { ignoreUnknownKeys = true; encodeDefaults = true }
 
 internal fun Palette.toEntity(): PaletteEntity = PaletteEntity(

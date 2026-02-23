@@ -13,12 +13,6 @@ interface PaletteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(items: List<PaletteEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsertMeta(meta: PaletteMetaEntity)
-
-    @Query("SELECT value FROM palette_meta WHERE `key` = :key LIMIT 1")
-    suspend fun getMeta(key: String): String?
-
     @Query("DELETE FROM palette")
     suspend fun clearPalettes()
 

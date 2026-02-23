@@ -66,10 +66,4 @@ interface RecentPicksDao {
         """
     )
     suspend fun trimSaved(limit: Int)
-
-    @Query("SELECT value FROM recent_picks_meta WHERE `key` = :key LIMIT 1")
-    suspend fun getMeta(key: String): String?
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun putMeta(meta: RecentPicksMetaEntity)
 }

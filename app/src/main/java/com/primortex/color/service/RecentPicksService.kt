@@ -3,11 +3,12 @@ package com.primortex.color.service
 import android.content.Context
 import android.util.Log
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.recentpicks.RecentPickHistoryEntity
 import com.primortex.color.service.recentpicks.RecentPicksDatabase
-import com.primortex.color.service.recentpicks.RecentPicksMetaEntity
 import com.primortex.color.service.recentpicks.SavedPickEntity
 import com.primortex.color.service.recentpicks.toPickedColor
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -21,7 +22,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Executors
 
 @Singleton
@@ -31,8 +31,14 @@ class RecentPicksService @Inject constructor(
 ) {
     private companion object {
         const val MAX = 100
-        const val META_KEY_FIRST_PICK_LOGGED = "first_pick_logged_v1"
-        const val META_KEY_FIRST_SAVE_LOGGED = "first_saved_logged_v1"
+        const val PREFS_NAME = "recent_picks_flags"
+        const val PREF_KEY_FIRST_PICK_LOGGED = "first_pick_logged_v1"
+        const val PREF_KEY_FIRST_SAVE_LOGGED = "first_saved_logged_v1"
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS recent_picks_meta")
+            }
+        }
     }
 
     private object RecentPicksDbHolder {
@@ -46,6 +52,7 @@ class RecentPicksService @Inject constructor(
                     RecentPicksDatabase::class.java,
                     "recent_picks.db"
                 )
+                    .addMigrations(MIGRATION_1_2)
                     .setQueryExecutor(executor)
                     .setTransactionExecutor(executor)
                     .build()
@@ -59,6 +66,7 @@ class RecentPicksService @Inject constructor(
     private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
     private val db: RecentPicksDatabase = RecentPicksDbHolder.get(appContext)
     private val dao = db.recentPicksDao()
+    private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     val history: StateFlow<List<PickedColor>> = dao.observeHistory(MAX)
         .map { rows -> rows.map { it.toPickedColor() } }
         .stateIn(scope, SharingStarted.Eagerly, emptyList())
@@ -69,11 +77,9 @@ class RecentPicksService @Inject constructor(
     private var firstSavedLogged = false
 
     init {
-        runBlocking(scope.coroutineContext) {
-            firstPickLogged = dao.getMeta(META_KEY_FIRST_PICK_LOGGED) == "true"
-            firstSavedLogged = dao.getMeta(META_KEY_FIRST_SAVE_LOGGED) == "true"
-            Log.d("RecentPicksService", "Recent picks Room flow initialized")
-        }
+        firstPickLogged = prefs.getBoolean(PREF_KEY_FIRST_PICK_LOGGED, false)
+        firstSavedLogged = prefs.getBoolean(PREF_KEY_FIRST_SAVE_LOGGED, false)
+        Log.d("RecentPicksService", "Recent picks Room flow initialized")
     }
 
     fun addPick(pick: PickedColor, source: String = "unknown") {
@@ -81,8 +87,9 @@ class RecentPicksService @Inject constructor(
         if (!firstPickLogged) {
             analyticsTracker.logFirstColorPick(pick)
             firstPickLogged = true
+            prefs.edit().putBoolean(PREF_KEY_FIRST_PICK_LOGGED, true).apply()
         }
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             dao.upsertHistory(
                 RecentPickHistoryEntity(
                     argb = pick.argb,
@@ -91,28 +98,25 @@ class RecentPicksService @Inject constructor(
                 )
             )
             dao.trimHistory(MAX)
-            if (firstPickLogged) {
-                dao.putMeta(RecentPicksMetaEntity(META_KEY_FIRST_PICK_LOGGED, "true"))
-            }
         }
     }
 
     fun clear() {
         analyticsTracker.logRecentsCleared()
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             dao.clearHistory()
         }
     }
 
     fun clearSaved() {
         analyticsTracker.logSavedCleared()
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             dao.clearSaved()
         }
     }
 
     fun addSaved(pick: PickedColor) {
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             dao.upsertSaved(
                 SavedPickEntity(
                     argb = pick.argb,
@@ -125,13 +129,13 @@ class RecentPicksService @Inject constructor(
             if (!firstSavedLogged) {
                 analyticsTracker.logFirstColorSaved(pick)
                 firstSavedLogged = true
-                dao.putMeta(RecentPicksMetaEntity(META_KEY_FIRST_SAVE_LOGGED, "true"))
+                prefs.edit().putBoolean(PREF_KEY_FIRST_SAVE_LOGGED, true).apply()
             }
         }
     }
 
     fun removeSaved(argb: Int) {
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             val removed = dao.getSavedByArgb(argb)?.toPickedColor()
             dao.deleteSavedByArgb(argb)
             removed?.let { analyticsTracker.logColorSaved(it, action = "removed") }
@@ -139,7 +143,7 @@ class RecentPicksService @Inject constructor(
     }
 
     fun toggleSaved(pick: PickedColor, isCurrentlySaved: Boolean) {
-        runBlocking(scope.coroutineContext) {
+        scope.launch {
             if (isCurrentlySaved) {
                 dao.deleteSavedByArgb(pick.argb)
                 analyticsTracker.logColorSaved(pick, action = "removed")
@@ -156,9 +160,39 @@ class RecentPicksService @Inject constructor(
                 if (!firstSavedLogged) {
                     analyticsTracker.logFirstColorSaved(pick)
                     firstSavedLogged = true
-                    dao.putMeta(RecentPicksMetaEntity(META_KEY_FIRST_SAVE_LOGGED, "true"))
+                    prefs.edit().putBoolean(PREF_KEY_FIRST_SAVE_LOGGED, true).apply()
                 }
             }
+        }
+    }
+
+    suspend fun seedHistoryIfEmpty(picks: List<PickedColor>) {
+        if (dao.loadHistory(MAX).isEmpty() && picks.isNotEmpty()) {
+            val now = System.currentTimeMillis()
+            val entities = picks.mapIndexed { index, pick ->
+                RecentPickHistoryEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = now - index
+                )
+            }
+            dao.insertHistory(entities)
+            dao.trimHistory(MAX)
+        }
+    }
+
+    suspend fun seedSavedIfEmpty(picks: List<PickedColor>) {
+        if (dao.loadSaved(MAX).isEmpty() && picks.isNotEmpty()) {
+            val now = System.currentTimeMillis()
+            val entities = picks.mapIndexed { index, pick ->
+                SavedPickEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = now - index
+                )
+            }
+            dao.insertSaved(entities)
+            dao.trimSaved(MAX)
         }
     }
 }

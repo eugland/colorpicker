@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [PaletteEntity::class, PaletteMetaEntity::class],
-    version = 1,
+    entities = [PaletteEntity::class],
+    version = 2,
     exportSchema = false
 )
 abstract class PaletteDatabase : RoomDatabase() {

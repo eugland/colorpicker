@@ -1,6 +1,5 @@
 package com.primortex.color.di
 
-import com.primortex.color.service.ColorCatalogRepository
 import com.primortex.color.service.ColorService
 import dagger.Module
 import dagger.Provides
@@ -13,8 +12,8 @@ import javax.inject.Singleton
 object ColorModule {
     @Provides
     @Singleton
-    fun provideColorService(repository: ColorCatalogRepository): ColorService {
-        return ColorService(repository.loadSelectedColors())
+    fun provideColorService(): ColorService {
+        return ColorService()
     }
 }
 
