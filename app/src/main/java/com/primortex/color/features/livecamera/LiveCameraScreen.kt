@@ -362,17 +362,21 @@ fun LiveCameraScreen(
             palette = palette,
             onAddColor = {
                 recentPicksService.addPick(pickedColor, source = "live_camera")
-                when {
-                    pickedColor in palette -> snackbarController.showMessage(
+                when (val result = paletteService.addColorToDraftPalette(palette, pickedColor)) {
+                    PaletteService.AddColorResult.Duplicate -> snackbarController.showMessage(
                         AppStrings.get(
                             R.string.palette_already_in_palette,
                             pickedColor.name
                         )
                     )
 
-                    palette.size >= PaletteService.MAX_COLORS_PER_PALETTE -> snackbarController.showMessage(AppStrings.get(R.string.palette_full_message))
-                    else -> {
-                        palette.add(pickedColor)
+                    PaletteService.AddColorResult.Full -> snackbarController.showMessage(
+                        AppStrings.get(R.string.palette_full_message)
+                    )
+
+                    is PaletteService.AddColorResult.Added -> {
+                        palette.clear()
+                        palette.addAll(result.colors)
                     }
                 }
             },

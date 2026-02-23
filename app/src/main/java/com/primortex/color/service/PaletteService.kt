@@ -29,6 +29,12 @@ class PaletteService @Inject constructor(
     @ApplicationContext context: Context,
     private val analyticsTracker: AnalyticsTracker
 ) {
+    sealed interface AddColorResult {
+        data class Added(val colors: List<PickedColor>) : AddColorResult
+        data object Duplicate : AddColorResult
+        data object Full : AddColorResult
+    }
+
     companion object {
         const val META_KEY_SEEDED = "seeded_v1"
         const val META_KEY_FIRST_PALETTE_LOGGED = "first_palette_logged_v1"
@@ -204,6 +210,20 @@ class PaletteService @Inject constructor(
         _palettes.value = emptyList()
         _previewPalettes.value = emptyList()
         persist()
+    }
+
+    fun addColorToDraftPalette(
+        colors: List<PickedColor>,
+        pickedColor: PickedColor
+    ): AddColorResult {
+        val normalized = colors.distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE)
+        if (normalized.any { it.argb == pickedColor.argb }) {
+            return AddColorResult.Duplicate
+        }
+        if (normalized.size >= MAX_COLORS_PER_PALETTE) {
+            return AddColorResult.Full
+        }
+        return AddColorResult.Added(normalized + pickedColor)
     }
 
     private fun persist() {

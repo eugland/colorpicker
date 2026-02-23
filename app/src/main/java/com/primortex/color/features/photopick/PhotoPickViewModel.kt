@@ -90,18 +90,18 @@ class PhotoPickViewModel @Inject constructor(
     private fun addCurrentToPalette() {
         val state = local.value
         val picked = toPickedColor(state.pickedArgb)
-        val updated = when {
-            state.palette.any { it.argb == picked.argb } -> {
+        val updated = when (val result = paletteService.addColorToDraftPalette(state.palette, picked)) {
+            PaletteService.AddColorResult.Duplicate -> {
                 emitMessage(AppStrings.get(R.string.photo_already_in_palette, picked.name))
                 state.palette
             }
 
-            state.palette.size >= PaletteService.MAX_COLORS_PER_PALETTE -> {
+            PaletteService.AddColorResult.Full -> {
                 emitMessage(AppStrings.get(R.string.photo_palette_full_message))
                 state.palette
             }
 
-            else -> state.palette + picked
+            is PaletteService.AddColorResult.Added -> result.colors
         }
         local.update { it.copy(palette = updated) }
     }
