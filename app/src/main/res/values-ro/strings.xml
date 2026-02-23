@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Limba aplicației selectează pachetul implicit de denumiri de culori. Puteți selecta un singur pachet la un moment dat.</string>
     <string name="color_catalogs_none_found">Nu au fost găsite pachete de denumiri de culori în resursele aplicației.</string>
     <string name="color_catalogs_summary">Alegeți pachetul activ de denumiri de culori.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">interfață utilizator</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutru</string>
+    <string name="seed_modern_ui_neutrals_name">Culori neutre UI moderne</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Închide</string>
+    <string name="seed_modern_ui_neutrals_note">Culori curate și flexibile pentru interfețe moderne</string>
 </resources>

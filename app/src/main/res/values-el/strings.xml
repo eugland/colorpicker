@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Η γλώσσα της εφαρμογής επιλέγει το προεπιλεγμένο πακέτο ονομάτων χρωμάτων. Μπορείτε να επιλέξετε ένα πακέτο κάθε φορά.</string>
     <string name="color_catalogs_none_found">Δεν βρέθηκαν πακέτα ονομάτων χρωμάτων στους πόρους της εφαρμογής.</string>
     <string name="color_catalogs_summary">Επιλέξτε το ενεργό πακέτο ονομάτων χρωμάτων.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">διεπαφή χρήστη</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ουδέτερο</string>
+    <string name="seed_modern_ui_neutrals_name">Σύγχρονα ουδέτερα χρώματα UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">σύγχρονο</string>
+    <string name="close">Κλείσιμο</string>
+    <string name="seed_modern_ui_neutrals_note">Καθαρά και ευέλικτα χρώματα για σύγχρονες διεπαφές</string>
 </resources>

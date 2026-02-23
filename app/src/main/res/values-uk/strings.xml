@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Мова вашого застосунку вибирає стандартний пакет назв кольорів. Ви можете вибрати лише один пакет одночасно.</string>
     <string name="color_catalogs_none_found">У ресурсах застосунку не знайдено пакетів назв кольорів.</string>
     <string name="color_catalogs_summary">Виберіть активний пакет назв кольорів.</string>
+    <string name="close">Закрити</string>
+    <string name="seed_modern_ui_neutrals_name">Сучасні нейтральні кольори UI</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">інтерфейс користувача</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">нейтральний</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">сучасний</string>
+    <string name="seed_modern_ui_neutrals_note">Чисті та гнучкі кольори для сучасних інтерфейсів</string>
 </resources>

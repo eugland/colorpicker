@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Die Sprache Ihrer App wählt das Standard-Farbnamenpaket. Sie können jeweils nur ein Paket auswählen.</string>
     <string name="color_catalogs_none_found">In den App-Ressourcen wurden keine Farbnamenpakete gefunden.</string>
     <string name="color_catalogs_summary">Wählen Sie das aktive Farbnamenpaket.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">Benutzeroberfläche</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Moderne neutrale UI-Farben</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Schließen</string>
+    <string name="seed_modern_ui_neutrals_note">Saubere und flexible Farben für moderne Benutzeroberflächen</string>
 </resources>

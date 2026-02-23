@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Bahasa aplikasi anda memilih pek nama warna lalai. Anda boleh memilih satu pek pada satu masa.</string>
     <string name="color_catalogs_none_found">Tiada pek nama warna ditemui dalam aset aplikasi.</string>
     <string name="color_catalogs_summary">Pilih pek nama warna yang aktif.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">antara muka pengguna</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Warna neutral UI moden</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moden</string>
+    <string name="close">Tutup</string>
+    <string name="seed_modern_ui_neutrals_note">Warna bersih dan fleksibel untuk antara muka moden</string>
 </resources>

@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">שפת האפליקציה בוחרת את חבילת שמות הצבעים כברירת מחדל. ניתן לבחור חבילה אחת בכל פעם.</string>
     <string name="color_catalogs_none_found">לא נמצאו חבילות שמות צבעים במשאבי האפליקציה.</string>
     <string name="color_catalogs_summary">בחר את חבילת שמות הצבעים הפעילה.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ממשק משתמש</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ניטרלי</string>
+    <string name="seed_modern_ui_neutrals_name">צבעים ניטרליים מודרניים לממשק משתמש</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">מודרני</string>
+    <string name="close">סגור</string>
+    <string name="seed_modern_ui_neutrals_note">צבעים נקיים וגמישים לממשקים מודרניים</string>
 </resources>

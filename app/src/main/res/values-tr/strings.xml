@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Uygulama dili varsayılan renk adı paketini seçer. Aynı anda yalnızca bir paket seçebilirsiniz.</string>
     <string name="color_catalogs_none_found">Uygulama varlıklarında renk adı paketi bulunamadı.</string>
     <string name="color_catalogs_summary">Etkin renk adı paketini seçin.</string>
+    <string name="close">Kapat</string>
+    <string name="seed_modern_ui_neutrals_name">Modern nötr UI renkleri</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">kullanıcı arayüzü</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">nötr</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="seed_modern_ui_neutrals_note">Modern arayüzler için temiz ve esnek renkler</string>
 </resources>

@@ -262,4 +262,10 @@
     <string name="color_catalogs_none_found">Er zijn geen kleurnamenpakketten gevonden in de app-bronnen.</string>
     <string name="color_catalogs_summary">Kies het actieve kleurnamenpakket.</string>
     <string name="delete_all">Alles verwijderen</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">gebruikersinterface</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutraal</string>
+    <string name="seed_modern_ui_neutrals_name">Moderne UI-neutrale kleuren</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Sluiten</string>
+    <string name="seed_modern_ui_neutrals_note">Schone en flexibele kleuren voor moderne interfaces</string>
 </resources>

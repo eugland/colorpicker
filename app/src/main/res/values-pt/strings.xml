@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">O idioma do aplicativo seleciona o pacote padrão de nomes de cores. Você pode selecionar apenas um pacote por vez.</string>
     <string name="color_catalogs_none_found">Nenhum pacote de nomes de cores foi encontrado nos recursos do aplicativo.</string>
     <string name="color_catalogs_summary">Escolha o pacote de nomes de cores ativo.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">interface do usuário</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutro</string>
+    <string name="seed_modern_ui_neutrals_name">Cores neutras modernas de UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderno</string>
+    <string name="close">Fechar</string>
+    <string name="seed_modern_ui_neutrals_note">Cores limpas e flexíveis para interfaces modernas</string>
 </resources>

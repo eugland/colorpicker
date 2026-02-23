@@ -262,4 +262,11 @@
     <string name="color_catalogs_description">Your app language picks the default color name pack. You can select one pack at a time.</string>
     <string name="color_catalogs_none_found">No color name packs were found in app assets.</string>
     <string name="color_catalogs_summary">Choose the active color name pack.</string>
+    <string name="close">Close</string>
+
+    <string name="seed_modern_ui_neutrals_name">Modern UI Neutrals</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ui</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="seed_modern_ui_neutrals_note">Clean, flexible colors for modern interfaces</string>
 </resources>

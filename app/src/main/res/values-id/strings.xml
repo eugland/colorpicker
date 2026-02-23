@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Bahasa aplikasi Anda memilih paket nama warna default. Anda dapat memilih satu paket setiap kali.</string>
     <string name="color_catalogs_none_found">Tidak ditemukan paket nama warna di aset aplikasi.</string>
     <string name="color_catalogs_summary">Pilih paket nama warna yang aktif.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">antarmuka pengguna</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">netral</string>
+    <string name="seed_modern_ui_neutrals_name">Warna netral UI modern</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Tutup</string>
+    <string name="seed_modern_ui_neutrals_note">Warna bersih dan fleksibel untuk antarmuka modern</string>
 </resources>

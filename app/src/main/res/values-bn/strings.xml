@@ -262,4 +262,10 @@
     <string name="color_catalogs_none_found">অ্যাপের রিসোর্সে কোনো রঙের নাম প্যাক পাওয়া যায়নি।</string>
     <string name="color_catalogs_summary">সক্রিয় রঙের নাম প্যাক নির্বাচন করুন।</string>
     <string name="delete_all">সব মুছুন</string>
+    <string name="close">বন্ধ করুন</string>
+    <string name="seed_modern_ui_neutrals_name">আধুনিক UI নিরপেক্ষ রং</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ইউআই</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">নিরপেক্ষ</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">আধুনিক</string>
+    <string name="seed_modern_ui_neutrals_note">আধুনিক ইন্টারফেসের জন্য পরিষ্কার ও নমনীয় রং</string>
 </resources>

@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">आपकी ऐप भाषा डिफ़ॉल्ट रंग नाम पैक चुनती है। आप एक समय में केवल एक पैक चुन सकते हैं।</string>
     <string name="color_catalogs_none_found">ऐप संसाधनों में कोई रंग नाम पैक नहीं मिला।</string>
     <string name="color_catalogs_summary">सक्रिय रंग नाम पैक चुनें।</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">यूआई</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">न्यूट्रल</string>
+    <string name="seed_modern_ui_neutrals_name">आधुनिक UI न्यूट्रल रंग</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">आधुनिक</string>
+    <string name="close">बंद करें</string>
+    <string name="seed_modern_ui_neutrals_note">आधुनिक इंटरफेस के लिए साफ और लचीले रंग</string>
 </resources>

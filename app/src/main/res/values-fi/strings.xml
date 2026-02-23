@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Sovelluksen kieli valitsee oletusvärinimipaketin. Voit valita vain yhden paketin kerrallaan.</string>
     <string name="color_catalogs_none_found">Sovelluksen resursseista ei löytynyt värinimipaketteja.</string>
     <string name="color_catalogs_summary">Valitse aktiivinen värinimipaketti.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">käyttöliittymä</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutraali</string>
+    <string name="seed_modern_ui_neutrals_name">Nykyaikaiset neutraalit UI-värit</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderni</string>
+    <string name="close">Sulje</string>
+    <string name="seed_modern_ui_neutrals_note">Selkeät ja joustavat värit nykyaikaisiin käyttöliittymiin</string>
 </resources>

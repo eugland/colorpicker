@@ -243,4 +243,10 @@
     <string name="color_catalogs_description">アプリの言語がデフォルトの色名パックを選択します。一度に1つのパックのみ選択できます。</string>
     <string name="color_catalogs_none_found">アプリのリソースに色名パックが見つかりませんでした。</string>
     <string name="color_catalogs_summary">使用する色名パックを選択してください。</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ユーザーインターフェース</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ニュートラル</string>
+    <string name="seed_modern_ui_neutrals_name">モダンUIニュートラルカラー</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">モダン</string>
+    <string name="close">閉じる</string>
+    <string name="seed_modern_ui_neutrals_note">モダンなインターフェース向けのクリーンで柔軟なカラー</string>
 </resources>

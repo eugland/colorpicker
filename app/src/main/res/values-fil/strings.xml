@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Pinipili ng wika ng app ang default na pakete ng pangalan ng kulay. Maaari kang pumili ng isang pakete sa bawat pagkakataon.</string>
     <string name="color_catalogs_none_found">Walang natagpuang pakete ng pangalan ng kulay sa mga asset ng app.</string>
     <string name="color_catalogs_summary">Piliin ang aktibong pakete ng pangalan ng kulay.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">UI</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Mga modernong neutral na kulay ng UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderno</string>
+    <string name="close">Isara</string>
+    <string name="seed_modern_ui_neutrals_note">Malinis at flexible na mga kulay para sa modernong mga interface</string>
 </resources>

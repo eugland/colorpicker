@@ -262,4 +262,10 @@
     <string name="color_catalogs_none_found">لم يتم العثور على أي حزم أسماء ألوان في موارد التطبيق.</string>
     <string name="color_catalogs_summary">اختر حزمة أسماء الألوان النشطة.</string>
     <string name="delete_all">حذف الكل</string>
+    <string name="close">إغلاق</string>
+    <string name="seed_modern_ui_neutrals_name">ألوان واجهة حديثة محايدة</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">واجهة مستخدم</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">محايد</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">حديث</string>
+    <string name="seed_modern_ui_neutrals_note">ألوان نظيفة ومرنة للواجهات الحديثة</string>
 </resources>

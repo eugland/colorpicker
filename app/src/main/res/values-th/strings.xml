@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">ภาษาของแอปจะเลือกแพ็กชื่อสีเริ่มต้น คุณสามารถเลือกได้ครั้งละหนึ่งแพ็ก</string>
     <string name="color_catalogs_none_found">ไม่พบแพ็กชื่อสีในทรัพยากรของแอป</string>
     <string name="color_catalogs_summary">เลือกแพ็กชื่อสีที่ใช้งานอยู่</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ส่วนติดต่อผู้ใช้</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">เป็นกลาง</string>
+    <string name="seed_modern_ui_neutrals_name">สีโทนกลาง UI สมัยใหม่</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">สมัยใหม่</string>
+    <string name="close">ปิด</string>
+    <string name="seed_modern_ui_neutrals_note">สีที่สะอาดและยืดหยุ่นสำหรับส่วนติดต่อสมัยใหม่</string>
 </resources>

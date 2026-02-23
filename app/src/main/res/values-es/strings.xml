@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">El idioma de la aplicación selecciona el paquete de nombres de colores predeterminado. Puede seleccionar un paquete a la vez.</string>
     <string name="color_catalogs_none_found">No se encontraron paquetes de nombres de colores en los recursos de la aplicación.</string>
     <string name="color_catalogs_summary">Elija el paquete de nombres de colores activo.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">interfaz de usuario</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Colores neutros modernos de UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderno</string>
+    <string name="close">Cerrar</string>
+    <string name="seed_modern_ui_neutrals_note">Colores limpios y flexibles para interfaces modernas</string>
 </resources>

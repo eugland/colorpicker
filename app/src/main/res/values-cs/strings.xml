@@ -262,4 +262,10 @@
     <string name="color_catalogs_none_found">V prostředcích aplikace nebyly nalezeny žádné balíčky názvů barev.</string>
     <string name="color_catalogs_summary">Vyberte aktivní balíček názvů barev.</string>
     <string name="delete_all">Smazat vše</string>
+    <string name="close">Zavřít</string>
+    <string name="seed_modern_ui_neutrals_name">Moderní neutrální barvy UI</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">uživatelské rozhraní</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutrální</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderní</string>
+    <string name="seed_modern_ui_neutrals_note">Čisté a flexibilní barvy pro moderní rozhraní</string>
 </resources>

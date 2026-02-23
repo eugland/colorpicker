@@ -262,4 +262,10 @@
     <string name="color_catalogs_none_found">Der blev ikke fundet nogen farvenavnepakker i appens ressourcer.</string>
     <string name="color_catalogs_summary">Vælg den aktive farvenavnepakke.</string>
     <string name="delete_all">Slet alle</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">brugergrænseflade</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Moderne UI-neutrale farver</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderne</string>
+    <string name="close">Luk</string>
+    <string name="seed_modern_ui_neutrals_note">Rene og fleksible farver til moderne grænseflader</string>
 </resources>

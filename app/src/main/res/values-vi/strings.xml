@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">Ngôn ngữ ứng dụng chọn gói tên màu mặc định. Bạn có thể chọn một gói tại một thời điểm.</string>
     <string name="color_catalogs_none_found">Không tìm thấy gói tên màu trong tài nguyên ứng dụng.</string>
     <string name="color_catalogs_summary">Chọn gói tên màu đang hoạt động.</string>
+    <string name="close">Đóng</string>
+    <string name="seed_modern_ui_neutrals_name">Màu trung tính UI hiện đại</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">giao diện người dùng</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">trung tính</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">hiện đại</string>
+    <string name="seed_modern_ui_neutrals_note">Màu sắc sạch và linh hoạt cho giao diện hiện đại</string>
 </resources>

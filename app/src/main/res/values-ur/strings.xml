@@ -262,4 +262,10 @@
     <string name="color_catalogs_description">آپ کی ایپ کی زبان ڈیفالٹ رنگ نام پیک منتخب کرتی ہے۔ آپ ایک وقت میں صرف ایک پیک منتخب کر سکتے ہیں۔</string>
     <string name="color_catalogs_none_found">ایپ وسائل میں کوئی رنگ نام پیک نہیں ملا۔</string>
     <string name="color_catalogs_summary">فعال رنگ نام پیک منتخب کریں۔</string>
+    <string name="close">بند کریں</string>
+    <string name="seed_modern_ui_neutrals_name">جدید UI کے غیر جانبدار رنگ</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">یوزر انٹرفیس</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">غیر جانبدار</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">جدید</string>
+    <string name="seed_modern_ui_neutrals_note">جدید انٹرفیس کے لیے صاف اور لچکدار رنگ</string>
 </resources>
