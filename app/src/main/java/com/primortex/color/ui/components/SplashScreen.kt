@@ -24,16 +24,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.i18n.stringResource
 
 @Composable
 fun AnimatedSplashHost(showContent: Boolean, content: @Composable () -> Unit) {
@@ -49,6 +51,8 @@ fun AnimatedSplashHost(showContent: Boolean, content: @Composable () -> Unit) {
 @Composable
 private fun SplashScreen() {
     val colors = MaterialTheme.colorScheme
+    val splashBase = colorResource(id = R.color.splash_background)
+    val splashBottom = lerp(splashBase, Color.White, 0.22f)
     val transition = rememberInfiniteTransition(label = "splash-loop")
     val pulse by transition.animateFloat(
         initialValue = 0.9f,
@@ -83,8 +87,8 @@ private fun SplashScreen() {
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(
-                        colors.primary.copy(alpha = 0.35f),
-                        colors.background
+                        splashBase,
+                        splashBottom
                     )
                 )
             ),
@@ -158,5 +162,3 @@ private fun SplashScreen() {
         }
     }
 }
-
-
