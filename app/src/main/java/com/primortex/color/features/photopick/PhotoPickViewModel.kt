@@ -96,7 +96,7 @@ class PhotoPickViewModel @Inject constructor(
                 state.palette
             }
 
-            state.palette.size >= 10 -> {
+            state.palette.size >= PaletteService.MAX_COLORS_PER_PALETTE -> {
                 emitMessage(AppStrings.get(R.string.photo_palette_full_message))
                 state.palette
             }

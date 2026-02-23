@@ -20,25 +20,15 @@ fun ColorDetailsRoute(
     val clipboard = LocalClipboardManager.current
     val snackbarController = LocalSnackbarController.current
 
-    LaunchedEffect(viewModel, clipboard, snackbarController, onOpenPalette) {
+    LaunchedEffect(viewModel, clipboard, snackbarController) {
         viewModel.effects.collectLatest { effect ->
             when (effect) {
                 is ColorDetailsEffect.CopyHex -> clipboard.setText(AnnotatedString(effect.hex))
                 is ColorDetailsEffect.ShowMessage -> snackbarController.showMessage(effect.message)
-                is ColorDetailsEffect.OpenPalette -> onOpenPalette(effect.id, effect.edit)
             }
         }
     }
 
     ColorDetailsScreen(uiState = uiState, onBack = onBack, onAction = viewModel::onAction)
-
-    if (uiState.showPalettePicker) {
-        PalettePickerDialog(
-            palettes = uiState.palettes,
-            onDismiss = { viewModel.onAction(ColorDetailsUiAction.DismissPalettePicker) },
-            onSelectPalette = { id -> viewModel.onAction(ColorDetailsUiAction.AddColorToPalette(id)) },
-            onCreatePalette = { viewModel.onAction(ColorDetailsUiAction.CreatePaletteFromColor) }
-        )
-    }
 }
 

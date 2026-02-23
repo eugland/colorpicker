@@ -1,4 +1,4 @@
-package com.primortex.color.service
+package com.primortex.color.service.recentpicks
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

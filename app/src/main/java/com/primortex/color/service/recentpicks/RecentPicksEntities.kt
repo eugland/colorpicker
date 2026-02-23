@@ -1,4 +1,4 @@
-package com.primortex.color.service
+package com.primortex.color.service.recentpicks
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

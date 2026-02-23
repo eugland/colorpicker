@@ -5,6 +5,11 @@ import android.util.Log
 import androidx.room.Room
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.recentpicks.RecentPickHistoryEntity
+import com.primortex.color.service.recentpicks.RecentPicksDatabase
+import com.primortex.color.service.recentpicks.RecentPicksMetaEntity
+import com.primortex.color.service.recentpicks.SavedPickEntity
+import com.primortex.color.service.recentpicks.toPickedColor
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

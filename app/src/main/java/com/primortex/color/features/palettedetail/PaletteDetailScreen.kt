@@ -170,8 +170,8 @@ class PaletteDetailViewModel @Inject constructor(
         paletteService.update(id = id, name = name, colors = colors, tags = tags, note = note)
     }
 
-    fun toggleSaved(palette: Palette) {
-        paletteService.toggleSaved(palette)
+    fun toggleSaved(palette: Palette, isCurrentlySaved: Boolean) {
+        paletteService.toggleSaved(palette, isCurrentlySaved)
     }
 
     fun delete(id: String) {
@@ -312,7 +312,12 @@ fun PaletteDetailScreen(
                         }
                         editorState = editorState.copy(isEditing = !editorState.isEditing)
                     },
-                    onToggleFavorite = { viewModel.toggleSaved(paletteSnapshot) },
+                    onToggleFavorite = {
+                        viewModel.toggleSaved(
+                            palette = paletteSnapshot,
+                            isCurrentlySaved = resolvedState.isSaved
+                        )
+                    },
                     onCopyAll = {
                         clipboard.setText(AnnotatedString(editableColors.joinToString(", ") {
                             argbToHex(

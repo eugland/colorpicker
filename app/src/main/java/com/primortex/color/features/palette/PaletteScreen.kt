@@ -729,7 +729,7 @@ private fun PaletteCard(
             Spacer(Modifier.height(8.dp))
 
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                items(palette.colors.take(10)) { p ->
+                items(palette.colors.take(PaletteService.MAX_COLORS_PER_PALETTE)) { p ->
                     Box(
                         Modifier
                             .size(28.dp)

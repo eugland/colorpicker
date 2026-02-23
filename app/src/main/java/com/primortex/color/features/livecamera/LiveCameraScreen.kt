@@ -370,7 +370,7 @@ fun LiveCameraScreen(
                         )
                     )
 
-                    palette.size >= 10 -> snackbarController.showMessage(AppStrings.get(R.string.palette_full_message))
+                    palette.size >= PaletteService.MAX_COLORS_PER_PALETTE -> snackbarController.showMessage(AppStrings.get(R.string.palette_full_message))
                     else -> {
                         palette.add(pickedColor)
                     }

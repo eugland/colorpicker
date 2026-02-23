@@ -60,11 +60,11 @@ class PaletteServiceUnitTest {
         assertEquals(1, service.previewPalettes.value.size)
         assertEquals(0, service.palettes.value.size)
 
-        service.toggleSaved(preview)
+        service.toggleSaved(preview, isCurrentlySaved = false)
         assertEquals(0, service.previewPalettes.value.size)
         assertEquals(1, service.palettes.value.size)
 
-        service.toggleSaved(preview)
+        service.toggleSaved(preview, isCurrentlySaved = true)
         assertEquals(0, service.palettes.value.size)
     }
 

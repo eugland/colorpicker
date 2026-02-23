@@ -8,7 +8,6 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,7 +28,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -38,7 +36,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -52,9 +49,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.primortex.color.R
-import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
-import com.primortex.color.data.enums.PaletteSchemeType
 import com.primortex.color.i18n.stringResource
 import com.primortex.color.service.argbToHex
 
@@ -81,18 +76,12 @@ internal fun ColorDetailsContent(uiState: ColorDetailsUiState, onAction: (ColorD
     Spacer(Modifier.height(14.dp))
     Text(stringResource(R.string.color_shades_tints_tones_title, uiState.displayName), style = MaterialTheme.typography.titleMedium)
     Spacer(Modifier.height(10.dp))
-    ShadeToneRow(label = stringResource(R.string.tints_label), argbs = uiState.details.tints) { onAction(ColorDetailsUiAction.OpenTintsPalette) }
+    HarmonyRow(label = stringResource(R.string.tints_label), argbs = uiState.details.tints)
     Spacer(Modifier.height(8.dp))
-    ShadeToneRow(label = stringResource(R.string.shades_label), argbs = uiState.details.shades) { onAction(ColorDetailsUiAction.OpenShadesPalette) }
+    HarmonyRow(label = stringResource(R.string.shades_label), argbs = uiState.details.shades)
     Spacer(Modifier.height(8.dp))
-    ShadeToneRow(label = stringResource(R.string.tones_label), argbs = uiState.details.tones) { onAction(ColorDetailsUiAction.OpenTonesPalette) }
-    Spacer(Modifier.height(16.dp))
-    Text(stringResource(R.string.color_palettes_title, uiState.displayName), style = MaterialTheme.typography.titleMedium)
-    Spacer(Modifier.height(10.dp))
-    uiState.paletteSchemes.forEach { scheme ->
-        PaletteSchemeCard(scheme = scheme) { onAction(ColorDetailsUiAction.OpenPaletteScheme(scheme.type)) }
-        Spacer(Modifier.height(10.dp))
-    }
+    HarmonyRow(label = stringResource(R.string.tones_label), argbs = uiState.details.tones)
+    Spacer(Modifier.height(14.dp))
     Text(stringResource(R.string.similar_colors), style = MaterialTheme.typography.titleMedium)
     Spacer(Modifier.height(8.dp))
     SimilarColorsSection(similarColors = uiState.details.similarColors)
@@ -159,7 +148,6 @@ private fun ColorActionsRow(isSaved: Boolean, onAction: (ColorDetailsUiAction) -
                 Text(stringResource(R.string.save))
             }
         }
-        OutlinedButton(onClick = { onAction(ColorDetailsUiAction.ShowPalettePicker) }) { Text(stringResource(R.string.add_to_palette)) }
     }
 }
 
@@ -210,56 +198,6 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
 }
 
 @Composable
-private fun ShadeToneRow(label: String, argbs: List<Int>, onOpenPalette: () -> Unit) {
-    Surface(shape = MaterialTheme.shapes.large, tonalElevation = 2.dp, modifier = Modifier.fillMaxWidth().clickable { onOpenPalette() }) {
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(12.dp)) {
-            Text(label, style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(90.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Spacer(Modifier.width(4.dp))
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                items(argbs) { a ->
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Box(Modifier.size(28.dp).background(Color(a), CircleShape).border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape))
-                        Spacer(Modifier.height(4.dp))
-                        Text(argbToHex(a), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, fontFamily = FontFamily.Monospace)
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun PaletteSchemeCard(scheme: PaletteSchemeUiModel, onOpenPalette: () -> Unit) {
-    Surface(shape = MaterialTheme.shapes.large, tonalElevation = 2.dp, modifier = Modifier.fillMaxWidth().clickable { onOpenPalette() }) {
-        Column(modifier = Modifier.padding(12.dp)) {
-            Text(schemeTitle(scheme.type), style = MaterialTheme.typography.titleSmall)
-            Spacer(Modifier.height(8.dp))
-            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                items(scheme.colors) { a ->
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Box(Modifier.size(34.dp).background(Color(a), CircleShape).border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape))
-                        Spacer(Modifier.height(4.dp))
-                        Text(argbToHex(a), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, fontFamily = FontFamily.Monospace)
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun schemeTitle(type: PaletteSchemeType): String {
-    return when (type) {
-        PaletteSchemeType.Complementary -> stringResource(R.string.palette_scheme_complementary)
-        PaletteSchemeType.Analogous -> stringResource(R.string.palette_scheme_analogous)
-        PaletteSchemeType.SplitComplementary -> stringResource(R.string.palette_scheme_split_complementary)
-        PaletteSchemeType.Triadic -> stringResource(R.string.palette_scheme_triadic)
-        PaletteSchemeType.Tetradic -> stringResource(R.string.palette_scheme_tetradic)
-        PaletteSchemeType.Square -> stringResource(R.string.palette_scheme_square)
-    }
-}
-
-@Composable
 private fun KeyValueGrid(items: List<Pair<String, String>>) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items.forEach { (k, v) ->
@@ -274,36 +212,5 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
             }
         }
     }
-}
-
-@Composable
-internal fun PalettePickerDialog(
-    palettes: List<Palette>,
-    onDismiss: () -> Unit,
-    onSelectPalette: (String) -> Unit,
-    onCreatePalette: () -> Unit
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.add_to_palette)) },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (palettes.isEmpty()) {
-                    Text(stringResource(R.string.no_palettes_available))
-                } else {
-                    palettes.forEach { palette ->
-                        TextButton(onClick = { onSelectPalette(palette.id) }, modifier = Modifier.fillMaxWidth()) {
-                            Text(text = palette.name, style = MaterialTheme.typography.bodyMedium)
-                        }
-                    }
-                }
-                OutlinedButton(onClick = onCreatePalette, modifier = Modifier.fillMaxWidth()) {
-                    Text(stringResource(R.string.create_new_palette))
-                }
-            }
-        },
-        confirmButton = {},
-        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) } }
-    )
 }
 
