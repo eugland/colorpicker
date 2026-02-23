@@ -131,7 +131,11 @@ fun SwatchListScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(uiState.filtered) { pick ->
-                    val displayName = pick.name.ifBlank { argbToHex(pick.argb) }
+                    val hex = argbToHex(pick.argb)
+                    val displayName = when (uiState.type) {
+                        SwatchListType.RECENT -> hex
+                        SwatchListType.SAVED -> pick.name.ifBlank { hex }
+                    }
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
                         color = MaterialTheme.colorScheme.surfaceVariant,
@@ -165,13 +169,8 @@ fun SwatchListScreen(
                                     Text(
                                         text = displayName,
                                         style = MaterialTheme.typography.bodyLarge,
-                                        maxLines = 1,
+                                        maxLines = if (uiState.type == SwatchListType.SAVED) 2 else 1,
                                         overflow = TextOverflow.Ellipsis
-                                    )
-                                    Text(
-                                        text = argbToHex(pick.argb),
-                                        style = MaterialTheme.typography.labelMedium,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
                             }

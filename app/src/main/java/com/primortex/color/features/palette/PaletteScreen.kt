@@ -336,16 +336,18 @@ fun PaletteScreen(
             item {
                 SwatchSection(
                     title = stringResource(R.string.recent_colors),
-                    picks = recents,
+                    picks = recents.map { pick ->
+                        pick.copy(name = "")
+                    },
                     emptyMessage = stringResource(R.string.no_recent_colors),
                     onSwatchClick = { pick -> detailPick = pick },
                     threshold = 10,
                     showFooterToggle = false,
                     showEndSeeMore = true,
                     onEndSeeMore = onOpenRecentColors,
-                    swatchSize = 52.dp,
+                    swatchSize = 48.dp,
                     swatchShape = CircleShape,
-                    swatchLabelBelow = true,
+                    swatchLabelBelow = false,
                     actions = {
                         if (recents.isNotEmpty()) {
                             TextButton(onClick = onOpenRecentColors) {
@@ -360,7 +362,11 @@ fun PaletteScreen(
             item {
                 SwatchSection(
                     title = stringResource(R.string.saved_colors),
-                    picks = savedColors,
+                    picks = savedColors.map { pick ->
+                        val name = pick.name.trim()
+                        val label = if (name.isBlank()) argbToHex(pick.argb) else name
+                        pick.copy(name = label)
+                    },
                     emptyMessage = stringResource(R.string.no_saved_colors),
                     onSwatchClick = { pick -> detailPick = pick },
                     threshold = 6,
