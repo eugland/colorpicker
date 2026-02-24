@@ -11,6 +11,7 @@
     <string name="saved">Gespeichert</string>
     <string name="delete">Löschen</string>
 
+    <string name="more_options">Weitere Optionen</string>
     <string name="palette">Palette</string>
     <string name="camera">Kamera</string>
     <string name="explore">Erkunden</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Röntgenbildmodus</string>
     <string name="animate_mode">Animierter Stilmodus</string>
     <string name="cyber_mode">Cyber-Stilmodus</string>
+    <string name="intrinsic_mode">Intrinsischer (ML)-Modus</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Filter auswählen</string>
     <string name="choose_theme">Design auswählen</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Nutzungsbedingungen</string>
     <string name="share_app">App teilen</string>
     <string name="share_app_description">Senden Sie den Play-Store-Link an Freunde.</string>
+    <string name="delete_all">Alle löschen</string>
+    <string name="color_catalogs">Farbnamenpaket</string>
+    <string name="color_catalogs_description">Die Sprache Ihrer App wählt das Standard-Farbnamenpaket. Sie können jeweils nur ein Paket auswählen.</string>
+    <string name="color_catalogs_none_found">In den App-Ressourcen wurden keine Farbnamenpakete gefunden.</string>
+    <string name="color_catalogs_summary">Wählen Sie das aktive Farbnamenpaket.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">Benutzeroberfläche</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutral</string>
+    <string name="seed_modern_ui_neutrals_name">Moderne neutrale UI-Farben</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Schließen</string>
+    <string name="seed_modern_ui_neutrals_note">Saubere und flexible Farben für moderne Benutzeroberflächen</string>
 </resources>

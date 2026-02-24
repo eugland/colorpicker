@@ -3,8 +3,8 @@ package com.primortex.color.service
 import android.content.Context
 import android.util.Log
 import androidx.core.os.LocaleListCompat
-import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.primortex.color.analytics.AnalyticsTracker
@@ -16,6 +16,9 @@ import com.primortex.color.data.enums.ThemeMode
 import com.primortex.color.i18n.AppStrings
 import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.i18n.LocaleManagerBridge
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -27,7 +30,12 @@ import kotlinx.coroutines.launch
 
 private val Context.settingsDataStore by preferencesDataStore(name = "settings")
 
-object SettingsService {
+@Singleton
+class SettingsService @Inject constructor(
+    @ApplicationContext context: Context,
+    private val colorCatalogCoordinator: ColorCatalogCoordinator,
+    private val analyticsTracker: AnalyticsTracker
+) {
     private val KEY_CROSSHAIR_SIZE = stringPreferencesKey("crosshair_size")
     private val KEY_CROSSHAIR_SHAPE = stringPreferencesKey("crosshair_shape")
     private val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
@@ -35,7 +43,7 @@ object SettingsService {
     private val KEY_APP_LANGUAGE = stringPreferencesKey("app_language")
     private val KEY_FIRST_USE_LOGGED = booleanPreferencesKey("first_use_logged_v1")
 
-    private lateinit var appContext: Context
+    private val appContext = context.applicationContext
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     private val _crosshairSize = MutableStateFlow(CrosshairSize.Medium)
@@ -53,11 +61,7 @@ object SettingsService {
     private val _appLanguage = MutableStateFlow(AppLanguage.SystemDefault)
     val appLanguage: StateFlow<AppLanguage> = _appLanguage.asStateFlow()
 
-    fun init(context: Context) {
-        if (::appContext.isInitialized) return
-
-        appContext = context.applicationContext
-
+    init {
         scope.launch {
             val prefs = appContext.settingsDataStore.data.first()
             val systemLocales = LocaleManagerBridge.getApplicationLocales(appContext)
@@ -100,7 +104,7 @@ object SettingsService {
             syncColorCatalogSelection(tagToCache)
 
             if (prefs[KEY_FIRST_USE_LOGGED] != true) {
-                AnalyticsTracker.logFirstUse()
+                analyticsTracker.logFirstUse()
                 appContext.settingsDataStore.edit { updated ->
                     updated[KEY_FIRST_USE_LOGGED] = true
                 }
@@ -117,7 +121,6 @@ object SettingsService {
         _crosshairShape.value = shape
         persist()
     }
-
 
     fun setThemeMode(mode: ThemeMode) {
         _themeMode.value = mode
@@ -141,10 +144,9 @@ object SettingsService {
 
     private fun syncColorCatalogSelection(languageTag: String? = null) {
         scope.launch {
-            ColorServices.setCatalogSelection(languageTag)
+            colorCatalogCoordinator.setLanguageOverride(languageTag)
         }
     }
-
 
     private fun syncPlatformLocale(language: AppLanguage) {
         val locales = language.languageTag
@@ -182,5 +184,5 @@ object SettingsService {
             }
         }
     }
-
 }
+

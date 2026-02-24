@@ -11,7 +11,7 @@ data class ColorSeed(
 )
 
 class ColorService(
-    colors: List<ColorSeed>
+    colors: List<ColorSeed> = emptyList()
 ) {
     @Volatile
     private var snapshot: ColorSnapshot = buildSnapshot(colors)
@@ -101,3 +101,4 @@ private data class ColorRecord(
     val argb: Int,
     val lab: Lab
 )
+

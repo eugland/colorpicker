@@ -1,7 +1,11 @@
 package com.primortex.color.app
 
+import android.os.Build
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
+
+private const val TAG = "PaletteNav"
 
 class NavColorNavigator(
     private val nav: NavController
@@ -46,6 +50,7 @@ class NavColorNavigator(
     }
 
     override fun openColorBlindEnhancer() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
         nav.navigateIfNotCurrent(Routes.Tool.COLOR_BLIND)
     }
 
@@ -55,6 +60,7 @@ class NavColorNavigator(
     }
 
     override fun openPaletteDetail(id: String, edit: Boolean) {
+        Log.d(TAG, "openPaletteDetail id=$id edit=$edit currentRoute=${nav.currentDestination?.route}")
         nav.navigate(Routes.Detail.palette(id, edit)) {
             popUpTo(Routes.Detail.PALETTE) { inclusive = true }
         }
@@ -116,3 +122,4 @@ class NavColorNavigator(
         nav.popBackStack()
     }
 }
+

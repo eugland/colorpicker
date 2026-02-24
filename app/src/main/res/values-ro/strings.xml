@@ -11,6 +11,7 @@
     <string name="saved">Salvat</string>
     <string name="delete">Șterge</string>
 
+    <string name="more_options">Mai multe opțiuni</string>
     <string name="palette">Paletă</string>
     <string name="camera">Cameră</string>
     <string name="explore">Explorează</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Mod de imagistică cu raze X</string>
     <string name="animate_mode">Mod de stil animat</string>
     <string name="cyber_mode">Mod de stil cyber</string>
+    <string name="intrinsic_mode">Mod intrinsec (ML)</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Alege un filtru</string>
     <string name="choose_theme">Alege temă</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Termeni de serviciu</string>
     <string name="share_app">Partajează aplicația</string>
     <string name="share_app_description">Trimite linkul Play Store prietenilor.</string>
+    <string name="delete_all">Șterge tot</string>
+    <string name="color_catalogs">Pachet denumiri culori</string>
+    <string name="color_catalogs_description">Limba aplicației selectează pachetul implicit de denumiri de culori. Puteți selecta un singur pachet la un moment dat.</string>
+    <string name="color_catalogs_none_found">Nu au fost găsite pachete de denumiri de culori în resursele aplicației.</string>
+    <string name="color_catalogs_summary">Alegeți pachetul activ de denumiri de culori.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">interfață utilizator</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutru</string>
+    <string name="seed_modern_ui_neutrals_name">Culori neutre UI moderne</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">modern</string>
+    <string name="close">Închide</string>
+    <string name="seed_modern_ui_neutrals_note">Culori curate și flexibile pentru interfețe moderne</string>
 </resources>

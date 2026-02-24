@@ -18,3 +18,4 @@ data class Palette(
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = createdAt
 )
+

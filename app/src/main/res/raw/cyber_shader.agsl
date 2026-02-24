@@ -1,0 +1,17 @@
+uniform shader inner;
+
+vec3 edgeGlow(vec3 center, vec3 left, vec3 right, vec3 up, vec3 down) {
+    vec3 lap = (left + right + up + down) * 0.25 - center;
+    return abs(lap);
+}
+
+half4 main(float2 coord) {
+    vec3 center = inner.eval(coord).rgb;
+    vec3 left = inner.eval(coord + vec2(-1.0, 0.0)).rgb;
+    vec3 right = inner.eval(coord + vec2(1.0, 0.0)).rgb;
+    vec3 up = inner.eval(coord + vec2(0.0, -1.0)).rgb;
+    vec3 down = inner.eval(coord + vec2(0.0, 1.0)).rgb;
+    vec3 glow = edgeGlow(center, left, right, up, down);
+    vec3 cyber = clamp(center * vec3(0.8, 1.0, 1.3) + glow * 1.8, 0.0, 1.0);
+    return half4(cyber, 1.0);
+}

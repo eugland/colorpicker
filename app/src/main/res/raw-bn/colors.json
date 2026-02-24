@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority নীল",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice নীল",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy কমলা",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "Amber",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "Amethyst",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash সাদা",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique Bronze",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique Ruby",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique সাদা",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao ইংরেজি",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple সবুজ",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "Apricot",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "Aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic Lime",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army সবুজ",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide হলুদ",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash ধূসর",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "Azure",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled নীল",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby নীল",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby নীল Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby গোলাপি",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller গোলাপি",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie গোলাপি",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie গোলাপি Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn লাল",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship ধূসর",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau নীল",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "Beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo Ruby",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre বাদামি",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter Lime",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "কালো",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "কালো Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "কালো চকলেট",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "কালো কফি",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "কালো Coral",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "কালো Olive",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "কালো Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off Bronze",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard নীল",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood লাল",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "নীল",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "নীল Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "নীল Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "নীল Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "নীল Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "নীল Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "নীল Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "নীল Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "নীল Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "নীল Sapphire",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "নীল Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "নীল ধূসর",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "নীল সবুজ",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "নীল সবুজ Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "নীল জামুনি",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "নীল জামুনি Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "নীল জামুনি Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi নীল",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle সবুজ",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick লাল",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "উজ্জ্বল সবুজ",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "উজ্জ্বল Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "উজ্জ্বল maroon",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "উজ্জ্বল navy নীল",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "উজ্জ্বল গোলাপি",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "উজ্জ্বল হলুদ Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant rose",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink গোলাপি",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing সবুজ",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "Bronze",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "বাদামি",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "বাদামি Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick সবুজ",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud সবুজ",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished বাদামি",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt কমলা",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet নীল",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet নীল Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet ধূসর",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium সবুজ",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium কমলা",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium লাল",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium হলুদ",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona সবুজ",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge নীল",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo গোলাপি",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary হলুদ",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple লাল",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy গোলাপি",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean সবুজ",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation গোলাপি",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina নীল",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot কমলা",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton সবুজ",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon নীল",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon সবুজ",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic নীল",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean নীল",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG নীল",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG লাল",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne গোলাপি",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "Charcoal",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston সবুজ",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm গোলাপি",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom গোলাপি",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China গোলাপি",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China rose",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese লাল",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese জামুনি",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese হলুদ",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "চকলেট Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "চকলেট Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome হলুদ",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt নীল",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa বাদামি",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "কফি",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia নীল",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo গোলাপি",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool ধূসর",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "Copper",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "Copper Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "Copper Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "Copper লাল",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "Copper rose",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "Coral",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "Coral গোলাপি",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower নীল",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos গোলাপি",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote বাদামি",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "Cream",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "Crimson",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber হলুদ",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "গাঢ় নীল ধূসর",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "গাঢ় বাদামি",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "গাঢ় Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "গাঢ় Cornflower নীল",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "গাঢ় cyan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "গাঢ় electric নীল",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "গাঢ় Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "গাঢ় সবুজ",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "গাঢ় সবুজ X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "গাঢ় Jungle সবুজ",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "গাঢ় Khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "গাঢ় Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "গাঢ় Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "গাঢ় Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "গাঢ় magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "গাঢ় Medium ধূসর",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "গাঢ় Moss সবুজ",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "গাঢ় Olive সবুজ",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "গাঢ় কমলা",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "গাঢ় Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "গাঢ় Pastel সবুজ",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "গাঢ় বেগুনি",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "গাঢ় লাল",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "গাঢ় Salmon",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "গাঢ় সমুদ্র সবুজ",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "গাঢ় Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "গাঢ় sky নীল",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "গাঢ় Slate নীল",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "গাঢ় Slate ধূসর",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "গাঢ় বসন্ত সবুজ",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "গাঢ় Turquoise",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "গাঢ় জামুনি",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth সবুজ",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S ধূসর",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "গভীর Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "গভীর Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "গভীর Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "গভীর Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "গভীর Jungle সবুজ",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "গভীর গোলাপি",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "গভীর Saffron",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "গভীর sky নীল",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "গভীর Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "গভীর Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim নীল",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim ধূসর",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger নীল",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood rose",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke নীল",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch সাদা",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth হলুদ",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie কালো",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian নীল",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "electric নীল",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "electric সবুজ",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "electric Indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "electric Lime",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "electric বেগুনি",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "electric জামুনি",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "Emerald",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "ইংরেজি সবুজ",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "ইংরেজি Lavender",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "ইংরেজি লাল",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "ইংরেজি Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "ইংরেজি জামুনি",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton নীল",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu লাল",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango গোলাপি",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern সবুজ",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery rose",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine লাল",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral সাদা",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent নীল",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "বন সবুজ Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "বন সবুজ Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "বন সবুজ Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "ফরাসি Beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "ফরাসি Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "ফরাসি নীল",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "ফরাসি Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "ফরাসি Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "ফরাসি Lime",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "ফরাসি Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "ফরাসি গোলাপি",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "ফরাসি Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "ফরাসি rose",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "ফরাসি sky নীল",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "ফরাসি জামুনি",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia বেগুনি",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia rose",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost সাদা",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go সবুজ",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "সোনালি",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "সোনালি Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "সোনালি metallic",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "সোনালি Web golden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "সোনালি Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "golden বাদামি",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "golden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "golden হলুদ",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite ধূসর",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "ধূসর HTML CSS ধূসর",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "ধূসর X 11 ধূসর",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "সবুজ",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "সবুজ Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "সবুজ HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "সবুজ Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "সবুজ Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "সবুজ Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "সবুজ Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "সবুজ Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "সবুজ X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "সবুজ Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "সবুজ Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "সবুজ নীল",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "সবুজ নীল Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "সবুজ cyan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "সবুজ হলুদ",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "সবুজ হলুদ Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han নীল",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han বেগুনি",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa হলুদ",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest সোনালি",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope ধূসর",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu নীল",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S সবুজ",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot গোলাপি",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter সবুজ",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating Emerald",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial লাল",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India সবুজ",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian লাল",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian হলুদ",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "Indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "Indigo নীল",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "Indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein নীল",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International কমলা Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International কমলা Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International কমলা golden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic সবুজ",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian sky নীল",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Ivory",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle সবুজ",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly সবুজ",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key Lime",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "Khaki HTML CSS Khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "Khaki X 11 হালকা Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu সবুজ",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu বেগুনি",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid Lavender",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel সবুজ",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "Lavender Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "Lavender Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "Lavender নীল",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Lavender Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "Lavender ধূসর",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "Lavender magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn সবুজ",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon হলুদ",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon হলুদ Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "হালকা Apricot",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "হালকা নীল",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "হালকা বাদামি",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "হালকা চকলেট Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "হালকা Cobalt নীল",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "হালকা Coral",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "হালকা Cornflower নীল",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "হালকা Crimson",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "হালকা cyan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "হালকা গভীর গোলাপি",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "হালকা ফরাসি Beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "হালকা Fuchsia গোলাপি",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "হালকা সোনালি",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "হালকা Goldenrod হলুদ",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "হালকা ধূসর",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "হালকা Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "হালকা সবুজ",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "হালকা Hot গোলাপি",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "হালকা Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "হালকা magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "হালকা Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "হালকা Moss সবুজ",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "হালকা কমলা",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "হালকা Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "হালকা Pastel বেগুনি",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "হালকা Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "হালকা গোলাপি",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "হালকা লাল",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "হালকা লাল Ochre",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "হালকা Salmon",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "হালকা Salmon গোলাপি",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "হালকা সমুদ্র সবুজ",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "হালকা রুপালি",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "হালকা sky নীল",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "হালকা Slate ধূসর",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "হালকা Steel নীল",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "হালকা Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "হালকা হলুদ",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "Lime Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Lime Web X 11 সবুজ",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "Lime সবুজ",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln সবুজ",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran বেগুনি",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy নীল",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl গোলাপি",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic Mint",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle নীল",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango সবুজ",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "maroon Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "maroon HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "maroon X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum নীল",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum নীল সবুজ",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum নীল বেগুনি",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum সবুজ",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum সবুজ হলুদ",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum কমলা",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum বেগুনি",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum লাল",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum লাল বেগুনি",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum হলুদ",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum হলুদ লাল",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May সবুজ",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya নীল",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium নীল",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple লাল",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium electric নীল",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle সবুজ",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium Lavender magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian নীল",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium বেগুনি",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium লাল জামুনি",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium Ruby",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium সমুদ্র সবুজ",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium sky নীল",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate নীল",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium বসন্ত Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium বসন্ত সবুজ",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium Turquoise",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan লাল",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium জামুনি লাল",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow Apricot",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow হলুদ",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metallic সোনালি",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metallic Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metallic Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican গোলাপি",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle নীল",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle নীল সবুজ",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle নীল বেগুনি",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle সবুজ",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle সবুজ হলুদ",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle ধূসর",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle বেগুনি",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle লাল",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle লাল বেগুনি",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle হলুদ",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle হলুদ লাল",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "মধ্যরাত",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "মধ্যরাত নীল",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "মধ্যরাত সবুজ Eagle সবুজ",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado হলুদ",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi গোলাপি",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion হলুদ",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "Mint",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "Mint Cream",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "Mint সবুজ",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty rose",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode Beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning নীল",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss সবুজ",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten গোলাপি",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu সবুজ",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle সবুজ",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic maroon",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples হলুদ",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo সাদা",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "navy নীল",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "navy নীল Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon নীল",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon সবুজ",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York গোলাপি",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo লাল",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo নীল",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "মহাসাগর নীল",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "মহাসাগর সবুজ",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "Ochre",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office সবুজ",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old সোনালি",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old Lavender",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old rose",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old রুপালি",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Olive",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "Olive Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "Olive Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "Olive সবুজ",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "কমলা",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "কমলা Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "কমলা Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "কমলা Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "কমলা Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "কমলা Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "কমলা Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "কমলা Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "কমলা লাল",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "কমলা লাল Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "কমলা হলুদ",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "কমলা হলুদ Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid গোলাপি",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou Crimson লাল",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous কমলা",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford নীল",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific নীল",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan সবুজ",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate নীল",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate বেগুনি",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "ফ্যাকাশে Aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "ফ্যাকাশে Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "ফ্যাকাশে Copper",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "ফ্যাকাশে সোনালি",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "ফ্যাকাশে Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "ফ্যাকাশে Lavender",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "ফ্যাকাশে গোলাপি",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "ফ্যাকাশে Plum",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "ফ্যাকাশে বেগুনি Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "ফ্যাকাশে লাল জামুনি",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "ফ্যাকাশে Robin Egg নীল",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "ফ্যাকাশে রুপালি",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "ফ্যাকাশে বসন্ত Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "ফ্যাকাশে Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy বেগুনি",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese সবুজ",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise গোলাপি",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris সবুজ",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel গোলাপি",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S ধূসর",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "Peach",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "Peach Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "Pearl সোনালি",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly বেগুনি",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian নীল",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian সবুজ",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian Indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian কমলা",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian গোলাপি",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian Plum",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian লাল",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian rose",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter নীল",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo নীল",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo সবুজ",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee নীল",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy গোলাপি",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine সবুজ",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "গোলাপি",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "গোলাপি Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "গোলাপি Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "গোলাপি Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "গোলাপি Lavender",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "গোলাপি Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "Plum",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "Plum Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump বেগুনি",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland কমলা",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder নীল",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton কমলা",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian নীল",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic বেগুনি",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman বাদামি Ups বাদামি",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "বেগুনি",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "বেগুনি HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "বেগুনি Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "বেগুনি X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "বেগুনি Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "বেগুনি navy",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "বেগুনি Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "বেগুনি Plum",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen নীল",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen গোলাপি",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick রুপালি",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical লাল",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin কালো",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry rose",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle rose",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca বেগুনি",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "লাল",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "লাল Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "লাল Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "লাল Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "লাল Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "লাল Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "লাল Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "লাল Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "লাল কমলা",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "লাল কমলা Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "লাল কমলা Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "লাল বেগুনি",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "লাল জামুনি",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "লাল জামুনি Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "লাল জামুনি Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration কালো",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution নীল",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich কালো",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich কালো Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich কালো Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich maroon",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle সবুজ",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg নীল",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metallic",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman রুপালি",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "rose",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "rose Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "rose Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "rose Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "rose Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "rose গোলাপি",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "rose Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "rose লাল",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "rose Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "rose Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy বাদামি",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal নীল গাঢ়",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal নীল হালকা",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal বেগুনি",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal হলুদ",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine লাল",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "Ruby",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "Ruby লাল",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian সবুজ",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian জামুনি",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty লাল",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State সবুজ",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle বাদামি",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety কমলা",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety কমলা Blaze কমলা",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety হলুদ",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "Saffron",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "Salmon",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "Salmon গোলাপি",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy বাদামি",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap সবুজ",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "Sapphire",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "Sapphire Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Sapphire নীল",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen সোনালি",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "Scarlet",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss গোলাপি",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus হলুদ",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin সবুজ",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "সমুদ্র সবুজ",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "সমুদ্র সবুজ Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal বাদামি",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective হলুদ",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow নীল",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock সবুজ",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen সবুজ",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking গোলাপি",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking গোলাপি Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "রুপালি",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "রুপালি Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "রুপালি metallic",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "রুপালি Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "রুপালি Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "রুপালি Lake নীল",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "রুপালি গোলাপি",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "রুপালি Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling লাল",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling সূর্যোদয়",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "sky নীল",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "sky নীল Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "sky magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate নীল",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate ধূসর",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy সবুজ",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt গাঢ় Powder নীল",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky কালো",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "Snow",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid গোলাপি",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic রুপালি",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish নীল",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish ধূসর",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish সবুজ",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish কমলা",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish গোলাপি",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish লাল",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish sky নীল",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish জামুনি",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "বসন্ত Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "বসন্ত Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "বসন্ত সবুজ",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "বসন্ত সবুজ Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S নীল",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command নীল",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "Steel নীল",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "Steel গোলাপি",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "Steel Teal",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain হলুদ",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar Plum",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "সূর্যাস্ত",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super গোলাপি",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet বাদামি",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango গোলাপি",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart কমলা",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe ধূসর",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea সবুজ",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea rose",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Teal",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "Teal নীল",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian গোলাপি",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me গোলাপি",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany নীল",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium হলুদ",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain বন",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "সত্য নীল",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts নীল",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "Turquoise",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "Turquoise নীল",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "Turquoise সবুজ",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle সবুজ",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan বাদামি",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan লাল",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight Lavender",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian বেগুনি",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua নীল",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua লাল",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra গোলাপি",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra লাল",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine নীল",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations নীল",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow হলুদ",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up বন সবুজ",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up maroon",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell লাল",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa নীল",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke বাদামি",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas সোনালি",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian লাল",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "জামুনি",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "জামুনি Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "জামুনি Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "জামুনি Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "জামুনি Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "জামুনি নীল",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "জামুনি নীল Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "জামুনি লাল",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian সবুজ",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid sky নীল",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid জামুনি",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm কালো",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "সাদা",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild নীল Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "শীত sky",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood বাদামি",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale নীল",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "হলুদ",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "হলুদ Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "হলুদ Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "হলুদ Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "হলুদ Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "হলুদ Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "হলুদ Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "হলুদ কমলা",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "হলুদ কমলা Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "হলুদ Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "হলুদ সবুজ",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "হলুদ সবুজ Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "হলুদ সবুজ Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn নীল",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

@@ -12,6 +12,7 @@
     <string name="saved">已保存</string>
     <string name="delete">删除</string>
 
+    <string name="more_options">更多选项</string>
     <string name="palette">调色板</string>
     <string name="camera">相机</string>
     <string name="explore">探索</string>
@@ -252,6 +253,7 @@
     <string name="xray_mode">X 光成像模式</string>
     <string name="animate_mode">动画风格模式</string>
     <string name="cyber_mode">赛博风格模式</string>
+    <string name="intrinsic_mode">内在（ML）模式</string>
     <string name="mode_normal">普通</string>
     <string name="filter_grid_title">选择滤镜</string>
     <string name="choose_theme">选择主题</string>
@@ -259,4 +261,15 @@
     <string name="terms_of_service">服务条款</string>
     <string name="share_app">分享应用</string>
     <string name="share_app_description">将 Play 商店链接发送给朋友。</string>
+    <string name="color_catalogs">颜色名称包</string>
+    <string name="color_catalogs_description">您的应用语言会选择默认的颜色名称包。您一次只能选择一个包。</string>
+    <string name="color_catalogs_none_found">在应用资源中未找到任何颜色名称包。</string>
+    <string name="color_catalogs_summary">请选择当前使用的颜色名称包。</string>
+    <string name="delete_all">全部删除</string>
+    <string name="close">关闭</string>
+    <string name="seed_modern_ui_neutrals_name">现代界面中性色</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">用户界面</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">中性</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">现代</string>
+    <string name="seed_modern_ui_neutrals_note">适用于现代界面的简洁且灵活的颜色</string>
 </resources>

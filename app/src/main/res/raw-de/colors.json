@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority blau",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice blau",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy orange",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "bernstein",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "amethyst",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash weiß",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique bronze",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique rubin",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique weiß",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao englisch",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple grün",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "aprikose",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic limette",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army grün",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide gelb",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash grau",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "azur",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled blau",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby blau",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby blau Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby rosa",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller rosa",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie rosa",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie rosa Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn rot",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship grau",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau blau",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo rubin",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre braun",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter limette",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "schwarz",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "schwarz Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "schwarz schokolade",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "schwarz kaffee",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "schwarz koralle",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "schwarz oliv",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "schwarz Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off bronze",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard blau",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood rot",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "blau",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "blau Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "blau Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "blau Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "blau Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "blau Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "blau Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "blau Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "blau Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "blau saphir",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "blau Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "blau grau",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "blau grün",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "blau grün Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "blau violett",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "blau violett Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "blau violett Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi blau",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle grün",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick rot",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "leuchtend grün",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "leuchtend Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "leuchtend kastanienbraun",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "leuchtend marine blau",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "leuchtend rosa",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "leuchtend gelb Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant rose",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink rosa",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing grün",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "bronze",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "braun",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "braun Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick grün",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud grün",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished braun",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt orange",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet blau",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet blau Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet grau",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium grün",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium orange",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium rot",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium gelb",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona grün",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge blau",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo rosa",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary gelb",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple rot",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy rosa",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean grün",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation rosa",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina blau",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot orange",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton grün",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon blau",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon grün",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic blau",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean blau",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG blau",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG rot",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne rosa",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "kohle",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston grün",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm rosa",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom rosa",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China rosa",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China rose",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese rot",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese violett",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese gelb",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "schokolade Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "schokolade Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome gelb",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt blau",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa braun",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "kaffee",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia blau",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo rosa",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool grau",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "kupfer",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "kupfer Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "kupfer Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "kupfer rot",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "kupfer rose",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "koralle",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "koralle rosa",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower blau",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos rosa",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote braun",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "creme",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "karmesin",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber gelb",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "dunkel blau grau",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "dunkel braun",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "dunkel Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "dunkel Cornflower blau",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "dunkel cyan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "dunkel elektrisch blau",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "dunkel Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "dunkel grün",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "dunkel grün X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "dunkel Jungle grün",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "dunkel khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "dunkel Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "dunkel Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "dunkel Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "dunkel magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "dunkel Medium grau",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "dunkel Moss grün",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "dunkel oliv grün",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "dunkel orange",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "dunkel Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "dunkel Pastel grün",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "dunkel lila",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "dunkel rot",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "dunkel lachs",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "dunkel meer grün",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "dunkel Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "dunkel himmel blau",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "dunkel Slate blau",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "dunkel Slate grau",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "dunkel frühling grün",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "dunkel türkis",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "dunkel violett",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth grün",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S grau",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "tief Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "tief Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "tief Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "tief Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "tief Jungle grün",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "tief rosa",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "tief safran",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "tief himmel blau",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "tief Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "tief Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim blau",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim grau",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger blau",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood rose",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke blau",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch weiß",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth gelb",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie schwarz",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian blau",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "elektrisch blau",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "elektrisch grün",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "elektrisch indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "elektrisch limette",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "elektrisch lila",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "elektrisch violett",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "smaragd",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "englisch grün",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "englisch lavendel",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "englisch rot",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "englisch Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "englisch violett",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton blau",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu rot",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango rosa",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern grün",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery rose",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine rot",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral weiß",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent blau",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "wald grün Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "wald grün Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "wald grün Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "französisch beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "französisch Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "französisch blau",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "französisch Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "französisch Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "französisch limette",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "französisch Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "französisch rosa",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "französisch Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "französisch rose",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "französisch himmel blau",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "französisch violett",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia lila",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia rose",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost weiß",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go grün",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "gold",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "gold Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "gold metallisch",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "gold Web golden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "gold Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "golden braun",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "golden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "golden gelb",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite grau",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "grau HTML CSS grau",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "grau X 11 grau",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "grün",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "grün Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "grün HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "grün Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "grün Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "grün Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "grün Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "grün Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "grün X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "grün Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "grün Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "grün blau",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "grün blau Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "grün cyan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "grün gelb",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "grün gelb Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han blau",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han lila",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa gelb",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest gold",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope grau",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu blau",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S grün",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot rosa",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter grün",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating smaragd",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial rot",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India grün",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian rot",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian gelb",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "indigo blau",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein blau",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International orange Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International orange Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International orange golden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic grün",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian himmel blau",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "elfenbein",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle grün",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly grün",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key limette",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "khaki HTML CSS khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "khaki X 11 hell khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu grün",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu lila",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid lavendel",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel grün",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "lavendel Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "lavendel Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "lavendel blau",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "lavendel Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "lavendel grau",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "lavendel magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn grün",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon gelb",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon gelb Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "hell aprikose",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "hell blau",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "hell braun",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "hell schokolade Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "hell Cobalt blau",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "hell koralle",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "hell Cornflower blau",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "hell karmesin",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "hell cyan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "hell tief rosa",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "hell französisch beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "hell Fuchsia rosa",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "hell gold",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "hell Goldenrod gelb",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "hell grau",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "hell Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "hell grün",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "hell Hot rosa",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "hell khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "hell magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "hell Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "hell Moss grün",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "hell orange",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "hell Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "hell Pastel lila",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "hell Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "hell rosa",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "hell rot",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "hell rot ocker",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "hell lachs",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "hell lachs rosa",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "hell meer grün",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "hell silber",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "hell himmel blau",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "hell Slate grau",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "hell stahl blau",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "hell Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "hell gelb",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "limette Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "limette Web X 11 grün",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "limette grün",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln grün",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran lila",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy blau",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl rosa",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic minze",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle blau",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango grün",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "kastanienbraun Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "kastanienbraun HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "kastanienbraun X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum blau",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum blau grün",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum blau lila",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum grün",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum grün gelb",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum orange",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum lila",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum rot",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum rot lila",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum gelb",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum gelb rot",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May grün",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya blau",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium blau",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple rot",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium elektrisch blau",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle grün",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium lavendel magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian blau",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium lila",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium rot violett",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium rubin",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium meer grün",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium himmel blau",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate blau",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium frühling Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium frühling grün",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium türkis",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan rot",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium violett rot",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow aprikose",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow gelb",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metallisch gold",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metallisch Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metallisch Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican rosa",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle blau",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle blau grün",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle blau lila",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle grün",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle grün gelb",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle grau",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle lila",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle rot",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle rot lila",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle gelb",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle gelb rot",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "mitternacht",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "mitternacht blau",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "mitternacht grün Eagle grün",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado gelb",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi rosa",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion gelb",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "minze",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "minze creme",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "minze grün",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty rose",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning blau",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss grün",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten rosa",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu grün",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle grün",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic kastanienbraun",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples gelb",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo weiß",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "marine blau",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "marine blau Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon blau",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon grün",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York rosa",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo rot",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo blau",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "ozean blau",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "ozean grün",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "ocker",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office grün",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old gold",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old lavendel",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old rose",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old silber",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "oliv",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "oliv Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "oliv Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "oliv grün",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "orange",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "orange Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "orange Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "orange Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "orange Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "orange Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "orange Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "orange Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "orange rot",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "orange rot Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "orange gelb",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "orange gelb Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid rosa",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou karmesin rot",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous orange",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford blau",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific blau",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan grün",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate blau",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate lila",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "blass aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "blass Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "blass kupfer",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "blass gold",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "blass Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "blass lavendel",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "blass rosa",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "blass pflaume",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "blass lila Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "blass rot violett",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "blass Robin Egg blau",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "blass silber",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "blass frühling Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "blass Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy lila",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese grün",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise rosa",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris grün",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel rosa",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S grau",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "pfirsich",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "pfirsich Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "perle gold",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly lila",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian blau",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian grün",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian orange",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian rosa",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian pflaume",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian rot",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian rose",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter blau",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo blau",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo grün",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee blau",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy rosa",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine grün",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "rosa",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "rosa Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "rosa Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "rosa Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "rosa lavendel",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "rosa Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "pflaume",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "pflaume Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump lila",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland orange",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder blau",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton orange",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian blau",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic lila",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman braun Ups braun",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "lila",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "lila HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "lila Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "lila X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "lila Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "lila marine",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "lila Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "lila pflaume",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen blau",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen rosa",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick silber",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical rot",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin schwarz",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry rose",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle rose",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca lila",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "rot",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "rot Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "rot Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "rot Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "rot Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "rot Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "rot Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "rot Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "rot orange",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "rot orange Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "rot orange Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "rot lila",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "rot violett",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "rot violett Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "rot violett Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration schwarz",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution blau",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich schwarz",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich schwarz Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich schwarz Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich kastanienbraun",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle grün",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg blau",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metallisch",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman silber",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "rose",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "rose Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "rose Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "rose Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "rose Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "rose rosa",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "rose Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "rose rot",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "rose Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "rose Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy braun",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal blau dunkel",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal blau hell",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal lila",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal gelb",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine rot",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "rubin",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "rubin rot",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian grün",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian violett",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty rot",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State grün",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle braun",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety orange",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety orange Blaze orange",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety gelb",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "safran",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "lachs",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "lachs rosa",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy braun",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap grün",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "saphir",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "saphir Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "saphir blau",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen gold",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "scharlach",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss rosa",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus gelb",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin grün",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "meer grün",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "meer grün Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal braun",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective gelb",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow blau",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock grün",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen grün",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking rosa",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking rosa Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "silber",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "silber Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "silber metallisch",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "silber Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "silber Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "silber Lake blau",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "silber rosa",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "silber Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling rot",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling sonnenaufgang",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "himmel blau",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "himmel blau Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "himmel magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate blau",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate grau",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy grün",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt dunkel Powder blau",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky schwarz",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "schnee",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid rosa",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic silber",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish blau",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish grau",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish grün",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish orange",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish rosa",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish rot",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish himmel blau",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish violett",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "frühling Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "frühling Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "frühling grün",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "frühling grün Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S blau",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command blau",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "stahl blau",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "stahl rosa",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "stahl blaugrün",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain gelb",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar pflaume",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "sonnenuntergang",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super rosa",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet braun",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango rosa",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart orange",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe grau",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea grün",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea rose",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "blaugrün",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "blaugrün blau",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian rosa",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me rosa",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany blau",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium gelb",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain wald",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "echt blau",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts blau",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "türkis",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "türkis blau",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "türkis grün",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle grün",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan braun",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan rot",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight lavendel",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian lila",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua blau",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua rot",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra rosa",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra rot",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine blau",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations blau",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow gelb",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up wald grün",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up kastanienbraun",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell rot",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa blau",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke braun",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas gold",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian rot",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "violett",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "violett Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "violett Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "violett Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "violett Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "violett blau",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "violett blau Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "violett rot",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian grün",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid himmel blau",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid violett",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm schwarz",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "weiß",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild blau Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "winter himmel",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood braun",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale blau",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "gelb",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "gelb Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "gelb Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "gelb Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "gelb Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "gelb Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "gelb Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "gelb orange",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "gelb orange Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "gelb Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "gelb grün",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "gelb grün Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "gelb grün Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn blau",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

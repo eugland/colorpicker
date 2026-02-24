@@ -11,6 +11,7 @@
     <string name="saved">נשמר</string>
     <string name="delete">מחק</string>
 
+    <string name="more_options">אפשרויות נוספות</string>
     <string name="palette">פלטה</string>
     <string name="camera">מצלמה</string>
     <string name="explore">גלה</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">מצב הדמיית רנטגן</string>
     <string name="animate_mode">מצב סגנון מונפש</string>
     <string name="cyber_mode">מצב סגנון סייבר</string>
+    <string name="intrinsic_mode">מצב פנימי (ML)</string>
     <string name="mode_normal">רגיל</string>
     <string name="filter_grid_title">בחר פילטר</string>
     <string name="choose_theme">בחר ערכת נושא</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">תנאי שימוש</string>
     <string name="share_app">שתף אפליקציה</string>
     <string name="share_app_description">שלח את קישור ה-Play Store לחברים.</string>
+    <string name="delete_all">מחק הכל</string>
+    <string name="color_catalogs">חבילת שמות צבעים</string>
+    <string name="color_catalogs_description">שפת האפליקציה בוחרת את חבילת שמות הצבעים כברירת מחדל. ניתן לבחור חבילה אחת בכל פעם.</string>
+    <string name="color_catalogs_none_found">לא נמצאו חבילות שמות צבעים במשאבי האפליקציה.</string>
+    <string name="color_catalogs_summary">בחר את חבילת שמות הצבעים הפעילה.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ממשק משתמש</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ניטרלי</string>
+    <string name="seed_modern_ui_neutrals_name">צבעים ניטרליים מודרניים לממשק משתמש</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">מודרני</string>
+    <string name="close">סגור</string>
+    <string name="seed_modern_ui_neutrals_note">צבעים נקיים וגמישים לממשקים מודרניים</string>
 </resources>

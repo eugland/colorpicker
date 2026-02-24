@@ -1,210 +1,203 @@
 package com.primortex.color.service
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
+import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.PickedColor
+import com.primortex.color.service.recentpicks.RecentPickHistoryEntity
+import com.primortex.color.service.recentpicks.RecentPicksDatabase
+import com.primortex.color.service.recentpicks.SavedPickEntity
+import com.primortex.color.service.recentpicks.toPickedColor
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
+import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicLong
 
-private val Context.recentsDataStore by preferencesDataStore(
-    name = "recent_picks"
-)
-
-object RecentPicksService {
-
-    private const val MAX = 100
-    private val KEY_HISTORY = stringPreferencesKey("history_json")
-    private val KEY_SAVED = stringPreferencesKey("saved_json")
-    private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
-    private val KEY_FIRST_PICK_LOGGED = booleanPreferencesKey("first_pick_logged_v1")
-    private val KEY_FIRST_SAVE_LOGGED = booleanPreferencesKey("first_saved_logged_v1")
-    private lateinit var appContext: Context
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private val json = Json {
-        ignoreUnknownKeys = true
-        encodeDefaults = true
+@Singleton
+class RecentPicksService @Inject constructor(
+    @ApplicationContext context: Context,
+    private val analyticsTracker: AnalyticsTracker
+) {
+    private companion object {
+        const val MAX = 100
+        const val PREFS_NAME = "recent_picks_flags"
+        const val PREF_KEY_FIRST_PICK_LOGGED = "first_pick_logged_v1"
+        const val PREF_KEY_FIRST_SAVE_LOGGED = "first_saved_logged_v1"
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS recent_picks_meta")
+            }
+        }
     }
-    private val _history = MutableStateFlow<List<PickedColor>>(emptyList())
-    val history: StateFlow<List<PickedColor>> = _history
-    private val _saved = MutableStateFlow<List<PickedColor>>(emptyList())
-    val saved: StateFlow<List<PickedColor>> = _saved
+
+    private val appContext = context.applicationContext
+    private val dbExecutor = Executors.newSingleThreadExecutor()
+    private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
+    private val db: RecentPicksDatabase = createDatabase(appContext)
+    private val dao = db.recentPicksDao()
+    private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private val timestampCounter = AtomicLong(System.currentTimeMillis())
+    val history: StateFlow<List<PickedColor>> = dao.observeHistory(MAX)
+        .map { rows -> rows.map { it.toPickedColor() } }
+        .stateIn(scope, SharingStarted.Eagerly, emptyList())
+    val saved: StateFlow<List<PickedColor>> = dao.observeSaved(MAX)
+        .map { rows -> rows.map { it.toPickedColor() } }
+        .stateIn(scope, SharingStarted.Eagerly, emptyList())
     private var firstPickLogged = false
     private var firstSavedLogged = false
 
-    fun init(context: Context) {
-        if (::appContext.isInitialized) return
-        appContext = context.applicationContext
-
-        scope.launch {
-            val prefs = appContext.recentsDataStore.data.first()
-
-            val saved = runCatching {
-                prefs[KEY_HISTORY]?.let { json.decodeFromString<List<PickedColor>>(it) }
-                    ?: emptyList()
-            }.getOrDefault(emptyList())
-
-            val savedColors = runCatching {
-                prefs[KEY_SAVED]?.let { json.decodeFromString<List<PickedColor>>(it) }
-                    ?: emptyList()
-            }.getOrDefault(emptyList())
-
-            Log.d(
-                "RecentPicksService",
-                "Loaded ${saved.size} recents and ${savedColors.size} saved colors"
-            )
-
-            _history.value = saved.take(MAX)
-            _saved.value = savedColors.take(MAX)
-            firstPickLogged = prefs[KEY_FIRST_PICK_LOGGED] == true
-            firstSavedLogged = prefs[KEY_FIRST_SAVE_LOGGED] == true
-
-            seedIfNeeded(prefs)
-        }
+    init {
+        firstPickLogged = prefs.getBoolean(PREF_KEY_FIRST_PICK_LOGGED, false)
+        firstSavedLogged = prefs.getBoolean(PREF_KEY_FIRST_SAVE_LOGGED, false)
+        Log.d("RecentPicksService", "Recent picks Room flow initialized")
     }
 
-    private suspend fun seedIfNeeded(prefs: Preferences) {
-        if (prefs[KEY_SEEDED] == true) return
-
-        val hasHistory = prefs[KEY_HISTORY] != null
-        val hasSaved = prefs[KEY_SAVED] != null
-
-        val initHistory = listOf(
-            // Modern UI / Neutral
-            PickedColor(0xFF0F172A.toInt(), "Slate 900"),
-            PickedColor(0xFF475569.toInt(), "Slate 600"),
-            PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
-            PickedColor(0xFF0EA5E9.toInt(), "Sky 500"),
-            PickedColor(0xFF10B981.toInt(), "Emerald 500"),
-        )
-
-        val initSaved = listOf(
-            // Muted Nature
-            PickedColor(0xFF2F5D50.toInt(), "Forest"),
-            PickedColor(0xFF7A9B76.toInt(), "Moss"),
-            PickedColor(0xFFE6D5B8.toInt(), "Sand"),
-            PickedColor(0xFFC97C5D.toInt(), "Clay"),
-            PickedColor(0xFF3A3A3A.toInt(), "Ink"),
-        ).take(MAX)
-
-        if (!hasHistory) {
-            _history.value = initHistory
-        }
-        if (!hasSaved) {
-            _saved.value = initSaved
-        }
-
-        appContext.recentsDataStore.edit { updated ->
-            updated[KEY_SEEDED] = true
-            if (!hasHistory) {
-                updated[KEY_HISTORY] = runCatching { json.encodeToString(initHistory) }
-                    .getOrElse { "[]" }
+    private fun createDatabase(context: Context): RecentPicksDatabase {
+        val builder =
+            if (Build.FINGERPRINT.contains("robolectric", ignoreCase = true)) {
+                Room.inMemoryDatabaseBuilder(context, RecentPicksDatabase::class.java)
+            } else {
+                Room.databaseBuilder(context, RecentPicksDatabase::class.java, "recent_picks.db")
             }
-            if (!hasSaved) {
-                updated[KEY_SAVED] = runCatching { json.encodeToString(initSaved) }
-                    .getOrElse { "[]" }
-            }
-        }
+        return builder
+            .addMigrations(MIGRATION_1_2)
+            .setQueryExecutor(dbExecutor)
+            .setTransactionExecutor(dbExecutor)
+            .build()
     }
 
-    // ---- public API ----
     fun addPick(pick: PickedColor, source: String = "unknown") {
-        AnalyticsTracker.logColorPicked(pick, source)
+        analyticsTracker.logColorPicked(pick, source)
         if (!firstPickLogged) {
-            AnalyticsTracker.logFirstColorPick(pick)
+            analyticsTracker.logFirstColorPick(pick)
             firstPickLogged = true
-            scope.launch {
-                appContext.recentsDataStore.edit { prefs ->
-                    prefs[KEY_FIRST_PICK_LOGGED] = true
-                }
-            }
+            prefs.edit().putBoolean(PREF_KEY_FIRST_PICK_LOGGED, true).apply()
         }
-        _history.update { prev ->
-            (listOf(pick) + prev)
-                .distinctBy { it.argb } // optional: dedupe by color
-                .take(MAX)
+        scope.launch {
+            dao.upsertHistory(
+                RecentPickHistoryEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = nextTimestamp()
+                )
+            )
+            dao.trimHistory(MAX)
         }
-        persistHistory()
     }
 
     fun clear() {
-        _history.value = emptyList()
-        AnalyticsTracker.logRecentsCleared()
-        persistHistory()
+        analyticsTracker.logRecentsCleared()
+        scope.launch {
+            dao.clearHistory()
+        }
     }
 
     fun clearSaved() {
-        _saved.value = emptyList()
-        AnalyticsTracker.logSavedCleared()
-        persistSaved()
+        analyticsTracker.logSavedCleared()
+        scope.launch {
+            dao.clearSaved()
+        }
     }
 
     fun addSaved(pick: PickedColor) {
-        _saved.update { prev ->
-            (listOf(pick) + prev)
-                .distinctBy { it.argb }
-                .take(MAX)
-        }
-        AnalyticsTracker.logColorSaved(pick, action = "saved")
-        if (!firstSavedLogged) {
-            AnalyticsTracker.logFirstColorSaved(pick)
-            firstSavedLogged = true
-            scope.launch {
-                appContext.recentsDataStore.edit { prefs ->
-                    prefs[KEY_FIRST_SAVE_LOGGED] = true
-                }
+        scope.launch {
+            dao.upsertSaved(
+                SavedPickEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = nextTimestamp()
+                )
+            )
+            dao.trimSaved(MAX)
+            analyticsTracker.logColorSaved(pick, action = "saved")
+            if (!firstSavedLogged) {
+                analyticsTracker.logFirstColorSaved(pick)
+                firstSavedLogged = true
+                prefs.edit().putBoolean(PREF_KEY_FIRST_SAVE_LOGGED, true).apply()
             }
         }
-        persistSaved()
     }
 
     fun removeSaved(argb: Int) {
-        val color = _saved.value.firstOrNull { it.argb == argb }
-        _saved.update { prev -> prev.filterNot { it.argb == argb } }
-        color?.let { AnalyticsTracker.logColorSaved(it, action = "removed") }
-        persistSaved()
-    }
-
-    fun toggleSaved(pick: PickedColor) {
-        val exists = _saved.value.any { it.argb == pick.argb }
-        if (exists) removeSaved(pick.argb) else addSaved(pick)
-    }
-
-    // ---- persistence ----
-    private fun persistHistory() {
-        val snapshot = _history.value
         scope.launch {
-            val payload = runCatching {
-                json.encodeToString(snapshot)
-            }.getOrElse { "[]" }
+            val removed = dao.getSavedByArgb(argb)?.toPickedColor()
+            dao.deleteSavedByArgb(argb)
+            removed?.let { analyticsTracker.logColorSaved(it, action = "removed") }
+        }
+    }
 
-            appContext.recentsDataStore.edit { prefs ->
-                prefs[KEY_HISTORY] = payload
+    fun toggleSaved(pick: PickedColor, isCurrentlySaved: Boolean) {
+        scope.launch {
+            if (isCurrentlySaved) {
+                dao.deleteSavedByArgb(pick.argb)
+                analyticsTracker.logColorSaved(pick, action = "removed")
+            } else {
+                dao.upsertSaved(
+                    SavedPickEntity(
+                        argb = pick.argb,
+                        name = pick.name,
+                        updatedAt = nextTimestamp()
+                    )
+                )
+                dao.trimSaved(MAX)
+                analyticsTracker.logColorSaved(pick, action = "saved")
+                if (!firstSavedLogged) {
+                    analyticsTracker.logFirstColorSaved(pick)
+                    firstSavedLogged = true
+                    prefs.edit().putBoolean(PREF_KEY_FIRST_SAVE_LOGGED, true).apply()
+                }
             }
         }
     }
 
-    private fun persistSaved() {
-        val snapshot = _saved.value
-        scope.launch {
-            val payload = runCatching { json.encodeToString(snapshot) }
-                .getOrElse { "[]" }
-
-            appContext.recentsDataStore.edit { prefs ->
-                prefs[KEY_SAVED] = payload
+    suspend fun seedHistoryIfEmpty(picks: List<PickedColor>) {
+        if (dao.loadHistory(MAX).isEmpty() && picks.isNotEmpty()) {
+            val now = nextTimestamp()
+            val entities = picks.mapIndexed { index, pick ->
+                RecentPickHistoryEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = now - index
+                )
             }
+            dao.insertHistory(entities)
+            dao.trimHistory(MAX)
+        }
+    }
+
+    suspend fun seedSavedIfEmpty(picks: List<PickedColor>) {
+        if (dao.loadSaved(MAX).isEmpty() && picks.isNotEmpty()) {
+            val now = nextTimestamp()
+            val entities = picks.mapIndexed { index, pick ->
+                SavedPickEntity(
+                    argb = pick.argb,
+                    name = pick.name,
+                    updatedAt = now - index
+                )
+            }
+            dao.insertSaved(entities)
+            dao.trimSaved(MAX)
+        }
+    }
+
+    private fun nextTimestamp(): Long {
+        val now = System.currentTimeMillis()
+        return timestampCounter.updateAndGet { previous ->
+            if (now > previous) now else previous + 1
         }
     }
 }
+

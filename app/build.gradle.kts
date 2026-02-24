@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.android)
 
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.services)
@@ -17,10 +19,21 @@ android {
         applicationId = "com.primortex.color"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.0.4"
+        versionCode = 5
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = providers.environmentVariable("KEYSTORE_PATH")
+                .orNull
+                ?.let { file(it) }
+            storePassword = providers.environmentVariable("KEYSTORE_PASSWORD").orNull
+            keyAlias = "key0"
+            keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+        }
     }
 
     buildTypes {
@@ -30,7 +43,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -42,6 +55,9 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
     androidResources {
         generateLocaleConfig = true
@@ -80,9 +96,15 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.room.compiler)
 
 
     // Coil for image loading (photo pick screen)
@@ -92,6 +114,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     testImplementation(kotlin("test"))
     testImplementation(libs.junit)
+    testImplementation("org.robolectric:robolectric:4.13")
     testImplementation(libs.ktor.client.mock)                  // MockEngine
     testImplementation(libs.ktor.client.content.negotiation)   // needed by test HttpClient
     testImplementation(libs.ktor.serialization.kotlinx.json)   // needed by test HttpClient
@@ -103,4 +126,8 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -22,3 +22,4 @@ interface ColorNavigator {
     fun openSavedPalettes()
     fun back()
 }
+

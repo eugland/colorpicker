@@ -11,6 +11,7 @@
     <string name="saved">Lagret</string>
     <string name="delete">Slett</string>
 
+    <string name="more_options">Flere alternativer</string>
     <string name="palette">Palett</string>
     <string name="camera">Kamera</string>
     <string name="explore">Utforsk</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Røntgenbildemodus</string>
     <string name="animate_mode">Animert stilmodus</string>
     <string name="cyber_mode">Cyber-stilmodus</string>
+    <string name="intrinsic_mode">Innebygd (ML)-modus</string>
     <string name="mode_normal">Normal</string>
     <string name="filter_grid_title">Velg et filter</string>
     <string name="choose_theme">Velg tema</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Vilkår for bruk</string>
     <string name="share_app">Del app</string>
     <string name="share_app_description">Send Play Store-lenken til venner.</string>
+    <string name="delete_all">Slett alle</string>
+    <string name="color_catalogs">Fargenavnspakke</string>
+    <string name="color_catalogs_description">Appens språk velger standard fargenavnspakke. Du kan velge én pakke om gangen.</string>
+    <string name="color_catalogs_none_found">Ingen fargenavnspakker ble funnet i appens ressurser.</string>
+    <string name="color_catalogs_summary">Velg den aktive fargenavnspakken.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">brukergrensesnitt</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">nøytral</string>
+    <string name="seed_modern_ui_neutrals_name">Moderne nøytrale UI-farger</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderne</string>
+    <string name="close">Lukk</string>
+    <string name="seed_modern_ui_neutrals_note">Rene og fleksible farger for moderne grensesnitt</string>
 </resources>

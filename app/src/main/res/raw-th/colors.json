@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority น้ำเงิน",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice น้ำเงิน",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy ส้ม",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "Amber",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "Amethyst",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash ขาว",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique Bronze",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique Ruby",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique ขาว",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao อังกฤษ",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple เขียว",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "Apricot",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "Aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic Lime",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army เขียว",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide เหลือง",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash เทา",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "Azure",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled น้ำเงิน",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby น้ำเงิน",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby น้ำเงิน Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby ชมพู",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller ชมพู",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie ชมพู",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie ชมพู Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn แดง",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship เทา",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau น้ำเงิน",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "Beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo Ruby",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre น้ำตาล",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter Lime",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "ดำ",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "ดำ Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "ดำ ช็อกโกแลต",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "ดำ กาแฟ",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "ดำ Coral",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "ดำ Olive",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "ดำ Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off Bronze",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard น้ำเงิน",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood แดง",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "น้ำเงิน",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "น้ำเงิน Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "น้ำเงิน Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "น้ำเงิน Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "น้ำเงิน Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "น้ำเงิน Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "น้ำเงิน Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "น้ำเงิน Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "น้ำเงิน Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "น้ำเงิน Sapphire",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "น้ำเงิน Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "น้ำเงิน เทา",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "น้ำเงิน เขียว",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "น้ำเงิน เขียว Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "น้ำเงิน ไวโอเลต",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "น้ำเงิน ไวโอเลต Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "น้ำเงิน ไวโอเลต Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi น้ำเงิน",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle เขียว",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick แดง",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "สว่าง เขียว",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "สว่าง Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "สว่าง maroon",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "สว่าง navy น้ำเงิน",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "สว่าง ชมพู",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "สว่าง เหลือง Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant rose",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink ชมพู",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing เขียว",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "Bronze",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "น้ำตาล",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "น้ำตาล Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick เขียว",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud เขียว",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished น้ำตาล",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt ส้ม",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet น้ำเงิน",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet น้ำเงิน Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet เทา",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium เขียว",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium ส้ม",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium แดง",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium เหลือง",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona เขียว",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge น้ำเงิน",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo ชมพู",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary เหลือง",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple แดง",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy ชมพู",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean เขียว",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation ชมพู",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina น้ำเงิน",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot ส้ม",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton เขียว",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon น้ำเงิน",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon เขียว",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic น้ำเงิน",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean น้ำเงิน",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG น้ำเงิน",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG แดง",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne ชมพู",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "Charcoal",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston เขียว",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm ชมพู",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom ชมพู",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China ชมพู",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China rose",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese แดง",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese ไวโอเลต",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese เหลือง",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "ช็อกโกแลต Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "ช็อกโกแลต Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome เหลือง",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt น้ำเงิน",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa น้ำตาล",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "กาแฟ",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia น้ำเงิน",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo ชมพู",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool เทา",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "Copper",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "Copper Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "Copper Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "Copper แดง",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "Copper rose",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "Coral",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "Coral ชมพู",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower น้ำเงิน",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos ชมพู",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote น้ำตาล",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "Cream",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "Crimson",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber เหลือง",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "เข้ม น้ำเงิน เทา",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "เข้ม น้ำตาล",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "เข้ม Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "เข้ม Cornflower น้ำเงิน",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "เข้ม cyan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "เข้ม electric น้ำเงิน",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "เข้ม Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "เข้ม เขียว",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "เข้ม เขียว X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "เข้ม Jungle เขียว",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "เข้ม Khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "เข้ม Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "เข้ม Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "เข้ม Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "เข้ม magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "เข้ม Medium เทา",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "เข้ม Moss เขียว",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "เข้ม Olive เขียว",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "เข้ม ส้ม",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "เข้ม Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "เข้ม Pastel เขียว",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "เข้ม ม่วง",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "เข้ม แดง",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "เข้ม Salmon",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "เข้ม ทะเล เขียว",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "เข้ม Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "เข้ม sky น้ำเงิน",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "เข้ม Slate น้ำเงิน",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "เข้ม Slate เทา",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "เข้ม ฤดูใบไม้ผลิ เขียว",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "เข้ม Turquoise",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "เข้ม ไวโอเลต",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth เขียว",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S เทา",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "ลึก Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "ลึก Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "ลึก Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "ลึก Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "ลึก Jungle เขียว",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "ลึก ชมพู",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "ลึก Saffron",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "ลึก sky น้ำเงิน",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "ลึก Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "ลึก Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim น้ำเงิน",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim เทา",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger น้ำเงิน",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood rose",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke น้ำเงิน",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch ขาว",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth เหลือง",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie ดำ",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian น้ำเงิน",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "electric น้ำเงิน",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "electric เขียว",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "electric Indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "electric Lime",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "electric ม่วง",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "electric ไวโอเลต",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "Emerald",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "อังกฤษ เขียว",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "อังกฤษ Lavender",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "อังกฤษ แดง",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "อังกฤษ Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "อังกฤษ ไวโอเลต",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton น้ำเงิน",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu แดง",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango ชมพู",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern เขียว",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery rose",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine แดง",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral ขาว",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent น้ำเงิน",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "ป่า เขียว Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "ป่า เขียว Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "ป่า เขียว Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "ฝรั่งเศส Beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "ฝรั่งเศส Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "ฝรั่งเศส น้ำเงิน",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "ฝรั่งเศส Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "ฝรั่งเศส Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "ฝรั่งเศส Lime",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "ฝรั่งเศส Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "ฝรั่งเศส ชมพู",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "ฝรั่งเศส Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "ฝรั่งเศส rose",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "ฝรั่งเศส sky น้ำเงิน",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "ฝรั่งเศส ไวโอเลต",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia ม่วง",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia rose",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost ขาว",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go เขียว",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "ทอง",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "ทอง Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "ทอง metallic",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "ทอง Web golden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "ทอง Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "golden น้ำตาล",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "golden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "golden เหลือง",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite เทา",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "เทา HTML CSS เทา",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "เทา X 11 เทา",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "เขียว",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "เขียว Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "เขียว HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "เขียว Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "เขียว Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "เขียว Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "เขียว Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "เขียว Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "เขียว X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "เขียว Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "เขียว Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "เขียว น้ำเงิน",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "เขียว น้ำเงิน Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "เขียว cyan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "เขียว เหลือง",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "เขียว เหลือง Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han น้ำเงิน",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han ม่วง",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa เหลือง",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest ทอง",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope เทา",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu น้ำเงิน",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S เขียว",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot ชมพู",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter เขียว",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating Emerald",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial แดง",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India เขียว",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian แดง",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian เหลือง",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "Indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "Indigo น้ำเงิน",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "Indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein น้ำเงิน",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International ส้ม Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International ส้ม Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International ส้ม golden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic เขียว",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian sky น้ำเงิน",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Ivory",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle เขียว",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly เขียว",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key Lime",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "Khaki HTML CSS Khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "Khaki X 11 อ่อน Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu เขียว",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu ม่วง",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid Lavender",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel เขียว",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "Lavender Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "Lavender Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "Lavender น้ำเงิน",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Lavender Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "Lavender เทา",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "Lavender magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn เขียว",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon เหลือง",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon เหลือง Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "อ่อน Apricot",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "อ่อน น้ำเงิน",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "อ่อน น้ำตาล",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "อ่อน ช็อกโกแลต Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "อ่อน Cobalt น้ำเงิน",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "อ่อน Coral",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "อ่อน Cornflower น้ำเงิน",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "อ่อน Crimson",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "อ่อน cyan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "อ่อน ลึก ชมพู",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "อ่อน ฝรั่งเศส Beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "อ่อน Fuchsia ชมพู",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "อ่อน ทอง",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "อ่อน Goldenrod เหลือง",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "อ่อน เทา",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "อ่อน Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "อ่อน เขียว",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "อ่อน Hot ชมพู",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "อ่อน Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "อ่อน magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "อ่อน Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "อ่อน Moss เขียว",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "อ่อน ส้ม",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "อ่อน Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "อ่อน Pastel ม่วง",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "อ่อน Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "อ่อน ชมพู",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "อ่อน แดง",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "อ่อน แดง Ochre",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "อ่อน Salmon",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "อ่อน Salmon ชมพู",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "อ่อน ทะเล เขียว",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "อ่อน เงิน",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "อ่อน sky น้ำเงิน",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "อ่อน Slate เทา",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "อ่อน Steel น้ำเงิน",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "อ่อน Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "อ่อน เหลือง",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "Lime Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Lime Web X 11 เขียว",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "Lime เขียว",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln เขียว",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran ม่วง",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy น้ำเงิน",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl ชมพู",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic Mint",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle น้ำเงิน",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango เขียว",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "maroon Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "maroon HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "maroon X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum น้ำเงิน",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum น้ำเงิน เขียว",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum น้ำเงิน ม่วง",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum เขียว",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum เขียว เหลือง",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum ส้ม",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum ม่วง",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum แดง",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum แดง ม่วง",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum เหลือง",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum เหลือง แดง",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May เขียว",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya น้ำเงิน",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium น้ำเงิน",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple แดง",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium electric น้ำเงิน",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle เขียว",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium Lavender magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian น้ำเงิน",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium ม่วง",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium แดง ไวโอเลต",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium Ruby",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium ทะเล เขียว",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium sky น้ำเงิน",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate น้ำเงิน",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium ฤดูใบไม้ผลิ Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium ฤดูใบไม้ผลิ เขียว",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium Turquoise",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan แดง",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium ไวโอเลต แดง",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow Apricot",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow เหลือง",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metallic ทอง",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metallic Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metallic Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican ชมพู",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle น้ำเงิน",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle น้ำเงิน เขียว",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle น้ำเงิน ม่วง",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle เขียว",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle เขียว เหลือง",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle เทา",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle ม่วง",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle แดง",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle แดง ม่วง",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle เหลือง",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle เหลือง แดง",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "เที่ยงคืน",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "เที่ยงคืน น้ำเงิน",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "เที่ยงคืน เขียว Eagle เขียว",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado เหลือง",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi ชมพู",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion เหลือง",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "Mint",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "Mint Cream",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "Mint เขียว",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty rose",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode Beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning น้ำเงิน",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss เขียว",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten ชมพู",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu เขียว",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle เขียว",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic maroon",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples เหลือง",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo ขาว",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "navy น้ำเงิน",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "navy น้ำเงิน Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon น้ำเงิน",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon เขียว",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York ชมพู",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo แดง",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo น้ำเงิน",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "มหาสมุทร น้ำเงิน",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "มหาสมุทร เขียว",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "Ochre",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office เขียว",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old ทอง",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old Lavender",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old rose",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old เงิน",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Olive",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "Olive Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "Olive Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "Olive เขียว",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "ส้ม",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "ส้ม Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "ส้ม Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "ส้ม Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "ส้ม Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "ส้ม Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "ส้ม Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "ส้ม Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "ส้ม แดง",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "ส้ม แดง Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "ส้ม เหลือง",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "ส้ม เหลือง Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid ชมพู",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou Crimson แดง",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous ส้ม",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford น้ำเงิน",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific น้ำเงิน",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan เขียว",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate น้ำเงิน",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate ม่วง",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "ซีด Aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "ซีด Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "ซีด Copper",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "ซีด ทอง",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "ซีด Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "ซีด Lavender",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "ซีด ชมพู",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "ซีด Plum",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "ซีด ม่วง Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "ซีด แดง ไวโอเลต",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "ซีด Robin Egg น้ำเงิน",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "ซีด เงิน",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "ซีด ฤดูใบไม้ผลิ Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "ซีด Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy ม่วง",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese เขียว",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise ชมพู",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris เขียว",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel ชมพู",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S เทา",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "Peach",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "Peach Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "Pearl ทอง",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly ม่วง",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian น้ำเงิน",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian เขียว",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian Indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian ส้ม",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian ชมพู",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian Plum",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian แดง",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian rose",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter น้ำเงิน",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo น้ำเงิน",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo เขียว",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee น้ำเงิน",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy ชมพู",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine เขียว",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "ชมพู",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "ชมพู Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "ชมพู Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "ชมพู Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "ชมพู Lavender",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "ชมพู Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "Plum",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "Plum Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump ม่วง",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland ส้ม",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder น้ำเงิน",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton ส้ม",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian น้ำเงิน",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic ม่วง",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman น้ำตาล Ups น้ำตาล",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "ม่วง",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "ม่วง HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "ม่วง Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "ม่วง X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "ม่วง Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "ม่วง navy",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "ม่วง Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "ม่วง Plum",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen น้ำเงิน",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen ชมพู",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick เงิน",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical แดง",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin ดำ",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry rose",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle rose",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca ม่วง",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "แดง",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "แดง Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "แดง Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "แดง Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "แดง Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "แดง Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "แดง Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "แดง Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "แดง ส้ม",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "แดง ส้ม Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "แดง ส้ม Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "แดง ม่วง",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "แดง ไวโอเลต",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "แดง ไวโอเลต Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "แดง ไวโอเลต Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration ดำ",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution น้ำเงิน",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich ดำ",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich ดำ Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich ดำ Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich maroon",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle เขียว",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg น้ำเงิน",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metallic",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman เงิน",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "rose",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "rose Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "rose Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "rose Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "rose Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "rose ชมพู",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "rose Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "rose แดง",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "rose Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "rose Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy น้ำตาล",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal น้ำเงิน เข้ม",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal น้ำเงิน อ่อน",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal ม่วง",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal เหลือง",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine แดง",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "Ruby",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "Ruby แดง",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian เขียว",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian ไวโอเลต",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty แดง",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State เขียว",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle น้ำตาล",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety ส้ม",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety ส้ม Blaze ส้ม",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety เหลือง",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "Saffron",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "Salmon",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "Salmon ชมพู",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy น้ำตาล",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap เขียว",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "Sapphire",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "Sapphire Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Sapphire น้ำเงิน",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen ทอง",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "Scarlet",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss ชมพู",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus เหลือง",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin เขียว",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "ทะเล เขียว",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "ทะเล เขียว Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal น้ำตาล",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective เหลือง",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow น้ำเงิน",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock เขียว",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen เขียว",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking ชมพู",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking ชมพู Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "เงิน",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "เงิน Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "เงิน metallic",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "เงิน Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "เงิน Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "เงิน Lake น้ำเงิน",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "เงิน ชมพู",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "เงิน Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling แดง",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling พระอาทิตย์ขึ้น",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "sky น้ำเงิน",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "sky น้ำเงิน Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "sky magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate น้ำเงิน",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate เทา",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy เขียว",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt เข้ม Powder น้ำเงิน",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky ดำ",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "Snow",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid ชมพู",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic เงิน",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish น้ำเงิน",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish เทา",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish เขียว",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish ส้ม",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish ชมพู",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish แดง",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish sky น้ำเงิน",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish ไวโอเลต",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "ฤดูใบไม้ผลิ Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "ฤดูใบไม้ผลิ Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "ฤดูใบไม้ผลิ เขียว",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "ฤดูใบไม้ผลิ เขียว Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S น้ำเงิน",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command น้ำเงิน",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "Steel น้ำเงิน",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "Steel ชมพู",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "Steel Teal",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain เหลือง",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar Plum",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "พระอาทิตย์ตก",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super ชมพู",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet น้ำตาล",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango ชมพู",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart ส้ม",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe เทา",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea เขียว",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea rose",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Teal",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "Teal น้ำเงิน",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian ชมพู",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me ชมพู",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany น้ำเงิน",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium เหลือง",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain ป่า",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "แท้ น้ำเงิน",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts น้ำเงิน",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "Turquoise",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "Turquoise น้ำเงิน",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "Turquoise เขียว",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle เขียว",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan น้ำตาล",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan แดง",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight Lavender",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian ม่วง",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua น้ำเงิน",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua แดง",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra ชมพู",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra แดง",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine น้ำเงิน",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations น้ำเงิน",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow เหลือง",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up ป่า เขียว",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up maroon",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell แดง",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa น้ำเงิน",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke น้ำตาล",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas ทอง",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian แดง",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "ไวโอเลต",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "ไวโอเลต Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "ไวโอเลต Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "ไวโอเลต Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "ไวโอเลต Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "ไวโอเลต น้ำเงิน",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "ไวโอเลต น้ำเงิน Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "ไวโอเลต แดง",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian เขียว",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid sky น้ำเงิน",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid ไวโอเลต",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm ดำ",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "ขาว",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild น้ำเงิน Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "ฤดูหนาว sky",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood น้ำตาล",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale น้ำเงิน",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "เหลือง",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "เหลือง Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "เหลือง Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "เหลือง Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "เหลือง Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "เหลือง Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "เหลือง Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "เหลือง ส้ม",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "เหลือง ส้ม Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "เหลือง Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "เหลือง เขียว",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "เหลือง เขียว Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "เหลือง เขียว Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn น้ำเงิน",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

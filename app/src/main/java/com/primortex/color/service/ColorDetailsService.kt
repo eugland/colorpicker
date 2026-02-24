@@ -1,6 +1,8 @@
 package com.primortex.color.service
 
 import com.primortex.color.app.PickedColor
+import javax.inject.Inject
+import javax.inject.Singleton
 
 data class ColorDetails(
     val argb: Int,
@@ -27,10 +29,13 @@ data class ColorDetails(
     val tones: List<Int>
 )
 
-object ColorDetailsService {
+@Singleton
+class ColorDetailsService @Inject constructor(
+    private val colorService: ColorService
+) {
 
     fun details(argb: Int, similarLimit: Int = 8): ColorDetails {
-        val name = ColorServices.colors.localNameFromArgb(argb)
+        val name = colorService.localNameFromArgb(argb)
 
         val rgb = argbToRgb(argb)
         val hsv = argbToHsv(argb)
@@ -81,7 +86,7 @@ object ColorDetailsService {
         val target = argbToRgb(argb)
 
         // You need a list of all colors in your dataset:
-        val all = ColorServices.colors.allColors()
+        val all = colorService.allColors()
 
         return all.asSequence()
             .filter { excludeArgb == null || it.argb != excludeArgb }
@@ -105,3 +110,5 @@ object ColorDetailsService {
         return (0xFF shl 24) or (r shl 16) or (g shl 8) or b
     }
 }
+
+

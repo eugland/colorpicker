@@ -3,7 +3,7 @@ package com.primortex.color.info
 import androidx.annotation.StringRes
 import com.primortex.color.R
 import com.primortex.color.i18n.AppStrings
-import com.primortex.color.screens.InfoDetailSection
+import com.primortex.color.features.info.InfoDetailSection
 
 object InfoContent {
     fun copyrightSections(): List<InfoDetailSection> = COPYRIGHT_SECTIONS.resolve()
@@ -156,3 +156,4 @@ object InfoContent {
         )
     }
 }
+

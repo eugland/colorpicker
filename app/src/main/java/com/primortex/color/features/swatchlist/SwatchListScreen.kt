@@ -1,0 +1,189 @@
+package com.primortex.color.features.swatchlist
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.outlined.Clear
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import com.primortex.color.R
+import com.primortex.color.data.enums.SwatchListType
+import com.primortex.color.i18n.stringResource
+import com.primortex.color.service.argbToHex
+import com.primortex.color.ui.components.ScreenScaffold
+
+@Composable
+fun SwatchListScreen(
+    uiState: SwatchListUiState,
+    innerPadding: PaddingValues,
+    onBack: () -> Unit,
+    onAction: (SwatchListUiAction) -> Unit
+) {
+    val titleRes = when (uiState.type) {
+        SwatchListType.RECENT -> R.string.recent_colors
+        SwatchListType.SAVED -> R.string.saved_colors
+    }
+    var menuExpanded by remember { mutableStateOf(false) }
+
+    ScreenScaffold(
+        titleRes = titleRes,
+        innerPadding = innerPadding,
+        onBack = onBack,
+        actions = {
+            Box(Modifier.wrapContentSize(Alignment.TopEnd)) {
+                IconButton(
+                    onClick = { menuExpanded = true },
+                    enabled = uiState.picks.isNotEmpty()
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.MoreVert,
+                        contentDescription = stringResource(R.string.more_options)
+                    )
+                }
+                DropdownMenu(
+                    expanded = menuExpanded,
+                    onDismissRequest = { menuExpanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.delete_all)) },
+                        onClick = {
+                            menuExpanded = false
+                            onAction(SwatchListUiAction.DeleteAll)
+                        }
+                    )
+                }
+            }
+        }
+    ) {
+        OutlinedTextField(
+            value = uiState.query,
+            onValueChange = { onAction(SwatchListUiAction.QueryChanged(it)) },
+            leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
+            trailingIcon = {
+                if (uiState.query.isNotBlank()) {
+                    IconButton(onClick = { onAction(SwatchListUiAction.ClearQuery) }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Clear,
+                            contentDescription = stringResource(R.string.clear)
+                        )
+                    }
+                }
+            },
+            placeholder = { Text(stringResource(R.string.search_placeholder)) },
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(Modifier.height(12.dp))
+
+        if (uiState.filtered.isEmpty()) {
+            val emptyText = if (uiState.query.isBlank()) {
+                when (uiState.type) {
+                    SwatchListType.RECENT -> stringResource(R.string.no_recent_colors)
+                    SwatchListType.SAVED -> stringResource(R.string.no_saved_colors)
+                }
+            } else {
+                stringResource(R.string.no_matching_colors)
+            }
+            Text(
+                text = emptyText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        } else {
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(bottom = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items(uiState.filtered) { pick ->
+                    val hex = argbToHex(pick.argb)
+                    val displayName = when (uiState.type) {
+                        SwatchListType.RECENT -> hex
+                        SwatchListType.SAVED -> pick.name.ifBlank { hex }
+                    }
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        shape = MaterialTheme.shapes.large,
+                        tonalElevation = 2.dp,
+                        onClick = { onAction(SwatchListUiAction.OpenColorDetail(pick)) }
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Spacer(
+                                    modifier = Modifier
+                                        .size(40.dp)
+                                        .clip(CircleShape)
+                                        .background(Color(pick.argb))
+                                        .border(
+                                            1.dp,
+                                            MaterialTheme.colorScheme.outlineVariant,
+                                            CircleShape
+                                        )
+                                )
+                                Spacer(Modifier.width(12.dp))
+                                Column {
+                                    Text(
+                                        text = displayName,
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        maxLines = if (uiState.type == SwatchListType.SAVED) 2 else 1,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
+                                }
+                            }
+                            Text(
+                                text = stringResource(R.string.more_details),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.padding(start = 8.dp)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

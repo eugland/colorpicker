@@ -87,3 +87,4 @@ enum class AppLanguage(
     Ukrainian("uk", R.string.language_ukrainian)
 }
 
+

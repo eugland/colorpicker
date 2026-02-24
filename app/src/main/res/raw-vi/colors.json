@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority xanh dương",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice xanh dương",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy cam",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "hổ phách",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "thạch anh tím",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash trắng",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique đồng đỏ",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique hồng ngọc",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique trắng",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao anh",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple xanh lá",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "mơ",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic chanh",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army xanh lá",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide vàng",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash xám",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "thiên thanh",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled xanh dương",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby xanh dương",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby xanh dương Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby hồng",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller hồng",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie hồng",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie hồng Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn đỏ",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship xám",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau xanh dương",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "be",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo hồng ngọc",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre nâu",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter chanh",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "đen",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "đen Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "đen sô cô la",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "đen cà phê",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "đen san hô",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "đen ô liu",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "đen Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off đồng đỏ",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard xanh dương",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood đỏ",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "xanh dương",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "xanh dương Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "xanh dương Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "xanh dương Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "xanh dương Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "xanh dương Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "xanh dương Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "xanh dương Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "xanh dương Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "xanh dương lam ngọc",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "xanh dương Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "xanh dương xám",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "xanh dương xanh lá",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "xanh dương xanh lá Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "xanh dương tím",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "xanh dương tím Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "xanh dương tím Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi xanh dương",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle xanh lá",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick đỏ",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "sáng xanh lá",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "sáng Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "sáng đỏ nâu",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "sáng xanh hải quân xanh dương",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "sáng hồng",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "sáng vàng Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant hoa hồng",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink hồng",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing xanh lá",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "đồng đỏ",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "nâu",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "nâu Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick xanh lá",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud xanh lá",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished nâu",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt cam",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet xanh dương",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet xanh dương Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet xám",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium xanh lá",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium cam",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium đỏ",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium vàng",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona xanh lá",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge xanh dương",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo hồng",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary vàng",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple đỏ",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy hồng",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean xanh lá",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation hồng",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina xanh dương",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot cam",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton xanh lá",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon xanh dương",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon xanh lá",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic xanh dương",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean xanh dương",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG xanh dương",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG đỏ",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne hồng",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "than",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston xanh lá",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm hồng",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom hồng",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China hồng",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China hoa hồng",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese đỏ",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese tím",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese vàng",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "sô cô la Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "sô cô la Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome vàng",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt xanh dương",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa nâu",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "cà phê",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia xanh dương",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo hồng",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool xám",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "đồng",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "đồng Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "đồng Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "đồng đỏ",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "đồng hoa hồng",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "san hô",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "san hô hồng",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower xanh dương",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos hồng",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote nâu",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "kem",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "đỏ thẫm",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "lục lam",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "lục lam Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber vàng",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "đậm xanh dương xám",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "đậm nâu",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "đậm Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "đậm Cornflower xanh dương",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "đậm lục lam",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "đậm điện xanh dương",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "đậm Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "đậm xanh lá",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "đậm xanh lá X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "đậm Jungle xanh lá",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "đậm kaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "đậm Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "đậm Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "đậm Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "đậm đỏ tía",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "đậm Medium xám",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "đậm Moss xanh lá",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "đậm ô liu xanh lá",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "đậm cam",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "đậm Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "đậm Pastel xanh lá",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "đậm tím",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "đậm đỏ",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "đậm cá hồi",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "đậm biển xanh lá",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "đậm Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "đậm bầu trời xanh dương",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "đậm Slate xanh dương",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "đậm Slate xám",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "đậm mùa xuân xanh lá",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "đậm ngọc lam",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "đậm tím",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth xanh lá",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S xám",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "sâu Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "sâu Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "sâu Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "sâu Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "sâu Jungle xanh lá",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "sâu hồng",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "sâu nghệ tây",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "sâu bầu trời xanh dương",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "sâu Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "sâu Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim xanh dương",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim xám",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger xanh dương",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood hoa hồng",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke xanh dương",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch trắng",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth vàng",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie đen",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian xanh dương",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "điện xanh dương",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "điện xanh lá",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "điện chàm",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "điện chanh",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "điện tím",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "điện tím",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "lục bảo",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "anh xanh lá",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "anh oải hương",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "anh đỏ",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "anh Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "anh tím",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton xanh dương",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu đỏ",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango hồng",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern xanh lá",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery hoa hồng",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine đỏ",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral trắng",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent xanh dương",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "rừng xanh lá Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "rừng xanh lá Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "rừng xanh lá Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "pháp be",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "pháp Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "pháp xanh dương",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "pháp Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "pháp Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "pháp chanh",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "pháp Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "pháp hồng",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "pháp Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "pháp hoa hồng",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "pháp bầu trời xanh dương",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "pháp tím",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia tím",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia hoa hồng",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost trắng",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go xanh lá",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "vàng",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "vàng Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "vàng ánh kim",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "vàng Web vàng kim",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "vàng Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "vàng kim nâu",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "vàng kim Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "vàng kim vàng",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite xám",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "xám HTML CSS xám",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "xám X 11 xám",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "xanh lá",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "xanh lá Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "xanh lá HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "xanh lá Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "xanh lá Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "xanh lá Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "xanh lá Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "xanh lá Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "xanh lá X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "xanh lá Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "xanh lá Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "xanh lá xanh dương",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "xanh lá xanh dương Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "xanh lá lục lam",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "xanh lá vàng",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "xanh lá vàng Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han xanh dương",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han tím",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa vàng",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest vàng",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope xám",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu xanh dương",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S xanh lá",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot đỏ tía",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot hồng",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter xanh lá",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating lục bảo",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial đỏ",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India xanh lá",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian đỏ",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian vàng",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "chàm",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "chàm xanh dương",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "chàm Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein xanh dương",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International cam Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International cam Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International cam vàng kim Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic xanh lá",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian bầu trời xanh dương",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "ngà",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle xanh lá",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly xanh lá",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key chanh",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "kaki HTML CSS kaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "kaki X 11 nhạt kaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu xanh lá",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu tím",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid oải hương",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel xanh lá",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "oải hương Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "oải hương Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "oải hương xanh dương",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "oải hương Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "oải hương xám",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "oải hương đỏ tía",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn xanh lá",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon vàng",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon vàng Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "nhạt mơ",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "nhạt xanh dương",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "nhạt nâu",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "nhạt sô cô la Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "nhạt Cobalt xanh dương",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "nhạt san hô",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "nhạt Cornflower xanh dương",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "nhạt đỏ thẫm",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "nhạt lục lam",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "nhạt sâu hồng",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "nhạt pháp be",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "nhạt Fuchsia hồng",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "nhạt vàng",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "nhạt Goldenrod vàng",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "nhạt xám",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "nhạt Grayish đỏ tía",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "nhạt xanh lá",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "nhạt Hot hồng",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "nhạt kaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "nhạt đỏ tía",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "nhạt Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "nhạt Moss xanh lá",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "nhạt cam",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "nhạt Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "nhạt Pastel tím",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "nhạt Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "nhạt hồng",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "nhạt đỏ",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "nhạt đỏ hoàng thổ",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "nhạt cá hồi",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "nhạt cá hồi hồng",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "nhạt biển xanh lá",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "nhạt bạc",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "nhạt bầu trời xanh dương",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "nhạt Slate xám",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "nhạt thép xanh dương",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "nhạt Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "nhạt vàng",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "chanh Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "chanh Web X 11 xanh lá",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "chanh xanh lá",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln xanh lá",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran tím",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy xanh dương",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl hồng",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "đỏ tía",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "đỏ tía Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "đỏ tía Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "đỏ tía Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "đỏ tía Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "đỏ tía Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic bạc hà",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle xanh dương",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango xanh lá",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "đỏ nâu Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "đỏ nâu HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "đỏ nâu X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum xanh dương",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum xanh dương xanh lá",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum xanh dương tím",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum xanh lá",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum xanh lá vàng",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum cam",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum tím",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum đỏ",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum đỏ tím",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum vàng",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum vàng đỏ",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May xanh lá",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya xanh dương",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium xanh dương",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple đỏ",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium điện xanh dương",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle xanh lá",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium oải hương đỏ tía",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian xanh dương",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium tím",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium đỏ tím",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium hồng ngọc",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium biển xanh lá",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium bầu trời xanh dương",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate xanh dương",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium mùa xuân Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium mùa xuân xanh lá",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium ngọc lam",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan đỏ",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium tím đỏ",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow mơ",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow vàng",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "ánh kim vàng",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "ánh kim Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "ánh kim Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican hồng",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle xanh dương",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle xanh dương xanh lá",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle xanh dương tím",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle xanh lá",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle xanh lá vàng",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle xám",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle tím",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle đỏ",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle đỏ tím",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle vàng",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle vàng đỏ",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "nửa đêm",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "nửa đêm xanh dương",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "nửa đêm xanh lá Eagle xanh lá",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado vàng",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi hồng",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion vàng",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "bạc hà",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "bạc hà kem",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "bạc hà xanh lá",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty hoa hồng",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode be",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning xanh dương",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss xanh lá",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten hồng",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu xanh lá",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle xanh lá",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic đỏ nâu",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples vàng",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo trắng",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "xanh hải quân xanh dương",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "xanh hải quân xanh dương Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon xanh dương",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon xanh lá",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York hồng",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo đỏ",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo xanh dương",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "đại dương xanh dương",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "đại dương xanh lá",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "hoàng thổ",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office xanh lá",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old vàng",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old oải hương",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old hoa hồng",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old bạc",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "ô liu",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "ô liu Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "ô liu Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "ô liu xanh lá",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "cam",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "cam Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "cam Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "cam Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "cam Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "cam Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "cam Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "cam Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "cam đỏ",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "cam đỏ Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "cam vàng",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "cam vàng Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid hồng",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou đỏ thẫm đỏ",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous cam",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford xanh dương",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific xanh dương",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan xanh lá",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate xanh dương",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate tím",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "nhạt aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "nhạt Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "nhạt đồng",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "nhạt vàng",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "nhạt Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "nhạt oải hương",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "nhạt hồng",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "nhạt mận",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "nhạt tím Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "nhạt đỏ tím",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "nhạt Robin Egg xanh dương",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "nhạt bạc",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "nhạt mùa xuân Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "nhạt Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy tím",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese xanh lá",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise hồng",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris xanh lá",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel hồng",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S xám",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "đào",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "đào Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "ngọc trai vàng",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly tím",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian xanh dương",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian xanh lá",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian chàm",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian cam",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian hồng",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian mận",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian đỏ",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian hoa hồng",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter xanh dương",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo xanh dương",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo xanh lá",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee xanh dương",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy hồng",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine xanh lá",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "hồng",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "hồng Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "hồng Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "hồng Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "hồng oải hương",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "hồng Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "mận",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "mận Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump tím",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland cam",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder xanh dương",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton cam",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian xanh dương",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic tím",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman nâu Ups nâu",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "tím",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "tím HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "tím Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "tím X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "tím Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "tím xanh hải quân",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "tím Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "tím mận",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen xanh dương",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen hồng",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick bạc",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone đỏ tía",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical đỏ",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin đen",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry hoa hồng",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle hoa hồng",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca tím",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "đỏ",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "đỏ Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "đỏ Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "đỏ Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "đỏ Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "đỏ Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "đỏ Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "đỏ Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "đỏ cam",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "đỏ cam Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "đỏ cam Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "đỏ tím",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "đỏ tím",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "đỏ tím Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "đỏ tím Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration đen",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution xanh dương",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich đen",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich đen Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich đen Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich đỏ nâu",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle xanh lá",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg xanh dương",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket ánh kim",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman bạc",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "hoa hồng",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "hoa hồng Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "hoa hồng Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "hoa hồng Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "hoa hồng Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "hoa hồng hồng",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "hoa hồng Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "hoa hồng đỏ",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "hoa hồng Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "hoa hồng Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy nâu",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal xanh dương đậm",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal xanh dương nhạt",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal tím",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal vàng",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine đỏ",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "hồng ngọc",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "hồng ngọc đỏ",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian xanh lá",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian tím",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty đỏ",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State xanh lá",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle nâu",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety cam",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety cam Blaze cam",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety vàng",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "nghệ tây",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "cá hồi",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "cá hồi hồng",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy nâu",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap xanh lá",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "lam ngọc",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "lam ngọc Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "lam ngọc xanh dương",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen vàng",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "đỏ tươi",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss hồng",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus vàng",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin xanh lá",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "biển xanh lá",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "biển xanh lá Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal nâu",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective vàng",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow xanh dương",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock xanh lá",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen xanh lá",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking hồng",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking hồng Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "bạc",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "bạc Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "bạc ánh kim",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "bạc Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "bạc Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "bạc Lake xanh dương",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "bạc hồng",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "bạc Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling đỏ",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling bình minh",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "bầu trời xanh dương",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "bầu trời xanh dương Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "bầu trời đỏ tía",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate xanh dương",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate xám",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy xanh lá",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt đậm Powder xanh dương",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky đen",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "tuyết",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid hồng",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic bạc",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish xanh dương",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish xám",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish xanh lá",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish cam",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish hồng",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish đỏ",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish bầu trời xanh dương",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish tím",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "mùa xuân Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "mùa xuân Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "mùa xuân xanh lá",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "mùa xuân xanh lá Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S xanh dương",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command xanh dương",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "thép xanh dương",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "thép hồng",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "thép xanh mòng két",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain vàng",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar mận",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "hoàng hôn",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super hồng",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet nâu",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango hồng",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart cam",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe xám",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea xanh lá",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea hoa hồng",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "xanh mòng két",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "xanh mòng két xanh dương",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian hồng",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me hồng",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany xanh dương",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium vàng",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain rừng",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "chuẩn xanh dương",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts xanh dương",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "ngọc lam",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "ngọc lam xanh dương",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "ngọc lam xanh lá",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle xanh lá",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan nâu",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan đỏ",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight oải hương",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian tím",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua xanh dương",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua đỏ",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra hồng",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra đỏ",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine xanh dương",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations xanh dương",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow vàng",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up rừng xanh lá",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up đỏ nâu",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell đỏ",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa xanh dương",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke nâu",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas vàng",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian đỏ",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "tím",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "tím Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "tím Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "tím Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "tím Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "tím xanh dương",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "tím xanh dương Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "tím đỏ",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian xanh lá",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid bầu trời xanh dương",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid tím",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm đen",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "trắng",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild xanh dương Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "mùa đông bầu trời",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood nâu",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale xanh dương",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "vàng",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "vàng Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "vàng Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "vàng Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "vàng Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "vàng Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "vàng Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "vàng cam",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "vàng cam Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "vàng Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "vàng xanh lá",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "vàng xanh lá Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "vàng xanh lá Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn xanh dương",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

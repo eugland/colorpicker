@@ -1,0 +1,4054 @@
+[
+    {
+        "name":  "Absolute Zero",
+        "hex":  "#0048BA"
+    },
+    {
+        "name":  "Acid",
+        "hex":  "#B0BF1A"
+    },
+    {
+        "name":  "Aero",
+        "hex":  "#7CB9E8"
+    },
+    {
+        "name":  "Air Superiority синій",
+        "hex":  "#72A0C1"
+    },
+    {
+        "name":  "Alabaster",
+        "hex":  "#EDEAE0"
+    },
+    {
+        "name":  "Alice синій",
+        "hex":  "#F0F8FF"
+    },
+    {
+        "name":  "Alloy помаранчевий",
+        "hex":  "#C46210"
+    },
+    {
+        "name":  "Almond",
+        "hex":  "#EFDECD"
+    },
+    {
+        "name":  "Amber",
+        "hex":  "#FFBF00"
+    },
+    {
+        "name":  "Amethyst",
+        "hex":  "#9966CC"
+    },
+    {
+        "name":  "Anti Flash білий",
+        "hex":  "#F2F3F4"
+    },
+    {
+        "name":  "Antique Brass",
+        "hex":  "#CD9575"
+    },
+    {
+        "name":  "Antique Bronze",
+        "hex":  "#665D1E"
+    },
+    {
+        "name":  "Antique Fuchsia",
+        "hex":  "#915C83"
+    },
+    {
+        "name":  "Antique Ruby",
+        "hex":  "#841B2D"
+    },
+    {
+        "name":  "Antique білий",
+        "hex":  "#FAEBD7"
+    },
+    {
+        "name":  "Ao англійський",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Apple зелений",
+        "hex":  "#8DB600"
+    },
+    {
+        "name":  "Apricot",
+        "hex":  "#FBCEB1"
+    },
+    {
+        "name":  "Aqua",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Aquamarine",
+        "hex":  "#7FFFD4"
+    },
+    {
+        "name":  "Arctic Lime",
+        "hex":  "#D0FF14"
+    },
+    {
+        "name":  "Army зелений",
+        "hex":  "#4B5320"
+    },
+    {
+        "name":  "Artichoke",
+        "hex":  "#8F9779"
+    },
+    {
+        "name":  "Arylide жовтий",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Ash сірий",
+        "hex":  "#B2BEB5"
+    },
+    {
+        "name":  "Asparagus",
+        "hex":  "#87A96B"
+    },
+    {
+        "name":  "Atomic Tangerine",
+        "hex":  "#FF9966"
+    },
+    {
+        "name":  "Auburn",
+        "hex":  "#A52A2A"
+    },
+    {
+        "name":  "Aureolin",
+        "hex":  "#FDEE00"
+    },
+    {
+        "name":  "Avocado",
+        "hex":  "#568203"
+    },
+    {
+        "name":  "Azure",
+        "hex":  "#007FFF"
+    },
+    {
+        "name":  "B Dazzled синій",
+        "hex":  "#2E5894"
+    },
+    {
+        "name":  "Baby синій",
+        "hex":  "#89CFF0"
+    },
+    {
+        "name":  "Baby синій Eyes",
+        "hex":  "#A1CAF1"
+    },
+    {
+        "name":  "Baby рожевий",
+        "hex":  "#F4C2C2"
+    },
+    {
+        "name":  "Baker Miller рожевий",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "Banana Mania",
+        "hex":  "#FAE7B5"
+    },
+    {
+        "name":  "Barbie рожевий",
+        "hex":  "#E94196"
+    },
+    {
+        "name":  "Barbie рожевий Pantone",
+        "hex":  "#E0218A"
+    },
+    {
+        "name":  "Barn червоний",
+        "hex":  "#7C0A02"
+    },
+    {
+        "name":  "Battleship сірий",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Beau синій",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "Beaver",
+        "hex":  "#9F8170"
+    },
+    {
+        "name":  "Beige",
+        "hex":  "#F5F5DC"
+    },
+    {
+        "name":  "Big Dip O Rsquo Ruby",
+        "hex":  "#9C2542"
+    },
+    {
+        "name":  "Bisque",
+        "hex":  "#FFE4C4"
+    },
+    {
+        "name":  "Bistre",
+        "hex":  "#3D2B1F"
+    },
+    {
+        "name":  "Bistre коричневий",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Bitter Lemon",
+        "hex":  "#CAE00D"
+    },
+    {
+        "name":  "Bitter Lime",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Bittersweet",
+        "hex":  "#FE6F5E"
+    },
+    {
+        "name":  "Bittersweet Shimmer",
+        "hex":  "#BF4F51"
+    },
+    {
+        "name":  "чорний",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "чорний Bean",
+        "hex":  "#3D0C02"
+    },
+    {
+        "name":  "чорний шоколад",
+        "hex":  "#1B1811"
+    },
+    {
+        "name":  "чорний кава",
+        "hex":  "#3B2F2F"
+    },
+    {
+        "name":  "чорний Coral",
+        "hex":  "#54626F"
+    },
+    {
+        "name":  "чорний Olive",
+        "hex":  "#3B3C36"
+    },
+    {
+        "name":  "чорний Shadows",
+        "hex":  "#BFAFB2"
+    },
+    {
+        "name":  "Blanched Almond",
+        "hex":  "#FFEBCD"
+    },
+    {
+        "name":  "Blast Off Bronze",
+        "hex":  "#A57164"
+    },
+    {
+        "name":  "Bleu De France",
+        "hex":  "#318CE7"
+    },
+    {
+        "name":  "Blizzard синій",
+        "hex":  "#ACE5EE"
+    },
+    {
+        "name":  "Blond",
+        "hex":  "#FAF0BE"
+    },
+    {
+        "name":  "Blood червоний",
+        "hex":  "#660000"
+    },
+    {
+        "name":  "синій",
+        "hex":  "#0000FF"
+    },
+    {
+        "name":  "синій Crayola",
+        "hex":  "#1F75FE"
+    },
+    {
+        "name":  "синій Munsell",
+        "hex":  "#0093AF"
+    },
+    {
+        "name":  "синій Ncs",
+        "hex":  "#0087BD"
+    },
+    {
+        "name":  "синій Pantone",
+        "hex":  "#0018A8"
+    },
+    {
+        "name":  "синій Pigment",
+        "hex":  "#333399"
+    },
+    {
+        "name":  "синій Ryb",
+        "hex":  "#0247FE"
+    },
+    {
+        "name":  "синій Bell",
+        "hex":  "#A2A2D0"
+    },
+    {
+        "name":  "синій Jeans",
+        "hex":  "#5DADEC"
+    },
+    {
+        "name":  "синій Sapphire",
+        "hex":  "#126180"
+    },
+    {
+        "name":  "синій Yonder",
+        "hex":  "#5072A7"
+    },
+    {
+        "name":  "синій сірий",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "синій зелений",
+        "hex":  "#0D98BA"
+    },
+    {
+        "name":  "синій зелений Color Wheel",
+        "hex":  "#064E40"
+    },
+    {
+        "name":  "синій фіолетовий",
+        "hex":  "#8A2BE2"
+    },
+    {
+        "name":  "синій фіолетовий Color Wheel",
+        "hex":  "#4D1A7F"
+    },
+    {
+        "name":  "синій фіолетовий Crayola",
+        "hex":  "#7366BD"
+    },
+    {
+        "name":  "Bluetiful",
+        "hex":  "#3C69E7"
+    },
+    {
+        "name":  "Blush",
+        "hex":  "#DE5D83"
+    },
+    {
+        "name":  "Bole",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Bondi синій",
+        "hex":  "#0095B6"
+    },
+    {
+        "name":  "Bone",
+        "hex":  "#E3DAC9"
+    },
+    {
+        "name":  "Bottle зелений",
+        "hex":  "#006A4E"
+    },
+    {
+        "name":  "Brandy",
+        "hex":  "#87413F"
+    },
+    {
+        "name":  "Brick червоний",
+        "hex":  "#CB4154"
+    },
+    {
+        "name":  "яскравий зелений",
+        "hex":  "#66FF00"
+    },
+    {
+        "name":  "яскравий Lilac",
+        "hex":  "#D891EF"
+    },
+    {
+        "name":  "яскравий maroon",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "яскравий navy синій",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "яскравий рожевий",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "яскравий жовтий Crayola",
+        "hex":  "#FFAA1D"
+    },
+    {
+        "name":  "Brilliant rose",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "Brink рожевий",
+        "hex":  "#FB607F"
+    },
+    {
+        "name":  "British Racing зелений",
+        "hex":  "#004225"
+    },
+    {
+        "name":  "Bronze",
+        "hex":  "#CD7F32"
+    },
+    {
+        "name":  "коричневий",
+        "hex":  "#88540B"
+    },
+    {
+        "name":  "коричневий Sugar",
+        "hex":  "#AF6E4D"
+    },
+    {
+        "name":  "Brunswick зелений",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "Bubbles",
+        "hex":  "#E7FEFF"
+    },
+    {
+        "name":  "Bud зелений",
+        "hex":  "#7BB661"
+    },
+    {
+        "name":  "Buff",
+        "hex":  "#F0DC82"
+    },
+    {
+        "name":  "Burgundy",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Burlywood",
+        "hex":  "#DEB887"
+    },
+    {
+        "name":  "Burnished коричневий",
+        "hex":  "#A17A74"
+    },
+    {
+        "name":  "Burnt помаранчевий",
+        "hex":  "#CC5500"
+    },
+    {
+        "name":  "Burnt Sienna",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "Burnt Umber",
+        "hex":  "#8A3324"
+    },
+    {
+        "name":  "Byzantine",
+        "hex":  "#BD33A4"
+    },
+    {
+        "name":  "Byzantium",
+        "hex":  "#702963"
+    },
+    {
+        "name":  "Cadet",
+        "hex":  "#536872"
+    },
+    {
+        "name":  "Cadet синій",
+        "hex":  "#5F9EA0"
+    },
+    {
+        "name":  "Cadet синій Crayola",
+        "hex":  "#A9B2C3"
+    },
+    {
+        "name":  "Cadet сірий",
+        "hex":  "#91A3B0"
+    },
+    {
+        "name":  "Cadmium зелений",
+        "hex":  "#006B3C"
+    },
+    {
+        "name":  "Cadmium помаранчевий",
+        "hex":  "#ED872D"
+    },
+    {
+        "name":  "Cadmium червоний",
+        "hex":  "#E30022"
+    },
+    {
+        "name":  "Cadmium жовтий",
+        "hex":  "#FFF600"
+    },
+    {
+        "name":  "Café Au Lait",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Café Noir",
+        "hex":  "#4B3621"
+    },
+    {
+        "name":  "Cal Poly Pomona зелений",
+        "hex":  "#1E4D2B"
+    },
+    {
+        "name":  "Cambridge синій",
+        "hex":  "#A3C1AD"
+    },
+    {
+        "name":  "Camel",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Cameo рожевий",
+        "hex":  "#EFBBCC"
+    },
+    {
+        "name":  "Canary",
+        "hex":  "#FFFF99"
+    },
+    {
+        "name":  "Canary жовтий",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "Candy Apple червоний",
+        "hex":  "#FF0800"
+    },
+    {
+        "name":  "Candy рожевий",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Capri",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "Caput Mortuum",
+        "hex":  "#592720"
+    },
+    {
+        "name":  "Cardinal",
+        "hex":  "#C41E3A"
+    },
+    {
+        "name":  "Caribbean зелений",
+        "hex":  "#00CC99"
+    },
+    {
+        "name":  "Carmine",
+        "hex":  "#960018"
+    },
+    {
+        "name":  "Carmine M Amp P",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Carnation рожевий",
+        "hex":  "#FFA6C9"
+    },
+    {
+        "name":  "Carnelian",
+        "hex":  "#B31B1B"
+    },
+    {
+        "name":  "Carolina синій",
+        "hex":  "#56A0D3"
+    },
+    {
+        "name":  "Carrot помаранчевий",
+        "hex":  "#ED9121"
+    },
+    {
+        "name":  "Castleton зелений",
+        "hex":  "#00563F"
+    },
+    {
+        "name":  "Catawba",
+        "hex":  "#703642"
+    },
+    {
+        "name":  "Cedar Chest",
+        "hex":  "#C95A49"
+    },
+    {
+        "name":  "Celadon",
+        "hex":  "#ACE1AF"
+    },
+    {
+        "name":  "Celadon синій",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Celadon зелений",
+        "hex":  "#2F847C"
+    },
+    {
+        "name":  "Celeste",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Celtic синій",
+        "hex":  "#246BCE"
+    },
+    {
+        "name":  "Cerise",
+        "hex":  "#DE3163"
+    },
+    {
+        "name":  "Cerulean",
+        "hex":  "#007BA7"
+    },
+    {
+        "name":  "Cerulean Crayola",
+        "hex":  "#1DACD6"
+    },
+    {
+        "name":  "Cerulean синій",
+        "hex":  "#2A52BE"
+    },
+    {
+        "name":  "Cerulean Frost",
+        "hex":  "#6D9BC3"
+    },
+    {
+        "name":  "CG синій",
+        "hex":  "#007AA5"
+    },
+    {
+        "name":  "CG червоний",
+        "hex":  "#E03C31"
+    },
+    {
+        "name":  "Champagne",
+        "hex":  "#F7E7CE"
+    },
+    {
+        "name":  "Champagne рожевий",
+        "hex":  "#F1DDCF"
+    },
+    {
+        "name":  "Charcoal",
+        "hex":  "#36454F"
+    },
+    {
+        "name":  "Charleston зелений",
+        "hex":  "#232B2B"
+    },
+    {
+        "name":  "Charm рожевий",
+        "hex":  "#E68FAC"
+    },
+    {
+        "name":  "Chartreuse Traditional",
+        "hex":  "#DFFF00"
+    },
+    {
+        "name":  "Chartreuse Web",
+        "hex":  "#7FFF00"
+    },
+    {
+        "name":  "Cherry Blossom рожевий",
+        "hex":  "#FFB7C5"
+    },
+    {
+        "name":  "Chestnut",
+        "hex":  "#954535"
+    },
+    {
+        "name":  "China рожевий",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "China rose",
+        "hex":  "#A8516E"
+    },
+    {
+        "name":  "Chinese червоний",
+        "hex":  "#AA381E"
+    },
+    {
+        "name":  "Chinese фіолетовий",
+        "hex":  "#856088"
+    },
+    {
+        "name":  "Chinese жовтий",
+        "hex":  "#FFB200"
+    },
+    {
+        "name":  "шоколад Traditional",
+        "hex":  "#7B3F00"
+    },
+    {
+        "name":  "шоколад Web",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "Chrome жовтий",
+        "hex":  "#FFA700"
+    },
+    {
+        "name":  "Cinereous",
+        "hex":  "#98817B"
+    },
+    {
+        "name":  "Cinnabar",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Cinnamon Satin",
+        "hex":  "#CD607E"
+    },
+    {
+        "name":  "Citrine",
+        "hex":  "#E4D00A"
+    },
+    {
+        "name":  "Citron",
+        "hex":  "#9FA91F"
+    },
+    {
+        "name":  "Claret",
+        "hex":  "#7F1734"
+    },
+    {
+        "name":  "Cobalt синій",
+        "hex":  "#0047AB"
+    },
+    {
+        "name":  "Cocoa коричневий",
+        "hex":  "#D2691E"
+    },
+    {
+        "name":  "кава",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Columbia синій",
+        "hex":  "#B9D9EB"
+    },
+    {
+        "name":  "Congo рожевий",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cool сірий",
+        "hex":  "#8C92AC"
+    },
+    {
+        "name":  "Copper",
+        "hex":  "#B87333"
+    },
+    {
+        "name":  "Copper Crayola",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "Copper Penny",
+        "hex":  "#AD6F69"
+    },
+    {
+        "name":  "Copper червоний",
+        "hex":  "#CB6D51"
+    },
+    {
+        "name":  "Copper rose",
+        "hex":  "#996666"
+    },
+    {
+        "name":  "Coquelicot",
+        "hex":  "#FF3800"
+    },
+    {
+        "name":  "Coral",
+        "hex":  "#FF7F50"
+    },
+    {
+        "name":  "Coral рожевий",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Cordovan",
+        "hex":  "#893F45"
+    },
+    {
+        "name":  "Corn",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Cornflower синій",
+        "hex":  "#6495ED"
+    },
+    {
+        "name":  "Cornsilk",
+        "hex":  "#FFF8DC"
+    },
+    {
+        "name":  "Cosmic Cobalt",
+        "hex":  "#2E2D88"
+    },
+    {
+        "name":  "Cosmic Latte",
+        "hex":  "#FFF8E7"
+    },
+    {
+        "name":  "Cosmos рожевий",
+        "hex":  "#FEBCFF"
+    },
+    {
+        "name":  "Cotton Candy",
+        "hex":  "#FFBCD9"
+    },
+    {
+        "name":  "Coyote коричневий",
+        "hex":  "#81613C"
+    },
+    {
+        "name":  "Cream",
+        "hex":  "#FFFDD0"
+    },
+    {
+        "name":  "Crimson",
+        "hex":  "#DC143C"
+    },
+    {
+        "name":  "Cultured",
+        "hex":  "#F5F5F5"
+    },
+    {
+        "name":  "cyan",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "cyan Process",
+        "hex":  "#00B7EB"
+    },
+    {
+        "name":  "Cyber Grape",
+        "hex":  "#58427C"
+    },
+    {
+        "name":  "Cyber жовтий",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "Cyclamen",
+        "hex":  "#F56FA1"
+    },
+    {
+        "name":  "темний синій сірий",
+        "hex":  "#666699"
+    },
+    {
+        "name":  "темний коричневий",
+        "hex":  "#654321"
+    },
+    {
+        "name":  "темний Byzantium",
+        "hex":  "#5D3954"
+    },
+    {
+        "name":  "темний Cornflower синій",
+        "hex":  "#26428B"
+    },
+    {
+        "name":  "темний cyan",
+        "hex":  "#008B8B"
+    },
+    {
+        "name":  "темний electric синій",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "темний Goldenrod",
+        "hex":  "#B8860B"
+    },
+    {
+        "name":  "темний зелений",
+        "hex":  "#013220"
+    },
+    {
+        "name":  "темний зелений X 11",
+        "hex":  "#006400"
+    },
+    {
+        "name":  "темний Jungle зелений",
+        "hex":  "#1A2421"
+    },
+    {
+        "name":  "темний Khaki",
+        "hex":  "#BDB76B"
+    },
+    {
+        "name":  "темний Lava",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "темний Liver",
+        "hex":  "#534B4F"
+    },
+    {
+        "name":  "темний Liver Horses",
+        "hex":  "#543D37"
+    },
+    {
+        "name":  "темний magenta",
+        "hex":  "#8B008B"
+    },
+    {
+        "name":  "темний Medium сірий",
+        "hex":  "#A9A9A9"
+    },
+    {
+        "name":  "темний Moss зелений",
+        "hex":  "#4A5D23"
+    },
+    {
+        "name":  "темний Olive зелений",
+        "hex":  "#556B2F"
+    },
+    {
+        "name":  "темний помаранчевий",
+        "hex":  "#FF8C00"
+    },
+    {
+        "name":  "темний Orchid",
+        "hex":  "#9932CC"
+    },
+    {
+        "name":  "темний Pastel зелений",
+        "hex":  "#03C03C"
+    },
+    {
+        "name":  "темний пурпурний",
+        "hex":  "#301934"
+    },
+    {
+        "name":  "темний червоний",
+        "hex":  "#8B0000"
+    },
+    {
+        "name":  "темний Salmon",
+        "hex":  "#E9967A"
+    },
+    {
+        "name":  "темний морський зелений",
+        "hex":  "#8FBC8F"
+    },
+    {
+        "name":  "темний Sienna",
+        "hex":  "#3C1414"
+    },
+    {
+        "name":  "темний sky синій",
+        "hex":  "#8CBED6"
+    },
+    {
+        "name":  "темний Slate синій",
+        "hex":  "#483D8B"
+    },
+    {
+        "name":  "темний Slate сірий",
+        "hex":  "#2F4F4F"
+    },
+    {
+        "name":  "темний весняний зелений",
+        "hex":  "#177245"
+    },
+    {
+        "name":  "темний Turquoise",
+        "hex":  "#00CED1"
+    },
+    {
+        "name":  "темний фіолетовий",
+        "hex":  "#9400D3"
+    },
+    {
+        "name":  "Dartmouth зелений",
+        "hex":  "#00703C"
+    },
+    {
+        "name":  "Davy S сірий",
+        "hex":  "#555555"
+    },
+    {
+        "name":  "глибокий Cerise",
+        "hex":  "#DA3287"
+    },
+    {
+        "name":  "глибокий Champagne",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "глибокий Chestnut",
+        "hex":  "#B94E48"
+    },
+    {
+        "name":  "глибокий Fuchsia",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "глибокий Jungle зелений",
+        "hex":  "#004B49"
+    },
+    {
+        "name":  "глибокий рожевий",
+        "hex":  "#FF1493"
+    },
+    {
+        "name":  "глибокий Saffron",
+        "hex":  "#FF9933"
+    },
+    {
+        "name":  "глибокий sky синій",
+        "hex":  "#00BFFF"
+    },
+    {
+        "name":  "глибокий Space Sparkle",
+        "hex":  "#4A646C"
+    },
+    {
+        "name":  "глибокий Taupe",
+        "hex":  "#7E5E60"
+    },
+    {
+        "name":  "Denim",
+        "hex":  "#1560BD"
+    },
+    {
+        "name":  "Denim синій",
+        "hex":  "#2243B6"
+    },
+    {
+        "name":  "Desert",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Desert Sand",
+        "hex":  "#EDC9AF"
+    },
+    {
+        "name":  "Dim сірий",
+        "hex":  "#696969"
+    },
+    {
+        "name":  "Dodger синій",
+        "hex":  "#1E90FF"
+    },
+    {
+        "name":  "Dogwood rose",
+        "hex":  "#D71868"
+    },
+    {
+        "name":  "Drab",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Duke синій",
+        "hex":  "#00009C"
+    },
+    {
+        "name":  "Dutch білий",
+        "hex":  "#EFDFBB"
+    },
+    {
+        "name":  "Earth жовтий",
+        "hex":  "#E1A95F"
+    },
+    {
+        "name":  "Ebony",
+        "hex":  "#555D50"
+    },
+    {
+        "name":  "Ecru",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Eerie чорний",
+        "hex":  "#1B1B1B"
+    },
+    {
+        "name":  "Eggplant",
+        "hex":  "#614051"
+    },
+    {
+        "name":  "Eggshell",
+        "hex":  "#F0EAD6"
+    },
+    {
+        "name":  "Egyptian синій",
+        "hex":  "#1034A6"
+    },
+    {
+        "name":  "electric синій",
+        "hex":  "#7DF9FF"
+    },
+    {
+        "name":  "electric зелений",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "electric Indigo",
+        "hex":  "#6F00FF"
+    },
+    {
+        "name":  "electric Lime",
+        "hex":  "#CCFF00"
+    },
+    {
+        "name":  "electric пурпурний",
+        "hex":  "#BF00FF"
+    },
+    {
+        "name":  "electric фіолетовий",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "Emerald",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Eminence",
+        "hex":  "#6C3082"
+    },
+    {
+        "name":  "англійський зелений",
+        "hex":  "#1B4D3E"
+    },
+    {
+        "name":  "англійський Lavender",
+        "hex":  "#B48395"
+    },
+    {
+        "name":  "англійський червоний",
+        "hex":  "#AB4B52"
+    },
+    {
+        "name":  "англійський Vermillion",
+        "hex":  "#CC474B"
+    },
+    {
+        "name":  "англійський фіолетовий",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Erin",
+        "hex":  "#00FF40"
+    },
+    {
+        "name":  "Eton синій",
+        "hex":  "#96C8A2"
+    },
+    {
+        "name":  "Fallow",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Falu червоний",
+        "hex":  "#801818"
+    },
+    {
+        "name":  "Fandango",
+        "hex":  "#B53389"
+    },
+    {
+        "name":  "Fandango рожевий",
+        "hex":  "#DE5285"
+    },
+    {
+        "name":  "Fashion Fuchsia",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Fawn",
+        "hex":  "#E5AA70"
+    },
+    {
+        "name":  "Feldgrau",
+        "hex":  "#4D5D53"
+    },
+    {
+        "name":  "Fern зелений",
+        "hex":  "#4F7942"
+    },
+    {
+        "name":  "Field Drab",
+        "hex":  "#6C541E"
+    },
+    {
+        "name":  "Fiery rose",
+        "hex":  "#FF5470"
+    },
+    {
+        "name":  "Fire Engine червоний",
+        "hex":  "#CE2029"
+    },
+    {
+        "name":  "Fire Opal",
+        "hex":  "#E95C4B"
+    },
+    {
+        "name":  "Firebrick",
+        "hex":  "#B22222"
+    },
+    {
+        "name":  "Flame",
+        "hex":  "#E25822"
+    },
+    {
+        "name":  "Flavescent",
+        "hex":  "#F7E98E"
+    },
+    {
+        "name":  "Flax",
+        "hex":  "#EEDC82"
+    },
+    {
+        "name":  "Flesh",
+        "hex":  "#FFE9D1"
+    },
+    {
+        "name":  "Flirt",
+        "hex":  "#A2006D"
+    },
+    {
+        "name":  "Floral білий",
+        "hex":  "#FFFAF0"
+    },
+    {
+        "name":  "Fluorescent синій",
+        "hex":  "#15F4EE"
+    },
+    {
+        "name":  "лісовий зелений Crayola",
+        "hex":  "#5FA777"
+    },
+    {
+        "name":  "лісовий зелений Traditional",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "лісовий зелений Web",
+        "hex":  "#228B22"
+    },
+    {
+        "name":  "французький Beige",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "французький Bistre",
+        "hex":  "#856D4D"
+    },
+    {
+        "name":  "французький синій",
+        "hex":  "#0072BB"
+    },
+    {
+        "name":  "французький Fuchsia",
+        "hex":  "#FD3F92"
+    },
+    {
+        "name":  "французький Lilac",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "французький Lime",
+        "hex":  "#9EFD38"
+    },
+    {
+        "name":  "французький Mauve",
+        "hex":  "#D473D4"
+    },
+    {
+        "name":  "французький рожевий",
+        "hex":  "#FD6C9E"
+    },
+    {
+        "name":  "французький Raspberry",
+        "hex":  "#C72C48"
+    },
+    {
+        "name":  "французький rose",
+        "hex":  "#F64A8A"
+    },
+    {
+        "name":  "французький sky синій",
+        "hex":  "#77B5FE"
+    },
+    {
+        "name":  "французький фіолетовий",
+        "hex":  "#8806CE"
+    },
+    {
+        "name":  "Frostbite",
+        "hex":  "#E936A7"
+    },
+    {
+        "name":  "Fuchsia",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "Fuchsia Crayola",
+        "hex":  "#C154C1"
+    },
+    {
+        "name":  "Fuchsia пурпурний",
+        "hex":  "#CC397B"
+    },
+    {
+        "name":  "Fuchsia rose",
+        "hex":  "#C74375"
+    },
+    {
+        "name":  "Fulvous",
+        "hex":  "#E48400"
+    },
+    {
+        "name":  "Fuzzy Wuzzy",
+        "hex":  "#CC6666"
+    },
+    {
+        "name":  "Gainsboro",
+        "hex":  "#DCDCDC"
+    },
+    {
+        "name":  "Gamboge",
+        "hex":  "#E49B0F"
+    },
+    {
+        "name":  "Generic Viridian",
+        "hex":  "#007F66"
+    },
+    {
+        "name":  "Ghost білий",
+        "hex":  "#F8F8FF"
+    },
+    {
+        "name":  "Glaucous",
+        "hex":  "#6082B6"
+    },
+    {
+        "name":  "Glossy Grape",
+        "hex":  "#AB92B3"
+    },
+    {
+        "name":  "Go зелений",
+        "hex":  "#00AB66"
+    },
+    {
+        "name":  "золотий",
+        "hex":  "#A57C00"
+    },
+    {
+        "name":  "золотий Crayola",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "золотий metallic",
+        "hex":  "#D4AF37"
+    },
+    {
+        "name":  "золотий Web golden",
+        "hex":  "#FFD700"
+    },
+    {
+        "name":  "золотий Fusion",
+        "hex":  "#85754E"
+    },
+    {
+        "name":  "golden коричневий",
+        "hex":  "#996515"
+    },
+    {
+        "name":  "golden Poppy",
+        "hex":  "#FCC200"
+    },
+    {
+        "name":  "golden жовтий",
+        "hex":  "#FFDF00"
+    },
+    {
+        "name":  "Goldenrod",
+        "hex":  "#DAA520"
+    },
+    {
+        "name":  "Granite сірий",
+        "hex":  "#676767"
+    },
+    {
+        "name":  "Granny Smith Apple",
+        "hex":  "#A8E4A0"
+    },
+    {
+        "name":  "сірий HTML CSS сірий",
+        "hex":  "#808080"
+    },
+    {
+        "name":  "сірий X 11 сірий",
+        "hex":  "#BEBEBE"
+    },
+    {
+        "name":  "зелений",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "зелений Crayola",
+        "hex":  "#1CAC78"
+    },
+    {
+        "name":  "зелений HTML CSS Color",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "зелений Munsell",
+        "hex":  "#00A877"
+    },
+    {
+        "name":  "зелений Ncs",
+        "hex":  "#009F6B"
+    },
+    {
+        "name":  "зелений Pantone",
+        "hex":  "#00AD43"
+    },
+    {
+        "name":  "зелений Pigment",
+        "hex":  "#00A550"
+    },
+    {
+        "name":  "зелений Ryb",
+        "hex":  "#66B032"
+    },
+    {
+        "name":  "зелений X 11 Color Wheel",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "зелений Lizard",
+        "hex":  "#A7F432"
+    },
+    {
+        "name":  "зелений Sheen",
+        "hex":  "#6EAEA1"
+    },
+    {
+        "name":  "зелений синій",
+        "hex":  "#1164B4"
+    },
+    {
+        "name":  "зелений синій Crayola",
+        "hex":  "#2887C8"
+    },
+    {
+        "name":  "зелений cyan",
+        "hex":  "#009966"
+    },
+    {
+        "name":  "зелений жовтий",
+        "hex":  "#ADFF2F"
+    },
+    {
+        "name":  "зелений жовтий Crayola",
+        "hex":  "#F0E891"
+    },
+    {
+        "name":  "Grullo",
+        "hex":  "#A99A86"
+    },
+    {
+        "name":  "Gunmetal",
+        "hex":  "#2A3439"
+    },
+    {
+        "name":  "Han синій",
+        "hex":  "#446CCF"
+    },
+    {
+        "name":  "Han пурпурний",
+        "hex":  "#5218FA"
+    },
+    {
+        "name":  "Hansa жовтий",
+        "hex":  "#E9D66B"
+    },
+    {
+        "name":  "Harlequin",
+        "hex":  "#3FFF00"
+    },
+    {
+        "name":  "Harvest золотий",
+        "hex":  "#DA9100"
+    },
+    {
+        "name":  "Heat Wave",
+        "hex":  "#FF7A00"
+    },
+    {
+        "name":  "Heliotrope",
+        "hex":  "#DF73FF"
+    },
+    {
+        "name":  "Heliotrope сірий",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "Hollywood Cerise",
+        "hex":  "#F400A1"
+    },
+    {
+        "name":  "Honeydew",
+        "hex":  "#F0FFF0"
+    },
+    {
+        "name":  "Honolulu синій",
+        "hex":  "#006DB0"
+    },
+    {
+        "name":  "Hooker S зелений",
+        "hex":  "#49796B"
+    },
+    {
+        "name":  "Hot magenta",
+        "hex":  "#FF1DCE"
+    },
+    {
+        "name":  "Hot рожевий",
+        "hex":  "#FF69B4"
+    },
+    {
+        "name":  "Hunter зелений",
+        "hex":  "#355E3B"
+    },
+    {
+        "name":  "Iceberg",
+        "hex":  "#71A6D2"
+    },
+    {
+        "name":  "Icterine",
+        "hex":  "#FCF75E"
+    },
+    {
+        "name":  "Illuminating Emerald",
+        "hex":  "#319177"
+    },
+    {
+        "name":  "Imperial червоний",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "Inchworm",
+        "hex":  "#B2EC5D"
+    },
+    {
+        "name":  "Independence",
+        "hex":  "#4C516D"
+    },
+    {
+        "name":  "India зелений",
+        "hex":  "#138808"
+    },
+    {
+        "name":  "Indian червоний",
+        "hex":  "#CD5C5C"
+    },
+    {
+        "name":  "Indian жовтий",
+        "hex":  "#E3A857"
+    },
+    {
+        "name":  "Indigo",
+        "hex":  "#4B0082"
+    },
+    {
+        "name":  "Indigo синій",
+        "hex":  "#00416A"
+    },
+    {
+        "name":  "Indigo Dye",
+        "hex":  "#091F92"
+    },
+    {
+        "name":  "International Klein синій",
+        "hex":  "#002FA7"
+    },
+    {
+        "name":  "International помаранчевий Aerospace",
+        "hex":  "#FF4F00"
+    },
+    {
+        "name":  "International помаранчевий Engineering",
+        "hex":  "#BA160C"
+    },
+    {
+        "name":  "International помаранчевий golden Gate Bridge",
+        "hex":  "#C0362C"
+    },
+    {
+        "name":  "Iris",
+        "hex":  "#5A4FCF"
+    },
+    {
+        "name":  "Irresistible",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Isabelline",
+        "hex":  "#F4F0EC"
+    },
+    {
+        "name":  "Islamic зелений",
+        "hex":  "#009000"
+    },
+    {
+        "name":  "Italian sky синій",
+        "hex":  "#B2FFFF"
+    },
+    {
+        "name":  "Ivory",
+        "hex":  "#FFFFF0"
+    },
+    {
+        "name":  "Jade",
+        "hex":  "#00A86B"
+    },
+    {
+        "name":  "Jasmine",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Jazzberry Jam",
+        "hex":  "#A50B5E"
+    },
+    {
+        "name":  "Jet",
+        "hex":  "#343434"
+    },
+    {
+        "name":  "Jonquil",
+        "hex":  "#F4CA16"
+    },
+    {
+        "name":  "June Bud",
+        "hex":  "#BDDA57"
+    },
+    {
+        "name":  "Jungle зелений",
+        "hex":  "#29AB87"
+    },
+    {
+        "name":  "Kelly зелений",
+        "hex":  "#4CBB17"
+    },
+    {
+        "name":  "Keppel",
+        "hex":  "#3AB09E"
+    },
+    {
+        "name":  "Key Lime",
+        "hex":  "#E8F48C"
+    },
+    {
+        "name":  "Khaki HTML CSS Khaki",
+        "hex":  "#C3B091"
+    },
+    {
+        "name":  "Khaki X 11 світлий Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "Kobe",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "Kobi",
+        "hex":  "#E79FC4"
+    },
+    {
+        "name":  "Kobicha",
+        "hex":  "#6B4423"
+    },
+    {
+        "name":  "Kombu зелений",
+        "hex":  "#354230"
+    },
+    {
+        "name":  "Ksu пурпурний",
+        "hex":  "#512888"
+    },
+    {
+        "name":  "Languid Lavender",
+        "hex":  "#D6CADD"
+    },
+    {
+        "name":  "Lapis Lazuli",
+        "hex":  "#26619C"
+    },
+    {
+        "name":  "Laser Lemon",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Laurel зелений",
+        "hex":  "#A9BA9D"
+    },
+    {
+        "name":  "Lava",
+        "hex":  "#CF1020"
+    },
+    {
+        "name":  "Lavender Floral",
+        "hex":  "#B57EDC"
+    },
+    {
+        "name":  "Lavender Web",
+        "hex":  "#E6E6FA"
+    },
+    {
+        "name":  "Lavender синій",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Lavender Blush",
+        "hex":  "#FFF0F5"
+    },
+    {
+        "name":  "Lavender сірий",
+        "hex":  "#C4C3D0"
+    },
+    {
+        "name":  "Lavender magenta",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "Lawn зелений",
+        "hex":  "#7CFC00"
+    },
+    {
+        "name":  "Lemon",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "Lemon Chiffon",
+        "hex":  "#FFFACD"
+    },
+    {
+        "name":  "Lemon Curry",
+        "hex":  "#CCA01D"
+    },
+    {
+        "name":  "Lemon Glacier",
+        "hex":  "#FDFF00"
+    },
+    {
+        "name":  "Lemon Meringue",
+        "hex":  "#F6EABE"
+    },
+    {
+        "name":  "Lemon жовтий",
+        "hex":  "#FFF44F"
+    },
+    {
+        "name":  "Lemon жовтий Crayola",
+        "hex":  "#FFFF9F"
+    },
+    {
+        "name":  "Liberty",
+        "hex":  "#545AA7"
+    },
+    {
+        "name":  "світлий Apricot",
+        "hex":  "#FDD5B1"
+    },
+    {
+        "name":  "світлий синій",
+        "hex":  "#ADD8E6"
+    },
+    {
+        "name":  "світлий коричневий",
+        "hex":  "#B5651D"
+    },
+    {
+        "name":  "світлий шоколад Cosmos",
+        "hex":  "#551F2F"
+    },
+    {
+        "name":  "світлий Cobalt синій",
+        "hex":  "#88ACE0"
+    },
+    {
+        "name":  "світлий Coral",
+        "hex":  "#F08080"
+    },
+    {
+        "name":  "світлий Cornflower синій",
+        "hex":  "#93CCEA"
+    },
+    {
+        "name":  "світлий Crimson",
+        "hex":  "#F56991"
+    },
+    {
+        "name":  "світлий cyan",
+        "hex":  "#E0FFFF"
+    },
+    {
+        "name":  "світлий глибокий рожевий",
+        "hex":  "#FF5CCD"
+    },
+    {
+        "name":  "світлий французький Beige",
+        "hex":  "#C8AD7F"
+    },
+    {
+        "name":  "світлий Fuchsia рожевий",
+        "hex":  "#F984EF"
+    },
+    {
+        "name":  "світлий золотий",
+        "hex":  "#B29700"
+    },
+    {
+        "name":  "світлий Goldenrod жовтий",
+        "hex":  "#FAFAD2"
+    },
+    {
+        "name":  "світлий сірий",
+        "hex":  "#D3D3D3"
+    },
+    {
+        "name":  "світлий Grayish magenta",
+        "hex":  "#CC99CC"
+    },
+    {
+        "name":  "світлий зелений",
+        "hex":  "#90EE90"
+    },
+    {
+        "name":  "світлий Hot рожевий",
+        "hex":  "#FFB3DE"
+    },
+    {
+        "name":  "світлий Khaki",
+        "hex":  "#F0E68C"
+    },
+    {
+        "name":  "світлий magenta",
+        "hex":  "#FF80FF"
+    },
+    {
+        "name":  "світлий Medium Orchid",
+        "hex":  "#D39BCB"
+    },
+    {
+        "name":  "світлий Moss зелений",
+        "hex":  "#ADDFAD"
+    },
+    {
+        "name":  "світлий помаранчевий",
+        "hex":  "#FED8B1"
+    },
+    {
+        "name":  "світлий Orchid",
+        "hex":  "#E6A8D7"
+    },
+    {
+        "name":  "світлий Pastel пурпурний",
+        "hex":  "#B19CD9"
+    },
+    {
+        "name":  "світлий Periwinkle",
+        "hex":  "#C5CBE1"
+    },
+    {
+        "name":  "світлий рожевий",
+        "hex":  "#FFB6C1"
+    },
+    {
+        "name":  "світлий червоний",
+        "hex":  "#FFCCCB"
+    },
+    {
+        "name":  "світлий червоний Ochre",
+        "hex":  "#E97451"
+    },
+    {
+        "name":  "світлий Salmon",
+        "hex":  "#FFA07A"
+    },
+    {
+        "name":  "світлий Salmon рожевий",
+        "hex":  "#FF9999"
+    },
+    {
+        "name":  "світлий морський зелений",
+        "hex":  "#20B2AA"
+    },
+    {
+        "name":  "світлий срібний",
+        "hex":  "#D8D8D8"
+    },
+    {
+        "name":  "світлий sky синій",
+        "hex":  "#87CEFA"
+    },
+    {
+        "name":  "світлий Slate сірий",
+        "hex":  "#778899"
+    },
+    {
+        "name":  "світлий Steel синій",
+        "hex":  "#B0C4DE"
+    },
+    {
+        "name":  "світлий Taupe",
+        "hex":  "#B38B6D"
+    },
+    {
+        "name":  "світлий жовтий",
+        "hex":  "#FFFFE0"
+    },
+    {
+        "name":  "Lilac",
+        "hex":  "#C8A2C8"
+    },
+    {
+        "name":  "Lilac Luster",
+        "hex":  "#AE98AA"
+    },
+    {
+        "name":  "Lime Color Wheel",
+        "hex":  "#BFFF00"
+    },
+    {
+        "name":  "Lime Web X 11 зелений",
+        "hex":  "#00FF00"
+    },
+    {
+        "name":  "Lime зелений",
+        "hex":  "#32CD32"
+    },
+    {
+        "name":  "Lincoln зелений",
+        "hex":  "#195905"
+    },
+    {
+        "name":  "Linen",
+        "hex":  "#FAF0E6"
+    },
+    {
+        "name":  "Lion",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Liseran пурпурний",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Little Boy синій",
+        "hex":  "#6CA0DC"
+    },
+    {
+        "name":  "Little Girl рожевий",
+        "hex":  "#F8B9D4"
+    },
+    {
+        "name":  "Liver",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Liver Dogs",
+        "hex":  "#B86D29"
+    },
+    {
+        "name":  "Liver Organ",
+        "hex":  "#6C2E1F"
+    },
+    {
+        "name":  "Liver Chestnut",
+        "hex":  "#987456"
+    },
+    {
+        "name":  "Livid",
+        "hex":  "#6699CC"
+    },
+    {
+        "name":  "Lotion",
+        "hex":  "#FEFDFA"
+    },
+    {
+        "name":  "Macaroni And Cheese",
+        "hex":  "#FFBD88"
+    },
+    {
+        "name":  "Madder Lake",
+        "hex":  "#CC3336"
+    },
+    {
+        "name":  "magenta",
+        "hex":  "#FF00FF"
+    },
+    {
+        "name":  "magenta Crayola",
+        "hex":  "#FF55A3"
+    },
+    {
+        "name":  "magenta Dye",
+        "hex":  "#CA1F7B"
+    },
+    {
+        "name":  "magenta Pantone",
+        "hex":  "#D0417E"
+    },
+    {
+        "name":  "magenta Process",
+        "hex":  "#FF0090"
+    },
+    {
+        "name":  "magenta Haze",
+        "hex":  "#9F4576"
+    },
+    {
+        "name":  "Magic Mint",
+        "hex":  "#AAF0D1"
+    },
+    {
+        "name":  "Magic Potion",
+        "hex":  "#FF4466"
+    },
+    {
+        "name":  "Magnolia",
+        "hex":  "#F8F4FF"
+    },
+    {
+        "name":  "Mahogany",
+        "hex":  "#C04000"
+    },
+    {
+        "name":  "Maize",
+        "hex":  "#FBEC5D"
+    },
+    {
+        "name":  "Maize Crayola",
+        "hex":  "#F2C649"
+    },
+    {
+        "name":  "Majorelle синій",
+        "hex":  "#6050DC"
+    },
+    {
+        "name":  "Malachite",
+        "hex":  "#0BDA51"
+    },
+    {
+        "name":  "Manatee",
+        "hex":  "#979AAA"
+    },
+    {
+        "name":  "Mandarin",
+        "hex":  "#F37A48"
+    },
+    {
+        "name":  "Mango",
+        "hex":  "#FDBE02"
+    },
+    {
+        "name":  "Mango зелений",
+        "hex":  "#96FF00"
+    },
+    {
+        "name":  "Mango Tango",
+        "hex":  "#FF8243"
+    },
+    {
+        "name":  "Manila",
+        "hex":  "#E7C9A9"
+    },
+    {
+        "name":  "Mantis",
+        "hex":  "#74C365"
+    },
+    {
+        "name":  "Maple Syrup",
+        "hex":  "#BB9351"
+    },
+    {
+        "name":  "Mardi Gras",
+        "hex":  "#880085"
+    },
+    {
+        "name":  "Margarine",
+        "hex":  "#F2D930"
+    },
+    {
+        "name":  "Marigold",
+        "hex":  "#EAA221"
+    },
+    {
+        "name":  "maroon Crayola",
+        "hex":  "#C32148"
+    },
+    {
+        "name":  "maroon HTML CSS",
+        "hex":  "#800000"
+    },
+    {
+        "name":  "maroon X 11",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Mauve",
+        "hex":  "#E0B0FF"
+    },
+    {
+        "name":  "Mauve Taupe",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Mauvelous",
+        "hex":  "#EF98AA"
+    },
+    {
+        "name":  "Maximum синій",
+        "hex":  "#47ABCC"
+    },
+    {
+        "name":  "Maximum синій зелений",
+        "hex":  "#30BFBF"
+    },
+    {
+        "name":  "Maximum синій пурпурний",
+        "hex":  "#ACACE6"
+    },
+    {
+        "name":  "Maximum зелений",
+        "hex":  "#5E8C31"
+    },
+    {
+        "name":  "Maximum зелений жовтий",
+        "hex":  "#D9E650"
+    },
+    {
+        "name":  "Maximum помаранчевий",
+        "hex":  "#FF5B00"
+    },
+    {
+        "name":  "Maximum пурпурний",
+        "hex":  "#733380"
+    },
+    {
+        "name":  "Maximum червоний",
+        "hex":  "#D92121"
+    },
+    {
+        "name":  "Maximum червоний пурпурний",
+        "hex":  "#A63A79"
+    },
+    {
+        "name":  "Maximum жовтий",
+        "hex":  "#FAFA37"
+    },
+    {
+        "name":  "Maximum жовтий червоний",
+        "hex":  "#F2BA49"
+    },
+    {
+        "name":  "May зелений",
+        "hex":  "#4C9141"
+    },
+    {
+        "name":  "Maya синій",
+        "hex":  "#73C2FB"
+    },
+    {
+        "name":  "Medium Aquamarine",
+        "hex":  "#66DDAA"
+    },
+    {
+        "name":  "Medium синій",
+        "hex":  "#0000CD"
+    },
+    {
+        "name":  "Medium Candy Apple червоний",
+        "hex":  "#E2062C"
+    },
+    {
+        "name":  "Medium Carmine",
+        "hex":  "#AF4035"
+    },
+    {
+        "name":  "Medium Champagne",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Medium electric синій",
+        "hex":  "#035096"
+    },
+    {
+        "name":  "Medium Jungle зелений",
+        "hex":  "#1C352D"
+    },
+    {
+        "name":  "Medium Lavender magenta",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Medium Orchid",
+        "hex":  "#BA55D3"
+    },
+    {
+        "name":  "Medium Persian синій",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Medium пурпурний",
+        "hex":  "#9370DB"
+    },
+    {
+        "name":  "Medium червоний фіолетовий",
+        "hex":  "#BB3385"
+    },
+    {
+        "name":  "Medium Ruby",
+        "hex":  "#AA4069"
+    },
+    {
+        "name":  "Medium морський зелений",
+        "hex":  "#3CB371"
+    },
+    {
+        "name":  "Medium sky синій",
+        "hex":  "#80DAEB"
+    },
+    {
+        "name":  "Medium Slate синій",
+        "hex":  "#7B68EE"
+    },
+    {
+        "name":  "Medium весняний Bud",
+        "hex":  "#C9DC87"
+    },
+    {
+        "name":  "Medium весняний зелений",
+        "hex":  "#00FA9A"
+    },
+    {
+        "name":  "Medium Taupe",
+        "hex":  "#674C47"
+    },
+    {
+        "name":  "Medium Turquoise",
+        "hex":  "#48D1CC"
+    },
+    {
+        "name":  "Medium Tuscan червоний",
+        "hex":  "#79443B"
+    },
+    {
+        "name":  "Medium Vermilion",
+        "hex":  "#D9603B"
+    },
+    {
+        "name":  "Medium фіолетовий червоний",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "Melancholy",
+        "hex":  "#FDBCB4"
+    },
+    {
+        "name":  "Mellow Apricot",
+        "hex":  "#F8B878"
+    },
+    {
+        "name":  "Mellow жовтий",
+        "hex":  "#F8DE7E"
+    },
+    {
+        "name":  "Melon",
+        "hex":  "#FEBAAD"
+    },
+    {
+        "name":  "metallic золотий",
+        "hex":  "#D3AF37"
+    },
+    {
+        "name":  "metallic Seaweed",
+        "hex":  "#0A7E8C"
+    },
+    {
+        "name":  "metallic Sunburst",
+        "hex":  "#9C7C38"
+    },
+    {
+        "name":  "Mexican рожевий",
+        "hex":  "#E4007C"
+    },
+    {
+        "name":  "Middle синій",
+        "hex":  "#7ED4E6"
+    },
+    {
+        "name":  "Middle синій зелений",
+        "hex":  "#8DD9CC"
+    },
+    {
+        "name":  "Middle синій пурпурний",
+        "hex":  "#8B72BE"
+    },
+    {
+        "name":  "Middle зелений",
+        "hex":  "#4D8C57"
+    },
+    {
+        "name":  "Middle зелений жовтий",
+        "hex":  "#ACBF60"
+    },
+    {
+        "name":  "Middle сірий",
+        "hex":  "#8B8680"
+    },
+    {
+        "name":  "Middle пурпурний",
+        "hex":  "#D982B5"
+    },
+    {
+        "name":  "Middle червоний",
+        "hex":  "#E58E73"
+    },
+    {
+        "name":  "Middle червоний пурпурний",
+        "hex":  "#A55353"
+    },
+    {
+        "name":  "Middle жовтий",
+        "hex":  "#FFEB00"
+    },
+    {
+        "name":  "Middle жовтий червоний",
+        "hex":  "#ECB176"
+    },
+    {
+        "name":  "північний",
+        "hex":  "#702670"
+    },
+    {
+        "name":  "північний синій",
+        "hex":  "#191970"
+    },
+    {
+        "name":  "північний зелений Eagle зелений",
+        "hex":  "#004953"
+    },
+    {
+        "name":  "Mikado жовтий",
+        "hex":  "#FFC40C"
+    },
+    {
+        "name":  "Mimi рожевий",
+        "hex":  "#FFDAE9"
+    },
+    {
+        "name":  "Mindaro",
+        "hex":  "#E3F988"
+    },
+    {
+        "name":  "Ming",
+        "hex":  "#36747D"
+    },
+    {
+        "name":  "Minion жовтий",
+        "hex":  "#F5E050"
+    },
+    {
+        "name":  "Mint",
+        "hex":  "#3EB489"
+    },
+    {
+        "name":  "Mint Cream",
+        "hex":  "#F5FFFA"
+    },
+    {
+        "name":  "Mint зелений",
+        "hex":  "#98FF98"
+    },
+    {
+        "name":  "Misty Moss",
+        "hex":  "#BBB477"
+    },
+    {
+        "name":  "Misty rose",
+        "hex":  "#FFE4E1"
+    },
+    {
+        "name":  "Mode Beige",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Morning синій",
+        "hex":  "#8DA399"
+    },
+    {
+        "name":  "Moss зелений",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Mountain Meadow",
+        "hex":  "#30BA8F"
+    },
+    {
+        "name":  "Mountbatten рожевий",
+        "hex":  "#997A8D"
+    },
+    {
+        "name":  "Msu зелений",
+        "hex":  "#18453B"
+    },
+    {
+        "name":  "Mulberry",
+        "hex":  "#C54B8C"
+    },
+    {
+        "name":  "Mulberry Crayola",
+        "hex":  "#C8509B"
+    },
+    {
+        "name":  "Mustard",
+        "hex":  "#FFDB58"
+    },
+    {
+        "name":  "Myrtle зелений",
+        "hex":  "#317873"
+    },
+    {
+        "name":  "Mystic",
+        "hex":  "#D65282"
+    },
+    {
+        "name":  "Mystic maroon",
+        "hex":  "#AD4379"
+    },
+    {
+        "name":  "Naples жовтий",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Navajo білий",
+        "hex":  "#FFDEAD"
+    },
+    {
+        "name":  "navy синій",
+        "hex":  "#000080"
+    },
+    {
+        "name":  "navy синій Crayola",
+        "hex":  "#1974D2"
+    },
+    {
+        "name":  "neon синій",
+        "hex":  "#4666FF"
+    },
+    {
+        "name":  "neon зелений",
+        "hex":  "#39FF14"
+    },
+    {
+        "name":  "New York рожевий",
+        "hex":  "#D7837F"
+    },
+    {
+        "name":  "Nickel",
+        "hex":  "#727472"
+    },
+    {
+        "name":  "Nintendo червоний",
+        "hex":  "#E4000F"
+    },
+    {
+        "name":  "Non Photo синій",
+        "hex":  "#A4DDED"
+    },
+    {
+        "name":  "Nyanza",
+        "hex":  "#E9FFDB"
+    },
+    {
+        "name":  "океанічний синій",
+        "hex":  "#4F42B5"
+    },
+    {
+        "name":  "океанічний зелений",
+        "hex":  "#48BF91"
+    },
+    {
+        "name":  "Ochre",
+        "hex":  "#CC7722"
+    },
+    {
+        "name":  "Office зелений",
+        "hex":  "#008000"
+    },
+    {
+        "name":  "Old Burgundy",
+        "hex":  "#43302E"
+    },
+    {
+        "name":  "Old золотий",
+        "hex":  "#CFB53B"
+    },
+    {
+        "name":  "Old Heliotrope",
+        "hex":  "#563C5C"
+    },
+    {
+        "name":  "Old Lace",
+        "hex":  "#FDF5E6"
+    },
+    {
+        "name":  "Old Lavender",
+        "hex":  "#796878"
+    },
+    {
+        "name":  "Old Mauve",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "Old rose",
+        "hex":  "#C08081"
+    },
+    {
+        "name":  "Old срібний",
+        "hex":  "#848482"
+    },
+    {
+        "name":  "Olive",
+        "hex":  "#808000"
+    },
+    {
+        "name":  "Olive Drab 7",
+        "hex":  "#3C341F"
+    },
+    {
+        "name":  "Olive Drab 3",
+        "hex":  "#6B8E23"
+    },
+    {
+        "name":  "Olive зелений",
+        "hex":  "#B5B35C"
+    },
+    {
+        "name":  "Olivine",
+        "hex":  "#9AB973"
+    },
+    {
+        "name":  "Onyx",
+        "hex":  "#353839"
+    },
+    {
+        "name":  "Opal",
+        "hex":  "#A8C3BC"
+    },
+    {
+        "name":  "Opera Mauve",
+        "hex":  "#B784A7"
+    },
+    {
+        "name":  "помаранчевий",
+        "hex":  "#FF6600"
+    },
+    {
+        "name":  "помаранчевий Color Wheel",
+        "hex":  "#FF7F00"
+    },
+    {
+        "name":  "помаранчевий Crayola",
+        "hex":  "#FF7538"
+    },
+    {
+        "name":  "помаранчевий Pantone",
+        "hex":  "#FF5800"
+    },
+    {
+        "name":  "помаранчевий Ryb",
+        "hex":  "#FB9902"
+    },
+    {
+        "name":  "помаранчевий Web",
+        "hex":  "#FFA500"
+    },
+    {
+        "name":  "помаранчевий Peel",
+        "hex":  "#FF9F00"
+    },
+    {
+        "name":  "помаранчевий Soda",
+        "hex":  "#FA5B3D"
+    },
+    {
+        "name":  "помаранчевий червоний",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "помаранчевий червоний Crayola",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "помаранчевий жовтий",
+        "hex":  "#F5BD1F"
+    },
+    {
+        "name":  "помаранчевий жовтий Crayola",
+        "hex":  "#F8D568"
+    },
+    {
+        "name":  "Orchid",
+        "hex":  "#DA70D6"
+    },
+    {
+        "name":  "Orchid Crayola",
+        "hex":  "#E29CD2"
+    },
+    {
+        "name":  "Orchid рожевий",
+        "hex":  "#F2BDCD"
+    },
+    {
+        "name":  "Ou Crimson червоний",
+        "hex":  "#841617"
+    },
+    {
+        "name":  "Outer Space",
+        "hex":  "#414A4C"
+    },
+    {
+        "name":  "Outer Space Crayola",
+        "hex":  "#2D383A"
+    },
+    {
+        "name":  "Outrageous помаранчевий",
+        "hex":  "#FF6E4A"
+    },
+    {
+        "name":  "Oxblood",
+        "hex":  "#800020"
+    },
+    {
+        "name":  "Oxford синій",
+        "hex":  "#002147"
+    },
+    {
+        "name":  "Pacific синій",
+        "hex":  "#1CA9C9"
+    },
+    {
+        "name":  "Pakistan зелений",
+        "hex":  "#006600"
+    },
+    {
+        "name":  "Palatinate синій",
+        "hex":  "#273BE2"
+    },
+    {
+        "name":  "Palatinate пурпурний",
+        "hex":  "#682860"
+    },
+    {
+        "name":  "блідий Aqua",
+        "hex":  "#BCD4E6"
+    },
+    {
+        "name":  "блідий Cerulean",
+        "hex":  "#9BC4E2"
+    },
+    {
+        "name":  "блідий Copper",
+        "hex":  "#DA8A67"
+    },
+    {
+        "name":  "блідий золотий",
+        "hex":  "#E6BE8A"
+    },
+    {
+        "name":  "блідий Goldenrod",
+        "hex":  "#EEE8AA"
+    },
+    {
+        "name":  "блідий Lavender",
+        "hex":  "#DCD0FF"
+    },
+    {
+        "name":  "блідий рожевий",
+        "hex":  "#FADADD"
+    },
+    {
+        "name":  "блідий Plum",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "блідий пурпурний Pantone",
+        "hex":  "#FAE6FA"
+    },
+    {
+        "name":  "блідий червоний фіолетовий",
+        "hex":  "#DB7093"
+    },
+    {
+        "name":  "блідий Robin Egg синій",
+        "hex":  "#96DED1"
+    },
+    {
+        "name":  "блідий срібний",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "блідий весняний Bud",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "блідий Taupe",
+        "hex":  "#BC987E"
+    },
+    {
+        "name":  "Pansy пурпурний",
+        "hex":  "#78184A"
+    },
+    {
+        "name":  "Paolo Veronese зелений",
+        "hex":  "#009B7D"
+    },
+    {
+        "name":  "Papaya Whip",
+        "hex":  "#FFEFD5"
+    },
+    {
+        "name":  "Paradise рожевий",
+        "hex":  "#E63E62"
+    },
+    {
+        "name":  "Paris зелений",
+        "hex":  "#50C878"
+    },
+    {
+        "name":  "Pastel рожевий",
+        "hex":  "#DEA5A4"
+    },
+    {
+        "name":  "Patriarch",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "Payne S сірий",
+        "hex":  "#536878"
+    },
+    {
+        "name":  "Peach",
+        "hex":  "#FFE5B4"
+    },
+    {
+        "name":  "Peach Puff",
+        "hex":  "#FFDAB9"
+    },
+    {
+        "name":  "Pear",
+        "hex":  "#D1E231"
+    },
+    {
+        "name":  "Pearl золотий",
+        "hex":  "#EAE0C8"
+    },
+    {
+        "name":  "Pearly пурпурний",
+        "hex":  "#B768A2"
+    },
+    {
+        "name":  "Periwinkle",
+        "hex":  "#CCCCFF"
+    },
+    {
+        "name":  "Periwinkle Crayola",
+        "hex":  "#C3CDE6"
+    },
+    {
+        "name":  "Permanent Geranium Lake",
+        "hex":  "#E12C2C"
+    },
+    {
+        "name":  "Persian синій",
+        "hex":  "#1C39BB"
+    },
+    {
+        "name":  "Persian зелений",
+        "hex":  "#00A693"
+    },
+    {
+        "name":  "Persian Indigo",
+        "hex":  "#32127A"
+    },
+    {
+        "name":  "Persian помаранчевий",
+        "hex":  "#D99058"
+    },
+    {
+        "name":  "Persian рожевий",
+        "hex":  "#F77FBE"
+    },
+    {
+        "name":  "Persian Plum",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Persian червоний",
+        "hex":  "#CC3333"
+    },
+    {
+        "name":  "Persian rose",
+        "hex":  "#FE28A2"
+    },
+    {
+        "name":  "Persimmon",
+        "hex":  "#EC5800"
+    },
+    {
+        "name":  "Pewter синій",
+        "hex":  "#8BA8B7"
+    },
+    {
+        "name":  "Phlox",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Phthalo синій",
+        "hex":  "#000F89"
+    },
+    {
+        "name":  "Phthalo зелений",
+        "hex":  "#123524"
+    },
+    {
+        "name":  "Picotee синій",
+        "hex":  "#2E2787"
+    },
+    {
+        "name":  "Pictorial Carmine",
+        "hex":  "#C30B4E"
+    },
+    {
+        "name":  "Piggy рожевий",
+        "hex":  "#FDDDE6"
+    },
+    {
+        "name":  "Pine зелений",
+        "hex":  "#01796F"
+    },
+    {
+        "name":  "Pine Tree",
+        "hex":  "#2A2F23"
+    },
+    {
+        "name":  "рожевий",
+        "hex":  "#FFC0CB"
+    },
+    {
+        "name":  "рожевий Pantone",
+        "hex":  "#D74894"
+    },
+    {
+        "name":  "рожевий Flamingo",
+        "hex":  "#FC74FD"
+    },
+    {
+        "name":  "рожевий Lace",
+        "hex":  "#FFDDF4"
+    },
+    {
+        "name":  "рожевий Lavender",
+        "hex":  "#D8B2D1"
+    },
+    {
+        "name":  "рожевий Sherbet",
+        "hex":  "#F78FA7"
+    },
+    {
+        "name":  "Pistachio",
+        "hex":  "#93C572"
+    },
+    {
+        "name":  "Platinum",
+        "hex":  "#E5E4E2"
+    },
+    {
+        "name":  "Plum",
+        "hex":  "#8E4585"
+    },
+    {
+        "name":  "Plum Web",
+        "hex":  "#DDA0DD"
+    },
+    {
+        "name":  "Plump пурпурний",
+        "hex":  "#5946B2"
+    },
+    {
+        "name":  "Polished Pine",
+        "hex":  "#5DA493"
+    },
+    {
+        "name":  "Pomp And Power",
+        "hex":  "#86608E"
+    },
+    {
+        "name":  "Popstar",
+        "hex":  "#BE4F62"
+    },
+    {
+        "name":  "Portland помаранчевий",
+        "hex":  "#FF5A36"
+    },
+    {
+        "name":  "Powder синій",
+        "hex":  "#B0E0E6"
+    },
+    {
+        "name":  "Princeton помаранчевий",
+        "hex":  "#F58025"
+    },
+    {
+        "name":  "Prune",
+        "hex":  "#701C1C"
+    },
+    {
+        "name":  "Prussian синій",
+        "hex":  "#003153"
+    },
+    {
+        "name":  "Psychedelic пурпурний",
+        "hex":  "#DF00FF"
+    },
+    {
+        "name":  "Puce",
+        "hex":  "#CC8899"
+    },
+    {
+        "name":  "Pullman коричневий Ups коричневий",
+        "hex":  "#644117"
+    },
+    {
+        "name":  "Pumpkin",
+        "hex":  "#FF7518"
+    },
+    {
+        "name":  "пурпурний",
+        "hex":  "#6A0DAD"
+    },
+    {
+        "name":  "пурпурний HTML",
+        "hex":  "#800080"
+    },
+    {
+        "name":  "пурпурний Munsell",
+        "hex":  "#9F00C5"
+    },
+    {
+        "name":  "пурпурний X 11",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "пурпурний Mountain Majesty",
+        "hex":  "#9678B6"
+    },
+    {
+        "name":  "пурпурний navy",
+        "hex":  "#4E5180"
+    },
+    {
+        "name":  "пурпурний Pizzazz",
+        "hex":  "#FE4EDA"
+    },
+    {
+        "name":  "пурпурний Plum",
+        "hex":  "#9C51B6"
+    },
+    {
+        "name":  "Purpureus",
+        "hex":  "#9A4EAE"
+    },
+    {
+        "name":  "Queen синій",
+        "hex":  "#436B95"
+    },
+    {
+        "name":  "Queen рожевий",
+        "hex":  "#E8CCD7"
+    },
+    {
+        "name":  "Quick срібний",
+        "hex":  "#A6A6A6"
+    },
+    {
+        "name":  "Quinacridone magenta",
+        "hex":  "#8E3A59"
+    },
+    {
+        "name":  "Radical червоний",
+        "hex":  "#FF355E"
+    },
+    {
+        "name":  "Raisin чорний",
+        "hex":  "#242124"
+    },
+    {
+        "name":  "Rajah",
+        "hex":  "#FBAB60"
+    },
+    {
+        "name":  "Raspberry",
+        "hex":  "#E30B5D"
+    },
+    {
+        "name":  "Raspberry Glace",
+        "hex":  "#915F6D"
+    },
+    {
+        "name":  "Raspberry rose",
+        "hex":  "#B3446C"
+    },
+    {
+        "name":  "Raw Sienna",
+        "hex":  "#D68A59"
+    },
+    {
+        "name":  "Raw Umber",
+        "hex":  "#826644"
+    },
+    {
+        "name":  "Razzle Dazzle rose",
+        "hex":  "#FF33CC"
+    },
+    {
+        "name":  "Razzmatazz",
+        "hex":  "#E3256B"
+    },
+    {
+        "name":  "Razzmic Berry",
+        "hex":  "#8D4E85"
+    },
+    {
+        "name":  "Rebecca пурпурний",
+        "hex":  "#663399"
+    },
+    {
+        "name":  "червоний",
+        "hex":  "#FF0000"
+    },
+    {
+        "name":  "червоний Crayola",
+        "hex":  "#EE204D"
+    },
+    {
+        "name":  "червоний Munsell",
+        "hex":  "#F2003C"
+    },
+    {
+        "name":  "червоний Ncs",
+        "hex":  "#C40233"
+    },
+    {
+        "name":  "червоний Pantone",
+        "hex":  "#ED2939"
+    },
+    {
+        "name":  "червоний Pigment",
+        "hex":  "#ED1C24"
+    },
+    {
+        "name":  "червоний Ryb",
+        "hex":  "#FE2712"
+    },
+    {
+        "name":  "червоний Salsa",
+        "hex":  "#FD3A4A"
+    },
+    {
+        "name":  "червоний помаранчевий",
+        "hex":  "#FF5349"
+    },
+    {
+        "name":  "червоний помаранчевий Color Wheel",
+        "hex":  "#FF4500"
+    },
+    {
+        "name":  "червоний помаранчевий Crayola",
+        "hex":  "#FF681F"
+    },
+    {
+        "name":  "червоний пурпурний",
+        "hex":  "#E40078"
+    },
+    {
+        "name":  "червоний фіолетовий",
+        "hex":  "#C71585"
+    },
+    {
+        "name":  "червоний фіолетовий Color Wheel",
+        "hex":  "#922B3E"
+    },
+    {
+        "name":  "червоний фіолетовий Crayola",
+        "hex":  "#C0448F"
+    },
+    {
+        "name":  "Redwood",
+        "hex":  "#A45A52"
+    },
+    {
+        "name":  "Registration чорний",
+        "hex":  "#000000"
+    },
+    {
+        "name":  "Resolution синій",
+        "hex":  "#002387"
+    },
+    {
+        "name":  "Rhythm",
+        "hex":  "#777696"
+    },
+    {
+        "name":  "Rich чорний",
+        "hex":  "#004040"
+    },
+    {
+        "name":  "Rich чорний Fogra 29",
+        "hex":  "#010B13"
+    },
+    {
+        "name":  "Rich чорний Fogra 39",
+        "hex":  "#010203"
+    },
+    {
+        "name":  "Rich Carmine",
+        "hex":  "#D70040"
+    },
+    {
+        "name":  "Rich Lilac",
+        "hex":  "#B666D2"
+    },
+    {
+        "name":  "Rich maroon",
+        "hex":  "#B03060"
+    },
+    {
+        "name":  "Rifle зелений",
+        "hex":  "#444C38"
+    },
+    {
+        "name":  "Robin Egg синій",
+        "hex":  "#00CCCC"
+    },
+    {
+        "name":  "Rocket metallic",
+        "hex":  "#8A7F80"
+    },
+    {
+        "name":  "Roman срібний",
+        "hex":  "#838996"
+    },
+    {
+        "name":  "rose",
+        "hex":  "#FF007F"
+    },
+    {
+        "name":  "rose Bonbon",
+        "hex":  "#F9429E"
+    },
+    {
+        "name":  "rose Dust",
+        "hex":  "#9E5E6F"
+    },
+    {
+        "name":  "rose Ebony",
+        "hex":  "#674846"
+    },
+    {
+        "name":  "rose Madder",
+        "hex":  "#E32636"
+    },
+    {
+        "name":  "rose рожевий",
+        "hex":  "#FF66CC"
+    },
+    {
+        "name":  "rose Quartz",
+        "hex":  "#AA98A9"
+    },
+    {
+        "name":  "rose червоний",
+        "hex":  "#C21E56"
+    },
+    {
+        "name":  "rose Taupe",
+        "hex":  "#905D5D"
+    },
+    {
+        "name":  "rose Vale",
+        "hex":  "#AB4E52"
+    },
+    {
+        "name":  "Rosewood",
+        "hex":  "#65000B"
+    },
+    {
+        "name":  "Rosso Corsa",
+        "hex":  "#D40000"
+    },
+    {
+        "name":  "Rosy коричневий",
+        "hex":  "#BC8F8F"
+    },
+    {
+        "name":  "Royal синій темний",
+        "hex":  "#002366"
+    },
+    {
+        "name":  "Royal синій світлий",
+        "hex":  "#4169E1"
+    },
+    {
+        "name":  "Royal пурпурний",
+        "hex":  "#7851A9"
+    },
+    {
+        "name":  "Royal жовтий",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Ruber",
+        "hex":  "#CE4676"
+    },
+    {
+        "name":  "Rubine червоний",
+        "hex":  "#D10056"
+    },
+    {
+        "name":  "Ruby",
+        "hex":  "#E0115F"
+    },
+    {
+        "name":  "Ruby червоний",
+        "hex":  "#9B111E"
+    },
+    {
+        "name":  "Rufous",
+        "hex":  "#A81C07"
+    },
+    {
+        "name":  "Russet",
+        "hex":  "#80461B"
+    },
+    {
+        "name":  "Russian зелений",
+        "hex":  "#679267"
+    },
+    {
+        "name":  "Russian фіолетовий",
+        "hex":  "#32174D"
+    },
+    {
+        "name":  "Rust",
+        "hex":  "#B7410E"
+    },
+    {
+        "name":  "Rusty червоний",
+        "hex":  "#DA2C43"
+    },
+    {
+        "name":  "Sacramento State зелений",
+        "hex":  "#043927"
+    },
+    {
+        "name":  "Saddle коричневий",
+        "hex":  "#8B4513"
+    },
+    {
+        "name":  "Safety помаранчевий",
+        "hex":  "#FF7800"
+    },
+    {
+        "name":  "Safety помаранчевий Blaze помаранчевий",
+        "hex":  "#FF6700"
+    },
+    {
+        "name":  "Safety жовтий",
+        "hex":  "#EED202"
+    },
+    {
+        "name":  "Saffron",
+        "hex":  "#F4C430"
+    },
+    {
+        "name":  "Sage",
+        "hex":  "#BCB88A"
+    },
+    {
+        "name":  "Salmon",
+        "hex":  "#FA8072"
+    },
+    {
+        "name":  "Salmon рожевий",
+        "hex":  "#FF91A4"
+    },
+    {
+        "name":  "Sand",
+        "hex":  "#C2B280"
+    },
+    {
+        "name":  "Sand Dune",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sandy коричневий",
+        "hex":  "#F4A460"
+    },
+    {
+        "name":  "Sandy Taupe",
+        "hex":  "#967117"
+    },
+    {
+        "name":  "Sap зелений",
+        "hex":  "#507D2A"
+    },
+    {
+        "name":  "Sapphire",
+        "hex":  "#0F52BA"
+    },
+    {
+        "name":  "Sapphire Crayola",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Sapphire синій",
+        "hex":  "#0067A5"
+    },
+    {
+        "name":  "Satin Sheen золотий",
+        "hex":  "#CBA135"
+    },
+    {
+        "name":  "Scarlet",
+        "hex":  "#FF2400"
+    },
+    {
+        "name":  "Schauss рожевий",
+        "hex":  "#FF91AF"
+    },
+    {
+        "name":  "School Bus жовтий",
+        "hex":  "#FFD800"
+    },
+    {
+        "name":  "Screamin зелений",
+        "hex":  "#66FF66"
+    },
+    {
+        "name":  "морський зелений",
+        "hex":  "#2E8B57"
+    },
+    {
+        "name":  "морський зелений Crayola",
+        "hex":  "#00FFCD"
+    },
+    {
+        "name":  "Seal коричневий",
+        "hex":  "#59260B"
+    },
+    {
+        "name":  "Seashell",
+        "hex":  "#FFF5EE"
+    },
+    {
+        "name":  "Selective жовтий",
+        "hex":  "#FFBA00"
+    },
+    {
+        "name":  "Sepia",
+        "hex":  "#704214"
+    },
+    {
+        "name":  "Shadow",
+        "hex":  "#8A795D"
+    },
+    {
+        "name":  "Shadow синій",
+        "hex":  "#778BA5"
+    },
+    {
+        "name":  "Shamrock зелений",
+        "hex":  "#009E60"
+    },
+    {
+        "name":  "Sheen зелений",
+        "hex":  "#8FD400"
+    },
+    {
+        "name":  "Shimmering Blush",
+        "hex":  "#D98695"
+    },
+    {
+        "name":  "Shiny Shamrock",
+        "hex":  "#5FA778"
+    },
+    {
+        "name":  "Shocking рожевий",
+        "hex":  "#FC0FC0"
+    },
+    {
+        "name":  "Shocking рожевий Crayola",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Sienna",
+        "hex":  "#882D17"
+    },
+    {
+        "name":  "срібний",
+        "hex":  "#C0C0C0"
+    },
+    {
+        "name":  "срібний Crayola",
+        "hex":  "#C9C0BB"
+    },
+    {
+        "name":  "срібний metallic",
+        "hex":  "#AAA9AD"
+    },
+    {
+        "name":  "срібний Chalice",
+        "hex":  "#ACACAC"
+    },
+    {
+        "name":  "срібний Foil",
+        "hex":  "#AFB1AE"
+    },
+    {
+        "name":  "срібний Lake синій",
+        "hex":  "#5D89BA"
+    },
+    {
+        "name":  "срібний рожевий",
+        "hex":  "#C4AEAD"
+    },
+    {
+        "name":  "срібний Sand",
+        "hex":  "#BFC1C2"
+    },
+    {
+        "name":  "Sinopia",
+        "hex":  "#CB410B"
+    },
+    {
+        "name":  "Sizzling червоний",
+        "hex":  "#FF3855"
+    },
+    {
+        "name":  "Sizzling схід",
+        "hex":  "#FFDB00"
+    },
+    {
+        "name":  "Skobeloff",
+        "hex":  "#007474"
+    },
+    {
+        "name":  "sky синій",
+        "hex":  "#87CEEB"
+    },
+    {
+        "name":  "sky синій Crayola",
+        "hex":  "#76D7EA"
+    },
+    {
+        "name":  "sky magenta",
+        "hex":  "#CF71AF"
+    },
+    {
+        "name":  "Slate синій",
+        "hex":  "#6A5ACD"
+    },
+    {
+        "name":  "Slate сірий",
+        "hex":  "#708090"
+    },
+    {
+        "name":  "Slimy зелений",
+        "hex":  "#299617"
+    },
+    {
+        "name":  "Smalt темний Powder синій",
+        "hex":  "#003399"
+    },
+    {
+        "name":  "Smitten",
+        "hex":  "#C84186"
+    },
+    {
+        "name":  "Smoky чорний",
+        "hex":  "#100C08"
+    },
+    {
+        "name":  "Smoky Topaz",
+        "hex":  "#933D41"
+    },
+    {
+        "name":  "Snow",
+        "hex":  "#FFFAFA"
+    },
+    {
+        "name":  "Solid рожевий",
+        "hex":  "#893843"
+    },
+    {
+        "name":  "Sonic срібний",
+        "hex":  "#757575"
+    },
+    {
+        "name":  "Space Cadet",
+        "hex":  "#1D2951"
+    },
+    {
+        "name":  "Spanish Bistre",
+        "hex":  "#807532"
+    },
+    {
+        "name":  "Spanish синій",
+        "hex":  "#0070B8"
+    },
+    {
+        "name":  "Spanish Carmine",
+        "hex":  "#D10047"
+    },
+    {
+        "name":  "Spanish сірий",
+        "hex":  "#989898"
+    },
+    {
+        "name":  "Spanish зелений",
+        "hex":  "#009150"
+    },
+    {
+        "name":  "Spanish помаранчевий",
+        "hex":  "#E86100"
+    },
+    {
+        "name":  "Spanish рожевий",
+        "hex":  "#F7BFBE"
+    },
+    {
+        "name":  "Spanish червоний",
+        "hex":  "#E60026"
+    },
+    {
+        "name":  "Spanish sky синій",
+        "hex":  "#00FFFF"
+    },
+    {
+        "name":  "Spanish фіолетовий",
+        "hex":  "#4C2882"
+    },
+    {
+        "name":  "Spanish Viridian",
+        "hex":  "#007F5C"
+    },
+    {
+        "name":  "весняний Bud",
+        "hex":  "#A7FC00"
+    },
+    {
+        "name":  "весняний Frost",
+        "hex":  "#87FF2A"
+    },
+    {
+        "name":  "весняний зелений",
+        "hex":  "#00FF7F"
+    },
+    {
+        "name":  "весняний зелений Crayola",
+        "hex":  "#ECEBBD"
+    },
+    {
+        "name":  "St Patrick S синій",
+        "hex":  "#23297A"
+    },
+    {
+        "name":  "Star Command синій",
+        "hex":  "#007BB8"
+    },
+    {
+        "name":  "Steel синій",
+        "hex":  "#4682B4"
+    },
+    {
+        "name":  "Steel рожевий",
+        "hex":  "#CC33CC"
+    },
+    {
+        "name":  "Steel Teal",
+        "hex":  "#5F8A8B"
+    },
+    {
+        "name":  "Stil De Grain жовтий",
+        "hex":  "#FADA5E"
+    },
+    {
+        "name":  "Straw",
+        "hex":  "#E4D96F"
+    },
+    {
+        "name":  "Sugar Plum",
+        "hex":  "#914E75"
+    },
+    {
+        "name":  "Sunglow",
+        "hex":  "#FFCC33"
+    },
+    {
+        "name":  "Sunray",
+        "hex":  "#E3AB57"
+    },
+    {
+        "name":  "захід",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Super рожевий",
+        "hex":  "#CF6BA9"
+    },
+    {
+        "name":  "Sweet коричневий",
+        "hex":  "#A83731"
+    },
+    {
+        "name":  "Tan",
+        "hex":  "#D2B48C"
+    },
+    {
+        "name":  "Tan Crayola",
+        "hex":  "#D99A6C"
+    },
+    {
+        "name":  "Tangerine",
+        "hex":  "#F28500"
+    },
+    {
+        "name":  "Tango рожевий",
+        "hex":  "#E4717A"
+    },
+    {
+        "name":  "Tart помаранчевий",
+        "hex":  "#FB4D46"
+    },
+    {
+        "name":  "Taupe",
+        "hex":  "#483C32"
+    },
+    {
+        "name":  "Taupe сірий",
+        "hex":  "#8B8589"
+    },
+    {
+        "name":  "Tea зелений",
+        "hex":  "#D0F0C0"
+    },
+    {
+        "name":  "Tea rose",
+        "hex":  "#F88379"
+    },
+    {
+        "name":  "Teal",
+        "hex":  "#008080"
+    },
+    {
+        "name":  "Teal синій",
+        "hex":  "#367588"
+    },
+    {
+        "name":  "Telemagenta",
+        "hex":  "#CF3476"
+    },
+    {
+        "name":  "Tenn Tawny",
+        "hex":  "#CD5700"
+    },
+    {
+        "name":  "Terra Cotta",
+        "hex":  "#E2725B"
+    },
+    {
+        "name":  "Thistle",
+        "hex":  "#D8BFD8"
+    },
+    {
+        "name":  "Thulian рожевий",
+        "hex":  "#DE6FA1"
+    },
+    {
+        "name":  "Tickle Me рожевий",
+        "hex":  "#FC89AC"
+    },
+    {
+        "name":  "Tiffany синій",
+        "hex":  "#0ABAB5"
+    },
+    {
+        "name":  "Timberwolf",
+        "hex":  "#DBD7D2"
+    },
+    {
+        "name":  "Titanium жовтий",
+        "hex":  "#EEE600"
+    },
+    {
+        "name":  "Tomato",
+        "hex":  "#FF6347"
+    },
+    {
+        "name":  "Tropical Rain лісовий",
+        "hex":  "#00755E"
+    },
+    {
+        "name":  "справжній синій",
+        "hex":  "#2D68C4"
+    },
+    {
+        "name":  "Tufts синій",
+        "hex":  "#3E8EDE"
+    },
+    {
+        "name":  "Tumbleweed",
+        "hex":  "#DEAA88"
+    },
+    {
+        "name":  "Turquoise",
+        "hex":  "#40E0D0"
+    },
+    {
+        "name":  "Turquoise синій",
+        "hex":  "#00FFEF"
+    },
+    {
+        "name":  "Turquoise зелений",
+        "hex":  "#A0D6B4"
+    },
+    {
+        "name":  "Turtle зелений",
+        "hex":  "#8A9A5B"
+    },
+    {
+        "name":  "Tuscan",
+        "hex":  "#FAD6A5"
+    },
+    {
+        "name":  "Tuscan коричневий",
+        "hex":  "#6F4E37"
+    },
+    {
+        "name":  "Tuscan червоний",
+        "hex":  "#7C4848"
+    },
+    {
+        "name":  "Tuscan Tan",
+        "hex":  "#A67B5B"
+    },
+    {
+        "name":  "Tuscany",
+        "hex":  "#C09999"
+    },
+    {
+        "name":  "Twilight Lavender",
+        "hex":  "#8A496B"
+    },
+    {
+        "name":  "Tyrian пурпурний",
+        "hex":  "#66023C"
+    },
+    {
+        "name":  "Ua синій",
+        "hex":  "#0033AA"
+    },
+    {
+        "name":  "Ua червоний",
+        "hex":  "#D9004C"
+    },
+    {
+        "name":  "Ultra рожевий",
+        "hex":  "#FF6FFF"
+    },
+    {
+        "name":  "Ultra червоний",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Ultramarine",
+        "hex":  "#3F00FF"
+    },
+    {
+        "name":  "Ultramarine синій",
+        "hex":  "#4166F5"
+    },
+    {
+        "name":  "Umber",
+        "hex":  "#635147"
+    },
+    {
+        "name":  "Unbleached Silk",
+        "hex":  "#FFDDCA"
+    },
+    {
+        "name":  "United Nations синій",
+        "hex":  "#5B92E5"
+    },
+    {
+        "name":  "Unmellow жовтий",
+        "hex":  "#FFFF66"
+    },
+    {
+        "name":  "Up лісовий зелений",
+        "hex":  "#014421"
+    },
+    {
+        "name":  "Up maroon",
+        "hex":  "#7B1113"
+    },
+    {
+        "name":  "Upsdell червоний",
+        "hex":  "#AE2029"
+    },
+    {
+        "name":  "Usafa синій",
+        "hex":  "#004F98"
+    },
+    {
+        "name":  "Van Dyke коричневий",
+        "hex":  "#664228"
+    },
+    {
+        "name":  "Vanilla",
+        "hex":  "#F3E5AB"
+    },
+    {
+        "name":  "Vanilla Ice",
+        "hex":  "#F38FA9"
+    },
+    {
+        "name":  "Vegas золотий",
+        "hex":  "#C5B358"
+    },
+    {
+        "name":  "Venetian червоний",
+        "hex":  "#C80815"
+    },
+    {
+        "name":  "Verdigris",
+        "hex":  "#43B3AE"
+    },
+    {
+        "name":  "Vermilion",
+        "hex":  "#E34234"
+    },
+    {
+        "name":  "Veronica",
+        "hex":  "#A020F0"
+    },
+    {
+        "name":  "фіолетовий",
+        "hex":  "#8F00FF"
+    },
+    {
+        "name":  "фіолетовий Color Wheel",
+        "hex":  "#7F00FF"
+    },
+    {
+        "name":  "фіолетовий Crayola",
+        "hex":  "#963D7F"
+    },
+    {
+        "name":  "фіолетовий Ryb",
+        "hex":  "#8601AF"
+    },
+    {
+        "name":  "фіолетовий Web",
+        "hex":  "#EE82EE"
+    },
+    {
+        "name":  "фіолетовий синій",
+        "hex":  "#324AB2"
+    },
+    {
+        "name":  "фіолетовий синій Crayola",
+        "hex":  "#766EC8"
+    },
+    {
+        "name":  "фіолетовий червоний",
+        "hex":  "#F75394"
+    },
+    {
+        "name":  "Viridian",
+        "hex":  "#40826D"
+    },
+    {
+        "name":  "Viridian зелений",
+        "hex":  "#009698"
+    },
+    {
+        "name":  "Vivid Burgundy",
+        "hex":  "#9F1D35"
+    },
+    {
+        "name":  "Vivid sky синій",
+        "hex":  "#00CCFF"
+    },
+    {
+        "name":  "Vivid Tangerine",
+        "hex":  "#FFA089"
+    },
+    {
+        "name":  "Vivid фіолетовий",
+        "hex":  "#9F00FF"
+    },
+    {
+        "name":  "Volt",
+        "hex":  "#CEFF00"
+    },
+    {
+        "name":  "Warm чорний",
+        "hex":  "#004242"
+    },
+    {
+        "name":  "Wheat",
+        "hex":  "#F5DEB3"
+    },
+    {
+        "name":  "білий",
+        "hex":  "#FFFFFF"
+    },
+    {
+        "name":  "Wild синій Yonder",
+        "hex":  "#A2ADD0"
+    },
+    {
+        "name":  "Wild Orchid",
+        "hex":  "#D470A2"
+    },
+    {
+        "name":  "Wild Strawberry",
+        "hex":  "#FF43A4"
+    },
+    {
+        "name":  "Wild Watermelon",
+        "hex":  "#FC6C85"
+    },
+    {
+        "name":  "Windsor Tan",
+        "hex":  "#A75502"
+    },
+    {
+        "name":  "Wine",
+        "hex":  "#722F37"
+    },
+    {
+        "name":  "Wine Dregs",
+        "hex":  "#673147"
+    },
+    {
+        "name":  "зимовий sky",
+        "hex":  "#FF007C"
+    },
+    {
+        "name":  "Wintergreen Dream",
+        "hex":  "#56887D"
+    },
+    {
+        "name":  "Wisteria",
+        "hex":  "#C9A0DC"
+    },
+    {
+        "name":  "Wood коричневий",
+        "hex":  "#C19A6B"
+    },
+    {
+        "name":  "Yale синій",
+        "hex":  "#0F4D92"
+    },
+    {
+        "name":  "жовтий",
+        "hex":  "#FFFF00"
+    },
+    {
+        "name":  "жовтий Crayola",
+        "hex":  "#FCE883"
+    },
+    {
+        "name":  "жовтий Munsell",
+        "hex":  "#EFCC00"
+    },
+    {
+        "name":  "жовтий Ncs",
+        "hex":  "#FFD300"
+    },
+    {
+        "name":  "жовтий Pantone",
+        "hex":  "#FEDF00"
+    },
+    {
+        "name":  "жовтий Process",
+        "hex":  "#FFEF00"
+    },
+    {
+        "name":  "жовтий Ryb",
+        "hex":  "#FEFE33"
+    },
+    {
+        "name":  "жовтий помаранчевий",
+        "hex":  "#FFAE42"
+    },
+    {
+        "name":  "жовтий помаранчевий Color Wheel",
+        "hex":  "#FF9505"
+    },
+    {
+        "name":  "жовтий Sunshine",
+        "hex":  "#FFF700"
+    },
+    {
+        "name":  "жовтий зелений",
+        "hex":  "#9ACD32"
+    },
+    {
+        "name":  "жовтий зелений Color Wheel",
+        "hex":  "#30B21A"
+    },
+    {
+        "name":  "жовтий зелений Crayola",
+        "hex":  "#C5E384"
+    },
+    {
+        "name":  "Yinmn синій",
+        "hex":  "#2E5090"
+    },
+    {
+        "name":  "Zaffre",
+        "hex":  "#0014A8"
+    },
+    {
+        "name":  "Zomp",
+        "hex":  "#39A78E"
+    }
+]

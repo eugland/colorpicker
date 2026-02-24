@@ -9,6 +9,7 @@
     <string name="save">保存</string>
     <string name="saved">保存済み</string>
     <string name="delete">削除</string>
+    <string name="more_options">その他のオプション</string>
     <string name="palette">パレット</string>
     <string name="camera">カメラ</string>
     <string name="explore">探索</string>
@@ -229,6 +230,7 @@
     <string name="xray_mode">X 線イメージモード</string>
     <string name="animate_mode">アニメーションスタイルモード</string>
     <string name="cyber_mode">サイバースタイルモード</string>
+    <string name="intrinsic_mode">内蔵（ML）モード</string>
     <string name="mode_normal">通常</string>
     <string name="filter_grid_title">フィルターを選択</string>
     <string name="choose_theme">テーマを選択</string>
@@ -236,4 +238,15 @@
     <string name="terms_of_service">利用規約</string>
     <string name="share_app">アプリを共有</string>
     <string name="share_app_description">Play ストアのリンクを友達に送信。</string>
+    <string name="delete_all">すべて削除</string>
+    <string name="color_catalogs">色名パック</string>
+    <string name="color_catalogs_description">アプリの言語がデフォルトの色名パックを選択します。一度に1つのパックのみ選択できます。</string>
+    <string name="color_catalogs_none_found">アプリのリソースに色名パックが見つかりませんでした。</string>
+    <string name="color_catalogs_summary">使用する色名パックを選択してください。</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">ユーザーインターフェース</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ニュートラル</string>
+    <string name="seed_modern_ui_neutrals_name">モダンUIニュートラルカラー</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">モダン</string>
+    <string name="close">閉じる</string>
+    <string name="seed_modern_ui_neutrals_note">モダンなインターフェース向けのクリーンで柔軟なカラー</string>
 </resources>

@@ -1,20 +1,19 @@
 package com.primortex.color.analytics
 
-import android.app.Application
-import com.google.firebase.FirebaseApp
+import android.content.Context
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
-import com.google.firebase.ktx.Firebase
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class FirebaseAnalyticsClient : AnalyticsClient {
-    private val analytics by lazy { Firebase.analytics }
-
-    override fun init(app: Application) {
-        FirebaseApp.initializeApp(app)
-    }
+@Singleton
+class FirebaseAnalyticsClient @Inject constructor(
+    @ApplicationContext context: Context
+) : AnalyticsClient {
+    private val analytics: FirebaseAnalytics = FirebaseAnalytics.getInstance(context)
 
     override fun logColorPicked(pick: PickedColor, source: String) {
         analytics.logEvent("color_pick") {
@@ -102,3 +101,4 @@ class FirebaseAnalyticsClient : AnalyticsClient {
 
     private fun Int.toHex(): String = String.format("#%06X", 0xFFFFFF and this)
 }
+

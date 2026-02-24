@@ -1,113 +1,93 @@
-// com/primortex/color/service/PaletteService.kt
 package com.primortex.color.service
 
 import android.content.Context
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
+import android.os.Build
+import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
+import com.primortex.color.i18n.AppStrings
+import com.primortex.color.service.palette.PaletteDatabase
+import com.primortex.color.service.palette.toDomain
+import com.primortex.color.service.palette.toEntity
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
 import java.security.MessageDigest
 import java.util.UUID
+import java.util.concurrent.Executors
 
-private val Context.paletteDataStore by preferencesDataStore(name = "palettes")
+@Singleton
+class PaletteService @Inject constructor(
+    @ApplicationContext context: Context,
+    private val analyticsTracker: AnalyticsTracker
+) {
+    sealed interface AddColorResult {
+        data class Added(val colors: List<PickedColor>) : AddColorResult
+        data object Duplicate : AddColorResult
+        data object Full : AddColorResult
+    }
 
-object PaletteService {
-    private val KEY = stringPreferencesKey("palettes_json")
-    private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    private lateinit var appContext: Context
+    companion object {
+        private const val PREFS_NAME = "palette_flags"
+        private const val PREF_KEY_FIRST_PALETTE_LOGGED = "first_palette_logged_v1"
+        const val MAX_COLORS_PER_PALETTE = 5
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS palette_meta")
+            }
+        }
+    }
 
-    private val KEY_SEEDED = booleanPreferencesKey("seeded_v1")
-    private val KEY_FIRST_PALETTE_LOGGED = booleanPreferencesKey("first_palette_logged_v1")
+    private val appContext = context.applicationContext
+    private val dbExecutor = Executors.newSingleThreadExecutor()
+    private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
+    private val dao = createDatabase(appContext).paletteDao()
+    private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
     private val _previewPalettes = MutableStateFlow<List<Palette>>(emptyList())
     val previewPalettes: StateFlow<List<Palette>> = _previewPalettes
     private var firstPaletteLogged = false
 
-    fun init(context: Context) {
-        if (::appContext.isInitialized) return
-        appContext = context.applicationContext
+    init {
         scope.launch {
-            appContext.paletteDataStore.data
-                .map { prefs ->
-                    val saved = runCatching {
-                        prefs[KEY]?.let { json.decodeFromString<List<Palette>>(it) } ?: emptyList()
-                    }.getOrDefault(emptyList())
-
-                    val seeded = prefs[KEY_SEEDED] == true
-                    Triple(saved, seeded, prefs)
-                }
-                .collect { (saved, seeded, prefs) ->
-                    _palettes.value = saved
-                    firstPaletteLogged = prefs[KEY_FIRST_PALETTE_LOGGED] == true
-                    if (!seeded) seedIfNeeded(prefs) // this writes once
-                }
+            _palettes.value = dao.loadAll().map { it.toDomain() }
         }
+        firstPaletteLogged = prefs.getBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, false)
     }
 
-    private suspend fun seedIfNeeded(prefs: Preferences) {
-        if (prefs[KEY_SEEDED] == true) return
+    private fun createDatabase(context: Context): PaletteDatabase {
+        val builder =
+            if (Build.FINGERPRINT.contains("robolectric", ignoreCase = true)) {
+                Room.inMemoryDatabaseBuilder(context, PaletteDatabase::class.java)
+            } else {
+                Room.databaseBuilder(context, PaletteDatabase::class.java, "palettes.db")
+            }
+        return builder
+            .addMigrations(MIGRATION_1_2)
+            .setQueryExecutor(dbExecutor)
+            .setTransactionExecutor(dbExecutor)
+            .build()
+    }
 
-        val now = System.currentTimeMillis()
-
-        val uiNeutrals = Palette(
-            id = UUID.randomUUID().toString(),
-            name = "Modern UI Neutrals",
-            colors = listOf(
-                PickedColor(0xFF0F172A.toInt(), "Slate 900"),
-                PickedColor(0xFF475569.toInt(), "Slate 600"),
-                PickedColor(0xFFA1A1AA.toInt(), "Zinc 400"),
-                PickedColor(0xFF0EA5E9.toInt(), "Sky 500"),
-                PickedColor(0xFF10B981.toInt(), "Emerald 500"),
-            ),
-            tags = listOf("ui", "neutral", "modern"),
-            note = "Clean, flexible colors for modern interfaces",
-            createdAt = now,
-            updatedAt = now
-        )
-
-        val mutedNature = Palette(
-            id = UUID.randomUUID().toString(),
-            name = "Muted Nature",
-            colors = listOf(
-                PickedColor(0xFF2F5D50.toInt(), "Forest"),
-                PickedColor(0xFF7A9B76.toInt(), "Moss"),
-                PickedColor(0xFFE6D5B8.toInt(), "Sand"),
-                PickedColor(0xFFC97C5D.toInt(), "Clay"),
-                PickedColor(0xFF3A3A3A.toInt(), "Ink"),
-            ),
-            tags = listOf("nature", "muted", "warm"),
-            note = "Soft, earthy tones for calm visual design",
-            createdAt = now,
-            updatedAt = now
-        )
-
-        _palettes.value = listOf(
-            uiNeutrals,
-            mutedNature,
-        )
-
-        val payload = runCatching {
-            json.encodeToString(_palettes.value)
-        }.getOrElse { "[]" }
-
-        appContext.paletteDataStore.edit { p ->
-            p[KEY] = payload
-            p[KEY_SEEDED] = true
+    suspend fun seedPalettesIfEmpty(palettes: List<Palette>) {
+        if (dao.loadAll().isEmpty()) {
+            _palettes.value = palettes
+            dao.clearPalettes()
+            if (palettes.isNotEmpty()) {
+                dao.insertAll(palettes.map { it.toEntity() })
+            }
         }
     }
 
@@ -122,8 +102,8 @@ object PaletteService {
         val now = System.currentTimeMillis()
         val p = Palette(
             id = UUID.randomUUID().toString(),
-            name = name.ifBlank { "Palette" },
-            colors = colors.distinctBy { it.argb },
+            name = name.ifBlank { AppStrings.get(R.string.palette) },
+            colors = colors.distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE),
             tags = tags,
             note = note,
             createdAt = now,
@@ -140,15 +120,11 @@ object PaletteService {
         } else {
             _previewPalettes.update { listOf(p) + it }
         }
-        AnalyticsTracker.logPaletteCreated(p, creationSource)
+        analyticsTracker.logPaletteCreated(p, creationSource)
         if (saveOnCreate && !firstPaletteLogged) {
-            AnalyticsTracker.logFirstPaletteCreated(p)
+            analyticsTracker.logFirstPaletteCreated(p)
             firstPaletteLogged = true
-            scope.launch {
-                appContext.paletteDataStore.edit { prefs ->
-                    prefs[KEY_FIRST_PALETTE_LOGGED] = true
-                }
-            }
+            prefs.edit().putBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, true).apply()
         }
         return p
     }
@@ -167,7 +143,7 @@ object PaletteService {
                 if (p.id != id) p
                 else p.copy(
                     name = name ?: p.name,
-                    colors = (colors ?: p.colors).distinctBy { it.argb },
+                    colors = (colors ?: p.colors).distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE),
                     tags = tags ?: p.tags,
                     note = note ?: p.note,
                     updatedAt = now
@@ -175,16 +151,17 @@ object PaletteService {
             }
         }
         persist()
-        updatedPalette?.let { AnalyticsTracker.logPaletteUpdated(it) }
+        updatedPalette?.let { analyticsTracker.logPaletteUpdated(it) }
     }
 
-    fun toggleSaved(palette: Palette) {
+    fun toggleSaved(palette: Palette, isCurrentlySaved: Boolean) {
         val targetHash = paletteHash(palette)
-        val exists = _palettes.value.any { paletteHash(it) == targetHash }
-        if (exists) {
+        if (isCurrentlySaved) {
             _palettes.update { list -> list.filterNot { paletteHash(it) == targetHash } }
         } else {
-            _palettes.update { listOf(palette) + it }
+            _palettes.update { list ->
+                listOf(palette) + list.filterNot { paletteHash(it) == targetHash }
+            }
             _previewPalettes.update { it.filterNot { p -> p.id == palette.id } }
         }
         persist()
@@ -193,7 +170,7 @@ object PaletteService {
     fun delete(id: String) {
         _palettes.update { it.filterNot { p -> p.id == id } }
         persist()
-        AnalyticsTracker.logPaletteDeleted(id)
+        analyticsTracker.logPaletteDeleted(id)
     }
 
     fun clear() {
@@ -202,11 +179,27 @@ object PaletteService {
         persist()
     }
 
+    fun addColorToDraftPalette(
+        colors: List<PickedColor>,
+        pickedColor: PickedColor
+    ): AddColorResult {
+        val normalized = colors.distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE)
+        if (normalized.any { it.argb == pickedColor.argb }) {
+            return AddColorResult.Duplicate
+        }
+        if (normalized.size >= MAX_COLORS_PER_PALETTE) {
+            return AddColorResult.Full
+        }
+        return AddColorResult.Added(normalized + pickedColor)
+    }
+
     private fun persist() {
         val snapshot = _palettes.value
         scope.launch {
-            val payload = runCatching { json.encodeToString(snapshot) }.getOrElse { "[]" }
-            appContext.paletteDataStore.edit { it[KEY] = payload }
+            dao.clearPalettes()
+            if (snapshot.isNotEmpty()) {
+                dao.insertAll(snapshot.map { it.toEntity() })
+            }
         }
     }
 
@@ -221,3 +214,4 @@ object PaletteService {
         return hashBytes.joinToString("") { "%02x".format(it) }
     }
 }
+

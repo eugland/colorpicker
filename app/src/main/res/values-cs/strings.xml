@@ -11,6 +11,7 @@
     <string name="saved">Uloženo</string>
     <string name="delete">Odstranit</string>
 
+    <string name="more_options">Další možnosti</string>
     <string name="palette">Paleta</string>
     <string name="camera">Fotoaparát</string>
     <string name="explore">Prozkoumat</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Rentgenové zobrazení</string>
     <string name="animate_mode">Animovaný styl</string>
     <string name="cyber_mode">Kybernetický styl</string>
+    <string name="intrinsic_mode">Vnitřní (ML) režim</string>
     <string name="mode_normal">Normální</string>
     <string name="filter_grid_title">Vyberte filtr</string>
     <string name="choose_theme">Vyberte motiv</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Podmínky služby</string>
     <string name="share_app">Sdílet aplikaci</string>
     <string name="share_app_description">Pošlete odkaz na obchod Play přátelům.</string>
+    <string name="color_catalogs">Balíček názvů barev</string>
+    <string name="color_catalogs_description">Jazyk aplikace vybírá výchozí balíček názvů barev. Můžete vybrat vždy pouze jeden balíček.</string>
+    <string name="color_catalogs_none_found">V prostředcích aplikace nebyly nalezeny žádné balíčky názvů barev.</string>
+    <string name="color_catalogs_summary">Vyberte aktivní balíček názvů barev.</string>
+    <string name="delete_all">Smazat vše</string>
+    <string name="close">Zavřít</string>
+    <string name="seed_modern_ui_neutrals_name">Moderní neutrální barvy UI</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">uživatelské rozhraní</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">neutrální</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">moderní</string>
+    <string name="seed_modern_ui_neutrals_note">Čisté a flexibilní barvy pro moderní rozhraní</string>
 </resources>

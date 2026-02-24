@@ -11,6 +11,7 @@
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="delete">Διαγραφή</string>
 
+    <string name="more_options">Περισσότερες επιλογές</string>
     <string name="palette">Παλέτα</string>
     <string name="camera">Κάμερα</string>
     <string name="explore">Εξερεύνηση</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Λειτουργία απεικόνισης ακτίνων Χ</string>
     <string name="animate_mode">Λειτουργία κινούμενου στυλ</string>
     <string name="cyber_mode">Λειτουργία κυβερνοστυλ</string>
+    <string name="intrinsic_mode">Εσωτερική λειτουργία (ML)</string>
     <string name="mode_normal">Κανονικό</string>
     <string name="filter_grid_title">Επιλέξτε φίλτρο</string>
     <string name="choose_theme">Επιλέξτε θέμα</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Όροι χρήσης</string>
     <string name="share_app">Μοιραστείτε την εφαρμογή</string>
     <string name="share_app_description">Στείλτε τον σύνδεσμο του Play Store σε φίλους.</string>
+    <string name="delete_all">Διαγραφή όλων</string>
+    <string name="color_catalogs">Πακέτο ονομάτων χρωμάτων</string>
+    <string name="color_catalogs_description">Η γλώσσα της εφαρμογής επιλέγει το προεπιλεγμένο πακέτο ονομάτων χρωμάτων. Μπορείτε να επιλέξετε ένα πακέτο κάθε φορά.</string>
+    <string name="color_catalogs_none_found">Δεν βρέθηκαν πακέτα ονομάτων χρωμάτων στους πόρους της εφαρμογής.</string>
+    <string name="color_catalogs_summary">Επιλέξτε το ενεργό πακέτο ονομάτων χρωμάτων.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">διεπαφή χρήστη</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">ουδέτερο</string>
+    <string name="seed_modern_ui_neutrals_name">Σύγχρονα ουδέτερα χρώματα UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">σύγχρονο</string>
+    <string name="close">Κλείσιμο</string>
+    <string name="seed_modern_ui_neutrals_note">Καθαρά και ευέλικτα χρώματα για σύγχρονες διεπαφές</string>
 </resources>

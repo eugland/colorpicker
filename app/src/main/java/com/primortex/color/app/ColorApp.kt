@@ -32,39 +32,44 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.primortex.color.R
-import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.data.enums.SwatchListType
+import com.primortex.color.features.camera.CameraScreen
+import com.primortex.color.features.colorblind.ColorBlindEnhancerScreen
+import com.primortex.color.features.colorslider.ColorSliderRoute
+import com.primortex.color.features.colordetails.ColorDetailsRoute
+import com.primortex.color.features.crosshair.CrosshairSettingsRoute
+import com.primortex.color.features.explore.ExploreDestination
+import com.primortex.color.features.explore.ExploreRoute
+import com.primortex.color.features.info.InfoDetailScreen
+import com.primortex.color.features.languageselection.LanguageSelectionRoute
+import com.primortex.color.features.livecamera.LiveCameraRoute
+import com.primortex.color.features.palette.PaletteListRoute
+import com.primortex.color.features.palette.PaletteRoute
+import com.primortex.color.features.palettedetail.PaletteDetailRoute
+import com.primortex.color.features.photopick.PhotoPickRoute
+import com.primortex.color.features.swatchlist.SwatchListRoute
+import com.primortex.color.features.themeselection.ThemeSelectionRoute
 import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
-import com.primortex.color.screens.CameraScreen
-import com.primortex.color.screens.ColorBlindEnhancerScreen
-import com.primortex.color.screens.ColorDetailsScreen
-import com.primortex.color.screens.ColorSliderScreen
-import com.primortex.color.screens.CrosshairSettingsScreen
-import com.primortex.color.screens.ExploreScreen
-import com.primortex.color.screens.InfoDetailScreen
-import com.primortex.color.screens.LanguageSelectionScreen
-import com.primortex.color.screens.LiveCameraScreen
-import com.primortex.color.screens.PaletteDetailScreen
-import com.primortex.color.screens.PaletteListScreen
-import com.primortex.color.screens.PaletteScreen
-import com.primortex.color.screens.PhotoPickScreen
-import com.primortex.color.screens.SwatchListScreen
-import com.primortex.color.screens.ThemeSelectionScreen
-import com.primortex.color.ui.LocalSnackbarService
-import com.primortex.color.ui.rememberSnackbarService
+import com.primortex.color.service.SettingsService
+import com.primortex.color.ui.LocalSnackbarController
+import com.primortex.color.ui.rememberSnackbarController
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 
 @SuppressLint("NewApi")
 @Composable
-fun ColorApp(onLanguageChanged: () -> Unit = {}) {
+fun ColorApp(
+    settingsService: SettingsService,
+    onLanguageChanged: () -> Unit = {},
+    onScreenViewed: (String, String) -> Unit
+) {
     val nav = rememberNavController()
     val navigator: ColorNavigator = remember(nav) { NavColorNavigator(nav) }
     val backStack by nav.currentBackStackEntryAsState()
     val route = backStack?.destination?.route.orEmpty()
     val anim = tween<IntOffset>(220)
-    val snackbarService = rememberSnackbarService()
+    val snackbarController = rememberSnackbarController()
 
     val selectedRoot = when {
         route.startsWith(Routes.Tab.PALETTE) -> Routes.Tab.PALETTE
@@ -87,14 +92,14 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
             .collect { currentRoute ->
                 val screenName = currentRoute?.let { screenNameForRoute(it) }
                 if (screenName != null) {
-                    AnalyticsTracker.logScreenView(screenName, activityName)
+                    onScreenViewed(screenName, activityName)
                 }
             }
     }
 
-    CompositionLocalProvider(LocalSnackbarService provides snackbarService) {
+    CompositionLocalProvider(LocalSnackbarController provides snackbarController) {
         Scaffold(
-            snackbarHost = { SnackbarHost(snackbarService.hostState) },
+            snackbarHost = { SnackbarHost(snackbarController.hostState) },
             bottomBar = {
                 if (showBottomBar) {
                     NavigationBar {
@@ -177,12 +182,9 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                 }
                 composable(Routes.Tab.PALETTE) {
-                    PaletteScreen(
+                    PaletteRoute(
                         innerPadding = inner,
-                        onOpenPalette = { palette ->
-                            com.primortex.color.service.ColorServices.selectedPalette = palette
-                            navigator.openPaletteDetail(palette.id)
-                        },
+                        onOpenPalette = { paletteId -> navigator.openPaletteDetail(paletteId) },
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenRecentColors = { navigator.openRecentColors() },
                         onOpenSavedColors = { navigator.openSavedColors() },
@@ -196,10 +198,23 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                 }
                 composable(Routes.Tab.EXPLORE) {
-                    ExploreRoute(innerPadding = inner, navigator = navigator)
+                    ExploreRoute(
+                        innerPadding = inner,
+                        onNavigate = { destination ->
+                            when (destination) {
+                                ExploreDestination.LanguageSettings -> navigator.openLanguageSettings()
+                                ExploreDestination.ThemeSettings -> navigator.openThemeSettings()
+                                ExploreDestination.CrosshairSettings -> navigator.openCrosshairSettings()
+                                ExploreDestination.Copyright -> navigator.openInfoCopyright()
+                                ExploreDestination.Privacy -> navigator.openInfoPrivacy()
+                                ExploreDestination.Terms -> navigator.openInfoTerms()
+                                ExploreDestination.Usage -> navigator.openInfoUsage()
+                            }
+                        }
+                    )
                 }
                 composable(Routes.Camera.LIVE) {
-                    LiveCameraScreen(
+                    LiveCameraRoute(
                         onBack = { navigator.back() },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
                         onOpenColorDetail = { pick ->
@@ -220,7 +235,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         backStackEntry.arguments?.getString("uri") ?: "",
                         "UTF-8"
                     )
-                    PhotoPickScreen(
+                    PhotoPickRoute(
                         photoUri = uri,
                         onBack = { navigator.back() },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) },
@@ -246,7 +261,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                     )
                     val startInEdit = backStackEntry.arguments?.getBoolean("edit") ?: false
 
-                    PaletteDetailScreen(
+                    PaletteDetailRoute(
                         innerPadding = inner,
                         paletteId = paletteId,
                         startInEditMode = startInEdit,
@@ -266,29 +281,15 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         navArgument("argb") { type = NavType.IntType; defaultValue = 0 },
                         navArgument("name") { type = NavType.StringType; defaultValue = "" }
                     )
-                ) { backStackEntry ->
-                    val argb = backStackEntry.arguments?.getInt("argb") ?: 0
-                    val name = java.net.URLDecoder.decode(
-                        backStackEntry.arguments?.getString("name") ?: "",
-                        "UTF-8"
-                    )
-
-                    ColorDetailsScreen(
-                        argb = argb,
-                        nameHint = name,
+                ) {
+                    ColorDetailsRoute(
                         onBack = { navigator.back() },
-                        onOpenColorDetail = { pick ->
-                            navigator.openColorDetail(
-                                pick.argb,
-                                pick.name
-                            )
-                        },
                         onOpenPalette = { id, edit -> navigator.openPaletteDetail(id, edit) }
                     )
                 }
 
                 composable(Routes.Tool.SLIDER) {
-                    ColorSliderScreen(
+                    ColorSliderRoute(
                         innerPadding = inner,
                         onBack = { navigator.back() },
                         onOpenColorDetail = { pick ->
@@ -316,7 +317,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                         else -> SwatchListType.RECENT
                     }
 
-                    SwatchListScreen(
+                    SwatchListRoute(
                         innerPadding = inner,
                         type = type,
                         onBack = { navigator.back() },
@@ -327,13 +328,10 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
 
                 composable(Routes.List.PALETTE) {
-                    PaletteListScreen(
+                    PaletteListRoute(
                         innerPadding = inner,
                         onBack = { navigator.back() },
-                        onOpenPalette = { palette ->
-                            com.primortex.color.service.ColorServices.selectedPalette = palette
-                            navigator.openPaletteDetail(palette.id)
-                        }
+                        onOpenPalette = { paletteId -> navigator.openPaletteDetail(paletteId) }
                     )
                 }
 
@@ -374,7 +372,7 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
 
                 composable(Routes.Settings.LANGUAGE) {
-                    LanguageSelectionScreen(
+                    LanguageSelectionRoute(
                         innerPadding = inner,
                         onBack = { navigator.back() },
                         onLanguageChanged = onLanguageChanged
@@ -382,38 +380,23 @@ fun ColorApp(onLanguageChanged: () -> Unit = {}) {
                 }
 
                 composable(Routes.Settings.THEME) {
-                    ThemeSelectionScreen(
+                    ThemeSelectionRoute(
                         innerPadding = inner,
+                        settingsService = settingsService,
                         onBack = { navigator.back() }
                     )
                 }
 
                 composable(Routes.Settings.CROSSHAIR) {
-                    CrosshairSettingsScreen(
+                    CrosshairSettingsRoute(
                         innerPadding = inner,
+                        settingsService = settingsService,
                         onBack = { navigator.back() }
                     )
                 }
             }
         }
     }
-}
-
-@Composable
-private fun ExploreRoute(
-    innerPadding: androidx.compose.foundation.layout.PaddingValues,
-    navigator: ColorNavigator
-) {
-    ExploreScreen(
-        innerPadding = innerPadding,
-        onOpenLanguageSettings = { navigator.openLanguageSettings() },
-        onOpenThemeSettings = { navigator.openThemeSettings() },
-        onOpenCrosshairSettings = { navigator.openCrosshairSettings() },
-        onOpenCopyright = { navigator.openInfoCopyright() },
-        onOpenPrivacy = { navigator.openInfoPrivacy() },
-        onOpenTerms = { navigator.openInfoTerms() },
-        onOpenUsage = { navigator.openInfoUsage() }
-    )
 }
 
 private fun screenNameForRoute(route: String): String? {
@@ -451,5 +434,7 @@ private fun Context.findActivity(): Activity? {
     }
     return null
 }
+
+
 
 

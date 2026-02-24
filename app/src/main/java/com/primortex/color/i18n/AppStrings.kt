@@ -44,3 +44,4 @@ object AppStrings {
 fun stringResource(@StringRes id: Int, vararg formatArgs: Any): String {
     return AppStrings.get(id, *formatArgs)
 }
+

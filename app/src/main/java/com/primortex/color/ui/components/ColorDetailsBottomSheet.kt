@@ -49,12 +49,12 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
-import com.primortex.color.service.ColorDetailsService
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorDetailsBottomSheet(
+    detailsFor: (Int) -> ColorDetails,
     picked: PickedColor,
     onDismiss: () -> Unit,
     onOpenColorDetail: (PickedColor) -> Unit = {},
@@ -70,7 +70,7 @@ fun ColorDetailsBottomSheet(
 
 
     val details: ColorDetails = remember(picked.argb) {
-        ColorDetailsService.details(picked.argb, similarLimit = 10)
+        detailsFor(picked.argb)
     }
 
     ModalBottomSheet(
@@ -122,7 +122,7 @@ fun ColorDetailsBottomSheet(
                 ) {
                     Icon(
                         imageVector = Icons.Outlined.ContentCopy,
-                        contentDescription = "Copy color value"
+                        contentDescription = stringResource(R.string.copy_hex)
                     )
                 }
             }
@@ -241,4 +241,7 @@ private suspend fun copyToClipboard(
         ).toClipEntry()
     )
 }
+
+
+
 

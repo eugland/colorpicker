@@ -11,6 +11,7 @@
     <string name="saved">Сохранено</string>
     <string name="delete">Удалить</string>
 
+    <string name="more_options">Дополнительные параметры</string>
     <string name="palette">Палитра</string>
     <string name="camera">Камера</string>
     <string name="explore">Обзор</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Режим рентгена</string>
     <string name="animate_mode">Режим анимированного стиля</string>
     <string name="cyber_mode">Кибер-стиль</string>
+    <string name="intrinsic_mode">Внутренний (ML) режим</string>
     <string name="mode_normal">Обычный</string>
     <string name="filter_grid_title">Выбрать фильтр</string>
     <string name="choose_theme">Выбрать тему</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Условия обслуживания</string>
     <string name="share_app">Поделиться приложением</string>
     <string name="share_app_description">Отправьте ссылку Play Store друзьям.</string>
+    <string name="delete_all">Удалить всё</string>
+    <string name="color_catalogs">Пакет названий цветов</string>
+    <string name="color_catalogs_description">Язык приложения выбирает пакет названий цветов по умолчанию. Вы можете выбрать только один пакет за раз.</string>
+    <string name="color_catalogs_none_found">В ресурсах приложения пакеты названий цветов не найдены.</string>
+    <string name="color_catalogs_summary">Выберите активный пакет названий цветов.</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">пользовательский интерфейс</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">нейтральный</string>
+    <string name="seed_modern_ui_neutrals_name">Современные нейтральные цвета UI</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">современный</string>
+    <string name="close">Закрыть</string>
+    <string name="seed_modern_ui_neutrals_note">Чистые и гибкие цвета для современных интерфейсов</string>
 </resources>

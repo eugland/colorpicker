@@ -1,0 +1,17 @@
+uniform shader inner;
+uniform float2 invSize;
+
+float luminance(vec3 c) {
+    return dot(c, vec3(0.2126, 0.7152, 0.0722));
+}
+
+half4 main(float2 coord) {
+    vec3 center = inner.eval(coord).rgb;
+    vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
+    vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
+    vec3 up = inner.eval(coord + vec2(0.0, -invSize.y)).rgb;
+    vec3 down = inner.eval(coord + vec2(0.0, invSize.y)).rgb;
+    float edge = luminance(center) - (luminance(left) + luminance(right) + luminance(up) + luminance(down)) * 0.25;
+    vec3 boosted = clamp(center + vec3(edge * 1.2), 0.0, 1.0);
+    return half4(boosted, 1.0);
+}

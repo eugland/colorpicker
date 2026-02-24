@@ -4,11 +4,14 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
 import android.os.LocaleList
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import java.util.Locale
 
-object ColorCatalogImportService {
+@Singleton
+class ColorCatalogImportService @Inject constructor() {
     private val json = Json { ignoreUnknownKeys = true }
 
     fun loadLocaleSeeds(context: Context, languageTag: String? = null): List<ColorSeed> {
@@ -38,3 +41,4 @@ object ColorCatalogImportService {
         return context.createConfigurationContext(config)
     }
 }
+

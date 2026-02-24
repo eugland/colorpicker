@@ -11,6 +11,7 @@
     <string name="saved">Đã lưu</string>
     <string name="delete">Xóa</string>
 
+    <string name="more_options">Tùy chọn khác</string>
     <string name="palette">Bảng màu</string>
     <string name="camera">Máy ảnh</string>
     <string name="explore">Khám phá</string>
@@ -248,6 +249,7 @@
     <string name="xray_mode">Chế độ hình ảnh X-quang</string>
     <string name="animate_mode">Chế độ phong cách hoạt hình</string>
     <string name="cyber_mode">Chế độ phong cách cyber</string>
+    <string name="intrinsic_mode">Chế độ nội tại (ML)</string>
     <string name="mode_normal">Bình thường</string>
     <string name="filter_grid_title">Chọn bộ lọc</string>
     <string name="choose_theme">Chọn chủ đề</string>
@@ -255,4 +257,15 @@
     <string name="terms_of_service">Điều khoản dịch vụ</string>
     <string name="share_app">Chia sẻ ứng dụng</string>
     <string name="share_app_description">Gửi liên kết Play Store cho bạn bè.</string>
+    <string name="delete_all">Xóa tất cả</string>
+    <string name="color_catalogs">Gói tên màu</string>
+    <string name="color_catalogs_description">Ngôn ngữ ứng dụng chọn gói tên màu mặc định. Bạn có thể chọn một gói tại một thời điểm.</string>
+    <string name="color_catalogs_none_found">Không tìm thấy gói tên màu trong tài nguyên ứng dụng.</string>
+    <string name="color_catalogs_summary">Chọn gói tên màu đang hoạt động.</string>
+    <string name="close">Đóng</string>
+    <string name="seed_modern_ui_neutrals_name">Màu trung tính UI hiện đại</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">giao diện người dùng</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">trung tính</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">hiện đại</string>
+    <string name="seed_modern_ui_neutrals_note">Màu sắc sạch và linh hoạt cho giao diện hiện đại</string>
 </resources>
