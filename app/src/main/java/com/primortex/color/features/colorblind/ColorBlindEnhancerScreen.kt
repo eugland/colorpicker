@@ -61,7 +61,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -74,15 +73,91 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.core.math.MathUtils
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.primortex.color.R
 import com.primortex.color.i18n.stringResource
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import javax.inject.Inject
+
+data class ColorBlindEnhancerUiState(
+    val torchOn: Boolean = false,
+    val useFrontCamera: Boolean = false,
+    val selectedMode: EnhancerMode = EnhancerMode.Drastic,
+    val showModeGrid: Boolean = false,
+    val intrinsicMlEffect: RenderEffect? = null
+)
+
+@HiltViewModel
+class ColorBlindEnhancerViewModel @Inject constructor() : ViewModel() {
+    private val _uiState = MutableStateFlow(ColorBlindEnhancerUiState())
+    val uiState: StateFlow<ColorBlindEnhancerUiState> = _uiState.asStateFlow()
+
+    private var smoothedGains: FloatArray? = null
+    private val gainHistory = ArrayDeque<FloatArray>()
+
+    fun onToggleTorch() {
+        _uiState.update { it.copy(torchOn = !it.torchOn) }
+    }
+
+    fun onToggleCameraFacing() {
+        _uiState.update { it.copy(useFrontCamera = !it.useFrontCamera) }
+    }
+
+    fun onOpenModeGrid() {
+        _uiState.update { it.copy(showModeGrid = true) }
+    }
+
+    fun onCloseModeGrid() {
+        _uiState.update { it.copy(showModeGrid = false) }
+    }
+
+    fun onSelectMode(mode: EnhancerMode) {
+        val resetIntrinsic = mode != EnhancerMode.Intrinsic
+        if (resetIntrinsic) {
+            gainHistory.clear()
+            smoothedGains = null
+        }
+        _uiState.update {
+            it.copy(
+                selectedMode = mode,
+                showModeGrid = false,
+                intrinsicMlEffect = if (resetIntrinsic) null else it.intrinsicMlEffect
+            )
+        }
+    }
+
+    fun onAnalyzeFrame(image: ImageProxy) {
+        try {
+            if (_uiState.value.selectedMode != EnhancerMode.Intrinsic) return
+            val gains = estimateIlluminantGains(image) ?: return
+            val medianGains = updateGainHistory(gainHistory, gains, maxSamples = 8)
+            val blended = smoothGains(smoothedGains, medianGains, 0.2f)
+            smoothedGains = blended
+            val effect = RenderEffect.createColorFilterEffect(
+                ColorMatrixColorFilter(createColorMatrix(blended))
+            )
+            _uiState.update { it.copy(intrinsicMlEffect = effect) }
+        } finally {
+            image.close()
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
+    val viewModel: ColorBlindEnhancerViewModel = hiltViewModel()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
         LaunchedEffect(Unit) {
             onBack()
@@ -92,7 +167,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
-    val supportsShader = remember { Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU }
 
     var hasCameraPerm by remember {
         mutableStateOf(
@@ -111,16 +185,12 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         }
     }
 
-    var useFrontCamera by remember { mutableStateOf(false) }
-    var torchOn by remember { mutableStateOf(false) }
     var camera by remember { mutableStateOf<androidx.camera.core.Camera?>(null) }
 
-    var selectedMode by remember { mutableStateOf(EnhancerMode.Drastic) }
-
-    val runtimeShader = remember(ctx, supportsShader) {
+    val runtimeShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.monochrome_shader, "monochrome_shader")
     }
-    val enhancerShader = remember(ctx, supportsShader) {
+    val enhancerShader = remember(ctx) {
         loadRuntimeShader(
             context = ctx,
             rawResId = R.raw.color_blind_enhancer_shader,
@@ -133,53 +203,49 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val enhancerRenderEffect = remember(enhancerShader) {
         enhancerShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val drasticShader = remember(ctx, supportsShader) {
+    val drasticShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.drastic_shader, "drastic_shader")
     }
     val drasticRenderEffect = remember(drasticShader) {
         drasticShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val edgeContrastShader = remember(ctx, supportsShader) {
+    val edgeContrastShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.edge_contrast_shader, "edge_contrast_shader")
     }
     val edgeContrastRenderEffect = remember(edgeContrastShader) {
         edgeContrastShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val thermalShader = remember(ctx, supportsShader) {
+    val thermalShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.thermal_shader, "thermal_shader")
     }
     val thermalRenderEffect = remember(thermalShader) {
         thermalShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val mriShader = remember(ctx, supportsShader) {
+    val mriShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.mri_shader, "mri_shader")
     }
     val mriRenderEffect = remember(mriShader) {
         mriShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val xrayShader = remember(ctx, supportsShader) {
+    val xrayShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.xray_shader, "xray_shader")
     }
     val xrayRenderEffect = remember(xrayShader) {
         xrayShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val animateShader = remember(ctx, supportsShader) {
+    val animateShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.animate_shader, "animate_shader")
     }
     val animateRenderEffect = remember(animateShader) {
         animateShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val cyberShader = remember(ctx, supportsShader) {
+    val cyberShader = remember(ctx) {
         loadRuntimeShader(ctx, R.raw.cyber_shader, "cyber_shader")
     }
     val cyberRenderEffect = remember(cyberShader) {
         cyberShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    var intrinsicMlEffect by remember { mutableStateOf<RenderEffect?>(null) }
-    var smoothedGains by remember { mutableStateOf<FloatArray?>(null) }
-    val gainHistory = remember { ArrayDeque<FloatArray>() }
     val cameraExecutor = remember { Executors.newSingleThreadExecutor() }
-    val mainExecutor = remember(ctx) { ContextCompat.getMainExecutor(ctx) }
 
     val previewView = remember {
         PreviewView(ctx).apply {
@@ -189,8 +255,6 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     }
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
 
-    var showModeGrid by remember { mutableStateOf(false) }
-
     DisposableEffect(Unit) {
         onDispose {
             cameraProvider?.unbindAll()
@@ -198,8 +262,8 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
         }
     }
 
-    LaunchedEffect(torchOn, camera) {
-        camera?.cameraControl?.enableTorch(torchOn)
+    LaunchedEffect(uiState.torchOn, camera) {
+        camera?.cameraControl?.enableTorch(uiState.torchOn)
     }
 
     Box(
@@ -213,35 +277,19 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     .fillMaxSize(),
                 factory = { previewView },
                 update = { view ->
-                    if (!supportsShader || selectedMode == EnhancerMode.Normal) {
+                    if (uiState.selectedMode == EnhancerMode.Normal) {
                         view.setRenderEffect(null)
                         return@AndroidView
                     }
-                    when (selectedMode) {
-                        EnhancerMode.Monochrome -> {
-                            if (runtimeShader != null) {
-                                view.setRenderEffect(renderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                    when (uiState.selectedMode) {
+                        EnhancerMode.Monochrome -> view.setRenderEffect(renderEffect)
 
                         EnhancerMode.Enhance -> {
-                            if (enhancerShader != null) {
-                                enhancerShader.setFloatUniform("intensity", 1.0f)
-                                view.setRenderEffect(enhancerRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
+                            enhancerShader?.setFloatUniform("intensity", 1.0f)
+                            view.setRenderEffect(enhancerRenderEffect)
                         }
 
-                        EnhancerMode.Drastic -> {
-                            if (drasticShader != null) {
-                                view.setRenderEffect(drasticRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Drastic -> view.setRenderEffect(drasticRenderEffect)
 
                         EnhancerMode.Edge -> {
                             if (edgeContrastShader != null) {
@@ -252,69 +300,34 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                     1f / width,
                                     1f / height
                                 )
-                                view.setRenderEffect(edgeContrastRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
                             }
+                            view.setRenderEffect(edgeContrastRenderEffect)
                         }
 
-                        EnhancerMode.Thermal -> {
-                            if (thermalShader != null) {
-                                view.setRenderEffect(thermalRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Thermal -> view.setRenderEffect(thermalRenderEffect)
 
-                        EnhancerMode.Mri -> {
-                            if (mriShader != null) {
-                                view.setRenderEffect(mriRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Mri -> view.setRenderEffect(mriRenderEffect)
 
-                        EnhancerMode.Xray -> {
-                            if (xrayShader != null) {
-                                view.setRenderEffect(xrayRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Xray -> view.setRenderEffect(xrayRenderEffect)
 
-                        EnhancerMode.Animate -> {
-                            if (animateShader != null) {
-                                view.setRenderEffect(animateRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Animate -> view.setRenderEffect(animateRenderEffect)
 
-                        EnhancerMode.Cyber -> {
-                            if (cyberShader != null) {
-                                view.setRenderEffect(cyberRenderEffect)
-                            } else {
-                                view.setRenderEffect(null)
-                            }
-                        }
+                        EnhancerMode.Cyber -> view.setRenderEffect(cyberRenderEffect)
 
-                        EnhancerMode.Intrinsic -> {
-                            view.setRenderEffect(intrinsicMlEffect)
-                        }
+                        EnhancerMode.Intrinsic -> view.setRenderEffect(uiState.intrinsicMlEffect)
 
                         EnhancerMode.Normal -> view.setRenderEffect(null)
                     }
                 }
             )
 
-            val selectedModeState = rememberUpdatedState(selectedMode)
-            LaunchedEffect(hasCameraPerm, useFrontCamera) {
+            LaunchedEffect(hasCameraPerm, uiState.useFrontCamera) {
                 if (!hasCameraPerm) return@LaunchedEffect
                 bindEnhancerCamera(
                     context = ctx,
                     lifecycleOwner = lifecycleOwner,
                     previewView = previewView,
-                    cameraSelector = if (useFrontCamera) {
+                    cameraSelector = if (uiState.useFrontCamera) {
                         CameraSelector.DEFAULT_FRONT_CAMERA
                     } else {
                         CameraSelector.DEFAULT_BACK_CAMERA
@@ -322,24 +335,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     onCameraProviderReady = { cameraProvider = it },
                     onCameraReady = { camera = it },
                     cameraExecutor = cameraExecutor,
-                    onAnalyzeFrame = { image ->
-                        if (selectedModeState.value != EnhancerMode.Intrinsic) {
-                            image.close()
-                            return@bindEnhancerCamera
-                        }
-                        val gains = estimateIlluminantGains(image)
-                        image.close()
-                        if (gains != null) {
-                            val medianGains = updateGainHistory(gainHistory, gains, maxSamples = 8)
-                            mainExecutor.execute {
-                                val blended = smoothGains(smoothedGains, medianGains, 0.2f)
-                                smoothedGains = blended
-                                intrinsicMlEffect = RenderEffect.createColorFilterEffect(
-                                    ColorMatrixColorFilter(createColorMatrix(blended))
-                                )
-                            }
-                        }
-                    }
+                    onAnalyzeFrame = viewModel::onAnalyzeFrame
                 )
             }
         } else {
@@ -382,10 +378,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f)
                     )
-                    IconButton(onClick = { torchOn = !torchOn }) {
+                    IconButton(onClick = viewModel::onToggleTorch) {
                         Icon(
-                            imageVector = if (torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
-                            contentDescription = if (torchOn) {
+                            imageVector = if (uiState.torchOn) Icons.Outlined.FlashOn else Icons.Outlined.FlashOff,
+                            contentDescription = if (uiState.torchOn) {
                                 stringResource(R.string.flash_on)
                             } else {
                                 stringResource(R.string.flash_off)
@@ -393,8 +389,8 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                         )
                     }
                     IconButton(onClick = {
-                        useFrontCamera = !useFrontCamera
-                        Log.d("ColorBlindEnhancer", "Flip camera $useFrontCamera")
+                        viewModel.onToggleCameraFacing()
+                        Log.d("ColorBlindEnhancer", "Flip camera ${!uiState.useFrontCamera}")
                     }) {
                         Icon(
                             imageVector = Icons.Outlined.Cameraswitch,
@@ -405,7 +401,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             }
         }
 
-        if (showModeGrid) {
+        if (uiState.showModeGrid) {
             val modes = EnhancerMode.values().toList()
             val columns = 2
 
@@ -422,7 +418,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     modifier = Modifier
                         .fillMaxSize()
                         .background(Color.Black.copy(alpha = 0.55f))
-                        .clickable { showModeGrid = false }
+                        .clickable { viewModel.onCloseModeGrid() }
                 )
 
                 // Sheet
@@ -465,7 +461,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 modifier = Modifier.weight(1f)
                             )
 
-                            TextButton(onClick = { showModeGrid = false }) {
+                            TextButton(onClick = viewModel::onCloseModeGrid) {
                                 Text(stringResource(R.string.close))
                             }
                         }
@@ -484,10 +480,9 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                 Box(modifier = Modifier.height(itemHeight.dp)) {
                                     ModeGridItem(
                                         mode = mode,
-                                        selected = mode == selectedMode,
+                                        selected = mode == uiState.selectedMode,
                                         onSelect = {
-                                            selectedMode = mode
-                                            showModeGrid = false
+                                            viewModel.onSelectMode(mode)
                                         }
                                     )
                                 }
@@ -514,7 +509,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             ) {
                 Row(
                     modifier = Modifier
-                        .clickable { showModeGrid = true }
+                        .clickable { viewModel.onOpenModeGrid() }
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 14.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -526,7 +521,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                     )
                     Spacer(Modifier.weight(1f))
                     Text(
-                        text = stringResource(selectedMode.labelRes),
+                        text = stringResource(uiState.selectedMode.labelRes),
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
@@ -536,7 +531,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 }
 
 
-private enum class EnhancerMode(val labelRes: Int) {
+enum class EnhancerMode(val labelRes: Int) {
     Normal(R.string.mode_normal),
     Drastic(R.string.drastic_mode),
     Enhance(R.string.color_blind_enhancement),
@@ -552,7 +547,8 @@ private enum class EnhancerMode(val labelRes: Int) {
 
 private fun loadRuntimeShader(context: Context, rawResId: Int, shaderName: String): RuntimeShader? {
     return runCatching {
-        val source = context.resources.openRawResource(rawResId).bufferedReader().use { it.readText() }
+        val source =
+            context.resources.openRawResource(rawResId).bufferedReader().use { it.readText() }
         RuntimeShader(source)
     }.getOrElse { error ->
         Log.e("ColorBlindEnhancer", "Failed to load shader: $shaderName", error)
@@ -809,13 +805,11 @@ private fun updateGainHistory(
     gains: FloatArray,
     maxSamples: Int
 ): FloatArray {
-    synchronized(history) {
-        history.addLast(gains.copyOf())
-        while (history.size > maxSamples) {
-            history.removeFirst()
-        }
-        return medianGains(history)
+    history.addLast(gains.copyOf())
+    while (history.size > maxSamples) {
+        history.removeFirst()
     }
+    return medianGains(history)
 }
 
 private fun medianGains(history: ArrayDeque<FloatArray>): FloatArray {
