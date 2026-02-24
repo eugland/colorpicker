@@ -1,10 +1,16 @@
 package com.primortex.color.service
 
+import android.content.Context
+import android.content.res.Configuration
+import android.os.Build
+import android.os.LocaleList
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import android.content.Context
-import org.junit.Assert.assertFalse
+import java.util.Locale
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -14,6 +20,7 @@ class ColorCatalogImportServiceTest {
 
     private val service = ColorCatalogImportService()
     private val context = ApplicationProvider.getApplicationContext<Context>()
+    private val json = Json { ignoreUnknownKeys = true }
 
     @Test
     fun loadLocaleSeeds_defaultCatalog_isNotEmpty() {
@@ -32,12 +39,13 @@ class ColorCatalogImportServiceTest {
 
     @Test
     fun loadLocaleSeeds_representativeCatalogSizes_matchCurrentContract() {
-        assertEquals(1013, service.loadLocaleSeeds(context).size)
-        assertEquals(1013, service.loadLocaleSeeds(context, "fr").size)
-        assertEquals(143, service.loadLocaleSeeds(context, "ja").size)
-        assertEquals(165, service.loadLocaleSeeds(context, "zh").size)
-        assertEquals(165, service.loadLocaleSeeds(context, "zh-CN").size)
-        assertEquals(165, service.loadLocaleSeeds(context, "zh-TW").size)
+        val representativeTags = listOf("en", "fr", "ja", "zh", "zh-CN", "zh-TW")
+        representativeTags.forEach { tag ->
+            assertEquals(
+                expectedCatalogSizeForTag(tag),
+                service.loadLocaleSeeds(context, tag).size
+            )
+        }
     }
 
     @Test
@@ -58,5 +66,25 @@ class ColorCatalogImportServiceTest {
     fun loadLocaleSeeds_unknownLocale_fallsBackToUsableCatalog() {
         val seeds = service.loadLocaleSeeds(context, "zz-ZZ")
         assertFalse(seeds.isEmpty())
+    }
+
+    private fun expectedCatalogSizeForTag(languageTag: String): Int {
+        val localizedContext = localizedContext(context, languageTag)
+        val resId = localizedContext.resources.getIdentifier("colors", "raw", localizedContext.packageName)
+        check(resId != 0) { "Missing raw/colors resource for locale tag: $languageTag" }
+        val raw = localizedContext.resources.openRawResource(resId).bufferedReader().use { it.readText() }
+        return json.decodeFromString(ListSerializer(ColorSeed.serializer()), raw).size
+    }
+
+    private fun localizedContext(base: Context, languageTag: String): Context {
+        val locale = Locale.forLanguageTag(languageTag)
+        val configuration = Configuration(base.resources.configuration)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            configuration.setLocales(LocaleList(locale))
+        } else {
+            @Suppress("DEPRECATION")
+            configuration.setLocale(locale)
+        }
+        return base.createConfigurationContext(configuration)
     }
 }

@@ -13,7 +13,6 @@ import android.util.Size
 import android.view.Surface
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -81,175 +80,16 @@ import com.primortex.color.i18n.stringResource
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-private const val MONOCHROME_SHADER = """
-uniform shader inner;
-
-half4 main(float2 coord) {
-    half4 c = inner.eval(coord);
-    float y = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722));
-    return half4(vec3(y), c.a);
-}
-"""
-
-private const val COLOR_BLIND_ENHANCER_SHADER = """
-uniform shader inner;
-uniform float intensity;
-
-const mat3 rgbToLms = mat3(
-    0.31399022, 0.63951294, 0.04649755,
-    0.15537241, 0.75789446, 0.08670142,
-    0.01775239, 0.10944209, 0.87256922
-);
-const mat3 lmsToRgb = mat3(
-    5.47221206, -4.6419601, 0.16963708,
-    -1.1252419, 2.29317094, -0.1678952,
-    0.02980165, -0.19318073, 1.16364789
-);
-
-vec3 simulateDeuteranopia(vec3 lms) {
-    return vec3(lms.x, 0.494207 * lms.x + 1.24827 * lms.z, lms.z);
-}
-
-vec3 redistributeError(vec3 error) {
-    return vec3(error.g, 0.0, error.g);
-}
-
-half4 main(float2 coord) {
-    half4 c = inner.eval(coord);
-    vec3 rgb = c.rgb;
-    vec3 lms = rgbToLms * rgb;
-    vec3 simLms = simulateDeuteranopia(lms);
-    vec3 simRgb = lmsToRgb * simLms;
-    vec3 error = rgb - simRgb;
-    vec3 corrected = clamp(rgb + redistributeError(error) * intensity, 0.0, 1.0);
-    return half4(corrected, c.a);
-}
-"""
-
-private const val DRASTIC_SHADER = """
-uniform shader inner;
-
-vec3 saturateColor(vec3 color, float saturation) {
-    float y = dot(color, vec3(0.2126, 0.7152, 0.0722));
-    return mix(vec3(y), color, saturation);
-}
-
-half4 main(float2 coord) {
-    half4 c = inner.eval(coord);
-    vec3 boosted = saturateColor(c.rgb, 2.2);
-    float luma = dot(boosted, vec3(0.2126, 0.7152, 0.0722));
-    float highlightTame = smoothstep(0.6, 1.0, luma);
-    vec3 tamed = mix(boosted, boosted * 0.85, highlightTame);
-    boosted = clamp(tamed + vec3(0.02), 0.0, 1.0);
-    return half4(boosted, c.a);
-}
-"""
-
-private const val EDGE_CONTRAST_SHADER = """
-uniform shader inner;
-uniform float2 invSize;
-
-float luminance(vec3 c) {
-    return dot(c, vec3(0.2126, 0.7152, 0.0722));
-}
-
-half4 main(float2 coord) {
-    vec3 center = inner.eval(coord).rgb;
-    vec3 left = inner.eval(coord + vec2(-invSize.x, 0.0)).rgb;
-    vec3 right = inner.eval(coord + vec2(invSize.x, 0.0)).rgb;
-    vec3 up = inner.eval(coord + vec2(0.0, -invSize.y)).rgb;
-    vec3 down = inner.eval(coord + vec2(0.0, invSize.y)).rgb;
-    float edge = luminance(center) - (luminance(left) + luminance(right) + luminance(up) + luminance(down)) * 0.25;
-    vec3 boosted = clamp(center + vec3(edge * 1.2), 0.0, 1.0);
-    return half4(boosted, 1.0);
-}
-"""
-
-private const val THERMAL_SHADER = """
-uniform shader inner;
-
-vec3 thermalRamp(float t) {
-    if (t < 0.25) {
-        return mix(vec3(0.02, 0.0, 0.2), vec3(0.0, 0.0, 0.8), t / 0.25);
-    }
-    if (t < 0.5) {
-        return mix(vec3(0.0, 0.0, 0.8), vec3(0.0, 0.8, 0.6), (t - 0.25) / 0.25);
-    }
-    if (t < 0.75) {
-        return mix(vec3(0.0, 0.8, 0.6), vec3(0.9, 0.8, 0.0), (t - 0.5) / 0.25);
-    }
-    return mix(vec3(0.9, 0.8, 0.0), vec3(1.0, 0.2, 0.0), (t - 0.75) / 0.25);
-}
-
-half4 main(float2 coord) {
-    vec3 rgb = inner.eval(coord).rgb;
-    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
-    return half4(thermalRamp(t), 1.0);
-}
-"""
-
-private const val MRI_SHADER = """
-uniform shader inner;
-
-half4 main(float2 coord) {
-    vec3 rgb = inner.eval(coord).rgb;
-    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
-    vec3 cool = vec3(0.1, 0.2, 0.4);
-    vec3 warm = vec3(0.9, 0.7, 0.5);
-    vec3 mapped = mix(cool, warm, pow(t, 0.75));
-    return half4(mapped, 1.0);
-}
-"""
-
-private const val XRAY_SHADER = """
-uniform shader inner;
-
-half4 main(float2 coord) {
-    vec3 rgb = inner.eval(coord).rgb;
-    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
-    float inv = 1.0 - t;
-    vec3 mapped = vec3(inv * 0.9 + 0.1);
-    return half4(mapped, 1.0);
-}
-"""
-
-private const val ANIMATE_SHADER = """
-uniform shader inner;
-
-half4 main(float2 coord) {
-    vec3 rgb = inner.eval(coord).rgb;
-    float y = dot(rgb, vec3(0.2126, 0.7152, 0.0722));
-    float q = floor(y * 6.0 + 0.5) / 6.0;
-    vec3 boosted = mix(vec3(y), rgb, 1.6);
-    vec3 toon = mix(vec3(q), boosted, 0.6);
-    return half4(toon, 1.0);
-}
-"""
-
-private const val CYBER_SHADER = """
-uniform shader inner;
-
-vec3 edgeGlow(vec3 center, vec3 left, vec3 right, vec3 up, vec3 down) {
-    vec3 lap = (left + right + up + down) * 0.25 - center;
-    return abs(lap);
-}
-
-half4 main(float2 coord) {
-    vec3 center = inner.eval(coord).rgb;
-    vec3 left = inner.eval(coord + vec2(-1.0, 0.0)).rgb;
-    vec3 right = inner.eval(coord + vec2(1.0, 0.0)).rgb;
-    vec3 up = inner.eval(coord + vec2(0.0, -1.0)).rgb;
-    vec3 down = inner.eval(coord + vec2(0.0, 1.0)).rgb;
-    vec3 glow = edgeGlow(center, left, right, up, down);
-    vec3 cyber = clamp(center * vec3(0.8, 1.0, 1.3) + glow * 1.8, 0.0, 1.0);
-    return half4(cyber, 1.0);
-}
-"""
-
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        LaunchedEffect(Unit) {
+            onBack()
+        }
+        return
+    }
+
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val supportsShader = remember { Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU }
@@ -277,11 +117,15 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 
     var selectedMode by remember { mutableStateOf(EnhancerMode.Drastic) }
 
-    val runtimeShader = remember(supportsShader) {
-        RuntimeShader(MONOCHROME_SHADER)
+    val runtimeShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.monochrome_shader, "monochrome_shader")
     }
-    val enhancerShader = remember(supportsShader) {
-        RuntimeShader(COLOR_BLIND_ENHANCER_SHADER)
+    val enhancerShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(
+            context = ctx,
+            rawResId = R.raw.color_blind_enhancer_shader,
+            shaderName = "color_blind_enhancer_shader"
+        )
     }
     val renderEffect = remember(runtimeShader) {
         runtimeShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
@@ -289,44 +133,44 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
     val enhancerRenderEffect = remember(enhancerShader) {
         enhancerShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val drasticShader = remember(supportsShader) {
-        RuntimeShader(DRASTIC_SHADER)
+    val drasticShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.drastic_shader, "drastic_shader")
     }
     val drasticRenderEffect = remember(drasticShader) {
         drasticShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val edgeContrastShader = remember(supportsShader) {
-        RuntimeShader(EDGE_CONTRAST_SHADER)
+    val edgeContrastShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.edge_contrast_shader, "edge_contrast_shader")
     }
     val edgeContrastRenderEffect = remember(edgeContrastShader) {
         edgeContrastShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val thermalShader = remember(supportsShader) {
-        RuntimeShader(THERMAL_SHADER)
+    val thermalShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.thermal_shader, "thermal_shader")
     }
     val thermalRenderEffect = remember(thermalShader) {
         thermalShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val mriShader = remember(supportsShader) {
-        RuntimeShader(MRI_SHADER)
+    val mriShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.mri_shader, "mri_shader")
     }
     val mriRenderEffect = remember(mriShader) {
         mriShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val xrayShader = remember(supportsShader) {
-        RuntimeShader(XRAY_SHADER)
+    val xrayShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.xray_shader, "xray_shader")
     }
     val xrayRenderEffect = remember(xrayShader) {
         xrayShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val animateShader = remember(supportsShader) {
-        RuntimeShader(ANIMATE_SHADER)
+    val animateShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.animate_shader, "animate_shader")
     }
     val animateRenderEffect = remember(animateShader) {
         animateShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
     }
-    val cyberShader = remember(supportsShader) {
-        RuntimeShader(CYBER_SHADER)
+    val cyberShader = remember(ctx, supportsShader) {
+        loadRuntimeShader(ctx, R.raw.cyber_shader, "cyber_shader")
     }
     val cyberRenderEffect = remember(cyberShader) {
         cyberShader?.let { RenderEffect.createRuntimeShaderEffect(it, "inner") }
@@ -704,6 +548,16 @@ private enum class EnhancerMode(val labelRes: Int) {
     Mri(R.string.mri_mode),
     Xray(R.string.xray_mode),
     Intrinsic(R.string.intrinsic_mode)
+}
+
+private fun loadRuntimeShader(context: Context, rawResId: Int, shaderName: String): RuntimeShader? {
+    return runCatching {
+        val source = context.resources.openRawResource(rawResId).bufferedReader().use { it.readText() }
+        RuntimeShader(source)
+    }.getOrElse { error ->
+        Log.e("ColorBlindEnhancer", "Failed to load shader: $shaderName", error)
+        null
+    }
 }
 
 @Composable

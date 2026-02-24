@@ -16,3 +16,5 @@
 local.properties
 /.idea
 .idea/deploymentTargetSelector.xml
+/.kotlin/errors/
+/node_modules/

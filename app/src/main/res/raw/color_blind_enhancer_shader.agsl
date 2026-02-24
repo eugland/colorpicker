@@ -1,0 +1,32 @@
+uniform shader inner;
+uniform float intensity;
+
+const mat3 rgbToLms = mat3(
+    0.31399022, 0.63951294, 0.04649755,
+    0.15537241, 0.75789446, 0.08670142,
+    0.01775239, 0.10944209, 0.87256922
+);
+const mat3 lmsToRgb = mat3(
+    5.47221206, -4.6419601, 0.16963708,
+    -1.1252419, 2.29317094, -0.1678952,
+    0.02980165, -0.19318073, 1.16364789
+);
+
+vec3 simulateDeuteranopia(vec3 lms) {
+    return vec3(lms.x, 0.494207 * lms.x + 1.24827 * lms.z, lms.z);
+}
+
+vec3 redistributeError(vec3 error) {
+    return vec3(error.g, 0.0, error.g);
+}
+
+half4 main(float2 coord) {
+    half4 c = inner.eval(coord);
+    vec3 rgb = c.rgb;
+    vec3 lms = rgbToLms * rgb;
+    vec3 simLms = simulateDeuteranopia(lms);
+    vec3 simRgb = lmsToRgb * simLms;
+    vec3 error = rgb - simRgb;
+    vec3 corrected = clamp(rgb + redistributeError(error) * intensity, 0.0, 1.0);
+    return half4(corrected, c.a);
+}

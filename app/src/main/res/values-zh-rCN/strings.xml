@@ -266,10 +266,10 @@
     <string name="color_catalogs_none_found">在应用资源中未找到任何颜色名称包。</string>
     <string name="color_catalogs_summary">请选择当前使用的颜色名称包。</string>
     <string name="delete_all">全部删除</string>
-    <string name="close">關閉</string>
-    <string name="seed_modern_ui_neutrals_name">現代介面中性色</string>
-    <string name="seed_modern_ui_neutrals_tag_ui">使用者介面</string>
+    <string name="close">关闭</string>
+    <string name="seed_modern_ui_neutrals_name">现代界面中性色</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">用户界面</string>
     <string name="seed_modern_ui_neutrals_tag_neutral">中性</string>
-    <string name="seed_modern_ui_neutrals_tag_modern">現代</string>
-    <string name="seed_modern_ui_neutrals_note">適用於現代介面的簡潔且靈活的顏色</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">现代</string>
+    <string name="seed_modern_ui_neutrals_note">适用于现代界面的简洁且灵活的颜色</string>
 </resources>

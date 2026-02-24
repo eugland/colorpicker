@@ -1,0 +1,7 @@
+uniform shader inner;
+
+half4 main(float2 coord) {
+    half4 c = inner.eval(coord);
+    float y = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722));
+    return half4(vec3(y), c.a);
+}

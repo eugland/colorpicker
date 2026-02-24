@@ -26,6 +26,7 @@ class RecentPicksServiceUnitTest {
         )
         waitForInit()
         service.clear()
+        waitUntil { service.history.value.isEmpty() }
 
         val red = PickedColor(0xFFFF0000.toInt(), "Red")
         val blue = PickedColor(0xFF0000FF.toInt(), "Blue")
@@ -47,6 +48,7 @@ class RecentPicksServiceUnitTest {
         )
         waitForInit()
         service.clearSaved()
+        waitUntil { service.saved.value.isEmpty() }
 
         val green = PickedColor(0xFF00FF00.toInt(), "Green")
         service.toggleSaved(green, isCurrentlySaved = false)

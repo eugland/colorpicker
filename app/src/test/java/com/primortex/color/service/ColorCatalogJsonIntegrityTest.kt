@@ -16,6 +16,7 @@ import org.junit.Test
 class ColorCatalogJsonIntegrityTest {
     private val json = Json { ignoreUnknownKeys = true }
     private val resDir: Path = Paths.get("src", "main", "res")
+    private val localeQualifierRegex = Regex("^[a-z]{2,3}(-r[A-Z]{2})?$")
 
     private fun rawDirs(): List<Path> =
         Files.list(resDir).use { stream ->
@@ -106,6 +107,7 @@ class ColorCatalogJsonIntegrityTest {
             stream
                 .filter { Files.isDirectory(it) && it.fileName.toString().startsWith("values-") }
                 .map { it.fileName.toString().removePrefix("values-") }
+                .filter { qualifier -> localeQualifierRegex.matches(qualifier) }
                 .sorted()
                 .toList()
         }

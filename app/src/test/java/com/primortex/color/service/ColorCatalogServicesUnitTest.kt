@@ -4,6 +4,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Test
 import org.junit.runner.RunWith
+import kotlinx.coroutines.runBlocking
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
@@ -32,7 +33,9 @@ class ColorCatalogServicesUnitTest {
         val colorService = ColorService(emptyList())
         val coordinator = ColorCatalogCoordinator(repository, colorService)
 
-        coordinator.setLanguageOverride("zh")
+        runBlocking {
+            coordinator.loadNow("zh")
+        }
 
         val all = colorService.allColors()
         assertFalse(all.isEmpty())

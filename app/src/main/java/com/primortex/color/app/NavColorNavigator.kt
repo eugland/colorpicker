@@ -1,5 +1,6 @@
 package com.primortex.color.app
 
+import android.os.Build
 import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
@@ -49,6 +50,7 @@ class NavColorNavigator(
     }
 
     override fun openColorBlindEnhancer() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
         nav.navigateIfNotCurrent(Routes.Tool.COLOR_BLIND)
     }
 

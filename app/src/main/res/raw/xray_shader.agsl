@@ -1,0 +1,9 @@
+uniform shader inner;
+
+half4 main(float2 coord) {
+    vec3 rgb = inner.eval(coord).rgb;
+    float t = clamp(dot(rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 1.0);
+    float inv = 1.0 - t;
+    vec3 mapped = vec3(inv * 0.9 + 0.1);
+    return half4(mapped, 1.0);
+}

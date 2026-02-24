@@ -19,10 +19,21 @@ android {
         applicationId = "com.primortex.color"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.0.4"
+        versionCode = 5
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = providers.environmentVariable("KEYSTORE_PATH")
+                .orNull
+                ?.let { file(it) }
+            storePassword = providers.environmentVariable("KEYSTORE_PASSWORD").orNull
+            keyAlias = "key0"
+            keyPassword = providers.environmentVariable("KEY_PASSWORD").orNull
+        }
     }
 
     buildTypes {
@@ -32,7 +43,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {

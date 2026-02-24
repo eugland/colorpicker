@@ -1,5 +1,6 @@
 package com.primortex.color.features.camera
 
+import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
@@ -38,6 +39,8 @@ fun CameraScreen(
     onOpenColorBlindEnhancer: () -> Unit,
     onPickFromAlbum: (String) -> Unit
 ) {
+    val isColorBlindEnhancerSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+
     val pickPhotoLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->
@@ -100,7 +103,10 @@ fun CameraScreen(
         Spacer(Modifier.height(6.dp))
 
         ColorSliderCard(onOpenColorSlider = onOpenColorSlider)
-        ColorBlindEnhancerCard(onOpenColorBlindEnhancer = onOpenColorBlindEnhancer)
+        ColorBlindEnhancerCard(
+            onOpenColorBlindEnhancer = onOpenColorBlindEnhancer,
+            isEnabled = isColorBlindEnhancerSupported
+        )
     }
 }
 
@@ -134,11 +140,15 @@ private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
 }
 
 @Composable
-private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
+private fun ColorBlindEnhancerCard(
+    onOpenColorBlindEnhancer: () -> Unit,
+    isEnabled: Boolean
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge,
-        onClick = onOpenColorBlindEnhancer
+        onClick = onOpenColorBlindEnhancer,
+        enabled = isEnabled
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -157,7 +167,7 @@ private fun ColorBlindEnhancerCard(onOpenColorBlindEnhancer: () -> Unit) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            FilledTonalButton(onClick = onOpenColorBlindEnhancer) {
+            FilledTonalButton(onClick = onOpenColorBlindEnhancer, enabled = isEnabled) {
                 Text(stringResource(R.string.open))
             }
         }

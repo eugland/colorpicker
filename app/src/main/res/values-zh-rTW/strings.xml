@@ -264,10 +264,10 @@
     <string name="color_catalogs_none_found">在應用程式資源中未找到任何顏色名稱包。</string>
     <string name="color_catalogs_summary">請選擇目前使用的顏色名稱包。</string>
     <string name="delete_all">全部刪除</string>
-    <string name="close">Zavřít</string>
-    <string name="seed_modern_ui_neutrals_name">Moderní neutrální barvy UI</string>
-    <string name="seed_modern_ui_neutrals_tag_ui">uživatelské rozhraní</string>
-    <string name="seed_modern_ui_neutrals_tag_neutral">neutrální</string>
-    <string name="seed_modern_ui_neutrals_tag_modern">moderní</string>
-    <string name="seed_modern_ui_neutrals_note">Čisté a flexibilní barvy pro moderní rozhraní</string>
+    <string name="close">關閉</string>
+    <string name="seed_modern_ui_neutrals_name">現代介面中性色</string>
+    <string name="seed_modern_ui_neutrals_tag_ui">使用者介面</string>
+    <string name="seed_modern_ui_neutrals_tag_neutral">中性</string>
+    <string name="seed_modern_ui_neutrals_tag_modern">現代</string>
+    <string name="seed_modern_ui_neutrals_note">適用於現代介面的簡潔且靈活的顏色</string>
 </resources>

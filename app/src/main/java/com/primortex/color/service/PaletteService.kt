@@ -1,6 +1,7 @@
 package com.primortex.color.service
 
 import android.content.Context
+import android.os.Build
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -48,30 +49,10 @@ class PaletteService @Inject constructor(
         }
     }
 
-    private object PaletteDbHolder {
-        val executor = Executors.newSingleThreadExecutor()
-        @Volatile private var instance: PaletteDatabase? = null
-
-        fun get(context: Context): PaletteDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: Room.databaseBuilder(
-                    context.applicationContext,
-                    PaletteDatabase::class.java,
-                    "palettes.db"
-                )
-                    .addMigrations(MIGRATION_1_2)
-                    .setQueryExecutor(executor)
-                    .setTransactionExecutor(executor)
-                    .build()
-                    .also { instance = it }
-            }
-        }
-    }
-
     private val appContext = context.applicationContext
-    private val dbExecutor = PaletteDbHolder.executor
+    private val dbExecutor = Executors.newSingleThreadExecutor()
     private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
-    private val dao = PaletteDbHolder.get(appContext).paletteDao()
+    private val dao = createDatabase(appContext).paletteDao()
     private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
     val palettes: StateFlow<List<Palette>> = _palettes
@@ -84,6 +65,20 @@ class PaletteService @Inject constructor(
             _palettes.value = dao.loadAll().map { it.toDomain() }
         }
         firstPaletteLogged = prefs.getBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, false)
+    }
+
+    private fun createDatabase(context: Context): PaletteDatabase {
+        val builder =
+            if (Build.FINGERPRINT.contains("robolectric", ignoreCase = true)) {
+                Room.inMemoryDatabaseBuilder(context, PaletteDatabase::class.java)
+            } else {
+                Room.databaseBuilder(context, PaletteDatabase::class.java, "palettes.db")
+            }
+        return builder
+            .addMigrations(MIGRATION_1_2)
+            .setQueryExecutor(dbExecutor)
+            .setTransactionExecutor(dbExecutor)
+            .build()
     }
 
     suspend fun seedPalettesIfEmpty(palettes: List<Palette>) {

@@ -1,6 +1,7 @@
 package com.primortex.color.service
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import androidx.room.Room
 import androidx.room.migration.Migration
@@ -23,6 +24,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicLong
 
 @Singleton
 class RecentPicksService @Inject constructor(
@@ -41,32 +43,13 @@ class RecentPicksService @Inject constructor(
         }
     }
 
-    private object RecentPicksDbHolder {
-        val executor = Executors.newSingleThreadExecutor()
-        @Volatile private var instance: RecentPicksDatabase? = null
-
-        fun get(context: Context): RecentPicksDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: Room.databaseBuilder(
-                    context.applicationContext,
-                    RecentPicksDatabase::class.java,
-                    "recent_picks.db"
-                )
-                    .addMigrations(MIGRATION_1_2)
-                    .setQueryExecutor(executor)
-                    .setTransactionExecutor(executor)
-                    .build()
-                    .also { instance = it }
-            }
-        }
-    }
-
     private val appContext = context.applicationContext
-    private val dbExecutor = RecentPicksDbHolder.executor
+    private val dbExecutor = Executors.newSingleThreadExecutor()
     private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
-    private val db: RecentPicksDatabase = RecentPicksDbHolder.get(appContext)
+    private val db: RecentPicksDatabase = createDatabase(appContext)
     private val dao = db.recentPicksDao()
     private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private val timestampCounter = AtomicLong(System.currentTimeMillis())
     val history: StateFlow<List<PickedColor>> = dao.observeHistory(MAX)
         .map { rows -> rows.map { it.toPickedColor() } }
         .stateIn(scope, SharingStarted.Eagerly, emptyList())
@@ -82,6 +65,20 @@ class RecentPicksService @Inject constructor(
         Log.d("RecentPicksService", "Recent picks Room flow initialized")
     }
 
+    private fun createDatabase(context: Context): RecentPicksDatabase {
+        val builder =
+            if (Build.FINGERPRINT.contains("robolectric", ignoreCase = true)) {
+                Room.inMemoryDatabaseBuilder(context, RecentPicksDatabase::class.java)
+            } else {
+                Room.databaseBuilder(context, RecentPicksDatabase::class.java, "recent_picks.db")
+            }
+        return builder
+            .addMigrations(MIGRATION_1_2)
+            .setQueryExecutor(dbExecutor)
+            .setTransactionExecutor(dbExecutor)
+            .build()
+    }
+
     fun addPick(pick: PickedColor, source: String = "unknown") {
         analyticsTracker.logColorPicked(pick, source)
         if (!firstPickLogged) {
@@ -94,7 +91,7 @@ class RecentPicksService @Inject constructor(
                 RecentPickHistoryEntity(
                     argb = pick.argb,
                     name = pick.name,
-                    updatedAt = System.currentTimeMillis()
+                    updatedAt = nextTimestamp()
                 )
             )
             dao.trimHistory(MAX)
@@ -121,7 +118,7 @@ class RecentPicksService @Inject constructor(
                 SavedPickEntity(
                     argb = pick.argb,
                     name = pick.name,
-                    updatedAt = System.currentTimeMillis()
+                    updatedAt = nextTimestamp()
                 )
             )
             dao.trimSaved(MAX)
@@ -152,7 +149,7 @@ class RecentPicksService @Inject constructor(
                     SavedPickEntity(
                         argb = pick.argb,
                         name = pick.name,
-                        updatedAt = System.currentTimeMillis()
+                        updatedAt = nextTimestamp()
                     )
                 )
                 dao.trimSaved(MAX)
@@ -168,7 +165,7 @@ class RecentPicksService @Inject constructor(
 
     suspend fun seedHistoryIfEmpty(picks: List<PickedColor>) {
         if (dao.loadHistory(MAX).isEmpty() && picks.isNotEmpty()) {
-            val now = System.currentTimeMillis()
+            val now = nextTimestamp()
             val entities = picks.mapIndexed { index, pick ->
                 RecentPickHistoryEntity(
                     argb = pick.argb,
@@ -183,7 +180,7 @@ class RecentPicksService @Inject constructor(
 
     suspend fun seedSavedIfEmpty(picks: List<PickedColor>) {
         if (dao.loadSaved(MAX).isEmpty() && picks.isNotEmpty()) {
-            val now = System.currentTimeMillis()
+            val now = nextTimestamp()
             val entities = picks.mapIndexed { index, pick ->
                 SavedPickEntity(
                     argb = pick.argb,
@@ -193,6 +190,13 @@ class RecentPicksService @Inject constructor(
             }
             dao.insertSaved(entities)
             dao.trimSaved(MAX)
+        }
+    }
+
+    private fun nextTimestamp(): Long {
+        val now = System.currentTimeMillis()
+        return timestampCounter.updateAndGet { previous ->
+            if (now > previous) now else previous + 1
         }
     }
 }

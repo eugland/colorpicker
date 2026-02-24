@@ -55,10 +55,18 @@ import com.primortex.color.service.argbToHex
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-internal fun ColorDetailsContent(uiState: ColorDetailsUiState, onAction: (ColorDetailsUiAction) -> Unit) {
+internal fun ColorDetailsContent(
+    uiState: ColorDetailsUiState,
+    onAction: (ColorDetailsUiAction) -> Unit
+) {
     ColorHeroCard(argb = uiState.details.argb)
     Spacer(Modifier.height(14.dp))
-    ColorHeaderRow(displayName = uiState.displayName, hex = uiState.details.hex, argb = uiState.details.argb, onAction = onAction)
+    ColorHeaderRow(
+        displayName = uiState.displayName,
+        hex = uiState.details.hex,
+        argb = uiState.details.argb,
+        onAction = onAction
+    )
     Spacer(Modifier.height(12.dp))
     ColorActionsRow(isSaved = uiState.isSaved, onAction = onAction)
     Spacer(Modifier.height(14.dp))
@@ -68,13 +76,22 @@ internal fun ColorDetailsContent(uiState: ColorDetailsUiState, onAction: (ColorD
     Spacer(Modifier.height(14.dp))
     Text(stringResource(R.string.harmonies), style = MaterialTheme.typography.titleMedium)
     Spacer(Modifier.height(8.dp))
-    HarmonyRow(label = stringResource(R.string.harmony_complement), argbs = uiState.details.complements)
+    HarmonyRow(
+        label = stringResource(R.string.harmony_complement),
+        argbs = uiState.details.complements
+    )
     Spacer(Modifier.height(8.dp))
     HarmonyRow(label = stringResource(R.string.harmony_triad), argbs = uiState.details.triads)
     Spacer(Modifier.height(8.dp))
-    HarmonyRow(label = stringResource(R.string.harmony_analogous), argbs = uiState.details.analogous)
+    HarmonyRow(
+        label = stringResource(R.string.harmony_analogous),
+        argbs = uiState.details.analogous
+    )
     Spacer(Modifier.height(14.dp))
-    Text(stringResource(R.string.color_shades_tints_tones_title, uiState.displayName), style = MaterialTheme.typography.titleMedium)
+    Text(
+        stringResource(R.string.color_shades_tints_tones_title, uiState.displayName),
+        style = MaterialTheme.typography.titleMedium
+    )
     Spacer(Modifier.height(10.dp))
     HarmonyRow(label = stringResource(R.string.tints_label), argbs = uiState.details.tints)
     Spacer(Modifier.height(8.dp))
@@ -100,30 +117,84 @@ private fun metricsFor(uiState: ColorDetailsUiState): List<Pair<String, String>>
 
 @Composable
 private fun ColorHeroCard(argb: Int) {
-    Surface(shape = MaterialTheme.shapes.extraLarge, tonalElevation = 2.dp, modifier = Modifier.fillMaxWidth()) {
+    Surface(
+        shape = MaterialTheme.shapes.extraLarge,
+        tonalElevation = 2.dp,
+        modifier = Modifier.fillMaxWidth()
+    ) {
         val baseColor = Color(argb)
         val baseHsl = remember(argb) { FloatArray(3).apply { ColorUtils.colorToHSL(argb, this) } }
         val transition = rememberInfiniteTransition(label = "breathingTint")
         val shift by transition.animateFloat(
             initialValue = 0.06f,
             targetValue = 0.1f,
-            animationSpec = infiniteRepeatable(animation = tween(durationMillis = 8000, easing = LinearEasing), repeatMode = RepeatMode.Reverse),
+            animationSpec = infiniteRepeatable(
+                animation = tween(
+                    durationMillis = 8000,
+                    easing = LinearEasing
+                ), repeatMode = RepeatMode.Reverse
+            ),
             label = "lightnessShift"
         )
-        val tint = remember(baseHsl, shift) { Color(ColorUtils.HSLToColor(floatArrayOf(baseHsl[0], baseHsl[1], (baseHsl[2] + shift).coerceIn(0f, 1f)))) }
-        val shade = remember(baseHsl, shift) { Color(ColorUtils.HSLToColor(floatArrayOf(baseHsl[0], baseHsl[1], (baseHsl[2] - shift).coerceIn(0f, 1f)))) }
-        Box(Modifier.fillMaxWidth().height(160.dp).background(Brush.linearGradient(colors = listOf(tint, baseColor, shade))))
+        val tint = remember(baseHsl, shift) {
+            Color(
+                ColorUtils.HSLToColor(
+                    floatArrayOf(
+                        baseHsl[0],
+                        baseHsl[1],
+                        (baseHsl[2] + shift).coerceIn(0f, 1f)
+                    )
+                )
+            )
+        }
+        val shade = remember(baseHsl, shift) {
+            Color(
+                ColorUtils.HSLToColor(
+                    floatArrayOf(
+                        baseHsl[0],
+                        baseHsl[1],
+                        (baseHsl[2] - shift).coerceIn(0f, 1f)
+                    )
+                )
+            )
+        }
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(160.dp)
+                .background(Brush.linearGradient(colors = listOf(tint, baseColor, shade)))
+        )
     }
 }
 
 @Composable
-private fun ColorHeaderRow(displayName: String, hex: String, argb: Int, onAction: (ColorDetailsUiAction) -> Unit) {
+private fun ColorHeaderRow(
+    displayName: String,
+    hex: String,
+    argb: Int,
+    onAction: (ColorDetailsUiAction) -> Unit
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Box(Modifier.size(64.dp).background(Color(argb), CircleShape).border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape))
+        Box(
+            Modifier
+                .size(64.dp)
+                .background(Color(argb), CircleShape)
+                .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+        )
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
-            Text(displayName, style = MaterialTheme.typography.titleLarge, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Text(hex, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant, fontFamily = FontFamily.Monospace)
+            Text(
+                displayName,
+                style = MaterialTheme.typography.titleLarge,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                hex,
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontFamily = FontFamily.Monospace
+            )
         }
         IconButton(onClick = { onAction(ColorDetailsUiAction.CopyHexClicked) }) {
             Icon(Icons.Outlined.ContentCopy, contentDescription = stringResource(R.string.copy_hex))
@@ -154,27 +225,74 @@ private fun ColorActionsRow(isSaved: Boolean, onAction: (ColorDetailsUiAction) -
 @Composable
 private fun ColorInfoChips(uiState: ColorDetailsUiState) {
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-        AssistChip(onClick = {}, label = { Text(stringResource(R.string.luma_label, (uiState.details.luminance * 100).toInt())) })
-        AssistChip(onClick = {}, label = { Text(if (uiState.details.isDark) stringResource(R.string.dark_label) else stringResource(R.string.light_label)) })
         AssistChip(
             onClick = {},
             label = {
-                val textColor = if (uiState.details.recommendedOnColor == 0xFFFFFFFF.toInt()) stringResource(R.string.white_label) else stringResource(R.string.black_label)
+                Text(
+                    stringResource(
+                        R.string.luma_label,
+                        (uiState.details.luminance * 100).toInt()
+                    )
+                )
+            })
+        AssistChip(
+            onClick = {},
+            label = {
+                Text(
+                    if (uiState.details.isDark) stringResource(R.string.dark_label) else stringResource(
+                        R.string.light_label
+                    )
+                )
+            })
+        AssistChip(
+            onClick = {},
+            label = {
+                val textColor =
+                    if (uiState.details.recommendedOnColor == 0xFFFFFFFF.toInt()) stringResource(R.string.white_label) else stringResource(
+                        R.string.black_label
+                    )
                 Text(stringResource(R.string.text_recommendation, textColor))
             }
         )
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun SimilarColorsSection(similarColors: List<PickedColor>) {
-    FlowRow(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+    FlowRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
         similarColors.forEach { s ->
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.width(84.dp)) {
-                Box(Modifier.size(44.dp).background(Color(s.argb), CircleShape).border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape))
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.width(84.dp)
+            ) {
+                Box(
+                    Modifier
+                        .size(44.dp)
+                        .background(Color(s.argb), CircleShape)
+                        .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                )
                 Spacer(Modifier.height(6.dp))
-                Text(text = s.name, style = MaterialTheme.typography.labelSmall, maxLines = 2, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                Text(text = argbToHex(s.argb), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, fontFamily = FontFamily.Monospace, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Text(
+                    text = s.name,
+                    style = MaterialTheme.typography.labelSmall,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Text(
+                    text = argbToHex(s.argb),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontFamily = FontFamily.Monospace,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
         }
     }
@@ -183,14 +301,29 @@ private fun SimilarColorsSection(similarColors: List<PickedColor>) {
 @Composable
 private fun HarmonyRow(label: String, argbs: List<Int>) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Text(label, style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(90.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            label,
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.width(90.dp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
         Spacer(Modifier.width(8.dp))
         LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             items(argbs) { a ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Box(Modifier.size(28.dp).background(Color(a), CircleShape).border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape))
+                    Box(
+                        Modifier
+                            .size(28.dp)
+                            .background(Color(a), CircleShape)
+                            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, CircleShape)
+                    )
                     Spacer(Modifier.width(6.dp))
-                    Text(argbToHex(a), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, fontFamily = FontFamily.Monospace)
+                    Text(
+                        argbToHex(a),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontFamily = FontFamily.Monospace
+                    )
                 }
             }
         }
@@ -202,13 +335,25 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items.forEach { (k, v) ->
             Row(
-                Modifier.fillMaxWidth().background(
-                    MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f),
-                    RoundedCornerShape(12.dp)
-                ).padding(horizontal = 12.dp, vertical = 10.dp)
+                Modifier
+                    .fillMaxWidth()
+                    .background(
+                        MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f),
+                        RoundedCornerShape(12.dp)
+                    )
+                    .padding(horizontal = 12.dp, vertical = 10.dp)
             ) {
-                Text(k, style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(52.dp), color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(v, style = MaterialTheme.typography.bodyMedium, fontFamily = FontFamily.Monospace)
+                Text(
+                    k,
+                    style = MaterialTheme.typography.labelMedium,
+                    modifier = Modifier.width(52.dp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    v,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontFamily = FontFamily.Monospace
+                )
             }
         }
     }
