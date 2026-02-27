@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --line: #dbe2ea;
+  --link: #0f4c81;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #eff6ff, var(--bg));
+}
+
+.shell {
+  max-width: 900px;
+  margin: 32px auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.topbar {
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 0 8px;
+  display: flex;
+  gap: 16px;
+}
+
+a {
+  color: var(--link);
+}
+
+.markdown-body {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  background: #0b1220;
+  color: #e2e8f0;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--line);
+  padding: 8px;
+}
