@@ -46,6 +46,16 @@ class ScreenShotMaker {
         assertFileLooksValid(outFile)
     }
 
+    @Test
+    fun captureLivePickingScreenToPng() {
+        openTab("Camera")
+        clickText("Start picking!")
+        Thread.sleep(100)
+        composeRule.waitForIdle()
+        val outFile = captureCurrentScreen("colorpicking_livepicking")
+        assertFileLooksValid(outFile)
+    }
+
 
     @Test
     fun capturePhotoPickingScreenToPng() {
