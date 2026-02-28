@@ -26,9 +26,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.unit.dp
 import com.primortex.color.R
+import com.primortex.color.ui.TestTags
 import com.primortex.color.ui.components.WaterCard
 
 @Composable
@@ -72,7 +74,8 @@ fun CameraScreen(
                 Color(0xFF3FAFE8),
                 Color(0xFF3561E8)
             ),
-            onClick = onOpenLiveCameraPicker
+            onClick = onOpenLiveCameraPicker,
+            modifier = Modifier.testTag(TestTags.CAMERA_START_PICKING_CARD)
         )
 
         WaterCard(

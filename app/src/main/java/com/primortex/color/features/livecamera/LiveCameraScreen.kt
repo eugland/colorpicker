@@ -169,7 +169,12 @@ fun LiveCameraScreen(
 
     var cameraProvider by remember { mutableStateOf<ProcessCameraProvider?>(null) }
     val previewView =
-        remember { PreviewView(ctx).apply { scaleType = PreviewView.ScaleType.FILL_CENTER } }
+        remember {
+            PreviewView(ctx).apply {
+                scaleType = PreviewView.ScaleType.FILL_CENTER
+                implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+            }
+        }
     val cameraExecutor: ExecutorService = remember { Executors.newSingleThreadExecutor() }
     var imageCapture by remember { mutableStateOf<ImageCapture?>(null) }
 

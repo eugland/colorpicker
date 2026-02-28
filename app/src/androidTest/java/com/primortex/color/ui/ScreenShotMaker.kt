@@ -1,64 +1,122 @@
 package com.primortex.color.ui
 
+import android.Manifest
+import android.content.Context
 import android.content.res.AssetManager
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onFirst
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeUp
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.core.os.LocaleListCompat
 import androidx.test.platform.app.InstrumentationRegistry
 import com.primortex.color.MainActivity
 import com.primortex.color.app.PickedColor
+import com.primortex.color.data.enums.AppLanguage
 import com.primortex.color.features.photopick.PhotoPickScreen
 import com.primortex.color.features.photopick.PhotoPickUiAction
 import com.primortex.color.features.photopick.PhotoPickUiState
+import com.primortex.color.i18n.AppStrings
+import com.primortex.color.i18n.LanguageCache
+import com.primortex.color.i18n.LocaleManagerBridge
 import com.primortex.color.service.ColorDetails
 import com.primortex.color.service.Hsl
 import com.primortex.color.service.Hsv
 import com.primortex.color.service.Rgb
 import com.primortex.color.ui.theme.ColorTheme
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Rule
-import org.junit.Test
-import org.junit.runner.RunWith
 import java.io.File
 import java.io.FileOutputStream
 
-@RunWith(AndroidJUnit4::class)
-class ScreenShotMaker {
+abstract class ScreenShotMakerBase {
+    companion object {
+        private const val LOG_TAG = "ScreenShotMaker"
+    }
+
+    protected val localeEn = "en"
+    protected val localeJa = "ja"
+    protected val localeZh = "zh"
+
+    protected val supportedAppLocales: List<String> = AppLanguage.entries
+        .mapNotNull { language ->
+            language.languageTag?.trim()?.takeIf { it.isNotEmpty() }
+        }
+        .distinct()
 
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
+    private var stageCounter: Int = 0
+    private var activeLocaleTag: String = localeEn
 
-    @Test
-    fun captureCameraScreenToPng() {
-        openTab("Camera")
-        val outFile = captureCurrentScreen("camera_screen")
+    protected fun captureSuiteFor(localeTag: String) = runWithLocale(
+        localeTag = localeTag,
+        forceResetAndSeedOnStart = true,
+        cleanupAppDataOnExit = true
+    ) { captureSuite() }
+
+    protected fun captureStageFor(
+        localeTag: String,
+        stageName: String,
+        block: () -> Unit
+    ) {
+        runWithLocale(localeTag) {
+            logStage(stageName)
+            block()
+        }
+    }
+
+    protected fun captureSuite() {
+        logStage("camera_screen")
+        captureCameraScreen()
+        logStage("live_picking_screen")
+        captureLivePickingScreen()
+        logStage("photo_picking_screen")
+        capturePhotoPickingScreen()
+        logStage("explore_screen")
+        captureExploreScreen()
+        logStage("palette_screen")
+        capturePaletteScreen()
+        logStage("palette_details_view")
+        capturePaletteDetailsView()
+        logStage("color_details_view")
+        captureColorDetailsView()
+    }
+
+    protected fun captureCameraScreen() {
+        openTab(TestTags.TAB_CAMERA)
+        val outFile = captureCurrentScreen("camera_screen", folder = activeLocaleTag)
         assertFileLooksValid(outFile)
     }
 
-    @Test
-    fun captureLivePickingScreenToPng() {
-        openTab("Camera")
-        clickText("Start picking!")
-        Thread.sleep(100)
+    protected fun captureLivePickingScreen() {
+        grantPermissionIfNeeded(Manifest.permission.CAMERA)
+        openTab(TestTags.TAB_CAMERA)
+        clickTag(TestTags.CAMERA_START_PICKING_CARD)
         composeRule.waitForIdle()
-        val outFile = captureCurrentScreen("colorpicking_livepicking")
+        Thread.sleep(450)
+        val outFile = captureCurrentScreen(
+            prefix = "colorpicking_livepicking",
+            folder = activeLocaleTag,
+            includePlatformViews = true,
+            avoidNearBlack = true
+        )
         assertFileLooksValid(outFile)
     }
 
-
-    @Test
-    fun capturePhotoPickingScreenToPng() {
+    protected fun capturePhotoPickingScreen() {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val ctx = instrumentation.targetContext
         val photoFile = copyAssetToCacheFile(
@@ -89,98 +147,184 @@ class ScreenShotMaker {
         composeRule.waitForIdle()
         Thread.sleep(100)
         composeRule.waitForIdle()
-        val outFile = captureCurrentScreen("colorpicking_photopicking")
+        val outFile = captureCurrentScreen(
+            prefix = "colorpicking_photopicking",
+            folder = activeLocaleTag,
+            includePlatformViews = true,
+            avoidNearBlack = true
+        )
+        assertFileLooksValid(outFile)
+        relaunchMainActivityAndWait()
+    }
+
+    protected fun captureExploreScreen() {
+        openTab(TestTags.TAB_EXPLORE)
+        val outFile = captureCurrentScreen("explore_screen", folder = activeLocaleTag)
         assertFileLooksValid(outFile)
     }
 
-    @Test
-    fun captureExploreScreenToPng() {
-        openTab("Explore")
-        val outFile = captureCurrentScreen("explore_screen")
+    protected fun capturePaletteScreen() {
+        openTab(TestTags.TAB_PALETTE)
+        val outFile = captureCurrentScreen("palette_screen", folder = activeLocaleTag)
         assertFileLooksValid(outFile)
     }
 
-    @Test
-    fun capturePaletteScreenToPng() {
-        openTab("Palette")
-        val outFile = captureCurrentScreen("palette_screen")
+    protected fun capturePaletteDetailsView() {
+        openTab(TestTags.TAB_PALETTE)
+        openFirstSavedPalette()
+        val outFile = captureCurrentScreen("palette_details_view", folder = activeLocaleTag)
         assertFileLooksValid(outFile)
     }
 
-    @Test
-    fun capturePaletteDetailsViewToPng() {
-        openTab("Palette")
-        scrollDown(3)
-        if (!clickTextIfPresent("Show more")) {
-            clickLastSeeMore()
-        }
-        clickTextIfPresent("Modern UI Neutrals")
-        val outFile = captureCurrentScreen("palette_details_view")
+    protected fun captureColorDetailsView() {
+        openTab(TestTags.TAB_PALETTE)
+        openFirstSavedPalette()
+        clickTag("${TestTags.PALETTE_DETAIL_COLOR_CARD_PREFIX}0")
+        val outFile = captureCurrentScreen("color_details_view", folder = activeLocaleTag)
         assertFileLooksValid(outFile)
     }
 
-    @Test
-    fun captureColorDetailsViewToPng() {
-        openTab("Palette")
-        assertFileLooksValid(captureCurrentScreen("palette_screen"))
-        scrollDown(3)
-        if (!clickTextIfPresent("Show more")) {
-            clickLastSeeMore()
-        }
-        clickTextIfPresent("Modern UI Neutrals")
-        if (!clickTextIfPresent("Blue Jeans")) {
-            clickNthViewMore(4)
-        } else if (!clickTextIfPresent("View more", substring = true)) {
-            clickNthViewMore(4)
-        }
-        val outFile = captureCurrentScreen("color_details_view")
-        assertFileLooksValid(outFile)
-    }
-
-    private fun openTab(tabName: String) {
-        clickText(tabName)
+    private fun openTab(tabTag: String) {
+        ensureComposeHierarchy("openTab:$tabTag")
+        ensureBottomTabsVisible()
+        waitForTag(tabTag)
+        clickTag(tabTag)
         composeRule.waitForIdle()
     }
 
-    private fun clickText(text: String, substring: Boolean = false) {
-        composeRule.onAllNodesWithText(text, substring = substring, ignoreCase = true)
-            .onFirst()
-            .performClick()
+    private fun clickTag(tag: String) {
+        composeRule.onNodeWithTag(tag, useUnmergedTree = true).performClick()
     }
 
-    private fun clickTextIfPresent(text: String, substring: Boolean = false): Boolean {
-        val nodes = composeRule.onAllNodesWithText(text, substring = substring, ignoreCase = true)
-            .fetchSemanticsNodes()
-        if (nodes.isEmpty()) return false
-        composeRule.onAllNodesWithText(text, substring = substring, ignoreCase = true)
-            .onFirst()
-            .performClick()
-        composeRule.waitForIdle()
-        return true
-    }
-
-    private fun clickLastSeeMore() {
-        val nodes =
-            composeRule.onAllNodesWithText("See more", ignoreCase = true).fetchSemanticsNodes()
-        if (nodes.isNotEmpty()) {
-            composeRule.onAllNodesWithText("See more", ignoreCase = true)[nodes.lastIndex]
-                .performClick()
+    private fun hasTag(tag: String): Boolean {
+        return try {
+            composeRule.onAllNodesWithTag(tag, useUnmergedTree = true)
+                .fetchSemanticsNodes().isNotEmpty()
+        } catch (_: IllegalStateException) {
+            false
         }
-        composeRule.waitForIdle()
     }
 
-    private fun clickNthViewMore(position1Based: Int) {
-        val index = (position1Based - 1).coerceAtLeast(0)
-        val nodes = composeRule
-            .onAllNodesWithText("View more", substring = true, ignoreCase = true)
-            .fetchSemanticsNodes()
-        if (nodes.isNotEmpty()) {
-            val safeIndex = index.coerceAtMost(nodes.lastIndex)
-            composeRule
-                .onAllNodesWithText("View more", substring = true, ignoreCase = true)[safeIndex]
-                .performClick()
+    private fun waitForTag(tag: String, timeoutMs: Long = 6_000L) {
+        val start = System.currentTimeMillis()
+        while (System.currentTimeMillis() - start < timeoutMs) {
+            if (hasTag(tag)) return
             composeRule.waitForIdle()
+            Thread.sleep(120)
         }
+        throw AssertionError("Timed out waiting for tag: $tag")
+    }
+
+    private fun ensureBottomTabsVisible() {
+        val rootTabTag = TestTags.TAB_PALETTE
+        ensureComposeHierarchy("ensureBottomTabsVisible")
+        if (hasTag(rootTabTag)) return
+
+        repeat(8) {
+            if (hasTag(rootTabTag)) return
+            composeRule.activity.runOnUiThread {
+                composeRule.activity.onBackPressedDispatcher.onBackPressed()
+            }
+            composeRule.waitForIdle()
+            Thread.sleep(120)
+        }
+
+        relaunchMainActivityAndWait()
+        waitForTag(rootTabTag)
+    }
+
+    protected fun runWithLocale(
+        localeTag: String,
+        forceResetAndSeedOnStart: Boolean = false,
+        cleanupAppDataOnExit: Boolean = false,
+        block: () -> Unit
+    ) {
+        activeLocaleTag = localeTag
+        stageCounter = 0
+        Log.i(LOG_TAG, "===== BEGIN locale=$localeTag folder=$localeTag =====")
+        if (forceResetAndSeedOnStart) {
+            clearTargetAppData()
+        }
+        setAppLocale(localeTag)
+        if (forceResetAndSeedOnStart) {
+            forceSeedNow()
+        }
+        beforeLocaleCapture(localeTag)
+        try {
+            block()
+        } finally {
+            afterLocaleCapture(localeTag)
+            if (cleanupAppDataOnExit) {
+                clearTargetAppData()
+            }
+            Log.i(LOG_TAG, "===== END locale=$localeTag folder=$localeTag =====")
+        }
+    }
+
+    protected open fun beforeLocaleCapture(localeTag: String) {
+        // Hook for language-specific setup.
+        // Example: create a fresh palette after switching locale so color names are localized.
+    }
+
+    protected open fun afterLocaleCapture(localeTag: String) {
+        // Hook for language-specific teardown/cleanup.
+    }
+
+    private fun setAppLocale(languageTag: String) {
+        val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
+        val locales = LocaleListCompat.forLanguageTags(languageTag)
+        LocaleManagerBridge.setApplicationLocales(targetContext, locales)
+        LanguageCache.set(targetContext, languageTag)
+        AppStrings.clear()
+        relaunchMainActivityAndWait()
+    }
+
+    protected fun logStage(stageName: String) {
+        stageCounter += 1
+        Log.i(
+            LOG_TAG,
+            "locale=$activeLocaleTag stage=$stageCounter name=$stageName"
+        )
+    }
+
+    private fun hasComposeHierarchy(): Boolean {
+        return try {
+            composeRule.onRoot(useUnmergedTree = true).fetchSemanticsNode()
+            true
+        } catch (_: IllegalStateException) {
+            false
+        }
+    }
+
+    private fun ensureComposeHierarchy(reason: String) {
+        if (hasComposeHierarchy()) return
+        Log.w(LOG_TAG, "No compose hierarchy for '$reason'. Relaunching activity.")
+        relaunchMainActivityAndWait()
+    }
+
+    protected fun relaunchMainActivityAndWait() {
+        composeRule.activity.runOnUiThread { composeRule.activity.recreate() }
+        repeat(30) {
+            composeRule.waitForIdle()
+            if (hasComposeHierarchy()) return
+            Thread.sleep(120)
+        }
+        throw IllegalStateException("Compose hierarchy did not recover after activity recreate.")
+    }
+
+    private fun openFirstSavedPalette() {
+        val targetTag = "${TestTags.PALETTE_SAVED_CARD_PREFIX}0"
+        repeat(8) {
+            val matches = composeRule.onAllNodesWithTag(targetTag, useUnmergedTree = true)
+                .fetchSemanticsNodes()
+            if (matches.isNotEmpty()) {
+                clickTag(targetTag)
+                composeRule.waitForIdle()
+                return
+            }
+            scrollDown(1)
+        }
+        throw AssertionError("Could not find saved palette card with tag: $targetTag")
     }
 
     private fun scrollDown(times: Int) {
@@ -193,18 +337,89 @@ class ScreenShotMaker {
         }
     }
 
-    private fun captureCurrentScreen(prefix: String): File {
+    private fun captureCurrentScreen(
+        prefix: String,
+        folder: String = "default",
+        includePlatformViews: Boolean = false,
+        avoidNearBlack: Boolean = false
+    ): File {
         val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
         val arguments = InstrumentationRegistry.getArguments()
         val outputDir = arguments.getString("additionalTestOutputDir")
         val customFileName = arguments.getString("screenshotFileName")
-        val bitmap = composeRule.onRoot().captureToImage().asAndroidBitmap()
+        val bitmap = captureBitmapWithRetries(
+            includePlatformViews = includePlatformViews,
+            avoidNearBlack = avoidNearBlack
+        )
         return saveBitmap(
             baseDir = outputDir?.let(::File) ?: targetContext.cacheDir,
             bitmap = bitmap,
+            folder = folder,
             prefix = prefix,
             customFileName = customFileName
         )
+    }
+
+    private fun captureBitmapWithRetries(
+        includePlatformViews: Boolean,
+        avoidNearBlack: Boolean
+    ): Bitmap {
+        val maxAttempts = if (avoidNearBlack) 10 else 1
+        var lastBitmap: Bitmap? = null
+        repeat(maxAttempts) { attempt ->
+            composeRule.waitForIdle()
+            val bitmap = if (includePlatformViews) {
+                captureDeviceScreenBitmap()
+            } else {
+                composeRule.onRoot().captureToImage().asAndroidBitmap()
+            }
+            lastBitmap = bitmap
+            if (!avoidNearBlack || !isLikelyNearBlack(bitmap)) {
+                return bitmap
+            }
+            Log.w(
+                LOG_TAG,
+                "Captured near-black frame; retry ${attempt + 1}/$maxAttempts"
+            )
+            Thread.sleep(180)
+        }
+        return lastBitmap ?: throw IllegalStateException("Failed to capture screenshot bitmap.")
+    }
+
+    private fun captureDeviceScreenBitmap(): Bitmap {
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        composeRule.waitForIdle()
+        Thread.sleep(120)
+        composeRule.waitForIdle()
+        return instrumentation.uiAutomation.takeScreenshot()
+            ?: throw IllegalStateException("Failed to capture device screenshot.")
+    }
+
+    private fun isLikelyNearBlack(bitmap: Bitmap): Boolean {
+        val sampleX = 14
+        val sampleY = 24
+        val stepX = (bitmap.width / sampleX).coerceAtLeast(1)
+        val stepY = (bitmap.height / sampleY).coerceAtLeast(1)
+        var brightCount = 0
+        var sampleCount = 0
+        var y = 0
+        while (y < bitmap.height) {
+            var x = 0
+            while (x < bitmap.width) {
+                val pixel = bitmap.getPixel(x, y)
+                val r = Color.red(pixel)
+                val g = Color.green(pixel)
+                val b = Color.blue(pixel)
+                val luma = (0.2126f * r) + (0.7152f * g) + (0.0722f * b)
+                if (luma > 22f) brightCount += 1
+                sampleCount += 1
+                x += stepX
+            }
+            y += stepY
+        }
+        if (sampleCount == 0) return true
+        val brightRatio = brightCount.toFloat() / sampleCount.toFloat()
+        return brightRatio < 0.03f
     }
 
     private fun assertFileLooksValid(outFile: File) {
@@ -215,10 +430,11 @@ class ScreenShotMaker {
     private fun saveBitmap(
         baseDir: File,
         bitmap: Bitmap,
+        folder: String,
         prefix: String,
         customFileName: String?
     ): File {
-        val screenshotsDir = File(baseDir, "screenshots").apply { mkdirs() }
+        val screenshotsDir = File(baseDir, "screenshots/$folder").apply { mkdirs() }
         val outFile = File(
             screenshotsDir,
             customFileName
@@ -268,6 +484,83 @@ class ScreenShotMaker {
             }
         }
         return outFile
+    }
+
+    private fun grantPermissionIfNeeded(permission: String) {
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val packageName = instrumentation.targetContext.packageName
+        val pfd = instrumentation.uiAutomation.executeShellCommand(
+            "pm grant $packageName $permission"
+        )
+        pfd.close()
+    }
+
+    private fun clearTargetAppData() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext.applicationContext
+        clearAllUserTables(context, "palettes.db")
+        clearAllUserTables(context, "recent_picks.db")
+        clearSeedFlag(context)
+    }
+
+    private fun clearSeedFlag(context: Context) {
+        context.getSharedPreferences("seed_flags", Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean("seeded_v1", false)
+            .apply()
+        Log.i(LOG_TAG, "Unset seed flag seed_flags/seeded_v1")
+    }
+
+    private fun clearAllUserTables(context: Context, dbName: String) {
+        val dbFile = context.getDatabasePath(dbName)
+        if (!dbFile.exists()) {
+            Log.i(LOG_TAG, "Database not found, skip clear: ${dbFile.absolutePath}")
+            return
+        }
+
+        runCatching {
+            SQLiteDatabase.openDatabase(
+                dbFile.absolutePath,
+                null,
+                SQLiteDatabase.OPEN_READWRITE
+            ).use { db ->
+                db.beginTransaction()
+                try {
+                    val tableNames = mutableListOf<String>()
+                    db.rawQuery(
+                        """
+                        SELECT name
+                        FROM sqlite_master
+                        WHERE type = 'table'
+                          AND name NOT LIKE 'sqlite_%'
+                          AND name != 'room_master_table'
+                          AND name != 'android_metadata'
+                        """.trimIndent(),
+                        null
+                    ).use { cursor ->
+                        while (cursor.moveToNext()) {
+                            tableNames += cursor.getString(0)
+                        }
+                    }
+                    tableNames.forEach { table ->
+                        db.execSQL("DELETE FROM `$table`")
+                    }
+                    db.setTransactionSuccessful()
+                } finally {
+                    db.endTransaction()
+                }
+            }
+            Log.i(LOG_TAG, "Cleared Room user tables in $dbName")
+        }.onFailure { error ->
+            Log.w(LOG_TAG, "Failed clearing $dbName: ${error.message}")
+        }
+    }
+
+    private fun forceSeedNow() {
+        runBlocking {
+            composeRule.activity.seedService.seedOnInit()
+        }
+        relaunchMainActivityAndWait()
+        Log.i(LOG_TAG, "Force seed completed")
     }
 
     private fun emptyColorDetails(): ColorDetails {

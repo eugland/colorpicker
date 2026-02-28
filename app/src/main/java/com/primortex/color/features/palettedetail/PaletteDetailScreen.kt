@@ -63,6 +63,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
@@ -80,6 +81,7 @@ import com.primortex.color.service.PaletteService
 import com.primortex.color.service.argbToHex
 import com.primortex.color.service.rgbDistSq
 import com.primortex.color.ui.LocalSnackbarController
+import com.primortex.color.ui.TestTags
 import com.primortex.color.ui.components.ScreenScaffold
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -367,6 +369,7 @@ fun PaletteDetailScreen(
 
                 val cardContent: @Composable () -> Unit = {
                     PaletteColorCard(
+                        modifier = Modifier.testTag("${TestTags.PALETTE_DETAIL_COLOR_CARD_PREFIX}$index"),
                         color = color,
                         isEditing = editorState.isEditing,
                         isDragging = isDragging,
@@ -700,6 +703,7 @@ private fun ActionRow(
 
 @Composable
 private fun PaletteColorCard(
+    modifier: Modifier = Modifier,
     color: PickedColor,
     isEditing: Boolean,
     isDragging: Boolean,
@@ -711,7 +715,7 @@ private fun PaletteColorCard(
     onDragEnd: () -> Unit,
 ) {
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(enabled = !isEditing) { onClick() },
         tonalElevation = if (isDragging) 8.dp else 2.dp,

@@ -29,6 +29,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -65,6 +66,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
@@ -83,6 +85,7 @@ import com.primortex.color.service.argbToHex
 import com.primortex.color.ui.components.ColorDetailsBottomSheet
 import com.primortex.color.ui.components.ScreenScaffold
 import com.primortex.color.ui.components.SwatchSection
+import com.primortex.color.ui.TestTags
 import com.primortex.color.ui.components.WaterCard
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -421,10 +424,11 @@ fun PaletteScreen(
                 } else {
                     savedPalettes
                 }
-                items(visiblePalettes) { p ->
+                itemsIndexed(visiblePalettes) { index, p ->
                     PaletteCard(
                         palette = p,
-                        onOpen = { onOpenPalette(p) }
+                        onOpen = { onOpenPalette(p) },
+                        modifier = Modifier.testTag("${TestTags.PALETTE_SAVED_CARD_PREFIX}$index")
                     )
                     Spacer(Modifier.height(10.dp))
                 }
@@ -696,11 +700,12 @@ private fun ColorSearchBar(
 private fun PaletteCard(
     palette: Palette,
     onOpen: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Surface(
         shape = RoundedCornerShape(16.dp),
         tonalElevation = 2.dp,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onOpen)
     ) {

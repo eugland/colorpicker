@@ -21,23 +21,40 @@ object AppStrings {
     }
 
     fun get(@StringRes id: Int, vararg formatArgs: Any): String {
-        val context = appContext
+        val baseContext = appContext
             ?: error("AppStrings is not initialized. Call AppStrings.init(context) in Application.onCreate().")
+        val localeKey = resolveLocaleKey(baseContext)
+        val localizedContext = if (localeKey.isBlank()) {
+            baseContext
+        } else {
+            LocaleUtil.wrap(baseContext, localeKey)
+        }
 
         if (formatArgs.isEmpty()) {
-            return stringCache.getOrPut(id.toString()) { context.getString(id) }
+            val key = "$localeKey|$id"
+            return stringCache.getOrPut(key) { localizedContext.getString(id) }
         }
 
         val key = buildString {
+            append(localeKey)
+            append('|')
             append(id)
             formatArgs.forEach {
                 append('|')
                 append(it.toString())
             }
         }
-        return stringCache.getOrPut(key) { context.getString(id, *formatArgs) }
+        return stringCache.getOrPut(key) { localizedContext.getString(id, *formatArgs) }
     }
 
+    private fun resolveLocaleKey(context: Context): String {
+        LanguageCache.get(context)?.let { return it }
+        val applicationLocales = LocaleManagerBridge.getApplicationLocales(context)
+        if (!applicationLocales.isEmpty) {
+            return applicationLocales[0]?.toLanguageTag().orEmpty()
+        }
+        return context.resources.configuration.locales[0]?.toLanguageTag().orEmpty()
+    }
 }
 
 @Composable

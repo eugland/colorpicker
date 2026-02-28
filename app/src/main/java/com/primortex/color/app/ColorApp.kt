@@ -24,6 +24,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -53,6 +54,7 @@ import com.primortex.color.i18n.stringResource
 import com.primortex.color.info.InfoContent
 import com.primortex.color.service.SettingsService
 import com.primortex.color.ui.LocalSnackbarController
+import com.primortex.color.ui.TestTags
 import com.primortex.color.ui.rememberSnackbarController
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -106,6 +108,7 @@ fun ColorApp(
                         NavigationBarItem(
                             selected = selectedRoot == Routes.Tab.PALETTE,
                             onClick = { navigator.openPaletteTab() },
+                            modifier = Modifier.testTag(TestTags.TAB_PALETTE),
                             icon = {
                                 Icon(
                                     Icons.Filled.Palette,
@@ -118,6 +121,7 @@ fun ColorApp(
                         NavigationBarItem(
                             selected = selectedRoot == Routes.Tab.CAMERA,
                             onClick = { navigator.openCameraTab() },
+                            modifier = Modifier.testTag(TestTags.TAB_CAMERA),
                             icon = {
                                 Icon(
                                     Icons.Filled.Camera,
@@ -129,6 +133,7 @@ fun ColorApp(
                         NavigationBarItem(
                             selected = selectedRoot == Routes.Tab.EXPLORE,
                             onClick = { navigator.openExploreTab() },
+                            modifier = Modifier.testTag(TestTags.TAB_EXPLORE),
                             icon = {
                                 Icon(
                                     Icons.Filled.Explore,

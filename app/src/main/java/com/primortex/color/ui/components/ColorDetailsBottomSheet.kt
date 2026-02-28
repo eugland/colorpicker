@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.Clipboard
 import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.platform.toClipEntry
 import com.primortex.color.i18n.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -49,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import com.primortex.color.R
 import com.primortex.color.app.PickedColor
 import com.primortex.color.service.ColorDetails
+import com.primortex.color.ui.TestTags
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -173,6 +175,7 @@ fun ColorDetailsBottomSheet(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
+                    .testTag(TestTags.COLOR_DETAILS_SHOW_MORE_BUTTON)
             ) {
                 Text(
                     stringResource(R.string.show_more),
