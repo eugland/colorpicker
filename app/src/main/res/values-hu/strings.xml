@@ -13,7 +13,7 @@
 
     <string name="more_options">További lehetőségek</string>
     <string name="palette">Paletta</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Felfedezés</string>
 
     <string name="follows_your_device_language">A készülék nyelvét követi</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Adj gyors értékelést a Play Áruházban.</string>
 
     <string name="share_app_text">Nézze meg a Color Picker alkalmazást a Google Playen: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Válassz színeket élőben vagy fotóról. Koppints bármely mintára a másoláshoz.</string>
 
     <string name="photo_picking">Fotó kiválasztása</string>

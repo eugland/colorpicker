@@ -6,6 +6,8 @@ object TestTags {
     const val TAB_EXPLORE = "tab_explore"
 
     const val CAMERA_START_PICKING_CARD = "camera_start_picking_card"
+    const val CAMERA_COLOR_SLIDER_CARD = "camera_color_slider_card"
+    const val CAMERA_COLOR_BLIND_ENHANCER_CARD = "camera_color_blind_enhancer_card"
 
     const val PALETTE_SAVED_CARD_PREFIX = "palette_saved_card_"
 

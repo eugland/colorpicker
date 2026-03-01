@@ -13,7 +13,7 @@
 
     <string name="more_options">Daha fazla seçenek</string>
     <string name="palette">Palet</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Keşfet</string>
 
     <string name="follows_your_device_language">Cihaz dilini takip eder</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Play Store\'da hızlıca puan verin.</string>
 
     <string name="share_app_text">Google Play\'de Color Picker\'a göz atın: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Renkleri canlı veya fotoğraftan seçin. Kopyalamak için bir örneğe dokunun.</string>
 
     <string name="photo_picking">Fotoğraf seçimi</string>

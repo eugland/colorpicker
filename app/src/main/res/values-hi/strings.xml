@@ -13,7 +13,7 @@
 
     <string name="more_options">और विकल्प</string>
     <string name="palette">पैलेट</string>
-    <string name="camera">कैमरा</string>
+    <string name="camera">Picker</string>
     <string name="explore">एक्सप्लोर करें</string>
 
     <string name="follows_your_device_language">आपके डिवाइस की भाषा का पालन करता है</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Play Store पर एक त्वरित रेटिंग छोड़ें।</string>
 
     <string name="share_app_text">Google Play पर Color Picker देखें: %1$s</string>
-    <string name="camera_title">कैमरा</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">लाइव या फोटो से रंग चुनें। किसी भी स्वैच पर टैप करके कॉपी करें।</string>
 
     <string name="photo_picking">फ़ोटो पिकिंग</string>

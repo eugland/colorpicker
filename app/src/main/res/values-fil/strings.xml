@@ -13,7 +13,7 @@
 
     <string name="more_options">Higit pang opsyon</string>
     <string name="palette">Paleta</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Tuklasin</string>
 
     <string name="follows_your_device_language">Sumusunod sa wika ng iyong device</string>
@@ -169,7 +169,7 @@
     <string name="rate_us_description">Mag-iwan ng mabilis na rating sa Play Store.</string>
 
     <string name="share_app_text">Tingnan ang Color Picker sa Google Play: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Pumili ng mga kulay nang live o mula sa larawan. I-tap ang anumang swatch para kopyahin.</string>
 
     <string name="photo_picking">Pagpili ng larawan</string>

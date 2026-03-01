@@ -31,12 +31,12 @@ class SeedService @Inject constructor(
         colorCatalogCoordinator.loadNow()
 
         val now = System.currentTimeMillis()
-        val modernUiNeutralColors = listOf(
-            0xFF0F172A.toInt(),
-            0xFF475569.toInt(),
-            0xFFA1A1AA.toInt(),
-            0xFF0EA5E9.toInt(),
-            0xFF10B981.toInt()
+        val welcomingStarterColors = listOf(
+            0xFFA9D6E5.toInt(), // powder sky
+            0xFFB8D8BA.toInt(), // calm sage
+            0xFFFFB5A7.toInt(), // gentle coral
+            0xFFFFD6A5.toInt(), // soft apricot
+            0xFFFFF8F0.toInt()  // warm ivory
         ).map { argb ->
             PickedColor(
                 argb = argb,
@@ -47,7 +47,7 @@ class SeedService @Inject constructor(
         val modernUiNeutrals = Palette(
             id = UUID.randomUUID().toString(),
             name = AppStrings.get(R.string.seed_modern_ui_neutrals_name),
-            colors = modernUiNeutralColors,
+            colors = welcomingStarterColors,
             tags = listOf(
                 AppStrings.get(R.string.seed_modern_ui_neutrals_tag_ui),
                 AppStrings.get(R.string.seed_modern_ui_neutrals_tag_neutral),
@@ -59,8 +59,8 @@ class SeedService @Inject constructor(
         )
 
         paletteService.seedPalettesIfEmpty(palettes = listOf(modernUiNeutrals))
-        recentPicksService.seedHistoryIfEmpty(picks = modernUiNeutralColors)
-        recentPicksService.seedSavedIfEmpty(picks = modernUiNeutralColors)
+        recentPicksService.seedHistoryIfEmpty(picks = welcomingStarterColors)
+        recentPicksService.seedSavedIfEmpty(picks = welcomingStarterColors)
 
         prefs.edit().putBoolean(PREF_KEY_SEEDED, true).apply()
     }

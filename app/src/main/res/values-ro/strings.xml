@@ -13,7 +13,7 @@
 
     <string name="more_options">Mai multe opțiuni</string>
     <string name="palette">Paletă</string>
-    <string name="camera">Cameră</string>
+    <string name="camera">Picker</string>
     <string name="explore">Explorează</string>
 
     <string name="follows_your_device_language">Urmează limba dispozitivului</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Lasă o evaluare rapidă în Play Store.</string>
 
     <string name="share_app_text">Descoperiți Color Picker pe Google Play: %1$s</string>
-    <string name="camera_title">Cameră</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Selectează culori live sau dintr-o fotografie. Atinge orice mostră pentru a copia.</string>
 
     <string name="photo_picking">Selectare fotografii</string>

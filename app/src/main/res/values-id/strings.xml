@@ -13,7 +13,7 @@
 
     <string name="more_options">Opsi lainnya</string>
     <string name="palette">Palet</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Jelajahi</string>
 
     <string name="follows_your_device_language">Mengikuti bahasa perangkat Anda</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Berikan penilaian singkat di Play Store.</string>
 
     <string name="share_app_text">Lihat Color Picker di Google Play: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Pilih warna secara langsung atau dari foto. Ketuk swatch untuk menyalin.</string>
 
     <string name="photo_picking">Pemilihan foto</string>

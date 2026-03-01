@@ -13,7 +13,7 @@
 
     <string name="more_options">ตัวเลือกเพิ่มเติม</string>
     <string name="palette">พาเลตต์</string>
-    <string name="camera">กล้อง</string>
+    <string name="camera">Picker</string>
     <string name="explore">สำรวจ</string>
 
     <string name="follows_your_device_language">ใช้ตามภาษาของอุปกรณ์</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">ให้คะแนนสั้นๆ ใน Play Store</string>
 
     <string name="share_app_text">ดู Color Picker บน Google Play: %1$s</string>
-    <string name="camera_title">กล้อง</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">เลือกสีแบบสดหรือจากรูปภาพ แตะตัวอย่างเพื่อคัดลอก</string>
 
     <string name="photo_picking">การเลือกจากรูปภาพ</string>

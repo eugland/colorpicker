@@ -13,7 +13,7 @@
 
     <string name="more_options">Дополнительные параметры</string>
     <string name="palette">Палитра</string>
-    <string name="camera">Камера</string>
+    <string name="camera">Picker</string>
     <string name="explore">Обзор</string>
 
     <string name="follows_your_device_language">Следовать языку устройства</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Оставьте быструю оценку в Play Store.</string>
 
     <string name="share_app_text">Посмотрите Color Picker в Google Play: %1$s</string>
-    <string name="camera_title">Камера</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Подбирайте цвета вживую или с фото. Нажмите на образец, чтобы скопировать.</string>
 
     <string name="photo_picking">Выбор фото</string>

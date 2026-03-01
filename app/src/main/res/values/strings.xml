@@ -14,7 +14,7 @@
     <string name="more_options">More options</string>
 
     <string name="palette">Palette</string>
-    <string name="camera">Camera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Explore</string>
 
     <string name="follows_your_device_language">Follows your device language</string>
@@ -207,7 +207,7 @@
     <string name="share_app_description">Send the Play Store link to friends.</string>
     <string name="share_app_text">Check out Color Picker on Google Play: %1$s</string>
 
-    <string name="camera_title">Camera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Pick colors live or from a photo. Tap any swatch to copy.</string>
 
     <string name="photo_picking">Photo picking</string>

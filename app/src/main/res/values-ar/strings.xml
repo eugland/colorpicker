@@ -13,7 +13,7 @@
 
     <string name="more_options">المزيد من الخيارات</string>
     <string name="palette">لوحة</string>
-    <string name="camera">الكاميرا</string>
+    <string name="camera">Picker</string>
     <string name="explore">استكشاف</string>
 
     <string name="follows_your_device_language">يتبع لغة جهازك</string>
@@ -169,7 +169,7 @@
     <string name="rate_us_description">اترك تقييمًا سريعًا على متجر Play.</string>
 
     <string name="share_app_text">اطّلع على Color Picker على متجر Google Play: %1$s</string>
-    <string name="camera_title">الكاميرا</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">التقط الألوان مباشرة أو من صورة. اضغط على أي عينة لنسخها.</string>
 
     <string name="photo_picking">اختيار الصور</string>

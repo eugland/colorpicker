@@ -14,7 +14,7 @@
 
     <string name="more_options">更多选项</string>
     <string name="palette">调色板</string>
-    <string name="camera">相机</string>
+    <string name="camera">Picker</string>
     <string name="explore">探索</string>
 
     <string name="follows_your_device_language">跟随设备语言</string>
@@ -166,7 +166,7 @@
     <string name="rate_us">为我们评分</string>
     <string name="rate_us_description">在 Play 商店留下快速评分。</string>
     <string name="share_app_text">在 Google Play 上查看 Color Picker：%1$s</string>
-    <string name="camera_title">相机</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">实时取色或从照片中取色。点击任意色块即可复制。</string>
 
     <string name="photo_picking">照片取色</string>

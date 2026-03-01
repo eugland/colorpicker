@@ -13,7 +13,7 @@
 
     <string name="more_options">אפשרויות נוספות</string>
     <string name="palette">פלטה</string>
-    <string name="camera">מצלמה</string>
+    <string name="camera">Picker</string>
     <string name="explore">גלה</string>
 
     <string name="follows_your_device_language">בהתאם לשפת המכשיר שלך</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">השאר דירוג קצר בחנות Play.</string>
 
     <string name="share_app_text">בדוק את Color Picker ב-Google Play: %1$s</string>
-    <string name="camera_title">מצלמה</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">בחר צבעים בזמן אמת או מתמונה. הקש על דוגמית כדי להעתיק.</string>
 
     <string name="photo_picking">בחירת תמונה</string>

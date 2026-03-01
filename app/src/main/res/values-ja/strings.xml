@@ -11,7 +11,7 @@
     <string name="delete">削除</string>
     <string name="more_options">その他のオプション</string>
     <string name="palette">パレット</string>
-    <string name="camera">カメラ</string>
+    <string name="camera">Picker</string>
     <string name="explore">探索</string>
     <string name="follows_your_device_language">端末の言語に従う</string>
     <string name="choose_language">言語を選択</string>
@@ -150,7 +150,7 @@
     <string name="usage_guide">使い方ガイド</string>
     <string name="usage_guide_description">手順ガイドと主要タスクの索引</string>
     <string name="share_app_text">Google Play で Color Picker をチェック: %1$s</string>
-    <string name="camera_title">カメラ</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">ライブまたは写真から色を取得。スウォッチをタップしてコピー。</string>
     <string name="photo_picking">写真から取得</string>
     <string name="more_info">詳細</string>

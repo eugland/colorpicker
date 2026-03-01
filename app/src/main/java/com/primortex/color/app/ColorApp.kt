@@ -8,7 +8,7 @@ import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Camera
+import androidx.compose.material.icons.filled.Colorize
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material3.Icon
@@ -124,7 +124,7 @@ fun ColorApp(
                             modifier = Modifier.testTag(TestTags.TAB_CAMERA),
                             icon = {
                                 Icon(
-                                    Icons.Filled.Camera,
+                                    Icons.Filled.Colorize,
                                     contentDescription = stringResource(R.string.camera)
                                 )
                             },

@@ -116,7 +116,9 @@ fun CameraScreen(
 @Composable
 private fun ColorSliderCard(onOpenColorSlider: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(TestTags.CAMERA_COLOR_SLIDER_CARD),
         shape = MaterialTheme.shapes.extraLarge,
         onClick = onOpenColorSlider
     ) {
@@ -148,7 +150,9 @@ private fun ColorBlindEnhancerCard(
     isEnabled: Boolean
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(TestTags.CAMERA_COLOR_BLIND_ENHANCER_CARD),
         shape = MaterialTheme.shapes.extraLarge,
         onClick = onOpenColorBlindEnhancer,
         enabled = isEnabled

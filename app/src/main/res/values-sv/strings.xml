@@ -13,7 +13,7 @@
 
     <string name="more_options">Fler alternativ</string>
     <string name="palette">Palett</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Utforska</string>
 
     <string name="follows_your_device_language">Följer enhetens språk</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Lämna ett snabbt betyg i Play Store.</string>
 
     <string name="share_app_text">Kolla in Color Picker på Google Play: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Plocka färger live eller från ett foto. Tryck på en provruta för att kopiera.</string>
 
     <string name="photo_picking">Fotoplockning</string>

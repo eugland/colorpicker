@@ -13,7 +13,7 @@
 
     <string name="more_options">Περισσότερες επιλογές</string>
     <string name="palette">Παλέτα</string>
-    <string name="camera">Κάμερα</string>
+    <string name="camera">Picker</string>
     <string name="explore">Εξερεύνηση</string>
 
     <string name="follows_your_device_language">Ακολουθεί τη γλώσσα της συσκευής σας</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Αφήστε μια γρήγορη αξιολόγηση στο Play Store.</string>
 
     <string name="share_app_text">Δείτε το Color Picker στο Google Play: %1$s</string>
-    <string name="camera_title">Κάμερα</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Επιλέξτε χρώματα ζωντανά ή από φωτογραφία. Πατήστε οποιοδήποτε δείγμα για αντιγραφή.</string>
 
     <string name="photo_picking">Επιλογή φωτογραφίας</string>

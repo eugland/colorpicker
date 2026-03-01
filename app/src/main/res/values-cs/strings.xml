@@ -13,7 +13,7 @@
 
     <string name="more_options">Další možnosti</string>
     <string name="palette">Paleta</string>
-    <string name="camera">Fotoaparát</string>
+    <string name="camera">Picker</string>
     <string name="explore">Prozkoumat</string>
 
     <string name="follows_your_device_language">Podle jazyka zařízení</string>
@@ -169,7 +169,7 @@
     <string name="rate_us_description">Zanechte rychlé hodnocení v obchodě Play.</string>
 
     <string name="share_app_text">Podívejte se na Color Picker v Google Play: %1$s</string>
-    <string name="camera_title">Fotoaparát</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Vyberte barvy živě nebo z fotografie. Klepnutím na vzorek zkopírujete.</string>
 
     <string name="photo_picking">Výběr z fotografie</string>

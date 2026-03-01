@@ -9,6 +9,9 @@ import android.graphics.Color
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -18,6 +21,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.click
 import androidx.compose.ui.test.swipeUp
 import androidx.core.os.LocaleListCompat
 import androidx.test.platform.app.InstrumentationRegistry
@@ -30,7 +34,9 @@ import com.primortex.color.features.photopick.PhotoPickUiState
 import com.primortex.color.i18n.AppStrings
 import com.primortex.color.i18n.LanguageCache
 import com.primortex.color.i18n.LocaleManagerBridge
+import com.primortex.color.service.ColorCatalogImportService
 import com.primortex.color.service.ColorDetails
+import com.primortex.color.service.ColorService
 import com.primortex.color.service.Hsl
 import com.primortex.color.service.Hsv
 import com.primortex.color.service.Rgb
@@ -81,6 +87,10 @@ abstract class ScreenShotMakerBase {
     protected fun captureSuite() {
         logStage("camera_screen")
         captureCameraScreen()
+        logStage("color_slider_screen")
+        captureColorSliderScreen()
+        logStage("color_blind_enhancer_screen")
+        captureColorBlindEnhancerScreen()
         logStage("live_picking_screen")
         captureLivePickingScreen()
         logStage("photo_picking_screen")
@@ -98,6 +108,29 @@ abstract class ScreenShotMakerBase {
     protected fun captureCameraScreen() {
         openTab(TestTags.TAB_CAMERA)
         val outFile = captureCurrentScreen("camera_screen", folder = activeLocaleTag)
+        assertFileLooksValid(outFile)
+    }
+
+    protected fun captureColorSliderScreen() {
+        openTab(TestTags.TAB_CAMERA)
+        clickTag(TestTags.CAMERA_COLOR_SLIDER_CARD)
+        composeRule.waitForIdle()
+        val outFile = captureCurrentScreen("color_slider_screen", folder = activeLocaleTag)
+        assertFileLooksValid(outFile)
+    }
+
+    protected fun captureColorBlindEnhancerScreen() {
+        grantPermissionIfNeeded(Manifest.permission.CAMERA)
+        openTab(TestTags.TAB_CAMERA)
+        clickTag(TestTags.CAMERA_COLOR_BLIND_ENHANCER_CARD)
+        composeRule.waitForIdle()
+        Thread.sleep(450)
+        val outFile = captureCurrentScreen(
+            prefix = "color_blind_enhancer_screen",
+            folder = activeLocaleTag,
+            includePlatformViews = true,
+            avoidNearBlack = true
+        )
         assertFileLooksValid(outFile)
     }
 
@@ -124,25 +157,70 @@ abstract class ScreenShotMakerBase {
             cacheDir = ctx.cacheDir,
             assetName = "pink_daisy.jpg"
         )
-        val samplePick = PickedColor(argb = 0xFF4A90E2.toInt(), name = "Sample Blue")
+        val testColorService = ColorService(
+            ColorCatalogImportService().loadLocaleSeeds(ctx, activeLocaleTag)
+        )
+        val initialArgb = 0xFF7B8266.toInt()
+        val initialPick = PickedColor(
+            argb = initialArgb,
+            name = testColorService.localNameFromArgb(initialArgb)
+        )
 
         composeRule.activity.setContent {
+            var uiState by mutableStateOf(
+                PhotoPickUiState(
+                    pickedColor = initialPick,
+                    recents = emptyList(),
+                    palette = emptyList(),
+                    frozen = false,
+                    detailPick = null
+                )
+            )
             ColorTheme(darkTheme = false) {
                 PhotoPickScreen(
-                    uiState = PhotoPickUiState(
-                        pickedColor = samplePick,
-                        recents = listOf(samplePick),
-                        palette = listOf(samplePick),
-                        frozen = false,
-                        detailPick = null
-                    ),
+                    uiState = uiState,
                     photoUri = photoFile.toURI().toString(),
                     onBack = {},
-                    onAction = { _: PhotoPickUiAction -> },
+                    onAction = { action: PhotoPickUiAction ->
+                        when (action) {
+                            is PhotoPickUiAction.SampleColor -> {
+                                val tappedPick = PickedColor(
+                                    argb = action.argb,
+                                    name = testColorService.localNameFromArgb(action.argb)
+                                )
+                                uiState = uiState.copy(
+                                    pickedColor = tappedPick,
+                                    recents = listOf(tappedPick) + uiState.recents,
+                                    palette = if (uiState.palette.any { it.argb == tappedPick.argb }) {
+                                        uiState.palette
+                                    } else {
+                                        uiState.palette + tappedPick
+                                    }
+                                )
+                            }
+
+                            PhotoPickUiAction.ToggleFreeze -> uiState = uiState.copy(frozen = !uiState.frozen)
+                            PhotoPickUiAction.ShowCurrentDetails -> uiState = uiState.copy(detailPick = uiState.pickedColor)
+                            is PhotoPickUiAction.ShowDetails -> uiState = uiState.copy(detailPick = action.pick)
+                            PhotoPickUiAction.DismissDetails -> uiState = uiState.copy(detailPick = null)
+                            PhotoPickUiAction.AddCurrentToPalette -> {
+                                if (uiState.palette.none { it.argb == uiState.pickedColor.argb }) {
+                                    uiState = uiState.copy(palette = uiState.palette + uiState.pickedColor)
+                                }
+                            }
+
+                            PhotoPickUiAction.SavePalette -> Unit
+                        }
+                    },
                     detailsFor = { _: Int -> emptyColorDetails() },
                     onOpenColorDetail = {}
                 )
             }
+        }
+        composeRule.waitForIdle()
+        Thread.sleep(250)
+        composeRule.onRoot(useUnmergedTree = true).performTouchInput {
+            click(center)
         }
         composeRule.waitForIdle()
         Thread.sleep(100)

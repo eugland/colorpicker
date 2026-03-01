@@ -13,7 +13,7 @@
 
     <string name="more_options">Weitere Optionen</string>
     <string name="palette">Palette</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Erkunden</string>
 
     <string name="follows_your_device_language">Folgt der Gerätesprache</string>
@@ -169,7 +169,7 @@
     <string name="rate_us_description">Hinterlassen Sie eine kurze Bewertung im Play Store.</string>
 
     <string name="share_app_text">Sehen Sie sich Color Picker bei Google Play an: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Farben live oder aus einem Foto auswählen. Tippe auf ein Farbfeld, um zu kopieren.</string>
 
     <string name="photo_picking">Fotoauswahl</string>

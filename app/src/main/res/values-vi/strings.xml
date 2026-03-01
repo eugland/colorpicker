@@ -13,7 +13,7 @@
 
     <string name="more_options">Tùy chọn khác</string>
     <string name="palette">Bảng màu</string>
-    <string name="camera">Máy ảnh</string>
+    <string name="camera">Picker</string>
     <string name="explore">Khám phá</string>
 
     <string name="follows_your_device_language">Theo ngôn ngữ thiết bị</string>
@@ -170,7 +170,7 @@
     <string name="rate_us_description">Để lại đánh giá nhanh trên Play Store.</string>
 
     <string name="share_app_text">Xem Color Picker trên Google Play: %1$s</string>
-    <string name="camera_title">Máy ảnh</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Chọn màu trực tiếp hoặc từ ảnh. Chạm vào mẫu để sao chép.</string>
 
     <string name="photo_picking">Chọn từ ảnh</string>

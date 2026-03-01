@@ -13,7 +13,7 @@
 
     <string name="more_options">Lisää vaihtoehtoja</string>
     <string name="palette">Paletti</string>
-    <string name="camera">Kamera</string>
+    <string name="camera">Picker</string>
     <string name="explore">Selaa</string>
 
     <string name="follows_your_device_language">Noudattaa laitteen kieltä</string>
@@ -169,7 +169,7 @@
     <string name="rate_us_description">Anna nopea arvostelu Play Kaupassa.</string>
 
     <string name="share_app_text">Katso Color Picker Google Playssa: %1$s</string>
-    <string name="camera_title">Kamera</string>
+    <string name="camera_title">Picker</string>
     <string name="camera_intro">Poimi värejä livenä tai valokuvasta. Napauta mitä tahansa värinäytettä kopioidaksesi.</string>
 
     <string name="photo_picking">Valokuvasta poiminta</string>
