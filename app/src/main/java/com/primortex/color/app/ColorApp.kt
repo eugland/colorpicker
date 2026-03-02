@@ -36,6 +36,7 @@ import com.primortex.color.R
 import com.primortex.color.data.enums.SwatchListType
 import com.primortex.color.features.camera.CameraScreen
 import com.primortex.color.features.colorblind.ColorBlindEnhancerScreen
+import com.primortex.color.features.colorblind.EnhancerMode
 import com.primortex.color.features.colorslider.ColorSliderRoute
 import com.primortex.color.features.colordetails.ColorDetailsRoute
 import com.primortex.color.features.crosshair.CrosshairSettingsRoute
@@ -182,7 +183,7 @@ fun ColorApp(
                         innerPadding = inner,
                         onOpenLiveCameraPicker = { navigator.openLiveCamera() },
                         onOpenColorSlider = { navigator.openColorSlider() },
-                        onOpenColorBlindEnhancer = { navigator.openColorBlindEnhancer() },
+                        onOpenColorBlindEnhancer = { navigator.openColorBlindEnhancer("enhance") },
                         onPickFromAlbum = { uriString -> navigator.openPhotoPick(uriString) }
                     )
                 }
@@ -305,9 +306,19 @@ fun ColorApp(
                         }
                     )
                 }
-                composable(Routes.Tool.COLOR_BLIND) {
+                composable(
+                    route = Routes.Tool.COLOR_BLIND_ROUTE,
+                    arguments = listOf(
+                        navArgument("mode") {
+                            type = NavType.StringType
+                            defaultValue = ""
+                        }
+                    )
+                ) { backStackEntry ->
+                    val modeArg = backStackEntry.arguments?.getString("mode")
                     ColorBlindEnhancerScreen(
-                        onBack = { navigator.back() }
+                        onBack = { navigator.back() },
+                        initialMode = EnhancerMode.fromRouteValue(modeArg)
                     )
                 }
 

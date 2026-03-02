@@ -6,7 +6,7 @@ interface ColorNavigator {
     fun openExploreTab()
     fun openLiveCamera()
     fun openColorSlider()
-    fun openColorBlindEnhancer()
+    fun openColorBlindEnhancer(mode: String? = null)
     fun openPhotoPick(uriString: String)
     fun openPaletteDetail(id: String, edit: Boolean = false)
     fun openColorDetail(argb: Int, name: String = "")

@@ -13,6 +13,7 @@ import android.util.Size
 import android.view.Surface
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -68,6 +69,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -79,6 +81,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.primortex.color.R
 import com.primortex.color.i18n.stringResource
+import com.primortex.color.ui.TestTags
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -135,6 +138,7 @@ class ColorBlindEnhancerViewModel @Inject constructor() : ViewModel() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     fun onAnalyzeFrame(image: ImageProxy) {
         try {
             if (_uiState.value.selectedMode != EnhancerMode.Intrinsic) return
@@ -154,7 +158,10 @@ class ColorBlindEnhancerViewModel @Inject constructor() : ViewModel() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
+fun ColorBlindEnhancerScreen(
+    onBack: () -> Unit,
+    initialMode: EnhancerMode? = null
+) {
     val viewModel: ColorBlindEnhancerViewModel = hiltViewModel()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -167,6 +174,10 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
 
     val ctx = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+
+    LaunchedEffect(initialMode) {
+        initialMode?.let(viewModel::onSelectMode)
+    }
 
     var hasCameraPerm by remember {
         mutableStateOf(
@@ -473,6 +484,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                             verticalArrangement = Arrangement.spacedBy(vSpacing.dp),
                             horizontalArrangement = Arrangement.spacedBy(12.dp),
                             modifier = Modifier
+                                .testTag(TestTags.COLOR_BLIND_MODE_GRID)
                                 .fillMaxWidth()
                                 .height(gridHeight.dp)
                         ) {
@@ -481,6 +493,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
                                     ModeGridItem(
                                         mode = mode,
                                         selected = mode == uiState.selectedMode,
+                                        tag = "${TestTags.COLOR_BLIND_MODE_ITEM_PREFIX}${mode.name.lowercase()}",
                                         onSelect = {
                                             viewModel.onSelectMode(mode)
                                         }
@@ -509,6 +522,7 @@ fun ColorBlindEnhancerScreen(onBack: () -> Unit) {
             ) {
                 Row(
                     modifier = Modifier
+                        .testTag(TestTags.COLOR_BLIND_FILTER_SELECTOR)
                         .clickable { viewModel.onOpenModeGrid() }
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 14.dp),
@@ -542,9 +556,22 @@ enum class EnhancerMode(val labelRes: Int) {
     Thermal(R.string.thermal_mode),
     Mri(R.string.mri_mode),
     Xray(R.string.xray_mode),
-    Intrinsic(R.string.intrinsic_mode)
+    Intrinsic(R.string.intrinsic_mode);
+
+    companion object {
+        fun fromRouteValue(value: String?): EnhancerMode? {
+            val normalized = value
+                ?.trim()
+                ?.lowercase()
+                ?.replace("-", "_")
+                ?.takeIf { it.isNotBlank() }
+                ?: return null
+            return entries.firstOrNull { it.name.lowercase() == normalized }
+        }
+    }
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 private fun loadRuntimeShader(context: Context, rawResId: Int, shaderName: String): RuntimeShader? {
     return runCatching {
         val source =
@@ -560,6 +587,7 @@ private fun loadRuntimeShader(context: Context, rawResId: Int, shaderName: Strin
 private fun ModeGridItem(
     mode: EnhancerMode,
     selected: Boolean,
+    tag: String,
     onSelect: () -> Unit
 ) {
     val previewColor = when (mode) {
@@ -591,6 +619,7 @@ private fun ModeGridItem(
 
     Surface(
         modifier = Modifier
+            .testTag(tag)
             .fillMaxWidth()
             .clip(shape)
             .clickable(onClick = onSelect),

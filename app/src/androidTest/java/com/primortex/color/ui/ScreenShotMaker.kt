@@ -11,6 +11,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.hasScrollAction
@@ -125,13 +126,41 @@ abstract class ScreenShotMakerBase {
         clickTag(TestTags.CAMERA_COLOR_BLIND_ENHANCER_CARD)
         composeRule.waitForIdle()
         Thread.sleep(450)
-        val outFile = captureCurrentScreen(
-            prefix = "color_blind_enhancer_screen",
+        // Default to thermal mode for screenshot capture.
+        selectColorBlindMode("thermal")
+        val thermalOut = captureCurrentScreen(
+            prefix = "color_blind_enhancer_screen_thermal",
             folder = activeLocaleTag,
             includePlatformViews = true,
             avoidNearBlack = true
         )
-        assertFileLooksValid(outFile)
+        assertFileLooksValid(thermalOut)
+
+        openColorBlindFilterGrid()
+        val filterOpenOut = captureCurrentScreen(
+            prefix = "color_blind_enhancer_screen_filter_open",
+            folder = activeLocaleTag,
+            includePlatformViews = true,
+            avoidNearBlack = true
+        )
+        assertFileLooksValid(filterOpenOut)
+        selectColorBlindMode("thermal")
+
+        listOf(
+            "xray",
+            "intrinsic",
+            "edge",
+            "monochrome"
+        ).forEach { mode ->
+            selectColorBlindMode(mode)
+            val outFile = captureCurrentScreen(
+                prefix = "color_blind_enhancer_screen_$mode",
+                folder = activeLocaleTag,
+                includePlatformViews = true,
+                avoidNearBlack = true
+            )
+            assertFileLooksValid(outFile)
+        }
     }
 
     protected fun captureLivePickingScreen() {
@@ -167,7 +196,8 @@ abstract class ScreenShotMakerBase {
         )
 
         composeRule.activity.setContent {
-            var uiState by mutableStateOf(
+            var uiState by remember {
+                mutableStateOf(
                 PhotoPickUiState(
                     pickedColor = initialPick,
                     recents = emptyList(),
@@ -175,7 +205,8 @@ abstract class ScreenShotMakerBase {
                     frozen = false,
                     detailPick = null
                 )
-            )
+                )
+            }
             ColorTheme(darkTheme = false) {
                 PhotoPickScreen(
                     uiState = uiState,
@@ -272,6 +303,19 @@ abstract class ScreenShotMakerBase {
 
     private fun clickTag(tag: String) {
         composeRule.onNodeWithTag(tag, useUnmergedTree = true).performClick()
+    }
+
+    private fun openColorBlindFilterGrid() {
+        waitForTag(TestTags.COLOR_BLIND_FILTER_SELECTOR)
+        clickTag(TestTags.COLOR_BLIND_FILTER_SELECTOR)
+        waitForTag(TestTags.COLOR_BLIND_MODE_GRID)
+    }
+
+    private fun selectColorBlindMode(modeKey: String) {
+        openColorBlindFilterGrid()
+        clickTag("${TestTags.COLOR_BLIND_MODE_ITEM_PREFIX}$modeKey")
+        composeRule.waitForIdle()
+        Thread.sleep(220)
     }
 
     private fun hasTag(tag: String): Boolean {

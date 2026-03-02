@@ -5,51 +5,84 @@
     android:viewportWidth="512"
     android:viewportHeight="512">
 
-    <group
-        android:scaleX="1.19"
-        android:scaleY="1.19"
-        android:translateX="-48.64"
-        android:translateY="-48.64">
+    <!-- Dark base so the white pipette stays legible -->
+    <path
+        android:pathData="M0,0H512V512H0Z"
+        android:fillColor="#FF111827" />
 
-        <!-- Square background -->
-        <path android:pathData="M0,0H512V512H0Z">
+    <!-- Full-bleed 6-hue spectrum sweep -->
+    <path android:pathData="M0,0H512V512H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="sweep"
+                android:centerX="256"
+                android:centerY="256">
+                <item
+                    android:offset="0"
+                    android:color="#FFFF3B30" />
+                <item
+                    android:offset="0.167"
+                    android:color="#FFFFD60A" />
+                <item
+                    android:offset="0.333"
+                    android:color="#FF34C759" />
+                <item
+                    android:offset="0.5"
+                    android:color="#FF00C7FF" />
+                <item
+                    android:offset="0.667"
+                    android:color="#FF007AFF" />
+                <item
+                    android:offset="0.83"
+                    android:color="#FFFF2D95" />
+                <item
+                    android:offset="1"
+                    android:color="#FFFF3B30" />
+            </gradient>
+        </aapt:attr>
+    </path>
 
-            <!-- Linear lavender gradient -->
-            <aapt:attr name="android:fillColor">
-                <gradient
-                    android:type="linear"
-                    android:startX="0"
-                    android:startY="0"
-                    android:endX="512"
-                    android:endY="512">
-                    <item
-                        android:offset="0"
-                        android:color="#FFF1ECFF" />
-                    <item
-                        android:offset="1"
-                        android:color="#FFCDBFFF" />
-                </gradient>
-            </aapt:attr>
-        </path>
+    <!-- Center boost so white pipette pops -->
+    <path android:pathData="M0,0H512V512H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="256"
+                android:centerY="256"
+                android:gradientRadius="210">
+                <item
+                    android:offset="0"
+                    android:color="#EEFFFFFF" />
+                <item
+                    android:offset="1"
+                    android:color="#00FFFFFF" />
+            </gradient>
+        </aapt:attr>
+    </path>
 
-        <!-- Subtle radial highlight -->
-        <path android:pathData="M0,0H512V512H0Z">
+    <!-- Outer vignette to reduce visual noise near the edge -->
+    <path android:pathData="M0,0H512V512H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="256"
+                android:centerY="256"
+                android:gradientRadius="320">
+                <item
+                    android:offset="0.68"
+                    android:color="#00000000" />
+                <item
+                    android:offset="1"
+                    android:color="#5C0B1020" />
+            </gradient>
+        </aapt:attr>
+    </path>
 
-            <aapt:attr name="android:fillColor">
-                <gradient
-                    android:type="radial"
-                    android:centerX="204.8"
-                    android:centerY="128"
-                    android:gradientRadius="384">
-                    <item
-                        android:offset="0"
-                        android:color="#8CFFFFFF" />
-                    <item
-                        android:offset="1"
-                        android:color="#00FFFFFF" />
-                </gradient>
-            </aapt:attr>
-        </path>
-
-    </group>
+    <!-- Thin neutral ring border -->
+    <path
+        android:pathData="M256,8A248,248 0 1,1 255.9,8Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#FF1E293B"
+        android:strokeWidth="10" />
 </vector>
+

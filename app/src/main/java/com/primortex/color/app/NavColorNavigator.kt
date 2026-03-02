@@ -49,9 +49,15 @@ class NavColorNavigator(
         nav.navigateIfNotCurrent(Routes.Tool.SLIDER)
     }
 
-    override fun openColorBlindEnhancer() {
+    override fun openColorBlindEnhancer(mode: String?) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
-        nav.navigateIfNotCurrent(Routes.Tool.COLOR_BLIND)
+        val target = Routes.Tool.colorBlind(mode)
+        if (nav.currentDestination?.route == Routes.Tool.COLOR_BLIND_ROUTE &&
+            (nav.currentBackStackEntry?.arguments?.getString("mode") ?: "") == (mode ?: "")
+        ) {
+            return
+        }
+        nav.navigate(target)
     }
 
     override fun openPhotoPick(uriString: String) {

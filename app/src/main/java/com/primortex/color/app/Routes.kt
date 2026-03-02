@@ -50,6 +50,13 @@ object Routes {
     object Tool {
         const val SLIDER = "tool/slider"
         const val COLOR_BLIND = "tool/color_blind"
+        const val COLOR_BLIND_ROUTE = "$COLOR_BLIND?mode={mode}"
+
+        fun colorBlind(mode: String? = null): String {
+            val normalizedMode = mode?.trim()?.takeIf { it.isNotEmpty() } ?: return "$COLOR_BLIND?mode="
+            val encoded = java.net.URLEncoder.encode(normalizedMode, "UTF-8")
+            return "$COLOR_BLIND?mode=$encoded"
+        }
     }
 
     object Settings {

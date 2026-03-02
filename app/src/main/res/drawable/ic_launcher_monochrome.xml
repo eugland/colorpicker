@@ -4,45 +4,33 @@
     android:viewportWidth="512"
     android:viewportHeight="512">
 
-    <!-- Match your foreground scaling -->
     <group
-        android:scaleX="0.8"
-        android:scaleY="0.8"
-        android:translateX="51.2"
-        android:translateY="51.2">
+        android:scaleX="0.82"
+        android:scaleY="0.82"
+        android:translateX="46.08"
+        android:translateY="46.08"
+        android:rotation="-38"
+        android:pivotX="256"
+        android:pivotY="256">
 
-        <group
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:translateX="51.2"
-            android:translateY="51.2">
+        <path
+            android:pathData="M256,120m-76,0a76,76 0,1 1,152 0a76,76 0,1 1,-152 0"
+            android:fillColor="#FF000000" />
 
-            <!-- Arc: solid, no gradient -->
-            <path
-                android:pathData="M345.48,128.21A156,156 101.07,1 1,100.01 283.5"
-                android:fillColor="#00000000"
-                android:strokeColor="#FF000000"
-                android:strokeWidth="44"
-                android:strokeLineCap="round" />
+        <path
+            android:pathData="M214,172H298A14,14 0 0,1 312,186V208A14,14 0 0,1 298,222H214A14,14 0 0,1 200,208V186A14,14 0 0,1 214,172Z"
+            android:fillColor="#FF000000" />
 
-            <!-- Dropper body: solid -->
-            <path
-                android:pathData="M249.58,214.11L228.39,225.38C216.91,231.48 212.37,246.36 218.47,257.83L236.31,291.39L282.29,305.45L296.35,259.46L278.51,225.91C272.41,214.43 257.53,209.88 249.58,214.11Z"
-                android:fillColor="#FF000000" />
+        <path
+            android:pathData="M232,218H280A24,24 0 0,1 304,242V346A24,24 0 0,1 280,370H232A24,24 0 0,1 208,346V242A24,24 0 0,1 232,218Z"
+            android:fillColor="#FF000000" />
 
-            <!-- Dropper cap: solid -->
-            <path
-                android:pathData="M228.39,225.38L220.88,211.25C218.06,205.95 235.72,196.56 238.54,201.86L246.05,215.99Z"
-                android:fillColor="#FF000000" />
+        <path
+            android:pathData="M236,368H276A12,12 0 0,1 288,380V396A12,12 0 0,1 276,408H236A12,12 0 0,1 224,396V380A12,12 0 0,1 236,368Z"
+            android:fillColor="#FF000000" />
 
-            <!-- Stem: make it visible (no low alpha) -->
-            <path
-                android:pathData="M282.29,305.45L292.62,324.87"
-                android:fillColor="#00000000"
-                android:strokeColor="#FF000000"
-                android:strokeWidth="10"
-                android:strokeLineCap="round" />
-
-        </group>
+        <path
+            android:pathData="M256,452L228,408H284Z"
+            android:fillColor="#FF000000" />
     </group>
 </vector>
