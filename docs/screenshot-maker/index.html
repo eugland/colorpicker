@@ -207,21 +207,30 @@
       return fileName.replace(/\.[^.]+$/, "");
     }
 
-    function resolveOverlayLanguage(locale) {
-      const normalized = String(locale || "").toLowerCase();
-      if (normalized.startsWith("ja")) return "ja";
-      if (normalized.startsWith("zh")) return "zh";
-      return "en";
+    function getOverlayLocaleCandidates(locale) {
+      const raw = String(locale || "").trim();
+      if (!raw) return ["en"];
+
+      const normalizedDash = raw.replace(/_/g, "-");
+      const lower = normalizedDash.toLowerCase();
+      const base = lower.split("-")[0];
+      const candidates = [raw, normalizedDash, lower];
+
+      // Handle common script/region variants.
+      if (lower === "zh-hant") candidates.push("zh-Hant", "zh");
+      if (lower === "zh-hans") candidates.push("zh-Hans", "zh");
+      if (base && !candidates.includes(base)) candidates.push(base);
+      if (!candidates.includes("en")) candidates.push("en");
+
+      return Array.from(new Set(candidates));
     }
 
     function getOverlayText(shotKey, locale, fallbackText) {
-      const lang = resolveOverlayLanguage(locale);
-      const fromLang = overlayTexts[lang] && overlayTexts[lang][shotKey];
-      if (fromLang) return fromLang;
-
-      const fromEn = overlayTexts.en && overlayTexts.en[shotKey];
-      if (fromEn) return fromEn;
-
+      const localeCandidates = getOverlayLocaleCandidates(locale);
+      for (const candidate of localeCandidates) {
+        const table = overlayTexts[candidate];
+        if (table && table[shotKey]) return table[shotKey];
+      }
       return fallbackText;
     }
 
