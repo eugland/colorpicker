@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Screenshot Language Viewer</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
+
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: "Fredoka", "Segoe UI", Tahoma, sans-serif;
+      background: #f5f7fb;
+      color: #0f172a;
+    }
+    .wrap {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    label { font-weight: 600; }
+    select, button {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    button { cursor: pointer; }
+    .status {
+      margin: 8px 0 14px;
+      color: #334155;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      margin: 0;
+      background: #fff;
+      border: 1px solid #dbe3ef;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    }
+    .card figcaption {
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #475569;
+      word-break: break-word;
+    }
+    .card .actions {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 10px 10px;
+    }
+    .card canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #0f172a;
+    }
+    .download-btn {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #0f172a;
+    }
+    .hint {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar">
+      <label for="langSelect">Language</label>
+      <select id="langSelect"></select>
+      <button id="refreshBtn" type="button">Refresh</button>
+    </div>
+    <div id="status" class="status">Loading languages...</div>
+    <div id="grid" class="grid"></div>
+    <div class="hint">
+      This page expects a static server with directory listing enabled for <code>screenshots/</code> (for example, <code>python -m http.server</code> in <code>docs/screenshot-maker</code>).
+    </div>
+  </div>
+
+  <script>
+    const screenshotsRoot = "screenshots/";
+    const whitelistPath = "screenshot-whitelist.json";
+    const overlayTextsPath = "overlay-texts.json";
+    let screenshotWhitelist = [];
+    let whitelistSet = new Set();
+    let overlayTexts = {};
+    const selectEl = document.getElementById("langSelect");
+    const statusEl = document.getElementById("status");
+    const gridEl = document.getElementById("grid");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    function parseDirectoryLinks(htmlText) {
+      const doc = new DOMParser().parseFromString(htmlText, "text/html");
+      const hrefs = Array.from(doc.querySelectorAll("a"))
+        .map((a) => a.getAttribute("href") || "")
+        .filter(Boolean);
+      return hrefs;
+    }
+
+    async function fetchDirectoryEntries(path) {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`Failed to load ${path} (${res.status})`);
+      }
+      const text = await res.text();
+      return parseDirectoryLinks(text);
+    }
+
+    async function loadWhitelist() {
+      const res = await fetch(whitelistPath, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`Failed to load ${whitelistPath} (${res.status})`);
+      }
+
+      const parsed = await res.json();
+      if (!Array.isArray(parsed) || parsed.some((item) => typeof item !== "string")) {
+        throw new Error(`${whitelistPath} must be a JSON array of strings.`);
+      }
+
+      screenshotWhitelist = parsed;
+      whitelistSet = new Set(parsed);
+    }
+
+    async function loadOverlayTexts() {
+      const res = await fetch(overlayTextsPath, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`Failed to load ${overlayTextsPath} (${res.status})`);
+      }
+      const parsed = await res.json();
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        throw new Error(`${overlayTextsPath} must be a JSON object.`);
+      }
+      overlayTexts = parsed;
+    }
+
+    function normalizeLocaleFromHref(href) {
+      if (!href.endsWith("/")) return null;
+      if (href === "../" || href === "./") return null;
+      return href.replace(/\/$/, "");
+    }
+
+    async function loadLocales() {
+      const entries = await fetchDirectoryEntries(screenshotsRoot);
+      return entries
+        .map(normalizeLocaleFromHref)
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b));
+    }
+
+    async function loadImagesForLocale(locale) {
+      const entries = await fetchDirectoryEntries(`${screenshotsRoot}${encodeURIComponent(locale)}/`);
+      const files = entries
+        .filter((href) => /\.(png|jpg|jpeg|webp)$/i.test(href))
+        .map((href) => href.split("/").pop())
+        .filter(Boolean);
+
+      const byKey = new Map();
+      for (const file of files) {
+        const key = normalizeScreenshotKey(file);
+        if (!whitelistSet.has(key)) continue;
+        const current = byKey.get(key);
+        if (!current || extractTimestamp(file) > extractTimestamp(current.file)) {
+          byKey.set(key, { key, file });
+        }
+      }
+
+      return screenshotWhitelist
+        .map((key) => byKey.get(key))
+        .filter(Boolean);
+    }
+
+    function normalizeScreenshotKey(fileName) {
+      const withoutExt = fileName.replace(/\.[^.]+$/, "");
+      return withoutExt.replace(/_\d{6,}$/, "");
+    }
+
+    function extractTimestamp(fileName) {
+      const withoutExt = fileName.replace(/\.[^.]+$/, "");
+      const match = withoutExt.match(/_(\d{6,})$/);
+      return match ? Number(match[1]) : 0;
+    }
+
+    function getPhotoName(fileName) {
+      return fileName.replace(/\.[^.]+$/, "");
+    }
+
+    function resolveOverlayLanguage(locale) {
+      const normalized = String(locale || "").toLowerCase();
+      if (normalized.startsWith("ja")) return "ja";
+      if (normalized.startsWith("zh")) return "zh";
+      return "en";
+    }
+
+    function getOverlayText(shotKey, locale, fallbackText) {
+      const lang = resolveOverlayLanguage(locale);
+      const fromLang = overlayTexts[lang] && overlayTexts[lang][shotKey];
+      if (fromLang) return fromLang;
+
+      const fromEn = overlayTexts.en && overlayTexts.en[shotKey];
+      if (fromEn) return fromEn;
+
+      return fallbackText;
+    }
+
+    function loadImage(url) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error(`Failed to load image ${url}`));
+        img.src = url;
+      });
+    }
+
+    function wrapTextLines(ctx, text, maxWidth, maxLines) {
+      const cleaned = text.replace(/[_-]+/g, " ").trim();
+      if (!cleaned) return [text];
+
+      const hasSpaces = /\s/.test(cleaned);
+      const tokens = hasSpaces
+        ? cleaned.split(/\s+/).filter(Boolean)
+        : Array.from(cleaned);
+
+      const lines = [];
+      let current = "";
+      const joiner = hasSpaces ? " " : "";
+
+      for (const token of tokens) {
+        const candidate = current ? `${current}${joiner}${token}` : token;
+        if (ctx.measureText(candidate).width <= maxWidth) {
+          current = candidate;
+          continue;
+        }
+
+        if (!current) {
+          lines.push(token);
+        } else {
+          lines.push(current);
+          current = token;
+        }
+
+        if (lines.length === maxLines - 1) {
+          break;
+        }
+      }
+
+      const consumed = lines.join(joiner).replace(/\s+/g, " ").trim();
+      const remaining = cleaned.slice(consumed.length).trim();
+      const lastLine = remaining ? `${current}${hasSpaces ? " " : ""}${remaining}`.trim() : current.trim();
+      if (lastLine) lines.push(lastLine);
+
+      const sliced = lines.slice(0, maxLines).filter(Boolean);
+      if (lines.length > maxLines && sliced.length) {
+        const tail = sliced[sliced.length - 1];
+        sliced[sliced.length - 1] = tail.length > 1 ? `${tail.slice(0, -1)}…` : `${tail}…`;
+      }
+      return sliced;
+    }
+
+    function drawCloudOverlay(ctx, width, height, text) {
+      const stripHeight = Math.max(110, Math.round(height * 0.16));
+      const gradient = ctx.createLinearGradient(0, 0, 0, stripHeight);
+      gradient.addColorStop(0, "rgba(255, 255, 255, 0.88)");
+      gradient.addColorStop(0.62, "rgba(255, 255, 255, 0.58)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.save();
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, stripHeight);
+
+      // Soft cloudy puffs on the top strip.
+      const puffCount = 6;
+      for (let i = 0; i < puffCount; i += 1) {
+        const px = (width / (puffCount + 1)) * (i + 1);
+        const py = stripHeight * (0.22 + (i % 2) * 0.12);
+        const pr = stripHeight * (0.34 + (i % 3) * 0.08);
+        const puff = ctx.createRadialGradient(px, py, pr * 0.18, px, py, pr);
+        puff.addColorStop(0, "rgba(255, 255, 255, 0.62)");
+        puff.addColorStop(1, "rgba(255, 255, 255, 0)");
+        ctx.fillStyle = puff;
+        ctx.beginPath();
+        ctx.arc(px, py, pr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      let fontSize = Math.max(14, Math.round(stripHeight * 0.2));
+      ctx.save();
+      ctx.fillStyle = "#0f172a";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      const fontStack = "\"Fredoka\", \"Noto Sans JP\", \"Noto Sans SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
+      const maxLines = 2;
+      const textAreaWidth = width * 0.84;
+      const topPadding = stripHeight * 0.14;
+      const bottomPadding = stripHeight * 0.16;
+      const maxTextHeight = stripHeight - topPadding - bottomPadding;
+
+      let lines = [];
+      let lineHeight = 0;
+      let blockHeight = 0;
+      for (; fontSize >= 12; fontSize -= 1) {
+        ctx.font = `600 ${fontSize}px ${fontStack}`;
+        lines = wrapTextLines(ctx, text, textAreaWidth, maxLines);
+        lineHeight = Math.round(fontSize * 1.22);
+        blockHeight = lineHeight * lines.length;
+        if (blockHeight <= maxTextHeight) break;
+      }
+
+      ctx.lineWidth = Math.max(1, Math.round(fontSize * 0.12));
+      let y = topPadding + (maxTextHeight - blockHeight) / 2 + lineHeight / 2;
+
+      for (const line of lines) {
+        ctx.strokeText(line, width / 2, y);
+        ctx.fillText(line, width / 2, y);
+        y += lineHeight;
+      }
+      ctx.restore();
+    }
+
+    function downloadCanvas(canvas, baseName) {
+      const safeName = baseName.replace(/[^a-zA-Z0-9._-]+/g, "_");
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = `${safeName}_overlay.png`;
+      a.click();
+    }
+
+    async function createShotCard(locale, shot) {
+      const imageUrl = `${screenshotsRoot}${encodeURIComponent(locale)}/${encodeURIComponent(shot.file)}`;
+      const photoName = getPhotoName(shot.file);
+      const overlayText = getOverlayText(shot.key, locale, photoName);
+
+      const fig = document.createElement("figure");
+      fig.className = "card";
+
+      const canvas = document.createElement("canvas");
+      const img = await loadImage(imageUrl);
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      try {
+        drawCloudOverlay(ctx, canvas.width, canvas.height, overlayText);
+      } catch (err) {
+        console.error("Overlay render failed:", err);
+      }
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+      const downloadBtn = document.createElement("button");
+      downloadBtn.type = "button";
+      downloadBtn.className = "download-btn";
+      downloadBtn.textContent = "Download";
+      downloadBtn.addEventListener("click", () => downloadCanvas(canvas, photoName));
+      actions.appendChild(downloadBtn);
+
+      fig.appendChild(canvas);
+      fig.appendChild(actions);
+      return fig;
+    }
+
+    async function renderImages(locale, shots) {
+      gridEl.innerHTML = "";
+      for (const shot of shots) {
+        try {
+          const card = await createShotCard(locale, shot);
+          gridEl.appendChild(card);
+        } catch (err) {
+          const fallback = document.createElement("figure");
+          fallback.className = "card";
+          const cap = document.createElement("figcaption");
+          cap.textContent = `${shot.file} (failed to render overlay)`;
+          fallback.appendChild(cap);
+          gridEl.appendChild(fallback);
+        }
+      }
+    }
+
+    async function showSelectedLocale() {
+      const locale = selectEl.value;
+      if (!locale) {
+        statusEl.textContent = "No locale folders found under screenshots/.";
+        gridEl.innerHTML = "";
+        return;
+      }
+
+      statusEl.textContent = `Loading screenshots for ${locale}...`;
+      try {
+        const shots = await loadImagesForLocale(locale);
+        await renderImages(locale, shots);
+        statusEl.textContent = shots.length
+          ? `Showing ${shots.length}/${screenshotWhitelist.length} whitelisted screenshot(s) for ${locale}.`
+          : `No whitelisted screenshots found for ${locale}.`;
+      } catch (err) {
+        gridEl.innerHTML = "";
+        statusEl.textContent = err.message;
+      }
+    }
+
+    async function init() {
+      statusEl.textContent = "Loading languages...";
+      try {
+        await loadWhitelist();
+        await loadOverlayTexts();
+        const locales = await loadLocales();
+        selectEl.innerHTML = "";
+        for (const locale of locales) {
+          const option = document.createElement("option");
+          option.value = locale;
+          option.textContent = locale;
+          selectEl.appendChild(option);
+        }
+
+        if (!locales.length) {
+          await showSelectedLocale();
+          return;
+        }
+
+        await showSelectedLocale();
+      } catch (err) {
+        statusEl.textContent = err.message;
+        gridEl.innerHTML = "";
+      }
+    }
+
+    selectEl.addEventListener("change", showSelectedLocale);
+    refreshBtn.addEventListener("click", init);
+
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "en": {
+    "camera_screen": "Catch Every Color in a Snap",
+    "color_slider_screen": "Swipe into Your Dream Shade",
+    "color_blind_enhancer_screen_thermal": "Turn Heat into Vibrant Color",
+    "color_blind_enhancer_screen_filter_open": "Pick the Filter That Feels Best",
+    "color_blind_enhancer_screen_intrinsic": "Boost Clarity, Keep It Natural",
+    "colorpicking_photopicking": "Pull Gorgeous Colors from Photos",
+    "colorpicking_livepicking": "Grab Colors Live, Right Now",
+    "color_details_view": "Dive into Every Color Detail",
+    "palette_details_view": "Explore the Story of Your Palette",
+    "palette_screen": "Build a Palette You Will Love"
+  },
+  "ja": {
+    "camera_screen": "カメラでときめく色をパッとキャッチ",
+    "color_slider_screen": "スライドして運命の色に出会おう",
+    "color_blind_enhancer_screen_thermal": "温度の違いをカラフルに見える化",
+    "color_blind_enhancer_screen_filter_open": "いちばん見やすいフィルターを選ぼう",
+    "color_blind_enhancer_screen_intrinsic": "自然な見え方のままくっきりサポート",
+    "colorpicking_photopicking": "写真からお気に入りの色を見つけよう",
+    "colorpicking_livepicking": "リアルタイムで色をどんどんひろおう",
+    "color_details_view": "気になる色の情報をくわしくチェック",
+    "palette_details_view": "パレットの魅力をじっくり見よう",
+    "palette_screen": "かわいい配色を楽しく作ろう"
+  },
+  "zh": {
+    "camera_screen": "一拍就能捕捉灵感色彩",
+    "color_slider_screen": "轻轻滑动找到心动配色",
+    "color_blind_enhancer_screen_thermal": "用色彩直观看见温度变化",
+    "color_blind_enhancer_screen_filter_open": "选择最舒适的视觉滤镜",
+    "color_blind_enhancer_screen_intrinsic": "自然观感下更清晰地看见颜色",
+    "colorpicking_photopicking": "从照片中提取你喜欢的颜色",
+    "colorpicking_livepicking": "实时捕捉身边每一抹色彩",
+    "color_details_view": "深入查看每个颜色的细节",
+    "palette_details_view": "探索这组配色的完整故事",
+    "palette_screen": "创建一套超可爱的专属配色"
+  }
+}
