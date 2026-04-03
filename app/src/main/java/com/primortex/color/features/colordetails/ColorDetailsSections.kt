@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -28,7 +29,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.ContentCopy
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -225,34 +225,25 @@ private fun ColorActionsRow(isSaved: Boolean, onAction: (ColorDetailsUiAction) -
 @Composable
 private fun ColorInfoChips(uiState: ColorDetailsUiState) {
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-        AssistChip(
-            onClick = {},
-            label = {
-                Text(
-                    stringResource(
-                        R.string.luma_label,
-                        (uiState.details.luminance * 100).toInt()
-                    )
-                )
-            })
-        AssistChip(
-            onClick = {},
-            label = {
-                Text(
-                    if (uiState.details.isDark) stringResource(R.string.dark_label) else stringResource(
-                        R.string.light_label
-                    )
-                )
-            })
-        AssistChip(
-            onClick = {},
-            label = {
-                val textColor =
-                    if (uiState.details.recommendedOnColor == 0xFFFFFFFF.toInt()) stringResource(R.string.white_label) else stringResource(
-                        R.string.black_label
-                    )
-                Text(stringResource(R.string.text_recommendation, textColor))
-            }
+        InfoTag(stringResource(R.string.luma_label, (uiState.details.luminance * 100).toInt()))
+        InfoTag(if (uiState.details.isDark) stringResource(R.string.dark_label) else stringResource(R.string.light_label))
+        val textColor = if (uiState.details.recommendedOnColor == 0xFFFFFFFF.toInt())
+            stringResource(R.string.white_label) else stringResource(R.string.black_label)
+        InfoTag(stringResource(R.string.text_recommendation, textColor))
+    }
+}
+
+@Composable
+private fun InfoTag(label: String) {
+    Surface(
+        shape = MaterialTheme.shapes.small,
+        color = MaterialTheme.colorScheme.secondaryContainer
+    ) {
+        Text(
+            label,
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSecondaryContainer
         )
     }
 }
@@ -268,7 +259,7 @@ private fun SimilarColorsSection(similarColors: List<PickedColor>) {
         similarColors.forEach { s ->
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.width(84.dp)
+                modifier = Modifier.widthIn(min = 84.dp)
             ) {
                 Box(
                     Modifier
@@ -304,7 +295,7 @@ private fun HarmonyRow(label: String, argbs: List<Int>) {
         Text(
             label,
             style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.width(90.dp),
+            modifier = Modifier.widthIn(min = 90.dp),
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(Modifier.width(8.dp))
@@ -346,7 +337,7 @@ private fun KeyValueGrid(items: List<Pair<String, String>>) {
                 Text(
                     k,
                     style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.width(52.dp),
+                    modifier = Modifier.widthIn(min = 52.dp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(

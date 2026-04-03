@@ -2,7 +2,7 @@ package com.primortex.color.analytics
 
 import android.content.Context
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.analytics.logEvent
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import dagger.hilt.android.qualifiers.ApplicationContext

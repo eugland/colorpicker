@@ -28,6 +28,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
@@ -210,20 +212,29 @@ private fun RowDivider() {
 @Composable
 private fun RowLink(
     title: String,
-    subtitle: String,
+    subtitle: String? = null,
     leadingIcon: ImageVector,
+    iconTint: Color = Color.Unspecified,
     onClick: () -> Unit
 ) {
     ListItem(
         headlineContent = { Text(title) },
-        supportingContent = {
-            Text(
-                subtitle,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+        supportingContent = if (subtitle != null) {
+            {
+                Text(
+                    subtitle,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        } else null,
+        leadingContent = {
+            Icon(
+                imageVector = leadingIcon,
+                contentDescription = null,
+                tint = if (iconTint == Color.Unspecified) LocalContentColor.current else iconTint
             )
         },
-        leadingContent = { Icon(imageVector = leadingIcon, contentDescription = null) },
         trailingContent = {
             Icon(
                 imageVector = Icons.Outlined.ArrowForwardIos,
@@ -244,24 +255,11 @@ private fun InfoLink(
     icon: ImageVector,
     onClick: () -> Unit
 ) {
-    ListItem(
-        headlineContent = { Text(title) },
-        leadingContent = {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary
-            )
-        },
-        trailingContent = {
-            Icon(
-                imageVector = Icons.Outlined.ArrowForwardIos,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
+    RowLink(
+        title = title,
+        subtitle = subtitle,
+        leadingIcon = icon,
+        iconTint = MaterialTheme.colorScheme.primary,
+        onClick = onClick
     )
 }

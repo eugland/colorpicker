@@ -15,7 +15,7 @@ import com.primortex.color.service.recentpicks.SavedPickEntity
         PaletteEntity::class
     ],
     version = 1,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun recentPicksDao(): RecentPicksDao
