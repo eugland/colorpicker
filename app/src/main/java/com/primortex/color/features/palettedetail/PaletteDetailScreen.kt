@@ -119,20 +119,14 @@ class PaletteDetailViewModel @Inject constructor(
     private val paletteSelectionStore: PaletteSelectionStore
 ) : ViewModel() {
     val palettes = paletteService.palettes
-    val previewPalettes = paletteService.previewPalettes
     val selected = paletteSelectionStore.selected
     val uiState: StateFlow<PaletteDetailUiState> = combine(
         palettes,
-        previewPalettes,
         selected
-    ) { palettes, previewPalettes, selectedPalette ->
-        Log.d(
-            TAG,
-            "uiState update palettes=${palettes.size} previewPalettes=${previewPalettes.size} selectedId=${selectedPalette?.id}"
-        )
+    ) { palettes, selectedPalette ->
+        Log.d(TAG, "uiState update palettes=${palettes.size} selectedId=${selectedPalette?.id}")
         PaletteDetailUiState(
             palettes = palettes,
-            previewPalettes = previewPalettes,
             selectedPalette = selectedPalette,
             isInitialized = true
         )
@@ -144,17 +138,14 @@ class PaletteDetailViewModel @Inject constructor(
 
     fun resolveState(paletteId: String, uiState: PaletteDetailUiState): PaletteDetailResolvedState {
         val fromSaved = uiState.palettes.firstOrNull { it.id == paletteId }
-        val fromPreview = uiState.previewPalettes.firstOrNull { it.id == paletteId }
         val fromSelected = uiState.selectedPalette?.takeIf { it.id == paletteId }
-        val paletteSnapshot = fromSaved ?: fromPreview ?: fromSelected
-        val paletteHash = paletteSnapshot?.let { paletteService.paletteHash(it) }
-        val isSaved = paletteHash != null &&
-                uiState.palettes.any { paletteService.paletteHash(it) == paletteHash }
+        val paletteSnapshot = fromSaved ?: fromSelected
+        val isSaved = fromSaved != null
         Log.d(
             TAG,
-            "resolveState paletteId=$paletteId found=${paletteSnapshot != null} source=" +
-                    (if (fromSaved != null) "saved" else if (fromPreview != null) "preview" else if (fromSelected != null) "selected" else "none") +
-                    " isSaved=$isSaved"
+            "resolveState paletteId=$paletteId found=${paletteSnapshot != null} " +
+                    "source=${if (fromSaved != null) "saved" else if (fromSelected != null) "selected" else "none"} " +
+                    "isSaved=$isSaved"
         )
         return PaletteDetailResolvedState(
             paletteSnapshot = paletteSnapshot,
@@ -439,7 +430,6 @@ fun PaletteDetailScreen(
 
 data class PaletteDetailUiState(
     val palettes: List<Palette> = emptyList(),
-    val previewPalettes: List<Palette> = emptyList(),
     val selectedPalette: Palette? = null,
     val isInitialized: Boolean = false
 )

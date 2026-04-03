@@ -365,17 +365,16 @@ fun PaletteScreen(
             item {
                 SwatchSection(
                     title = stringResource(R.string.saved_colors),
-                    picks = savedColors.map { pick ->
-                        val name = pick.name.trim()
-                        val label = if (name.isBlank()) argbToHex(pick.argb) else name
-                        pick.copy(name = label)
-                    },
+                    picks = savedColors.map { pick -> pick.copy(name = "") },
                     emptyMessage = stringResource(R.string.no_saved_colors),
                     onSwatchClick = { pick -> detailPick = pick },
-                    threshold = 6,
+                    threshold = 10,
                     showFooterToggle = false,
                     showEndSeeMore = true,
                     onEndSeeMore = onOpenSavedColors,
+                    swatchSize = 48.dp,
+                    swatchShape = CircleShape,
+                    swatchLabelBelow = false,
                     actions = {
                         if (savedColors.isNotEmpty()) {
                             TextButton(onClick = onOpenSavedColors) {

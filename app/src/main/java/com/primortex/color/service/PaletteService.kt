@@ -1,36 +1,32 @@
 package com.primortex.color.service
 
 import android.content.Context
-import android.os.Build
-import androidx.room.Room
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.primortex.color.R
 import com.primortex.color.analytics.AnalyticsTracker
 import com.primortex.color.app.Palette
 import com.primortex.color.app.PickedColor
 import com.primortex.color.i18n.AppStrings
-import com.primortex.color.service.palette.PaletteDatabase
 import com.primortex.color.service.palette.toDomain
 import com.primortex.color.service.palette.toEntity
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.asCoroutineDispatcher
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.security.MessageDigest
 import java.util.UUID
-import java.util.concurrent.Executors
 
 @Singleton
 class PaletteService @Inject constructor(
     @ApplicationContext context: Context,
-    private val analyticsTracker: AnalyticsTracker
+    private val analyticsTracker: AnalyticsTracker,
+    appDatabase: AppDatabase
 ) {
     sealed interface AddColorResult {
         data class Added(val colors: List<PickedColor>) : AddColorResult
@@ -42,52 +38,26 @@ class PaletteService @Inject constructor(
         private const val PREFS_NAME = "palette_flags"
         private const val PREF_KEY_FIRST_PALETTE_LOGGED = "first_palette_logged_v1"
         const val MAX_COLORS_PER_PALETTE = 5
-        private val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(db: SupportSQLiteDatabase) {
-                db.execSQL("DROP TABLE IF EXISTS palette_meta")
-            }
-        }
     }
 
     private val appContext = context.applicationContext
-    private val dbExecutor = Executors.newSingleThreadExecutor()
-    private val scope = CoroutineScope(SupervisorJob() + dbExecutor.asCoroutineDispatcher())
-    private val dao = createDatabase(appContext).paletteDao()
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val dao = appDatabase.paletteDao()
     private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-    private val _palettes = MutableStateFlow<List<Palette>>(emptyList())
-    val palettes: StateFlow<List<Palette>> = _palettes
-    private val _previewPalettes = MutableStateFlow<List<Palette>>(emptyList())
-    val previewPalettes: StateFlow<List<Palette>> = _previewPalettes
+
+    val palettes: StateFlow<List<Palette>> = dao.observeAll()
+        .map { rows -> rows.map { it.toDomain() } }
+        .stateIn(scope, SharingStarted.Eagerly, emptyList())
+
     private var firstPaletteLogged = false
 
     init {
-        scope.launch {
-            _palettes.value = dao.loadAll().map { it.toDomain() }
-        }
         firstPaletteLogged = prefs.getBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, false)
     }
 
-    private fun createDatabase(context: Context): PaletteDatabase {
-        val builder =
-            if (Build.FINGERPRINT.contains("robolectric", ignoreCase = true)) {
-                Room.inMemoryDatabaseBuilder(context, PaletteDatabase::class.java)
-            } else {
-                Room.databaseBuilder(context, PaletteDatabase::class.java, "palettes.db")
-            }
-        return builder
-            .addMigrations(MIGRATION_1_2)
-            .setQueryExecutor(dbExecutor)
-            .setTransactionExecutor(dbExecutor)
-            .build()
-    }
-
     suspend fun seedPalettesIfEmpty(palettes: List<Palette>) {
-        if (dao.loadAll().isEmpty()) {
-            _palettes.value = palettes
-            dao.clearPalettes()
-            if (palettes.isNotEmpty()) {
-                dao.insertAll(palettes.map { it.toEntity() })
-            }
+        if (dao.loadAll().isEmpty() && palettes.isNotEmpty()) {
+            dao.insertAll(palettes.map { it.toEntity() })
         }
     }
 
@@ -96,7 +66,6 @@ class PaletteService @Inject constructor(
         colors: List<PickedColor>,
         tags: List<String> = emptyList(),
         note: String = "",
-        saveOnCreate: Boolean = true,
         creationSource: String = "unknown"
     ): Palette {
         val now = System.currentTimeMillis()
@@ -110,18 +79,13 @@ class PaletteService @Inject constructor(
             updatedAt = now
         )
         val hash = paletteHash(p)
-        if (saveOnCreate) {
-            val existing = _palettes.value.firstOrNull { paletteHash(it) == hash }
-            if (existing != null) {
-                return existing
-            }
-            _palettes.update { listOf(p) + it }
-            persist()
-        } else {
-            _previewPalettes.update { listOf(p) + it }
-        }
+        val existing = palettes.value.firstOrNull { paletteHash(it) == hash }
+        if (existing != null) return existing
+
+        scope.launch { dao.upsert(p.toEntity()) }
+
         analyticsTracker.logPaletteCreated(p, creationSource)
-        if (saveOnCreate && !firstPaletteLogged) {
+        if (!firstPaletteLogged) {
             analyticsTracker.logFirstPaletteCreated(p)
             firstPaletteLogged = true
             prefs.edit().putBoolean(PREF_KEY_FIRST_PALETTE_LOGGED, true).apply()
@@ -136,47 +100,35 @@ class PaletteService @Inject constructor(
         tags: List<String>? = null,
         note: String? = null
     ) {
-        val now = System.currentTimeMillis()
-        var updatedPalette: Palette? = null
-        _palettes.update { list ->
-            list.map { p ->
-                if (p.id != id) p
-                else p.copy(
-                    name = name ?: p.name,
-                    colors = (colors ?: p.colors).distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE),
-                    tags = tags ?: p.tags,
-                    note = note ?: p.note,
-                    updatedAt = now
-                ).also { updatedPalette = it }
-            }
-        }
-        persist()
-        updatedPalette?.let { analyticsTracker.logPaletteUpdated(it) }
+        val current = palettes.value.firstOrNull { it.id == id } ?: return
+        val updated = current.copy(
+            name = name ?: current.name,
+            colors = (colors ?: current.colors).distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE),
+            tags = tags ?: current.tags,
+            note = note ?: current.note,
+            updatedAt = System.currentTimeMillis()
+        )
+        scope.launch { dao.upsert(updated.toEntity()) }
+        analyticsTracker.logPaletteUpdated(updated)
     }
 
     fun toggleSaved(palette: Palette, isCurrentlySaved: Boolean) {
         val targetHash = paletteHash(palette)
         if (isCurrentlySaved) {
-            _palettes.update { list -> list.filterNot { paletteHash(it) == targetHash } }
+            val existing = palettes.value.firstOrNull { paletteHash(it) == targetHash }
+            existing?.let { scope.launch { dao.deletePaletteById(it.id) } }
         } else {
-            _palettes.update { list ->
-                listOf(palette) + list.filterNot { paletteHash(it) == targetHash }
-            }
-            _previewPalettes.update { it.filterNot { p -> p.id == palette.id } }
+            scope.launch { dao.upsert(palette.toEntity()) }
         }
-        persist()
     }
 
     fun delete(id: String) {
-        _palettes.update { it.filterNot { p -> p.id == id } }
-        persist()
+        scope.launch { dao.deletePaletteById(id) }
         analyticsTracker.logPaletteDeleted(id)
     }
 
     fun clear() {
-        _palettes.value = emptyList()
-        _previewPalettes.value = emptyList()
-        persist()
+        scope.launch { dao.clearPalettes() }
     }
 
     fun addColorToDraftPalette(
@@ -184,23 +136,9 @@ class PaletteService @Inject constructor(
         pickedColor: PickedColor
     ): AddColorResult {
         val normalized = colors.distinctBy { it.argb }.take(MAX_COLORS_PER_PALETTE)
-        if (normalized.any { it.argb == pickedColor.argb }) {
-            return AddColorResult.Duplicate
-        }
-        if (normalized.size >= MAX_COLORS_PER_PALETTE) {
-            return AddColorResult.Full
-        }
+        if (normalized.any { it.argb == pickedColor.argb }) return AddColorResult.Duplicate
+        if (normalized.size >= MAX_COLORS_PER_PALETTE) return AddColorResult.Full
         return AddColorResult.Added(normalized + pickedColor)
-    }
-
-    private fun persist() {
-        val snapshot = _palettes.value
-        scope.launch {
-            dao.clearPalettes()
-            if (snapshot.isNotEmpty()) {
-                dao.insertAll(snapshot.map { it.toEntity() })
-            }
-        }
     }
 
     fun paletteHash(palette: Palette): String {
@@ -210,8 +148,6 @@ class PaletteService @Inject constructor(
             .sorted()
             .joinToString(separator = ",")
             .toByteArray()
-        val hashBytes = digest.digest(payload)
-        return hashBytes.joinToString("") { "%02x".format(it) }
+        return digest.digest(payload).joinToString("") { "%02x".format(it) }
     }
 }
-

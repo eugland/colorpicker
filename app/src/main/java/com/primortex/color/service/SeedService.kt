@@ -20,7 +20,7 @@ class SeedService @Inject constructor(
 ) {
     companion object {
         private const val PREFS_NAME = "seed_flags"
-        private const val PREF_KEY_SEEDED = "seeded_v1"
+        private const val PREF_KEY_SEEDED = "seeded_v2"
     }
 
     private val prefs = context.applicationContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
