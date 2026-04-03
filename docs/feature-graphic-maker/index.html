@@ -1,0 +1,261 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Play Store Feature Graphic</title>
+    <style>
+        :root {
+          --bg: #eef4fb;
+          --panel: #ffffff;
+          --line: #d8e1eb;
+          --text: #1f2a37;
+          --muted: #5a6b7d;
+          --brand: #0f4c81;
+        }
+        * { box-sizing: border-box; }
+        body {
+          margin: 0;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(180deg, #ecf4ff, var(--bg));
+          color: var(--text);
+        }
+        .wrap {
+          max-width: 1140px;
+          margin: 20px auto;
+          padding: 0 16px 20px;
+        }
+        .panel {
+          background: var(--panel);
+          border: 1px solid var(--line);
+          border-radius: 12px;
+          padding: 14px;
+          margin-bottom: 12px;
+        }
+        h1 {
+          margin: 0 0 6px;
+          font-size: 20px;
+        }
+        p {
+          margin: 0;
+          color: var(--muted);
+          font-size: 13px;
+        }
+        .actions {
+          margin-top: 12px;
+          display: flex;
+          gap: 8px;
+        }
+        button {
+          border: 1px solid #1b4f7d;
+          background: var(--brand);
+          color: #fff;
+          border-radius: 8px;
+          padding: 8px 12px;
+          cursor: pointer;
+          font: inherit;
+        }
+        button.secondary {
+          background: #fff;
+          color: var(--brand);
+          border-color: var(--line);
+        }
+        .stage {
+          background: var(--panel);
+          border: 1px solid var(--line);
+          border-radius: 12px;
+          padding: 14px;
+        }
+        .canvas-wrap {
+          width: 100%;
+          overflow: auto;
+          border: 1px dashed #c3d1e2;
+          border-radius: 10px;
+          background: #fff;
+          padding: 10px;
+        }
+        canvas {
+          display: block;
+          width: 100%;
+          max-width: 1024px;
+          aspect-ratio: 1024 / 500;
+          border-radius: 8px;
+          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        }
+        .meta {
+          margin-top: 8px;
+          color: var(--muted);
+          font-size: 12px;
+        }
+        @media print {
+          body {
+            background: #fff;
+            margin: 0;
+          }
+          .panel, .meta { display: none !important; }
+          .wrap, .stage, .canvas-wrap {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            max-width: none;
+          }
+          canvas {
+            width: 1024px !important;
+            max-width: 1024px !important;
+            height: 500px !important;
+            border-radius: 0;
+            box-shadow: none;
+          }
+        }
+    </style>
+</head>
+<body>
+<main class="wrap">
+    <section class="panel">
+        <h1>Play Store Feature Graphic</h1>
+        <p>Ready-made 1024 x 500 banner expanded from ic_launcher background + foreground.</p>
+        <div class="actions">
+            <button id="download">Download PNG</button>
+            <button id="print" class="secondary">Print</button>
+        </div>
+    </section>
+
+    <section class="stage">
+        <div class="canvas-wrap">
+            <canvas id="banner" width="1024" height="500"></canvas>
+        </div>
+        <div class="meta">Output size: 1024 x 500 px</div>
+    </section>
+</main>
+
+<script>
+    const canvas = document.getElementById("banner");
+    const ctx = canvas.getContext("2d");
+
+    function drawBackground() {
+      const w = canvas.width;
+      const h = canvas.height;
+
+      const base = ctx.createLinearGradient(0, 0, w, h);
+      base.addColorStop(0, "#111827");
+      base.addColorStop(1, "#111827");
+      ctx.fillStyle = base;
+      ctx.fillRect(0, 0, w, h);
+
+      let sweep;
+      if (typeof ctx.createConicGradient === "function") {
+        sweep = ctx.createConicGradient(-Math.PI / 2, w / 2, h / 2);
+      } else {
+        sweep = ctx.createLinearGradient(0, 0, w, h);
+      }
+      sweep.addColorStop(0.0, "#FF3B30");
+      sweep.addColorStop(0.167, "#FFD60A");
+      sweep.addColorStop(0.333, "#34C759");
+      sweep.addColorStop(0.5, "#00C7FF");
+      sweep.addColorStop(0.667, "#007AFF");
+      sweep.addColorStop(0.83, "#FF2D95");
+      sweep.addColorStop(1.0, "#FF3B30");
+      ctx.fillStyle = sweep;
+      ctx.fillRect(0, 0, w, h);
+
+      const centerBoost = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.35);
+      centerBoost.addColorStop(0, "rgba(255,255,255,0.93)");
+      centerBoost.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = centerBoost;
+      ctx.fillRect(0, 0, w, h);
+
+      const vignette = ctx.createRadialGradient(w / 2, h / 2, Math.max(w, h) * 0.48, w / 2, h / 2, Math.max(w, h) * 0.72);
+      vignette.addColorStop(0, "rgba(0,0,0,0)");
+      vignette.addColorStop(1, "rgba(11,16,32,0.36)");
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    function drawImageCover(img, x, y, w, h, radius) {
+      const scale = Math.max(w / img.width, h / img.height);
+      const drawW = img.width * scale;
+      const drawH = img.height * scale;
+      const dx = x + (w - drawW) / 2;
+      const dy = y + (h - drawH) / 2;
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(x, y, w, h, radius);
+      ctx.clip();
+      ctx.drawImage(img, dx, dy, drawW, drawH);
+      ctx.restore();
+    }
+
+    function drawXmlIcon(x, y, size) {
+      const bodyPath = new Path2D("M249.58,214.11L228.39,225.38C216.91,231.48 212.37,246.36 218.47,257.83L236.31,291.39L282.29,305.45L296.35,259.46L278.51,225.91C272.41,214.43 257.53,209.88 249.58,214.11Z");
+      const fluidPath = new Path2D("M214,261C226,252 241,252 253,260C265,268 280,268 300,258L300,320L214,320Z");
+      const shinePath = new Path2D("M231.66,248.56C227.9,241.49 231.32,235.15 238.38,231.39L245.45,227.63C252.51,223.88 259.69,224.59 263.44,231.66L267.2,238.72C268.14,240.49 267.31,243.19 265.54,244.13L240.82,257.27C239.06,258.21 236.35,257.39 235.41,255.62Z");
+      const capPath = new Path2D("M228.39,225.38L220.88,211.25C218.06,205.95 235.72,196.56 238.54,201.86L246.05,215.99Z");
+      const tipPath = new Path2D("M282.29,305.45L292.62,324.87");
+
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.shadowColor = "rgba(0,0,0,0.28)";
+      ctx.shadowBlur = 30;
+      ctx.shadowOffsetY = 12;
+
+      ctx.scale(size / 512, size / 512);
+      ctx.transform(1.16, 0, 0, 1.16, -40.96, -40.96);
+
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fill(bodyPath);
+
+      ctx.save();
+      ctx.clip(bodyPath);
+      ctx.fillStyle = "#8BD8FF";
+      ctx.fill(fluidPath);
+      ctx.restore();
+
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 9;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke(bodyPath);
+
+      ctx.fillStyle = "rgba(255,255,255,0.15)";
+      ctx.fill(shinePath);
+
+      ctx.globalAlpha = 0.92;
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fill(capPath);
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 9;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke(capPath);
+      ctx.globalAlpha = 1;
+
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 16;
+      ctx.lineCap = "round";
+      ctx.stroke(tipPath);
+
+      ctx.restore();
+    }
+
+    function drawShowcase() {
+      drawXmlIcon((canvas.width - 520) / 2, (canvas.height - 520) / 2, 520);
+    }
+
+    function drawAll() {
+      drawBackground();
+      drawShowcase();
+    }
+
+    drawAll();
+
+    document.getElementById("download").addEventListener("click", () => {
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "feature-graphic-1024x500.png";
+      a.click();
+    });
+
+    document.getElementById("print").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>
